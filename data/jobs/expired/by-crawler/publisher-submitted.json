@@ -25,13 +25,16 @@
     ],
     "previousSlugsByLocale": {
       "en": [
-        "physiotherapist-with-crs-recognition-fisiocare-sagl-fisiocare-sagl"
+        "physiotherapist-with-crs-recognition-fisiocare-sagl-fisiocare-sagl",
+        "fisioterapista-con-riconoscimento-crs-fisiocare-sagl-fisiocare-sagl"
       ],
       "de": [
-        "physiotherapeut-mit-crs-erkennung-fisiocare-sagl-fisiocare-sagl"
+        "physiotherapeut-mit-crs-erkennung-fisiocare-sagl-fisiocare-sagl",
+        "fisioterapista-con-riconoscimento-crs-fisiocare-sagl-fisiocare-sagl"
       ],
       "fr": [
-        "physiotherapeute-reconnu-crs-fisiocare-sagl-fisiocare-sagl"
+        "physiotherapeute-reconnu-crs-fisiocare-sagl-fisiocare-sagl",
+        "fisioterapista-con-riconoscimento-crs-fisiocare-sagl-fisiocare-sagl"
       ],
       "it": [
         "physiotherapist-with-crs-recognition-fisiocare-sagl-fisiocare-sagl",
@@ -44,7 +47,27 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://frontaliereticino.ch/lavoro/fisioterapista-con-riconoscimento-crs-fisiocare-sagl-fisiocare-sagl",
-    "firstSeenAt": "2026-07-10T10:12:12.326Z"
+    "firstSeenAt": "2026-07-10T10:12:12.326Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "physiotherapist-with-crs-recognition-fisiocare-sagl-fisiocare-sagl": "TI",
+        "physiotherapeut-mit-crs-erkennung-fisiocare-sagl-fisiocare-sagl": "TI",
+        "physiotherapeute-reconnu-crs-fisiocare-sagl-fisiocare-sagl": "TI"
+      },
+      "en": {
+        "fisioterapista-con-riconoscimento-crs-fisiocare-sagl-fisiocare-sagl": "TI",
+        "physiotherapist-with-crs-recognition-fisiocare-sagl-fisiocare-sagl": "TI"
+      },
+      "de": {
+        "fisioterapista-con-riconoscimento-crs-fisiocare-sagl-fisiocare-sagl": "TI",
+        "physiotherapeut-mit-crs-erkennung-fisiocare-sagl-fisiocare-sagl": "TI"
+      },
+      "fr": {
+        "fisioterapista-con-riconoscimento-crs-fisiocare-sagl-fisiocare-sagl": "TI",
+        "physiotherapeute-reconnu-crs-fisiocare-sagl-fisiocare-sagl": "TI"
+      }
+    }
   },
   {
     "slug": "prompt-engineer-da-remoto-remoto-frontaliere-ticino",

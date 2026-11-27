@@ -32,7 +32,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.faulhaber.com/hpv3.jobs/faulhaber/stellenangebot/57267/junior-logistics-specialist",
-    "firstSeenAt": "2026-09-01T01:16:38.472Z"
+    "firstSeenAt": "2026-09-01T01:16:38.472Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "junior-logistica-specialista-faulhaber-croglio": "TI"
+      }
+    }
   },
   {
     "slug": "r-d-mechanical-ingegnere-gearbox-design-faulhaber-croglio",
@@ -78,7 +84,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.faulhaber.com/hpv3.jobs/faulhaber/stellenangebot/55489/r-d-mechanical-engineer-gearbox-design",
-    "firstSeenAt": "2026-09-03T13:33:48.674Z"
+    "firstSeenAt": "2026-09-03T13:33:48.674Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber": "TI"
+      },
+      "fr": {
+        "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber": "TI"
+      }
+    }
   },
   {
     "slug": "tecnologia-misura-faulhaber-croglio",
@@ -125,7 +140,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.faulhaber.com/hpv3.jobs/faulhaber/stellenangebot/57372/tecnico-di-misura",
-    "firstSeenAt": "2026-09-01T01:16:28.159Z"
+    "firstSeenAt": "2026-09-01T01:16:28.159Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "tecnico-di-misura-croglio-faulhaber": "TI"
+      },
+      "fr": {
+        "technicien-di-misura-faulhaber-croglio": "TI"
+      }
+    }
   },
   {
     "slug": "candidatura-faulhaber-croglio",
@@ -180,6 +204,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.faulhaber.com/hpv3.jobs/faulhaber/stellenangebot/23370/candidatura-spontanea",
-    "firstSeenAt": "2026-09-01T01:16:48.809Z"
+    "firstSeenAt": "2026-09-01T01:16:48.809Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "candidatura-spontanea-croglio-faulhaber": "TI"
+      },
+      "en": {
+        "spontaneous-application-faulhaber-croglio": "TI"
+      },
+      "de": {
+        "spontananwendung-faulhaber-croglio": "TI"
+      },
+      "fr": {
+        "demande-spontanee-faulhaber-croglio": "TI"
+      }
+    }
   }
 ]

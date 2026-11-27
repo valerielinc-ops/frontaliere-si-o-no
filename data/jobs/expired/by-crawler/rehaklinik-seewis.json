@@ -136,7 +136,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2568543-assistenzarzt-assistenzarztin-parkinsonzentrum-und-neurorehabilitation-100?name=%c3%84rzteschaft",
-    "firstSeenAt": "2026-10-11T09:42:52.843Z"
+    "firstSeenAt": "2026-10-11T09:42:52.843Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistenzarzt-assistenzarztin-parkinsonzentrum-und-neurorehabilitation-100-tschugg": "BE",
+        "assistenzarzt-assistenzarztin-parkinsonzentrum-e-neurorehabilitation-100-kurhaus-tschugg": "BE"
+      },
+      "en": {
+        "assistenzarzt-assistenzarztin-parkinsonzentrum-und-neurorehabilitation-100-tschugg": "BE"
+      },
+      "fr": {
+        "assistenzarzt-assistenzarztin-parkinsonzentrum-und-neurorehabilitation-100-tschugg": "BE"
+      }
+    }
   },
   {
     "slug": "night-watch-sleep-laboratory-epileptology-20-40-kurhaus-tschugg",
@@ -171,7 +184,8 @@
         "nachtwache-schlaflabor-epileptologie-20-40-tschugg-rehaklinik-seewis-ch"
       ],
       "en": [
-        "nachtwache-schlaflabor-epileptologie-20-40-tschugg-rehaklinik-seewis-ch"
+        "nachtwache-schlaflabor-epileptologie-20-40-tschugg-rehaklinik-seewis-ch",
+        "night-watch-sleep-laboratory-epileptology-20-40-kurhaus-tschugg"
       ],
       "fr": [
         "nachtwache-schlaflabor-epileptologie-20-40-tschugg-rehaklinik-seewis-ch"
@@ -184,6 +198,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2534979-nachtwache-schlaflabor-epileptologie-20-40?name=%c3%84rzteschaft",
-    "firstSeenAt": "2026-10-11T09:42:52.846Z"
+    "firstSeenAt": "2026-10-11T09:42:52.846Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "nachtwache-schlaflabor-epileptologie-20-40-tschugg-rehaklinik-seewis-ch": "BE"
+      },
+      "en": {
+        "night-watch-sleep-laboratory-epileptology-20-40-kurhaus-tschugg": "BE",
+        "nachtwache-schlaflabor-epileptologie-20-40-tschugg-rehaklinik-seewis-ch": "BE"
+      },
+      "fr": {
+        "nachtwache-schlaflabor-epileptologie-20-40-tschugg-rehaklinik-seewis-ch": "BE"
+      }
+    }
   }
 ]

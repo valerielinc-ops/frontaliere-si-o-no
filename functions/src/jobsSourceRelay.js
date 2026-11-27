@@ -10,12 +10,22 @@ export const RELAY_TIMEOUT_MS = 15_000;
 export const RELAY_MAX_REQUESTS_PER_HOUR = 300;
 export const RELAY_MIN_INTERVAL_MS = 1_000;
 export const RELAY_MAX_UPSTREAM_PER_DAY = 400;
+// Workday tenants (#20279) have their own daily ledger so a burst of Workday
+// fallbacks can never starve the three original relay sources, and vice versa.
+// Calibration: ~39 tenants x (1-3 listing pages + <=40 details) bounded by the
+// client budgets (scripts/lib/ats-clients/workday-client.mjs), a few runs/day.
+export const RELAY_WORKDAY_MAX_UPSTREAM_PER_DAY = 3_000;
+export const RELAY_MAX_REQUEST_BODY_BYTES = 4_096;
 
 const ALLOWED_REPOSITORIES = new Set([
   'nanakokyobashi-rgb/frontaliere-articles',
   'valerielinc-ops/frontaliere-si-o-no',
 ]);
 const ALLOWED_CONTENT_TYPES = new Set(['text/html', 'application/json']);
+const WORKDAY_HOST_RE = /^[a-z0-9][a-z0-9-]*\.wd\d{1,3}\.myworkdayjobs\.com$/u;
+const WORKDAY_LISTING_PATH_RE = /^\/wday\/cxs\/[A-Za-z0-9_-]+\/[A-Za-z0-9_.-]+\/jobs$/u;
+const WORKDAY_DETAIL_PATH_RE =
+  /^\/wday\/cxs\/[A-Za-z0-9_-]+\/[A-Za-z0-9_.-]+\/job(?:\/[A-Za-z0-9_.,~%()+-]+)+$/u;
 const REDIRECT_STATUSES = new Set([301, 302, 303, 307, 308]);
 const JWKS_CACHE_TTL_MS = 10 * 60 * 1000;
 const JWKS_FETCH_TIMEOUT_MS = 5_000;
@@ -102,17 +112,82 @@ function responseHeader(res, name, value) {
   else if (typeof res?.setHeader === 'function') res.setHeader(name, value);
 }
 
-function sendBody(res, status, body, contentType) {
+function sendBody(res, status, body, contentType, extraHeaders = {}) {
   const target = responseStatus(res, status);
   responseHeader(target, 'Content-Type', contentType);
   responseHeader(target, 'X-Content-Type-Options', 'nosniff');
+  for (const [name, value] of Object.entries(extraHeaders)) responseHeader(target, name, value);
   if (typeof target?.send === 'function') return target.send(body);
   if (typeof target?.end === 'function') return target.end(body);
   return undefined;
 }
 
-function sendJson(res, status, error) {
-  return sendBody(res, status, JSON.stringify({ error }), 'application/json; charset=utf-8');
+function sendJson(res, status, error, extraHeaders = {}) {
+  return sendBody(res, status, JSON.stringify({ error }), 'application/json; charset=utf-8', extraHeaders);
+}
+
+// Marks a response whose status/body come from the upstream source, so a
+// caller can tell a relayed Workday 404/429 from the relay's own errors.
+const UPSTREAM_MARKER = { 'X-Relay-Source': 'upstream' };
+
+// Auth rejections carry a stable code plus NON-sensitive observed values
+// (iss/aud/repository/kid/timestamps), never the token or its signature.
+function authError(message, observed) {
+  const error = new Error(message);
+  error.observed = observed;
+  return error;
+}
+
+function safeClaim(value) {
+  if (typeof value === 'string') return value.slice(0, 120);
+  if (typeof value === 'number' && Number.isFinite(value)) return value;
+  if (Array.isArray(value)) return value.slice(0, 5).map((item) => String(item).slice(0, 120));
+  return typeof value;
+}
+
+const AUTH_REJECTION_CODES = new Map([
+  ['missing_authorization', 'missing_authorization'],
+  ['missing_bearer_token', 'bad_scheme'],
+  ['invalid_jwt_shape', 'bad_shape'],
+  ['invalid_jwt_header', 'bad_header'],
+  ['invalid_jwt_payload', 'bad_payload'],
+  ['invalid_jwt_issuer', 'bad_iss'],
+  ['invalid_jwt_audience', 'bad_aud'],
+  ['invalid_jwt_repository', 'bad_repository'],
+  ['invalid_repository', 'bad_repository'],
+  ['expired_jwt', 'expired'],
+  ['not_yet_valid_jwt', 'not_yet_valid'],
+  ['invalid_verifier_clock', 'bad_clock'],
+  ['unknown_jwt_key', 'kid_unknown'],
+  ['invalid_jwt_signature', 'bad_signature'],
+]);
+
+function classifyAuthRejection(error) {
+  const message = String(error?.message || '');
+  if (AUTH_REJECTION_CODES.has(message)) return AUTH_REJECTION_CODES.get(message);
+  if (message.startsWith('github_oidc_jwks_')) return 'jwks_fetch_failed';
+  if (error?.name === 'AbortError' || /fetch failed|abort|timeout|ENOTFOUND|ECONN|ETIMEDOUT/iu.test(message)) {
+    return 'jwks_fetch_failed';
+  }
+  return 'auth_unknown';
+}
+
+function logAuthRejection({ req, error, authorization, target }) {
+  const names = Object.keys(req?.headers && typeof req.headers === 'object' ? req.headers : {});
+  console.warn(JSON.stringify({
+    severity: 'WARNING',
+    message: 'jobsSourceRelayAuthRejected',
+    reason: classifyAuthRejection(error),
+    detail: String(error?.message || '').slice(0, 120),
+    cause: error?.cause?.code ? String(error.cause.code).slice(0, 60) : undefined,
+    authorizationPresent: authorization.length > 0,
+    authorizationScheme: authorization ? authorization.split(/\s+/u)[0].slice(0, 16).toLowerCase() : null,
+    serverlessAuthorizationPresent: Boolean(getRequestHeader(req, 'x-serverless-authorization')),
+    headerNames: names.map((name) => name.toLowerCase()).sort().slice(0, 40),
+    host: target.host,
+    path: target.path,
+    ...(error?.observed || {}),
+  }));
 }
 
 function allowedAudience(aud) {
@@ -166,21 +241,32 @@ async function fetchGithubJwks(fetchImpl, forceRefresh = false) {
  * and RSA algorithm used by the second-step workflows. No shared secret is
  * kept in Firebase or passed through a crawler environment.
  */
-export async function verifyGithubOidcToken(token, { fetchImpl = globalThis.fetch, now = Date.now() } = {}) {
+export async function verifyGithubOidcToken(token, { fetchImpl = globalThis.fetch, now = Date.now } = {}) {
   const parts = String(token || '').split('.');
   if (parts.length !== 3) throw new Error('invalid_jwt_shape');
 
   const header = decodeJsonPart(parts[0], 'header');
   const claims = decodeJsonPart(parts[1], 'payload');
   if (header.alg !== 'RS256' || typeof header.kid !== 'string') throw new Error('invalid_jwt_header');
-  if (claims.iss !== GITHUB_OIDC_ISSUER) throw new Error('invalid_jwt_issuer');
-  if (!allowedAudience(claims.aud)) throw new Error('invalid_jwt_audience');
-  if (!ALLOWED_REPOSITORIES.has(claims.repository)) throw new Error('invalid_jwt_repository');
+  if (claims.iss !== GITHUB_OIDC_ISSUER) {
+    throw authError('invalid_jwt_issuer', { iss: safeClaim(claims.iss) });
+  }
+  if (!allowedAudience(claims.aud)) throw authError('invalid_jwt_audience', { aud: safeClaim(claims.aud) });
+  if (!ALLOWED_REPOSITORIES.has(claims.repository)) {
+    throw authError('invalid_jwt_repository', {
+      repository: safeClaim(claims.repository),
+      jobWorkflowRef: safeClaim(claims.job_workflow_ref),
+    });
+  }
 
   const nowSeconds = Math.floor(Number(now()) / 1000);
   if (!Number.isFinite(nowSeconds)) throw new Error('invalid_verifier_clock');
-  if (typeof claims.exp !== 'number' || claims.exp < nowSeconds - 60) throw new Error('expired_jwt');
-  if (typeof claims.nbf === 'number' && claims.nbf > nowSeconds + 60) throw new Error('not_yet_valid_jwt');
+  if (typeof claims.exp !== 'number' || claims.exp < nowSeconds - 60) {
+    throw authError('expired_jwt', { exp: safeClaim(claims.exp), nowSeconds });
+  }
+  if (typeof claims.nbf === 'number' && claims.nbf > nowSeconds + 60) {
+    throw authError('not_yet_valid_jwt', { nbf: claims.nbf, nowSeconds });
+  }
 
   let keys = await fetchGithubJwks(fetchImpl);
   let publicKey = keys.get(header.kid);
@@ -188,7 +274,7 @@ export async function verifyGithubOidcToken(token, { fetchImpl = globalThis.fetc
     keys = await fetchGithubJwks(fetchImpl, true);
     publicKey = keys.get(header.kid);
   }
-  if (!publicKey) throw new Error('unknown_jwt_key');
+  if (!publicKey) throw authError('unknown_jwt_key', { kid: safeClaim(header.kid), jwksKeyCount: keys.size });
 
   const valid = verifySignature(
     'RSA-SHA256',
@@ -225,13 +311,66 @@ export function parseAllowedRelayTarget(rawUrl) {
   ) return null;
 
   const host = target.hostname.toLowerCase();
+
+  // Workday CXS API (#20279): the listing is a POST of a validated JSON body,
+  // the job detail a GET. Both stay under /wday/cxs/<tenant>/<site>/ of a
+  // *.wdN.myworkdayjobs.com host, with no query string or fragment: this is a
+  // clean-egress path for the public career-site JSON, not a general proxy.
+  if (WORKDAY_HOST_RE.test(host)) {
+    if (target.search || target.hash) return null;
+    if (WORKDAY_LISTING_PATH_RE.test(target.pathname)) {
+      return { url: target, host, path: target.pathname, methods: ['POST'], upstream: 'workday' };
+    }
+    if (WORKDAY_DETAIL_PATH_RE.test(target.pathname)) {
+      return { url: target, host, path: target.pathname, methods: ['GET'], upstream: 'workday' };
+    }
+    return null;
+  }
+
   const isChurJob = host === 'jobs.chur.ch' && /^\/[^/]+-de-j\d+\.html$/u.test(target.pathname);
   const isHasJob = host === 'e-lavoro.ch' && /^\/node\/\d+$/u.test(target.pathname);
   const isAltenListing = host === 'www.alten.ch' && target.pathname === '/career/jobs/';
   const isAltenJob = host === 'www.alten.ch'
     && /^\/jobs\/\d+-[a-z0-9]+(?:-[a-z0-9]+)*\/$/u.test(target.pathname);
   if (!isChurJob && !isHasJob && !isAltenListing && !isAltenJob) return null;
-  return { url: target, host, path: target.pathname };
+  return { url: target, host, path: target.pathname, methods: ['GET'], upstream: 'static' };
+}
+
+/**
+ * Validate and re-serialize the Workday listing body. Only the four fields the
+ * crawler sends survive, with bounded sizes: nothing the caller supplies
+ * beyond that shape is forwarded to the tenant.
+ */
+export function sanitizeWorkdayListingBody(raw) {
+  let payload = raw;
+  if (Buffer.isBuffer(payload)) payload = payload.toString('utf8');
+  if (typeof payload === 'string') {
+    if (Buffer.byteLength(payload, 'utf8') > RELAY_MAX_REQUEST_BODY_BYTES) return null;
+    try {
+      payload = JSON.parse(payload);
+    } catch {
+      return null;
+    }
+  }
+  if (!payload || typeof payload !== 'object' || Array.isArray(payload)) return null;
+  const allowed = new Set(['appliedFacets', 'limit', 'offset', 'searchText']);
+  if (Object.keys(payload).some((key) => !allowed.has(key))) return null;
+  const { appliedFacets = {}, limit = 20, offset = 0, searchText = '' } = payload;
+  if (!Number.isInteger(limit) || limit < 1 || limit > 100) return null;
+  if (!Number.isInteger(offset) || offset < 0 || offset > 100_000) return null;
+  if (typeof searchText !== 'string' || searchText.length > 200) return null;
+  if (!appliedFacets || typeof appliedFacets !== 'object' || Array.isArray(appliedFacets)) return null;
+  const facetEntries = Object.entries(appliedFacets);
+  if (facetEntries.length > 20) return null;
+  const facets = {};
+  for (const [name, values] of facetEntries) {
+    if (!/^[A-Za-z0-9_.-]{1,64}$/u.test(name)) return null;
+    if (!Array.isArray(values) || values.length > 50) return null;
+    if (values.some((value) => typeof value !== 'string' || value.length === 0 || value.length > 200)) return null;
+    facets[name] = values;
+  }
+  const body = JSON.stringify({ appliedFacets: facets, limit, offset, searchText });
+  return Buffer.byteLength(body, 'utf8') > RELAY_MAX_REQUEST_BODY_BYTES ? null : body;
 }
 
 export function createHostRateLimiter({
@@ -356,7 +495,14 @@ async function readResponseBodyLimited(response, maxBytes, signal) {
   throw new Error('upstream_body_unreadable');
 }
 
-async function fetchAllowedTarget(initialTarget, { fetchImpl, rateLimiter, dailyUpstreamCap }) {
+async function fetchAllowedTarget(initialTarget, {
+  fetchImpl,
+  rateLimiter,
+  dailyUpstreamCap,
+  workdayDailyUpstreamCap,
+  method = 'GET',
+  body: requestBody,
+}) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), RELAY_TIMEOUT_MS);
   const seenHosts = new Set();
@@ -365,23 +511,31 @@ async function fetchAllowedTarget(initialTarget, { fetchImpl, rateLimiter, daily
 
   try {
     while (true) {
-      if (dailyUpstreamCap.isExhausted()) return { kind: 'daily_cap', host: target.host, path: target.path };
+      const cap = target.upstream === 'workday' ? workdayDailyUpstreamCap : dailyUpstreamCap;
+      if (cap.isExhausted()) return { kind: 'daily_cap', host: target.host, path: target.path };
       if (!seenHosts.has(target.host)) {
         if (!rateLimiter.allow(target.host)) return { kind: 'rate_limited', host: target.host, path: target.path };
         seenHosts.add(target.host);
       }
-      if (!dailyUpstreamCap.tryAcquire()) return { kind: 'daily_cap', host: target.host, path: target.path };
+      if (!cap.tryAcquire()) return { kind: 'daily_cap', host: target.host, path: target.path };
 
       const response = await fetchImpl(target.url, {
-        method: 'GET',
+        method,
         redirect: 'manual',
         headers: {
           'User-Agent': RELAY_USER_AGENT,
           Accept: 'text/html, application/json',
+          ...(method === 'POST' ? { 'Content-Type': 'application/json' } : {}),
         },
+        ...(method === 'POST' ? { body: requestBody } : {}),
         signal: controller.signal,
       });
       const status = Number(response?.status || 0);
+      // The tenant's own rate limit, whatever its content type: surfaced as a
+      // distinct, upstream-marked 429 so the caller stops instead of retrying.
+      if (status === 429 && target.upstream === 'workday') {
+        return { kind: 'upstream_rate_limited', target };
+      }
       if (!REDIRECT_STATUSES.has(status)) {
         const contentType = String(getResponseHeader(response, 'content-type') || '')
           .split(';', 1)[0]
@@ -395,6 +549,8 @@ async function fetchAllowedTarget(initialTarget, { fetchImpl, rateLimiter, daily
         return { kind: 'response', response, target, body, contentType };
       }
 
+      // A POST is never replayed against a redirect target.
+      if (method === 'POST') return { kind: 'redirect_forbidden', target: describeTarget(String(getResponseHeader(response, 'location') || '')) };
       if (redirects >= MAX_RELAY_REDIRECTS) return { kind: 'too_many_redirects', target };
       const location = getResponseHeader(response, 'location');
       if (!location) return { kind: 'upstream_error', target };
@@ -419,6 +575,7 @@ export function createJobsSourceRelayHandler({
   verifyToken = (token) => verifyGithubOidcToken(token, { fetchImpl }),
   rateLimiter = createHostRateLimiter(),
   dailyUpstreamCap = createDailyUpstreamCap(),
+  workdayDailyUpstreamCap = createDailyUpstreamCap({ maxPerDay: RELAY_WORKDAY_MAX_UPSTREAM_PER_DAY }),
 } = {}) {
   return async function jobsSourceRelay(req, res) {
     const authorization = getRequestHeader(req, 'authorization') || '';
@@ -426,18 +583,21 @@ export function createJobsSourceRelayHandler({
     let claims;
 
     try {
+      if (!authorization) throw new Error('missing_authorization');
       if (!tokenMatch) throw new Error('missing_bearer_token');
       claims = await verifyToken(tokenMatch[1]);
       if (!claims || !ALLOWED_REPOSITORIES.has(claims.repository)) throw new Error('invalid_repository');
-    } catch {
-      logRelayRequest({ ...describeTarget(requestQueryValue(req, 'url')), status: 401, caller: 'unauthenticated' });
+    } catch (error) {
+      const target = describeTarget(requestQueryValue(req, 'url'));
+      logAuthRejection({ req, error, authorization, target });
+      logRelayRequest({ ...target, status: 401, caller: 'unauthenticated' });
       return sendJson(res, 401, 'unauthorized');
     }
 
     const rawTarget = requestQueryValue(req, 'url');
     const describedTarget = describeTarget(rawTarget);
     const caller = claims.repository;
-    if (req.method !== 'GET') {
+    if (req.method !== 'GET' && req.method !== 'POST') {
       logRelayRequest({ ...describedTarget, status: 405, caller });
       return sendJson(res, 405, 'method_not_allowed');
     }
@@ -447,8 +607,32 @@ export function createJobsSourceRelayHandler({
       logRelayRequest({ ...describedTarget, status: 403, caller });
       return sendJson(res, 403, 'forbidden');
     }
+    if (!target.methods.includes(req.method)) {
+      logRelayRequest({ ...describedTarget, status: 405, caller });
+      return sendJson(res, 405, 'method_not_allowed');
+    }
 
-    const result = await fetchAllowedTarget(target, { fetchImpl, rateLimiter, dailyUpstreamCap });
+    let upstreamBody;
+    if (req.method === 'POST') {
+      upstreamBody = sanitizeWorkdayListingBody(req.rawBody ?? req.body);
+      if (upstreamBody === null) {
+        logRelayRequest({ ...describedTarget, status: 400, caller });
+        return sendJson(res, 400, 'invalid_body');
+      }
+    }
+
+    const result = await fetchAllowedTarget(target, {
+      fetchImpl,
+      rateLimiter,
+      dailyUpstreamCap,
+      workdayDailyUpstreamCap,
+      method: req.method,
+      body: upstreamBody,
+    });
+    if (result.kind === 'upstream_rate_limited') {
+      logRelayRequest({ host: result.target.host, path: result.target.path, status: 429, caller });
+      return sendJson(res, 429, 'upstream_rate_limited', UPSTREAM_MARKER);
+    }
     if (result.kind === 'daily_cap') {
       logRelayRequest({ host: result.host, path: result.path, status: 429, caller });
       return sendJson(res, 429, 'daily_cap');
@@ -491,7 +675,13 @@ export function createJobsSourceRelayHandler({
       bytes: result.body.bytes,
       caller,
     });
-    return sendBody(res, Number(response.status), result.body.body, result.contentType);
+    return sendBody(
+      res,
+      Number(response.status),
+      result.body.body,
+      result.contentType,
+      UPSTREAM_MARKER,
+    );
   };
 }
 

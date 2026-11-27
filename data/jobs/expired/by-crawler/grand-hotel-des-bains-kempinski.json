@@ -49,7 +49,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/c570608c-e27d-47f1-8e91-1e9b6d16a27e",
-    "firstSeenAt": "2026-11-13T21:15:01.240Z"
+    "firstSeenAt": "2026-11-13T21:15:01.240Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "commis-de-rang-f-m-d-in-room-dining-562333": "GR"
+      },
+      "de": {
+        "commis-de-rang-f-m-d-in-room-dining-562333": "GR"
+      },
+      "fr": {
+        "commis-de-rang-f-m-d-in-room-dining-562333": "GR"
+      }
+    }
   },
   {
     "id": "grand-hotel-des-bains-kempinski-25e074da8fec",
@@ -97,7 +108,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/5f1383dd-f8a7-45e4-a1c3-7e32f9264523",
-    "firstSeenAt": "2026-07-31T22:07:08.493Z"
+    "firstSeenAt": "2026-07-31T22:07:08.493Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "trainee-food-beverage-f-m-d-554190": "GR"
+      },
+      "fr": {
+        "trainee-food-beverage-f-m-d-554190": "GR"
+      }
+    }
   },
   {
     "id": "grand-hotel-des-bains-kempinski-e566e9d535ad",
@@ -145,7 +165,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/fb7c226e-4c8d-48b0-9592-ea0e702507fe",
-    "firstSeenAt": "2026-11-17T06:47:57.420Z"
+    "firstSeenAt": "2026-11-17T06:47:57.420Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "de": {
+        "host-hostess-f-m-d-les-saisons-620220": "GR"
+      },
+      "fr": {
+        "host-hostess-f-m-d-les-saisons-620220": "GR"
+      }
+    }
   },
   {
     "slug": "chef-de-partie-m-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
@@ -189,7 +218,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/2388a3f1-cd42-4af2-a184-ed88ad19ab8c",
-    "firstSeenAt": "2026-09-23T23:34:47.772Z"
+    "firstSeenAt": "2026-09-23T23:34:47.772Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-de-partie-f-m-d-563054": "GR"
+      }
+    }
   },
   {
     "slug": "parrucchiere-m-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
@@ -236,7 +271,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/ac7b85ae-c0da-444f-a66a-065597b71414",
-    "firstSeenAt": "2026-08-17T21:31:57.360Z"
+    "firstSeenAt": "2026-08-17T21:31:57.360Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hairdresser-f-m-d-562525": "GR"
+      },
+      "de": {
+        "hairdresser-f-m-d-562525": "GR"
+      }
+    }
   },
   {
     "slug": "commissione-di-cuisine-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
@@ -286,7 +330,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/0963fbcb-a194-4415-9ac5-db903dc5433a",
-    "firstSeenAt": "2026-08-04T11:32:43.447Z"
+    "firstSeenAt": "2026-08-04T11:32:43.447Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "commis-de-cuisine-f-m-d-555389": "GR"
+      },
+      "de": {
+        "commis-de-cuisine-f-m-d-555389": "GR"
+      },
+      "fr": {
+        "commis-de-cuisine-f-m-d-555389": "GR"
+      }
+    }
   },
   {
     "slug": "commissione-di-cuisine-m-f-d-staff-canteen-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
@@ -333,7 +389,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/76b17435-1a28-4a17-b003-05591994c88b",
-    "firstSeenAt": "2026-09-18T23:09:20.347Z"
+    "firstSeenAt": "2026-09-18T23:09:20.347Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "commis-de-cuisine-f-m-d-staff-canteen-581976": "GR"
+      },
+      "fr": {
+        "commis-de-cuisine-f-m-d-staff-canteen-581976": "GR"
+      }
+    }
   },
   {
     "slug": "sommelier-chef-de-rang-m-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
@@ -380,7 +445,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/7bdbc858-2ae6-4a73-b561-72d5614b44f0",
-    "firstSeenAt": "2026-09-01T14:09:07.390Z"
+    "firstSeenAt": "2026-09-01T14:09:07.390Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sommelier-chef-de-rang-f-m-d-571226": "GR"
+      },
+      "fr": {
+        "sommelier-chef-de-rang-f-m-d-571226": "GR"
+      }
+    }
   },
   {
     "slug": "chef-di-specialita-asiatiche-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
@@ -430,7 +504,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/84881e7d-2c2c-4f1f-951c-7ca1cf87deab",
-    "firstSeenAt": "2026-07-22T22:05:43.599Z"
+    "firstSeenAt": "2026-07-22T22:05:43.599Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "asian-specialty-chef-f-m-d-546974": "GR"
+      },
+      "de": {
+        "asian-specialty-chef-f-m-d-546974": "GR"
+      },
+      "fr": {
+        "asian-specialty-chef-f-m-d-546974": "GR"
+      }
+    }
   },
   {
     "slug": "assistente-spa-m-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
@@ -460,11 +546,37 @@
     "sector": "Hotellerie & Gastronomia",
     "expiredAt": "2026-10-27T09:21:48.483Z",
     "previousSlugs": [
-      "spa-attendant-f-m-d-559192"
+      "spa-attendant-f-m-d-559192",
+      "assistente-spa-m-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-0cbdd2",
+      "spa-attendant-f-m-d-592252",
+      "spa-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+      "spa-attendant-m-w-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-761b868b",
+      "prepose-e-au-spa-h-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+      "spa-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-63954e09",
+      "assistant-de-spa-h-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+      "presentateur-de-spa-h-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "spa-attendant-f-m-d-559192"
+        "spa-attendant-f-m-d-559192",
+        "assistente-spa-m-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-0cbdd2",
+        "spa-attendant-f-m-d-592252",
+        "spa-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+      ],
+      "en": [
+        "spa-attendant-f-m-d-592252",
+        "spa-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+      ],
+      "de": [
+        "spa-attendant-m-w-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-761b868b",
+        "spa-attendant-f-m-d-592252",
+        "spa-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+      ],
+      "fr": [
+        "prepose-e-au-spa-h-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+        "spa-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-63954e09",
+        "assistant-de-spa-h-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+        "presentateur-de-spa-h-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       ]
     },
     "postalCode": "7500",
@@ -483,10 +595,34 @@
       },
       {
         "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/aa08bd9d-8830-4438-97d8-980e17388564",
-        "firstSeenAt": "2026-10-06T09:12:23.774Z",
+        "firstSeenAt": "2026-08-11T10:06:52.440Z",
         "title": "Spa Attendant (f/m/d)"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spa-attendant-f-m-d-559192": "GR",
+        "assistente-spa-m-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-0cbdd2": "GR",
+        "spa-attendant-f-m-d-592252": "GR",
+        "spa-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR"
+      },
+      "en": {
+        "spa-attendant-f-m-d-592252": "GR",
+        "spa-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR"
+      },
+      "de": {
+        "spa-attendant-m-w-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-761b868b": "GR",
+        "spa-attendant-f-m-d-592252": "GR",
+        "spa-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR"
+      },
+      "fr": {
+        "prepose-e-au-spa-h-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR",
+        "spa-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-63954e09": "GR",
+        "assistant-de-spa-h-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR",
+        "presentateur-de-spa-h-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "area-pubblica-partecipante-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
@@ -536,7 +672,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/a52b00e1-8022-4480-8f16-a98eb3252014",
-    "firstSeenAt": "2026-07-23T11:17:04.992Z"
+    "firstSeenAt": "2026-07-23T11:17:04.992Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "public-area-attendant-f-m-d-548486": "GR"
+      },
+      "de": {
+        "public-area-attendant-f-m-d-548486": "GR"
+      },
+      "fr": {
+        "public-area-attendant-f-m-d-548486": "GR"
+      }
+    }
   },
   {
     "slug": "m-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
@@ -592,7 +740,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/781d0614-1869-4e76-9d3a-285e2ae084e9",
-    "firstSeenAt": "2026-07-21T11:14:40.063Z"
+    "firstSeenAt": "2026-07-21T11:14:40.063Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "amministratore-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR",
+        "steward-f-m-d-546102": "GR"
+      },
+      "fr": {
+        "intendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "demi-chef-de-partie-m-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
@@ -667,7 +825,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/c8bdb73a-92bb-45ca-998c-5b48eea81f3c",
-    "firstSeenAt": "2026-08-31T17:01:37.419Z"
+    "firstSeenAt": "2026-08-31T17:01:37.419Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "demi-chef-de-partie-f-m-d-569812": "GR"
+      },
+      "de": {
+        "demi-chef-de-partie-f-m-d-569812": "GR"
+      }
+    }
   },
   {
     "slug": "ricezione-shiftleader-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
@@ -717,7 +884,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/70ddd0ea-238e-4839-9fea-ee3d5519b58c",
-    "firstSeenAt": "2026-07-24T22:06:14.299Z"
+    "firstSeenAt": "2026-07-24T22:06:14.299Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "shiftleader-reception-f-m-d-549722": "GR"
+      },
+      "de": {
+        "shiftleader-reception-f-m-d-549722": "GR"
+      },
+      "fr": {
+        "shiftleader-reception-f-m-d-549722": "GR"
+      }
+    }
   },
   {
     "slug": "chef-de-rang-f-m-d-546082",
@@ -750,6 +929,9 @@
     "previousSlugsByLocale": {
       "it": [
         "chef-de-rang-f-m-d-restaurant-les-saisons-546082"
+      ],
+      "de": [
+        "chef-de-rang-f-m-d-546082"
       ]
     },
     "postalCode": "7500",
@@ -759,7 +941,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/1a64ce24-2f3e-472c-b31a-7d863d9221a8",
-    "firstSeenAt": "2026-07-21T11:14:40.057Z"
+    "firstSeenAt": "2026-07-21T11:14:40.057Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-de-rang-f-m-d-restaurant-les-saisons-546082": "GR"
+      },
+      "de": {
+        "chef-de-rang-f-m-d-546082": "GR"
+      }
+    }
   },
   {
     "slug": "technician-f-m-d-billionaire-dinner-show-543677",
@@ -795,7 +986,8 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/3468d9e9-ab14-466f-a95f-42bd425a4080",
-    "firstSeenAt": "2026-07-15T22:00:09.508Z"
+    "firstSeenAt": "2026-07-15T22:00:09.508Z",
+    "canton": "GR"
   },
   {
     "slug": "prodotti-della-commissione-m-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
@@ -847,7 +1039,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/b5e8870f-3869-41f9-9cd1-c6cfebfbd0f6",
-    "firstSeenAt": "2026-09-26T13:52:21.174Z"
+    "firstSeenAt": "2026-09-26T13:52:21.174Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "commis-pastry-f-m-d-586943": "GR",
+        "commis-pastry-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR"
+      },
+      "de": {
+        "commis-pastry-f-m-d-586943": "GR"
+      },
+      "fr": {
+        "commis-pastry-f-m-d-586943": "GR"
+      }
+    }
   },
   {
     "slug": "sicurezza-m-f-d-billionaire-dinner-show-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
@@ -895,7 +1100,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/dcd70a85-4c15-4c5f-9982-f9f2978f4b50",
-    "firstSeenAt": "2026-09-18T23:09:20.347Z"
+    "firstSeenAt": "2026-09-18T23:09:20.347Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "security-f-m-d-billionaire-dinner-show-582037": "GR"
+      },
+      "fr": {
+        "security-f-m-d-billionaire-dinner-show-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "agente-relazioni-ospiti-signora-in-rosso-m-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
@@ -945,7 +1159,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/85553330-4db4-4917-8eed-0f2769d626b1",
-    "firstSeenAt": "2026-08-20T21:31:07.414Z"
+    "firstSeenAt": "2026-08-20T21:31:07.414Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "guest-relations-agent-lady-in-red-f-m-d-564945": "GR"
+      },
+      "de": {
+        "guest-relations-agent-lady-in-red-f-m-d-564945": "GR"
+      },
+      "fr": {
+        "guest-relations-agent-lady-in-red-f-m-d-564945": "GR"
+      }
+    }
   },
   {
     "slug": "commissione-di-rang-m-f-d-crazy-pizza-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
@@ -995,7 +1221,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/ab72e03a-700a-4a56-87e4-efd807b445db",
-    "firstSeenAt": "2026-08-07T21:42:15.144Z"
+    "firstSeenAt": "2026-08-07T21:42:15.144Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "commis-de-rang-f-m-d-crazy-pizza-restaurant-557848": "GR"
+      },
+      "fr": {
+        "commissaire-de-rang-f-m-d-restaurant-pizza-fou-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR",
+        "commis-de-rang-f-m-d-crazy-pizza-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "laundry-attendant-seamstress-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
@@ -1036,7 +1272,8 @@
         "laundry-attendant-seamstress-w-m-d-534444"
       ],
       "en": [
-        "laundry-attendant-seamstress-w-m-d-534444"
+        "laundry-attendant-seamstress-w-m-d-534444",
+        "laundry-attendant-seamstress-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       ]
     },
     "postalCode": "7500",
@@ -1046,7 +1283,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/12792dd6-4649-40f5-b14b-5067acb3d76a",
-    "firstSeenAt": "2026-06-29T13:20:35.674Z"
+    "firstSeenAt": "2026-06-29T13:20:35.674Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "laundry-attendant-seamstress-w-m-d-534444": "GR"
+      },
+      "en": {
+        "laundry-attendant-seamstress-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR",
+        "laundry-attendant-seamstress-w-m-d-534444": "GR"
+      },
+      "fr": {
+        "service-de-blanchisserie-soutien-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR",
+        "service-de-blanchisserie-soutien-m-j-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "supervisore-da-pranzo-in-camera-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
@@ -1107,80 +1358,29 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/7592ba77-bf79-4dcf-be91-6ee09621d7d3",
-    "firstSeenAt": "2026-05-17T10:31:20.144Z"
-  },
-  {
-    "slug": "assistente-spa-m-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-0cbdd2",
-    "title": "Spa Attendant (f/m/d)",
-    "titleByLocale": {
-      "it": "Assistente Spa (m/f/d)",
-      "en": "Spa Attendant (f/m/d)",
-      "de": "Spa Attendant (m/w/d)",
-      "fr": "Préposé(e) au spa (h/f/d)"
-    },
-    "company": "Grand Hotel des Bains Kempinski St. Moritz",
-    "companyKey": "grand-hotel-des-bains-kempinski",
-    "location": "St. Moritz",
-    "addressLocality": "St. Moritz",
-    "descriptionByLocale": {
-      "it": "Sotto un nome ricco di tradizione, Kempinski, albergatori dal 1897, ha viaggiato per il mondo alla ricerca di destinazioni affascinanti senza mai dimenticare le sue tradizioni e il suo patrimonio europeo. I rinomati resort e gli eleganti hotel di città e benessere riflettono un carattere individuale e unico, soprattutto per gli ospiti che apprezzano il servizio a 5 stelle e il lusso quando viaggiano per affari o per piacere. Preferisce misurarsi contro gli elevati standard? Sei soddisfatto solo quando i tuoi ospiti sono troppo? Sei molto motivato e apprezzi l'esperienza di un team ben coordinato? Siamo alla ricerca di una persona motivata e dinamica per unire il nostro team termale innovativo per la stagione invernale 2026/2027. | Responsabilità chiave:\n• Consulenza ospiti internazionali\n• Pulizia delle sale di trattamento e della zona spa\n• Monitoraggio della sicurezza, dell'igiene e della pulizia nell'intera area benessere\n• Supervisione della piscina, sauna e aree fitness | Requisiti di lavoro: Per questo lavoro interessante hai\n• Formazione completa come partecipante di piscina / sauna e esperienza professionale iniziale in una posizione simile\n• Esperienza nella pulizia e nel mantenimento della piscina e della sauna\n• Grande interesse per il lavoro orientato al team\n• Capacità di lavorare sotto pressione, competenza professionale, pulizia e un elevato livello di consapevolezza della qualità\n• Modo di lavoro strutturato e organizzato\n• Lavoro orientato agli ospiti\n• Buona conoscenza della lingua tedesca e inglese, qualsiasi altra lingua è un vantaggio | La nostra offerta:\n• Vivere e lavorare nel cuore delle Alpi Engadine\n• Una vasta gamma di opportunità creative\n• Piacevole atmosfera di lavoro in un team giovane e dinamico\n• Prospettive internazionali di carriera e opportunità di sviluppo\n• Vantaggi eccezionali per i dipendenti in tutti i Kempinski Hotels\n• Alloggio personale nelle immediate vicinanze dell'hotel incl. lavanderie, fitness e sala comune e una vasta gamma di pasti nel nostro ristorante personale. Lavanderia, sala fitness e sala comune, cucina e una vasta gamma di pasti nel nostro ristorante personale\n• Uso gratuito del centro di assistenza all'infanzia interno per i bambini dipendenti\n• Attività mensili dei dipendenti quali sci, snowboard e sci di fondo, escursioni, serate spa e corsi di tedesco\n• Interno «Comitato Buono» per contribuire a plasmare tutte le questioni di benessere\n• Un lavoro gratificante e vario, che favorisce lo sviluppo professionale e personale\n• Accesso alla formazione Life Cube e sviluppo della carriera\n• Un programma di incentivazione per la vendita di cosmetici e sessioni di formazione privata per i nostri ospiti\n• Un ambiente di lavoro prestigioso in un'azienda che valorizza le relazioni umane e la qualità del servizio\n• L'opportunità di soggiornare in Kempinski Group hotel in tutto il mondo a prezzi scontati\n• Staff catering ad un prezzo molto attraente",
-      "en": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has traveled the world in search of fascinating destinations without ever forgetting its traditions and European heritage. The lavish resorts as well as the stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury when travelling for business or pleasure. Do you prefer to measure yourself against high standards? Are you only satisfied when your guests are too? Are you highly motivated and do you appreciate the expertise of a well-coordinated team? We are looking for a motivated and dynamic person to join our innovative spa team for the winter season 2026/2027. | Key Responsibilities:\n• Advising international guests\n• Cleaning the treatment rooms and the spa area\n• Monitoring safety, hygiene and cleanliness in the entire wellness area\n• Supervision of the pool, sauna & fitness areas | Job Requirements: For this interesting job you have\n• Completed training as a pool attendant / sauna attendant as well as initial professional experience in a similar position\n• Experience in cleaning and maintaining the pool and sauna area\n• Great interest in team-oriented work\n• Ability to work under pressure, professional competence, cleanliness and a very high level of quality awareness\n• Structured and organised way of working\n• Guest-oriented work\n• Good knowledge of German and English, any other language is an advantage | Our offer:\n• Live and work in the heart of the Engadine Alps\n• A wide range of creative opportunities\n• Pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities\n• Outstanding employee benefits in all Kempinski Hotels\n• Staff accommodation in the immediate vicinity of the hotel incl. washing facilities, fitness & communal room and a wide range of meals in our staff restaurant. Laundry facilities, fitness & communal room, kitchen and a wide range of meals in our staff restaurant\n• Free use of the in-house childcare centre for employees' children\n• Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking excursions, spa evenings and German courses\n• Internal ‘Feel Good Committee’ to help shape all welfare issues\n• A rewarding and varied job, that is conducive to professional and personal development\n• Access to Life Cube training and career development\n• An incentive programme for the sale of cosmetics and private training sessions for our guests\n• A prestigious working environment in a company that values human relationships and quality of service\n• The opportunity to stay in Kempinski Group hotels worldwide at discounted rates\n• Staff catering at a very attractive price",
-      "de": "Unter einem traditionsreichen Namen hat Kempinski, seit 1897 Hoteliers, die Welt auf der Suche nach faszinierenden Reisezielen bereist, ohne jemals seine Traditionen und sein europäisches Erbe zu vergessen. Die üppigen Resorts sowie die stilvollen Stadt- und Wellnesshotels spiegeln einen individuellen und einzigartigen Charakter wider, insbesondere für Gäste, die 5-Sterne-Service und Luxus schätzen, wenn sie geschäftlich oder privat reisen. Möchten Sie sich lieber an hohen Standards messen? Sind Sie nur zufrieden, wenn Ihre Gäste es auch sind? Sind Sie hochmotiviert und schätzen Sie die Expertise eines gut koordinierten Teams? Wir suchen eine motivierte und dynamische Person, die sich unserem innovativen Spa-Team für die Wintersaison 2026/2027 anschließt. | Hauptverantwortung:\n• Beratung internationaler Gäste\n• Reinigung der Behandlungsräume und des Spa-Bereichs\n• Überwachung von Sicherheit, Hygiene und Sauberkeit im gesamten Wellnessbereich\n• Überwachung des Pools, der Sauna & Fitnessbereiche | Job Requirements: Für diesen interessanten Job haben Sie\n• Abgeschlossene Ausbildung als Schwimmbadbetreuerin / Saunabetreuerin sowie erste Berufserfahrung in ähnlicher Position\n• Erfahrung in der Reinigung und Pflege des Pool- und Saunabereichs\n• Großes Interesse an teamorientierter Arbeit\n• Fähigkeit, unter Druck zu arbeiten, fachliche Kompetenz, Sauberkeit und ein sehr hohes Qualitätsbewusstsein\n• Strukturierte und organisierte Arbeitsweise\n• Gastorientierte Arbeit\n• Gute Deutsch- und Englischkenntnisse, jede andere Sprache ist von Vorteil | Unser Angebot:\n• Leben und Arbeiten im Herzen der Engadiner Alpen\n• Vielfältige kreative Möglichkeiten\n• Angenehmes Arbeitsklima in einem jungen und dynamischen Team\n• Internationale Karriereaussichten und Entwicklungsmöglichkeiten\n• Herausragende Mitarbeitervorteile in allen Kempinski Hotels\n• Personalunterkünfte in unmittelbarer Nähe des Hotels inkl. Waschmöglichkeiten, Fitness & Gemeinschaftszimmer und eine breite Palette an Mahlzeiten in unserem Personalrestaurant. Wäscherei, Fitness & Gemeinschaftszimmer, Küche und eine breite Palette von Mahlzeiten in unserem Personalrestaurant\n• Kostenlose Nutzung des hauseigenen Kinderbetreuungszentrums für Kinder von Mitarbeitern\n• Monatliche Mitarbeiteraktivitäten wie Skifahren, Snowboarden und Langlaufen, Wanderausflüge, Kurabende und Deutschkurse\n• Internes „Wohlfühlkomitee soll alle Wohlfahrtsfragen mitgestalten\n• Eine lohnende und abwechslungsreiche Arbeit, die der beruflichen und persönlichen Entwicklung förderlich ist\n• Zugang zu Life Cube Training und Karriereentwicklung\n• Ein Incentive-Programm für den Verkauf von Kosmetika und private Schulungen für unsere Gäste\n• Ein angesehenes Arbeitsumfeld in einem Unternehmen, das menschliche Beziehungen und Servicequalität schätzt\n• Die Möglichkeit, weltweit in Kempinski Group Hotels zu ermäßigten Preisen zu übernachten\n• Mitarbeiter Catering zu einem sehr attraktiven Preis",
-      "fr": "Sous un nom imprégné de tradition, Kempinski, hôtelier depuis 1897, a parcouru le monde à la recherche de destinations fascinantes sans jamais oublier ses traditions et son patrimoine européen. Les stations balnéaires somptueuses ainsi que les élégants hôtels de ville et de bien-être reflètent un caractère individuel et unique, en particulier pour les clients qui apprécient le service 5 étoiles et le luxe lors de voyages d'affaires ou de plaisir. Préférez-vous vous mesurer à des normes élevées? Êtes-vous satisfait seulement quand vos invités sont aussi? Êtes-vous très motivé et appréciez-vous l'expertise d'une équipe bien coordonnée? Nous cherchons une personne motivée et dynamique pour rejoindre notre équipe de spa innovante pour la saison d'hiver 2026/2027. Principales responsabilités :\n• Conseils aux invités internationaux\n• Nettoyage des salles de soins et du spa\n• Surveillance de la sécurité, de l'hygiène et de la propreté dans toute la zone de bien-être\n• Supervision de la piscine, sauna et salles de remise en forme. Pour ce travail intéressant que vous avez\n• Formation complète en tant qu'accompagnateur de piscine / accompagnateur de sauna ainsi que expérience professionnelle initiale dans un poste similaire\n• Expérience dans le nettoyage et l'entretien de la piscine et du sauna\n• Un grand intérêt pour le travail en équipe\n• Capacité de travailler sous pression, compétence professionnelle, propreté et très haut niveau de sensibilisation à la qualité\n• Mode de travail structuré et organisé\n• Travaux axés sur les clients\n• Bonne connaissance de l'allemand et de l'anglais, toute autre langue est un avantage.\n• Vivre et travailler au cœur des Alpes Engadines\n• Un large éventail d'opportunités créatives\n• Ambiance de travail agréable dans une équipe jeune et dynamique\n• Perspectives de carrière internationales et possibilités de développement\n• Avantages sociaux exceptionnels dans tous les hôtels Kempinski\n• Hébergement du personnel dans les environs immédiats de l'hôtel, y compris des installations de lavage, fitness & chambre commune et une large gamme de repas dans notre restaurant du personnel. Blanchisserie, salle de fitness et salle commune, cuisine et une large gamme de repas dans notre restaurant du personnel\n• Utilisation gratuite du centre de garde d'enfants pour les enfants des employés\n• Activités mensuelles des employés telles que le ski, le snowboard et les cours de ski de fond, les excursions de randonnée, les soirées spa et les cours d'allemand\n• Interne « Bonne commission » pour aider à façonner toutes les questions de bien-être\n• Un travail enrichissant et varié, propice au développement professionnel et personnel\n• Accès à la formation Life Cube et organisation des carrières\n• Un programme incitatif pour la vente de cosmétiques et des sessions de formation privées pour nos clients\n• Un environnement de travail prestigieux dans une entreprise qui valorise les relations humaines et la qualité du service\n• L'opportunité de séjourner dans les hôtels du Groupe Kempinski dans le monde entier à des tarifs réduits\n• Personnel de restauration à un prix très attractif"
-    },
-    "slugByLocale": {
-      "it": "assistente-spa-m-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-0cbdd2",
-      "en": "spa-attendant-f-m-d-592252",
-      "de": "spa-attendant-m-w-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-761b868b",
-      "fr": "prepose-e-au-spa-h-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
-    },
-    "sector": "Hotellerie & Gastronomia",
-    "expiredAt": "2026-10-07T21:13:13.383Z",
-    "previousSlugs": [
-      "assistant-de-spa-h-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-      "spa-attendant-f-m-d-592252",
-      "presentateur-de-spa-h-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-      "spa-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-63954e09",
-      "spa-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
-    ],
-    "previousSlugsByLocale": {
-      "fr": [
-        "spa-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-63954e09",
-        "assistant-de-spa-h-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-        "presentateur-de-spa-h-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
-      ],
-      "it": [
-        "spa-attendant-f-m-d-592252",
-        "spa-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
-      ],
-      "de": [
-        "spa-attendant-f-m-d-592252",
-        "spa-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
-      ],
-      "en": [
-        "spa-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
-      ]
-    },
-    "postalCode": "7500",
-    "streetAddress": "Via Mezdi 27",
-    "salaryMin": 62000,
-    "salaryMax": 78000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/aa08bd9d-8830-4438-97d8-980e17388564",
-    "firstSeenAt": "2026-08-11T10:06:52.440Z",
-    "sourceIdentityHistory": [
-      {
-        "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/1cf01eec-6908-4a7b-9d6e-b151888e5f05",
-        "firstSeenAt": "2026-08-11T10:06:52.440Z",
-        "title": "Spa Attendant (f/m/d)"
+    "firstSeenAt": "2026-05-17T10:31:20.144Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "room-service-supervisore-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR",
+        "in-room-dining-supervisor-f-m-d-461567": "GR",
+        "in-room-dining-supervisore-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR"
       },
-      {
-        "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/aa08bd9d-8830-4438-97d8-980e17388564",
-        "firstSeenAt": "2026-08-11T10:06:52.440Z",
-        "title": "Spa Attendant (f/m/d)"
+      "en": {
+        "in-room-dining-supervisor-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR",
+        "in-room-dining-supervisore-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR"
+      },
+      "de": {
+        "in-room-dining-vorgesetzter-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR",
+        "in-room-dining-supervisor-f-m-d-461567": "GR",
+        "in-room-dining-supervisore-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR"
+      },
+      "fr": {
+        "in-room-dining-superviseur-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR",
+        "in-room-dining-supervisor-f-m-d-461567": "GR",
+        "in-room-dining-supervisore-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR"
       }
-    ]
+    }
   },
   {
     "slug": "host-hostess-e-commis-de-rang-f-m-d-neora-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
@@ -1233,7 +1433,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/cf8c1565-062c-43da-80ff-c85dcfeffc92",
-    "firstSeenAt": "2026-07-21T11:14:40.057Z"
+    "firstSeenAt": "2026-07-21T11:14:40.057Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "host-hostess-and-commis-de-rang-f-m-d-neora-restaurant-546070": "GR",
+        "commis-de-rang-f-m-d-neora-restaurant-546070": "GR"
+      },
+      "de": {
+        "host-hostess-and-commis-de-rang-f-m-d-neora-restaurant-546070": "GR"
+      },
+      "fr": {
+        "hote-hote-et-commissaire-de-rang-f-m-d-restaurant-neora-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "fiorista-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
@@ -1287,7 +1500,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/508ccf99-be0a-455b-97eb-5278494f16ca",
-    "firstSeenAt": "2026-06-29T13:20:35.672Z"
+    "firstSeenAt": "2026-06-29T13:20:35.672Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "florist-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR",
+        "fioraio-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz": "GR",
+        "florist-f-m-d-454356": "GR"
+      },
+      "de": {
+        "florist-f-m-d-454356": "GR"
+      },
+      "fr": {
+        "florist-f-m-d-454356": "GR"
+      }
+    }
   },
   {
     "slug": "responsabile-del-servizio-in-camera-m-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
@@ -1331,7 +1558,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/e506fb08-55eb-48d0-b2ac-244acbccf572",
-    "firstSeenAt": "2026-08-25T21:32:15.810Z"
+    "firstSeenAt": "2026-08-25T21:32:15.810Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "roomservice-manager-f-m-d-567320": "GR"
+      }
+    }
   },
   {
     "slug": "sales-manager-uk-europe-luxury-leisure-510854",

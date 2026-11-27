@@ -1,15 +1,15 @@
 {
   "key": "rituals-cosmetics",
   "label": "Rituals Cosmetics Switzerland",
-  "generatedAt": "2026-11-26T21:21:42.811Z",
+  "generatedAt": "2026-11-27T09:19:17.715Z",
   "total": 0,
-  "discovered": null,
-  "parsed": null,
-  "lastFetchOutcome": "exhausted_retry",
+  "discovered": 0,
+  "parsed": 0,
+  "lastFetchOutcome": "selector_miss",
   "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": "retryable-http-response",
+  "abortKind": "no-jobs-parsed",
   "written": 0,
   "newCount": 0,
   "updatedCount": 0,
@@ -21,5 +21,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
+  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
 }

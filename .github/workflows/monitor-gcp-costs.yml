@@ -1,24 +1,18 @@
 name: GCP Cost Monitor
 
-# Guard on the Google Cloud usage that becomes the bill
-# (scripts/monitor-gcp-costs.mjs). In September 2026 Firestore reads went
-# from 0.3-1 M a day to 75-90 M (225 M reads, 75.61 CHF on "Cloud Firestore
-# Read Ops Zurich") and nobody noticed: the 10 CHF billing budget emails only
-# the billing-account admins. Each run reads Cloud Monitoring for the last
-# 24 hours, opens or comments one stable-title issue when a driver is over its
-# daily threshold, and resolves it once every driver is back under.
+# Guard on Google Cloud usage that becomes part of the bill
+# (scripts/monitor-gcp-costs.mjs). Each run reads Cloud Monitoring for the
+# previous 24 hours, opens or updates one stable-title status issue when a
+# driver crosses its threshold, and resolves it once every driver is back under.
 #
 # The punctual trigger is Cloud Scheduler, every 6 hours at 01:23, 07:23,
 # 13:23 and 19:23 UTC: dispatchGcpCostMonitor in functions/index.js
 # (functions/src/gcpCostMonitorDispatch.js) sends a workflow_dispatch with no
 # inputs, so `dry_run` keeps its `false` default and the issue is written.
 #
-# The native cron below is only a safety net. GitHub creates it hours late
-# (2026-10-02 at 13:57 UTC, 2026-10-03 at 12:37 UTC for the 07:23 slot), but
-# its clock does not depend on the GCP project this monitor watches, so it
-# still runs if Cloud Scheduler or the function is down. An extra run is
-# harmless: the window is a rolling 24 hours and the issue has a fixed title
-# (github-issue-creator comments the open one instead of opening a second).
+# The native cron below is an independent safety net. It runs if Cloud
+# Scheduler or the dispatch function is unavailable. The rolling window and
+# stable issue title make repeated runs idempotent.
 
 on:
   schedule:
@@ -90,11 +84,16 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DRY_RUN: ${{ github.event.inputs.dry_run }}
         run: |
+          umask 077
           if [ "$DRY_RUN" = "true" ]; then
-            node scripts/monitor-gcp-costs.mjs --dry-run
+            node scripts/monitor-gcp-costs.mjs --dry-run > "$RUNNER_TEMP/gcp-cost-monitor.log" 2>&1
           else
-            node scripts/monitor-gcp-costs.mjs
+            node scripts/monitor-gcp-costs.mjs > "$RUNNER_TEMP/gcp-cost-monitor.log" 2>&1
           fi
+
+      - name: Write status-only cost summary
+        if: always()
+        run: echo 'GCP cost monitor completed; usage and billing measurements are withheld from the public run.' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Report failure to GitHub Issues
         if: failure()

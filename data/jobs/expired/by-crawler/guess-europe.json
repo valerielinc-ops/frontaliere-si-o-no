@@ -27,7 +27,7 @@
       "fr": "performance-du-commerce-electronique-et-referencement-guess-europe-sagl-bioggio"
     },
     "sector": "Lusso & Moda",
-    "expiredAt": "2026-11-26T11:49:07.571Z",
+    "expiredAt": "2026-11-27T08:39:49.113Z",
     "previousSlugs": [
       "e-commerce-performance-and-seo-senior-manager-guess-europe-sagl-bioggio-switzerland"
     ],
@@ -35,6 +35,11 @@
       "it": [
         "e-commerce-performance-and-seo-senior-manager-guess-europe-sagl-bioggio-switzerland"
       ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "e-commerce-performance-and-seo-senior-manager-guess-europe-sagl-bioggio-switzerland": "TI"
+      }
     },
     "salaryMin": 82500,
     "salaryMax": 127000,
@@ -71,7 +76,7 @@
       "fr": "stock-associate-aubonne-100-pt-guess-europe-sagl-aubonne-ticino-switzerland"
     },
     "sector": "Lusso & Moda",
-    "expiredAt": "2026-11-26T11:49:07.571Z",
+    "expiredAt": "2026-11-27T08:39:49.113Z",
     "previousSlugs": [
       "stock-associate-aubonne-100-pt-guess-europe-sagl-aubonne-ticino-switzerland",
       "stock-associate-aubonne-100-pt-guess-europe-sagl-aubonne-switzerland"
@@ -81,6 +86,12 @@
         "stock-associate-aubonne-100-pt-guess-europe-sagl-aubonne-ticino-switzerland",
         "stock-associate-aubonne-100-pt-guess-europe-sagl-aubonne-switzerland"
       ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stock-associate-aubonne-100-pt-guess-europe-sagl-aubonne-ticino-switzerland": "VD",
+        "stock-associate-aubonne-100-pt-guess-europe-sagl-aubonne-switzerland": "VD"
+      }
     },
     "salaryMin": 60500,
     "salaryMax": 91500,
@@ -117,7 +128,7 @@
       "fr": "trade-marketing-senior-specialiste-guess-europe-sagl-stabio"
     },
     "sector": "Lusso & Moda",
-    "expiredAt": "2026-11-26T11:49:07.571Z",
+    "expiredAt": "2026-11-27T08:39:49.113Z",
     "previousSlugs": [
       "trade-marketing-senior-specialist-guess-europe-sagl-stabio-switzerland"
     ],
@@ -131,6 +142,17 @@
       "fr": [
         "trade-marketing-senior-specialist-guess-europe-sagl-stabio-switzerland"
       ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "trade-marketing-senior-specialist-guess-europe-sagl-stabio-switzerland": "TI"
+      },
+      "de": {
+        "trade-marketing-senior-specialist-guess-europe-sagl-stabio-switzerland": "TI"
+      },
+      "fr": {
+        "trade-marketing-senior-specialist-guess-europe-sagl-stabio-switzerland": "TI"
+      }
     },
     "salaryMin": 82500,
     "salaryMax": 127000,
@@ -188,7 +210,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.workable.com/guess-europe-sagl/j/809974a177",
-    "firstSeenAt": "2026-10-23T21:18:07.241Z"
+    "firstSeenAt": "2026-10-23T21:18:07.241Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "gtm-campaign-marketing-coordinator-guess-europe-sagl-bioggio-switzerland": "TI"
+      },
+      "de": {
+        "gtm-campaign-marketing-coordinator-guess-europe-sagl-bioggio-switzerland": "TI"
+      },
+      "fr": {
+        "gtm-campaign-marketing-coordinator-guess-europe-sagl-bioggio-switzerland": "TI"
+      }
+    }
   },
   {
     "slug": "buyers-administrator-tirocinante-guess-europe-sagl-bioggio",
@@ -238,7 +272,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.workable.com/guess-europe-sagl/j/93bbfe5d5e",
-    "firstSeenAt": "2026-10-13T21:15:55.834Z"
+    "firstSeenAt": "2026-10-13T21:15:55.834Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "buyers-administrator-intern-guess-europe-sagl-bioggio-switzerland": "TI"
+      },
+      "de": {
+        "buyers-administrator-intern-guess-europe-sagl-bioggio-switzerland": "TI"
+      },
+      "fr": {
+        "buyers-administrator-intern-guess-europe-sagl-bioggio-switzerland": "TI"
+      }
+    }
   },
   {
     "slug": "supporto-per-le-operazioni-di-gioielli-in-nord-america-guess-europe-sagl-bioggio",
@@ -288,7 +334,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.workable.com/guess-europe-sagl/j/b0268a0e23",
-    "firstSeenAt": "2026-10-09T10:34:59.137Z"
+    "firstSeenAt": "2026-10-09T10:34:59.137Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "north-america-jewellery-operations-support-guess-europe-sagl-bioggio-switzerland": "TI"
+      },
+      "de": {
+        "north-america-jewellery-operations-support-guess-europe-sagl-bioggio-switzerland": "TI"
+      },
+      "fr": {
+        "north-america-jewellery-operations-support-guess-europe-sagl-bioggio-switzerland": "TI"
+      }
+    }
   },
   {
     "slug": "product-administrator-factory-outlet-tirocinante-guess-europe-sagl-stabio",
@@ -337,7 +395,69 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.workable.com/guess-europe-sagl/j/f6c925347f",
-    "firstSeenAt": "2026-10-07T21:20:15.058Z"
+    "firstSeenAt": "2026-10-07T21:20:15.058Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "product-administrator-factory-outlet-intern-guess-europe-sagl-stabio-switzerland": "TI"
+      },
+      "de": {
+        "product-administrator-factory-outlet-intern-guess-europe-sagl-stabio-switzerland": "TI"
+      },
+      "fr": {
+        "product-administrator-factory-outlet-intern-guess-europe-sagl-stabio-switzerland": "TI"
+      }
+    }
+  },
+  {
+    "slug": "content-production-tirocinante-guess-europe-sagl-bioggio",
+    "title": "Content Production Intern",
+    "titleByLocale": {
+      "it": "Content Production Tirocinante",
+      "en": "Content Production Intern",
+      "de": "Content Production Praktikant",
+      "fr": "Content Production Stagiaire"
+    },
+    "company": "Guess Europe Sagl",
+    "companyKey": "guess-europe",
+    "location": "Bioggio",
+    "addressLocality": "Bioggio",
+    "descriptionByLocale": {
+      "it": "Il Content Production Intern fornirà supporto operativo pratico al team di Photo Studio & content, contribuendo all'organizzazione quotidiana e all'esecuzione di e-commerce, lookbook e riprese di campagna. Il ruolo sosterrà il team durante tutto il flusso di lavoro di produzione, dalla pianificazione delle riprese e preparazione dei campioni al coordinamento freelance, al follow-up amministrativo e alla consegna dei beni finali, assicurando che le attività siano accuratamente organizzate e completate in base alle priorità stagionali e alle scadenze.\n\nRISPOSTE DI GIOCO\n\nPhoto Studio Pianificazione e operazioni di tiro\n\nGestione del campione e monitoraggio della produzione\n\nLiberazione e coordinamento amministrativo\n\nPost-produzione & Asset Delivery\n\nCampagna pubblicitaria e posizione Supporto per il tiro\n\n## Requisiti\n- Laurea o studi in corso in Marketing, Comunicazione, Moda, Business o un campo relativo.\n- Esperienza precedente in moda, e-commerce, fotografia o produzione sarà considerato un plus.\n- Buona conoscenza di Microsoft Office, in particolare Excel.\n- Eccellente capacità organizzative e multitasking con forte attenzione ai dettagli.\n- L'atteggiamento e la volontà di lavorare su attività altamente operative.\n- Capacità di gestire più compiti, cambiare le priorità e scadenze strette.\n- Approccio proattivo, affidabile e orientato alla soluzione.\n- Forte capacità interpersonali e capacità di interagire con diversi dipartimenti interni, freelance e partner esterni.\n- Buone capacità di comunicazione e fluidità in inglese.\n- Capacità di lavorare efficacemente sia indipendentemente che come parte di una squadra.\n\n## Vantaggi\n- Un ambiente di lavoro internazionale, fresco e dinamico\n- Programmi di salute fisica e mentale, progetti sostenibili e workshop promossi da Guess Cares\n- Arte, sport e eventi sociali al di fuori dell'ufficio, grazie alle nostre attività Guess Fun!\n- Piattaforma e percorsi di formazione e sviluppo\n- Sconto sui nostri prodotti sia online che nei negozi",
+      "en": "The Content Production Intern will provide hands-on operational support to the Photo Studio & content team, contributing to the daily organization and execution of e-commerce, lookbook and campaign shootings. The role will support the team throughout the production workflow, from shooting planning and sample preparation to freelance coordination, administrative follow-up and final asset delivery, ensuring that activities are accurately organized and completed according to seasonal priorities and deadlines.\n\nCORE JOB RESPONSIBILITIES\n\nPhoto Studio Planning & Shooting Operations\n\nSample Management & Production Tracking\n\nFreelance & Administrative Coordination\n\nPost-production & Asset Delivery\n\nAdvertising Campaign & Location Shooting Support\n\n## Requirements\n- Degree or ongoing studies in Marketing, Communication, Fashion, Business or a related field.\n- Previous experience in fashion, e-commerce, photography or production will be considered a plus.\n- Good knowledge of Microsoft Office, particularly Excel.\n- Excellent organizational and multitasking skills with strong attention to detail.\n- Hands-on attitude and willingness to work on highly operational activities.\n- Ability to manage multiple tasks, changing priorities and tight deadlines.\n- Proactive, reliable and solution-oriented approach.\n- Strong interpersonal skills and ability to interact with different internal departments, freelancers and external partners.\n- Good communication skills and fluency in English.\n- Ability to work effectively both independently and as part of a team.\n\n## Benefits\n- An International, fresh and dynamic working environment\n- Physical & Mental Health programs, sustainable projects and workshop promoted by Guess Cares\n- Arts, sports and social events outside the office, thanks to our Guess Fun activities!\n- Training & Development platform and paths\n- Discount on our products both online and in stores",
+      "de": "Der Content Production Intern wird dem Photo Studio & Content Team praktische operative Unterstützung bieten und zur täglichen Organisation und Durchführung von E-Commerce-, Lookbook- und Kampagnen-Shootings beitragen. Die Rolle wird das Team während des gesamten Produktionsworkflows unterstützen, von der Drehplanung und Probenvorbereitung bis hin zur freiberuflichen Koordination, administrativen Nachverfolgung und endgültigen Lieferung von Vermögenswerten, um sicherzustellen, dass die Aktivitäten genau nach saisonalen Prioritäten und Fristen organisiert und abgeschlossen werden.\n\nZUSTÄNDIGKEITEN DES KERNGESCHÄFTS\n\nFotostudio Planung & Shooting Operations\n\nProbenmanagement und Produktionsverfolgung\n\nFreiberufliche und administrative Koordination\n\nPostproduktion & Asset Delivery\n\nWerbekampagne & Location Shooting Support\n\n## Anforderungen\n- Grad oder laufende Studien in Marketing, Kommunikation, Mode, Business oder einem verwandten Bereich.\n- Frühere Erfahrungen in Mode, E-Commerce, Fotografie oder Produktion werden als Plus angesehen.\n- Gute Kenntnisse von Microsoft Office, insbesondere Excel.\n- Hervorragende organisatorische und Multitasking-Fähigkeiten mit starker Liebe zum Detail.\n- Hands-on Haltung und Bereitschaft, an hoch operativen Aktivitäten zu arbeiten.\n- Fähigkeit, mehrere Aufgaben, sich ändernde Prioritäten und enge Fristen zu verwalten.\n- Proaktives, zuverlässiges und lösungsorientiertes Vorgehen.\n- Starke zwischenmenschliche Fähigkeiten und die Fähigkeit, mit verschiedenen internen Abteilungen, Freelancern und externen Partnern zu interagieren.\n- Gute Kommunikationsfähigkeiten und fließend Englisch.\n- Fähigkeit, sowohl unabhängig als auch als Teil eines Teams effektiv zu arbeiten.\n\n## Vorteile\n- Eine internationale, frische und dynamische Arbeitsumgebung\n- Physical & Mental Health Programme, nachhaltige Projekte und Workshop gefördert von Guess Cares\n- Kunst, Sport und gesellschaftliche Veranstaltungen außerhalb des Büros, dank unserer Guess Fun Aktivitäten!\n- Trainings- & Entwicklungsplattform und Wege\n- Rabatt auf unsere Produkte sowohl online als auch in Geschäften",
+      "fr": "Le stagiaire en production de contenu fournira un soutien opérationnel pratique à l'équipe de Photo Studio & content, contribuant à l'organisation et à l'exécution quotidiennes du commerce électronique, du lookbook et des tournages de campagnes. Ce rôle aidera l'équipe tout au long du processus de production, de la planification des prises de vue et de la préparation d'échantillons à la coordination indépendante, au suivi administratif et à la prestation finale des biens, en veillant à ce que les activités soient organisées et menées à bien avec précision conformément aux priorités et aux échéances saisonnières.\n\nRESPONSABILITÉS D'EMPLOI DE BASE\n\nPhoto Studio Planification et opérations de tournage\n\nGestion des échantillons et suivi de la production\n\nFreelance & Coordination administrative\n\nAprès production et livraison d'actifs\n\nCampagne publicitaire et support de tournage de l'emplacement\n\n## Exigences\n- Diplôme ou études en cours en marketing, communication, mode, affaires ou un domaine connexe.\n- L'expérience passée en mode, commerce électronique, photographie ou production sera considérée comme un plus.\n- Bonne connaissance de Microsoft Office, particulièrement Excel.\n- Excellentes compétences organisationnelles et multitâches avec une grande attention aux détails.\n- Attitude et volonté de travailler sur des activités hautement opérationnelles.\n- Capacité de gérer plusieurs tâches, de modifier les priorités et de respecter des délais serrés.\n- Approche proactive, fiable et axée sur la solution.\n- Des compétences interpersonnelles solides et la capacité d'interagir avec différents départements internes, pigistes et partenaires externes.\n- Bonnes compétences en communication et maîtrise de l'anglais.\n- Capacité de travailler efficacement, de façon indépendante et en équipe.\n\n## Avantages\n- Un environnement de travail international, frais et dynamique\n- Programmes de santé physique et mentale, projets durables et atelier promus par Guess Cares\n- Arts, sports et événements sociaux en dehors du bureau, grâce à nos activités Guess Fun!\n- Plateforme et chemins de formation et de développement\n- Remise sur nos produits en ligne et en magasin"
+    },
+    "slugByLocale": {
+      "it": "content-production-tirocinante-guess-europe-sagl-bioggio",
+      "en": "content-production-intern-guess-europe-sagl-bioggio-switzerland",
+      "de": "content-production-praktikant-guess-europe-sagl-bioggio",
+      "fr": "content-production-stagiaire-guess-europe-sagl-bioggio"
+    },
+    "sector": "Lusso & Moda",
+    "expiredAt": "2026-09-30T00:00:00.000Z",
+    "previousSlugs": [
+      "content-production-intern-guess-europe-sagl-bioggio-switzerland"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "content-production-intern-guess-europe-sagl-bioggio-switzerland"
+      ],
+      "de": [
+        "content-production-intern-guess-europe-sagl-bioggio-switzerland"
+      ],
+      "fr": [
+        "content-production-intern-guess-europe-sagl-bioggio-switzerland"
+      ]
+    },
+    "postalCode": "6934",
+    "streetAddress": "Strada Regina 44",
+    "salaryMin": 46500,
+    "salaryMax": 71500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.workable.com/guess-europe-sagl/j/981e625698",
+    "firstSeenAt": "2026-09-30T21:13:04.544Z"
   },
   {
     "slug": "digital-pr-events-tirocinante-guess-europe-sagl-bioggio",
@@ -386,7 +506,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.workable.com/guess-europe-sagl/j/442e9efc86",
-    "firstSeenAt": "2026-09-23T23:40:49.854Z"
+    "firstSeenAt": "2026-09-23T23:40:49.854Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "digital-pr-events-intern-guess-europe-sagl-bioggio-switzerland": "TI"
+      },
+      "de": {
+        "digital-pr-events-intern-guess-europe-sagl-bioggio-switzerland": "TI"
+      },
+      "fr": {
+        "digital-pr-events-intern-guess-europe-sagl-bioggio-switzerland": "TI"
+      }
+    }
   },
   {
     "slug": "vendite-associate-aubonne-temporaria-oraria-fino-a-60-pt-guess-europe-sagl-aubonne",
@@ -431,7 +563,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.workable.com/guess-europe-sagl/j/72cc5d22d5",
-    "firstSeenAt": "2026-09-23T23:40:49.854Z"
+    "firstSeenAt": "2026-09-23T23:40:49.854Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sales-associate-aubonne-temporary-hourly-up-to-60-pt-guess-europe-sagl-aubonne-switzerland": "VD"
+      },
+      "de": {
+        "sales-associate-aubonne-temporary-hourly-up-to-60-pt-guess-europe-sagl-aubonne-switzerland": "VD"
+      }
+    }
   },
   {
     "slug": "marketing-tirocinante-guess-europe-sagl-bioggio",
@@ -480,7 +621,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.workable.com/guess-europe-sagl/j/a2b62720d2",
-    "firstSeenAt": "2026-09-21T15:59:02.794Z"
+    "firstSeenAt": "2026-09-21T15:59:02.794Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "marketing-intern-guess-europe-sagl-bioggio-switzerland": "TI"
+      },
+      "de": {
+        "marketing-intern-guess-europe-sagl-bioggio-switzerland": "TI"
+      },
+      "fr": {
+        "marketing-intern-guess-europe-sagl-bioggio-switzerland": "TI"
+      }
+    }
   },
   {
     "slug": "visual-merchandising-direttore-guess-europe-sagl-bioggio",
@@ -531,7 +684,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.workable.com/guess-europe-sagl/j/5267660dd1",
-    "firstSeenAt": "2026-09-10T23:05:14.146Z"
+    "firstSeenAt": "2026-09-10T23:05:14.146Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "visual-merchandising-director-guess-europe-sagl-bioggio-ticino-switzerland": "TI",
+        "visual-merchandising-director-guess-europe-sagl-bioggio-switzerland": "TI"
+      },
+      "de": {
+        "visual-merchandising-director-guess-europe-sagl-bioggio-ticino-switzerland": "TI"
+      },
+      "fr": {
+        "visual-merchandising-director-guess-europe-sagl-bioggio-ticino-switzerland": "TI"
+      }
+    }
   },
   {
     "slug": "sales-associate-zona-di-zurigo-contratto-a-pagamento-guess-europe-sagl-zurich",
@@ -580,7 +746,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.workable.com/guess-europe-sagl/j/e4dde183a1",
-    "firstSeenAt": "2026-08-20T21:37:24.333Z"
+    "firstSeenAt": "2026-08-20T21:37:24.333Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sales-associate-zurich-area-hourly-paid-contract-guess-europe-sagl-zurich-ticino-switzerland": "ZH",
+        "sales-associate-zurich-area-hourly-paid-contract-guess-europe-sagl-zurich-switzerland": "ZH"
+      },
+      "fr": {
+        "sales-associate-zurich-area-hourly-paid-contract-guess-europe-sagl-zurich-ticino-switzerland": "ZH"
+      }
+    }
   },
   {
     "slug": "trade-marketing-vm-direttore-wholesale-guess-europe-sagl-bioggio",
@@ -631,7 +807,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.workable.com/guess-europe-sagl/j/acecc0a61b",
-    "firstSeenAt": "2026-08-12T10:19:43.215Z"
+    "firstSeenAt": "2026-08-12T10:19:43.215Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "trade-marketing-vm-director-wholesale-guess-europe-sagl-bioggio-ticino-switzerland": "TI",
+        "trade-marketing-director-guess-europe-sagl-bioggio-switzerland": "TI"
+      },
+      "de": {
+        "trade-marketing-vm-director-wholesale-guess-europe-sagl-bioggio-ticino-switzerland": "TI"
+      },
+      "fr": {
+        "trade-marketing-vm-director-wholesale-guess-europe-sagl-bioggio-ticino-switzerland": "TI"
+      }
+    }
   },
   {
     "slug": "senior-product-sviluppatore-fixed-term-contract-guess-europe-sagl-stabio",

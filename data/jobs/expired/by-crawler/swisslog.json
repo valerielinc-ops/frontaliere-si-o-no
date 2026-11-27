@@ -54,7 +54,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.swisslog.com/de-de/karriere/offene-stellen/controls-software-service-engineer-siemens-mwd-3751",
-    "firstSeenAt": "2026-07-28T22:07:43.774Z"
+    "firstSeenAt": "2026-07-28T22:07:43.774Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "controls-software-service-engineer-siemens-m-w-d-swisslog-buchs-switzerland": "AG",
+        "controls-software-service-ingegnere-swisslog-buchs": "AG",
+        "controls-software-service-engineer-swisslog-buchs-switzerland": "AG",
+        "controls-software-service-ingenieur-swisslog-buchs": "AG"
+      },
+      "en": {
+        "controls-software-service-engineer-swisslog-buchs-switzerland": "AG"
+      },
+      "fr": {
+        "controls-software-service-engineer-siemens-m-w-d-swisslog-buchs-switzerland": "AG",
+        "controls-software-service-ingenieur-swisslog-buchs": "AG"
+      }
+    }
   },
   {
     "slug": "software-project-manager-m-w-d-swisslog-buchs-switzerland",
@@ -92,10 +108,14 @@
         "gestionnaire-de-projet-technique-m-f-d-swisslog-buchs-switzerland"
       ],
       "de": [
-        "technical-project-manager-m-w-d-swisslog-buchs-switzerland"
+        "technical-project-manager-m-w-d-swisslog-buchs-switzerland",
+        "software-project-manager-m-w-d-swisslog-buchs-switzerland"
       ],
       "fr": [
         "gestionnaire-de-projet-technique-m-f-d-swisslog-buchs-switzerland"
+      ],
+      "en": [
+        "software-project-manager-m-w-d-swisslog-buchs-switzerland"
       ]
     },
     "postalCode": "5033",
@@ -105,7 +125,25 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.swisslog.com/de-de/karriere/offene-stellen/software-project-manager-mwd-4385",
-    "firstSeenAt": "2026-08-06T11:32:14.801Z"
+    "firstSeenAt": "2026-08-06T11:32:14.801Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsabile-del-progetto-tecnico-m-f-d-swisslog-buchs-switzerland": "AG",
+        "technical-project-manager-m-w-d-swisslog-buchs-switzerland": "AG",
+        "gestionnaire-de-projet-technique-m-f-d-swisslog-buchs-switzerland": "AG"
+      },
+      "en": {
+        "software-project-manager-m-w-d-swisslog-buchs-switzerland": "AG"
+      },
+      "de": {
+        "software-project-manager-m-w-d-swisslog-buchs-switzerland": "AG",
+        "technical-project-manager-m-w-d-swisslog-buchs-switzerland": "AG"
+      },
+      "fr": {
+        "gestionnaire-de-projet-technique-m-f-d-swisslog-buchs-switzerland": "AG"
+      }
+    }
   },
   {
     "slug": "tecnico-di-manutenzione-m-f-d-swisslog-buchs-switzerland",

@@ -46,7 +46,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/technician-dbo-mwd?jobid=165451",
-    "firstSeenAt": "2026-09-19T23:10:19.910Z"
+    "firstSeenAt": "2026-09-19T23:10:19.910Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technician-dbo-m-w-d-heineken-ch-denges": "VD"
+      },
+      "de": {
+        "techniker-dbo-m-w-d-heineken-switzerland-denges": "VD"
+      }
+    }
   },
   {
     "id": "heineken-ch-013216da14e9",
@@ -142,7 +151,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/logistics-key-account-specialist-mwd-80-100?jobid=162220",
-    "firstSeenAt": "2026-09-28T21:34:24.739Z"
+    "firstSeenAt": "2026-09-28T21:34:24.739Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "logistics-key-account-specialist-m-w-d-80-100-heineken-ch-luzern": "LU"
+      }
+    }
   },
   {
     "id": "heineken-ch-0006bff573d9",
@@ -190,7 +205,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/specialist-business-applications-operations-mwd?jobid=164826",
-    "firstSeenAt": "2026-09-07T23:43:19.344Z"
+    "firstSeenAt": "2026-09-07T23:43:19.344Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "specialist-business-applications-operations-m-w-d-heineken-ch-luzern": "LU"
+      },
+      "en": {
+        "specialist-business-applications-operations-m-w-d-heineken-ch-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "event-portfolio-specialista-m-w-d-100-heineken-switzerland-luzern-9b48aa23",
@@ -284,7 +308,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/mitarbeiter-backoffice-event-support-mwd-40?jobid=168013",
-    "firstSeenAt": "2026-10-28T20:38:17.176Z"
+    "firstSeenAt": "2026-10-28T20:38:17.176Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-backoffice-event-support-m-w-d-40-heineken-ch-luzern": "LU"
+      },
+      "en": {
+        "mitarbeiter-backoffice-event-support-m-w-d-40-heineken-ch-luzern": "LU"
+      },
+      "fr": {
+        "mitarbeiter-backoffice-event-support-m-w-d-40-heineken-ch-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "autista-c-e-orion-heineken-switzerland-luzern-4c81fde3",
@@ -610,9 +646,6 @@
         "chauffeur-kat-c-e-heineken-ch-luzern",
         "chauffeur-cat-c-e-heineken-switzerland-luzern",
         "bezeichnung-chauffeur-c-e-heineken-ch-content-width-device-width",
-        "chauffeur-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
-        "autista-di-camion-heineken-switzerland-content-width-device-width",
-        "chauffeur-de-camion-heineken-switzerland-content-width-device-width",
         "titre-truck-driver-heineken-switzerland-content-width-device-width",
         "autista-di-camion-heineken-switzerland-content-width-device-width-bteei3",
         "autista-c-e-heineken-switzerland-content-width-device-width",
@@ -626,7 +659,10 @@
         "title-chauffeur-kat-c-e-heineken-ch-warum-zu-uns",
         "title-chauffeur-kat-c-e-heineken-ch-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
         "chauffeur-c-e-heineken-switzerland-warum-zu-uns",
-        "chauffeur-c-e-heineken-switzerland-luzern"
+        "chauffeur-c-e-heineken-switzerland-luzern",
+        "chauffeur-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
+        "autista-di-camion-heineken-switzerland-content-width-device-width",
+        "chauffeur-de-camion-heineken-switzerland-content-width-device-width"
       ],
       "de": [
         "chauffeur-kat-c-e-heineken-ch-luzern-f26a937a",
@@ -675,15 +711,12 @@
         "chauffeur-c-e-heineken-switzerland-luzern-ccb24afa",
         "chauffeur-kat-c-e-heineken-ch-luzern-50cefb79",
         "chauffeur-kat-c-e-heineken-ch-luzern-ce848e64",
-        "chauffeur-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
         "chauffeur-kat-c-e-heineken-ch-luzern-b7ac3fea",
         "chauffeur-kat-c-e-heineken-ch-luzern-2a417087",
         "chauffeur-kat-c-e-heineken-ch-luzern-807fad98",
         "chauffeur-kat-c-e-heineken-ch-luzern-d37a9fcb",
-        "autista-di-camion-heineken-switzerland-content-width-device-width",
         "chauffeur-kat-c-e-heineken-ch-luzern-5f30a7b7",
         "chauffeur-kat-c-e-heineken-ch-luzern-b949c917",
-        "chauffeur-de-camion-heineken-switzerland-content-width-device-width",
         "chauffeur-kat-c-e-heineken-ch-luzern-da01ff99",
         "chauffeur-kat-c-e-heineken-ch-luzern-93f1893f",
         "chauffeur-kat-c-e-heineken-ch-luzern-0bfab1f7",
@@ -701,6 +734,9 @@
         "title-chauffeur-kat-c-e-heineken-ch-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
         "chauffeur-c-e-heineken-switzerland-warum-zu-uns",
         "chauffeur-c-e-heineken-switzerland-luzern",
+        "chauffeur-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
+        "autista-di-camion-heineken-switzerland-content-width-device-width",
+        "chauffeur-de-camion-heineken-switzerland-content-width-device-width",
         "chauffeur-kat-c-e-heineken-ch-luzern"
       ],
       "fr": [
@@ -723,9 +759,6 @@
         "driver-cat-c-e-heineken-switzerland-luzern",
         "chauffeur-kat-c-e-heineken-ch-luzern",
         "bezeichnung-chauffeur-c-e-heineken-ch-content-width-device-width",
-        "chauffeur-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
-        "autista-di-camion-heineken-switzerland-content-width-device-width",
-        "chauffeur-de-camion-heineken-switzerland-content-width-device-width",
         "titre-truck-driver-heineken-switzerland-content-width-device-width",
         "autista-di-camion-heineken-switzerland-content-width-device-width-bteei3",
         "autista-c-e-heineken-switzerland-content-width-device-width",
@@ -739,7 +772,10 @@
         "title-chauffeur-kat-c-e-heineken-ch-warum-zu-uns",
         "title-chauffeur-kat-c-e-heineken-ch-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
         "chauffeur-c-e-heineken-switzerland-warum-zu-uns",
-        "chauffeur-c-e-heineken-switzerland-luzern"
+        "chauffeur-c-e-heineken-switzerland-luzern",
+        "chauffeur-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
+        "autista-di-camion-heineken-switzerland-content-width-device-width",
+        "chauffeur-de-camion-heineken-switzerland-content-width-device-width"
       ]
     },
     "postalCode": "6003",
@@ -1078,10 +1114,12 @@
         "chauffeur-c-oder-c1-m-w-arosa-heineken-ch-arosa"
       ],
       "en": [
-        "chauffeur-c-e-m-w-arosa-heineken-ch-arosa"
+        "chauffeur-c-e-m-w-arosa-heineken-ch-arosa",
+        "chauffeur-c-e-m-w-arosa-heineken-switzerland-arosa"
       ],
       "fr": [
-        "chauffeur-c-e-m-w-arosa-heineken-ch-arosa"
+        "chauffeur-c-e-m-w-arosa-heineken-ch-arosa",
+        "chauffeur-c-e-m-w-arosa-heineken-switzerland-arosa"
       ]
     },
     "postalCode": "7050",
@@ -1095,6 +1133,12 @@
     "previousSlugCantonByLocale": {
       "it": {
         "chauffeur-c-oder-c1-m-w-arosa-heineken-ch-arosa": "GR"
+      },
+      "en": {
+        "chauffeur-c-e-m-w-arosa-heineken-switzerland-arosa": "GR"
+      },
+      "fr": {
+        "chauffeur-c-e-m-w-arosa-heineken-switzerland-arosa": "GR"
       }
     }
   },
@@ -1129,6 +1173,9 @@
     "previousSlugsByLocale": {
       "it": [
         "chauffeur-c-e-m-w-davos-heineken-ch-davos"
+      ],
+      "en": [
+        "chauffeur-c-e-m-f-davos-heineken-switzerland-davos"
       ]
     },
     "postalCode": "7270",
@@ -1138,7 +1185,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/chauffeur-ce-mw-davos?jobid=162606",
-    "firstSeenAt": "2026-09-08T13:54:58.498Z"
+    "firstSeenAt": "2026-09-08T13:54:58.498Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chauffeur-c-e-m-w-davos-heineken-ch-davos": "GR"
+      },
+      "en": {
+        "chauffeur-c-e-m-f-davos-heineken-switzerland-davos": "GR"
+      }
+    }
   },
   {
     "slug": "chauffeur-c-e-m-f-chur-heineken-switzerland-chur",
@@ -1171,6 +1227,9 @@
     "previousSlugsByLocale": {
       "it": [
         "chauffeur-c-e-m-w-chur-heineken-ch-chur"
+      ],
+      "en": [
+        "chauffeur-c-e-m-f-chur-heineken-switzerland-chur"
       ]
     },
     "postalCode": "7000",
@@ -1180,7 +1239,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/chauffeur-ce-mw-chur?jobid=162775",
-    "firstSeenAt": "2026-09-08T13:54:51.407Z"
+    "firstSeenAt": "2026-09-08T13:54:51.407Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chauffeur-c-e-m-w-chur-heineken-ch-chur": "GR"
+      },
+      "en": {
+        "chauffeur-c-e-m-f-chur-heineken-switzerland-chur": "GR"
+      }
+    }
   },
   {
     "slug": "conducente-cat-c-e-heineken-switzerland-denges",
@@ -1230,7 +1298,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/chauffeur-cat-c-e?jobid=165660",
-    "firstSeenAt": "2026-09-24T00:08:22.819Z"
+    "firstSeenAt": "2026-09-24T00:08:22.819Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chauffeur-cat-c-e-heineken-ch-denges": "VD"
+      },
+      "en": {
+        "chauffeur-cat-c-e-heineken-ch-denges": "VD"
+      },
+      "fr": {
+        "chauffeur-cat-c-e-heineken-ch-denges": "VD"
+      }
+    }
   },
   {
     "slug": "driver-per-il-camion-m-f-d-heineken-switzerland-belp",
@@ -1277,7 +1357,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/truck-driver-mwd?jobid=164842",
-    "firstSeenAt": "2026-09-07T23:43:28.153Z"
+    "firstSeenAt": "2026-09-07T23:43:28.153Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "truck-driver-m-w-d-heineken-ch-belp": "BE"
+      },
+      "fr": {
+        "truck-driver-m-w-d-heineken-ch-belp": "BE"
+      }
+    }
   },
   {
     "slug": "meccanica-aziendale-in-heineken-switzerland-chur",
@@ -1334,7 +1423,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/betriebsmechanikerin?jobid=163082",
-    "firstSeenAt": "2026-08-05T11:54:58.821Z"
+    "firstSeenAt": "2026-08-05T11:54:58.821Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "betriebsmechaniker-in-heineken-ch-chur": "GR",
+        "betriebsmechaniker-in-heineken-switzerland-chur": "GR"
+      },
+      "en": {
+        "betriebsmechaniker-in-heineken-switzerland-chur": "GR"
+      },
+      "de": {
+        "betriebsmechaniker-in-heineken-switzerland-chur": "GR"
+      },
+      "fr": {
+        "betriebsmechaniker-in-heineken-switzerland-chur": "GR",
+        "mecanicien-d-entreprise-in-heineken-switzerland-chur": "GR"
+      }
+    }
   },
   {
     "slug": "consulente-commerciale-nel-settore-gastronomia-heineken-switzerland-luzern",
@@ -1397,7 +1503,28 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/verkaufsberaterin-im-aussendienst-gastronomie?jobid=162611",
-    "firstSeenAt": "2026-07-28T22:34:47.887Z"
+    "firstSeenAt": "2026-07-28T22:34:47.887Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern": "LU",
+        "consulente-commerciale-nel-settore-gastronomia-heineken-switzerland-chur": "LU",
+        "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-chur": "LU",
+        "sales-consultant-in-the-field-gastronomy-heineken-switzerland-chur": "LU",
+        "consultant-commercial-sur-le-terrain-gastronomie-heineken-switzerland-chur": "LU"
+      },
+      "en": {
+        "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern": "LU",
+        "sales-consultant-in-the-field-gastronomy-heineken-switzerland-chur": "LU"
+      },
+      "de": {
+        "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-chur": "LU"
+      },
+      "fr": {
+        "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern": "LU",
+        "consultant-commercial-sur-le-terrain-gastronomie-heineken-switzerland-chur": "LU"
+      }
+    }
   },
   {
     "slug": "servizio-clienti-agente-heineken-switzerland-luzern",
@@ -1508,6 +1635,81 @@
     "salaryMax": 52200,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "c-c-e-heineken-switzerland-fahrweid",
+    "title": "Chauffeur C/E",
+    "titleByLocale": {
+      "it": "C/C/E",
+      "en": "Chauffeur C/E",
+      "de": "Chauffeur C/E",
+      "fr": "Chauffeur C/E"
+    },
+    "company": "Heineken Switzerland",
+    "companyKey": "heineken-ch",
+    "location": "Fahrweid",
+    "addressLocality": "Fahrweid",
+    "descriptionByLocale": {
+      "it": "Per la nostra affiliata Stardrinks AG, stiamo cercando una personalità indipendente e motivata come Chauffeur Kat nella posizione Fahrweid. C/E Sei responsabile della consegna puntuale e on-demand di tutti i prodotti dalla nostra gamma ai nostri clienti – principalmente nei settori catering, hotel e retail. In questo modo, si assicura che il veicolo è adatto per il traffico in conformità con i requisiti della legge sul traffico stradale e che le disposizioni legali sul carico (sicurezza della gomma, peso, distribuzione del peso) sono rispettate. Questa attività varia e dinamica comprende le seguenti:\n• Compiti: Trasporto di bevande alle aziende di catering ed eventi Riprendere beni vuoti Gestione del magazzino clienti Trasporto di rimorchi e autovetture refrigerate Documentazione corretta per mezzo di GreenMile supporto nel magazzino se necessario Per adempiere con successo a questo compito responsabile, si riporta quanto segue: Un valido permesso di guida della categoria C (obbligatorio), idealmente integrato dalla categoria E esperienza professionale come autista Modalità impeccabili, affidabilità e impegno Metodo di lavoro autonomo e strutturato Buone competenze tedesche nelle parole e nella scrittura Anche in tempi frenetici si mantiene la panoramica e si incontrano il giusto tono Fisica e resilienza Idealmente luogo di residenza nella regione Fahrweid Interessa? Signora Marisa Reati, non vede l'ora di presentare i suoi documenti.",
+      "en": "For our subsidiary Stardrinks AG, we are looking for an independent and motivated personality as Chauffeur Kat at the Fahrweid location. C/E You are responsible for the punctual and on-demand delivery of all products from our range to our customers – mainly in the catering, hotel and retail sectors. In doing so, you ensure that the vehicle is suitable for traffic in accordance with the requirements of the Road Traffic Act and that the legal provisions on loading (cargo securing, weight, weight distribution) are complied with. This varied and dynamic activity includes the following:\n• Tasks: Transportation of drinks to catering companies and events Taking back empty goods Management of the customer warehouse Transportation of refrigerated trailers and delivery cars Correct documentation by means of GreenMile support in the warehouse if necessary To successfully fulfill this responsible task, you bring the following: A valid driver permit of category C (mandatory), ideally supplemented by the category E professional experience as a chauffeur Impeccable manners, reliability and commitment Self-employed and structured working method Good German skills in words and writing Even in hectic times you keep the overview and meet the right tone Physical fitness and resilience Ideally place of residence in the Fahrweid region Interested? Mrs. Marisa Reati, looks forward to your complete application documents.",
+      "de": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir am Standort Fahrweid eine selbständige und motivierte Persönlichkeit als Chauffeur Kat. C/E Sie sind verantwortlich für die pünktliche und bedarfsgerechte Lieferung aller Produkte aus unserem Sortiment an unsere Kunden – vorwiegend in der Gastronomie, Hotellerie sowie im Detailhandel. Dabei stellen Sie sicher, dass das Fahrzeug gemäss den Vorgaben des Strassenverkehrsgesetzes verkehrstauglich ist und die gesetzlichen Bestimmungen zur Beladung (Ladungssicherung, Gewicht, Gewichtsverteilung) eingehalten werden. Diese abwechslungsreiche und dynamische Tätigkeit umfasst unter anderem folgende\n• Aufgaben: Transport von Getränken zu Gastronomiebetrieben und Events Rücknahme von Leergut Bewirtschaftung der Kundenlager Transport von Kühlanhängern und Ausschankwagen Korrekte Dokumentation mittels GreenMile Unterstützung im Lager bei Bedarf Um diese verantwortungsvolle Aufgabe erfolgreich zu erfüllen, bringen Sie Folgendes mit: Eine gültige Fahrerbewilligung der Kategorie C (obligatorisch), idealerweise ergänzt durch die Kategorie E Berufserfahrung als Chauffeur Einwandfreie Umgangsformen, Zuverlässigkeit und Verbindlichkeit Selbstständige und strukturierte Arbeitsweise Gute Deutschkenntnisse in Wort und Schrift Auch in hektischen Zeiten behalten Sie den Überblick und treffen den richtigen Ton Körperliche Fitness und Belastbarkeit Idealerweise Wohnort in der Region Fahrweid Interessiert? Frau Marisa Reati, freut sich auf Ihre vollständigen Bewerbungsunterlagen.",
+      "fr": "Pour notre filiale Stardrinks AG, nous recherchons une personnalité indépendante et motivée en tant que chauffeur Kat à l'emplacement de Fahrweid. C/E Vous êtes responsable de la livraison ponctuelle et à la demande de tous les produits de notre gamme à nos clients, principalement dans les secteurs de la restauration, de l'hôtellerie et du commerce de détail. Ce faisant, vous veillez à ce que le véhicule soit adapté à la circulation conformément aux exigences de la loi sur la circulation routière et à ce que les dispositions légales relatives au chargement (arrimage des wagons, poids, répartition du poids) soient respectées. Cette activité variée et dynamique comprend :\n• Tâches: Transport des boissons vers les entreprises de restauration et les événements Reprise des marchandises vides Gestion de l'entrepôt client Transport des remorques réfrigérées et des voitures de livraison Documents corrects au moyen du support GreenMile dans l'entrepôt si nécessaire Pour accomplir avec succès cette tâche responsable, vous apportez ce qui suit : Un permis de conduire valide de catégorie C (obligatoire), idéalement complété par l'expérience professionnelle de catégorie E en tant que chauffeur Modes impeccables, fiabilité et engagement Travailleur indépendant et méthode de travail structurée Bonnes compétences en allemand en mots et en écriture Même en période agitée, vous gardez l'aperçu et rencontrez le bon ton. Mme Marisa Reati attend avec impatience vos documents de candidature complets."
+    },
+    "slugByLocale": {
+      "it": "c-c-e-heineken-switzerland-fahrweid",
+      "en": "chauffeur-c-e-heineken-ch-fahrweid",
+      "de": "chauffeur-c-e-heineken-ch-fahrweid",
+      "fr": "chauffeur-c-e-heineken-ch-fahrweid"
+    },
+    "sector": "Industria / Alimentare",
+    "expiredAt": "2026-09-08T23:40:04.763Z",
+    "previousSlugs": [
+      "chauffeur-c-e-heineken-ch-fahrweid",
+      "chauffeur-c-e-heineken-switzerland-fahrweid",
+      "autista-c-e-heineken-switzerland-fahrweid",
+      "driver-c-e-heineken-switzerland-fahrweid",
+      "conducteur-de-categorie-c-e-heineken-switzerland-fahrweid"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "chauffeur-c-e-heineken-ch-fahrweid",
+        "chauffeur-c-e-heineken-switzerland-fahrweid",
+        "autista-c-e-heineken-switzerland-fahrweid"
+      ],
+      "de": [
+        "chauffeur-c-e-heineken-switzerland-fahrweid"
+      ],
+      "en": [
+        "driver-c-e-heineken-switzerland-fahrweid",
+        "c-c-e-heineken-switzerland-fahrweid"
+      ],
+      "fr": [
+        "conducteur-de-categorie-c-e-heineken-switzerland-fahrweid",
+        "c-c-e-heineken-switzerland-fahrweid"
+      ]
+    },
+    "postalCode": "7000",
+    "streetAddress": "Fahrweid, Graubünden",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/chauffeur-ce?jobid=149312",
+    "firstSeenAt": "2026-11-21T21:45:23.723Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chauffeur-c-e-heineken-switzerland-fahrweid": "GR",
+        "autista-c-e-heineken-switzerland-fahrweid": "GR"
+      },
+      "en": {
+        "driver-c-e-heineken-switzerland-fahrweid": "GR",
+        "c-c-e-heineken-switzerland-fahrweid": "GR"
+      },
+      "fr": {
+        "conducteur-de-categorie-c-e-heineken-switzerland-fahrweid": "GR",
+        "c-c-e-heineken-switzerland-fahrweid": "GR"
+      }
+    }
   },
   {
     "slug": "personale-in-birrerie-10-su-chiamata-heineken-switzerland-luzern",

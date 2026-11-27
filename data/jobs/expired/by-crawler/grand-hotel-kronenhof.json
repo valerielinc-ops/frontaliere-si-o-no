@@ -56,7 +56,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/749",
-    "firstSeenAt": "2026-11-17T08:19:07.592Z"
+    "firstSeenAt": "2026-11-17T08:19:07.592Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kitchen-director-chef-de-cuisine-new-all-day-dining-outlet-m-w-d-kulm-hotel-st-moritz": "GR",
+        "kitchen-director-chef-de-cuisine-new-all-day-dining-outlet-m-w-d-kulm-hotel-st-moritz-st-moritz-749": "GR"
+      },
+      "en": {
+        "kitchen-director-chef-de-cuisine-new-all-day-dining-outlet-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "de": {
+        "kitchen-director-chef-de-cuisine-new-all-day-dining-outlet-m-w-d-kulm-hotel-st-moritz-st-moritz-749": "GR",
+        "kitchen-director-chef-de-cuisine-new-all-day-dining-outlet-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "fr": {
+        "kitchen-director-chef-de-cuisine-new-all-day-dining-outlet-m-w-d-kulm-hotel-st-moritz-st-moritz-749": "GR",
+        "kitchen-director-chef-de-cuisine-new-all-day-dining-outlet-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "id": "grand-hotel-kronenhof-d171ddb1b6dc",
@@ -114,7 +131,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/735",
-    "firstSeenAt": "2026-09-29T09:21:30.413Z"
+    "firstSeenAt": "2026-09-29T09:21:30.413Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "digital-marketing-executive-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "en": {
+        "digital-marketing-executive-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "de": {
+        "fuhrungskraft-fur-digitales-marketing-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "fachkraft-fur-digitales-marketing-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR"
+      },
+      "fr": {
+        "direction-du-marketing-numerique-h-f-d-kulm-hotel-st-moritz-st-moritz-f176a3": "GR"
+      }
+    }
   },
   {
     "id": "grand-hotel-kronenhof-5e8fcc0a578a",
@@ -184,7 +217,31 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/696",
-    "firstSeenAt": "2026-11-06T21:43:32.949Z"
+    "firstSeenAt": "2026-11-06T21:43:32.949Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "partecipante-in-camera-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz": "GR",
+        "luxury-housekeeping-specialist-room-attendant-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm": "GR",
+        "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz-st-moritz-696": "GR",
+        "luxury-housekeeping-specialist-room-attendant-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz-st-moritz-696": "GR"
+      },
+      "en": {
+        "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz": "GR",
+        "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz": "GR",
+        "luxury-housekeeping-specialist-room-attendant-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm": "GR"
+      },
+      "de": {
+        "luxury-housekeeping-specialist-room-attendant-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz-st-moritz-696": "GR",
+        "partecipante-in-camera-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "luxury-housekeeping-spezialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz-st-moritz-696": "GR"
+      },
+      "fr": {
+        "salle-d-assistance-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "hausdamenassistenz-floor-supervisore-housekeeping-m-w-d-kulm-hotel-st-moritz-st-moritz",
@@ -224,7 +281,8 @@
         "hausdamenassistenz-floor-supervisor-housekeeping-m-w-d-kulm-hotel-st-moritz-st-moritz-745"
       ],
       "it": [
-        "hausdamenassistenz-floor-supervisor-housekeeping-m-w-d-kulm-hotel-st-moritz-st-moritz-745-de7ed08c"
+        "hausdamenassistenz-floor-supervisor-housekeeping-m-w-d-kulm-hotel-st-moritz-st-moritz-745-de7ed08c",
+        "hausdamenassistenz-floor-supervisor-housekeeping-m-w-d-kulm-hotel-st-moritz-st-moritz-745"
       ]
     },
     "postalCode": "7500",
@@ -234,7 +292,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/745",
-    "firstSeenAt": "2026-11-02T21:29:42.242Z"
+    "firstSeenAt": "2026-11-02T21:29:42.242Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hausdamenassistenz-floor-supervisor-housekeeping-m-w-d-kulm-hotel-st-moritz-st-moritz-745": "GR"
+      },
+      "de": {
+        "hausdamenassistenz-floor-supervisor-housekeeping-m-w-d-kulm-hotel-st-moritz-st-moritz-745": "GR"
+      },
+      "fr": {
+        "hausdamenassistenz-floor-supervisor-housekeeping-m-w-d-kulm-hotel-st-moritz-st-moritz-745": "GR"
+      }
+    }
   },
   {
     "slug": "partecipante-zimmerdame-roomboy-inizia-ora-m-w-d-grand-hotel-kronenhof-pontresina",
@@ -278,7 +348,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/680",
-    "firstSeenAt": "2026-10-19T21:28:42.473Z"
+    "firstSeenAt": "2026-10-19T21:28:42.473Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "experienced-room-attendant-familiar-with-5-star-standards-flexible-start-m-w-d-grand-hotel-kronenhof-pontresina-680": "GR"
+      }
+    }
   },
   {
     "slug": "sous-chef-deve-avere-fluente-in-italiano-iniziare-immediatamente-m-f-d-grand-hotel-kronenhof-pontresina",
@@ -330,7 +406,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/723",
-    "firstSeenAt": "2026-08-24T10:21:16.086Z"
+    "firstSeenAt": "2026-08-24T10:21:16.086Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sous-chef-must-have-fluent-in-italian-start-immediately-m-w-d-grand-hotel-kronenhof-pontresina-723": "GR",
+        "sous-chef-main-kitchen-16-gaultmillau-points-m-w-d-grand-hotel-kronenhof-pontresina-723": "GR"
+      },
+      "de": {
+        "sous-chef-must-have-fluent-in-italian-start-immediately-m-w-d-grand-hotel-kronenhof-pontresina-723": "GR"
+      },
+      "fr": {
+        "sous-chef-must-have-fluent-in-italian-start-immediately-m-w-d-grand-hotel-kronenhof-pontresina-723": "GR"
+      }
+    }
   },
   {
     "slug": "terapia-spa-m-f-d-grand-hotel-kronenhof-pontresina",
@@ -385,7 +474,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/737",
-    "firstSeenAt": "2026-10-16T21:22:37.980Z"
+    "firstSeenAt": "2026-10-16T21:22:37.980Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spa-therapist-m-w-d-grand-hotel-kronenhof-pontresina-737": "GR",
+        "spa-therapist-limited-from-01-02-27-06-04-2027-m-w-d-grand-hotel-kronenhof-pontresina-737": "GR"
+      },
+      "en": {
+        "spa-therapist-m-w-d-grand-hotel-kronenhof-pontresina-737": "GR"
+      },
+      "de": {
+        "spa-therapist-m-w-d-grand-hotel-kronenhof-pontresina-737": "GR"
+      },
+      "fr": {
+        "spa-therapist-m-w-d-grand-hotel-kronenhof-pontresina-737": "GR"
+      }
+    }
   },
   {
     "slug": "group-finanza-tirocinante-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz",
@@ -429,7 +534,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/736",
-    "firstSeenAt": "2026-10-06T21:38:02.651Z"
+    "firstSeenAt": "2026-10-06T21:38:02.651Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "group-finance-intern-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz-736": "GR"
+      }
+    }
   },
   {
     "slug": "group-finanza-tirocinante-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz-53cdf722",
@@ -561,7 +672,34 @@
         "firstSeenAt": "2026-07-16T11:30:25.491Z",
         "title": "Commis de Cuisine (m/w/d)"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "commis-de-cuisine-m-w-d-grand-hotel-kronenhof-pontresina-746": "GR",
+        "commissione-di-cuisine-m-w-d-grand-hotel-kronenhof-pontresina": "GR",
+        "fruhstuckskoch-commis-de-cuisine-fruhstuck-m-w-d-grand-hotel-kronenhof-pontresina-ymxh4x": "GR",
+        "commis-de-cuisine-m-w-d-grand-hotel-kronenhof-pontresina-699": "GR",
+        "kommission-der-europaischen-gemeinschaften-m-w-d-grand-hotel-kronenhof-pontresina": "GR"
+      },
+      "de": {
+        "commis-de-cuisine-m-w-d-grand-hotel-kronenhof-pontresina-746": "GR",
+        "commis-de-cuisine-m-w-d-grand-hotel-kronenhof-pontresina": "GR",
+        "commis-de-cuisine-chef-de-rang-sommelier-m-w-d-grand-hotel-kronenhof-pontresina": "GR",
+        "kommission-der-europaischen-gemeinschaften-m-w-d-grand-hotel-kronenhof-pontresina-a958b011": "GR",
+        "commis-de-cuisine-m-w-d-grand-hotel-kronenhof-pontresina-699": "GR"
+      },
+      "fr": {
+        "commis-de-cuisine-m-w-d-grand-hotel-kronenhof-pontresina-746": "GR",
+        "commission-de-cuisine-m-w-d-grand-hotel-kronenhof-pontresina": "GR",
+        "commis-de-cuisine-m-w-d-grand-hotel-kronenhof-pontresina-699": "GR",
+        "kommission-der-europaischen-gemeinschaften-m-w-d-grand-hotel-kronenhof-pontresina": "GR"
+      },
+      "en": {
+        "commis-de-cuisine-m-w-d-grand-hotel-kronenhof-pontresina-699": "GR",
+        "kommission-der-europaischen-gemeinschaften-m-w-d-grand-hotel-kronenhof-pontresina": "GR"
+      }
+    }
   },
   {
     "slug": "commissione-di-rang-m-f-d-grand-hotel-kronenhof-pontresina",
@@ -591,17 +729,32 @@
     "sector": "Hotellerie & Gastronomia",
     "expiredAt": "2026-11-16T13:22:28.114Z",
     "previousSlugs": [
-      "commis-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-748"
+      "commis-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-748",
+      "commis-de-rang-assistant-waiter-m-w-d-grand-hotel-kronenhof-pontresina-651",
+      "commis-de-rang-assistant-waiter-m-w-d-grand-hotel-kronenhof-pontresina-682",
+      "commis-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-682",
+      "commis-de-rang-assistent-waiter-m-w-d-grand-hotel-kronenhof-pontresina",
+      "commis-de-rang-assistant-waiter-m-w-d-grand-hotel-kronenhof-pontresina",
+      "commissaire-de-rang-assistant-serveur-m-m-j-grand-hotel-kronenhof-pontresina"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "commis-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-748"
+        "commis-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-748",
+        "commis-de-rang-assistant-waiter-m-w-d-grand-hotel-kronenhof-pontresina-651",
+        "commis-de-rang-assistant-waiter-m-w-d-grand-hotel-kronenhof-pontresina-682",
+        "commis-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-682"
       ],
       "de": [
-        "commis-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-748"
+        "commis-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-748",
+        "commis-de-rang-assistent-waiter-m-w-d-grand-hotel-kronenhof-pontresina"
       ],
       "fr": [
-        "commis-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-748"
+        "commis-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-748",
+        "commis-de-rang-assistant-waiter-m-w-d-grand-hotel-kronenhof-pontresina",
+        "commissaire-de-rang-assistant-serveur-m-m-j-grand-hotel-kronenhof-pontresina"
+      ],
+      "en": [
+        "commis-de-rang-assistant-waiter-m-w-d-grand-hotel-kronenhof-pontresina-682"
       ]
     },
     "postalCode": "7504",
@@ -623,7 +776,28 @@
         "firstSeenAt": "2026-07-02T22:27:18.950Z",
         "title": "Commis de Rang (m/w/d)"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "commis-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-748": "GR",
+        "commis-de-rang-assistant-waiter-m-w-d-grand-hotel-kronenhof-pontresina-651": "GR",
+        "commis-de-rang-assistant-waiter-m-w-d-grand-hotel-kronenhof-pontresina-682": "GR",
+        "commis-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-682": "GR"
+      },
+      "de": {
+        "commis-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-748": "GR",
+        "commis-de-rang-assistent-waiter-m-w-d-grand-hotel-kronenhof-pontresina": "GR"
+      },
+      "fr": {
+        "commis-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-748": "GR",
+        "commis-de-rang-assistant-waiter-m-w-d-grand-hotel-kronenhof-pontresina": "GR",
+        "commissaire-de-rang-assistant-serveur-m-m-j-grand-hotel-kronenhof-pontresina": "GR"
+      },
+      "en": {
+        "commis-de-rang-assistant-waiter-m-w-d-grand-hotel-kronenhof-pontresina-682": "GR"
+      }
+    }
   },
   {
     "slug": "tecnico-m-w-d-grand-hotel-kronenhof-pontresina",
@@ -691,7 +865,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/708",
-    "firstSeenAt": "2026-07-29T11:55:10.743Z"
+    "firstSeenAt": "2026-07-29T11:55:10.743Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "conducente-m-f-d-grand-hotel-kronenhof-pontresina": "GR",
+        "florist-m-w-d-grand-hotel-kronenhof-pontresina": "GR",
+        "florist-m-w-d-grand-hotel-kronenhof-pontresina-714": "GR",
+        "risikopositionen-m-w-d-grand-hotel-kronenhof-pontresina": "GR",
+        "fleuriste-m-w-d-grand-hotel-kronenhof-pontresina": "GR",
+        "fiorista-m-w-d-grand-hotel-kronenhof-pontresina": "GR",
+        "technician-m-w-d-grand-hotel-kronenhof-pontresina-708": "GR"
+      },
+      "en": {
+        "florist-m-w-d-grand-hotel-kronenhof-pontresina-714": "GR"
+      },
+      "de": {
+        "risikopositionen-m-w-d-grand-hotel-kronenhof-pontresina": "GR",
+        "technician-m-w-d-grand-hotel-kronenhof-pontresina-708": "GR"
+      },
+      "fr": {
+        "fleuriste-m-w-d-grand-hotel-kronenhof-pontresina": "GR",
+        "technician-m-w-d-grand-hotel-kronenhof-pontresina-708": "GR"
+      }
+    }
   },
   {
     "slug": "responsabile-vendite-m-f-d-kulm-hotel-st-moritz-st-moritz",
@@ -747,7 +944,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/733",
-    "firstSeenAt": "2026-10-14T21:23:34.360Z"
+    "firstSeenAt": "2026-10-14T21:23:34.360Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsabile-vendite-m-f-d-kulm-hotel-st-moritz-st-moritz-bc2498": "GR",
+        "sales-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-733": "GR"
+      },
+      "de": {
+        "verkaufsleiter-m-w-d-kulm-hotel-st-moritz-st-moritz-bc2498": "GR",
+        "sales-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-733": "GR"
+      },
+      "fr": {
+        "directeur-des-ventes-h-f-d-kulm-hotel-st-moritz-st-moritz-bc2498": "GR",
+        "sales-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-733": "GR"
+      }
+    }
   },
   {
     "slug": "maestro-di-ghiaccio-tecnico-di-ghiaccio-m-f-d-kulm-hotel-st-moritz-st-moritz",
@@ -797,7 +1009,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/722",
-    "firstSeenAt": "2026-08-20T21:48:21.023Z"
+    "firstSeenAt": "2026-08-20T21:48:21.023Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ice-master-ice-technician-m-w-d-kulm-hotel-st-moritz-st-moritz-722": "GR"
+      },
+      "de": {
+        "ice-master-ice-technician-m-w-d-kulm-hotel-st-moritz-st-moritz-722": "GR"
+      },
+      "fr": {
+        "ice-master-ice-technician-m-w-d-kulm-hotel-st-moritz-st-moritz-722": "GR"
+      }
+    }
   },
   {
     "slug": "office-employee-steward-avvio-immediato-m-f-d-grand-hotel-kronenhof-pontresina",
@@ -845,7 +1069,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/720",
-    "firstSeenAt": "2026-09-24T14:25:52.940Z"
+    "firstSeenAt": "2026-09-24T14:25:52.940Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "office-employee-steward-immediate-start-m-w-d-grand-hotel-kronenhof-pontresina-720": "GR"
+      },
+      "fr": {
+        "office-employee-steward-immediate-start-m-w-d-grand-hotel-kronenhof-pontresina": "GR"
+      }
+    }
   },
   {
     "slug": "responsabile-engineering-m-w-d-grand-hotel-kronenhof-pontresina",
@@ -895,7 +1128,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/738",
-    "firstSeenAt": "2026-10-14T21:23:34.355Z"
+    "firstSeenAt": "2026-10-14T21:23:34.355Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "head-of-engineering-m-w-d-grand-hotel-kronenhof-pontresina-738": "GR"
+      },
+      "de": {
+        "head-of-engineering-m-w-d-grand-hotel-kronenhof-pontresina-738": "GR"
+      },
+      "fr": {
+        "head-of-engineering-m-w-d-grand-hotel-kronenhof-pontresina-738": "GR"
+      }
+    }
   },
   {
     "slug": "assistente-direttore-esecutivo-divisione-camere-lunedi-mercoledi-d-kulm-hotel-st-moritz-pontresina",
@@ -946,7 +1191,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/636",
-    "firstSeenAt": "2026-05-27T23:30:22.341Z"
+    "firstSeenAt": "2026-05-27T23:30:22.341Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistente-di-direzione-divisione-camere-m-w-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz-st-moritz-636": "GR"
+      },
+      "fr": {
+        "assistant-e-de-direction-division-des-chambres-m-w-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz-st-moritz-636": "GR"
+      }
+    }
   },
   {
     "slug": "barman-chef-de-rang-m-w-d-kulm-hotel-st-moritz-st-moritz-705",
@@ -979,7 +1235,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/705",
-    "firstSeenAt": "2026-10-15T21:21:38.117Z"
+    "firstSeenAt": "2026-10-15T21:21:38.117Z",
+    "canton": "GR",
+    "previousSlugsByLocale": {
+      "fr": [
+        "barman-chef-de-rang-m-w-d-kulm-hotel-st-moritz-st-moritz-705"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "fr": {
+        "barman-chef-de-rang-m-w-d-kulm-hotel-st-moritz-st-moritz-705": "GR"
+      }
+    }
   },
   {
     "slug": "barista-ospitalita-di-lusso-m-f-d-kulm-hotel-st-moritz-st-moritz",
@@ -1030,7 +1297,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/741",
-    "firstSeenAt": "2026-10-23T21:26:49.001Z"
+    "firstSeenAt": "2026-10-23T21:26:49.001Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "barista-luxury-hospitality-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "barista-luxury-hospitality-m-w-d-kulm-hotel-st-moritz-st-moritz-741": "GR"
+      },
+      "de": {
+        "barista-luxury-hospitality-m-w-d-kulm-hotel-st-moritz-st-moritz-741": "GR"
+      },
+      "fr": {
+        "barista-luxury-hospitality-m-w-d-kulm-hotel-st-moritz-st-moritz-741": "GR"
+      }
+    }
   },
   {
     "slug": "servizio-lavanderia-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz-st-moritz",
@@ -1081,7 +1361,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/690",
-    "firstSeenAt": "2026-07-14T11:04:10.198Z"
+    "firstSeenAt": "2026-07-14T11:04:10.198Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz-st-moritz-690": "GR"
+      },
+      "de": {
+        "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz-st-moritz-690": "GR"
+      },
+      "fr": {
+        "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz-st-moritz-690": "GR"
+      }
+    }
   },
   {
     "slug": "gestione-della-pianificazione-degli-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz",
@@ -1132,7 +1425,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/719",
-    "firstSeenAt": "2026-08-11T22:01:47.480Z"
+    "firstSeenAt": "2026-08-11T22:01:47.480Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "events-planning-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-719": "GR",
+        "senior-events-planning-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-719": "GR"
+      },
+      "de": {
+        "events-planning-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-719": "GR"
+      },
+      "fr": {
+        "events-planning-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-719": "GR"
+      }
+    }
   },
   {
     "slug": "capo-del-partito-intermetier-m-f-d-grand-hotel-kronenhof-pontresina",
@@ -1171,7 +1477,9 @@
       "chef-de-partie-gardemanger-m-w-d-grand-hotel-kronenhof-pontresina-306e172d",
       "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-ba5ce2ba",
       "testa-di-partito-intermetier-m-f-d-grand-hotel-kronenhof-pontresina-3c699e9a",
-      "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-46058203"
+      "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-46058203",
+      "testa-di-partito-intermetier-m-f-d-grand-hotel-kronenhof-pontresina-66138c5c",
+      "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-9c905647"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1183,28 +1491,33 @@
         "testa-di-partito-intermetier-m-f-d-grand-hotel-kronenhof-pontresina-2f3fbcda",
         "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-ba5ce2ba",
         "testa-di-partito-intermetier-m-f-d-grand-hotel-kronenhof-pontresina-3c699e9a",
-        "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-46058203"
+        "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-46058203",
+        "testa-di-partito-intermetier-m-f-d-grand-hotel-kronenhof-pontresina-66138c5c",
+        "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-9c905647"
       ],
       "en": [
         "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-732",
         "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-8d7b03cc",
         "chef-de-partie-gardemanger-m-w-d-grand-hotel-kronenhof-pontresina-306e172d",
         "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-ba5ce2ba",
-        "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-46058203"
+        "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-46058203",
+        "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-9c905647"
       ],
       "de": [
         "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-732",
         "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-8d7b03cc",
         "chef-de-partie-gardemanger-m-w-d-grand-hotel-kronenhof-pontresina",
         "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-ba5ce2ba",
-        "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-46058203"
+        "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-46058203",
+        "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-9c905647"
       ],
       "fr": [
         "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-732",
         "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-8d7b03cc",
         "chef-de-partie-gardemanger-m-w-d-grand-hotel-kronenhof-pontresina",
         "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-ba5ce2ba",
-        "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-46058203"
+        "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-46058203",
+        "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728-9c905647"
       ]
     },
     "postalCode": "7504",
@@ -1226,7 +1539,24 @@
         "firstSeenAt": "2026-11-19T09:25:39.018Z",
         "title": "Chef de Partie - Gardemanger (m/w/d)"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-732": "GR",
+        "chef-de-partie-gardemanger-m-w-d-grand-hotel-kronenhof-pontresina-732": "GR"
+      },
+      "en": {
+        "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-732": "GR"
+      },
+      "de": {
+        "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-732": "GR"
+      },
+      "fr": {
+        "chef-de-partie-gardemanger-m-w-d-grand-hotel-kronenhof-pontresina": "GR",
+        "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-732": "GR"
+      }
+    }
   },
   {
     "slug": "assistente-amministrativo-f-b-m-f-d-kulm-hotel-st-moritz-st-moritz",
@@ -1291,7 +1621,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/729",
-    "firstSeenAt": "2026-09-23T23:44:56.631Z"
+    "firstSeenAt": "2026-09-23T23:44:56.631Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "f-b-administrative-assistant-m-w-d-kulm-hotel-st-moritz-st-moritz-729": "GR"
+      },
+      "de": {
+        "f-b-administrative-assistant-m-w-d-kulm-hotel-st-moritz-st-moritz-729": "GR"
+      }
+    }
   },
   {
     "slug": "concierge-m-w-d-grand-hotel-kronenhof-pontresina",
@@ -1335,7 +1674,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/717",
-    "firstSeenAt": "2026-08-05T22:42:50.897Z"
+    "firstSeenAt": "2026-08-05T22:42:50.897Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "concierge-m-w-d-grand-hotel-kronenhof-pontresina-717": "GR",
+        "concierge-m-w-d-grand-hotel-kronenhof-pontresina": "GR"
+      }
+    }
   },
   {
     "slug": "freelance-hairstylist-coiffeur-m-w-d-kulm-hotel-st-moritz-st-moritz-730",
@@ -1367,7 +1713,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/730",
-    "firstSeenAt": "2026-10-06T21:38:02.650Z"
+    "firstSeenAt": "2026-10-06T21:38:02.650Z",
+    "canton": "GR",
+    "previousSlugsByLocale": {
+      "en": [
+        "freelance-hairstylist-coiffeur-m-w-d-kulm-hotel-st-moritz-st-moritz-730"
+      ],
+      "fr": [
+        "freelance-hairstylist-coiffeur-m-w-d-kulm-hotel-st-moritz-st-moritz-730"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "freelance-hairstylist-coiffeur-m-w-d-kulm-hotel-st-moritz-st-moritz-730": "GR"
+      },
+      "fr": {
+        "freelance-hairstylist-coiffeur-m-w-d-kulm-hotel-st-moritz-st-moritz-730": "GR"
+      }
+    }
   },
   {
     "slug": "demi-chef-de-partie-avviare-immediatamente-m-f-d-grand-hotel-kronenhof-pontresina",
@@ -1417,7 +1780,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/731",
-    "firstSeenAt": "2026-09-24T14:25:52.938Z"
+    "firstSeenAt": "2026-09-24T14:25:52.938Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "demi-chef-de-partie-start-immediately-m-w-d-grand-hotel-kronenhof-pontresina-731": "GR"
+      },
+      "de": {
+        "demi-chef-de-partie-start-immediately-m-w-d-grand-hotel-kronenhof-pontresina-731": "GR"
+      },
+      "fr": {
+        "demi-chef-de-partie-start-immediately-m-w-d-grand-hotel-kronenhof-pontresina-731": "GR"
+      }
+    }
   },
   {
     "slug": "pasticceria-talent-demi-chef-de-partie-patisserie-m-f-d-grand-hotel-kronenhof-pontresina",
@@ -1467,7 +1842,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/725",
-    "firstSeenAt": "2026-09-04T23:07:01.817Z"
+    "firstSeenAt": "2026-09-04T23:07:01.817Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pastry-talent-demi-chef-de-partie-patisserie-m-w-d-grand-hotel-kronenhof-pontresina-725": "GR"
+      },
+      "en": {
+        "pastry-talent-demi-chef-de-partie-patisserie-m-w-d-grand-hotel-kronenhof-pontresina-725": "GR"
+      },
+      "de": {
+        "pastry-talent-demi-chef-de-partie-patisserie-m-w-d-grand-hotel-kronenhof-pontresina-725": "GR"
+      }
+    }
   },
   {
     "slug": "chef-de-rang-partenza-immediata-m-w-d-grand-hotel-kronenhof-pontresina",
@@ -1501,8 +1888,8 @@
       "demi-chef-de-partie-start-immediately-m-w-d-grand-hotel-kronenhof-pontresina-553",
       "cook-staff-restaurant-m-w-d-grand-hotel-kronenhof-pontresina",
       "chef-de-rang-immediate-start-m-w-d-grand-hotel-kronenhof-pontresina-716",
-      "demi-chef-de-partie-sofort-starten-m-w-d-grand-hotel-kronenhof-pontresina",
-      "demi-chef-de-partie-sofort-starten-m-w-d-grand-hotel-kronenhof-pontresina-01fa3317"
+      "demi-chef-de-partie-sofort-starten-m-w-d-grand-hotel-kronenhof-pontresina-01fa3317",
+      "demi-chef-de-partie-sofort-starten-m-w-d-grand-hotel-kronenhof-pontresina"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1533,7 +1920,28 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/716",
-    "firstSeenAt": "2026-08-05T11:44:26.892Z"
+    "firstSeenAt": "2026-08-05T11:44:26.892Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "demi-chef-de-partie-partenza-immediata-m-w-d-grand-hotel-kronenhof-pontresina": "GR",
+        "demi-chef-de-partie-start-immediately-m-w-d-grand-hotel-kronenhof-pontresina-553": "GR",
+        "demi-chef-de-partie-sofort-starten-m-w-d-grand-hotel-kronenhof-pontresina": "GR",
+        "cook-staff-restaurant-m-w-d-grand-hotel-kronenhof-pontresina": "GR",
+        "chef-de-rang-immediate-start-m-w-d-grand-hotel-kronenhof-pontresina-716": "GR"
+      },
+      "en": {
+        "demi-chef-de-partie-start-immediately-m-w-d-grand-hotel-kronenhof-pontresina-553": "GR"
+      },
+      "de": {
+        "chef-de-rang-immediate-start-m-w-d-grand-hotel-kronenhof-pontresina-716": "GR",
+        "demi-chef-de-partie-sofort-starten-m-w-d-grand-hotel-kronenhof-pontresina-01fa3317": "GR"
+      },
+      "fr": {
+        "cook-staff-restaurant-m-w-d-grand-hotel-kronenhof-pontresina": "GR",
+        "chef-de-rang-immediate-start-m-w-d-grand-hotel-kronenhof-pontresina-716": "GR"
+      }
+    }
   },
   {
     "slug": "agente-di-ufficio-anteriore-m-w-d-kulm-hotel-st-moritz-st-moritz",
@@ -1609,7 +2017,35 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/689",
-    "firstSeenAt": "2026-07-31T22:25:27.426Z"
+    "firstSeenAt": "2026-07-31T22:25:27.426Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistente-front-office-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "agente-di-prenotazione-m-w-d-kulm-hotel-st-moritz": "GR",
+        "addetto-alle-prenotazioni-m-f-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-712": "GR",
+        "mitarbeiter-in-reservierung-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh9e": "GR",
+        "agent-de-reservation-m-p-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "agente-di-prenotazione-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "agent-reservations-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-602": "GR",
+        "front-office-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-689": "GR"
+      },
+      "en": {
+        "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-712": "GR"
+      },
+      "de": {
+        "mitarbeiter-in-reservierung-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR"
+      },
+      "fr": {
+        "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "front-office-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-689": "GR"
+      }
+    }
   },
   {
     "slug": "gestione-vendite-e-eventi-m-w-d-kulm-hotel-st-moritz-st-moritz",
@@ -1656,7 +2092,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/710",
-    "firstSeenAt": "2026-07-28T11:31:08.825Z"
+    "firstSeenAt": "2026-07-28T11:31:08.825Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sales-and-event-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-710": "GR",
+        "event-sales-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-710": "GR"
+      },
+      "fr": {
+        "sales-and-event-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-710": "GR"
+      }
+    }
   },
   {
     "slug": "demi-chef-de-partie-m-w-d-grand-hotel-kronenhof-pontresina-726",
@@ -1711,7 +2157,8 @@
       "fr": [
         "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728",
         "head-of-party-intermetier-m-f-d-grand-hotel-kronenhof-pontresina",
-        "parteichef-intermetier-m-w-d-grand-hotel-kronenhof-pontresina"
+        "parteichef-intermetier-m-w-d-grand-hotel-kronenhof-pontresina",
+        "demi-chef-de-partie-m-w-d-grand-hotel-kronenhof-pontresina-726"
       ]
     },
     "postalCode": "7504",
@@ -1721,7 +2168,26 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/726",
-    "firstSeenAt": "2026-09-04T23:07:01.813Z"
+    "firstSeenAt": "2026-09-04T23:07:01.813Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "testa-di-partito-intermetier-m-f-d-grand-hotel-kronenhof-pontresina": "GR",
+        "head-of-party-intermetier-m-f-d-grand-hotel-kronenhof-pontresina": "GR",
+        "parteichef-intermetier-m-w-d-grand-hotel-kronenhof-pontresina": "GR",
+        "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728": "GR"
+      },
+      "en": {
+        "head-of-party-intermetier-m-f-d-grand-hotel-kronenhof-pontresina-56e8e4a3": "GR"
+      },
+      "de": {
+        "parteichef-intermetier-m-w-d-grand-hotel-kronenhof-pontresina-b42c11c7": "GR"
+      },
+      "fr": {
+        "demi-chef-de-partie-m-w-d-grand-hotel-kronenhof-pontresina-726": "GR",
+        "chef-de-partie-entremetier-m-w-d-grand-hotel-kronenhof-pontresina-728": "GR"
+      }
+    }
   },
   {
     "slug": "servizio-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz-1ed5c2",
@@ -1773,7 +2239,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/697",
-    "firstSeenAt": "2026-07-14T22:06:01.402Z"
+    "firstSeenAt": "2026-07-14T22:06:01.402Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "laundry-employee-m-w-d-kulm-hotel-st-moritz-st-moritz-697": "GR",
+        "laundry-employee-washer-m-w-d-kulm-hotel-st-moritz-st-moritz-697": "GR"
+      },
+      "de": {
+        "wascherei-mitarbeiter-m-w-d-kulm-hotel-st-moritz-st-moritz-1ed5c2": "GR",
+        "laundry-employee-m-w-d-kulm-hotel-st-moritz-st-moritz-697": "GR"
+      },
+      "fr": {
+        "laundry-employee-m-w-d-kulm-hotel-st-moritz-st-moritz-697": "GR"
+      }
+    }
   },
   {
     "slug": "commissione-di-cuisine-patisserie-m-w-d-grand-hotel-kronenhof-pontresina",
@@ -1823,7 +2303,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kronenhof.com/en/vacancies/698",
-    "firstSeenAt": "2026-07-16T11:30:25.491Z"
+    "firstSeenAt": "2026-07-16T11:30:25.491Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "commis-de-cuisine-patisserie-m-w-d-grand-hotel-kronenhof-pontresina-698": "GR"
+      },
+      "de": {
+        "commis-de-cuisine-patisserie-m-w-d-grand-hotel-kronenhof-pontresina-698": "GR"
+      },
+      "fr": {
+        "commis-de-cuisine-patisserie-m-w-d-grand-hotel-kronenhof-pontresina-698": "GR"
+      }
+    }
   },
   {
     "slug": "agente-di-prenotazione-m-w-d-kulm-hotel-st-moritz",

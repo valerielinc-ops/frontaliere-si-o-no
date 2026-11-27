@@ -42,7 +42,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://duferco.talentics.ai/job/1cf7268a-a1ec-4fda-8e3a-94da072587c4",
-    "firstSeenAt": "2026-09-19T22:59:32.207Z"
+    "firstSeenAt": "2026-09-19T22:59:32.207Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "operations-research-engineer-duferco-lugano": "TI"
+      }
+    }
   },
   {
     "slug": "ai-ingegnere-duferco-lugano",
@@ -85,7 +91,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://duferco.talentics.ai/job/3ce2e723-cfe3-46ff-92cc-cd3f49dde19b",
-    "firstSeenAt": "2026-06-16T13:16:07.116Z"
+    "firstSeenAt": "2026-06-16T13:16:07.116Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ai-engineer-duferco-lugano": "TI"
+      }
+    }
   },
   {
     "slug": "ingegnere-dispiegato-in-avanti-duferco-lugano",
@@ -134,7 +146,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://duferco.talentics.ai/job/ce2e4e2d-3560-47d1-8655-400dce5e2d9f",
-    "firstSeenAt": "2026-06-16T13:16:07.097Z"
+    "firstSeenAt": "2026-06-16T13:16:07.097Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ingegnere-di-distribuzione-avanzato-duferco-lugano": "TI",
+        "forward-deployed-engineer-duferco-lugano": "TI"
+      },
+      "de": {
+        "vorgeschobener-pionier-duferco-lugano": "TI"
+      }
+    }
   },
   {
     "slug": "ingegnere-della-piattaforma-duferco-lugano",
@@ -180,7 +202,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://duferco.talentics.ai/job/7d3cb7f4-0255-411c-98c5-92ad1132c9b1",
-    "firstSeenAt": "2026-06-10T06:06:36.042Z"
+    "firstSeenAt": "2026-06-10T06:06:36.042Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "platform-engineer-duferco-lugano": "TI"
+      },
+      "de": {
+        "plattformingenieur-duferco-lugano": "TI"
+      }
+    }
   },
   {
     "slug": "ingegnere-di-software-senior-duferco-lugano",
@@ -237,7 +268,16 @@
         "firstSeenAt": "2026-06-10T06:06:36.064Z",
         "title": "Senior Software Engineer"
       }
-    ]
+    ],
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-software-engineer-duferco-lugano": "TI"
+      },
+      "en": {
+        "senior-software-engineer-duferco-lugano": "TI"
+      }
+    }
   },
   {
     "slug": "responsabile-ingegneria-del-software-duferco-lugano",
@@ -279,7 +319,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://duferco.talentics.ai/job/acf31343-af32-4da9-98d4-b985d14baa10",
-    "firstSeenAt": "2026-06-10T06:06:36.061Z"
+    "firstSeenAt": "2026-06-10T06:06:36.061Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "software-engineering-manager-duferco-lugano": "TI"
+      }
+    }
   },
   {
     "slug": "software-architetto-duferco-lugano",
@@ -327,6 +373,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://duferco.talentics.ai/job/24216bb0-34f2-4d8c-a640-1bbceaa47497",
-    "firstSeenAt": "2026-07-03T10:55:24.056Z"
+    "firstSeenAt": "2026-07-03T10:55:24.056Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "software-architect-duferco-lugano": "TI"
+      },
+      "de": {
+        "software-architect-duferco-lugano": "TI"
+      },
+      "fr": {
+        "software-architect-duferco-lugano": "TI"
+      }
+    }
   }
 ]

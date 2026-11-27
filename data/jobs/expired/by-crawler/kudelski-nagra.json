@@ -48,7 +48,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.nagra.com/?page=advertisement_display&id=15883",
-    "firstSeenAt": "2026-11-09T09:51:13.368Z"
+    "firstSeenAt": "2026-11-09T09:51:13.368Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "apprenti-e-informaticien-ne-orientation-exploitation-et-infrastructure-kudelski-nagra-ch": "VD"
+      },
+      "en": {
+        "apprenti-e-informaticien-ne-orientation-exploitation-et-infrastructure-kudelski-nagra-ch": "VD"
+      },
+      "de": {
+        "apprenti-e-informaticien-ne-orientation-exploitation-et-infrastructure-kudelski-nagra-ch": "VD"
+      }
+    }
   },
   {
     "id": "kudelski-nagra-abfd4eba26c2",
@@ -99,7 +111,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.nagra.com/?page=advertisement_display&id=15884",
-    "firstSeenAt": "2026-11-09T09:51:14.079Z"
+    "firstSeenAt": "2026-11-09T09:51:14.079Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "apprenti-e-informaticien-ne-orientation-developpement-d-applications-kudelski-nagra-ch": "VD"
+      },
+      "en": {
+        "apprenti-e-informaticien-ne-orientation-developpement-d-applications-kudelski-nagra-ch": "VD"
+      },
+      "de": {
+        "apprenti-e-informaticien-ne-orientation-developpement-d-applications-kudelski-nagra-ch": "VD"
+      }
+    }
   },
   {
     "id": "kudelski-nagra-cc96c232e205",
@@ -150,7 +174,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.nagra.com/?page=advertisement_display&id=15856",
-    "firstSeenAt": "2026-11-09T09:51:16.277Z"
+    "firstSeenAt": "2026-11-09T09:51:16.277Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "trainee-accounting-finance-kudelski-nagra-ch": "VD"
+      },
+      "de": {
+        "trainee-accounting-finance-kudelski-nagra-ch": "VD"
+      },
+      "fr": {
+        "trainee-accounting-finance-kudelski-nagra-ch": "VD"
+      }
+    }
   },
   {
     "slug": "security-operations-ingegnere-kudelski-nagra-adliswil",
@@ -220,7 +256,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.nagra.com/?page=advertisement_display&id=15828",
-    "firstSeenAt": "2026-09-19T23:09:21.794Z"
+    "firstSeenAt": "2026-09-19T23:09:21.794Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "security-operations-engineer-kudelski-nagra-ch": "ZH"
+      },
+      "en": {
+        "securit-oper-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client": "ZH",
+        "security-5-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client": "ZH",
+        "security-operations-engineer-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client": "ZH"
+      },
+      "de": {
+        "security-operations-ingenieur-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client": "ZH"
+      }
+    }
   },
   {
     "slug": "apprenti-e-employ-eacute-e-de-commerce-voie-2-kudelski-nagra-ch",
@@ -255,6 +305,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.nagra.com/?page=advertisement_display&id=15596",
-    "firstSeenAt": "2026-07-22T22:19:26.636Z"
+    "firstSeenAt": "2026-07-22T22:19:26.636Z",
+    "canton": "TI"
   }
 ]

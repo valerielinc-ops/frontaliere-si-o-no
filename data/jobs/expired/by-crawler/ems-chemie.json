@@ -27,14 +27,29 @@
       "fr": "assistenz-leiter-produktion-m-w-d-50-ems-chemie-domat-ems"
     },
     "sector": "",
-    "expiredAt": "2026-11-26T10:08:02.522Z",
+    "expiredAt": "2026-11-27T07:03:33.095Z",
     "previousSlugs": [
-      "assistenz-leiter-produktion-m-w-d-50-ems-chemie-domat-ems"
+      "assistenz-leiter-produktion-m-w-d-50-ems-chemie-domat-ems",
+      "assistenz-produktionsleitung-m-w-d-50-ems-chemie-domat-ems",
+      "assistenzleiter-produktion-m-w-d-50-ems-chemie-ag-domat-ems"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "assistenz-leiter-produktion-m-w-d-50-ems-chemie-domat-ems"
+        "assistenz-leiter-produktion-m-w-d-50-ems-chemie-domat-ems",
+        "assistenz-produktionsleitung-m-w-d-50-ems-chemie-domat-ems"
+      ],
+      "de": [
+        "assistenzleiter-produktion-m-w-d-50-ems-chemie-ag-domat-ems"
       ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistenz-leiter-produktion-m-w-d-50-ems-chemie-domat-ems": "GR",
+        "assistenz-produktionsleitung-m-w-d-50-ems-chemie-domat-ems": "GR"
+      },
+      "de": {
+        "assistenzleiter-produktion-m-w-d-50-ems-chemie-ag-domat-ems": "GR"
+      }
     },
     "postalCode": "7013",
     "streetAddress": "Via Innovativa 1",
@@ -95,7 +110,7 @@
       "fr": "elektroniker-fur-betriebstechnik-mechatroniker-m-w-d-100-ems-chemie-domat-ems"
     },
     "sector": "",
-    "expiredAt": "2026-11-26T10:08:02.522Z",
+    "expiredAt": "2026-11-27T07:03:33.095Z",
     "previousSlugs": [
       "elektroniker-fur-betriebstechnik-mechatroniker-m-w-d-100-ems-chemie-domat-ems",
       "electronics-technician-for-industrial-technology-mechatronics-engineer-m-f-d-100-ems-chemie-ag-domat-ems",
@@ -111,6 +126,17 @@
       "it": [
         "elektroniker-fur-betriebstechnik-mechatroniker-m-w-d-100-ems-chemie-domat-ems"
       ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "elektroniker-fur-betriebstechnik-mechatroniker-m-w-d-100-ems-chemie-domat-ems": "GR"
+      },
+      "en": {
+        "electronics-technician-for-industrial-technology-mechatronics-engineer-m-f-d-100-ems-chemie-ag-domat-ems": "GR"
+      },
+      "fr": {
+        "technicien-en-electronique-pour-technologie-industrielle-ingenieur-mechatronics-h-f-d-100-ems-chemie-ag-domat-ems": "GR"
+      }
     },
     "postalCode": "7013",
     "streetAddress": "Via Innovativa 1",
@@ -149,17 +175,21 @@
       "fr": "chimiste-de-developpement-ingenieur-de-developpement-h-f-d-100-ems-chemie-ag-romanshorn"
     },
     "sector": "",
-    "expiredAt": "2026-11-26T10:08:02.522Z",
-    "previousSlugs": [
-      "sviluppo-chimico-ingegnere-di-sviluppo-m-f-d-100-ems-chemie-ag-romanshorn",
-      "entwicklungschemiker-entwicklungsingenieur-m-w-d-100-ems-chemie-romanshorn-3p3uy6",
-      "ent-icklungschemiker-ent-icklungs-ingenieur-zq-0-qz-100-m-w-d-ems-chemie-ag-romanshorn"
-    ],
+    "expiredAt": "2026-11-27T07:03:33.095Z",
     "previousSlugsByLocale": {
       "it": [
         "sviluppo-chimico-ingegnere-di-sviluppo-m-f-d-100-ems-chemie-ag-romanshorn",
         "entwicklungschemiker-entwicklungsingenieur-m-w-d-100-ems-chemie-romanshorn-3p3uy6",
         "ent-icklungschemiker-ent-icklungs-ingenieur-zq-0-qz-100-m-w-d-ems-chemie-ag-romanshorn"
+      ],
+      "en": [
+        "entwicklungschemiker-entwicklungsingenieur-m-w-d-100-ems-chemie-romanshorn"
+      ],
+      "de": [
+        "entwicklungschemiker-entwicklungsingenieur-m-w-d-100-ems-chemie-romanshorn"
+      ],
+      "fr": [
+        "entwicklungschemiker-entwicklungsingenieur-m-w-d-100-ems-chemie-romanshorn"
       ]
     },
     "previousSlugCantonByLocale": {
@@ -168,7 +198,13 @@
         "entwicklungschemiker-entwicklungsingenieur-m-w-d-100-ems-chemie-romanshorn-3p3uy6": "TG",
         "ent-icklungschemiker-ent-icklungs-ingenieur-zq-0-qz-100-m-w-d-ems-chemie-ag-romanshorn": "TG"
       },
+      "en": {
+        "entwicklungschemiker-entwicklungsingenieur-m-w-d-100-ems-chemie-romanshorn": "TG"
+      },
       "de": {
+        "entwicklungschemiker-entwicklungsingenieur-m-w-d-100-ems-chemie-romanshorn": "TG"
+      },
+      "fr": {
         "entwicklungschemiker-entwicklungsingenieur-m-w-d-100-ems-chemie-romanshorn": "TG"
       }
     },
@@ -191,6 +227,10 @@
         "firstSeenAt": "2026-08-31T17:07:28.537Z",
         "title": "Entwicklungschemiker / Entwicklungsingenieur m/w/d 100%"
       }
+    ],
+    "previousSlugs": [
+      "sviluppo-chimico-ingegnere-di-sviluppo-m-f-d-100-ems-chemie-ag-romanshorn",
+      "entwicklungschemiker-entwicklungsingenieur-m-w-d-100-ems-chemie-romanshorn-3p3uy6"
     ]
   },
   {
@@ -221,7 +261,7 @@
       "fr": "hr-business-partner-personalreferent-m-w-d-100-ems-chemie-domat-ems"
     },
     "sector": "",
-    "expiredAt": "2026-11-26T10:08:02.522Z",
+    "expiredAt": "2026-11-27T07:03:33.095Z",
     "postalCode": "7013",
     "streetAddress": "Via Innovativa 1",
     "salaryMin": 77000,
@@ -259,7 +299,7 @@
       "fr": "support-informatique-100-ems-chemie-ag-romanshorn"
     },
     "sector": "",
-    "expiredAt": "2026-11-26T10:08:02.522Z",
+    "expiredAt": "2026-11-27T07:03:33.095Z",
     "previousSlugs": [
       "it-supporter-100-ems-chemie-domat-ems",
       "it-engineer-100-ems-chemie-domat-ems",
@@ -271,6 +311,13 @@
         "it-engineer-100-ems-chemie-domat-ems",
         "it-engineer-100-ems-chemie-romanshorn"
       ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "it-supporter-100-ems-chemie-domat-ems": "TG",
+        "it-engineer-100-ems-chemie-domat-ems": "TG",
+        "it-engineer-100-ems-chemie-romanshorn": "TG"
+      }
     },
     "postalCode": "7013",
     "streetAddress": "Via Innovativa 1",
@@ -326,7 +373,7 @@
       "fr": "gestionnaire-de-comptes-cles-emballage-h-f-d-100-home-office-100-ems-chemie-ag-domat-ems"
     },
     "sector": "",
-    "expiredAt": "2026-11-26T10:08:02.522Z",
+    "expiredAt": "2026-11-27T07:03:33.095Z",
     "postalCode": "7013",
     "streetAddress": "Via Innovativa 1",
     "salaryMin": 118000,
@@ -364,7 +411,7 @@
       "fr": "key-account-manager-segment-automotive-m-w-d-region-nord-west-deutschland-80-ems-chemie-domat-ems"
     },
     "sector": "",
-    "expiredAt": "2026-11-26T10:08:02.522Z",
+    "expiredAt": "2026-11-27T07:03:33.095Z",
     "previousSlugs": [
       "key-account-manager-segment-automotive-m-w-d-region-nord-west-deutschland-100-ems-chemie-domat-ems"
     ],
@@ -372,6 +419,11 @@
       "it": [
         "key-account-manager-segment-automotive-m-w-d-region-nord-west-deutschland-100-ems-chemie-domat-ems"
       ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "key-account-manager-segment-automotive-m-w-d-region-nord-west-deutschland-100-ems-chemie-domat-ems": "GR"
+      }
     },
     "postalCode": "7013",
     "streetAddress": "Via Innovativa 1",
@@ -410,7 +462,7 @@
       "fr": "logisticien-reception-des-marchandises-h-f-d-100-ems-chemie-ag-domat-ems"
     },
     "sector": "",
-    "expiredAt": "2026-11-26T10:08:02.522Z",
+    "expiredAt": "2026-11-27T07:03:33.095Z",
     "previousSlugs": [
       "logistiker-wareneingang-m-w-d-100-ems-chemie-domat-ems"
     ],
@@ -424,6 +476,17 @@
       "it": [
         "logistiker-wareneingang-m-w-d-100-ems-chemie-domat-ems"
       ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "logistiker-wareneingang-m-w-d-100-ems-chemie-domat-ems": "GR"
+      },
+      "en": {
+        "logistiker-wareneingang-m-w-d-100-ems-chemie-domat-ems": "GR"
+      },
+      "fr": {
+        "logistiker-wareneingang-m-w-d-100-ems-chemie-domat-ems": "GR"
+      }
     },
     "postalCode": "7013",
     "streetAddress": "Via Innovativa 1",
@@ -462,7 +525,7 @@
       "fr": "produktionscontroleur-100-ems-chemie-ag-domat-ems"
     },
     "sector": "",
-    "expiredAt": "2026-11-26T10:08:02.522Z",
+    "expiredAt": "2026-11-27T07:03:33.095Z",
     "previousSlugs": [
       "verkaufscontroller-m-w-d-100-ems-chemie-domat-ems",
       "sales-controller-m-w-d-100-ems-chemie-ag-domat-ems",
@@ -477,7 +540,8 @@
       "controleur-de-vente-h-f-d-100-ems-chemie-ag-domat-ems",
       "produktions139ler-m-w-d-100-ems-chemie-ag-domat-ems",
       "produitscontroleur-h-f-d-100-ems-chemie-ag-domat-ems",
-      "produktionscontroller-m-w-d-100-ems-chemie-domat-ems-47cf723b"
+      "produktionscontroller-m-w-d-100-ems-chemie-domat-ems-47cf723b",
+      "controleur-des-ventes-h-f-d-100-ems-chemie-ag-domat-ems"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -512,31 +576,45 @@
         "verkaufscontroller-m-w-d-100-ems-chemie-domat-ems",
         "controleur-de-vente-h-f-d-100-ems-chemie-ag-domat-ems",
         "produitscontroleur-h-f-d-100-ems-chemie-ag-domat-ems",
-        "produktionscontroller-m-w-d-100-ems-chemie-domat-ems-47cf723b"
+        "produktionscontroller-m-w-d-100-ems-chemie-domat-ems-47cf723b",
+        "controleur-des-ventes-h-f-d-100-ems-chemie-ag-domat-ems"
       ]
     },
     "previousSlugCantonByLocale": {
       "it": {
+        "verkaufscontroller-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "sales-controller-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "139ler-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "controleur-de-ventes-h-f-d-100-ems-chemie-ag-domat-ems": "GR",
         "produktionscontroller-m-w-d-100-ems-chemie-domat-ems": "GR",
         "regolatore-di-produzione-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
         "regolatore-di-vendita-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
-        "verkaufscontroller-m-w-d-100-ems-chemie-domat-ems": "GR"
+        "produktionscontroller-m-w-d-100-ems-chemie-domat-ems-47cf723b": "GR"
       },
       "en": {
+        "sales-controller-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
         "produktionscontroller-m-w-d-100-ems-chemie-domat-ems": "GR",
         "production-controller-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "verkaufscontroller-m-w-d-100-ems-chemie-domat-ems": "GR",
         "sales-controller-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
-        "verkaufscontroller-m-w-d-100-ems-chemie-domat-ems": "GR"
+        "produktionscontroller-m-w-d-100-ems-chemie-domat-ems-47cf723b": "GR"
       },
       "de": {
+        "139ler-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
         "produktionscontroller-m-w-d-100-ems-chemie-domat-ems": "GR",
-        "verkaufscontroller-m-w-d-100-ems-chemie-domat-ems": "GR"
+        "verkaufscontroller-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "produktions139ler-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "produktionscontroller-m-w-d-100-ems-chemie-domat-ems-47cf723b": "GR"
       },
       "fr": {
+        "controleur-de-ventes-h-f-d-100-ems-chemie-ag-domat-ems": "GR",
         "produktionscontroller-m-w-d-100-ems-chemie-domat-ems": "GR",
         "controleur-de-production-h-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "verkaufscontroller-m-w-d-100-ems-chemie-domat-ems": "GR",
         "controleur-de-vente-h-f-d-100-ems-chemie-ag-domat-ems": "GR",
-        "verkaufscontroller-m-w-d-100-ems-chemie-domat-ems": "GR"
+        "produitscontroleur-h-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "produktionscontroller-m-w-d-100-ems-chemie-domat-ems-47cf723b": "GR",
+        "controleur-des-ventes-h-f-d-100-ems-chemie-ag-domat-ems": "GR"
       }
     },
     "postalCode": "7013",
@@ -623,7 +701,7 @@
       "fr": "produktionsplaner-m-w-d-100-ems-chemie-domat-ems"
     },
     "sector": "",
-    "expiredAt": "2026-11-26T10:08:02.522Z",
+    "expiredAt": "2026-11-27T07:03:33.095Z",
     "postalCode": "7013",
     "streetAddress": "Via Innovativa 1",
     "salaryMin": 77000,
@@ -632,6 +710,640 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/produktionsplaner-m-w-d/44cba7a5-96e5-4545-a78a-df12d1e11f50",
     "firstSeenAt": "2026-09-28T21:20:18.554Z"
+  },
+  {
+    "id": "ems-chemie-30f67b8d3d66",
+    "slug": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems",
+    "title": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%",
+    "titleByLocale": {
+      "it": "Responsabile di progetto Applicazioni in plastica Automobile (m/f/d) 100%",
+      "en": "Project Manager Artoff Applications Automotive (m/f/d) 100%",
+      "de": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%",
+      "fr": "Gestionnaire de projet Applications Artoff Automobile (h/f/d) 100%"
+    },
+    "company": "EMS-Chemie AG",
+    "companyKey": "ems-chemie",
+    "location": "Domat/Ems",
+    "canton": "GR",
+    "addressLocality": "Domat/Ems",
+    "descriptionByLocale": {
+      "it": "Was erwartet Sie\n\n• Leitung von Projekten zur Entwicklung von innovativen Lösungen mit unseren Kunden im Bereich Automobil\n\n• Technische Beratung unserer Kunden und Verkaufsorganisationen in den Bereichen Materialauswahl, Bauteil- und Werkstoffanalyse und Spritzgiessverarbeitung\n\n• Durchführung von Versuchen und Abmusterungen auf unseren moderenen Anlagen im Spritzgiesstechnikum und bei Kunden\n\n• Erarbeiten von technischen Grundlagen, Machbarkeitsanalysen und Kostenrechnungen\n\n• Arbeit in funktionsübergreifenden Teams mit Forschung & Entwicklung, Produktion, Materialanalytik, Marketing & Verkauf\n\n• Marktbeobachtung zur Erkennung neuer Trends, Technologien und Chancen für EMS\n\n• Halten von Fachvorträgen und Durchführung von internen Schulungen\n\nWas bringen Sie mit\n\n• Abgeschlossenes Studium in der Fachrichtung Kunststofftechnik, Werkstofftechnik oder Maschinenbau\n\n• Erfahrung in der Spritzgiesstechnologie und Auslegung technischer Bauteile aus Kunststoff\n\n• Interesse an Fahrzeugtechnologien von heute und morgen\n\n• Sie sind eine entscheidungsfreudige und unternehmerisch denkende Persönlichkeit mit einem starken Willen zur Zielerreichung und suchen eine Herausforderung in den Bereichen Technologie und Projektmanagement\n\n• Sie überzeugen uns durch Ihre Einsatz- und Lernbereitschaft sowie Eigeninitiative und Flexibilität\n\n• Gute Englischkenntnisse in Wort und Schrift\n\nDarauf können Sie sich freuen\n\n• Eine verantwortungsvolle Tätigkeit mit spannenden und abwechslungsreichen Projekten in einem internationalen Umfeld\n\n• Moderne Infrastruktur für anspruchsvolle Verfahrensversuche, Analysen und Entwicklungen\n\n• Viel Gestaltungsspielraum sowie ein hohes Mass an Eigenverantwortung\n\n• Persönliche und fachliche Entwicklungsmöglichkeiten in den Bereichen Technologie und Projektmanagement\n\n• Attraktive Karriereperspektiven innerhalb unseres Unternehmens\n\n• Arbeiten in einer Region mit hoher Lebensqualität und vielfältigen Natur- und Erholungsmöglichkeiten\n\n• Marktgerechte Vergütung, fortschrittliche Sozialleistungen sowie eine firmeneigene Pensionskasse mit attraktiven Leistungen\n\nÜber uns\n\nEMS hat 25 Produktionsstandorte in 16 Ländern, beschäftigt weltweit rund 3'000 Mitarbeiter und ist mit rund 140 Lernenden der grösste Berufsbildner im Kanton und Träger des Nationalen Bildungspreises.\n\nEMS-GRIVORY ist Teil des Geschäftsbereichs Hochleistungspolymere der EMS-Gruppe und beschäftigt weltweit über 1000 Mitarbeiter. Das grösste Entwicklungs- und Produktionszentrum befindet sich in Domat/Ems in der Schweiz. Weitere Produktionsstätten liegen in Deutschland, China, Taiwan und den USA.",
+      "en": "Was erwartet Sie\n\n• Leitung von Projekten zur Entwicklung von innovativen Lösungen mit unseren Kunden im Bereich Automobil\n\n• Technische Beratung unserer Kunden und Verkaufsorganisationen in den Bereichen Materialauswahl, Bauteil- und Werkstoffanalyse und Spritzgiessverarbeitung\n\n• Durchführung von Versuchen und Abmusterungen auf unseren moderenen Anlagen im Spritzgiesstechnikum und bei Kunden\n\n• Erarbeiten von technischen Grundlagen, Machbarkeitsanalysen und Kostenrechnungen\n\n• Arbeit in funktionsübergreifenden Teams mit Forschung & Entwicklung, Produktion, Materialanalytik, Marketing & Verkauf\n\n• Marktbeobachtung zur Erkennung neuer Trends, Technologien und Chancen für EMS\n\n• Halten von Fachvorträgen und Durchführung von internen Schulungen\n\nWas bringen Sie mit\n\n• Abgeschlossenes Studium in der Fachrichtung Kunststofftechnik, Werkstofftechnik oder Maschinenbau\n\n• Erfahrung in der Spritzgiesstechnologie und Auslegung technischer Bauteile aus Kunststoff\n\n• Interesse an Fahrzeugtechnologien von heute und morgen\n\n• Sie sind eine entscheidungsfreudige und unternehmerisch denkende Persönlichkeit mit einem starken Willen zur Zielerreichung und suchen eine Herausforderung in den Bereichen Technologie und Projektmanagement\n\n• Sie überzeugen uns durch Ihre Einsatz- und Lernbereitschaft sowie Eigeninitiative und Flexibilität\n\n• Gute Englischkenntnisse in Wort und Schrift\n\nDarauf können Sie sich freuen\n\n• Eine verantwortungsvolle Tätigkeit mit spannenden und abwechslungsreichen Projekten in einem internationalen Umfeld\n\n• Moderne Infrastruktur für anspruchsvolle Verfahrensversuche, Analysen und Entwicklungen\n\n• Viel Gestaltungsspielraum sowie ein hohes Mass an Eigenverantwortung\n\n• Persönliche und fachliche Entwicklungsmöglichkeiten in den Bereichen Technologie und Projektmanagement\n\n• Attraktive Karriereperspektiven innerhalb unseres Unternehmens\n\n• Arbeiten in einer Region mit hoher Lebensqualität und vielfältigen Natur- und Erholungsmöglichkeiten\n\n• Marktgerechte Vergütung, fortschrittliche Sozialleistungen sowie eine firmeneigene Pensionskasse mit attraktiven Leistungen\n\nÜber uns\n\nEMS hat 25 Produktionsstandorte in 16 Ländern, beschäftigt weltweit rund 3'000 Mitarbeiter und ist mit rund 140 Lernenden der grösste Berufsbildner im Kanton und Träger des Nationalen Bildungspreises.\n\nEMS-GRIVORY ist Teil des Geschäftsbereichs Hochleistungspolymere der EMS-Gruppe und beschäftigt weltweit über 1000 Mitarbeiter. Das grösste Entwicklungs- und Produktionszentrum befindet sich in Domat/Ems in der Schweiz. Weitere Produktionsstätten liegen in Deutschland, China, Taiwan und den USA.",
+      "de": "Was erwartet Sie\n\n• Leitung von Projekten zur Entwicklung von innovativen Lösungen mit unseren Kunden im Bereich Automobil\n\n• Technische Beratung unserer Kunden und Verkaufsorganisationen in den Bereichen Materialauswahl, Bauteil- und Werkstoffanalyse und Spritzgiessverarbeitung\n\n• Durchführung von Versuchen und Abmusterungen auf unseren moderenen Anlagen im Spritzgiesstechnikum und bei Kunden\n\n• Erarbeiten von technischen Grundlagen, Machbarkeitsanalysen und Kostenrechnungen\n\n• Arbeit in funktionsübergreifenden Teams mit Forschung & Entwicklung, Produktion, Materialanalytik, Marketing & Verkauf\n\n• Marktbeobachtung zur Erkennung neuer Trends, Technologien und Chancen für EMS\n\n• Halten von Fachvorträgen und Durchführung von internen Schulungen\n\nWas bringen Sie mit\n\n• Abgeschlossenes Studium in der Fachrichtung Kunststofftechnik, Werkstofftechnik oder Maschinenbau\n\n• Erfahrung in der Spritzgiesstechnologie und Auslegung technischer Bauteile aus Kunststoff\n\n• Interesse an Fahrzeugtechnologien von heute und morgen\n\n• Sie sind eine entscheidungsfreudige und unternehmerisch denkende Persönlichkeit mit einem starken Willen zur Zielerreichung und suchen eine Herausforderung in den Bereichen Technologie und Projektmanagement\n\n• Sie überzeugen uns durch Ihre Einsatz- und Lernbereitschaft sowie Eigeninitiative und Flexibilität\n\n• Gute Englischkenntnisse in Wort und Schrift\n\nDarauf können Sie sich freuen\n\n• Eine verantwortungsvolle Tätigkeit mit spannenden und abwechslungsreichen Projekten in einem internationalen Umfeld\n\n• Moderne Infrastruktur für anspruchsvolle Verfahrensversuche, Analysen und Entwicklungen\n\n• Viel Gestaltungsspielraum sowie ein hohes Mass an Eigenverantwortung\n\n• Persönliche und fachliche Entwicklungsmöglichkeiten in den Bereichen Technologie und Projektmanagement\n\n• Attraktive Karriereperspektiven innerhalb unseres Unternehmens\n\n• Arbeiten in einer Region mit hoher Lebensqualität und vielfältigen Natur- und Erholungsmöglichkeiten\n\n• Marktgerechte Vergütung, fortschrittliche Sozialleistungen sowie eine firmeneigene Pensionskasse mit attraktiven Leistungen\n\nÜber uns\n\nEMS hat 25 Produktionsstandorte in 16 Ländern, beschäftigt weltweit rund 3'000 Mitarbeiter und ist mit rund 140 Lernenden der grösste Berufsbildner im Kanton und Träger des Nationalen Bildungspreises.\n\nEMS-GRIVORY ist Teil des Geschäftsbereichs Hochleistungspolymere der EMS-Gruppe und beschäftigt weltweit über 1000 Mitarbeiter. Das grösste Entwicklungs- und Produktionszentrum befindet sich in Domat/Ems in der Schweiz. Weitere Produktionsstätten liegen in Deutschland, China, Taiwan und den USA.",
+      "fr": "Was erwartet Sie\n\n• Leitung von Projekten zur Entwicklung von innovativen Lösungen mit unseren Kunden im Bereich Automobil\n\n• Technische Beratung unserer Kunden und Verkaufsorganisationen in den Bereichen Materialauswahl, Bauteil- und Werkstoffanalyse und Spritzgiessverarbeitung\n\n• Durchführung von Versuchen und Abmusterungen auf unseren moderenen Anlagen im Spritzgiesstechnikum und bei Kunden\n\n• Erarbeiten von technischen Grundlagen, Machbarkeitsanalysen und Kostenrechnungen\n\n• Arbeit in funktionsübergreifenden Teams mit Forschung & Entwicklung, Produktion, Materialanalytik, Marketing & Verkauf\n\n• Marktbeobachtung zur Erkennung neuer Trends, Technologien und Chancen für EMS\n\n• Halten von Fachvorträgen und Durchführung von internen Schulungen\n\nWas bringen Sie mit\n\n• Abgeschlossenes Studium in der Fachrichtung Kunststofftechnik, Werkstofftechnik oder Maschinenbau\n\n• Erfahrung in der Spritzgiesstechnologie und Auslegung technischer Bauteile aus Kunststoff\n\n• Interesse an Fahrzeugtechnologien von heute und morgen\n\n• Sie sind eine entscheidungsfreudige und unternehmerisch denkende Persönlichkeit mit einem starken Willen zur Zielerreichung und suchen eine Herausforderung in den Bereichen Technologie und Projektmanagement\n\n• Sie überzeugen uns durch Ihre Einsatz- und Lernbereitschaft sowie Eigeninitiative und Flexibilität\n\n• Gute Englischkenntnisse in Wort und Schrift\n\nDarauf können Sie sich freuen\n\n• Eine verantwortungsvolle Tätigkeit mit spannenden und abwechslungsreichen Projekten in einem internationalen Umfeld\n\n• Moderne Infrastruktur für anspruchsvolle Verfahrensversuche, Analysen und Entwicklungen\n\n• Viel Gestaltungsspielraum sowie ein hohes Mass an Eigenverantwortung\n\n• Persönliche und fachliche Entwicklungsmöglichkeiten in den Bereichen Technologie und Projektmanagement\n\n• Attraktive Karriereperspektiven innerhalb unseres Unternehmens\n\n• Arbeiten in einer Region mit hoher Lebensqualität und vielfältigen Natur- und Erholungsmöglichkeiten\n\n• Marktgerechte Vergütung, fortschrittliche Sozialleistungen sowie eine firmeneigene Pensionskasse mit attraktiven Leistungen\n\nÜber uns\n\nEMS hat 25 Produktionsstandorte in 16 Ländern, beschäftigt weltweit rund 3'000 Mitarbeiter und ist mit rund 140 Lernenden der grösste Berufsbildner im Kanton und Träger des Nationalen Bildungspreises.\n\nEMS-GRIVORY ist Teil des Geschäftsbereichs Hochleistungspolymere der EMS-Gruppe und beschäftigt weltweit über 1000 Mitarbeiter. Das grösste Entwicklungs- und Produktionszentrum befindet sich in Domat/Ems in der Schweiz. Weitere Produktionsstätten liegen in Deutschland, China, Taiwan und den USA."
+    },
+    "slugByLocale": {
+      "it": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems",
+      "en": "project-manager-artoff-applications-automotive-m-f-d-100-ems-chemie-ag-domat-ems",
+      "de": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems",
+      "fr": "projektleiter-kunstoffanwendungen-automobile-h-f-d-100-ems-chemie-ag-domat-ems"
+    },
+    "sector": "",
+    "expiredAt": "2026-11-27T07:03:33.095Z",
+    "previousSlugs": [
+      "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems",
+      "raumpfleger-m-w-d-20-ems-chemie-domat-ems",
+      "polymechaniker-w-m-d-100-ems-chemie-domat-ems",
+      "agent-de-nettoyage-m-f-d-20-ems-chemie-ag-domat-ems",
+      "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems-eee23bc8",
+      "technicien-d-application-fibres-techniques-100-ems-chemie-ag-domat-ems",
+      "application-engineer-fibre-tecniche-al-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "application-technologist-technical-fibers-100-ems-chemie-domat-ems",
+      "engineer-technician-automation-technology-m-f-d-100-ems-chemie-ag-domat-ems",
+      "laboratory-technician-material-testing-m-f-d-100-domat-ems-ems-chemie-ag-ems-chemie-ag-domat-ems",
+      "material-testing-laboratory-technician-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "material-testing-laboratory-technician-m-w-d-100-ems-chemie-domat-ems",
+      "project-manager-material-testing-m-f-d-100-domat-ems-ems-chemie-ag-ems-chemie-ag-domat-ems",
+      "project-manager-prove-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "project-manager-test-materiali-m-f-d-100-ems-chemie-domat-ems",
+      "project-manager-verifica-materiali-m-w-d-100-ems-chemie-domat-ems",
+      "technologue-d-application-fibres-techniques-100-ems-chemie-domat-ems",
+      "tecnico-applicativo-fibre-tecniche-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "tecnico-applicazioni-fibre-tecniche-100-ems-chemie-domat-ems",
+      "tecnico-di-laboratorio-prove-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "tecnico-di-laboratorio-test-materiali-m-f-d-100-ems-chemie-domat-ems",
+      "projektleiter-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "projektleiter-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems",
+      "responsabile-del-progetto-test-sui-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "polymechaniker-m-w-d-100-ems-chemie-domat-ems",
+      "projektleiter-m-w-d-ems-chemie-ag-domat-ems",
+      "projektleiter-automotive-m-w-d-ems-chemie-ag-domat-ems",
+      "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-",
+      "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems",
+      "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems-afk1jt",
+      "project-manager-automotive-plastics-m-w-d-100-ems-chemie-ag-domat-ems",
+      "responsable-de-projet-plastiques-automobiles-m-w-d-100-ems-chemie-ag-domat-ems",
+      "project-manager-m-w-d-100-ems-chemie-ag-domat-ems",
+      "project-manager-material-testing-m-f-d-100-ems-chemie-ag-domat-ems",
+      "projektleiter-materialprufung-m-w-d-100-ems-chemie-domat-ems",
+      "chef-de-projet-controle-des-materiaux-m-f-d-100-ems-chemie-ag-domat-ems",
+      "projektleiter-materialprufung-m-w-d-100-ems-chemie-ag-domat-ems",
+      "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-ag-domat-ems",
+      "about-ems-ems-chemie-domat-ems",
+      "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems-7485820e",
+      "applicazione-technics-100-ems-chemie-ag-domat-ems",
+      "anwendungstechniker-technische-fasern-m-w-d-100-ems-chemie-domat-ems",
+      "anwendungstechniker-technische-fasern-100-ems-chemie-domat-ems",
+      "anwendungstechniker-technische-fasern-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "laborant-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "laboratorio-di-prova-dei-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "laborant-materialprufung-m-w-d-100-ems-chemie-domat-ems",
+      "polymechaniker-m-w-d-100-ems-chemie-domat-ems-kp5jwl",
+      "projektleiter-kunstoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-ag-domat-ems",
+      "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-domat-ems",
+      "qualitatssicherungsingenieur-m-w-d-100-ems-chemie-domat-ems",
+      "projektleiter-m-w-d-ems-chemie-ag-domat-ems-aarx5y",
+      "project-manager-applicazioni-in-plastica-automotive-m-f-d-100-ems-chemie-ag-domat-ems",
+      "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems-f2ee2d00",
+      "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems-f3323fd2",
+      "project-manager-plastic-applications-automotive-m-f-d-100-ems-chemie-ag-domat-ems",
+      "gestionnaire-de-projet-applications-en-plastique-automobile-h-f-d-100-ems-chemie-ag-domat-ems",
+      "room-cleaner-m-w-d-20-ems-chemie-ag-domat-ems",
+      "application-technician-technical-fibers-100-ems-chemie-ag-domat-ems",
+      "application-technologist-technical-fibers-100-ems-chemie-ag-domat-ems",
+      "material-testing-laboratory-technician-m-f-d-100-ems-chemie-ag-domat-ems",
+      "polymechanic-m-f-d-100-ems-chemie-ag-domat-ems",
+      "project-manager-for-special-polyamide-plastic-packaging-m-f-d-100-ems-chemie-ag-domat-ems",
+      "project-manager-plastic-applications-automotive-m-f-d-100-ems-chemie-ag-domat-ems-41c32637",
+      "raspfleger-m-w-d-20-ems-chemie-ag-domat-ems",
+      "anwendungstechniker-technische-fasern-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems",
+      "laborant-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems",
+      "projektleiter-m-m-j-ems-chemie-ag-domat-ems",
+      "gestionnaire-de-projet-applications-en-plastique-automobile-h-f-d-100-ems-chemie-ag-domat-ems-708d63e1",
+      "technologue-d-application-fibres-techniques-100-ems-chemie-ag-domat-ems",
+      "technicien-de-laboratoire-de-tests-de-materiaux-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "technicien-de-laboratoire-de-controle-des-materiaux-m-f-d-100-ems-chemie-ag-domat-ems",
+      "polymecaniker-m-p-j-100-ems-chemie-ag-domat-ems",
+      "polymecanicien-h-f-d-100-ems-chemie-ag-domat-ems",
+      "raumpfleger-lun-mercred-ed-20-ems-chemie-ag-domat-ems",
+      "chef-de-projet-pour-emballages-plastiques-en-polyamides-speciaux-h-f-d-100-ems-chemie-ag-domat-ems"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems-7485820e",
+        "applicazione-technics-100-ems-chemie-ag-domat-ems",
+        "anwendungstechniker-technische-fasern-m-w-d-100-ems-chemie-domat-ems",
+        "anwendungstechniker-technische-fasern-100-ems-chemie-domat-ems",
+        "anwendungstechniker-technische-fasern-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+        "laborant-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+        "laboratorio-di-prova-dei-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+        "laborant-materialprufung-m-w-d-100-ems-chemie-domat-ems",
+        "polymechaniker-m-w-d-100-ems-chemie-domat-ems-kp5jwl",
+        "projektleiter-kunstoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-ag-domat-ems",
+        "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-domat-ems",
+        "qualitatssicherungsingenieur-m-w-d-100-ems-chemie-domat-ems",
+        "projektleiter-m-w-d-ems-chemie-ag-domat-ems-aarx5y",
+        "project-manager-applicazioni-in-plastica-automotive-m-f-d-100-ems-chemie-ag-domat-ems",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems-f2ee2d00",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems-f3323fd2",
+        "project-manager-plastic-applications-automotive-m-f-d-100-ems-chemie-ag-domat-ems",
+        "gestionnaire-de-projet-applications-en-plastique-automobile-h-f-d-100-ems-chemie-ag-domat-ems"
+      ],
+      "en": [
+        "room-cleaner-m-w-d-20-ems-chemie-ag-domat-ems",
+        "application-technician-technical-fibers-100-ems-chemie-ag-domat-ems",
+        "application-technologist-technical-fibers-100-ems-chemie-ag-domat-ems",
+        "anwendungstechniker-technische-fasern-100-ems-chemie-domat-ems",
+        "laborant-materialprufung-m-w-d-100-ems-chemie-domat-ems",
+        "material-testing-laboratory-technician-m-f-d-100-ems-chemie-ag-domat-ems",
+        "polymechanic-m-f-d-100-ems-chemie-ag-domat-ems",
+        "polymechaniker-m-w-d-100-ems-chemie-domat-ems-kp5jwl",
+        "project-manager-for-special-polyamide-plastic-packaging-m-f-d-100-ems-chemie-ag-domat-ems",
+        "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-domat-ems",
+        "qualitatssicherungsingenieur-m-w-d-100-ems-chemie-domat-ems",
+        "projektleiter-m-w-d-ems-chemie-ag-domat-ems-aarx5y",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems-7485820e",
+        "project-manager-plastic-applications-automotive-m-f-d-100-ems-chemie-ag-domat-ems-41c32637",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems-f3323fd2",
+        "gestionnaire-de-projet-applications-en-plastique-automobile-h-f-d-100-ems-chemie-ag-domat-ems",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems",
+        "project-manager-plastic-applications-automotive-m-f-d-100-ems-chemie-ag-domat-ems",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems"
+      ],
+      "de": [
+        "raspfleger-m-w-d-20-ems-chemie-ag-domat-ems",
+        "anwendungstechniker-technische-fasern-100-ems-chemie-domat-ems",
+        "anwendungstechniker-technische-fasern-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems",
+        "laborant-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems",
+        "laborant-materialprufung-m-w-d-100-ems-chemie-domat-ems",
+        "polymechaniker-m-w-d-100-ems-chemie-domat-ems-kp5jwl",
+        "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-domat-ems",
+        "qualitatssicherungsingenieur-m-w-d-100-ems-chemie-domat-ems",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems-7485820e",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems-f3323fd2",
+        "project-manager-plastic-applications-automotive-m-f-d-100-ems-chemie-ag-domat-ems",
+        "gestionnaire-de-projet-applications-en-plastique-automobile-h-f-d-100-ems-chemie-ag-domat-ems",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems"
+      ],
+      "fr": [
+        "qualitatssicherungsingenieur-m-w-d-100-ems-chemie-domat-ems",
+        "projektleiter-m-m-j-ems-chemie-ag-domat-ems",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems-7485820e",
+        "gestionnaire-de-projet-applications-en-plastique-automobile-h-f-d-100-ems-chemie-ag-domat-ems-708d63e1",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems-f3323fd2",
+        "project-manager-plastic-applications-automotive-m-f-d-100-ems-chemie-ag-domat-ems",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems",
+        "gestionnaire-de-projet-applications-en-plastique-automobile-h-f-d-100-ems-chemie-ag-domat-ems",
+        "technologue-d-application-fibres-techniques-100-ems-chemie-ag-domat-ems",
+        "anwendungstechniker-technische-fasern-100-ems-chemie-domat-ems",
+        "technicien-de-laboratoire-de-tests-de-materiaux-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+        "laborant-materialprufung-m-w-d-100-ems-chemie-domat-ems",
+        "technicien-de-laboratoire-de-controle-des-materiaux-m-f-d-100-ems-chemie-ag-domat-ems",
+        "polymecaniker-m-p-j-100-ems-chemie-ag-domat-ems",
+        "polymecanicien-h-f-d-100-ems-chemie-ag-domat-ems",
+        "raumpfleger-lun-mercred-ed-20-ems-chemie-ag-domat-ems",
+        "chef-de-projet-pour-emballages-plastiques-en-polyamides-speciaux-h-f-d-100-ems-chemie-ag-domat-ems",
+        "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-domat-ems",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems-7485820e": "GR",
+        "applicazione-technics-100-ems-chemie-ag-domat-ems": "GR",
+        "anwendungstechniker-technische-fasern-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "anwendungstechniker-technische-fasern-100-ems-chemie-domat-ems": "GR",
+        "anwendungstechniker-technische-fasern-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "laborant-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "laboratorio-di-prova-dei-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "laborant-materialprufung-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "polymechaniker-m-w-d-100-ems-chemie-domat-ems-kp5jwl": "GR",
+        "projektleiter-kunstoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "qualitatssicherungsingenieur-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "projektleiter-m-w-d-ems-chemie-ag-domat-ems-aarx5y": "GR",
+        "project-manager-applicazioni-in-plastica-automotive-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems-f2ee2d00": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems-f3323fd2": "GR",
+        "project-manager-plastic-applications-automotive-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "gestionnaire-de-projet-applications-en-plastique-automobile-h-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "raumpfleger-m-w-d-20-ems-chemie-domat-ems": "GR",
+        "polymechaniker-w-m-d-100-ems-chemie-domat-ems": "GR",
+        "agent-de-nettoyage-m-f-d-20-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems-eee23bc8": "GR",
+        "technicien-d-application-fibres-techniques-100-ems-chemie-ag-domat-ems": "GR",
+        "application-engineer-fibre-tecniche-al-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "application-technologist-technical-fibers-100-ems-chemie-domat-ems": "GR",
+        "engineer-technician-automation-technology-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "laboratory-technician-material-testing-m-f-d-100-domat-ems-ems-chemie-ag-ems-chemie-ag-domat-ems": "GR",
+        "material-testing-laboratory-technician-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "material-testing-laboratory-technician-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "project-manager-material-testing-m-f-d-100-domat-ems-ems-chemie-ag-ems-chemie-ag-domat-ems": "GR",
+        "project-manager-prove-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "project-manager-test-materiali-m-f-d-100-ems-chemie-domat-ems": "GR",
+        "project-manager-verifica-materiali-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "technologue-d-application-fibres-techniques-100-ems-chemie-domat-ems": "GR",
+        "tecnico-applicativo-fibre-tecniche-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "tecnico-applicazioni-fibre-tecniche-100-ems-chemie-domat-ems": "GR",
+        "tecnico-di-laboratorio-prove-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "tecnico-di-laboratorio-test-materiali-m-f-d-100-ems-chemie-domat-ems": "GR",
+        "projektleiter-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems": "GR",
+        "responsabile-del-progetto-test-sui-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "polymechaniker-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "projektleiter-m-w-d-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-automotive-m-w-d-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems-afk1jt": "GR",
+        "project-manager-automotive-plastics-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "responsable-de-projet-plastiques-automobiles-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "project-manager-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "project-manager-material-testing-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-materialprufung-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "chef-de-projet-controle-des-materiaux-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-materialprufung-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "about-ems-ems-chemie-domat-ems": "GR"
+      },
+      "en": {
+        "room-cleaner-m-w-d-20-ems-chemie-ag-domat-ems": "GR",
+        "application-technician-technical-fibers-100-ems-chemie-ag-domat-ems": "GR",
+        "application-technologist-technical-fibers-100-ems-chemie-ag-domat-ems": "GR",
+        "anwendungstechniker-technische-fasern-100-ems-chemie-domat-ems": "GR",
+        "laborant-materialprufung-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "material-testing-laboratory-technician-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "polymechanic-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "polymechaniker-m-w-d-100-ems-chemie-domat-ems-kp5jwl": "GR",
+        "project-manager-for-special-polyamide-plastic-packaging-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "qualitatssicherungsingenieur-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "projektleiter-m-w-d-ems-chemie-ag-domat-ems-aarx5y": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems-7485820e": "GR",
+        "project-manager-plastic-applications-automotive-m-f-d-100-ems-chemie-ag-domat-ems-41c32637": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems-f3323fd2": "GR",
+        "gestionnaire-de-projet-applications-en-plastique-automobile-h-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "project-manager-plastic-applications-automotive-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "raumpfleger-m-w-d-20-ems-chemie-domat-ems": "GR",
+        "polymechaniker-w-m-d-100-ems-chemie-domat-ems": "GR",
+        "agent-de-nettoyage-m-f-d-20-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems-eee23bc8": "GR",
+        "technicien-d-application-fibres-techniques-100-ems-chemie-ag-domat-ems": "GR",
+        "application-engineer-fibre-tecniche-al-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "application-technologist-technical-fibers-100-ems-chemie-domat-ems": "GR",
+        "engineer-technician-automation-technology-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "laboratory-technician-material-testing-m-f-d-100-domat-ems-ems-chemie-ag-ems-chemie-ag-domat-ems": "GR",
+        "material-testing-laboratory-technician-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "material-testing-laboratory-technician-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "project-manager-material-testing-m-f-d-100-domat-ems-ems-chemie-ag-ems-chemie-ag-domat-ems": "GR",
+        "project-manager-prove-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "project-manager-test-materiali-m-f-d-100-ems-chemie-domat-ems": "GR",
+        "project-manager-verifica-materiali-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "technologue-d-application-fibres-techniques-100-ems-chemie-domat-ems": "GR",
+        "tecnico-applicativo-fibre-tecniche-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "tecnico-applicazioni-fibre-tecniche-100-ems-chemie-domat-ems": "GR",
+        "tecnico-di-laboratorio-prove-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "tecnico-di-laboratorio-test-materiali-m-f-d-100-ems-chemie-domat-ems": "GR",
+        "projektleiter-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems": "GR",
+        "responsabile-del-progetto-test-sui-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "polymechaniker-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "projektleiter-m-w-d-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-automotive-m-w-d-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems-afk1jt": "GR",
+        "project-manager-automotive-plastics-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "responsable-de-projet-plastiques-automobiles-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "project-manager-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "project-manager-material-testing-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-materialprufung-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "chef-de-projet-controle-des-materiaux-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-materialprufung-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "about-ems-ems-chemie-domat-ems": "GR"
+      },
+      "de": {
+        "raspfleger-m-w-d-20-ems-chemie-ag-domat-ems": "GR",
+        "anwendungstechniker-technische-fasern-100-ems-chemie-domat-ems": "GR",
+        "anwendungstechniker-technische-fasern-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems": "GR",
+        "laborant-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems": "GR",
+        "laborant-materialprufung-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "polymechaniker-m-w-d-100-ems-chemie-domat-ems-kp5jwl": "GR",
+        "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "qualitatssicherungsingenieur-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems-7485820e": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems-f3323fd2": "GR",
+        "project-manager-plastic-applications-automotive-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "gestionnaire-de-projet-applications-en-plastique-automobile-h-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "raumpfleger-m-w-d-20-ems-chemie-domat-ems": "GR",
+        "polymechaniker-w-m-d-100-ems-chemie-domat-ems": "GR",
+        "agent-de-nettoyage-m-f-d-20-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems-eee23bc8": "GR",
+        "technicien-d-application-fibres-techniques-100-ems-chemie-ag-domat-ems": "GR",
+        "application-engineer-fibre-tecniche-al-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "application-technologist-technical-fibers-100-ems-chemie-domat-ems": "GR",
+        "engineer-technician-automation-technology-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "laboratory-technician-material-testing-m-f-d-100-domat-ems-ems-chemie-ag-ems-chemie-ag-domat-ems": "GR",
+        "material-testing-laboratory-technician-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "material-testing-laboratory-technician-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "project-manager-material-testing-m-f-d-100-domat-ems-ems-chemie-ag-ems-chemie-ag-domat-ems": "GR",
+        "project-manager-prove-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "project-manager-test-materiali-m-f-d-100-ems-chemie-domat-ems": "GR",
+        "project-manager-verifica-materiali-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "technologue-d-application-fibres-techniques-100-ems-chemie-domat-ems": "GR",
+        "tecnico-applicativo-fibre-tecniche-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "tecnico-applicazioni-fibre-tecniche-100-ems-chemie-domat-ems": "GR",
+        "tecnico-di-laboratorio-prove-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "tecnico-di-laboratorio-test-materiali-m-f-d-100-ems-chemie-domat-ems": "GR",
+        "projektleiter-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems": "GR",
+        "responsabile-del-progetto-test-sui-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "polymechaniker-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "projektleiter-m-w-d-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-automotive-m-w-d-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems-afk1jt": "GR",
+        "project-manager-automotive-plastics-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "responsable-de-projet-plastiques-automobiles-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "project-manager-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "project-manager-material-testing-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-materialprufung-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "chef-de-projet-controle-des-materiaux-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-materialprufung-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "about-ems-ems-chemie-domat-ems": "GR"
+      },
+      "fr": {
+        "qualitatssicherungsingenieur-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "projektleiter-m-m-j-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems-7485820e": "GR",
+        "gestionnaire-de-projet-applications-en-plastique-automobile-h-f-d-100-ems-chemie-ag-domat-ems-708d63e1": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems-f3323fd2": "GR",
+        "project-manager-plastic-applications-automotive-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "gestionnaire-de-projet-applications-en-plastique-automobile-h-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "technologue-d-application-fibres-techniques-100-ems-chemie-ag-domat-ems": "GR",
+        "anwendungstechniker-technische-fasern-100-ems-chemie-domat-ems": "GR",
+        "technicien-de-laboratoire-de-tests-de-materiaux-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "laborant-materialprufung-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "technicien-de-laboratoire-de-controle-des-materiaux-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "polymecaniker-m-p-j-100-ems-chemie-ag-domat-ems": "GR",
+        "polymecanicien-h-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "raumpfleger-lun-mercred-ed-20-ems-chemie-ag-domat-ems": "GR",
+        "chef-de-projet-pour-emballages-plastiques-en-polyamides-speciaux-h-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "raumpfleger-m-w-d-20-ems-chemie-domat-ems": "GR",
+        "polymechaniker-w-m-d-100-ems-chemie-domat-ems": "GR",
+        "agent-de-nettoyage-m-f-d-20-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems-eee23bc8": "GR",
+        "technicien-d-application-fibres-techniques-100-ems-chemie-ag-domat-ems": "GR",
+        "application-engineer-fibre-tecniche-al-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "application-technologist-technical-fibers-100-ems-chemie-domat-ems": "GR",
+        "engineer-technician-automation-technology-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "laboratory-technician-material-testing-m-f-d-100-domat-ems-ems-chemie-ag-ems-chemie-ag-domat-ems": "GR",
+        "material-testing-laboratory-technician-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "material-testing-laboratory-technician-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "project-manager-material-testing-m-f-d-100-domat-ems-ems-chemie-ag-ems-chemie-ag-domat-ems": "GR",
+        "project-manager-prove-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "project-manager-test-materiali-m-f-d-100-ems-chemie-domat-ems": "GR",
+        "project-manager-verifica-materiali-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "technologue-d-application-fibres-techniques-100-ems-chemie-domat-ems": "GR",
+        "tecnico-applicativo-fibre-tecniche-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "tecnico-applicazioni-fibre-tecniche-100-ems-chemie-domat-ems": "GR",
+        "tecnico-di-laboratorio-prove-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "tecnico-di-laboratorio-test-materiali-m-f-d-100-ems-chemie-domat-ems": "GR",
+        "projektleiter-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems": "GR",
+        "responsabile-del-progetto-test-sui-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "polymechaniker-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "projektleiter-m-w-d-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-automotive-m-w-d-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems-afk1jt": "GR",
+        "project-manager-automotive-plastics-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "responsable-de-projet-plastiques-automobiles-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "project-manager-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "project-manager-material-testing-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-materialprufung-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "chef-de-projet-controle-des-materiaux-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-materialprufung-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "about-ems-ems-chemie-domat-ems": "GR"
+      }
+    },
+    "postalCode": "7013",
+    "streetAddress": "Via Innovativa 1",
+    "salaryMin": 77000,
+    "salaryMax": 127500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-automobil-m-w-d/bba40aea-b4b7-4b31-95c2-4185094e19ae",
+    "firstSeenAt": "2026-09-03T13:34:33.172Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/anwendungstechniker-technische-fasern-m-w-d/e8c1c439-1378-4e96-8c13-8d612a941b43",
+        "firstSeenAt": "2026-05-27T12:30:49.737Z",
+        "title": "Anwendungstechniker Technische Fasern (m/w/d) 100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/anwendungstechniker-technische-fasern/e8c1c439-1378-4e96-8c13-8d612a941b43",
+        "firstSeenAt": "2026-05-27T12:30:49.737Z",
+        "title": "Anwendungstechniker Technische Fasern 100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/polymechaniker-m-w-d/3a4363d7-9799-48d8-b7ab-1570685d167b",
+        "firstSeenAt": "2026-06-02T12:56:07.219Z",
+        "title": "Polymechaniker (m/w/d) 100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/polymechaniker-m-w-d/41e571d7-dc70-4cf2-b56a-22c2e4023a56",
+        "firstSeenAt": "2026-07-02T10:57:20.125Z",
+        "title": "Polymechaniker (m/w/d) 100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/polymechaniker-m-w-d/42f940aa-5ec6-469f-ac2b-e8bec09d1ca0",
+        "firstSeenAt": "2026-05-29T22:51:24.372Z",
+        "title": "Polymechaniker (m/w/d) 100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/polymechaniker-m-w-d/a1497cf6-d676-4f3d-971e-178ef4e2367e",
+        "firstSeenAt": "2026-07-31T11:38:02.195Z",
+        "title": "Polymechaniker (m/w/d) 100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-automobil-m-w-d/27aa9034-dc40-431c-8ee8-1cdd2b9cd569",
+        "firstSeenAt": "2026-09-03T13:34:33.172Z",
+        "title": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-automobil-m-w-d/4a04c7df-2bee-41c3-81e2-3e6b2dd8e2f8",
+        "firstSeenAt": "2026-11-02T21:28:35.720Z",
+        "title": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-automobil-m-w-d/8b3c0483-873e-4200-8aad-fbbad4ae9ff2",
+        "firstSeenAt": "2026-05-15T10:54:35.252Z",
+        "title": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-automobil-m-w-d/bba40aea-b4b7-4b31-95c2-4185094e19ae",
+        "firstSeenAt": "2026-05-12T22:01:15.395Z",
+        "title": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-automobil-m-w-d/ca8b12b3-6d8f-4747-8e70-ddd27635ec2d",
+        "firstSeenAt": "2026-08-03T22:14:01.861Z",
+        "title": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-automobil-m-w-d/ddd72e1b-2b75-4ae8-b14e-9eeb26f2f36b",
+        "firstSeenAt": "2026-07-01T22:13:02.895Z",
+        "title": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d/e69932f7-17a6-4be2-a283-bda1e8c05d0a",
+        "firstSeenAt": "2026-05-28T12:26:00.141Z",
+        "title": "Projektleiter Kunststoffverpackungen aus Spezialpolyamiden (m/w/d) 100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/qualitaetssicherungsingenieur-m-w-d/3612987b-6c7c-4982-8168-8d077501bcc0",
+        "firstSeenAt": "2026-05-12T22:01:15.395Z",
+        "title": "Qualitätssicherungsingenieur (m/w/d) 100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/raumpfleger-m-w-d/0dee34f0-b9d3-4a4e-8702-cb265ebf8e11",
+        "firstSeenAt": "2026-06-22T14:16:01.101Z",
+        "title": "Raumpfleger (m/w/d) 20%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/raumpfleger-m-w-d/265a1a88-feed-4232-a781-afff7c0b9b87",
+        "firstSeenAt": "2026-06-18T12:13:35.678Z",
+        "title": "Raumpfleger (m/w/d) 20%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/raumpfleger-m-w-d/789df521-0c15-4b0d-87f6-f0e0065e3c52",
+        "firstSeenAt": "2026-06-05T11:46:13.633Z",
+        "title": "Raumpfleger (m/w/d) 20%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/raumpfleger-m-w-d/bfcd16eb-1a00-4444-9ddc-2f9be9347fa4",
+        "firstSeenAt": "2026-08-28T05:21:04.182Z",
+        "title": "Raumpfleger (m/w/d) 20%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/raumpfleger-m-w-d/ce43cfb2-744a-4fad-a776-e6ecb6423392",
+        "firstSeenAt": "2026-07-28T22:25:19.610Z",
+        "title": "Raumpfleger (m/w/d) 20%"
+      }
+    ]
+  },
+  {
+    "id": "ems-chemie-56280ef73f4a",
+    "slug": "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-ag-domat-ems",
+    "title": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100%",
+    "titleByLocale": {
+      "it": "Responsabile di progetto Applicazioni plastiche Industries & Consumer (m/f/d) 100%",
+      "en": "Project Manager Artoff Applications Industries & Consumer (m/f/d) 100%",
+      "de": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100%",
+      "fr": "Gestionnaire de projet Applications Artoff Industries et consommateurs (h/f/d) 100%"
+    },
+    "company": "EMS-Chemie AG",
+    "companyKey": "ems-chemie",
+    "location": "Domat/Ems",
+    "canton": "GR",
+    "addressLocality": "Domat/Ems",
+    "descriptionByLocale": {
+      "it": "Was erwartet Sie\n\n• Leitung von Projekten zur Entwicklung von innovativen Lösungen mit unseren Kunden im Bereich Industrie & Konsumgüter oder Industrie & Maschinenbau\n\n• Technische Beratung unserer Kunden und Verkaufsorganisationen in den Bereichen Materialwahl, Bauteil- und Werkstoffanalyse und Spritzgiessverarbeitung\n\n• Durchführung von Versuchen und Abmusterungen auf unseren moderenen Anlagen im Spritzgiesstechnikum und bei Kunden\n\n• Erarbeiten von technischen Grundlagen, Machbarkeitsanalysen und Kostenrechnungen\n\n• Arbeit in funktionsübergreifenden Teams mit Forschung & Entwicklung, Produktion, Materialanalytik, Marketing & Verkauf\n\n• Marktbeobachtung zur Erkennung neuer Trends, Technologien und Chancen für EMS\n\n• Halten von Fachvorträgen und Durchführung von internen Schulungen\n\nWas bringen Sie mit\n\n• Abgeschlossenes Studium in der Fachrichtung Kunststofftechnik, Werkstofftechnik oder Maschinenbau\n\n• Berufserfahrung in der Spritzgusstechnologie und Auslegung technischer Bauteile aus Kunststoff\n\n• Sie sind eine entscheidungsfreudige und unternehmerisch denkende Persönlichkeit mit einem starken Willen zur Zielerreichung und suchen die Herausforderung in den Bereichen Technologie und Projektmanagement\n\n• Sie überzeugen uns durch Ihre Einsatz- und Lernbereitschaft sowie Eigeninitiative und Flexibilität\n\n• Gute Englischkenntnisse in Wort und Schrift\n\nDarauf können Sie sich freuen\n\n• Eine verantwortungsvolle Tätigkeit mit spannenden und abwechslungsreichen Projekten in einem internationalen Umfeld\n\n• Moderne Infrastruktur für anspruchsvolle Verfahrensversuche, Analysen und Entwicklungen\n\n• Viel Gestaltungsspielraum sowie ein hohes Mass an Eigenverantwortung\n\n• Persönliche und fachliche Entwicklungsmöglichkeiten in den Bereichen Technologie und Projektmanagement\n\n• Attraktive Karriereperspektiven innerhalb unseres Unternehmens\n\n• Arbeiten in einer Region mit hoher Lebensqualität und vielfältigen Natur- und Erholungsmöglichkeiten\n\n• Marktgerechte Vergütung, fortschrittliche Sozialleistungen sowie eine firmeneigene Pensionskasse mit attraktiven Leistungen\n\nÜber uns\n\nEMS hat 25 Produktionsstandorte in 16 Ländern, beschäftigt weltweit rund 3'000 Mitarbeiter und ist mit rund 140 Lernenden der grösste Berufsbildner im Kanton und Träger des Nationalen Bildungspreises.\n\nEMS-GRIVORY ist Teil des Geschäftsbereichs Hochleistungspolymere der EMS-Gruppe und beschäftigt weltweit über 1000 Mitarbeiter. Das grösste Entwicklungs- und Produktionszentrum befindet sich in Domat/Ems in der Schweiz. Weitere Produktionsstätten liegen in Deutschland, China, Taiwan und den USA.",
+      "en": "Was erwartet Sie\n\n• Leitung von Projekten zur Entwicklung von innovativen Lösungen mit unseren Kunden im Bereich Industrie & Konsumgüter oder Industrie & Maschinenbau\n\n• Technische Beratung unserer Kunden und Verkaufsorganisationen in den Bereichen Materialwahl, Bauteil- und Werkstoffanalyse und Spritzgiessverarbeitung\n\n• Durchführung von Versuchen und Abmusterungen auf unseren moderenen Anlagen im Spritzgiesstechnikum und bei Kunden\n\n• Erarbeiten von technischen Grundlagen, Machbarkeitsanalysen und Kostenrechnungen\n\n• Arbeit in funktionsübergreifenden Teams mit Forschung & Entwicklung, Produktion, Materialanalytik, Marketing & Verkauf\n\n• Marktbeobachtung zur Erkennung neuer Trends, Technologien und Chancen für EMS\n\n• Halten von Fachvorträgen und Durchführung von internen Schulungen\n\nWas bringen Sie mit\n\n• Abgeschlossenes Studium in der Fachrichtung Kunststofftechnik, Werkstofftechnik oder Maschinenbau\n\n• Berufserfahrung in der Spritzgusstechnologie und Auslegung technischer Bauteile aus Kunststoff\n\n• Sie sind eine entscheidungsfreudige und unternehmerisch denkende Persönlichkeit mit einem starken Willen zur Zielerreichung und suchen die Herausforderung in den Bereichen Technologie und Projektmanagement\n\n• Sie überzeugen uns durch Ihre Einsatz- und Lernbereitschaft sowie Eigeninitiative und Flexibilität\n\n• Gute Englischkenntnisse in Wort und Schrift\n\nDarauf können Sie sich freuen\n\n• Eine verantwortungsvolle Tätigkeit mit spannenden und abwechslungsreichen Projekten in einem internationalen Umfeld\n\n• Moderne Infrastruktur für anspruchsvolle Verfahrensversuche, Analysen und Entwicklungen\n\n• Viel Gestaltungsspielraum sowie ein hohes Mass an Eigenverantwortung\n\n• Persönliche und fachliche Entwicklungsmöglichkeiten in den Bereichen Technologie und Projektmanagement\n\n• Attraktive Karriereperspektiven innerhalb unseres Unternehmens\n\n• Arbeiten in einer Region mit hoher Lebensqualität und vielfältigen Natur- und Erholungsmöglichkeiten\n\n• Marktgerechte Vergütung, fortschrittliche Sozialleistungen sowie eine firmeneigene Pensionskasse mit attraktiven Leistungen\n\nÜber uns\n\nEMS hat 25 Produktionsstandorte in 16 Ländern, beschäftigt weltweit rund 3'000 Mitarbeiter und ist mit rund 140 Lernenden der grösste Berufsbildner im Kanton und Träger des Nationalen Bildungspreises.\n\nEMS-GRIVORY ist Teil des Geschäftsbereichs Hochleistungspolymere der EMS-Gruppe und beschäftigt weltweit über 1000 Mitarbeiter. Das grösste Entwicklungs- und Produktionszentrum befindet sich in Domat/Ems in der Schweiz. Weitere Produktionsstätten liegen in Deutschland, China, Taiwan und den USA.",
+      "de": "Was erwartet Sie\n\n• Leitung von Projekten zur Entwicklung von innovativen Lösungen mit unseren Kunden im Bereich Industrie & Konsumgüter oder Industrie & Maschinenbau\n\n• Technische Beratung unserer Kunden und Verkaufsorganisationen in den Bereichen Materialwahl, Bauteil- und Werkstoffanalyse und Spritzgiessverarbeitung\n\n• Durchführung von Versuchen und Abmusterungen auf unseren moderenen Anlagen im Spritzgiesstechnikum und bei Kunden\n\n• Erarbeiten von technischen Grundlagen, Machbarkeitsanalysen und Kostenrechnungen\n\n• Arbeit in funktionsübergreifenden Teams mit Forschung & Entwicklung, Produktion, Materialanalytik, Marketing & Verkauf\n\n• Marktbeobachtung zur Erkennung neuer Trends, Technologien und Chancen für EMS\n\n• Halten von Fachvorträgen und Durchführung von internen Schulungen\n\nWas bringen Sie mit\n\n• Abgeschlossenes Studium in der Fachrichtung Kunststofftechnik, Werkstofftechnik oder Maschinenbau\n\n• Berufserfahrung in der Spritzgusstechnologie und Auslegung technischer Bauteile aus Kunststoff\n\n• Sie sind eine entscheidungsfreudige und unternehmerisch denkende Persönlichkeit mit einem starken Willen zur Zielerreichung und suchen die Herausforderung in den Bereichen Technologie und Projektmanagement\n\n• Sie überzeugen uns durch Ihre Einsatz- und Lernbereitschaft sowie Eigeninitiative und Flexibilität\n\n• Gute Englischkenntnisse in Wort und Schrift\n\nDarauf können Sie sich freuen\n\n• Eine verantwortungsvolle Tätigkeit mit spannenden und abwechslungsreichen Projekten in einem internationalen Umfeld\n\n• Moderne Infrastruktur für anspruchsvolle Verfahrensversuche, Analysen und Entwicklungen\n\n• Viel Gestaltungsspielraum sowie ein hohes Mass an Eigenverantwortung\n\n• Persönliche und fachliche Entwicklungsmöglichkeiten in den Bereichen Technologie und Projektmanagement\n\n• Attraktive Karriereperspektiven innerhalb unseres Unternehmens\n\n• Arbeiten in einer Region mit hoher Lebensqualität und vielfältigen Natur- und Erholungsmöglichkeiten\n\n• Marktgerechte Vergütung, fortschrittliche Sozialleistungen sowie eine firmeneigene Pensionskasse mit attraktiven Leistungen\n\nÜber uns\n\nEMS hat 25 Produktionsstandorte in 16 Ländern, beschäftigt weltweit rund 3'000 Mitarbeiter und ist mit rund 140 Lernenden der grösste Berufsbildner im Kanton und Träger des Nationalen Bildungspreises.\n\nEMS-GRIVORY ist Teil des Geschäftsbereichs Hochleistungspolymere der EMS-Gruppe und beschäftigt weltweit über 1000 Mitarbeiter. Das grösste Entwicklungs- und Produktionszentrum befindet sich in Domat/Ems in der Schweiz. Weitere Produktionsstätten liegen in Deutschland, China, Taiwan und den USA.",
+      "fr": "Was erwartet Sie\n\n• Leitung von Projekten zur Entwicklung von innovativen Lösungen mit unseren Kunden im Bereich Industrie & Konsumgüter oder Industrie & Maschinenbau\n\n• Technische Beratung unserer Kunden und Verkaufsorganisationen in den Bereichen Materialwahl, Bauteil- und Werkstoffanalyse und Spritzgiessverarbeitung\n\n• Durchführung von Versuchen und Abmusterungen auf unseren moderenen Anlagen im Spritzgiesstechnikum und bei Kunden\n\n• Erarbeiten von technischen Grundlagen, Machbarkeitsanalysen und Kostenrechnungen\n\n• Arbeit in funktionsübergreifenden Teams mit Forschung & Entwicklung, Produktion, Materialanalytik, Marketing & Verkauf\n\n• Marktbeobachtung zur Erkennung neuer Trends, Technologien und Chancen für EMS\n\n• Halten von Fachvorträgen und Durchführung von internen Schulungen\n\nWas bringen Sie mit\n\n• Abgeschlossenes Studium in der Fachrichtung Kunststofftechnik, Werkstofftechnik oder Maschinenbau\n\n• Berufserfahrung in der Spritzgusstechnologie und Auslegung technischer Bauteile aus Kunststoff\n\n• Sie sind eine entscheidungsfreudige und unternehmerisch denkende Persönlichkeit mit einem starken Willen zur Zielerreichung und suchen die Herausforderung in den Bereichen Technologie und Projektmanagement\n\n• Sie überzeugen uns durch Ihre Einsatz- und Lernbereitschaft sowie Eigeninitiative und Flexibilität\n\n• Gute Englischkenntnisse in Wort und Schrift\n\nDarauf können Sie sich freuen\n\n• Eine verantwortungsvolle Tätigkeit mit spannenden und abwechslungsreichen Projekten in einem internationalen Umfeld\n\n• Moderne Infrastruktur für anspruchsvolle Verfahrensversuche, Analysen und Entwicklungen\n\n• Viel Gestaltungsspielraum sowie ein hohes Mass an Eigenverantwortung\n\n• Persönliche und fachliche Entwicklungsmöglichkeiten in den Bereichen Technologie und Projektmanagement\n\n• Attraktive Karriereperspektiven innerhalb unseres Unternehmens\n\n• Arbeiten in einer Region mit hoher Lebensqualität und vielfältigen Natur- und Erholungsmöglichkeiten\n\n• Marktgerechte Vergütung, fortschrittliche Sozialleistungen sowie eine firmeneigene Pensionskasse mit attraktiven Leistungen\n\nÜber uns\n\nEMS hat 25 Produktionsstandorte in 16 Ländern, beschäftigt weltweit rund 3'000 Mitarbeiter und ist mit rund 140 Lernenden der grösste Berufsbildner im Kanton und Träger des Nationalen Bildungspreises.\n\nEMS-GRIVORY ist Teil des Geschäftsbereichs Hochleistungspolymere der EMS-Gruppe und beschäftigt weltweit über 1000 Mitarbeiter. Das grösste Entwicklungs- und Produktionszentrum befindet sich in Domat/Ems in der Schweiz. Weitere Produktionsstätten liegen in Deutschland, China, Taiwan und den USA."
+    },
+    "slugByLocale": {
+      "it": "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-ag-domat-ems",
+      "en": "projektleiter-kunstoffanwendungen-industries-consumer-m-f-d-100-ems-chemie-ag-domat-ems",
+      "de": "projektleiter-kunstoffanwendungen-industries-consumer-m-w-d-100-ems-chemie-ag-domat-ems",
+      "fr": "projektleiter-kunstoffanwendungen-industries-et-consommateurs-h-f-d-100-ems-chemie-ag-domat-ems"
+    },
+    "sector": "",
+    "expiredAt": "2026-11-27T07:03:33.095Z",
+    "previousSlugs": [
+      "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems",
+      "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-ag-domat-ems-bed198c1",
+      "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems-968f6a11",
+      "project-manager-plastics-applications-industry-consumer-m-f-d-100-ems-chemie-ag-domat-ems",
+      "gestionnaire-de-projet-applications-en-plastique-industrie-et-consommateurs-h-f-d-100-ems-chemie-ag-domat-ems"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems",
+        "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-ag-domat-ems-bed198c1",
+        "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems-968f6a11"
+      ],
+      "en": [
+        "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems-968f6a11",
+        "project-manager-plastics-applications-industry-consumer-m-f-d-100-ems-chemie-ag-domat-ems",
+        "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems"
+      ],
+      "de": [
+        "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems-968f6a11",
+        "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems"
+      ],
+      "fr": [
+        "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems-968f6a11",
+        "gestionnaire-de-projet-applications-en-plastique-industrie-et-consommateurs-h-f-d-100-ems-chemie-ag-domat-ems",
+        "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-ag-domat-ems-bed198c1": "GR",
+        "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems-968f6a11": "GR"
+      },
+      "en": {
+        "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems-968f6a11": "GR",
+        "project-manager-plastics-applications-industry-consumer-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems": "GR"
+      },
+      "de": {
+        "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems-968f6a11": "GR",
+        "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems": "GR"
+      },
+      "fr": {
+        "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems-968f6a11": "GR",
+        "gestionnaire-de-projet-applications-en-plastique-industrie-et-consommateurs-h-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems": "GR"
+      }
+    },
+    "postalCode": "7013",
+    "streetAddress": "Via Innovativa 1",
+    "salaryMin": 77000,
+    "salaryMax": 127500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d/d2dfabd7-661b-4af5-8846-8fa82c9003e3",
+    "firstSeenAt": "2026-09-03T13:34:33.172Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d/60e99750-e792-4349-9ce5-baf098cbcddc",
+        "firstSeenAt": "2026-10-05T09:20:18.646Z",
+        "title": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d/c321ad51-e806-4927-9d95-a04f501ab489",
+        "firstSeenAt": "2026-11-05T09:25:19.910Z",
+        "title": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d/d2dfabd7-661b-4af5-8846-8fa82c9003e3",
+        "firstSeenAt": "2026-09-03T13:34:33.172Z",
+        "title": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100%"
+      }
+    ]
   },
   {
     "slug": "sachbearbeiter-in-berufsbildung-mit-berufsbildnerfunktion-kv-80-100-ems-chemie-domat-ems",
@@ -718,7 +1430,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/schichtelektriker-m-w-d/c9287292-12d6-46dc-ab2e-1041cbb7cc17",
-    "firstSeenAt": "2026-11-03T09:19:01.261Z"
+    "firstSeenAt": "2026-11-03T09:19:01.261Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "betriebselektriker-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "schichtelektriker-m-w-d-100-ems-chemie-domat-ems": "GR"
+      },
+      "en": {
+        "betriebselektriker-m-w-d-100-ems-chemie-domat-ems": "GR"
+      },
+      "de": {
+        "betriebselektriker-m-w-d-100-ems-chemie-domat-ems": "GR"
+      },
+      "fr": {
+        "betriebselektriker-m-w-d-100-ems-chemie-domat-ems": "GR"
+      }
+    }
   },
   {
     "id": "ems-chemie-5dbb9aa8203c",
@@ -769,7 +1497,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/sachbearbeiter-customer-service-m-w-d/7da8c327-4a7a-4bd0-9f5a-c106a7171d2b",
-    "firstSeenAt": "2026-10-27T21:21:18.579Z"
+    "firstSeenAt": "2026-10-27T21:21:18.579Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-customer-service-m-w-d-100-ems-chemie-domat-ems": "GR"
+      },
+      "de": {
+        "sachbearbeiter-customer-service-m-w-d-100-ems-chemie-domat-ems": "GR"
+      },
+      "fr": {
+        "sachbearbeiter-customer-service-m-w-d-100-ems-chemie-domat-ems": "GR"
+      }
+    }
   },
   {
     "id": "ems-chemie-c6df5a31435b",
@@ -801,18 +1541,38 @@
     "expiredAt": "2026-11-23T21:25:39.685Z",
     "previousSlugs": [
       "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems-11e56ef0",
-      "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems"
+      "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems",
+      "testa-del-laboratorio-di-fisica-m-f-d-100-ems-chemie-ag-domat-ems",
+      "leiter-physiklabor-m-w-d-100-ems-chemie-ag-domat-ems",
+      "leiter-physiklabor-m-w-d-100-ems-chemie-domat-ems",
+      "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems-56e5a64c",
+      "head-of-physics-laboratory-m-f-d-100-ems-chemie-ag-domat-ems",
+      "chef-du-laboratoire-de-physique-h-f-d-100-ems-chemie-ag-domat-ems"
     ],
     "previousSlugsByLocale": {
       "it": [
         "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems-11e56ef0",
-        "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems"
+        "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems",
+        "testa-del-laboratorio-di-fisica-m-f-d-100-ems-chemie-ag-domat-ems",
+        "leiter-physiklabor-m-w-d-100-ems-chemie-ag-domat-ems",
+        "leiter-physiklabor-m-w-d-100-ems-chemie-domat-ems",
+        "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems-56e5a64c"
       ],
       "fr": [
-        "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems"
+        "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems",
+        "chef-du-laboratoire-de-physique-h-f-d-100-ems-chemie-ag-domat-ems",
+        "leiter-physiklabor-m-w-d-100-ems-chemie-domat-ems",
+        "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems-56e5a64c"
       ],
       "en": [
-        "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems"
+        "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems",
+        "head-of-physics-laboratory-m-f-d-100-ems-chemie-ag-domat-ems",
+        "leiter-physiklabor-m-w-d-100-ems-chemie-domat-ems",
+        "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems-56e5a64c"
+      ],
+      "de": [
+        "leiter-physiklabor-m-w-d-100-ems-chemie-domat-ems",
+        "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems-56e5a64c"
       ]
     },
     "postalCode": "7013",
@@ -834,7 +1594,94 @@
         "firstSeenAt": "2026-10-30T21:24:08.497Z",
         "title": "Teamleiter Physiklabor (m/w/d) 100%"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems-11e56ef0": "GR",
+        "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "testa-del-laboratorio-di-fisica-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "leiter-physiklabor-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "leiter-physiklabor-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems-56e5a64c": "GR"
+      },
+      "en": {
+        "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "head-of-physics-laboratory-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "leiter-physiklabor-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems-56e5a64c": "GR"
+      },
+      "fr": {
+        "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "chef-du-laboratoire-de-physique-h-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "leiter-physiklabor-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems-56e5a64c": "GR"
+      },
+      "de": {
+        "leiter-physiklabor-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems-56e5a64c": "GR"
+      }
+    }
+  },
+  {
+    "slug": "sachbearbeiter-einkauf-m-w-d-100-ems-chemie-domat-ems",
+    "title": "Sachbearbeiter Einkauf (m/w/d) 100%",
+    "titleByLocale": {
+      "it": "Sachbearbeiter Einkauf (m/w/d) 100%",
+      "en": "Sachbearbeiter Einkauf (m/w/d) 100%",
+      "de": "Sachbearbeiter Einkauf (m/w/d) 100%",
+      "fr": "Sachbearbeiter Einkauf (m/w/d) 100%"
+    },
+    "company": "EMS-Chemie AG",
+    "companyKey": "ems-chemie",
+    "location": "Domat/Ems",
+    "addressLocality": "Domat/Ems",
+    "descriptionByLocale": {
+      "de": "Was erwartet Sie\n\n• Sie lösen Rohmaterial-Bestellungen aus und überwachen deren termin- und mengengerechte Anlieferung\n\n• Sie unterstützen den Aufbau und die Entwicklung der Lieferketten von neuen und alternativen Rohstoffen\n\n• Dabei pflegen Sie einen engen Kontakt mit unseren Lieferanten\n\n• Ebenfalls sind Sie für die Abwicklung und Kontrolle von Rechnungen von Lieferanten, Transportunternehmen sowie Zollagenten verantwortlich\n\n• Mitarbeit in Projekten zur Änderung und stetigen Optimierung der Einkaufsprozesse\n\n• Nebst allgemeinen administrativen Aufgaben pflegen Sie Daten zur Lieferantenbewertung, führen Statistiken zu Warenanlieferungen und unterstützen beim Bearbeiten von Reklamationen\n\nWas bringen Sie mit\n\n• Abgeschlossene kaufmännische Ausbildung\n\n• Berufserfahrung in der Logistikabwicklung, im Einkauf von Vorteil\n\n• Gute MS-Office-und SAP-Kenntnisse\n\n• Sehr gute mündliche und schriftliche Kommunikationsfähigkeiten in Deutsch und Englisch\n\n• Zuverlässige, selbstständige und strukturierte Arbeitsweise\n\nDarauf können Sie sich freuen\n\n• Arbeiten inmitten schöner Natur- und Erholungsgebiete\n\n• Spannende Aufgaben im internationalen Umfeld mit kurzen Entscheidungswegen\n\n• Viel Eigenverantwortung und attraktive Führungspositionen\n\n• Marktgerechte Entlöhnung, fortschrittliche Sozialleistungen und eigene Pensionskasse mit guten Leistungen\n\n• Personalrestaurant, Gratisparkplätze\n\nÜber uns\n\nEMS hat 25 Produktionsstandorte in 16 Ländern, beschäftigt weltweit rund 3'000 Mitarbeiter und ist mit rund 140 Lernenden der grösste Berufsbildner im Kanton und Träger des Nationalen Bildungspreises.\n\nEMS-GRIVORY ist Teil des Geschäftsbereichs Hochleistungspolymere der EMS-Gruppe und beschäftigt weltweit über 1000 Mitarbeiter. Das grösste Entwicklungs- und Produktionszentrum befindet sich in Domat/Ems in der Schweiz. Weitere Produktionsstätten liegen in Deutschland, China, Taiwan und den USA."
+    },
+    "slugByLocale": {
+      "it": "sachbearbeiter-einkauf-m-w-d-100-ems-chemie-domat-ems",
+      "en": "sachbearbeiter-einkauf-m-w-d-100-ems-chemie-domat-ems",
+      "de": "sachbearbeiter-einkauf-m-w-d-100-ems-chemie-domat-ems",
+      "fr": "sachbearbeiter-einkauf-m-w-d-100-ems-chemie-domat-ems"
+    },
+    "sector": "",
+    "expiredAt": "2026-11-20T21:26:11.887Z",
+    "postalCode": "7013",
+    "streetAddress": "Via Innovativa 1",
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/sachbearbeiter-einkauf-m-w-d/f3a43b5d-45c2-4760-a444-e5e2b6d2d4ad",
+    "firstSeenAt": "2026-10-27T21:21:18.579Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/sachbearbeiter-einkauf-m-w-d/7bf3ca8b-d13b-4b5d-aaba-b13be214573b",
+        "firstSeenAt": "2026-10-27T21:21:18.579Z",
+        "title": "Sachbearbeiter Einkauf (m/w/d) 100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/sachbearbeiter-einkauf-m-w-d/f3a43b5d-45c2-4760-a444-e5e2b6d2d4ad",
+        "firstSeenAt": "2026-10-27T21:21:18.579Z",
+        "title": "Sachbearbeiter Einkauf (m/w/d) 100%"
+      }
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "agente-di-acquisto-m-f-d-100-ems-chemie-ag-domat-ems"
+      ],
+      "en": [
+        "purchasing-agent-m-f-d-100-ems-chemie-ag-domat-ems"
+      ],
+      "fr": [
+        "agent-d-achat-h-f-d-100-ems-chemie-ag-domat-ems"
+      ]
+    },
+    "previousSlugs": [
+      "agente-di-acquisto-m-f-d-100-ems-chemie-ag-domat-ems",
+      "purchasing-agent-m-f-d-100-ems-chemie-ag-domat-ems",
+      "agent-d-achat-h-f-d-100-ems-chemie-ag-domat-ems"
+    ],
+    "canton": "GR"
   },
   {
     "slug": "leiter-technik-m-w-d-100-ems-chemie-ag-domat-ems-6cc11f38",
@@ -914,6 +1761,128 @@
         "title": "Leiter Technik (m/w/d) 100%"
       }
     ]
+  },
+  {
+    "slug": "leiter-verkauf-schweiz-m-w-d-100-ems-chemie-domat-ems",
+    "title": "Leiter Verkauf Schweiz (m/w/d) 100%",
+    "titleByLocale": {
+      "it": "Leiter Verkauf Schweiz (m/w/d) 100%",
+      "en": "Leiter Verkauf Schweiz (m/w/d) 100%",
+      "de": "Leiter Verkauf Schweiz (m/w/d) 100%",
+      "fr": "Leiter Verkauf Schweiz (m/w/d) 100%"
+    },
+    "company": "EMS-Chemie AG",
+    "companyKey": "ems-chemie",
+    "location": "Domat/Ems",
+    "addressLocality": "Domat/Ems",
+    "descriptionByLocale": {
+      "de": "Was erwartet Sie\n\n• Sie verantworten die Vermarktung und den Verkauf von Hochleistungspolyamiden in der Schweiz.\n\n• Sie betreuen insbesondere die Marktsegmente Industrie und Konsumgüter.\n\n• Erkennung neue Marktchancen und entwickeln daraus konkrete Kundenprojekte.\n\n• Sie bauen langfristige Kundenbeziehungen auf und entwickeln diese kontinuierlich weiter.\n\n• Sie führen und motivieren ein Team von Key Account Managern.\n\n• Sie stellen gemeinsam mit Ihrem Team die Erreichung der Mengen- und Umsatzziele sicher.\n\n• Sie entwickeln und realisieren Vertriebs- und Vermarktungsstrategien.\n\n• Sie beraten Kunden bei technischen und erklärungsbedürftigen Produkten.\n\nWas bringen Sie mit\n\n• Sie verfügen idealerweise über langjährige Erfahrung in der Kunststofftechnik und/oder im Maschinenbau.\n\n• Sie bringen fundierte betriebswirtschaftliche Kenntnisse und Führungserfahrung mit.\n\n• Sie verfügen über Erfahrung im Vertrieb und in der Vermarktung technischer B2B-Produkte.\n\n• Sie zeichnen sich durch eine ausgeprägte Kundenorientierung und hohe Einsatzbereitschaft aus.\n\n• Sie sind kommunikativ, begeisterungsfähig und ergebnisorientiert.\n\n• Sie überzeugen durch Verhandlungsgeschick und ein ausgeprägtes unternehmerisches Denken.\n\n• Sie verfügen über verhandlungssichere Deutsch- und Englischkenntnisse.\n\n• Weitere Sprachkenntnisse sind von Vorteil.\n\n• Sie bringen eine hohe Reisebereitschaft von rund 30–40 % mit.\n\nDarauf können Sie sich freuen\n\n• Arbeiten inmitten schöner Natur- und Erholungsgebiete\n\n• Spannende Aufgaben im internationalen Umfeld mit kurzen Entscheidungswegen\n\n• Viel Eigenverantwortung und attraktive Führungspositionen\n\n• Marktgerechte Entlöhnung, fortschrittliche Sozialleistungen und eigene Pensionskasse mit guten Leistungen\n\n• Personalrestaurant, Gratisparkplätze\n\nÜber uns\n\nEMS hat 25 Produktionsstandorte in 16 Ländern, beschäftigt weltweit rund 3'000 Mitarbeiter und ist mit rund 140 Lernenden der grösste Berufsbildner im Kanton und Träger des Nationalen Bildungspreises.\n\nEMS-GRIVORY ist Teil des Geschäftsbereichs Hochleistungspolymere der EMS-Gruppe und beschäftigt weltweit über 1000 Mitarbeiter. Das grösste Entwicklungs- und Produktionszentrum befindet sich in Domat/Ems in der Schweiz. Weitere Produktionsstätten liegen in Deutschland, China, Taiwan und den USA."
+    },
+    "slugByLocale": {
+      "it": "leiter-verkauf-schweiz-m-w-d-100-ems-chemie-domat-ems",
+      "en": "leiter-verkauf-schweiz-m-w-d-100-ems-chemie-domat-ems",
+      "de": "leiter-verkauf-schweiz-m-w-d-100-ems-chemie-domat-ems",
+      "fr": "leiter-verkauf-schweiz-m-w-d-100-ems-chemie-domat-ems"
+    },
+    "sector": "",
+    "expiredAt": "2026-11-19T09:27:39.392Z",
+    "postalCode": "7013",
+    "streetAddress": "Via Innovativa 1",
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/leiter-verkauf-schweiz-m-w-d/f1b651ad-a977-4c18-8829-5591ad6a7e2d",
+    "firstSeenAt": "2026-10-02T21:17:48.535Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/leiter-verkauf-schweiz-m-w-d/099860ff-ffe5-497b-93ce-d0de22baf4df",
+        "firstSeenAt": "2026-11-02T11:29:39.710Z",
+        "title": "Leiter Verkauf Schweiz (m/w/d) 100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/leiter-verkauf-schweiz-m-w-d/3f783a9d-069f-4074-953d-f7092b4898ea",
+        "firstSeenAt": "2026-10-02T21:17:48.535Z",
+        "title": "Leiter Verkauf Schweiz (m/w/d) 100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/leiter-verkauf-schweiz-m-w-d/f1b651ad-a977-4c18-8829-5591ad6a7e2d",
+        "firstSeenAt": "2026-10-02T21:17:48.535Z",
+        "title": "Leiter Verkauf Schweiz (m/w/d) 100%"
+      }
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "responsabile-vendite-svizzera-m-f-d-100-ems-chemie-ag-domat-ems",
+        "leiter-vendita-schweiz-m-w-d-100-ems-chemie-ag-domat-ems"
+      ],
+      "en": [
+        "head-of-sales-switzerland-m-f-d-100-ems-chemie-ag-domat-ems"
+      ],
+      "fr": [
+        "responsable-des-ventes-suisse-h-f-d-100-ems-chemie-ag-domat-ems"
+      ]
+    },
+    "previousSlugs": [
+      "responsabile-vendite-svizzera-m-f-d-100-ems-chemie-ag-domat-ems",
+      "leiter-vendita-schweiz-m-w-d-100-ems-chemie-ag-domat-ems",
+      "head-of-sales-switzerland-m-f-d-100-ems-chemie-ag-domat-ems",
+      "responsable-des-ventes-suisse-h-f-d-100-ems-chemie-ag-domat-ems"
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsabile-vendite-svizzera-m-f-d-100-ems-chemie-ag-domat-ems": "GR",
+        "leiter-vendita-schweiz-m-w-d-100-ems-chemie-ag-domat-ems": "GR"
+      },
+      "en": {
+        "head-of-sales-switzerland-m-f-d-100-ems-chemie-ag-domat-ems": "GR"
+      },
+      "fr": {
+        "responsable-des-ventes-suisse-h-f-d-100-ems-chemie-ag-domat-ems": "GR"
+      }
+    }
+  },
+  {
+    "slug": "patentmanager-m-w-d-100-ems-chemie-domat-ems",
+    "title": "Patentmanager (m/w/d) 100%",
+    "titleByLocale": {
+      "it": "Patentmanager (m/w/d) 100%",
+      "en": "Patentmanager (m/w/d) 100%",
+      "de": "Patentmanager (m/w/d) 100%",
+      "fr": "Patentmanager (m/w/d) 100%"
+    },
+    "company": "EMS-Chemie AG",
+    "companyKey": "ems-chemie",
+    "location": "Domat/Ems",
+    "addressLocality": "Domat/Ems",
+    "descriptionByLocale": {
+      "de": "Was erwartet Sie\n\n• Realisieren, Verteidigen und Durchsetzen von Immaterialgütern\n\n• Abwehr von Ansprüchen aus fremden Immaterialgütern\n\n• Ansprechpartner innerhalb der EMS-Gruppe für alle patent- und marken-bezogenen Angelegenheiten\n\n• Durchführen von Patent- und Literaturrecherchen, insbesondere zur Ermittlung des Standes der Technik bei Neuanmeldungen oder Einsprüchen, regelmässiges Monitoring von Fremdschutzrechten und Freedom-to-Operate Abklärungen\n\n• Prüfen und Erstellen von Verträgen in Zusammenarbeit mit dem Rechtsdienst\n\nWas bringen Sie mit\n\n• Hochschulstudium Universität/ Technische Hochschule/ Fachhochschule der Fachrichtung Chemie, Polymerchemie, Werkstoffwissenschaften, Chemieingenieurwesen, Kunststofftechnik\n\n• Gute Kenntnisse auf dem Gebiet der Polymerchemie\n\n• Erfahrung im Bereich Patente von Vorteil, gerne auch Patentanwaltskandidaten in der Ausbildung oder Patentanwälte\n\n• Leistungsorientiert, innovativ, kommunikativ, strukturiert, gründlich und flexibel\n\n• Gute Deutsch- und Englischkenntnisse\n\nDarauf können Sie sich freuen\n\n• Arbeiten inmitten schöner Natur- und Erholungsgebiete\n\n• Spannende Aufgaben im internationalen Umfeld mit kurzen Entscheidungswegen\n\n• Viel Eigenverantwortung und attraktive Führungspositionen\n\n• Marktgerechte Entlöhnung, fortschrittliche Sozialleistungen und eigene Pensionskasse mit guten Leistungen\n\n• Personalrestaurant, Gratisparkplätze\n\nÜber uns\n\nEMS hat 25 Produktionsstandorte in 16 Ländern, beschäftigt weltweit rund 3'000 Mitarbeiter und ist mit rund 140 Lernenden der grösste Berufsbildner im Kanton und Träger des Nationalen Bildungspreises.\n\nEMS-GRIVORY ist Teil des Geschäftsbereichs Hochleistungspolymere der EMS-Gruppe und beschäftigt weltweit über 1000 Mitarbeiter. Das grösste Entwicklungs- und Produktionszentrum befindet sich in Domat/Ems in der Schweiz. Weitere Produktionsstätten liegen in Deutschland, China, Taiwan und den USA."
+    },
+    "slugByLocale": {
+      "it": "patentmanager-m-w-d-100-ems-chemie-domat-ems",
+      "en": "patentmanager-m-w-d-100-ems-chemie-domat-ems",
+      "de": "patentmanager-m-w-d-100-ems-chemie-domat-ems",
+      "fr": "patentmanager-m-w-d-100-ems-chemie-domat-ems"
+    },
+    "sector": "",
+    "expiredAt": "2026-11-19T09:27:39.392Z",
+    "postalCode": "7013",
+    "streetAddress": "Via Innovativa 1",
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/patentmanager-m-w-d/68a30d28-381c-46cb-ba63-e2c4acb18dfc",
+    "firstSeenAt": "2026-10-30T21:24:08.497Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/patentmanager-m-w-d/40e48d41-3148-4bfb-935a-ebbe2c7431ca",
+        "firstSeenAt": "2026-10-30T21:24:08.497Z",
+        "title": "Patentmanager (m/w/d) 100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/patentmanager-m-w-d/68a30d28-381c-46cb-ba63-e2c4acb18dfc",
+        "firstSeenAt": "2026-10-30T21:24:08.497Z",
+        "title": "Patentmanager (m/w/d) 100%"
+      }
+    ],
+    "canton": "GR"
   },
   {
     "slug": "sap-modulbetreuer-sd-wm-ewm-m-w-d-100-ems-chemie-domat-ems",
@@ -1013,66 +1982,8 @@
         "gestionnaire-de-modules-sap-sd-wm-ewm-h-f-d-100-ems-chemie-ag-domat-ems": "GR",
         "sap-modulbetreuer-sd-wm-ewm-m-w-d-100-ems-chemie-domat-ems-e271f4de": "GR"
       }
-    }
-  },
-  {
-    "slug": "testa-del-laboratorio-di-fisica-m-f-d-100-ems-chemie-ag-domat-ems",
-    "title": "Teamleiter Physiklabor (m/w/d) 100%",
-    "titleByLocale": {
-      "it": "Testa del laboratorio di fisica (m/f/d) 100%",
-      "en": "Head of Physics Laboratory (m/f/d) 100%",
-      "de": "Teamleiter Physiklabor (m/w/d) 100%",
-      "fr": "Chef du laboratoire de physique (h/f/d) 100%"
     },
-    "company": "EMS-Chemie AG",
-    "companyKey": "ems-chemie",
-    "location": "Domat/Ems",
-    "addressLocality": "Domat/Ems",
-    "descriptionByLocale": {
-      "it": "Cosa aspettarsi\n\n• Gestione tecnica e personale del laboratorio di fisica\n\n• Responsabile per la sperimentazione di prodotti intermedi e finali secondo i piani di prova\n\n• Manutenzione e manutenzione di apparecchiature di prova\n\n• Cura degli studenti nel laboratorio di fisica\n\n• Creazione di documentazione come istruzioni, report e materiali di formazione\n\nCosa porti con te\n\n• Studi o formazione legati alla plastica\n\n• Conoscenza dei polimeri e esperienza di leadership\n\n• Funzionamento strutturato e responsabile\n\n• Resilienza e applicazione\n\n• Prontezza per il servizio week-end\n\n• Buona conoscenza della lingua tedesca e inglese\n\nNon vedo l'ora.\n\n• Lavorare al centro di belle aree naturali e ricreative\n\n• Attività emozionanti in un ambiente internazionale con brevi percorsi decisionali\n\n• Un sacco di responsabilità personale e posizioni di gestione attraenti\n\n• Retribuzioni orientate al mercato, benefici sociali progressivi e fondi pensione propri con buone prestazioni\n\n• Staff ristorante, parcheggio gratuito\n\nInformazioni su di noi\n\nLo SME ha 25 siti di produzione in 16 paesi, impiega circa 3.000 persone in tutto il mondo e, con circa 140 apprendisti, è il più grande formatore professionale del cantone e vincitore del National Education Award.\n\nEMS-GRIVORY fa parte dell’unità aziendale di polimeri ad alte prestazioni del Gruppo EMS e impiega oltre 1000 persone in tutto il mondo. Il più grande centro di sviluppo e produzione si trova a Domat/Ems, in Svizzera. Ulteriori impianti di produzione si trovano in Germania, Cina, Taiwan e Stati Uniti.",
-      "en": "What to expect\n\n• Technical and personnel management of the physics laboratory\n\n• Responsible for testing intermediate and final products according to test plans\n\n• Maintenance and servicing of test equipment\n\n• Care of learners in the physics laboratory\n\n• Creating documentation such as instructions, reports and training materials\n\nWhat do you bring with you\n\n• Studies or training related to plastics\n\n• Knowledge of polymers and leadership experience\n\n• Structured and responsible functioning\n\n• Resilience and enforcement\n\n• Readiness for weekend service\n\n• Good knowledge of German and English\n\nYou can look forward to that.\n\n• Working in the middle of beautiful natural and recreational areas\n\n• Exciting tasks in an international environment with short decision paths\n\n• Lots of personal responsibility and attractive management positions\n\n• Market-oriented remuneration, progressive social benefits and own pension fund with good benefits\n\n• Staff restaurant, free parking\n\nAbout us\n\nEMS has 25 production sites in 16 countries, employs around 3,000 people worldwide and, with around 140 apprentices, is the largest vocational trainer in the canton and winner of the National Education Award.\n\nEMS-GRIVORY is part of the EMS Group’s high-performance polymers business unit and employs more than 1000 people worldwide. The largest development and production centre is located in Domat/Ems, Switzerland. Further production facilities are located in Germany, China, Taiwan and the USA.",
-      "de": "Was erwartet Sie\n\n• Fachliche und personelle Führung des Physiklabors\n\n• Verantwortlich für das Prüfen von Zwischen- und Endprodukten gemäss Prüfplänen\n\n• Wartung und Instandhaltung der Prüfgeräte\n\n• Betreuung der Lernenden im Physiklabor\n\n• Erstellen von Dokumentationen wie Anweisungen, Berichte und Schulungsunterlagen\n\nWas bringen Sie mit\n\n• Studium oder Ausbildung mit Bezug zu Kunststoffen\n\n• Kenntnisse über Polymere sowie Führungserfahrung von Vorteil\n\n• Strukturierte und verantwortungsbewusste Arbeitsweise\n\n• Belastbarkeit und Durchsetzungsvermögen\n\n• Bereitschaft zum Wochenenddienst\n\n• Gute Deutsch- und Englischkenntnisse\n\nDarauf können Sie sich freuen\n\n• Arbeiten inmitten schöner Natur- und Erholungsgebiete\n\n• Spannende Aufgaben im internationalen Umfeld mit kurzen Entscheidungswegen\n\n• Viel Eigenverantwortung und attraktive Führungspositionen\n\n• Marktgerechte Entlöhnung, fortschrittliche Sozialleistungen und eigene Pensionskasse mit guten Leistungen\n\n• Personalrestaurant, Gratisparkplätze\n\nÜber uns\n\nEMS hat 25 Produktionsstandorte in 16 Ländern, beschäftigt weltweit rund 3'000 Mitarbeiter und ist mit rund 140 Lernenden der grösste Berufsbildner im Kanton und Träger des Nationalen Bildungspreises.\n\nEMS-GRIVORY ist Teil des Geschäftsbereichs Hochleistungspolymere der EMS-Gruppe und beschäftigt weltweit über 1000 Mitarbeiter. Das grösste Entwicklungs- und Produktionszentrum befindet sich in Domat/Ems in der Schweiz. Weitere Produktionsstätten liegen in Deutschland, China, Taiwan und den USA.",
-      "fr": "À quoi s'attendre\n\n• Gestion technique et du personnel du laboratoire de physique\n\n• Responsable de l'essai des produits intermédiaires et finaux selon les plans d'essai\n\n• Entretien et entretien du matériel d ' essai\n\n• Soins aux apprenants dans le laboratoire de physique\n\n• Création de documents tels que des instructions, des rapports et du matériel de formation\n\nQu'apportez-vous ?\n\n• Études ou formation en matière plastique\n\n• Connaissance des polymères et expérience en leadership\n\n• Fonctionnement structuré et responsable\n\n• Résilience et application\n\n• Préparation au service du week-end\n\n• Bonne connaissance de l'allemand et de l'anglais\n\nVous pouvez attendre avec impatience.\n\n• Travailler au milieu de belles zones naturelles et récréatives\n\n• Tâches passionnantes dans un environnement international à courte échéance\n\n• Beaucoup de responsabilités personnelles et de postes de direction attrayants\n\n• Rémunération axée sur le marché, prestations sociales progressives et fonds de pension propre avec de bons avantages\n\n• Restaurant du personnel, parking gratuit\n\nÀ propos de nous\n\nEMS compte 25 sites de production dans 16 pays, emploie environ 3 000 personnes dans le monde et, avec environ 140 apprentis, est le plus grand formateur professionnel du canton et lauréat du Prix national de l'éducation.\n\nEMS-GRIVORY fait partie de l'unité commerciale EMS Group de polymères haute performance et emploie plus de 1000 personnes dans le monde. Le plus grand centre de développement et de production est situé à Domat/Ems, en Suisse. D'autres installations de production sont situées en Allemagne, en Chine, à Taïwan et aux États-Unis."
-    },
-    "slugByLocale": {
-      "it": "testa-del-laboratorio-di-fisica-m-f-d-100-ems-chemie-ag-domat-ems",
-      "en": "head-of-physics-laboratory-m-f-d-100-ems-chemie-ag-domat-ems",
-      "de": "leiter-physiklabor-m-w-d-100-ems-chemie-domat-ems",
-      "fr": "chef-du-laboratoire-de-physique-h-f-d-100-ems-chemie-ag-domat-ems"
-    },
-    "sector": "",
-    "expiredAt": "2026-11-17T09:24:23.918Z",
-    "previousSlugs": [
-      "leiter-physiklabor-m-w-d-100-ems-chemie-ag-domat-ems",
-      "leiter-physiklabor-m-w-d-100-ems-chemie-domat-ems",
-      "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems-56e5a64c"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "leiter-physiklabor-m-w-d-100-ems-chemie-ag-domat-ems",
-        "leiter-physiklabor-m-w-d-100-ems-chemie-domat-ems",
-        "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems-56e5a64c"
-      ],
-      "en": [
-        "leiter-physiklabor-m-w-d-100-ems-chemie-domat-ems",
-        "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems-56e5a64c"
-      ],
-      "fr": [
-        "leiter-physiklabor-m-w-d-100-ems-chemie-domat-ems",
-        "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems-56e5a64c"
-      ],
-      "de": [
-        "teamleiter-physiklabor-m-w-d-100-ems-chemie-domat-ems-56e5a64c"
-      ]
-    },
-    "postalCode": "7013",
-    "streetAddress": "Via Innovativa 1",
-    "salaryMin": 118000,
-    "salaryMax": 196000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/teamleiter-physiklabor-m-w-d/987d9234-247f-4803-9c5b-3eb86751074e",
-    "firstSeenAt": "2026-10-30T21:24:08.497Z"
+    "canton": "GR"
   },
   {
     "slug": "collaboratore-trice-kommunikation-events-m-w-d-100-ems-chemie-ag-domat-ems",
@@ -1102,17 +2013,21 @@
     "sector": "",
     "expiredAt": "2026-11-02T11:29:39.710Z",
     "previousSlugs": [
-      "mitarbeiter-kommunikation-events-m-w-d-100-ems-chemie-domat-ems"
+      "mitarbeiter-kommunikation-events-m-w-d-100-ems-chemie-domat-ems",
+      "communications-events-employee-m-f-d-100-ems-chemie-ag-domat-ems",
+      "collaborateur-en-communication-et-evenements-h-f-d-100-ems-chemie-ag-domat-ems"
     ],
     "previousSlugsByLocale": {
       "it": [
         "mitarbeiter-kommunikation-events-m-w-d-100-ems-chemie-domat-ems"
       ],
       "en": [
-        "mitarbeiter-kommunikation-events-m-w-d-100-ems-chemie-domat-ems"
+        "mitarbeiter-kommunikation-events-m-w-d-100-ems-chemie-domat-ems",
+        "communications-events-employee-m-f-d-100-ems-chemie-ag-domat-ems"
       ],
       "fr": [
-        "mitarbeiter-kommunikation-events-m-w-d-100-ems-chemie-domat-ems"
+        "mitarbeiter-kommunikation-events-m-w-d-100-ems-chemie-domat-ems",
+        "collaborateur-en-communication-et-evenements-h-f-d-100-ems-chemie-ag-domat-ems"
       ]
     },
     "postalCode": "7013",
@@ -1134,7 +2049,21 @@
         "firstSeenAt": "2026-09-24T14:26:16.853Z",
         "title": "Mitarbeiter Kommunikation & Events (m/w/d) 100%"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-kommunikation-events-m-w-d-100-ems-chemie-domat-ems": "GR"
+      },
+      "en": {
+        "mitarbeiter-kommunikation-events-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "communications-events-employee-m-f-d-100-ems-chemie-ag-domat-ems": "GR"
+      },
+      "fr": {
+        "mitarbeiter-kommunikation-events-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "collaborateur-en-communication-et-evenements-h-f-d-100-ems-chemie-ag-domat-ems": "GR"
+      }
+    }
   },
   {
     "slug": "testa-di-acquisto-tecnico-m-f-d-100-ems-chemie-ag-domat-ems",
@@ -1198,7 +2127,20 @@
         "firstSeenAt": "2026-10-01T21:24:46.283Z",
         "title": "Leiter Technischer Einkauf (m/w/d) 100%"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leiter-technischer-einkauf-m-w-d-100-ems-chemie-ag-domat-ems": "GR",
+        "leiter-technischer-einkauf-m-w-d-100-ems-chemie-domat-ems": "GR"
+      },
+      "en": {
+        "leiter-technischer-einkauf-m-w-d-100-ems-chemie-domat-ems": "GR"
+      },
+      "fr": {
+        "leiter-technischer-einkauf-m-w-d-100-ems-chemie-domat-ems": "GR"
+      }
+    }
   },
   {
     "slug": "capo-delle-risorse-umane-m-f-d-100-ems-chemie-ag-domat-ems",
@@ -1250,7 +2192,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/personalbereichsleiter-m-w-d/3cf666af-46c2-4538-93c0-9c33b1a917d4",
-    "firstSeenAt": "2026-10-06T09:24:14.984Z"
+    "firstSeenAt": "2026-10-06T09:24:14.984Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "personalbereichsleiter-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "personalbereichsleiter-m-w-d-80-100-ems-chemie-domat-ems": "GR"
+      },
+      "en": {
+        "personalbereichsleiter-m-w-d-100-ems-chemie-domat-ems": "GR"
+      },
+      "fr": {
+        "personalbereichsleiter-m-w-d-100-ems-chemie-domat-ems": "GR"
+      }
+    }
   },
   {
     "slug": "fibre-di-controllo-di-qualita-del-laboratorio-m-f-d-100-ems-chemie-ag-domat-ems",
@@ -1294,7 +2249,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/laborant-qualitaetskontrolle-fasern-m-w-d/2fafb40d-c3eb-43a4-965e-e13fd27a0fea",
-    "firstSeenAt": "2026-10-02T09:15:51.796Z"
+    "firstSeenAt": "2026-10-02T09:15:51.796Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "laborant-qualitatskontrolle-fasern-m-w-d-100-ems-chemie-domat-ems": "GR"
+      }
+    }
   },
   {
     "slug": "assistente-amministrazione-e-organizzazione-m-f-d-60-ems-chemie-ag-domat-ems",
@@ -1324,14 +2285,32 @@
     "sector": "",
     "expiredAt": "2026-10-29T21:26:55.558Z",
     "previousSlugs": [
-      "assistenz-administration-organisation-m-w-d-60-ems-chemie-domat-ems"
+      "assistenz-administration-organisation-m-w-d-60-ems-chemie-domat-ems",
+      "assistenz-administration-organisation-m-w-d-60-ems-chemie-domat-ems-6250cd9b",
+      "application-engineering-assistant-m-w-d-60-ems-chemie-ag-domat-ems",
+      "assistenz-anwendungstechnik-m-w-d-60-ems-chemie-domat-ems",
+      "assistant-technologie-d-application-m-w-d-60-ems-chemie-ag-domat-ems",
+      "assistenz-administration-organisation-m-w-d-60-ems-chemie-ag-domat-ems"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "assistenz-administration-organisation-m-w-d-60-ems-chemie-domat-ems"
+        "assistenz-administration-organisation-m-w-d-60-ems-chemie-domat-ems",
+        "assistenz-administration-organisation-m-w-d-60-ems-chemie-domat-ems-6250cd9b",
+        "assistenz-anwendungstechnik-m-w-d-60-ems-chemie-domat-ems"
       ],
       "en": [
-        "assistenz-administration-organisation-m-w-d-60-ems-chemie-domat-ems"
+        "assistenz-administration-organisation-m-w-d-60-ems-chemie-domat-ems",
+        "application-engineering-assistant-m-w-d-60-ems-chemie-ag-domat-ems",
+        "assistenz-administration-organisation-m-w-d-60-ems-chemie-domat-ems-6250cd9b"
+      ],
+      "de": [
+        "assistenz-administration-organisation-m-w-d-60-ems-chemie-domat-ems-6250cd9b",
+        "assistenz-anwendungstechnik-m-w-d-60-ems-chemie-domat-ems"
+      ],
+      "fr": [
+        "assistant-technologie-d-application-m-w-d-60-ems-chemie-ag-domat-ems",
+        "assistenz-administration-organisation-m-w-d-60-ems-chemie-ag-domat-ems",
+        "assistenz-administration-organisation-m-w-d-60-ems-chemie-domat-ems-6250cd9b"
       ]
     },
     "postalCode": "7013",
@@ -1353,7 +2332,29 @@
         "firstSeenAt": "2026-09-16T09:21:33.961Z",
         "title": "Assistenz Administration & Organisation (m/w/d) 60%"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistenz-administration-organisation-m-w-d-60-ems-chemie-domat-ems": "GR",
+        "assistenz-administration-organisation-m-w-d-60-ems-chemie-domat-ems-6250cd9b": "GR",
+        "assistenz-anwendungstechnik-m-w-d-60-ems-chemie-domat-ems": "GR"
+      },
+      "en": {
+        "assistenz-administration-organisation-m-w-d-60-ems-chemie-domat-ems": "GR",
+        "application-engineering-assistant-m-w-d-60-ems-chemie-ag-domat-ems": "GR",
+        "assistenz-administration-organisation-m-w-d-60-ems-chemie-domat-ems-6250cd9b": "GR"
+      },
+      "de": {
+        "assistenz-administration-organisation-m-w-d-60-ems-chemie-domat-ems-6250cd9b": "GR",
+        "assistenz-anwendungstechnik-m-w-d-60-ems-chemie-domat-ems": "GR"
+      },
+      "fr": {
+        "assistant-technologie-d-application-m-w-d-60-ems-chemie-ag-domat-ems": "GR",
+        "assistenz-administration-organisation-m-w-d-60-ems-chemie-ag-domat-ems": "GR",
+        "assistenz-administration-organisation-m-w-d-60-ems-chemie-domat-ems-6250cd9b": "GR"
+      }
+    }
   },
   {
     "slug": "senior-financial-accountant-specialista-contabilita-m-f-d-100-ems-chemie-ag-domat-ems",
@@ -1387,7 +2388,8 @@
       "sachbearbeiter-rechnungswesen-m-w-d-100-ems-chemie-domat-ems",
       "fachspezialist-finanz-und-rechnungswesen-m-w-d-100-ems-chemie-domat-ems",
       "fachspezialist-finanz-und-rechnungswesen-m-w-d-100-ems-chemie-ag-domat-ems",
-      "senior-financial-comptable-fachspezialist-rechnungswesen-m-w-d-100-ems-chemie-ag-domat-ems"
+      "senior-financial-comptable-fachspezialist-rechnungswesen-m-w-d-100-ems-chemie-ag-domat-ems",
+      "comptable-financier-principal-comptable-specialiste-h-f-d-100-ems-chemie-ag-domat-ems"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1401,7 +2403,8 @@
       ],
       "fr": [
         "senior-financial-accountant-fachspezialist-rechnungswesen-m-w-d-100-ems-chemie-domat-ems",
-        "senior-financial-comptable-fachspezialist-rechnungswesen-m-w-d-100-ems-chemie-ag-domat-ems"
+        "senior-financial-comptable-fachspezialist-rechnungswesen-m-w-d-100-ems-chemie-ag-domat-ems",
+        "comptable-financier-principal-comptable-specialiste-h-f-d-100-ems-chemie-ag-domat-ems"
       ],
       "de": [
         "fachspezialist-finanz-und-rechnungswesen-m-w-d-100-ems-chemie-ag-domat-ems"
@@ -1431,60 +2434,20 @@
         "firstSeenAt": "2026-07-10T10:23:20.075Z",
         "title": "Senior Financial Accountant / Fachspezialist Rechnungswesen (m/w/d) 100%"
       }
-    ]
-  },
-  {
-    "slug": "assistenz-anwendungstechnik-m-w-d-60-ems-chemie-domat-ems",
-    "title": "Assistenz Administration & Organisation (m/w/d) 60%",
-    "titleByLocale": {
-      "it": "Assistenza tecnica applicativa (m/f/d) 60%",
-      "en": "Application Engineering Assistant (m/w/d) 60%",
-      "de": "Assistenz Anwendungstechnik (m/w/d) 60%",
-      "fr": "Aidenz Administration et organisation (h/f/d) 60%"
-    },
-    "company": "EMS-Chemie AG",
-    "companyKey": "ems-chemie",
-    "location": "Domat/Ems",
-    "addressLocality": "Domat/Ems",
-    "descriptionByLocale": {
-      "it": "Was erwartet Sie\n\n• Administrative und organisatorische Unterstützung des Vorgesetzten\n\n• Koordination von Terminen und Besprechungen\n\n• Vor- und Nachbereitung von Sitzungen inkl. Protokollführung\n\n• Erstellung von Korrespondenz, Präsentationen und Reportings\n\n• Pflege von Dokumenten, Ablagen und Übersichten\n\n• Organisation von Geschäftsreisen und Veranstaltungen\n\n• Überwachung von Terminen und Pendenzen\n\n• Allgemeine Sekretariatsaufgaben\n\nWas bringen Sie mit\n\n• Abgeschlossene kaufmännische Ausbildung\n\n• Erfahrung in einer administrativen Funktion\n\n• Sehr gute Deutsch- und Englischkenntnisse\n\n• Sicherer Umgang mit Microsoft Office\n\n• Selbstständige, strukturierte und sorgfältige Arbeitsweise\n\n• Ausgeprägtes Organisationsgeschick\n\n• Diskretion, Zuverlässigkeit und Flexibilität\n\n• Freundliches und professionelles Auftreten\n\nDarauf können Sie sich freuen\n\n• Eine verantwortungsvolle Tätigkeit mit spannenden und abwechslungsreichen Aufgaben in einem internationalen Umfeld\n\n• Viel Gestaltungsspielraum sowie ein hohes Mass an Eigenverantwortung\n\n• Attraktive Karriereperspektiven innerhalb unseres Unternehmens\n\n• Arbeiten in einer Region mit hoher Lebensqualität und vielfältigen Natur- und Erholungsmöglichkeiten\n\n• Marktgerechte Vergütung, fortschrittliche Sozialleistungen sowie eine firmeneigene Pensionskasse mit attraktiven Leistungen\n\n• Personalrestaurant, Gratisparkplätze\n\nÜber uns\n\nEMS hat 25 Produktionsstandorte in 16 Ländern, beschäftigt weltweit rund 3'000 Mitarbeiter und ist mit rund 140 Lernenden der grösste Berufsbildner im Kanton und Träger des Nationalen Bildungspreises.\n\nEMS-GRIVORY ist Teil des Geschäftsbereichs Hochleistungspolymere der EMS-Gruppe und beschäftigt weltweit über 1000 Mitarbeiter. Das grösste Entwicklungs- und Produktionszentrum befindet sich in Domat/Ems in der Schweiz. Weitere Produktionsstätten liegen in Deutschland, China, Taiwan und den USA.",
-      "en": "Was erwarte\n\n• Administrative und organising Unterstützung des Vorgesetzten\n\n• Koordination von Termn und Besprechungen\n\n• Vor- und Nachbereitung von Sitzungen inkl. Protokollführung\n\n• Erstellung von Korrespondenz, Präsentationen und Reportings\n\n• Ablagen und Übersichten\n\n• Organisation von Geschäftsreisen und Veranstaltungen\n\n• Überwachung von Termn und Pendenzen\n\n• Allgemeine Sekretariatsaufgaben\n\nWas bringen Sie mit\n\n• Abgeschlossene kaufmännische Ausbildung\n\n• Erfahrung in einer administrativen Funktion\n\n• Sehr gute Deutsch- und Englischkenntnisse\n\n• Sicherer Umgang mit Microsoft Office\n\n• Selbstständige\n\n• Ausgeprägtes Organisationsgeschick\n\n• Diskretion, Zuverlässigkeit und Flexibilität\n\n• Freundliches und Professionlles Auftreten\n\nDarauf können Sie sich freuen\n\n• Eine verantwortungsvolle Tätigkeit mit spannenden und abwechslungsreichen Aufgaben in einem internationalen Umfeld\n\n• Viel Gestaltungsspielraum sowie ein hohes Mass an Eigenverantwortung\n\n• Attraktive Karriereperspektiven innerhalb unseres Unternehmens\n\n• Arbeiten in einer Region mit hoher Lebensqualität und vielfältigen Natur- und Erholungsmöglichkeiten\n\n• Marktgerechte Vergütung, fortschritliche Sozialleistungen sowie eine firmeneigen Pensionskasse mit attraktiven Leistungen\n\n• Personalrestaurant, Gratisparkplätze\n\nÜber uns\n\nEMS hat 25 Produktionsstandorte in 16 Ländern, beschäftigt weltweit rund 3'000 Mitarbeiter und ist mit rund 140 Lernenden der grösste Berufsbildner im Kanton und Träger des Nationalen Bildungspreises.\n\nEMS-GRIVORY ist Teil des Geschäftsbereichs Hochleistungspolymere der EMS-Gruppe und beschäftigt weltweit über 1000 Mitarbeiter. Das grösste Entwicklungs- und Produktionszentrum befindet sich in Domat/Ems in der Schweiz. Weitere Produktionsstätten liegen in Deutschland, China, Taiwan und den USA.",
-      "de": "war dauerhaft\n\n• Administrative und organisatorische Unterstützung des Vorgesetzten\n\n• Koordinierung von Termn und Besprechungen\n\n• Vor- und Nachbereitung von Sitzungen inkl. Protokollführung\n\n• Erstellung von Korrespondenz, Präsentationen und Reportings\n\n• Ablagen und Übersichten\n\n• Organisation von Geschäftsreisen und Veranstaltungen\n\n• Überwachung von Termn und Pendenzen\n\n• Allgemeine Sekretariatsaufgaben\n\nWas brachte Sie mit\n\n• Abgeschlossene kaufmännische Ausbildung\n\n• Erfahrung in einer administrativen Funktion\n\n• Sehr gute Deutsch- und Englischkenntnisse\n\n• Sicherer Umgang mit Microsoft Office\n\n• Selbstständig\n\n• Ausgeprägtes Organisationsgeschick\n\n• Diskretion, Zuverlässigkeit und Flexibilität\n\n• Freundliches und Professionlles Verhalten\n\nHier geht es um Sie haben sich gefesselt\n\n• Eine verantwortungsvolle Tätigkeit mit spannenden und abwechslungsreichen Aufgaben in einem internationalen Umfeld\n\n• Viel Gestaltungstanz sowie eine hohe Masse an Eigenverantwortung\n\n• Attraktive Karriereperspektiven innerhalb unserer Unternehmen\n\n• Arbeiten in einer Region mit hoher Lebensqualität und vielfältigen Natur- und Erholungsmöglichkeiten\n\n• Marktgerechte Vergütung, fortschritliche Sozialleistungen sowie eine firmeneigene Pensionskasse mit attraktiven Leistungen\n\n• Personalrestaurant, Gratisparkplätze\n\nÜber uns\n\nEMS hat 25 Produktionsstandorte in 16 Ländern, beschäftigt weltweit rund 3'000 Mitarbeiter und ist mit rund 140 Lernenden der größten Berufsbildner im Kanton und Träger des Nationalen Bildungspreises.\n\nEMS-GRIVORY ist Teil des Geschäftsbereichs Hochleistungspolymere der EMS-Gruppe und beschäftigt weltweit über 1000 Mitarbeiter. Das grösste Entwicklungs- und Produktionszentrum liegt sich in Domat/Ems in der Schweiz. Weitere Produktionsstätten liegen in Deutschland, China, Taiwan und den USA.",
-      "fr": "Était erwarte\n\n• Administration et organisation Unterstützung des Vorgesetzten\n\n• Koordination von Termn und Besprechungen\n\n• Vor- und Nachbereitung von Sitzungen inkl. Protokollführung\n\n• Erstellung von Korrespondenz, Präsentationen und Reportages\n\n• Ablagen et Überschten\n\n• Organisation von Geschäftsreisen und Veranstaltungen\n\n• Überwachung von Termn und Pendenzen\n\n• Allgemeine Sekretariatsaufgaben\n\nA été amené Sie mit\n\n• Abgeschlossène kaufmännische Ausbildung\n\n• Erfahrung in einer administrativen Funktion\n\n• Sehr gute Deutsch- und Englischkenntnisse\n\n• Sicherer Umgang mit Microsoft Office\n\n• Selbstständige\n\n• Ausgeprägtes Organisationsgeschick\n\n• Discrétion, Zuverlässigkeit und Flexibilität\n\n• Freundliches und Professionnels Auftreten\n\nDarauf können Sie sich freuen\n\n• Eine verantwortungsvolle Tätigkeit mit spannenden und abwechslungsreichen Aufgaben in einem internationalen Umfeld\n\n• Viel Gestaltungsspielraum sowie ein hohes Mass an Eigenverantwortung\n\n• Attraktive Karriereperspektiven innerhalb unseres Unternehmens\n\n• Arbeiten in einer Region mit hoher Lebensqualität und vielfältigen Natur- und Erholungsmöglichkeiten\n\n• Marktgerechte Vergütung, fortschritliche Sozialleistungen sowie eine firmeneigen Pensionskasse mit attraktiven Leistungen\n\n• Restauration personnelle, Gratisparkplätze\n\nLes\n\nL'Europe de l'Est et l'Europe de l'Est.\n\nEMS-GRIVORY ist Teil des Geschäftsbereichs Hochleistungspolymère der EMS-Gruppe und beschäftigt weltweit über 1000 Mitarbeiter. Das grösste Entwicklungs- und Produkttionszentrum belindet sich in Domat/Ems in der Schweiz. Weitere Produktionsstätten liegen in Deutschland, China, Taiwan und den USA."
-    },
-    "slugByLocale": {
-      "en": "application-engineering-assistant-m-w-d-60-ems-chemie-ag-domat-ems",
-      "fr": "assistant-technologie-d-application-m-w-d-60-ems-chemie-ag-domat-ems"
-    },
-    "sector": "",
-    "expiredAt": "2026-10-14T21:19:36.934Z",
-    "previousSlugs": [
-      "assistenz-administration-organisation-m-w-d-60-ems-chemie-ag-domat-ems",
-      "assistenz-administration-organisation-m-w-d-60-ems-chemie-domat-ems-6250cd9b"
     ],
-    "previousSlugsByLocale": {
-      "fr": [
-        "assistenz-administration-organisation-m-w-d-60-ems-chemie-ag-domat-ems",
-        "assistenz-administration-organisation-m-w-d-60-ems-chemie-domat-ems-6250cd9b"
-      ],
-      "it": [
-        "assistenz-administration-organisation-m-w-d-60-ems-chemie-domat-ems-6250cd9b"
-      ],
-      "en": [
-        "assistenz-administration-organisation-m-w-d-60-ems-chemie-domat-ems-6250cd9b"
-      ],
-      "de": [
-        "assistenz-administration-organisation-m-w-d-60-ems-chemie-domat-ems-6250cd9b"
-      ]
-    },
-    "postalCode": "7013",
-    "streetAddress": "Via Innovativa 1",
-    "salaryMin": 46200,
-    "salaryMax": 76500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/assistenz-anwendungstechnik-m-w-d/94594235-478c-4e44-add6-2cf33c2f14ae",
-    "firstSeenAt": "2026-09-16T09:21:33.961Z"
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-financial-accountant-fachspezialist-rechnungswesen-m-w-d-100-ems-chemie-domat-ems": "GR"
+      },
+      "en": {
+        "senior-financial-accountant-fachspezialist-rechnungswesen-m-w-d-100-ems-chemie-domat-ems": "GR"
+      },
+      "fr": {
+        "senior-financial-accountant-fachspezialist-rechnungswesen-m-w-d-100-ems-chemie-domat-ems": "GR",
+        "comptable-financier-principal-comptable-specialiste-h-f-d-100-ems-chemie-ag-domat-ems": "GR"
+      }
+    }
   },
   {
     "slug": "laborleiter-qualitatskontrolle-fasern-e-garn-m-w-d-100-ems-chemie-ag-domat-ems-100f1f16",
@@ -1516,6 +2479,12 @@
     "previousSlugsByLocale": {
       "it": [
         "laborleiter-qualitatskontrolle-fasern-und-garn-m-w-d-100-ems-chemie-domat-ems-20a66db9"
+      ],
+      "en": [
+        "laboratory-manager-quality-control-phasers-and-yarn-m-f-d-100-ems-chemie-ag-domat-ems"
+      ],
+      "fr": [
+        "gestionnaire-de-laboratoire-phaseurs-de-controle-de-la-qualite-et-fil-h-f-d-100-ems-chemie-ag-domat-ems"
       ]
     },
     "postalCode": "7013",
@@ -1537,6 +2506,18 @@
         "firstSeenAt": "2026-09-10T23:08:00.550Z",
         "title": "Laborleiter Qualitätskontrolle Fasern und Garn (m/w/d) 100%"
       }
+    ],
+    "previousSlugCantonByLocale": {
+      "en": {
+        "laboratory-manager-quality-control-phasers-and-yarn-m-f-d-100-ems-chemie-ag-domat-ems": "GR"
+      },
+      "fr": {
+        "gestionnaire-de-laboratoire-phaseurs-de-controle-de-la-qualite-et-fil-h-f-d-100-ems-chemie-ag-domat-ems": "GR"
+      }
+    },
+    "previousSlugs": [
+      "laboratory-manager-quality-control-phasers-and-yarn-m-f-d-100-ems-chemie-ag-domat-ems",
+      "gestionnaire-de-laboratoire-phaseurs-de-controle-de-la-qualite-et-fil-h-f-d-100-ems-chemie-ag-domat-ems"
     ]
   },
   {
@@ -2642,7 +3623,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/elektroinstallateur-automatiker-in-m-w-d/3a3724b6-107c-44ed-ae6a-2bafbed774ff",
-    "firstSeenAt": "2026-09-08T13:40:15.681Z"
+    "firstSeenAt": "2026-09-08T13:40:15.681Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-domat-ems": "GR"
+      }
+    }
   },
   {
     "slug": "assistente-del-consiglio-direttivo-lunedi-f-d-al-100-herrliberg-ems-chemie-ag-herrliberg-ems-chemie-ag-domat-6186b92f",
@@ -3164,6 +4151,108 @@
     ]
   },
   {
+    "slug": "assistente-del-consiglio-direttivo-lunedi-f-d-al-100-herrliberg-ems-chemie-ag-herrliberg-ems-chemie-ag-domat-ems",
+    "title": "Assistentin der Geschäftsleitung (m/w/d) 100%",
+    "titleByLocale": {
+      "it": "Assistente del Consiglio Direttivo (lunedì/f/d) al 100% | Herrliberg | EMS-CHEMIE AG Herrliberg",
+      "en": "Assistentin der Geschäftsleitung (m/w/d) 100% Herrliberg - EMS-CHEMIE AG Herrliberg",
+      "de": "Assistentin der Geschäftsleitung (m/w/d) 100%",
+      "fr": "Assistentin der Geschäftsleitung (l/w/d) 100 % | Herrliberg | EMS-CHEMIE AG Herrliberg"
+    },
+    "company": "EMS-Chemie AG",
+    "companyKey": "ems-chemie",
+    "location": "Domat/Ems",
+    "addressLocality": "Domat/Ems",
+    "descriptionByLocale": {
+      "it": "Assistentin der Geschäftsleitung (m/w/d) 100% ## Descrizione - Assistentin der Geschäftsleitung (m/w/d) 100% - Herrliberg - EMS-CHEMIE AG Herrliberg presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). - EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. - Sede di lavoro: Domat/Ems.",
+      "en": "Assistentin der Geschäftsleitung (m/w/d) 100% ## Description - Assistentin der Geschäftsleitung (m/w/d) 100% - Herrliberg - EMS-CHEMIE AG Herrliberg at EMS-Chemie AG, a leading company in the field of specialty polymers and fine chemicals based in Domat/Ems (Graubünden). - EMS-Chemie is the world's largest manufacturer of high-performance polyamides, with around 3000 employees worldwide. - Place of work: Domat/Ems.",
+      "de": "Assistentin der Geschäftsleitung (m/w/d) 100% ## Beschreibung - Assistentin der Geschäftsleitung (m/w/d) 100% - Herrliberg - EMS-CHEMIE AG Herrliberg bei der EMS-Chemie AG, einem führenden Unternehmen im Bereich Spezialpolymere und Feinchemikalien mit Sitz in Domat/Ems (Graubünden). - EMS-Chemie ist der weltweit größte Hersteller von Hochleistungspolyamiden mit rund 3000 Mitarbeitern weltweit. - Arbeitsplatz: Domat/Ems.",
+      "fr": "Assistentin der Geschäftsleitung (m/w/d) 100 % ## Description - Assistentin der Geschäftsleitung (m/w/d) 100 % - Herrliberg - EMS-CHEMIE AG Herrliberg chez EMS-Chemie AG, une entreprise leader dans le domaine des polymères spécialisés et des produits chimiques fins basée à Domat/Ems (Grisons). - EMS-Chemie est le plus grand fabricant mondial de polyamides haute performance, avec environ 3000 employés dans le monde. - Lieu de travail : Domat/Ems."
+    },
+    "slugByLocale": {
+      "it": "assistente-del-consiglio-direttivo-lunedi-f-d-al-100-herrliberg-ems-chemie-ag-herrliberg-ems-chemie-ag-domat-ems",
+      "en": "assistentin-der-geschaftsleitung-m-w-d-100-herrliberg-ems-chemie-ag-herrliberg-ems-chemie-ag-domat-ems",
+      "de": "assistentin-der-geschaftsleitung-m-w-d-100-herrliberg-ems-chemie-ag-herrliberg-ems-chemie-domat-ems",
+      "fr": "assistentin-der-geschaftsleitung-l-w-d-100-herrliberg-ems-chemie-ag-herrliberg-ems-chemie-ag-domat-ems"
+    },
+    "sector": "",
+    "expiredAt": "2026-06-16T05:20:33.524Z",
+    "previousSlugs": [
+      "assistente-del-consiglio-direttivo-lunedi-f-d-al-100-ems-chemie-domat-ems",
+      "assistente-della-direzione-di-divisione-m-f-d-100-ems-chemie-ag-domat-ems",
+      "assistenz-der-divisionsleitung-m-w-d-100-ems-chemie-domat-ems",
+      "division-leadership-assistant-m-f-d-100-ems-chemie-ag-domat-ems",
+      "assistant-de-la-direction-de-division-m-f-d-100-ems-chemie-ag-domat-ems",
+      "assistant-a-la-direction-de-division-h-f-100-ems-chemie-ag-domat-ems",
+      "assistante-de-direction-m-f-d-100-ems-chemie-ag-domat-ems",
+      "assistente-della-direzione-m-f-d-100-herrliberg-ems-chemie-ag-herrliberg-ems-chemie-ag-domat-ems",
+      "assistentin-der-geschaftsleitung-l-w-d-100-ems-chemie-domat-ems",
+      "assistentin-der-geschaftsleitung-m-w-d-100-ems-chemie-domat-ems",
+      "assistenz-der-divisionsleitung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "assistenza-alla-direzione-di-divisione-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "chef-de-la-direction-du-controle-m-w-d-100-ems-chemie-ag-domat-ems",
+      "chef-de-la-direction-du-controle-m-w-d-100-ems-chemie-domat-ems",
+      "leiter-finanzbuchhaltung-m-w-d-100-ems-chemie-ag-domat-ems",
+      "responsabile-ambiente-e-sicurezza-m-f-d-100-ems-chemie-ag-domat-ems",
+      "leiter-umweltschutz-e-sicherheit-m-w-d-100-ems-chemie-ag-domat-ems",
+      "head-of-financial-accounting-ems-chemie-ag-domat-ems",
+      "environmental-protection-and-safety-manager-m-f-d-100-ems-chemie-ag-domat-ems",
+      "leiter-umweltschutz-und-sicherheit-m-w-d-100-ems-chemie-domat-ems",
+      "leiter-finanzbuchhaltung-m-w-d-100-ems-chemie-domat-ems",
+      "responsable-de-la-comptabilite-financiere-ems-chemie-ag-domat-ems",
+      "responsable-protection-de-l-environnement-et-securite-m-f-d-100-ems-chemie-ag-domat-ems",
+      "responsabile-contabilita-finanziaria-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "leiter-controlling-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "leiter-controlling-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems",
+      "leiter-controlling-m-w-d-100-ems-chemie-domat-ems",
+      "leiter-finanzbuchhaltung-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "leiter-finanzbuchhaltung-100-ems-chemie-domat-ems",
+      "leiter-finanzbuchhaltung-lun-mer-j-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "leiter-finanzbuchhaltung-lun-mer-j-100-ems-chemie-domat-ems",
+      "leiter-finanzbuchhaltung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-e",
+      "leiter-finanzbuchhaltung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "leiter-finanzbuchhaltung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems",
+      "responsabile-contabilita-finanziaria-m-f-d-100-ems-chemie-domat-ems",
+      "responsabile-contabilita-finanziaria-m-w-d-100-ems-chemie-domat-ems",
+      "responsabile-controlling-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "responsabile-controlling-m-f-d-100-ems-chemie-domat-ems",
+      "responsabile-controlling-m-w-d-100-ems-chemie-ag-domat-ems",
+      "responsabile-controlling-m-w-d-100-ems-chemie-domat-ems"
+    ],
+    "postalCode": "7013",
+    "streetAddress": "Via Innovativa 1",
+    "salaryMin": 58000,
+    "salaryMax": 78000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "previousSlugsByLocale": {
+      "it": [
+        "assistente-della-direzione-di-divisione-m-f-d-100-ems-chemie-ag-domat-ems",
+        "assistenz-der-divisionsleitung-m-w-d-100-ems-chemie-domat-ems",
+        "responsabile-ambiente-e-sicurezza-m-f-d-100-ems-chemie-ag-domat-ems",
+        "leiter-umweltschutz-e-sicherheit-m-w-d-100-ems-chemie-ag-domat-ems"
+      ],
+      "en": [
+        "division-leadership-assistant-m-f-d-100-ems-chemie-ag-domat-ems",
+        "assistenz-der-divisionsleitung-m-w-d-100-ems-chemie-domat-ems",
+        "head-of-financial-accounting-ems-chemie-ag-domat-ems",
+        "environmental-protection-and-safety-manager-m-f-d-100-ems-chemie-ag-domat-ems",
+        "leiter-umweltschutz-und-sicherheit-m-w-d-100-ems-chemie-domat-ems"
+      ],
+      "de": [
+        "assistenz-der-divisionsleitung-m-w-d-100-ems-chemie-domat-ems",
+        "leiter-umweltschutz-und-sicherheit-m-w-d-100-ems-chemie-domat-ems"
+      ],
+      "fr": [
+        "assistant-de-la-direction-de-division-m-f-d-100-ems-chemie-ag-domat-ems",
+        "assistenz-der-divisionsleitung-m-w-d-100-ems-chemie-domat-ems",
+        "responsable-de-la-comptabilite-financiere-ems-chemie-ag-domat-ems",
+        "responsable-protection-de-l-environnement-et-securite-m-f-d-100-ems-chemie-ag-domat-ems",
+        "leiter-umweltschutz-und-sicherheit-m-w-d-100-ems-chemie-domat-ems"
+      ]
+    }
+  },
+  {
     "slug": "assistente-del-consiglio-direttivo-lunedi-f-d-al-100-herrliberg-ems-chemie-ag-herrliberg-ems-chemie-ag-domat-f30520fa",
     "title": "Assistentin der Geschäftsleitung (m/w/d) 100%",
     "titleByLocale": {
@@ -3607,6 +4696,65 @@
     "salaryPeriod": "YEAR"
   },
   {
+    "slug": "key-account-manager-m-w-d-homeoffice-100-ems-chemie-domat-ems",
+    "title": "Key Account Manager (m/w/d) (Homeoffice) 100%",
+    "titleByLocale": {
+      "it": "Responsabile Conto Chiave (lunedì/mercoledì/d) (Homeoffice) 100%",
+      "en": "Key Account Manager (m/w/d) (Homeoffice) 100%",
+      "de": "Key Account Manager (m/w/d) 100%",
+      "fr": "Responsable de comptes clés (m/f/d) (Télétravail) 100%"
+    },
+    "company": "EMS-Chemie AG",
+    "companyKey": "ems-chemie",
+    "location": "Domat/Ems",
+    "addressLocality": "Domat/Ems",
+    "descriptionByLocale": {
+      "it": "Descrizione\n- Key Account Manager (m/w/d) (Homeoffice) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni).\n- EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo.\n- Sede di lavoro: Domat/Ems.",
+      "en": "Description\n- Key Account Manager (m/w/d) (Homeoffice) 100% at EMS-Chemie AG, a leading company in the field of special polymers and fine chemistry based in Domat/Ems (Grigioni).\n- EMS-Chemie is the world's largest producer of high-performance polyamides, with about 3000 employees worldwide.\n- Workplace: Domat/Ems.",
+      "de": "Warenbezeichnung\n- Key Account Manager (m/w/d) 100% bei der EMS-Chemie AG, einem führenden Unternehmen im Bereich Spezialpolymere und Feinchemie mit Sitz in Domat/Ems (Grigioni).\n- EMS-Chemie ist der weltweit größte Hersteller von Hochleistungs-Polyamiden mit rund 3000 Mitarbeitern weltweit.\n- Arbeitsplatz: Domat/Ems.",
+      "fr": "Désignation des marchandises\n- Key Account Manager (m/w/d) (Homeoffice) 100% chez EMS-Chémie AG, une société leader dans le domaine des polymères spéciaux et de la chimie fine basée à Domat/Ems (Grigioni).\n- EMS-Chemie est le plus grand producteur mondial de polyamides haute performance, avec environ 3000 employés dans le monde.\n- Travail : Domat/Ems."
+    },
+    "slugByLocale": {
+      "fr": "responsable-de-comptes-cles-m-f-d-teletravail-100-ems-chemie-ag-domat-ems"
+    },
+    "sector": "",
+    "expiredAt": "2026-06-16T05:20:33.524Z",
+    "postalCode": "7013",
+    "streetAddress": "Via Innovativa 1",
+    "salaryMin": 68000,
+    "salaryMax": 103000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "previousSlugsByLocale": {
+      "it": [
+        "responsabile-conto-chiave-lunedi-mercoledi-d-homeoffice-100-ems-chemie-ag-domat-ems",
+        "responsabile-conto-chiave-lunedi-mercoledi-giorno-homeoffice-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-e",
+        "responsabile-conto-chiave-lunedi-mercoledi-giorno-homeoffice-100-ems-chemie-domat-ems",
+        "key-account-manager-m-w-d-homeoffice-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems"
+      ],
+      "en": [
+        "key-account-manager-m-w-d-homeoffice-100-ems-chemie-domat-ems",
+        "key-account-manager-m-w-d-homeoffice-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems"
+      ],
+      "de": [
+        "key-account-manager-m-w-d-homeoffice-100-ems-chemie-domat-ems",
+        "key-account-manager-m-w-d-homeoffice-100-ems-chemie-ag-domat-ems"
+      ],
+      "fr": [
+        "key-account-manager-m-w-d-homeoffice-100-ems-chemie-domat-ems",
+        "key-account-manager-m-w-d-homeoffice-100-ems-chemie-ag-domat-ems"
+      ]
+    },
+    "previousSlugs": [
+      "responsabile-conto-chiave-lunedi-mercoledi-d-homeoffice-100-ems-chemie-ag-domat-ems",
+      "key-account-manager-m-w-d-homeoffice-100-ems-chemie-domat-ems",
+      "responsabile-conto-chiave-lunedi-mercoledi-giorno-homeoffice-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-e",
+      "responsabile-conto-chiave-lunedi-mercoledi-giorno-homeoffice-100-ems-chemie-domat-ems",
+      "key-account-manager-m-w-d-homeoffice-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems",
+      "key-account-manager-m-w-d-homeoffice-100-ems-chemie-ag-domat-ems"
+    ]
+  },
+  {
     "slug": "key-account-manager-m-w-d-homeoffice-100-ems-chemie-domat-ems-7e06c3da",
     "title": "Key Account Manager (m/w/d) (Homeoffice) 100%",
     "titleByLocale": {
@@ -3726,6 +4874,63 @@
       "key-account-manager-m-w-d-homeoffice-100-ems-chemie-ag-domat-ems-4e0f8edd",
       "responsable-de-comptes-cles-m-f-d-teletravail-100-ems-chemie-ag-domat-ems-2c03db4a"
     ]
+  },
+  {
+    "slug": "laborant-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+    "title": "Laborant Materialprüfung (m/w/d) 100%",
+    "titleByLocale": {
+      "it": "Laborant Materialprüfung (m/w/d) 100% | Domat/Ems | EMS-CHEMIE AG Domat/Ems",
+      "en": "Material Testing Laboratory Technician (m/w/d) 100% | Domat/Ems | EMS-Chemie AG Domat/Ems",
+      "de": "Laborant Materialprüfung (m/w/d) 100%",
+      "fr": "Technicien de laboratoire de tests de matériaux (m/w/d) 100% | Domat/Ems | EMS-Chemie AG Domat/Ems"
+    },
+    "company": "EMS-Chemie AG",
+    "companyKey": "ems-chemie",
+    "location": "Domat/Ems",
+    "addressLocality": "Domat/Ems",
+    "descriptionByLocale": {
+      "it": "Mansioni - Laborant Materialprüfung (m/w/d) 100% - Sede di lavoro: Domat/Ems ## Requisiti - Nessuna informazione disponibile ## Cosa offriamo - Nessuna informazione disponibile ## Contatto - Nessuna informazione disponibile ## Descrizione Laborant Materialprüfung (m/w/d) 100% | Domat/Ems | EMS-CHEMIE AG Domat/Ems presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo.",
+      "en": "Job Description Material Testing Laboratory Technician (m/w/d) 100% | Domat/Ems | EMS-Chemie AG Domat/Ems at EMS-Chemie AG, a leading company in the field of special polymers and fine chemistry based in Domat/Ems (Graubünden). EMS-Chemie is the world's largest producer of high-performance polyamides, with around 3,000 employees worldwide. ## Requirements - No information available ## What We Offer - No information available ## Contact - No information available ## Description Laborant Materialprüfung (m/w/d) 100% | Domat/Ems | EMS-CHEMIE AG Domat/Ems presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo.",
+      "de": "Stellenbeschreibung Materialprüflaborant (m/w/d) 100% | Domat/Ems | EMS-Chemie AG Domat/Ems bei EMS-Chemie AG, einem führenden Unternehmen im Bereich der Spezialpolymere und Feinchemie mit Sitz in Domat/Ems (Graubünden). EMS-Chemie ist der weltweit größte Hersteller von Hochleistungs-Polyamiden, mit etwa 3000 Mitarbeitern weltweit. ## Anforderungen - Keine Informationen verfügbar ## Was wir bieten - Keine Informationen verfügbar ## Kontakt - Keine Informationen verfügbar ## Beschreibung Laborant Materialprüfung (m/w/d) 100% | Domat/Ems | EMS-CHEMIE AG Domat/Ems bei EMS-Chemie AG, einem führenden Unternehmen im Bereich der Spezialpolymere und Feinchemie mit Sitz in Domat/Ems (Graubünden). EMS-Chemie ist der weltweit größte Hersteller von Hochleistungs-Polyamiden, mit etwa 3000 Mitarbeitern weltweit.",
+      "fr": "Description de l'emploi Technicien de laboratoire de tests de matériaux (m/w/d) 100% | Domat/Ems | EMS-Chemie AG Domat/Ems chez EMS-Chemie AG, une entreprise leader dans le domaine des polymères spéciaux et de la chimie fine basée à Domat/Ems (Grisons). EMS-Chemie est le plus grand producteur mondial de polyamides de haute performance, avec environ 3 000 employés dans le monde entier. ## Exigences - Aucune information disponible ## Ce que nous offrons - Aucune information disponible ## Contact - Aucune information disponible ## Description Laborant Materialprüfung (m/w/d) 100% | Domat/Ems | EMS-CHEMIE AG Domat/Ems chez EMS-Chemie AG, une entreprise leader dans le domaine des polymères spéciaux et de la chimie fine basée à Domat/Ems (Grisons). EMS-Chemie est le plus grand producteur mondial de polyamides de haute performance, avec environ 3 000 employés dans le monde entier."
+    },
+    "slugByLocale": {
+      "it": "laborant-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "en": "material-testing-laboratory-technician-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "de": "laborant-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems",
+      "fr": "technicien-de-laboratoire-de-tests-de-materiaux-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems"
+    },
+    "sector": "",
+    "expiredAt": "2026-06-16T05:20:33.524Z",
+    "previousSlugs": [
+      "laboratorio-di-prova-dei-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "laborant-materialprufung-m-w-d-100-ems-chemie-domat-ems",
+      "material-testing-laboratory-technician-m-f-d-100-ems-chemie-ag-domat-ems",
+      "technicien-de-laboratoire-de-controle-des-materiaux-m-f-d-100-ems-chemie-ag-domat-ems"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "laboratorio-di-prova-dei-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+        "laborant-materialprufung-m-w-d-100-ems-chemie-domat-ems"
+      ],
+      "en": [
+        "laborant-materialprufung-m-w-d-100-ems-chemie-domat-ems",
+        "material-testing-laboratory-technician-m-f-d-100-ems-chemie-ag-domat-ems"
+      ],
+      "de": [
+        "laborant-materialprufung-m-w-d-100-ems-chemie-domat-ems"
+      ],
+      "fr": [
+        "laborant-materialprufung-m-w-d-100-ems-chemie-domat-ems",
+        "technicien-de-laboratoire-de-controle-des-materiaux-m-f-d-100-ems-chemie-ag-domat-ems"
+      ]
+    },
+    "postalCode": "7013",
+    "streetAddress": "Via Innovativa 1",
+    "salaryMin": 58000,
+    "salaryMax": 78000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "laborant-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems-0582b68e",

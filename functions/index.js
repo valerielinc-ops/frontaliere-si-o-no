@@ -225,6 +225,10 @@ import {
 } from './src/plateAuctions.js';
 import { dispatchTrafficScheduler } from './src/trafficSchedulerDispatch.js';
 import { ORCHESTRATOR_CLOUD_SCHEDULE, dispatchOrchestrator } from './src/orchestratorCronDispatch.js';
+import {
+ JOB_ALERT_PRIMARY_CLOUD_SCHEDULE,
+ dispatchJobAlerts as dispatchJobAlertsWorkflow,
+} from './src/jobAlertCronDispatch.js';
 import { GCP_COST_MONITOR_CLOUD_SCHEDULE, dispatchGcpCostMonitorWorkflow } from './src/gcpCostMonitorDispatch.js';
 import { LOOP_CLOCK_CLOUD_SCHEDULE, dispatchLoopClock as runLoopClock } from './src/loopClockDispatch.js';
 import { handleGenerationSlotClaimRequest } from './src/generationSlotLedger.js';
@@ -263,15 +267,27 @@ async function checkAssistedApplicationAnswers(input) {
 // datacenter egress. Cloud Run IAM rejects unauthenticated callers before the
 // container starts; the workflow-side OIDC token remains a second factor in
 // the handler. No source headers supplied by the caller are forwarded upstream.
+// One instance, concurrency 4 (was 1): the Workday fallback (#20279) is called
+// by several crawler groups at once. The per-host limiter and the daily ledgers
+// live in this process's memory, so scaling out would multiply the existing
+// 300/h, 1 req/s per host and 400/day contract (#19723); concurrency keeps them
+// shared. The limiter checks are synchronous, so concurrent requests cannot
+// overshoot them.
+// Service account the GitHub runners impersonate through WIF
+// (scripts/generate-crawler-group-workflows.mjs SOURCE_RELAY_SERVICE_ACCOUNT).
+// A bare 'private' makes every deploy reset the Cloud Run IAM policy to empty,
+// so the runners got 403 (#20279): the invoker binding must be declared here.
+// Not exported on purpose: the deploy script accepts only trigger exports.
+const SOURCE_RELAY_INVOKER_SERVICE_ACCOUNT = 'jobs-source-relay-ci@frontaliere-ticino.iam.gserviceaccount.com';
 export const jobsSourceRelay = onRequest(
   {
-    invoker: 'private',
+    invoker: [SOURCE_RELAY_INVOKER_SERVICE_ACCOUNT],
     region: 'europe-west6',
     memory: '256MiB',
     timeoutSeconds: 15,
     minInstances: 0,
     maxInstances: 1,
-    concurrency: 1,
+    concurrency: 4,
     cors: false,
   },
   handleJobsSourceRelay,
@@ -3992,6 +4008,25 @@ export const dispatchCrawlerOrchestrator = onSchedule(
  async (event) => {
   const result = await dispatchOrchestrator({ scheduledAt: event.scheduleTime });
   console.log('[dispatchCrawlerOrchestrator]', JSON.stringify(result));
+ },
+);
+
+// The primary job-alert slot used to be GitHub's `33 0 * * *`, which the
+// scheduled-dispatch backlog created 6-10 hours late (30-day median 394 min,
+// p90 492; last week 490-580 min). Cloud Scheduler fixes the send at 05:00 UTC;
+// the native 12:07 UTC slot remains the same-day safety net. The shared claim
+// and marked-run lookup prevent a retry from sending the primary slot twice.
+export const dispatchJobAlerts = onSchedule(
+ {
+  region: 'europe-west6',
+  schedule: JOB_ALERT_PRIMARY_CLOUD_SCHEDULE,
+  timeZone: 'UTC',
+  retryCount: 2,
+  minBackoffSeconds: 60,
+ },
+ async (event) => {
+  const result = await dispatchJobAlertsWorkflow({ scheduledAt: event.scheduleTime });
+  console.log('[dispatchJobAlerts]', JSON.stringify(result));
  },
 );
 

@@ -47,7 +47,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://legacy.delvi.tech/application-engineer-2",
-    "firstSeenAt": "2026-07-08T11:42:12.605Z"
+    "firstSeenAt": "2026-07-08T11:42:12.605Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "application-engineer-delvitech-mendrisio": "TI"
+      },
+      "de": {
+        "application-engineer-delvitech-mendrisio": "TI"
+      },
+      "fr": {
+        "application-engineer-delvitech-mendrisio": "TI"
+      }
+    }
   },
   {
     "slug": "back-office-specialist-technical-sales-delvitech-mendrisio",
@@ -77,6 +89,15 @@
     "previousSlugsByLocale": {
       "it": [
         "back-office-specialist-technical-sales-delvitech-sa-mendrisio"
+      ],
+      "en": [
+        "back-office-specialist-technical-sales-delvitech-mendrisio"
+      ],
+      "de": [
+        "back-office-specialist-technical-sales-delvitech-mendrisio"
+      ],
+      "fr": [
+        "back-office-specialist-technical-sales-delvitech-mendrisio"
       ]
     },
     "postalCode": "6850",
@@ -86,7 +107,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://legacy.delvi.tech/back-office-specialist",
-    "firstSeenAt": "2026-07-08T11:42:12.605Z"
+    "firstSeenAt": "2026-07-08T11:42:12.605Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "back-office-specialist-technical-sales-delvitech-sa-mendrisio": "TI"
+      },
+      "en": {
+        "back-office-specialist-technical-sales-delvitech-mendrisio": "TI"
+      },
+      "de": {
+        "back-office-specialist-technical-sales-delvitech-mendrisio": "TI"
+      },
+      "fr": {
+        "back-office-specialist-technical-sales-delvitech-mendrisio": "TI"
+      }
+    }
   },
   {
     "slug": "devops-ingegnere-delvitech-sa-mendrisio",
@@ -136,7 +172,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://legacy.delvi.tech/devops-engineer-2",
-    "firstSeenAt": "2026-07-08T11:42:12.605Z"
+    "firstSeenAt": "2026-07-08T11:42:12.605Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "devops-engineer-delvitech-mendrisio": "TI"
+      },
+      "de": {
+        "devops-engineer-delvitech-mendrisio": "TI"
+      },
+      "fr": {
+        "devops-engineer-delvitech-mendrisio": "TI"
+      }
+    }
   },
   {
     "slug": "e2e-test-ingegnere-delvitech-sa-mendrisio",
@@ -188,7 +236,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://legacy.delvi.tech/e2e-test-engineer",
-    "firstSeenAt": "2026-07-08T11:42:12.605Z"
+    "firstSeenAt": "2026-07-08T11:42:12.605Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "e2e-test-engineer-delvitech-sa-mendrisio": "TI",
+        "e2e-test-engineer-delvitech-mendrisio": "TI"
+      },
+      "de": {
+        "e2e-test-engineer-delvitech-mendrisio": "TI"
+      },
+      "fr": {
+        "e2e-test-engineer-delvitech-mendrisio": "TI"
+      }
+    }
   },
   {
     "slug": "firmware-embedded-sviluppatore-delvitech-sa-mendrisio",
@@ -238,7 +299,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://legacy.delvi.tech/firmware-embedded-developer",
-    "firstSeenAt": "2026-07-08T11:42:12.605Z"
+    "firstSeenAt": "2026-07-08T11:42:12.605Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "firmware-embedded-developer-delvitech-mendrisio": "TI"
+      },
+      "de": {
+        "firmware-embedded-developer-delvitech-mendrisio": "TI"
+      },
+      "fr": {
+        "firmware-embedded-developer-delvitech-mendrisio": "TI"
+      }
+    }
   },
   {
     "slug": "front-end-sw-ingegnere-delvitech-sa-mendrisio",
@@ -288,7 +361,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://legacy.delvi.tech/front-end-sw-engineer",
-    "firstSeenAt": "2026-07-08T11:42:12.605Z"
+    "firstSeenAt": "2026-07-08T11:42:12.605Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "front-end-sw-engineer-delvitech-mendrisio": "TI"
+      },
+      "de": {
+        "front-end-sw-engineer-delvitech-mendrisio": "TI"
+      },
+      "fr": {
+        "front-end-sw-engineer-delvitech-mendrisio": "TI"
+      }
+    }
   },
   {
     "slug": "responsabile-di-progetto-junior-delvitech-sa-mendrisio",
@@ -334,7 +419,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://legacy.delvi.tech/junior-project-manager",
-    "firstSeenAt": "2026-07-08T11:42:12.605Z"
+    "firstSeenAt": "2026-07-08T11:42:12.605Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-projet-junior-delvitech-sa-mendrisio": "TI",
+        "junior-project-manager-delvitech-mendrisio": "TI"
+      }
+    }
   },
   {
     "slug": "mechanical-ingegnere-delvitech-sa-mendrisio",
@@ -378,7 +470,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://legacy.delvi.tech/mechanical-engineer-2",
-    "firstSeenAt": "2026-09-23T23:49:13.296Z"
+    "firstSeenAt": "2026-09-23T23:49:13.296Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mechanical-engineer-delvitech-mendrisio": "TI"
+      }
+    }
   },
   {
     "slug": "responsabile-del-supporto-clienti-delvitech-sa-mendrisio",
@@ -429,7 +527,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://legacy.delvi.tech/customer-support-manager",
-    "firstSeenAt": "2026-09-23T23:49:13.296Z"
+    "firstSeenAt": "2026-09-23T23:49:13.296Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "customer-support-manager-delvitech-mendrisio": "TI"
+      },
+      "de": {
+        "customer-support-manager-delvitech-sa-mendrisio": "TI"
+      },
+      "fr": {
+        "customer-support-manager-delvitech-sa-mendrisio": "TI"
+      }
+    }
   },
   {
     "slug": "software-development-and-validation-engineer-delvitech-mendrisio",
@@ -460,6 +570,29 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://legacy.delvi.tech/software-development-and-validation-engineer-2",
-    "firstSeenAt": "2026-09-23T23:49:13.296Z"
+    "firstSeenAt": "2026-09-23T23:49:13.296Z",
+    "canton": "TI",
+    "previousSlugsByLocale": {
+      "en": [
+        "software-development-and-validation-engineer-delvitech-mendrisio"
+      ],
+      "de": [
+        "software-development-and-validation-engineer-delvitech-mendrisio"
+      ],
+      "fr": [
+        "software-development-and-validation-engineer-delvitech-mendrisio"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "software-development-and-validation-engineer-delvitech-mendrisio": "TI"
+      },
+      "de": {
+        "software-development-and-validation-engineer-delvitech-mendrisio": "TI"
+      },
+      "fr": {
+        "software-development-and-validation-engineer-delvitech-mendrisio": "TI"
+      }
+    }
   }
 ]

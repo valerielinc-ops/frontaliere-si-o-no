@@ -1,21 +1,22 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-11-26T21:24:35.878Z",
-  "total": 25,
-  "newCount": 2,
-  "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 22,
-  "durationMs": 16518,
-  "avgDurationMs": 16518,
+  "generatedAt": "2026-11-27T09:21:59.867Z",
+  "total": 23,
+  "newCount": 0,
+  "updatedCount": 2,
+  "removedCount": 2,
+  "unchangedCount": 21,
+  "durationMs": 43003,
+  "avgDurationMs": 43003,
   "durationHistory": [
-    16518
+    43003
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "efg-6613",
-      "slug": "learning-development-specialist-efg-lugano",
+      "slug": "learning-development-specialista-efg-international-ag-lugano",
       "company": "EFG International AG",
       "title": "Learning & Development Specialist",
       "location": "Lugano",
@@ -99,10 +100,9 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T21:24:21.234Z",
+      "crawledAt": "2026-11-27T09:21:13.842Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -111,20 +111,21 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-24T21:24:21.234Z",
+      "validThrough": "2027-02-25T09:21:13.842Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-26T21:24:21.234Z",
-      "_qualityScore": 96,
+      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6613",
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "id": "efg-6496",
-      "slug": "cloud-oberservability-infrastructure-engineer-efg-geneve",
+      "slug": "ingegnere-dell-osservabilita-del-cloud-e-dell-infrastruttura-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "Cloud Oberservability & Infrastructure Engineer",
       "location": "Geneve",
@@ -159,10 +160,9 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T21:24:21.211Z",
+      "crawledAt": "2026-11-27T09:21:13.814Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -171,72 +171,10 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T21:24:21.211Z",
+      "validThrough": "2027-02-25T09:21:13.814Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-26T21:24:21.211Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 23,
-        "completeness": 25
-      }
-    }
-  ],
-  "updatedJobs": [
-    {
-      "id": "efg-6349",
-      "slug": "gestione-configurazione-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "IT Configuration Manager",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-23T16:19:21+00:00",
-      "postedDate": "2026-11-23T16:19:21+00:00",
-      "postingDateSource": "reported",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6349",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>IT Configuration Manager</strong></span></p><p><span><strong>General Info</strong></span></p><p><span>· Department: IT & Digital</span></p><p><span>· Work time Percentage: 100%</span></p><p><span>· Location: Geneva </span></p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span>We are looking for an <strong>IT Configuration Manager</strong> to maintain reliable information about IT assets and services. You will work with IT colleagues and other stakeholders to improve data quality, provide information for reporting and audits, and contribute to effective IT service management.</span></p><p><span>Configuration management is the primary focus of the role. You will also provide backup for change management and contribute to incident resolution and root cause analysis when needed. </span></p><p><span><strong>Key Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Maintain</strong> accurate and complete configuration records throughout the lifecycle of IT assets, working with IT colleagues to document changes. </span></li><li><span><strong>Review</strong> configuration data, resolve inconsistencies and identify opportunities to improve data quality. </span></li><li><span><strong>Develop and maintain</strong> configuration management documentation and standards, and help IT colleagues understand and apply them. </span></li><li><span><strong>Provide</strong> configuration information and reports to support internal and external audits and compliance requirements. </span></li><li><span><strong>Collaborate</strong> with IT service management colleagues to ensure configuration information supports change, incident and problem management. </span></li><li><span><strong>Provide</strong> backup for change management and contribute to incident resolution and root cause analysis when needed. </span></li><li><span><strong>Track</strong> configuration data quality and prepare reports to inform stakeholders and support improvements. </span></li></ul><p><span><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Education:</strong> No minimum or preferred formal educational qualification is specified.</span></li><li><span><strong>Professional experience:</strong> At least six years’ experience in IT change and configuration management. Experience in banking or financial services is preferred. </span></li><li><span><strong>Technical and functional knowledge:</strong> Strong understanding of IT service management practices, including ITIL; experience managing configuration data, improving data quality and producing reports; and the ability to coordinate with technical stakeholders. ITIL certification is a strong asset. </span></li><li><span><strong>Languages:</strong> Fluent spoken and written French and English. </span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><p><span>· Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span>· Hands-on: Being proactive to rapidly deliver high-quality results</span></p><p><span>· Passionate: Being committed and striving for excellence</span></p><p><span>· Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span>· Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p><p> </p><p><span>Please ensure to attach a cover letter to your CV when filling the application.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-11-26T21:24:21.206Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "postalCode": "1201",
-      "streetAddress": "Geneve",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T21:24:21.206Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:17:47.178Z",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6349",
-      "needsRetranslation": true,
+      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6496",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -246,7 +184,259 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "id": "efg-6317",
+      "slug": "iam-support-specialista-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "IAM Support Specialist",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6317",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "As an IAM (Internal Asset Manager) Support Specialist, you will deliver vital administrative support and assist with day-to-day client relationship activities. You will collaborate closely with key stakeholders to improve IAM desk processes and procedures, serving as the main point of contact for Client Relationship Officers (CROs) and Account Managers across various critical workflows. Your position will be central to upholding strong standards in compliance, quality assurance, and business development within our IAM Switzerland team."
+            ],
+            "responsibilities": [
+              "Provide administrative support for daily client relationship matters, assisting CROs, and Account Managers in their day-to-day activities.",
+              "Act as the main contact for CROs/Account Managers regarding: <br>– Pre-approval or approval (within delegations) of payments, credits, and client/IAM openings and closings.<br>– Reviewing the quality of client and IAM profiles and documentation during onboarding and regular reviews.",
+              "Perform ex-ante controls on Private Banking activities and support the enhancement of the control framework.",
+              "Oversee and approve KYC lifecycle events, including reviewing and commenting on Client Information Profiles for account openings, periodic reviews, and updates.",
+              "Monitor compliance and follow up on AML (Anti-Money Laundering) matters.",
+              "Serve as a link between the First and Second Line of Defence, facilitating communication and compliance.",
+              "Support the Head of IAM Switzerland in business development, analysis, and improving process efficiency and productivity in collaboration with relevant functional areas.",
+              "Contribute to the continuous improvement of IAM Switzerland's processes and procedures"
+            ],
+            "requirements": [
+              "At least 3 of experience in a regulatory compliance or private banking environment.",
+              "Strong knowledge of AML regulations and sanctions.",
+              "Fluent in English. German is an advantage; French and/or Italian would be an asset.",
+              "Excellent organisational, communication, and interpersonal skills.",
+              "Strong analytical skills and attention to detail.",
+              "Proficient in Microsoft Excel.",
+              "Reliable, solution-oriented, and a strong team player.",
+              "Demonstrates a client and service focus at all times."
+            ],
+            "benefits": [],
+            "process": [],
+            "highlights": [
+              "Provide administrative support for daily client relationship matters, assisting CROs, and Account Managers in their day-to-day activities.",
+              "Act as the main contact for CROs/Account Managers regarding: <br>– Pre-approval or approval (within delegations) of payments, credits, and client/IAM openings and closings.<br>– Reviewing the quality of client and IAM profiles and documentation during onboarding and regular reviews.",
+              "Perform ex-ante controls on Private Banking activities and support the enhancement of the control framework.",
+              "At least 3 of experience in a regulatory compliance or private banking environment.",
+              "Strong knowledge of AML regulations and sanctions.",
+              "Fluent in English. German is an advantage; French and/or Italian would be an asset."
+            ],
+            "keywords": [
+              "At least 3 of experience in a regulatory compliance or private banking environment.",
+              "Strong knowledge of AML regulations and sanctions.",
+              "Fluent in English. German is an advantage",
+              "Excellent organisational",
+              "Strong analytical skills and attention to detail.",
+              "Provide administrative support for daily client relationship matters",
+              "Act as the main contact for CROs/Account Managers regarding",
+              "Perform ex-ante controls on Private Banking activities and support the enhancement of the control framework.",
+              "Oversee and approve KYC lifecycle events"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-09-28T04:51:51.498Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "",
+      "salaryMin": 104500,
+      "salaryMax": 183500,
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "firstSeenAt": "2026-07-23T11:24:34.310Z",
+      "salarySource": "estimated",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6317",
+      "postingDateSource": "unknown",
+      "postalCode": "1201",
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-08T22:21:01.758Z",
+      "validThroughSource": "build-clock-fallback",
+      "_qualityScore": 98,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 23
+      }
+    },
+    {
+      "id": "efg-6175",
+      "slug": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "PB Support Specialist - Middle East CH",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6175",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [
+              "<p class=\"Bulletlist\"><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</p>",
+              "<p class=\"Bulletlist\"><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</p>",
+              "<p class=\"Bulletlist\"><strong>Passionate</strong>: Being committed and striving for excellence</p>",
+              "<p class=\"Bulletlist\"><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</p>",
+              "<p class=\"Bulletlist\"><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</p>"
+            ],
+            "process": [],
+            "highlights": [
+              "<p class=\"Bulletlist\"><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</p>",
+              "<p class=\"Bulletlist\"><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</p>"
+            ],
+            "keywords": [],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "Jon Description",
+                "paragraphs": [
+                  "This role sits at the heart of our private banking risk and control framework, acting as a key partner to Client Relationship Officers and senior management. Ensuring that client onboarding, lifecycle management and transactional activities are conducted in line with internal standards and local regulatory expectations. Combining strong technical expertise in compliance and due diligence with the ability to influence and guide front-office teams, the role provides independent challenge, clear advice and pragmatic solutions on complex and high‑risk situations. The successful candidate will play a visible part in strengthening our first line of defence, enhancing the quality and consistency of controls, and contributing to a culture of robust risk management across the platform.<br><br><span lang=\"FR-CH\"><strong>Main responsibilities</strong></span>",
+                  "<span lang=\"EN-US\">Support the Client Relationship Officers in proactively identifying, managing and mitigating risks arising from day-to-day business activities </span>",
+                  "<span lang=\"EN-US\">Coordinate the control activity in line with the Global Private Banking Control Blueprint, though aligned to local regulatory requirements</span>",
+                  "<span lang=\"EN-US\">Perform due diligence on prospective and existing client relationships</span>",
+                  "<span lang=\"EN-US\">Approve funds and securities transfers, credit granting, overrides and transactions involving sanctions sensitivity</span>",
+                  "<span lang=\"EN-US\">Distribute market knowledge and best practices among Client Relationship Officers, Client Service Officers and Account Managers</span>",
+                  "<span lang=\"EN-US\">Build trusted working relationships with Senior Management and CROs </span>",
+                  "<span lang=\"EN-US\">Contribute effectively not only to core duties but also in the additional responsibilities including deputizing the HOPBS, reviewing complex cases, and presenting confidently to various senior Management stakeholders.</span>",
+                  "<span lang=\"EN-US\">Being the main point of CRO Contact for complex and High-Risk cases</span>",
+                  "<span lang=\"EN-US\">Be the FLOD Single Point of Contact (SPOC) and gatekeeper when it comes to matters related to PEP Classification and Declassification</span>",
+                  "<span lang=\"EN-US\">Ensure timely completion and remediation of pending follow-ups relating to client lifecycle activities </span>",
+                  "<span lang=\"EN-US\">Approve clients and business introducers new accounts, oversee KYC lifecycle and periodic reviews within the authority delegated by HoPB, ensuring oversight and compliance standards are met</span>",
+                  "<span lang=\"EN-US\">Act as a key link between FLOD and SLOD, ensuring consistent communication and escalation paths including networking with key contact persons within the organization</span>",
+                  "<span lang=\"EN-US\">Review account openings, CIP modifications and periodic reviews for the Dubai PBS team, while providing guidance to strengthen their understanding of requirements and control standards. Through continuous support and best practice sharing, help the team develop the capability to perform these reviews independently.</span>",
+                  "<span lang=\"EN-US\">To represent the HOPBS and the Team with credibility, whether deputizing in meetings, presenting to senior stakeholders, or managing complex reviews.</span>",
+                  "<span lang=\"FR-CH\"><strong>Skills and experience</strong></span>",
+                  "<span>University degree in Business Administration, Finance, Law, Economics or related field is essential;</span>",
+                  "<span>Minimum 5 years of previous Compliance or Audit experience in the area of account openings, account reviews and transaction monitoring;</span>",
+                  "<span lang=\"FR-CH\">Strong analytical skills;</span>",
+                  "<span>Strong communication skills, including the ability to deal with potentially contentious issues effectively;</span>",
+                  "<span>Ability to work under pressure in a fast-paced environment, </span><span lang=\"EN-US\">flexible, multitask;</span>",
+                  "<span>Excellent knowledge of written and spoken English. Working knowledge of French and German would be an advantage.</span>"
+                ],
+                "bullets": [
+                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Support the Client Relationship Officers in proactively identifying, managing and mitigating risks arising from day-to-day business activities </span></p>",
+                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Coordinate the control activity in line with the Global Private Banking Control Blueprint, though aligned to local regulatory requirements</span></p>",
+                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Perform due diligence on prospective and existing client relationships</span></p>",
+                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Approve funds and securities transfers, credit granting, overrides and transactions involving sanctions sensitivity</span></p>",
+                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Distribute market knowledge and best practices among Client Relationship Officers, Client Service Officers and Account Managers</span></p>",
+                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Build trusted working relationships with Senior Management and CROs </span></p>",
+                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Contribute effectively not only to core duties but also in the additional responsibilities including deputizing the HOPBS, reviewing complex cases, and presenting confidently to various senior Management stakeholders.</span></p>",
+                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Being the main point of CRO Contact for complex and High-Risk cases</span></p>",
+                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Be the FLOD Single Point of Contact (SPOC) and gatekeeper when it comes to matters related to PEP Classification and Declassification</span></p>",
+                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Ensure timely completion and remediation of pending follow-ups relating to client lifecycle activities </span></p>",
+                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Approve clients and business introducers new accounts, oversee KYC lifecycle and periodic reviews within the authority delegated by HoPB, ensuring oversight and compliance standards are met</span></p>",
+                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Act as a key link between FLOD and SLOD, ensuring consistent communication and escalation paths including networking with key contact persons within the organization</span></p>",
+                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Review account openings, CIP modifications and periodic reviews for the Dubai PBS team, while providing guidance to strengthen their understanding of requirements and control standards. Through continuous support and best practice sharing, help the team develop the capability to perform these reviews independently.</span></p><ul><li><p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">To represent the HOPBS and the Team with credibility, whether deputizing in meetings, presenting to senior stakeholders, or managing complex reviews.</span></p><p style=\"line-height:120%;margin-bottom:0cm;\"> </p>",
+                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span>University degree in Business Administration, Finance, Law, Economics or related field is essential;</span></p>",
+                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span>Minimum 5 years of previous Compliance or Audit experience in the area of account openings, account reviews and transaction monitoring;</span></p>",
+                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"FR-CH\">Strong analytical skills;</span></p>",
+                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span>Strong communication skills, including the ability to deal with potentially contentious issues effectively;</span></p>",
+                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span>Ability to work under pressure in a fast-paced environment, </span><span lang=\"EN-US\">flexible, multitask;</span></p>",
+                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span>Excellent knowledge of written and spoken English. Working knowledge of French and German would be an advantage.</span></p>"
+                ]
+              }
+            ],
+            "readingMinutes": 4
+          }
+        }
+      },
+      "crawledAt": "2026-09-28T04:51:51.496Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Geneve",
+      "postalCode": "1201",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.902Z",
+      "country": "CH",
+      "salarySource": "reported",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6175",
+      "postingDateSource": "unknown",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-08T22:21:01.758Z",
+      "validThroughSource": "build-clock-fallback",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 23
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "id": "efg-6560",
@@ -285,7 +475,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T21:24:21.305Z",
+      "crawledAt": "2026-11-27T09:21:13.914Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 63000,
@@ -296,7 +486,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:24:21.305Z",
+      "validThrough": "2027-02-04T09:21:13.914Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-05T21:13:58.262Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6560",
@@ -345,7 +535,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T21:24:21.302Z",
+      "crawledAt": "2026-11-27T09:21:13.910Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "salaryMin": 113000,
@@ -367,7 +557,7 @@
       },
       "streetAddress": "Bleicherweg 8",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:24:21.302Z",
+      "validThrough": "2026-12-27T09:21:13.910Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-10T22:20:59.183Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6550",
@@ -416,7 +606,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T21:24:21.298Z",
+      "crawledAt": "2026-11-27T09:21:13.906Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 174500,
@@ -427,7 +617,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:24:21.298Z",
+      "validThrough": "2027-02-02T09:21:13.906Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-03T21:28:28.747Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6549",
@@ -476,7 +666,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T21:24:21.293Z",
+      "crawledAt": "2026-11-27T09:21:13.902Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 104500,
@@ -487,7 +677,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:24:21.293Z",
+      "validThrough": "2027-02-02T09:21:13.902Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-03T21:28:28.740Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6548",
@@ -533,7 +723,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T21:24:21.288Z",
+      "crawledAt": "2026-11-27T09:21:13.898Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-09-14T14:56:06+00:00",
@@ -549,7 +739,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:24:21.288Z",
+      "validThrough": "2026-12-27T09:21:13.898Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -675,7 +865,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T21:24:21.283Z",
+      "crawledAt": "2026-11-27T09:21:13.894Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-09-16T14:22:35+00:00",
@@ -691,7 +881,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6436",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:24:21.283Z",
+      "validThrough": "2026-12-27T09:21:13.894Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -738,7 +928,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T21:24:21.264Z",
+      "crawledAt": "2026-11-27T09:21:13.877Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "salaryMin": 85500,
@@ -760,7 +950,7 @@
         "checkedAt": "2026-10-31T20:48:45.577Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-17T21:24:21.264Z",
+      "validThrough": "2027-01-18T09:21:13.877Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6221",
       "_qualityScore": 99,
@@ -875,7 +1065,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T21:24:21.262Z",
+      "crawledAt": "2026-11-27T09:21:13.875Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19T13:28:38+00:00",
@@ -892,7 +1082,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6066",
       "postingDateSource": "reported",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:24:21.262Z",
+      "validThrough": "2026-12-27T09:21:13.875Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -936,7 +1126,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T21:24:21.258Z",
+      "crawledAt": "2026-11-27T09:21:13.872Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-20T07:37:07+00:00",
@@ -953,7 +1143,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6039",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:24:21.258Z",
+      "validThrough": "2026-12-27T09:21:13.872Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1070,7 +1260,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T21:24:21.244Z",
+      "crawledAt": "2026-11-27T09:21:13.858Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1098,7 +1288,7 @@
         "checkedAt": "2026-10-31T20:48:45.577Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:24:21.244Z",
+      "validThrough": "2026-12-27T09:21:13.858Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -1145,7 +1335,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T21:24:21.240Z",
+      "crawledAt": "2026-11-27T09:21:13.855Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 63000,
@@ -1156,7 +1346,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:24:21.240Z",
+      "validThrough": "2027-02-12T09:21:13.855Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-14T09:15:44.870Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6515",
@@ -1205,7 +1395,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T21:24:21.235Z",
+      "crawledAt": "2026-11-27T09:21:13.851Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 97500,
@@ -1216,70 +1406,10 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:24:21.235Z",
+      "validThrough": "2027-02-19T09:21:13.851Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-21T21:19:37.019Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6562",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6597",
-      "slug": "erp-project-tirocinante-finanza-geneva-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "ERP Project Intern - Finance (Geneva)",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-24T16:42:16+00:00",
-      "postedDate": "2026-11-24T16:42:16+00:00",
-      "postingDateSource": "reported",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6597",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Job Title</span></span></p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\">ERP Project Intern - Finance</p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"> </p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Department</span></span></p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\">Finance</p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"> </p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Location</span></span></p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\">Geneva</p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"> </p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Job Description</span></span></p><p><span>The ERP Project Finance intern will support the Finance department in a strategic project to select and implement a new ERP system for the bank. Working closely with Finance, IT and Project Management, the intern will help gather and structure requirements, analyse ERP solutions, support vendor evaluations, contribute to project documentation and coordination, and, after selection, participate in the preparation and early stages of the ERP implementation.</span></p><p> </p><p><span style=\"display: none;\">Top of Form</span></p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Main Responsibilities</span></span></p><ul style=\"list-style-type: square;\"><li><span style=\"color: rgb(51, 59, 64);\">Project & Coordination Support</span><ul><li><span style=\"color: rgb(51, 59, 64);\">Assist the project manager and Finance lead in planning and tracking project activities, milestones and deliverables.</span></li><li><span style=\"color: rgb(51, 59, 64);\">Prepare and maintain project documentation (meeting minutes, action logs, status reports, presentations).</span></li></ul></li><li><span style=\"color: rgb(51, 59, 64);\">Finance Requirements & Process Analysis</span><ul><li><span style=\"color: rgb(51, 59, 64);\">Support the collection and documentation of Finance requirements (e.g. general ledger, AP/AR, fixed assets, consolidation, reporting).</span></li><li><span style=\"color: rgb(51, 59, 64);\">Help map and document current Finance processes and contribute to defining target (“to be”) processes.</span></li><li><span style=\"color: rgb(51, 59, 64);\">Assist in structuring and prioritising requirements into clear lists or matrices.</span></li></ul></li><li><span style=\"color: rgb(51, 59, 64);\">ERP & Vendor Evaluation Support</span><ul><li><span style=\"color: rgb(51, 59, 64);\">Contribute to the preparation of RFI/RFP materials (questionnaires, requirement catalogues, evaluation criteria).</span></li><li><span style=\"color: rgb(51, 59, 64);\">Help collect and compare information on ERP vendors and solutions from a Finance perspective (functional coverage, reporting, controls, integration with banking systems).</span></li><li><span style=\"color: rgb(51, 59, 64);\">Support the preparation of comparison summaries, evaluation scorecards and decision support material.</span></li></ul></li><li><span style=\"color: rgb(51, 59, 64);\">Workshops, Demos & Stakeholder Engagement</span><ul><li><span style=\"color: rgb(51, 59, 64);\">Help organise workshops, vendor demos and Finance stakeholder meetings.</span></li><li><span style=\"color: rgb(51, 59, 64);\">Support the preparation of demo scripts and use cases relevant for Finance.</span></li><li><span style=\"color: rgb(51, 59, 64);\">Capture feedback from participants and help consolidate it into structured evaluation outputs.</span></li></ul></li><li><span style=\"color: rgb(51, 59, 64);\">Data, Reporting & Documentation</span><ul><li>Assist in preparing data samples, templates and simple analyses required during the selection phase.</li><li>Maintain well-structured documentation and shared repositories (requirements, decisions, risks, open points).</li></ul></li><li>Risk, Controls & Compliance (Finance Focus)<ul><li>Support the documentation of key Finance control and compliance aspects (e.g. segregation of duties, audit trail, closing controls), under guidance from senior staff.</li></ul></li><li>Implementation Preparation & Support (Post Selection)<ul><li>After ERP selection, support preparation activities for implementation (e.g. refinement of requirements, validation of design assumptions, planning of Finance-related tasks).</li><li>Assist in activities such as test case preparation, data preparation, and coordination with Finance users during early implementation phases.</li><li>Help document lessons learned and feedback from Finance stakeholders during the initial implementation steps.</li></ul></li></ul><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"> </p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Profile / Background</span></span></p><ul style=\"list-style-type: square;\"><li>Education<ul><li>Currently enrolled in a Bachelor’s or Master’s degree in Finance, Accounting, Business Administration, Information Systems, or a related field.</li></ul></li><li>Technical & Analytical Skills<ul><li>Strong analytical skills and ability to structure and synthesise information.</li><li>Good command of office tools, in particular spreadsheets and presentations.</li><li>Interest in ERP systems and Finance/Accounting processes.</li></ul></li><li>Soft Skills<ul><li>Strong written and verbal communication skills.</li><li>Ability to work collaboratively with Finance, IT and other stakeholders.</li><li>High attention to detail, reliability and good organisational skills.</li><li>Proactive, curious and willing to learn in a project driven environment.</li></ul></li><li>Languages<ul><li>Very good command of English and French (written and spoken).</li></ul></li></ul><p> </p><p><span style=\"color: rgb(140, 63, 62);\"><span style=\"font-size: 14pt; line-height: 107%;\">Skills and experience</span></span></p><ul style=\"list-style-type: square;\"><li>Preferred initial exposure to accounting or ERP/finance systems (e.g. through coursework, internships or student projects).</li><li>Basic understanding of banking or financial services.</li><li>Experience working in teams on projects or case studies.</li></ul><p> </p><p><span style=\"color: rgb(140, 63, 62);\"><span style=\"font-size: 14pt; line-height: 107%;\">What we Offer</span></span></p><ul style=\"list-style-type: square;\"><li>Direct involvement in a strategic ERP selection and early implementation project within the Finance function.</li><li>Practical exposure to Finance processes, ERP solutions and project management in a banking environment.</li><li>Opportunity to collaborate with experienced Finance and IT professionals.</li><li>A learning oriented environment with regular guidance and feedback.</li></ul><p> </p><p><span style=\"color: rgb(140, 63, 62);\"><span style=\"font-size: 14pt; line-height: 107%;\">Our Values</span></span></p><ul style=\"list-style-type: square;\"><li><p class=\"Bulletlist\"><span style=\"color: rgb(51, 60, 64); font-family: \"Fira Sans\", sans-serif;\"><strong>Accountability</strong></span><span style=\"color: rgb(51, 60, 64);\">: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p></li><li><p class=\"Bulletlist\"><span style=\"color: rgb(51, 60, 64); font-family: \"Fira Sans\", sans-serif;\"><strong>Hands-on</strong></span><span style=\"color: rgb(51, 60, 64);\">: Being proactive to rapidly deliver high-quality results</span></p></li><li><p class=\"Bulletlist\"><span style=\"color: rgb(51, 60, 64); font-family: \"Fira Sans\", sans-serif;\"><strong>Passionate</strong></span><span style=\"color: rgb(51, 60, 64);\">: Being committed and striving for excellence</span></p></li><li><p class=\"Bulletlist\"><span style=\"color: rgb(51, 60, 64); font-family: \"Fira Sans\", sans-serif;\"><strong>Solution-driven</strong></span><span style=\"color: rgb(51, 60, 64);\">: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p></li><li><p class=\"Bulletlist\"><span style=\"color: rgb(51, 60, 64); font-family: \"Fira Sans\", sans-serif;\"><strong>Partnership-oriented</strong></span><span style=\"color: rgb(51, 60, 64);\">: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p></li></ul>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 5
-          }
-        }
-      },
-      "crawledAt": "2026-11-26T21:24:21.216Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "salaryMin": 73000,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "postalCode": "1201",
-      "streetAddress": "Geneve",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T21:24:21.216Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-24T21:16:44.042Z",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6597",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1325,7 +1455,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T21:24:21.212Z",
+      "crawledAt": "2026-11-27T09:21:13.847Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 63000,
@@ -1336,7 +1466,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:24:21.212Z",
+      "validThrough": "2027-02-12T09:21:13.847Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-14T09:15:44.873Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6541",
@@ -1344,6 +1474,126 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6349",
+      "slug": "gestione-configurazione-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "IT Configuration Manager",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-23T16:19:21+00:00",
+      "postedDate": "2026-11-23T16:19:21+00:00",
+      "postingDateSource": "reported",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6349",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>IT Configuration Manager</strong></span></p><p><span><strong>General Info</strong></span></p><p><span>· Department: IT & Digital</span></p><p><span>· Work time Percentage: 100%</span></p><p><span>· Location: Geneva </span></p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span>We are looking for an <strong>IT Configuration Manager</strong> to maintain reliable information about IT assets and services. You will work with IT colleagues and other stakeholders to improve data quality, provide information for reporting and audits, and contribute to effective IT service management.</span></p><p><span>Configuration management is the primary focus of the role. You will also provide backup for change management and contribute to incident resolution and root cause analysis when needed. </span></p><p><span><strong>Key Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Maintain</strong> accurate and complete configuration records throughout the lifecycle of IT assets, working with IT colleagues to document changes. </span></li><li><span><strong>Review</strong> configuration data, resolve inconsistencies and identify opportunities to improve data quality. </span></li><li><span><strong>Develop and maintain</strong> configuration management documentation and standards, and help IT colleagues understand and apply them. </span></li><li><span><strong>Provide</strong> configuration information and reports to support internal and external audits and compliance requirements. </span></li><li><span><strong>Collaborate</strong> with IT service management colleagues to ensure configuration information supports change, incident and problem management. </span></li><li><span><strong>Provide</strong> backup for change management and contribute to incident resolution and root cause analysis when needed. </span></li><li><span><strong>Track</strong> configuration data quality and prepare reports to inform stakeholders and support improvements. </span></li></ul><p><span><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Education:</strong> No minimum or preferred formal educational qualification is specified.</span></li><li><span><strong>Professional experience:</strong> At least six years’ experience in IT change and configuration management. Experience in banking or financial services is preferred. </span></li><li><span><strong>Technical and functional knowledge:</strong> Strong understanding of IT service management practices, including ITIL; experience managing configuration data, improving data quality and producing reports; and the ability to coordinate with technical stakeholders. ITIL certification is a strong asset. </span></li><li><span><strong>Languages:</strong> Fluent spoken and written French and English. </span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><p><span>· Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span>· Hands-on: Being proactive to rapidly deliver high-quality results</span></p><p><span>· Passionate: Being committed and striving for excellence</span></p><p><span>· Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span>· Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p><p> </p><p><span>Please ensure to attach a cover letter to your CV when filling the application.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-11-27T09:21:13.845Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "postalCode": "1201",
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-22T09:21:13.845Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-23T21:17:47.178Z",
+      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6349",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6597",
+      "slug": "erp-project-tirocinante-finanza-geneva-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "ERP Project Intern - Finance (Geneva)",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-24T16:42:16+00:00",
+      "postedDate": "2026-11-24T16:42:16+00:00",
+      "postingDateSource": "reported",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6597",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Job Title</span></span></p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\">ERP Project Intern - Finance</p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"> </p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Department</span></span></p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\">Finance</p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"> </p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Location</span></span></p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\">Geneva</p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"> </p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Job Description</span></span></p><p><span>The ERP Project Finance intern will support the Finance department in a strategic project to select and implement a new ERP system for the bank. Working closely with Finance, IT and Project Management, the intern will help gather and structure requirements, analyse ERP solutions, support vendor evaluations, contribute to project documentation and coordination, and, after selection, participate in the preparation and early stages of the ERP implementation.</span></p><p> </p><p><span style=\"display: none;\">Top of Form</span></p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Main Responsibilities</span></span></p><ul style=\"list-style-type: square;\"><li><span style=\"color: rgb(51, 59, 64);\">Project & Coordination Support</span><ul><li><span style=\"color: rgb(51, 59, 64);\">Assist the project manager and Finance lead in planning and tracking project activities, milestones and deliverables.</span></li><li><span style=\"color: rgb(51, 59, 64);\">Prepare and maintain project documentation (meeting minutes, action logs, status reports, presentations).</span></li></ul></li><li><span style=\"color: rgb(51, 59, 64);\">Finance Requirements & Process Analysis</span><ul><li><span style=\"color: rgb(51, 59, 64);\">Support the collection and documentation of Finance requirements (e.g. general ledger, AP/AR, fixed assets, consolidation, reporting).</span></li><li><span style=\"color: rgb(51, 59, 64);\">Help map and document current Finance processes and contribute to defining target (“to be”) processes.</span></li><li><span style=\"color: rgb(51, 59, 64);\">Assist in structuring and prioritising requirements into clear lists or matrices.</span></li></ul></li><li><span style=\"color: rgb(51, 59, 64);\">ERP & Vendor Evaluation Support</span><ul><li><span style=\"color: rgb(51, 59, 64);\">Contribute to the preparation of RFI/RFP materials (questionnaires, requirement catalogues, evaluation criteria).</span></li><li><span style=\"color: rgb(51, 59, 64);\">Help collect and compare information on ERP vendors and solutions from a Finance perspective (functional coverage, reporting, controls, integration with banking systems).</span></li><li><span style=\"color: rgb(51, 59, 64);\">Support the preparation of comparison summaries, evaluation scorecards and decision support material.</span></li></ul></li><li><span style=\"color: rgb(51, 59, 64);\">Workshops, Demos & Stakeholder Engagement</span><ul><li><span style=\"color: rgb(51, 59, 64);\">Help organise workshops, vendor demos and Finance stakeholder meetings.</span></li><li><span style=\"color: rgb(51, 59, 64);\">Support the preparation of demo scripts and use cases relevant for Finance.</span></li><li><span style=\"color: rgb(51, 59, 64);\">Capture feedback from participants and help consolidate it into structured evaluation outputs.</span></li></ul></li><li><span style=\"color: rgb(51, 59, 64);\">Data, Reporting & Documentation</span><ul><li>Assist in preparing data samples, templates and simple analyses required during the selection phase.</li><li>Maintain well-structured documentation and shared repositories (requirements, decisions, risks, open points).</li></ul></li><li>Risk, Controls & Compliance (Finance Focus)<ul><li>Support the documentation of key Finance control and compliance aspects (e.g. segregation of duties, audit trail, closing controls), under guidance from senior staff.</li></ul></li><li>Implementation Preparation & Support (Post Selection)<ul><li>After ERP selection, support preparation activities for implementation (e.g. refinement of requirements, validation of design assumptions, planning of Finance-related tasks).</li><li>Assist in activities such as test case preparation, data preparation, and coordination with Finance users during early implementation phases.</li><li>Help document lessons learned and feedback from Finance stakeholders during the initial implementation steps.</li></ul></li></ul><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"> </p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Profile / Background</span></span></p><ul style=\"list-style-type: square;\"><li>Education<ul><li>Currently enrolled in a Bachelor’s or Master’s degree in Finance, Accounting, Business Administration, Information Systems, or a related field.</li></ul></li><li>Technical & Analytical Skills<ul><li>Strong analytical skills and ability to structure and synthesise information.</li><li>Good command of office tools, in particular spreadsheets and presentations.</li><li>Interest in ERP systems and Finance/Accounting processes.</li></ul></li><li>Soft Skills<ul><li>Strong written and verbal communication skills.</li><li>Ability to work collaboratively with Finance, IT and other stakeholders.</li><li>High attention to detail, reliability and good organisational skills.</li><li>Proactive, curious and willing to learn in a project driven environment.</li></ul></li><li>Languages<ul><li>Very good command of English and French (written and spoken).</li></ul></li></ul><p> </p><p><span style=\"color: rgb(140, 63, 62);\"><span style=\"font-size: 14pt; line-height: 107%;\">Skills and experience</span></span></p><ul style=\"list-style-type: square;\"><li>Preferred initial exposure to accounting or ERP/finance systems (e.g. through coursework, internships or student projects).</li><li>Basic understanding of banking or financial services.</li><li>Experience working in teams on projects or case studies.</li></ul><p> </p><p><span style=\"color: rgb(140, 63, 62);\"><span style=\"font-size: 14pt; line-height: 107%;\">What we Offer</span></span></p><ul style=\"list-style-type: square;\"><li>Direct involvement in a strategic ERP selection and early implementation project within the Finance function.</li><li>Practical exposure to Finance processes, ERP solutions and project management in a banking environment.</li><li>Opportunity to collaborate with experienced Finance and IT professionals.</li><li>A learning oriented environment with regular guidance and feedback.</li></ul><p> </p><p><span style=\"color: rgb(140, 63, 62);\"><span style=\"font-size: 14pt; line-height: 107%;\">Our Values</span></span></p><ul style=\"list-style-type: square;\"><li><p class=\"Bulletlist\"><span style=\"color: rgb(51, 60, 64); font-family: \"Fira Sans\", sans-serif;\"><strong>Accountability</strong></span><span style=\"color: rgb(51, 60, 64);\">: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p></li><li><p class=\"Bulletlist\"><span style=\"color: rgb(51, 60, 64); font-family: \"Fira Sans\", sans-serif;\"><strong>Hands-on</strong></span><span style=\"color: rgb(51, 60, 64);\">: Being proactive to rapidly deliver high-quality results</span></p></li><li><p class=\"Bulletlist\"><span style=\"color: rgb(51, 60, 64); font-family: \"Fira Sans\", sans-serif;\"><strong>Passionate</strong></span><span style=\"color: rgb(51, 60, 64);\">: Being committed and striving for excellence</span></p></li><li><p class=\"Bulletlist\"><span style=\"color: rgb(51, 60, 64); font-family: \"Fira Sans\", sans-serif;\"><strong>Solution-driven</strong></span><span style=\"color: rgb(51, 60, 64);\">: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p></li><li><p class=\"Bulletlist\"><span style=\"color: rgb(51, 60, 64); font-family: \"Fira Sans\", sans-serif;\"><strong>Partnership-oriented</strong></span><span style=\"color: rgb(51, 60, 64);\">: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p></li></ul>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 5
+          }
+        }
+      },
+      "crawledAt": "2026-11-27T09:21:13.821Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "salaryMin": 73000,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "postalCode": "1201",
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-09T09:21:13.821Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-24T21:16:44.042Z",
+      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6597",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -1967,258 +2217,7 @@
         "translation": 25,
         "completeness": 23
       }
-    },
-    {
-      "id": "efg-6317",
-      "slug": "iam-support-specialista-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "IAM Support Specialist",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6317",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "As an IAM (Internal Asset Manager) Support Specialist, you will deliver vital administrative support and assist with day-to-day client relationship activities. You will collaborate closely with key stakeholders to improve IAM desk processes and procedures, serving as the main point of contact for Client Relationship Officers (CROs) and Account Managers across various critical workflows. Your position will be central to upholding strong standards in compliance, quality assurance, and business development within our IAM Switzerland team."
-            ],
-            "responsibilities": [
-              "Provide administrative support for daily client relationship matters, assisting CROs, and Account Managers in their day-to-day activities.",
-              "Act as the main contact for CROs/Account Managers regarding: <br>– Pre-approval or approval (within delegations) of payments, credits, and client/IAM openings and closings.<br>– Reviewing the quality of client and IAM profiles and documentation during onboarding and regular reviews.",
-              "Perform ex-ante controls on Private Banking activities and support the enhancement of the control framework.",
-              "Oversee and approve KYC lifecycle events, including reviewing and commenting on Client Information Profiles for account openings, periodic reviews, and updates.",
-              "Monitor compliance and follow up on AML (Anti-Money Laundering) matters.",
-              "Serve as a link between the First and Second Line of Defence, facilitating communication and compliance.",
-              "Support the Head of IAM Switzerland in business development, analysis, and improving process efficiency and productivity in collaboration with relevant functional areas.",
-              "Contribute to the continuous improvement of IAM Switzerland's processes and procedures"
-            ],
-            "requirements": [
-              "At least 3 of experience in a regulatory compliance or private banking environment.",
-              "Strong knowledge of AML regulations and sanctions.",
-              "Fluent in English. German is an advantage; French and/or Italian would be an asset.",
-              "Excellent organisational, communication, and interpersonal skills.",
-              "Strong analytical skills and attention to detail.",
-              "Proficient in Microsoft Excel.",
-              "Reliable, solution-oriented, and a strong team player.",
-              "Demonstrates a client and service focus at all times."
-            ],
-            "benefits": [],
-            "process": [],
-            "highlights": [
-              "Provide administrative support for daily client relationship matters, assisting CROs, and Account Managers in their day-to-day activities.",
-              "Act as the main contact for CROs/Account Managers regarding: <br>– Pre-approval or approval (within delegations) of payments, credits, and client/IAM openings and closings.<br>– Reviewing the quality of client and IAM profiles and documentation during onboarding and regular reviews.",
-              "Perform ex-ante controls on Private Banking activities and support the enhancement of the control framework.",
-              "At least 3 of experience in a regulatory compliance or private banking environment.",
-              "Strong knowledge of AML regulations and sanctions.",
-              "Fluent in English. German is an advantage; French and/or Italian would be an asset."
-            ],
-            "keywords": [
-              "At least 3 of experience in a regulatory compliance or private banking environment.",
-              "Strong knowledge of AML regulations and sanctions.",
-              "Fluent in English. German is an advantage",
-              "Excellent organisational",
-              "Strong analytical skills and attention to detail.",
-              "Provide administrative support for daily client relationship matters",
-              "Act as the main contact for CROs/Account Managers regarding",
-              "Perform ex-ante controls on Private Banking activities and support the enhancement of the control framework.",
-              "Oversee and approve KYC lifecycle events"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-09-28T04:51:51.498Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "",
-      "salaryMin": 104500,
-      "salaryMax": 183500,
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "firstSeenAt": "2026-07-23T11:24:34.310Z",
-      "salarySource": "estimated",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6317",
-      "postingDateSource": "unknown",
-      "postalCode": "1201",
-      "streetAddress": "Geneve",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T22:21:01.758Z",
-      "validThroughSource": "build-clock-fallback",
-      "_qualityScore": 98,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
-      "id": "efg-6175",
-      "slug": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "PB Support Specialist - Middle East CH",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6175",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [
-              "<p class=\"Bulletlist\"><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</p>",
-              "<p class=\"Bulletlist\"><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</p>",
-              "<p class=\"Bulletlist\"><strong>Passionate</strong>: Being committed and striving for excellence</p>",
-              "<p class=\"Bulletlist\"><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</p>",
-              "<p class=\"Bulletlist\"><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</p>"
-            ],
-            "process": [],
-            "highlights": [
-              "<p class=\"Bulletlist\"><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</p>",
-              "<p class=\"Bulletlist\"><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</p>"
-            ],
-            "keywords": [],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Jon Description",
-                "paragraphs": [
-                  "This role sits at the heart of our private banking risk and control framework, acting as a key partner to Client Relationship Officers and senior management. Ensuring that client onboarding, lifecycle management and transactional activities are conducted in line with internal standards and local regulatory expectations. Combining strong technical expertise in compliance and due diligence with the ability to influence and guide front-office teams, the role provides independent challenge, clear advice and pragmatic solutions on complex and high‑risk situations. The successful candidate will play a visible part in strengthening our first line of defence, enhancing the quality and consistency of controls, and contributing to a culture of robust risk management across the platform.<br><br><span lang=\"FR-CH\"><strong>Main responsibilities</strong></span>",
-                  "<span lang=\"EN-US\">Support the Client Relationship Officers in proactively identifying, managing and mitigating risks arising from day-to-day business activities </span>",
-                  "<span lang=\"EN-US\">Coordinate the control activity in line with the Global Private Banking Control Blueprint, though aligned to local regulatory requirements</span>",
-                  "<span lang=\"EN-US\">Perform due diligence on prospective and existing client relationships</span>",
-                  "<span lang=\"EN-US\">Approve funds and securities transfers, credit granting, overrides and transactions involving sanctions sensitivity</span>",
-                  "<span lang=\"EN-US\">Distribute market knowledge and best practices among Client Relationship Officers, Client Service Officers and Account Managers</span>",
-                  "<span lang=\"EN-US\">Build trusted working relationships with Senior Management and CROs </span>",
-                  "<span lang=\"EN-US\">Contribute effectively not only to core duties but also in the additional responsibilities including deputizing the HOPBS, reviewing complex cases, and presenting confidently to various senior Management stakeholders.</span>",
-                  "<span lang=\"EN-US\">Being the main point of CRO Contact for complex and High-Risk cases</span>",
-                  "<span lang=\"EN-US\">Be the FLOD Single Point of Contact (SPOC) and gatekeeper when it comes to matters related to PEP Classification and Declassification</span>",
-                  "<span lang=\"EN-US\">Ensure timely completion and remediation of pending follow-ups relating to client lifecycle activities </span>",
-                  "<span lang=\"EN-US\">Approve clients and business introducers new accounts, oversee KYC lifecycle and periodic reviews within the authority delegated by HoPB, ensuring oversight and compliance standards are met</span>",
-                  "<span lang=\"EN-US\">Act as a key link between FLOD and SLOD, ensuring consistent communication and escalation paths including networking with key contact persons within the organization</span>",
-                  "<span lang=\"EN-US\">Review account openings, CIP modifications and periodic reviews for the Dubai PBS team, while providing guidance to strengthen their understanding of requirements and control standards. Through continuous support and best practice sharing, help the team develop the capability to perform these reviews independently.</span>",
-                  "<span lang=\"EN-US\">To represent the HOPBS and the Team with credibility, whether deputizing in meetings, presenting to senior stakeholders, or managing complex reviews.</span>",
-                  "<span lang=\"FR-CH\"><strong>Skills and experience</strong></span>",
-                  "<span>University degree in Business Administration, Finance, Law, Economics or related field is essential;</span>",
-                  "<span>Minimum 5 years of previous Compliance or Audit experience in the area of account openings, account reviews and transaction monitoring;</span>",
-                  "<span lang=\"FR-CH\">Strong analytical skills;</span>",
-                  "<span>Strong communication skills, including the ability to deal with potentially contentious issues effectively;</span>",
-                  "<span>Ability to work under pressure in a fast-paced environment, </span><span lang=\"EN-US\">flexible, multitask;</span>",
-                  "<span>Excellent knowledge of written and spoken English. Working knowledge of French and German would be an advantage.</span>"
-                ],
-                "bullets": [
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Support the Client Relationship Officers in proactively identifying, managing and mitigating risks arising from day-to-day business activities </span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Coordinate the control activity in line with the Global Private Banking Control Blueprint, though aligned to local regulatory requirements</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Perform due diligence on prospective and existing client relationships</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Approve funds and securities transfers, credit granting, overrides and transactions involving sanctions sensitivity</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Distribute market knowledge and best practices among Client Relationship Officers, Client Service Officers and Account Managers</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Build trusted working relationships with Senior Management and CROs </span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Contribute effectively not only to core duties but also in the additional responsibilities including deputizing the HOPBS, reviewing complex cases, and presenting confidently to various senior Management stakeholders.</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Being the main point of CRO Contact for complex and High-Risk cases</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Be the FLOD Single Point of Contact (SPOC) and gatekeeper when it comes to matters related to PEP Classification and Declassification</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Ensure timely completion and remediation of pending follow-ups relating to client lifecycle activities </span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Approve clients and business introducers new accounts, oversee KYC lifecycle and periodic reviews within the authority delegated by HoPB, ensuring oversight and compliance standards are met</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Act as a key link between FLOD and SLOD, ensuring consistent communication and escalation paths including networking with key contact persons within the organization</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Review account openings, CIP modifications and periodic reviews for the Dubai PBS team, while providing guidance to strengthen their understanding of requirements and control standards. Through continuous support and best practice sharing, help the team develop the capability to perform these reviews independently.</span></p><ul><li><p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">To represent the HOPBS and the Team with credibility, whether deputizing in meetings, presenting to senior stakeholders, or managing complex reviews.</span></p><p style=\"line-height:120%;margin-bottom:0cm;\"> </p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span>University degree in Business Administration, Finance, Law, Economics or related field is essential;</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span>Minimum 5 years of previous Compliance or Audit experience in the area of account openings, account reviews and transaction monitoring;</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"FR-CH\">Strong analytical skills;</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span>Strong communication skills, including the ability to deal with potentially contentious issues effectively;</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span>Ability to work under pressure in a fast-paced environment, </span><span lang=\"EN-US\">flexible, multitask;</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span>Excellent knowledge of written and spoken English. Working knowledge of French and German would be an advantage.</span></p>"
-                ]
-              }
-            ],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-09-28T04:51:51.496Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Geneve",
-      "postalCode": "1201",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.902Z",
-      "country": "CH",
-      "salarySource": "reported",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6175",
-      "postingDateSource": "unknown",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T22:21:01.758Z",
-      "validThroughSource": "build-clock-fallback",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 23
-      }
     }
   ],
-  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
+  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
 }

@@ -1,7 +1,7 @@
 {
   "key": "favresa-ch",
   "label": "Favre SA",
-  "generatedAt": "2026-11-26T21:42:03.389Z",
+  "generatedAt": "2026-11-27T09:54:34.751Z",
   "total": 0,
   "discovered": null,
   "parsed": 0,
@@ -19,6 +19,8 @@
         "url": "https://www.groupe-r.ch/emploi.html?id=19"
       }
     ],
+    "listingTerminalStatus": 404,
+    "listingCompletion": null,
     "proxiedBy": [],
     "fetchOutcome": null,
     "fetchDetail": "Prospector fetch failed for https://www.groupe-r.ch/emploi.html?id=19: HTTP 404"
@@ -37,5 +39,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
+  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
 }

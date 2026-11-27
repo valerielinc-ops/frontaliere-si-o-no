@@ -42,7 +42,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.csvm.ch/de/aktuelles/dipl-pflegefachperson-hf-ab-60.html",
-    "firstSeenAt": "2026-10-05T21:46:49.660Z"
+    "firstSeenAt": "2026-10-05T21:46:49.660Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-ab-60-csvm-mustair-mustair": "GR"
+      }
+    }
   },
   {
     "slug": "dipl-professionista-hf-center-da-sanda-val-mustair-csvm-sta",
@@ -91,7 +97,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.csvm.ch/de/aktuelles/dipl-pflegefachperson-hf.html",
-    "firstSeenAt": "2026-07-16T23:27:37.126Z"
+    "firstSeenAt": "2026-07-16T23:27:37.126Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-csvm-mustair-mustair": "GR"
+      },
+      "en": {
+        "dipl-pflegefachperson-hf-csvm-mustair-mustair": "GR"
+      },
+      "fr": {
+        "dipl-pflegefachperson-hf-csvm-mustair-mustair": "GR"
+      }
+    }
   },
   {
     "slug": "assistente-infermieristico-srk-80-100-center-da-sanda-val-mustair-csvm-sta",
@@ -140,7 +158,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.csvm.ch/de/aktuelles/pflegehelfer-in-srk-80-100.html",
-    "firstSeenAt": "2026-05-21T22:13:17.732Z"
+    "firstSeenAt": "2026-05-21T22:13:17.732Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pflegehelfer-in-srk-80-100-csvm-mustair-mustair": "GR"
+      },
+      "en": {
+        "pflegehelfer-in-srk-80-100-csvm-mustair-mustair": "GR"
+      },
+      "fr": {
+        "pflegehelfer-in-srk-80-100-csvm-mustair-mustair": "GR"
+      }
+    }
   },
   {
     "slug": "sommerpraktikum-im-pflegeheim-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
@@ -223,21 +253,26 @@
         "apprendistato-2026-center-da-sanda-val-mustair-csvm-sta-622014d4",
         "lehrstellen-2026-csvm-mustair-mustair-b7587760",
         "apprendistato-2026-center-da-sanda-val-mustair-csvm-sta-da8268f4",
-        "lehrstellen-2026-csvm-mustair-mustair-573dcfa1"
+        "lehrstellen-2026-csvm-mustair-mustair-573dcfa1",
+        "apprendistato-2026-center-da-sanda-val-mustair-csvm-sta-61309e5a",
+        "lehrstellen-2026-csvm-mustair-mustair-b9002649"
       ],
       "en": [
         "lehrstellen-2026-csvm-mustair-mustair",
         "apprenticeships-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair-c1e67496",
-        "apprenticeships-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair-4552a968"
+        "apprenticeships-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair-4552a968",
+        "apprenticeships-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair-e3590209"
       ],
       "de": [
         "lehrstellen-2026-csvm-mustair-mustair-b7587760",
-        "lehrstellen-2026-csvm-mustair-mustair-573dcfa1"
+        "lehrstellen-2026-csvm-mustair-mustair-573dcfa1",
+        "lehrstellen-2026-csvm-mustair-mustair-b9002649"
       ],
       "fr": [
         "lehrstellen-2026-csvm-mustair-mustair",
         "apprentissages-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair-e8743119",
-        "apprentissages-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair-135bbc40"
+        "apprentissages-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair-135bbc40",
+        "apprentissages-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair-052160f3"
       ]
     },
     "postalCode": "7536",
@@ -257,7 +292,11 @@
       "apprendistato-2026-center-da-sanda-val-mustair-csvm-sta-da8268f4",
       "lehrstellen-2026-csvm-mustair-mustair-573dcfa1",
       "apprenticeships-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair-4552a968",
-      "apprentissages-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair-135bbc40"
+      "apprentissages-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair-135bbc40",
+      "apprendistato-2026-center-da-sanda-val-mustair-csvm-sta-61309e5a",
+      "lehrstellen-2026-csvm-mustair-mustair-b9002649",
+      "apprenticeships-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair-e3590209",
+      "apprentissages-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair-052160f3"
     ]
   },
   {

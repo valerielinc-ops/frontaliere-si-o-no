@@ -30,6 +30,9 @@
     "previousSlugsByLocale": {
       "de": [
         "risikosteigerung-pkb-private-bank-sa-lugano"
+      ],
+      "en": [
+        "risk-officer-pkb-private-bank-lugano"
       ]
     },
     "postalCode": "6900",
@@ -39,6 +42,15 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.pkb.ch/job/view-job.php?id=30-risk-officer-lugano&language=it",
-    "firstSeenAt": "2026-08-18T10:07:39.850Z"
+    "firstSeenAt": "2026-08-18T10:07:39.850Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "en": {
+        "risk-officer-pkb-private-bank-lugano": "TI"
+      },
+      "de": {
+        "risikosteigerung-pkb-private-bank-sa-lugano": "TI"
+      }
+    }
   }
 ]

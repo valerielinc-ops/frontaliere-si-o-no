@@ -2754,59 +2754,73 @@ jobs:
           CHANGED_PATHS_FILE: changed-paths.txt
         run: node scripts/ci/assemble-test-snapshot.mjs can-use
 
-      - name: Find latest successful hourly assemble snapshot
+      # The newest trusted, fresh and compatible manifest wins. Producers are
+      # the push runs of tests.yml on main and the hourly seed; see
+      # scripts/ci/select-assemble-test-snapshot.mjs for the trust rules (main
+      # only, this repository only, a producer event and workflow: a
+      # pull_request run never qualifies). Candidates older than 60 minutes are
+      # expired by construction; an incompatible one is skipped for the next.
+      # The chosen manifest is written where the unchanged steps below read it.
+      - name: Select newest compatible hourly assemble snapshot
         id: latest_hourly_snapshot
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.hourly_snapshot_eligibility.outputs.eligible == 'true' && steps.hourly_snapshot_fingerprint.outputs.fingerprint != '' }}
         continue-on-error: true
         uses: actions/github-script@v9
+        env:
+          SNAPSHOT_COMPATIBILITY_FINGERPRINT: ${{ steps.hourly_snapshot_fingerprint.outputs.fingerprint }}
         with:
           script: |
-            const fs = require('fs');
-            const writeRunIdentity = (run) => {
-              if (!process.env.GITHUB_OUTPUT) return;
-              const runId = run ? String(run.id) : '';
-              const runAttempt = run ? String(run.run_attempt) : '';
-              fs.appendFileSync(process.env.GITHUB_OUTPUT, `run_id=${runId}\nrun_attempt=${runAttempt}\n`);
+            const fs = require('node:fs');
+            const path = require('node:path');
+            const { pathToFileURL } = require('node:url');
+            const workspace = process.env.GITHUB_WORKSPACE;
+            const empty = (reasonClass, reason) => {
+              core.setOutput('run_id', '');
+              core.setOutput('run_attempt', '');
+              core.setOutput('reason_class', reasonClass);
+              core.setOutput('reason', reason);
             };
             try {
-              const { data } = await github.request('GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs', {
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                workflow_id: 'hourly-test-assemble-snapshot.yml',
-                branch: 'main',
-                status: 'success',
-                per_page: 20,
+              const selector = await import(pathToFileURL(`${workspace}/scripts/ci/select-assemble-test-snapshot.mjs`).href);
+              const owner = context.repo.owner;
+              const repo = context.repo.repo;
+              // The same `cache-key` command the restore path uses, run with the
+              // job's own node: importing the validator here would compare the
+              // manifest's nodeMajor with the Node of github-script.
+              const validate = selector.jobNodeValidator({
+                cwd: workspace,
+                compatibilityFingerprint: process.env.SNAPSHOT_COMPATIBILITY_FINGERPRINT,
               });
-              const now = Date.now();
-              const maxAgeMs = 60 * 60 * 1000;
-              const run = data.workflow_runs.find((candidate) => {
-                // Workflow-run list objects expose updated_at (not completed_at).
-                // The manifest performs the authoritative snapshot-age check.
-                const updatedAt = Date.parse(candidate.updated_at || '');
-                return candidate.head_branch === 'main'
-                  && candidate.conclusion === 'success'
-                  && Number.isFinite(updatedAt)
-                  && now >= updatedAt
-                  && now - updatedAt <= maxAgeMs;
+              const result = await selector.selectAssembleTestSnapshot({
+                github,
+                owner,
+                repo,
+                repositoryId: context.payload.repository.id,
+                validate,
+                download: selector.manifestDownloader({ github, owner, repo }),
+                log: (message) => core.info(message),
               });
-              writeRunIdentity(run);
-              if (run) core.info(`Using hourly snapshot workflow run ${run.id}`);
-              else core.warning('No successful hourly assemble snapshot completed within the last 60 minutes');
+              for (const entry of result.skipped) {
+                core.info(`Candidate run ${entry.runId} (artifact ${entry.artifactId}) skipped [${entry.class}]: ${entry.reason}`);
+              }
+              if (!result.selected) {
+                core.warning(`No usable hourly assemble snapshot: ${result.reason}`);
+                empty(result.reasonClass, result.reason);
+                return;
+              }
+              const metadataDir = path.join(workspace, '.cache', 'assemble-jobs-test-snapshot-metadata');
+              fs.rmSync(metadataDir, { recursive: true, force: true });
+              fs.mkdirSync(metadataDir, { recursive: true });
+              fs.writeFileSync(path.join(metadataDir, 'test-snapshot.json'), result.selected.manifestText);
+              core.setOutput('run_id', result.selected.runId);
+              core.setOutput('run_attempt', result.selected.runAttempt);
+              core.setOutput('reason_class', '');
+              core.setOutput('reason', '');
+              core.info(`Using hourly snapshot workflow run ${result.selected.runId}`);
             } catch (error) {
-              writeRunIdentity(null);
+              empty('not-checked', `snapshot discovery failed: ${error.message}`);
               core.warning(`Could not discover hourly assemble snapshot: ${error.message}`);
             }
-
-      - name: Download latest hourly snapshot manifest
-        id: latest_hourly_snapshot_manifest
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.latest_hourly_snapshot.outputs.run_id != '' && steps.latest_hourly_snapshot.outputs.run_attempt != '' }}
-        continue-on-error: true
-        uses: actions/download-artifact@v8
-        with:
-          name: assemble-test-snapshot-manifest
-          path: .cache/assemble-jobs-test-snapshot-metadata
-          run-id: ${{ steps.latest_hourly_snapshot.outputs.run_id }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Select stable hourly assemble snapshot cache key
         id: hourly_snapshot_key
@@ -2876,17 +2890,31 @@ jobs:
         uses: actions/github-script@v9
         env:
           ASSEMBLE_CACHE_FULL_KEY: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+          MERGE_GROUP_BASE_SHA: ${{ github.event.merge_group.base_sha }}
         with:
           script: |
             const { pathToFileURL } = require('node:url');
             const helper = await import(pathToFileURL(
               `${process.env.GITHUB_WORKSPACE}/scripts/ci/wait-for-main-assemble-cache.mjs`,
             ).href);
+            // The exact key can only match a main run whose head is the base of
+            // this merge: refs/pull/N/merge has the base as first parent, and the
+            // merge queue names it. Anything else cannot publish the same key.
+            let baseSha = process.env.MERGE_GROUP_BASE_SHA || '';
+            if (!baseSha) {
+              try {
+                baseSha = require('node:child_process')
+                  .execFileSync('git', ['rev-parse', 'HEAD^1'], { encoding: 'utf8' }).trim();
+              } catch (error) {
+                core.info(`Base commit not resolvable: ${error.message}`);
+              }
+            }
             await helper.waitForMainAssembleCache({
               github,
               context,
               core,
               cacheKey: process.env.ASSEMBLE_CACHE_FULL_KEY,
+              baseSha,
             });
 
       - name: Restore exact assemble-jobs cache after main warm-up
@@ -2970,6 +2998,77 @@ jobs:
           fi
           node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
+      # One annotation per run says how the dataset was obtained. The logs of
+      # this job often exceed 8 MiB and cannot be read; annotations can.
+      - name: Report assemble snapshot outcome
+        id: assemble_snapshot_outcome
+        if: ${{ always() && !cancelled() && steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.assemble.outputs.required == 'true' && (github.event_name == 'pull_request' || github.event_name == 'merge_group') }}
+        continue-on-error: true
+        env:
+          ELIGIBILITY_OUTCOME: ${{ steps.hourly_snapshot_eligibility.outcome }}
+          ELIGIBLE: ${{ steps.hourly_snapshot_eligibility.outputs.eligible }}
+          ELIGIBILITY_REASON: ${{ steps.hourly_snapshot_eligibility.outputs.reason }}
+          SNAPSHOT_RUN_ID: ${{ steps.latest_hourly_snapshot.outputs.run_id }}
+          SELECT_OUTCOME: ${{ steps.latest_hourly_snapshot.outcome }}
+          SELECT_CLASS: ${{ steps.latest_hourly_snapshot.outputs.reason_class }}
+          SELECT_REASON: ${{ steps.latest_hourly_snapshot.outputs.reason }}
+          SNAPSHOT_KEY_OUTCOME: ${{ steps.hourly_snapshot_key.outcome }}
+          SNAPSHOT_KEY_ERROR: ${{ steps.hourly_snapshot_key.outputs.error }}
+          SNAPSHOT_CACHE_HIT: ${{ steps.hourly_snapshot_cache.outputs.cache-hit }}
+          SNAPSHOT_RESTORED: ${{ steps.hourly_snapshot_restore.outputs.restored }}
+          SNAPSHOT_RESTORE_REASON: ${{ steps.hourly_snapshot_restore.outputs.reason }}
+          EXACT_CACHE_HIT: ${{ steps.assemble_cache.outputs.cache-hit }}
+          EXACT_CACHE_RETRY_HIT: ${{ steps.assemble_cache_retry.outputs.cache-hit }}
+        run: |
+          # `snapshot` is the snapshot-side cause and is set even when an exact
+          # assemble-jobs cache hit made the snapshot unnecessary.
+          if [ "$SNAPSHOT_RESTORED" = "true" ]; then
+            snapshot=hit; snapshot_reason="hourly snapshot from run ${SNAPSHOT_RUN_ID} restored"
+          elif [ "$ELIGIBILITY_OUTCOME" != "success" ]; then
+            snapshot=not-checked; snapshot_reason="eligibility check did not complete (${ELIGIBILITY_OUTCOME:-skipped})"
+          elif [ "$ELIGIBLE" != "true" ]; then
+            snapshot=ineligible; snapshot_reason="${ELIGIBILITY_REASON:-PR diff touches assemble inputs}"
+          elif [ -z "$SNAPSHOT_RUN_ID" ]; then
+            # The selector reports why no candidate was usable: none at all
+            # (absent), all too old (stale), all incompatible, or an API error.
+            if [ "$SELECT_OUTCOME" != "success" ]; then
+              snapshot=not-checked
+            else
+              case "$SELECT_CLASS" in
+                stale|incompatible|not-checked) snapshot="$SELECT_CLASS" ;;
+                *) snapshot=absent ;;
+              esac
+            fi
+            snapshot_reason="${SELECT_REASON:-no usable hourly snapshot manifest within 60 minutes}"
+          elif [ "$SNAPSHOT_KEY_OUTCOME" != "success" ]; then
+            case "$SNAPSHOT_KEY_ERROR" in
+              *"older than 60 minutes"*) snapshot=stale ;;
+              *"compatibility changed"*|*"output contract changed"*) snapshot=incompatible ;;
+              *) snapshot=not-checked ;;
+            esac
+            snapshot_reason="run ${SNAPSHOT_RUN_ID}: ${SNAPSHOT_KEY_ERROR:-cache key not computed (${SNAPSHOT_KEY_OUTCOME:-skipped})}"
+          elif [ "$SNAPSHOT_CACHE_HIT" != "true" ]; then
+            snapshot=cache-miss; snapshot_reason="snapshot cache of run ${SNAPSHOT_RUN_ID} not found"
+          else
+            snapshot=restore-rejected; snapshot_reason="run ${SNAPSHOT_RUN_ID}: ${SNAPSHOT_RESTORE_REASON:-restore did not report a reason}"
+          fi
+          if [ "$SNAPSHOT_RESTORED" = "true" ]; then
+            outcome=hit; reason="$snapshot_reason"
+          elif [ "$EXACT_CACHE_HIT" = "true" ] || [ "$EXACT_CACHE_RETRY_HIT" = "true" ]; then
+            outcome=exact-cache-hit; reason="exact assemble-jobs cache restored; snapshot: ${snapshot_reason}"
+          else
+            case "$snapshot" in
+              ineligible) outcome=ineligible ;;
+              absent) outcome=absent ;;
+              not-checked) outcome=cold ;;
+              *) outcome=incompatible ;;
+            esac
+            reason="${snapshot_reason}; cold assembly"
+          fi
+          line="outcome=${outcome} snapshot=${snapshot} reason=${reason}"
+          echo "::notice title=assemble-snapshot-outcome::${line}"
+          echo "assemble-snapshot-outcome: ${line}" >> "$GITHUB_STEP_SUMMARY"
+
       # Publish the exact snapshot as soon as assembly and migration succeed.
       # Saving here lets main seed the cache before the longer test and review
       # steps, and still runs before any later test failure.
@@ -2983,6 +3082,162 @@ jobs:
         with:
           path: .cache/assemble-jobs
           key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+
+      # Publish the PR test snapshot from the push runs of main. Every one of
+      # these runs has just assembled the dataset (or restored the exact cache)
+      # that the seed would assemble, so the snapshot costs no assembly. It is
+      # an optimization, not a signal: every step here is continue-on-error and
+      # none of them can fail the job. The throttle lets a run publish only when
+      # no trusted producer run was created (captured) in the last 25 minutes:
+      # age counts from the producer's capture, not from its artifact.
+      #
+      # The capture time is the creation time of THIS run, which is the push
+      # event: the run's SHA was the head of main from then, so the dataset is
+      # never claimed fresher than the state it was built from. The checkout
+      # time or the end of the assembly would be minutes later and would stretch
+      # the 60 minute life of the snapshot past the real state of main.
+      - name: Decide whether to publish the test snapshot
+        id: snapshot_publish_gate
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && always() && !cancelled() && steps.body_contract.outcome != 'failure' && steps.assemble_jobs.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' }}
+        continue-on-error: true
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const { pathToFileURL } = require('node:url');
+            const decide = (publish, reason, capturedAt = '') => {
+              core.setOutput('publish', String(publish));
+              core.setOutput('captured_at', capturedAt);
+              core.info(`${publish ? 'Publishing' : 'Not publishing'} the test snapshot: ${reason}`);
+            };
+            try {
+              const selector = await import(pathToFileURL(
+                `${process.env.GITHUB_WORKSPACE}/scripts/ci/select-assemble-test-snapshot.mjs`,
+              ).href);
+              const owner = context.repo.owner;
+              const repo = context.repo.repo;
+              const now = Date.now();
+              const recent = await selector.findRecentTrustedManifest({
+                github, owner, repo, repositoryId: context.payload.repository.id,
+                now, withinMs: 25 * 60 * 1000,
+              });
+              if (recent) {
+                decide(false, `trusted producer run ${recent.run.id} captured at ${recent.run.created_at}, within the last 25 minutes`);
+                return;
+              }
+              const { data: run } = await github.rest.actions.getWorkflowRun({
+                owner, repo, run_id: context.runId,
+              });
+              const createdAt = Date.parse(run.created_at || '');
+              // A run that waited long in the queue would publish a manifest that
+              // is nearly expired and would still hold the throttle for 25 minutes.
+              if (!Number.isFinite(createdAt) || createdAt > now || now - createdAt > 30 * 60 * 1000) {
+                decide(false, `run created_at ${run.created_at} is missing, in the future or older than 30 minutes`);
+                return;
+              }
+              decide(true, `no trusted producer captured in the last 25 minutes; capture time ${run.created_at}`, new Date(createdAt).toISOString());
+            } catch (error) {
+              // Fail closed: this is only an optimization.
+              core.warning(`Could not decide on the test snapshot: ${error.message}`);
+              decide(false, 'the decision failed');
+            }
+
+      - name: Prepare PR test snapshot from the main push run
+        id: push_snapshot_prepare
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && always() && !cancelled() && steps.body_contract.outcome != 'failure' && steps.assemble_jobs.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' && steps.snapshot_publish_gate.outputs.publish == 'true' }}
+        continue-on-error: true
+        env:
+          ASSEMBLE_TEST_SNAPSHOT_SOURCE_AT: ${{ steps.snapshot_publish_gate.outputs.captured_at }}
+          # The pre-assemble key: assembly may update auxiliary inputs after
+          # hashing them, and the snapshot stays tied to the key of its output.
+          ASSEMBLE_TEST_SNAPSHOT_SOURCE_CACHE_KEY: ${{ steps.assemble_cache_key.outputs.key }}
+        run: node scripts/ci/assemble-test-snapshot.mjs prepare
+
+      - name: Compute snapshot compatibility fingerprint (main push)
+        id: push_snapshot_fingerprint
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && always() && !cancelled() && steps.body_contract.outcome != 'failure' && steps.assemble_jobs.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' && steps.push_snapshot_prepare.outcome == 'success' }}
+        continue-on-error: true
+        run: node scripts/ci/assemble-test-snapshot.mjs fingerprint
+
+      - name: Compute test snapshot cache key (main push)
+        id: push_snapshot_key
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && always() && !cancelled() && steps.body_contract.outcome != 'failure' && steps.assemble_jobs.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' && steps.push_snapshot_fingerprint.outcome == 'success' }}
+        continue-on-error: true
+        env:
+          ASSEMBLE_TEST_SNAPSHOT_METADATA_FILE: .cache/assemble-jobs-test-snapshot/test-snapshot.json
+          ASSEMBLE_TEST_SNAPSHOT_RUN_ID: ${{ github.run_id }}
+          ASSEMBLE_TEST_SNAPSHOT_RUN_ATTEMPT: ${{ github.run_attempt }}
+          ASSEMBLE_TEST_SNAPSHOT_COMPATIBILITY_FINGERPRINT: ${{ steps.push_snapshot_fingerprint.outputs.fingerprint }}
+        run: node scripts/ci/assemble-test-snapshot.mjs cache-key
+
+      # The key is content-addressed: when another run already saved it, this
+      # save only logs that the key is taken.
+      - name: Save test snapshot cache (main push)
+        id: push_snapshot_save
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && always() && !cancelled() && steps.body_contract.outcome != 'failure' && steps.assemble_jobs.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' && steps.push_snapshot_key.outcome == 'success' && steps.push_snapshot_key.outputs.key != '' }}
+        continue-on-error: true
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/assemble-jobs-test-snapshot
+          key: ${{ steps.push_snapshot_key.outputs.key }}
+
+      # A manifest must never name a cache that does not exist: publish only
+      # when the exact key is now listed on main, whether this run saved it or
+      # an earlier one did. The listing can lag a save by a moment, so retry.
+      - name: Confirm the test snapshot cache exists (main push)
+        id: push_snapshot_exists
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && always() && !cancelled() && steps.body_contract.outcome != 'failure' && steps.assemble_jobs.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' && steps.push_snapshot_key.outcome == 'success' && steps.push_snapshot_key.outputs.key != '' }}
+        continue-on-error: true
+        uses: actions/github-script@v9
+        env:
+          SNAPSHOT_CACHE_KEY: ${{ steps.push_snapshot_key.outputs.key }}
+        with:
+          script: |
+            const key = process.env.SNAPSHOT_CACHE_KEY;
+            let exists = false;
+            try {
+              for (let attempt = 1; attempt <= 3 && !exists; attempt += 1) {
+                const { data } = await github.rest.actions.getActionsCacheList({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  ref: 'refs/heads/main',
+                  key,
+                  per_page: 100,
+                });
+                exists = (data.actions_caches || []).some((cache) => cache && cache.key === key);
+                if (!exists && attempt < 3) await new Promise((resolve) => setTimeout(resolve, 5000));
+              }
+            } catch (error) {
+              core.warning(`Could not list the snapshot cache: ${error.message}`);
+            }
+            core.setOutput('exists', String(exists));
+            core.info(exists ? `Snapshot cache ${key} exists on main` : `Snapshot cache ${key} not found: no manifest is published`);
+
+      - name: Publish test snapshot manifest (main push)
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && always() && !cancelled() && steps.body_contract.outcome != 'failure' && steps.assemble_jobs.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' && steps.push_snapshot_exists.outputs.exists == 'true' }}
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: assemble-test-snapshot-manifest
+          path: .cache/assemble-jobs-test-snapshot/test-snapshot.json
+          if-no-files-found: error
+          retention-days: 3
+
+      # By age, not by count: see scripts/ci/prune-assemble-test-snapshots.mjs.
+      - name: Prune older test snapshots (main push)
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && always() && !cancelled() && steps.body_contract.outcome != 'failure' && steps.assemble_jobs.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' && steps.push_snapshot_key.outcome == 'success' && steps.push_snapshot_key.outputs.key != '' }}
+        continue-on-error: true
+        uses: actions/github-script@v9
+        env:
+          CURRENT_SNAPSHOT_CACHE_KEY: ${{ steps.push_snapshot_key.outputs.key }}
+        with:
+          script: |
+            const { pathToFileURL } = require('node:url');
+            const { pruneAssembleTestSnapshots } = await import(pathToFileURL(
+              `${process.env.GITHUB_WORKSPACE}/scripts/ci/prune-assemble-test-snapshots.mjs`,
+            ).href);
+            await pruneAssembleTestSnapshots({
+              github, context, core, currentKey: process.env.CURRENT_SNAPSHOT_CACHE_KEY,
+            });
 
       - name: Verify published blog cover ledger
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}

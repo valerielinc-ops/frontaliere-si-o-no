@@ -53,7 +53,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/68465307/verk%c3%a4ufer-chocolaterie-uster-60-w-m-d-",
-    "firstSeenAt": "2026-10-30T21:22:32.019Z"
+    "firstSeenAt": "2026-10-30T21:22:32.019Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "verkaufer-chocolaterie-uster-60-w-m-d-laderach-uster-zurich-schweiz": "ZH",
+        "verkaufer-chocolaterie-uster-60-w-m-d-laderach-uster": "ZH"
+      },
+      "en": {
+        "verkaufer-chocolaterie-uster-60-w-m-d-laderach-uster-zurich-schweiz": "ZH"
+      },
+      "de": {
+        "verkaufer-chocolaterie-uster-60-w-m-d-laderach-uster": "ZH"
+      },
+      "fr": {
+        "verkaufer-chocolaterie-uster-60-w-m-d-laderach-uster-zurich-schweiz": "ZH"
+      }
+    }
   },
   {
     "id": "laderach-b0ad57de7665",
@@ -120,7 +136,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/66506288/lehrstelle-logistiker-in-efz-2027-",
-    "firstSeenAt": "2026-08-04T11:33:59.952Z"
+    "firstSeenAt": "2026-08-04T11:33:59.952Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-logistiker-in-efz-2027-laderach-bilten": "GL",
+        "kv-apprendistato-cfc-2027-m-w-d-laderach-schweiz-ag-bilten": "GL",
+        "cv-teaching-centre-efz-2027-w-m-d-laderach-schweiz-ag-bilten": "GL",
+        "kv-lehrstelle-efz-2027-w-m-d-laderach-bilten": "GL",
+        "centre-d-enseignement-du-cv-efz-2027-w-m-d-laderach-schweiz-ag-bilten": "GL",
+        "lehrstelle-logistiker-in-efz-2027-laderach-bilten-glarus-schweiz": "GL"
+      },
+      "en": {
+        "lehrstelle-logistiker-in-efz-2027-laderach-bilten": "GL",
+        "cv-teaching-centre-efz-2027-w-m-d-laderach-schweiz-ag-bilten": "GL"
+      },
+      "de": {
+        "kv-lehrstelle-efz-2027-w-m-d-laderach-bilten": "GL",
+        "lehrstelle-logistiker-in-efz-2027-laderach-bilten-glarus-schweiz": "GL"
+      },
+      "fr": {
+        "lehrstelle-logistiker-in-efz-2027-laderach-bilten": "GL",
+        "centre-d-enseignement-du-cv-efz-2027-w-m-d-laderach-schweiz-ag-bilten": "GL"
+      }
+    }
   },
   {
     "id": "laderach-449ab16eb723",
@@ -153,16 +192,19 @@
     "previousSlugs": [
       "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten",
       "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten-96ebb81a",
-      "tour-guide-schokoladenmuseum-e-fabrik-40-bilten-m-w-d-laderach-schweiz-ag-bilten"
+      "tour-guide-schokoladenmuseum-e-fabrik-40-bilten-m-w-d-laderach-schweiz-ag-bilten",
+      "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten-glarus-schweiz"
     ],
     "previousSlugsByLocale": {
       "it": [
         "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten",
         "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten-96ebb81a",
-        "tour-guide-schokoladenmuseum-e-fabrik-40-bilten-m-w-d-laderach-schweiz-ag-bilten"
+        "tour-guide-schokoladenmuseum-e-fabrik-40-bilten-m-w-d-laderach-schweiz-ag-bilten",
+        "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten-glarus-schweiz"
       ],
       "de": [
-        "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten-96ebb81a"
+        "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten-96ebb81a",
+        "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten-glarus-schweiz"
       ],
       "en": [
         "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten"
@@ -190,7 +232,26 @@
         "firstSeenAt": "2026-10-22T09:24:40.420Z",
         "title": "Tour Guide Schokoladenmuseum und Fabrik 40% Bilten (w/m/d)"
       }
-    ]
+    ],
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten": "GL",
+        "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten-96ebb81a": "GL",
+        "tour-guide-schokoladenmuseum-e-fabrik-40-bilten-m-w-d-laderach-schweiz-ag-bilten": "GL",
+        "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten-glarus-schweiz": "GL"
+      },
+      "de": {
+        "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten-96ebb81a": "GL",
+        "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten-glarus-schweiz": "GL"
+      },
+      "en": {
+        "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten": "GL"
+      },
+      "fr": {
+        "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten": "GL"
+      }
+    }
   },
   {
     "id": "laderach-cd4cdfff81eb",
@@ -284,7 +345,39 @@
         "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67261930/weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-",
         "title": "Weihnachtsaushilfe 20-60% Chocolaterie Landquart Outlet (befristet von Oktober bis Dezember 2026)"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-landquart": "GR",
+        "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-landquart-graubunden-schweiz": "GR",
+        "rilievo-di-natale-20-60-chocolaterie-landquart-outlet-temporaneo-da-ottobre-a-dicembre-2026-laderach-schweiz-ag-136d8e26": "GR",
+        "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-3d91da09": "GR",
+        "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-f09e7ed1": "GR",
+        "rilievo-di-natale-20-60-chocolaterie-landquart-outlet-temporaneo-da-ottobre-a-dicembre-2026-laderach-schweiz-ag-63a59efe": "GR",
+        "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-88776ead": "GR",
+        "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-0de1c6ff": "GR"
+      },
+      "en": {
+        "christmas-relief-20-60-chocolaterie-landquart-outlet-temporary-from-october-to-december-2026-laderach-schweiz-7b7fccc3": "GR",
+        "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-3d91da09": "GR",
+        "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-landquart": "GR",
+        "christmas-relief-20-60-chocolaterie-landquart-outlet-temporary-from-october-to-december-2026-laderach-schweiz-abcfaabb": "GR",
+        "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-88776ead": "GR"
+      },
+      "de": {
+        "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-landquart-graubunden-schweiz": "GR",
+        "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-3d91da09": "GR",
+        "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-landquart": "GR",
+        "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-88776ead": "GR"
+      },
+      "fr": {
+        "relief-de-noel-20-60-chocolaterie-landquart-outlet-temporaire-d-octobre-a-decembre-2026-laderach-schweiz-ag-03b6a171": "GR",
+        "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-3d91da09": "GR",
+        "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-landquart": "GR",
+        "relief-de-noel-20-60-chocolaterie-landquart-outlet-temporaire-d-octobre-a-decembre-2026-laderach-schweiz-ag-5d0015dd": "GR",
+        "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-88776ead": "GR"
+      }
+    }
   },
   {
     "slug": "entertainer-per-live-produktion-im-house-of-laderach-60-100-m-w-d-laderach-schweiz-ag-bilten",
@@ -354,7 +447,23 @@
         "firstSeenAt": "2026-05-11T12:02:24.820Z",
         "title": "Confiseur für Live-Produktion im House of Läderach 60-100% (w/m/d)"
       }
-    ]
+    ],
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "confiseur-per-la-produzione-live-presso-il-house-of-laderach-60-100-m-f-d-laderach-schweiz-ag-bilten": "GL",
+        "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten": "GL",
+        "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten-glarus-schweiz": "GL"
+      },
+      "de": {
+        "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-schweiz-ag-bilten": "GL",
+        "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten": "GL",
+        "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten-glarus-schweiz": "GL"
+      },
+      "fr": {
+        "entertainer-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten": "GL"
+      }
+    }
   },
   {
     "slug": "hr-business-partner-retail-schweiz-w-m-d-laderach-bilten-glarus-schweiz",
@@ -387,6 +496,9 @@
     "previousSlugsByLocale": {
       "it": [
         "hr-business-partner-retail-schweiz-w-m-d-laderach-bilten"
+      ],
+      "en": [
+        "hr-business-partner-retail-schweiz-w-m-d-laderach-bilten-glarus-schweiz"
       ]
     },
     "postalCode": "8865",
@@ -396,7 +508,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/65307461/hr-business-partner-retail-schweiz-w-m-d-",
-    "firstSeenAt": "2026-10-15T09:22:47.504Z"
+    "firstSeenAt": "2026-10-15T09:22:47.504Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hr-business-partner-retail-schweiz-w-m-d-laderach-bilten": "GL"
+      },
+      "en": {
+        "hr-business-partner-retail-schweiz-w-m-d-laderach-bilten-glarus-schweiz": "GL"
+      }
+    }
   },
   {
     "slug": "venditore-40-60-chocolaterie-stadelhofen-zurich-m-f-d-laderach-schweiz-ag-zurich",
@@ -463,7 +584,23 @@
         "firstSeenAt": "2026-10-13T09:21:26.659Z",
         "title": "Verkäufer 40-60% Chocolaterie Stadelhofen Zürich (w/m/d)"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "verkaufer-40-60-chocolaterie-stadelhofen-zurich-w-m-d-laderach-zurich": "ZH",
+        "verkaufer-40-60-chocolaterie-stadelhofen-zurich-w-m-d-laderach-zurich-zurich-schweiz": "ZH"
+      },
+      "en": {
+        "verkaufer-40-60-chocolaterie-stadelhofen-zurich-w-m-d-laderach-zurich": "ZH"
+      },
+      "de": {
+        "verkaufer-40-60-chocolaterie-stadelhofen-zurich-w-m-d-laderach-zurich-zurich-schweiz": "ZH"
+      },
+      "fr": {
+        "verkaufer-40-60-chocolaterie-stadelhofen-zurich-w-m-d-laderach-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "zusatzausbildung-specializzazione-confiserie-2027-m-w-d-laderach-schweiz-ag-ennenda",
@@ -518,7 +655,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/66508228/zusatzausbildung-fachrichtung-confiserie-2027-w-m-d-",
-    "firstSeenAt": "2026-08-04T11:34:00.420Z"
+    "firstSeenAt": "2026-08-04T11:34:00.420Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "zusatzausbildung-fachrichtung-confiserie-2027-w-m-d-laderach-ennenda": "GL",
+        "zusatzausbildung-fachrichtung-confiserie-2027-w-m-d-laderach-ennenda-glarus-schweiz": "GL"
+      },
+      "en": {
+        "zusatzausbildung-fachrichtung-confiserie-2027-w-m-d-laderach-ennenda": "GL"
+      },
+      "de": {
+        "zusatzausbildung-fachrichtung-confiserie-2027-w-m-d-laderach-ennenda-glarus-schweiz": "GL"
+      },
+      "fr": {
+        "zusatzausbildung-fachrichtung-confiserie-2027-w-m-d-laderach-ennenda": "GL"
+      }
+    }
   },
   {
     "slug": "60-chocolaterie-mall-della-svizzera-ebikon-f-m-d-laderach-schweiz-ag-ebikon",
@@ -585,7 +738,23 @@
         "firstSeenAt": "2026-06-23T11:53:19.361Z",
         "title": "Stv. Filialleiter 60% Chocolaterie Mall of Switzerland Ebikon (w/m/d)"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stv-filialleiter-60-chocolaterie-mall-of-switzerland-ebikon-w-m-d-laderach-ebikon": "LU",
+        "stv-filialleiter-60-chocolaterie-mall-of-switzerland-ebikon-w-m-d-laderach-ebikon-luzern-schweiz": "LU"
+      },
+      "en": {
+        "stv-filialleiter-60-chocolaterie-mall-of-switzerland-ebikon-w-m-d-laderach-ebikon": "LU"
+      },
+      "de": {
+        "stv-filialleiter-60-chocolaterie-mall-of-switzerland-ebikon-w-m-d-laderach-ebikon-luzern-schweiz": "LU"
+      },
+      "fr": {
+        "stv-filialleiter-60-chocolaterie-mall-of-switzerland-ebikon-w-m-d-laderach-ebikon": "LU"
+      }
+    }
   },
   {
     "slug": "finanza-direttore-uk-laderach-schweiz-ag-bilten",
@@ -632,7 +801,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/68492547/finance-director-uk",
-    "firstSeenAt": "2026-11-02T21:30:58.193Z"
+    "firstSeenAt": "2026-11-02T21:30:58.193Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "finance-director-uk-laderach-bilten": "GL"
+      },
+      "fr": {
+        "finance-director-uk-laderach-bilten": "GL"
+      }
+    }
   },
   {
     "slug": "apprendistato-lebensmitteltechnologe-in-cfc-2027-laderach-schweiz-ag-ennenda",
@@ -687,7 +865,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/66507453/lehrstelle-lebensmitteltechnologe-in-efz-2027-",
-    "firstSeenAt": "2026-08-04T11:34:00.275Z"
+    "firstSeenAt": "2026-08-04T11:34:00.275Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-lebensmitteltechnologe-in-efz-2027-laderach-ennenda": "GL",
+        "lehrstelle-lebensmitteltechnologe-in-efz-2027-laderach-ennenda-glarus-schweiz": "GL"
+      },
+      "en": {
+        "lehrstelle-lebensmitteltechnologe-in-efz-2027-laderach-ennenda": "GL"
+      },
+      "de": {
+        "lehrstelle-lebensmitteltechnologe-in-efz-2027-laderach-ennenda-glarus-schweiz": "GL"
+      },
+      "fr": {
+        "lehrstelle-lebensmitteltechnologe-in-efz-2027-laderach-ennenda": "GL"
+      }
+    }
   },
   {
     "slug": "rilievo-di-natale-40-80-chocolaterie-st-gallen-temporaneo-da-ottobre-a-dicembre-2026-laderach-schweiz-ag-st-gallen-sankt",
@@ -750,7 +944,18 @@
         "firstSeenAt": "2026-09-16T09:21:34.818Z",
         "title": "Weihnachtsaushilfe 40-80% Chocolaterie St. Gallen (befristet von Oktober bis Dezember 2026)"
       }
-    ]
+    ],
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-40-80-chocolaterie-st-gallen-befristet-von-oktober-bis-dezember-2026-laderach-st-gallen-sankt-gallen-schweiz": "SG",
+        "weihnachtsaushilfe-40-80-chocolaterie-st-gallen-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-st-gallen-sankt-gallen-schweiz": "SG",
+        "weihnachtsaushilfe-40-80-chocolaterie-st-gallen-befristet-von-oktober-bis-dezember-2026-laderach-st-gallen": "SG"
+      },
+      "de": {
+        "weihnachtsaushilfe-40-80-chocolaterie-st-gallen-befristet-von-oktober-bis-dezember-2026-laderach-st-gallen-sankt-gallen-schweiz": "SG"
+      }
+    }
   },
   {
     "slug": "finanza-direttore-spain-laderach-schweiz-ag-glarus-nord-glarus-switzerland",
@@ -800,7 +1005,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/68442112/finance-director-spain",
-    "firstSeenAt": "2026-10-30T09:30:57.034Z"
+    "firstSeenAt": "2026-10-30T09:30:57.034Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "finance-director-spain-laderach-glarus-nord-glarus-switzerland": "GL"
+      },
+      "de": {
+        "finance-director-spain-laderach-glarus-nord-glarus-switzerland": "GL"
+      },
+      "fr": {
+        "finance-director-spain-laderach-glarus-nord-glarus-switzerland": "GL"
+      }
+    }
   },
   {
     "slug": "assistente-di-vendita-venditore-per-aiutare-m-f-d-laderach-schweiz-ag-sindelfingen-baden-wurttemberg-deutschland",
@@ -850,7 +1067,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/68295918/sales-assistant-verk%c3%a4ufer-zur-aushilfe-m-w-d-",
-    "firstSeenAt": "2026-10-30T09:30:56.007Z"
+    "firstSeenAt": "2026-10-30T09:30:56.007Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sales-assistant-verkaufer-zur-aushilfe-m-w-d-laderach-sindelfingen-baden-wurttemberg-deutschland": "AG"
+      },
+      "en": {
+        "sales-assistant-verkaufer-zur-aushilfe-m-w-d-laderach-sindelfingen-baden-wurttemberg-deutschland": "AG"
+      },
+      "fr": {
+        "sales-assistant-verkaufer-zur-aushilfe-m-w-d-laderach-sindelfingen-baden-wurttemberg-deutschland": "AG"
+      }
+    }
   },
   {
     "slug": "sales-assistant-seller-aiuto-di-natale-temporaneo-da-novembre-a-dicembre-2026-m-f-d-laderach-schweiz-ag-konstanz-baden",
@@ -903,7 +1132,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67940192/sales-assistant-verk%c3%a4ufer-weihnachtsaushilfe---befristet-von-november-bis-dezember-2026-m-w-d-",
-    "firstSeenAt": "2026-10-30T09:30:54.601Z"
+    "firstSeenAt": "2026-10-30T09:30:54.601Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sales-assistant-verkaufer-weihnachtsaushilfe-befristet-von-november-bis-dezember-2026-m-w-d-laderach-konstanz-baden-wurttemberg-deutschland": "AG",
+        "sales-assistant-verkaufer-weihnachtsaushilfe-befristet-von-november-bis-dezember-2026-m-w-d-laderach-schweiz-ag-konstanz-baden-wurttemberg-deutschland": "AG"
+      },
+      "en": {
+        "sales-assistant-verkaufer-weihnachtsaushilfe-befristet-von-november-bis-dezember-2026-m-w-d-laderach-schweiz-ag-konstanz": "AG"
+      },
+      "fr": {
+        "sales-assistant-verkaufer-weihnachtsaushilfe-befristet-von-november-bis-dezember-2026-m-w-d-laderach-schweiz-ag-konstanz": "AG"
+      }
+    }
   },
   {
     "slug": "gestione-branch-a-tempo-pieno-m-f-d-laderach-schweiz-ag-freiburg-im-breisgau-baden-wurttemberg-deutschland",
@@ -952,7 +1194,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67857587/filialleitung-in-vollzeit-m-w-d-",
-    "firstSeenAt": "2026-10-30T09:30:54.270Z"
+    "firstSeenAt": "2026-10-30T09:30:54.270Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "filialleitung-in-vollzeit-m-w-d-laderach-freiburg-im-breisgau-baden-wurttemberg-deutschland": "FR"
+      },
+      "en": {
+        "filialleitung-in-vollzeit-m-w-d-laderach-freiburg-im-breisgau-baden-wurttemberg-deutschland": "FR"
+      },
+      "fr": {
+        "filialleitung-in-vollzeit-m-w-d-laderach-freiburg-im-breisgau-baden-wurttemberg-deutschland": "FR"
+      }
+    }
   },
   {
     "slug": "sales-assistant-seller-aiuto-di-natale-temporaneo-da-novembre-a-dicembre-2026-m-f-d-laderach-schweiz-ag-mannheim-baden",
@@ -1005,7 +1259,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67828162/sales-assistant-verk%c3%a4ufer-weihnachtsaushilfe---befristet-von-november-bis-dezember-2026-m-w-d-",
-    "firstSeenAt": "2026-10-30T09:30:53.929Z"
+    "firstSeenAt": "2026-10-30T09:30:53.929Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sales-assistant-verkaufer-weihnachtsaushilfe-befristet-von-november-bis-dezember-2026-m-w-d-laderach-mannheim-baden-wurttemberg-deutschland": "AG",
+        "sales-assistant-verkaufer-weihnachtsaushilfe-befristet-von-november-bis-dezember-2026-m-w-d-laderach-schweiz-ag-mannheim-baden-wurttemberg-deutschland": "AG"
+      },
+      "en": {
+        "sales-assistant-verkaufer-weihnachtsaushilfe-befristet-von-november-bis-dezember-2026-m-w-d-laderach-schweiz-ag-mannheim": "AG"
+      },
+      "fr": {
+        "sales-assistant-verkaufer-weihnachtsaushilfe-befristet-von-november-bis-dezember-2026-m-w-d-laderach-schweiz-ag-mannheim": "AG"
+      }
+    }
   },
   {
     "slug": "assistente-alle-vendite-venditore-a-tempo-pieno-e-part-time-m-f-d-laderach-schweiz-ag-stuttgart-baden-wurttemberg",
@@ -1057,7 +1324,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67565702/sales-assistant-verk%c3%a4ufer-in-voll--und-teilzeit-m-w-d-",
-    "firstSeenAt": "2026-10-30T09:30:52.600Z"
+    "firstSeenAt": "2026-10-30T09:30:52.600Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-stuttgart-baden-wurttemberg-deutschland": "AG",
+        "sales-assistant-verkaufer-in-voll-e-teilzeit-m-w-d-laderach-schweiz-ag-stuttgart-baden-wurttemberg-deutschland": "AG"
+      },
+      "en": {
+        "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-stuttgart-baden-wurttemberg-deutschland": "AG"
+      },
+      "fr": {
+        "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-stuttgart-baden-wurttemberg-deutschland": "AG"
+      }
+    }
   },
   {
     "slug": "assistente-alle-vendite-venditore-a-tempo-pieno-e-part-time-m-f-d-laderach-schweiz-ag-freiburg-im-breisgau-baden",
@@ -1109,7 +1389,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67462767/sales-assistant-verk%c3%a4ufer-in-voll--und-teilzeit-m-w-d-",
-    "firstSeenAt": "2026-10-30T09:30:51.737Z"
+    "firstSeenAt": "2026-10-30T09:30:51.737Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-freiburg-im-breisgau-baden-wurttemberg-deutschland": "FR",
+        "sales-assistant-verkaufer-in-voll-e-teilzeit-m-w-d-laderach-schweiz-ag-freiburg-im-breisgau-baden-wurttemberg-deutschland": "FR"
+      },
+      "en": {
+        "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-schweiz-ag-freiburg-im-breisgau-baden-wurttemberg": "FR"
+      },
+      "fr": {
+        "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-schweiz-ag-freiburg-im-breisgau-baden-wurttemberg": "FR"
+      }
+    }
   },
   {
     "slug": "assistente-alle-vendite-addetto-alle-vendite-a-tempo-pieno-e-part-time-per-tutto-l-anno-m-f-d-sylt-laderach-schweiz-ag",
@@ -1162,7 +1455,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67271955/ganzj%c3%a4hrig-sales-assitant-verk%c3%a4ufer-in-voll--und-teilzeit-m-w-d-sylt",
-    "firstSeenAt": "2026-10-30T09:30:51.218Z"
+    "firstSeenAt": "2026-10-30T09:30:51.218Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ganzjahrig-sales-assitant-verkaufer-in-voll-und-teilzeit-m-w-d-sylt-laderach-sylt-schleswig-holstein-deutschland": "BL",
+        "ganzjahrig-sales-assitant-verkaufer-in-voll-e-teilzeit-m-w-d-sylt-laderach-schweiz-ag-sylt-schleswig-holstein-deutschland": "BL"
+      },
+      "en": {
+        "ganzjahrig-sales-assitant-verkaufer-in-voll-und-teilzeit-m-w-d-sylt-laderach-schweiz-ag-sylt-schleswig-holstein": "BL"
+      },
+      "fr": {
+        "ganzjahrig-sales-assitant-verkaufer-in-voll-und-teilzeit-m-w-d-sylt-laderach-schweiz-ag-sylt-schleswig-holstein": "BL"
+      }
+    }
   },
   {
     "slug": "assistente-commerciale-venditore-in-assistenza-m-f-d-laderach-schweiz-ag-mannheim-baden-wurttemberg-deutschland",
@@ -1212,7 +1518,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67270550/sales-assistant-verk%c3%a4ufer-in-aushilfe-m-w-d-",
-    "firstSeenAt": "2026-10-30T09:30:50.645Z"
+    "firstSeenAt": "2026-10-30T09:30:50.645Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sales-assistant-verkaufer-in-aushilfe-m-w-d-laderach-mannheim-baden-wurttemberg-deutschland": "AG"
+      },
+      "en": {
+        "sales-assistant-verkaufer-in-aushilfe-m-w-d-laderach-mannheim-baden-wurttemberg-deutschland": "AG"
+      },
+      "fr": {
+        "sales-assistant-verkaufer-in-aushilfe-m-w-d-laderach-mannheim-baden-wurttemberg-deutschland": "AG"
+      }
+    }
   },
   {
     "slug": "50-chocolaterie-basel-free-road-m-f-d-laderach-schweiz-ag-basel",
@@ -1249,7 +1567,8 @@
         "verkaufer-50-chocolaterie-basel-freie-strasse-w-m-d-laderach-basel-basel-stadt-schweiz"
       ],
       "en": [
-        "verkaufer-50-chocolaterie-basel-freie-strasse-w-m-d-laderach-basel"
+        "verkaufer-50-chocolaterie-basel-freie-strasse-w-m-d-laderach-basel",
+        "50-chocolaterie-basel-free-road-m-f-d-laderach-schweiz-ag-basel"
       ],
       "de": [
         "verkaufer-50-chocolaterie-basel-freie-strasse-w-m-d-laderach-basel-basel-stadt-schweiz"
@@ -1277,7 +1596,24 @@
         "firstSeenAt": "2026-09-21T16:03:55.089Z",
         "title": "Verkäufer 50% Chocolaterie Basel Freie Strasse (w/m/d)"
       }
-    ]
+    ],
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "verkaufer-50-chocolaterie-basel-freie-strasse-w-m-d-laderach-basel": "BS",
+        "verkaufer-50-chocolaterie-basel-freie-strasse-w-m-d-laderach-basel-basel-stadt-schweiz": "BS"
+      },
+      "en": {
+        "50-chocolaterie-basel-free-road-m-f-d-laderach-schweiz-ag-basel": "BS",
+        "verkaufer-50-chocolaterie-basel-freie-strasse-w-m-d-laderach-basel": "BS"
+      },
+      "de": {
+        "verkaufer-50-chocolaterie-basel-freie-strasse-w-m-d-laderach-basel-basel-stadt-schweiz": "BS"
+      },
+      "fr": {
+        "verkaufer-50-chocolaterie-basel-freie-strasse-w-m-d-laderach-basel": "BS"
+      }
+    }
   },
   {
     "slug": "aiuto-di-natale-20-40-chocolaterie-chur-temporaneo-da-novembre-a-dicembre-2026-laderach-schweiz-ag-chur",
@@ -1345,7 +1681,24 @@
         "firstSeenAt": "2026-09-19T22:54:47.048Z",
         "title": "Weihnachtsaushilfe 20-40% Chocolaterie Chur (befristet von November bis Dezember 2026)"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-20-40-chocolaterie-chur-befristet-von-november-bis-dezember-2026-laderach-chur": "GR",
+        "weihnachtsaushilfe-20-40-chocolaterie-chur-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag-chur": "GR",
+        "weihnachtsaushilfe-20-40-chocolaterie-chur-befristet-von-november-bis-dezember-2026-laderach-chur-graubunden-schweiz": "GR"
+      },
+      "en": {
+        "weihnachtsaushilfe-20-40-chocolaterie-chur-befristet-von-november-bis-dezember-2026-laderach-chur": "GR"
+      },
+      "de": {
+        "weihnachtsaushilfe-20-40-chocolaterie-chur-befristet-von-november-bis-dezember-2026-laderach-chur-graubunden-schweiz": "GR"
+      },
+      "fr": {
+        "weihnachtsaushilfe-20-40-chocolaterie-chur-befristet-von-november-bis-dezember-2026-laderach-chur": "GR"
+      }
+    }
   },
   {
     "slug": "rilievo-di-natale-20-40-chocolaterie-thun-temporaneo-fino-a-dicembre-2026-laderach-schweiz-ag-thun",
@@ -1413,7 +1766,24 @@
         "firstSeenAt": "2026-09-21T16:03:54.182Z",
         "title": "Weihnachtsaushilfe 20-40% Chocolaterie Thun (befristet bis Dezember 2026)"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-20-40-chocolaterie-thun-befristet-bis-dezember-2026-laderach-thun": "BE",
+        "weihnachtsaushilfe-20-40-chocolaterie-thun-befristet-bis-dezember-2026-laderach-schweiz-ag-thun": "BE",
+        "weihnachtsaushilfe-20-40-chocolaterie-thun-befristet-bis-dezember-2026-laderach-thun-bern-schweiz": "BE"
+      },
+      "en": {
+        "weihnachtsaushilfe-20-40-chocolaterie-thun-befristet-bis-dezember-2026-laderach-thun": "BE"
+      },
+      "de": {
+        "weihnachtsaushilfe-20-40-chocolaterie-thun-befristet-bis-dezember-2026-laderach-thun-bern-schweiz": "BE"
+      },
+      "fr": {
+        "weihnachtsaushilfe-20-40-chocolaterie-thun-befristet-bis-dezember-2026-laderach-thun": "BE"
+      }
+    }
   },
   {
     "slug": "venditore-40-60-chocolaterie-aeroporto-zurigo-w-m-d-laderach-schweiz-ag-zurich",
@@ -1490,7 +1860,30 @@
         "firstSeenAt": "2026-06-03T14:20:55.615Z",
         "title": "Verkäufer 40-60% Chocolaterie Flughafen Zürich (w/m/d)"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich": "ZH",
+        "venditore-su-richiesta-40-60-chocolaterie-zurich-augustiner-f-m-d-laderach-schweiz-ag-zurich": "ZH",
+        "sales-assistant-on-call-40-60-chocolaterie-zurich-augustiner-f-m-d-laderach-schweiz-ag-zurich": "ZH",
+        "verkaufer-auf-abruf-40-60-chocolaterie-zurich-augustiner-w-m-d-laderach-zurich": "ZH",
+        "vendeur-sur-demande-40-60-chocolaterie-zurich-augustiner-f-m-d-laderach-schweiz-ag-zurich": "ZH",
+        "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich-zurich-schweiz": "ZH"
+      },
+      "en": {
+        "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich": "ZH",
+        "sales-assistant-on-call-40-60-chocolaterie-zurich-augustiner-f-m-d-laderach-schweiz-ag-zurich": "ZH"
+      },
+      "de": {
+        "verkaufer-auf-abruf-40-60-chocolaterie-zurich-augustiner-w-m-d-laderach-zurich": "ZH",
+        "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich-zurich-schweiz": "ZH"
+      },
+      "fr": {
+        "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich": "ZH",
+        "vendeur-sur-demande-40-60-chocolaterie-zurich-augustiner-f-m-d-laderach-schweiz-ag-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "weihnachtsaushilfe-im-magazzino-40-60-chocolaterie-lowenpassage-zurich-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag-zurich",
@@ -1556,7 +1949,23 @@
         "firstSeenAt": "2026-09-16T09:21:35.362Z",
         "title": "Weihnachtsaushilfe im Lager 40-60% Chocolaterie Löwenpassage Zürich (befristet von November bis Dezember 2026)"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-im-lager-40-60-chocolaterie-lowenpassage-zurich-befristet-von-november-bis-dezember-2026-laderach-zurich": "ZH",
+        "weihnachtsaushilfe-im-lager-40-60-chocolaterie-lowenpassage-zurich-befristet-von-november-bis-dezember-2026-laderach-zurich-schweiz": "ZH"
+      },
+      "en": {
+        "weihnachtsaushilfe-im-lager-40-60-chocolaterie-lowenpassage-zurich-befristet-von-november-bis-dezember-2026-laderach-zurich": "ZH"
+      },
+      "de": {
+        "weihnachtsaushilfe-im-lager-40-60-chocolaterie-lowenpassage-zurich-befristet-von-november-bis-dezember-2026-laderach-zurich-schweiz": "ZH"
+      },
+      "fr": {
+        "weihnachtsaushilfe-im-lager-40-60-chocolaterie-lowenpassage-zurich-befristet-von-november-bis-dezember-2026-laderach-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "rilievo-di-natale-60-80-chocolaterie-st-moritz-temporaneo-da-dicembre-2026-a-marzo-2027-laderach-schweiz-ag-sankt-moritz",
@@ -1624,7 +2033,24 @@
         "firstSeenAt": "2026-09-30T21:19:28.780Z",
         "title": "Weihnachtsaushilfe 60-80% Chocolaterie St. Moritz (befristet von Dezember 2026 bis März 2027)"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-60-80-chocolaterie-st-moritz-befristet-von-dezember-2026-bis-marz-2027-laderach-sankt-moritz": "GR",
+        "weihnachtsaushilfe-60-80-chocolaterie-st-moritz-befristet-von-dezember-2026-bis-marz-2027-laderach-schweiz-ag-sankt-moritz": "GR",
+        "weihnachtsaushilfe-60-80-chocolaterie-st-moritz-befristet-von-dezember-2026-bis-marz-2027-laderach-sankt-moritz-graubunden-schweiz": "GR"
+      },
+      "en": {
+        "weihnachtsaushilfe-60-80-chocolaterie-st-moritz-befristet-von-dezember-2026-bis-marz-2027-laderach-sankt-moritz": "GR"
+      },
+      "de": {
+        "weihnachtsaushilfe-60-80-chocolaterie-st-moritz-befristet-von-dezember-2026-bis-marz-2027-laderach-sankt-moritz-graubunden-schweiz": "GR"
+      },
+      "fr": {
+        "weihnachtsaushilfe-60-80-chocolaterie-st-moritz-befristet-von-dezember-2026-bis-marz-2027-laderach-sankt-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "rilievo-di-natale-60-80-chocolaterie-st-moritz-temporaneo-da-novembre-2026-a-marzo-2027-laderach-schweiz-ag-sankt-moritz",
@@ -1692,7 +2118,24 @@
         "firstSeenAt": "2026-09-30T21:19:28.611Z",
         "title": "Weihnachtsaushilfe 60-80% Chocolaterie St. Moritz (befristet von November 2026 bis März 2027)"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-60-80-chocolaterie-st-moritz-befristet-von-november-2026-bis-marz-2027-laderach-sankt-moritz": "GR",
+        "weihnachtsaushilfe-60-80-chocolaterie-st-moritz-befristet-von-november-2026-bis-marz-2027-laderach-schweiz-ag-sankt-moritz": "GR",
+        "weihnachtsaushilfe-60-80-chocolaterie-st-moritz-befristet-von-november-2026-bis-marz-2027-laderach-sankt-moritz-graubunden-schweiz": "GR"
+      },
+      "en": {
+        "weihnachtsaushilfe-60-80-chocolaterie-st-moritz-befristet-von-november-2026-bis-marz-2027-laderach-sankt-moritz": "GR"
+      },
+      "de": {
+        "weihnachtsaushilfe-60-80-chocolaterie-st-moritz-befristet-von-november-2026-bis-marz-2027-laderach-sankt-moritz-graubunden-schweiz": "GR"
+      },
+      "fr": {
+        "weihnachtsaushilfe-60-80-chocolaterie-st-moritz-befristet-von-november-2026-bis-marz-2027-laderach-sankt-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "rilievo-di-natale-40-60-chocolaterie-uster-temporaneo-da-ottobre-a-dicembre-2026-laderach-schweiz-ag-uster",
@@ -1808,7 +2251,40 @@
         "firstSeenAt": "2026-08-31T17:07:32.719Z",
         "title": "Weihnachtsaushilfe 40-60% Chocolaterie Uster (befristet von Oktober bis Dezember 2026)"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-40-60-chocolaterie-uster-befristet-von-oktober-bis-dezember-2026-laderach-uster": "ZH",
+        "weihnachtsaushilfe-40-60-chocolaterie-uster-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-uster": "ZH",
+        "aiuto-di-natale-20-40-chocolaterie-glarus-temporaneo-da-ottobre-a-dicembre-2026-laderach-schweiz-ag-glarus": "ZH",
+        "christmas-help-20-40-chocolaterie-glarus-temporary-from-october-to-december-2026-laderach-schweiz-ag-glarus": "ZH",
+        "weihnachtsaushilfe-20-40-chocolaterie-glarus-befristet-von-oktober-bis-dezember-2026-laderach-glarus": "ZH",
+        "aide-de-noel-20-40-chocolaterie-glarus-temporaire-d-octobre-a-decembre-2026-laderach-schweiz-ag-glarus": "ZH",
+        "weihnachtsaushilfe-20-40-chocolaterie-glarus-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-glarus": "ZH",
+        "christmas-relief-20-60-chocolaterie-landquart-outlet-temporary-from-october-to-december-2026-laderach-schweiz-ag": "ZH",
+        "relief-de-noel-20-60-chocolaterie-landquart-outlet-temporaire-d-octobre-a-decembre-2026-laderach-schweiz-ag-landquart": "ZH",
+        "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-landquart": "ZH",
+        "weihnachtsaushilfe-40-60-chocolaterie-uster-befristet-von-oktober-bis-dezember-2026-laderach-uster-zurich-schweiz": "ZH",
+        "rilievo-di-natale-20-60-chocolaterie-landquart-outlet-temporaneo-da-ottobre-a-dicembre-2026-laderach-schweiz-ag-24a307de": "ZH",
+        "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-3324d111": "ZH"
+      },
+      "en": {
+        "weihnachtsaushilfe-40-60-chocolaterie-uster-befristet-von-oktober-bis-dezember-2026-laderach-uster": "ZH",
+        "christmas-help-20-40-chocolaterie-glarus-temporary-from-october-to-december-2026-laderach-schweiz-ag-glarus": "ZH",
+        "christmas-relief-20-60-chocolaterie-landquart-outlet-temporary-from-october-to-december-2026-laderach-schweiz-698748f6": "ZH"
+      },
+      "de": {
+        "weihnachtsaushilfe-20-40-chocolaterie-glarus-befristet-von-oktober-bis-dezember-2026-laderach-glarus": "ZH",
+        "weihnachtsaushilfe-40-60-chocolaterie-uster-befristet-von-oktober-bis-dezember-2026-laderach-uster-zurich-schweiz": "ZH",
+        "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-3324d111": "ZH"
+      },
+      "fr": {
+        "weihnachtsaushilfe-40-60-chocolaterie-uster-befristet-von-oktober-bis-dezember-2026-laderach-uster": "ZH",
+        "aide-de-noel-20-40-chocolaterie-glarus-temporaire-d-octobre-a-decembre-2026-laderach-schweiz-ag-glarus": "ZH",
+        "relief-de-noel-20-60-chocolaterie-landquart-outlet-temporaire-d-octobre-a-decembre-2026-laderach-schweiz-ag-9edc6cc1": "ZH"
+      }
+    }
   },
   {
     "slug": "rilievo-di-natale-20-40-chocolaterie-mall-of-switzerland-lucerne-temporaneo-dal-01-10-2026-al-31-12-2026-laderach",
@@ -1876,7 +2352,24 @@
         "firstSeenAt": "2026-08-25T09:52:28.623Z",
         "title": "Weihnachtsaushilfe 20-40% Chocolaterie Mall of Switzerland Luzern (befristet von 01.10.2026 bis 31.12.2026)"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-20-40-chocolaterie-mall-of-switzerland-luzern-befristet-von-01-10-2026-bis-31-12-2026-laderach-ebikon": "LU",
+        "weihnachtsaushilfe-20-40-chocolaterie-mall-of-switzerland-luzern-befristet-von-01-10-2026-bis-31-12-2026-laderach-schweiz-ag-ebikon": "LU",
+        "weihnachtsaushilfe-20-40-chocolaterie-mall-of-switzerland-luzern-befristet-von-01-10-2026-bis-31-12-2026-laderach-ebikon-luzern-schweiz": "LU"
+      },
+      "en": {
+        "weihnachtsaushilfe-20-40-chocolaterie-mall-of-switzerland-luzern-befristet-von-01-10-2026-bis-31-12-2026-laderach-ebikon": "LU"
+      },
+      "de": {
+        "weihnachtsaushilfe-20-40-chocolaterie-mall-of-switzerland-luzern-befristet-von-01-10-2026-bis-31-12-2026-laderach-ebikon-luzern-schweiz": "LU"
+      },
+      "fr": {
+        "weihnachtsaushilfe-20-40-chocolaterie-mall-of-switzerland-luzern-befristet-von-01-10-2026-bis-31-12-2026-laderach-ebikon": "LU"
+      }
+    }
   },
   {
     "slug": "40-60-temporaneo-fino-al-31-12-2026-chocolaterie-zurich-m-f-d-laderach-schweiz-ag-zurich",
@@ -1947,7 +2440,26 @@
         "firstSeenAt": "2026-08-12T10:18:55.848Z",
         "title": "Weihnachtsaushilfe 40-60% befristet bis 31.12.2026, Chocolaterie Bahnhofstrasse Zürich (w/m/d)"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "verkaufsaushilfe-40-60-befristet-bis-31-12-2026-chocolaterie-zurich-w-m-d-laderach-zurich": "ZH",
+        "verkaufsaushilfe-40-60-befristet-bis-31-12-2026-chocolaterie-zurich-m-w-d-laderach-schweiz-ag-zurich": "ZH",
+        "weihnachtsaushilfe-40-60-befristet-bis-31-12-2026-chocolaterie-bahnhofstrasse-zurich-w-m-d-laderach-zurich": "ZH",
+        "weihnachtsaushilfe-40-60-befristet-bis-31-12-2026-chocolaterie-bahnhofstrasse-zurich-w-m-d-laderach-zurich-zurich-schweiz": "ZH"
+      },
+      "en": {
+        "verkaufsaushilfe-40-60-befristet-bis-31-12-2026-chocolaterie-zurich-w-m-d-laderach-zurich": "ZH"
+      },
+      "de": {
+        "weihnachtsaushilfe-40-60-befristet-bis-31-12-2026-chocolaterie-bahnhofstrasse-zurich-w-m-d-laderach-zurich": "ZH",
+        "weihnachtsaushilfe-40-60-befristet-bis-31-12-2026-chocolaterie-bahnhofstrasse-zurich-w-m-d-laderach-zurich-zurich-schweiz": "ZH"
+      },
+      "fr": {
+        "verkaufsaushilfe-40-60-befristet-bis-31-12-2026-chocolaterie-zurich-w-m-d-laderach-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "proprietario-del-prodotto-tecnico-proprietario-del-servizio-potenza-bi-data-warehouse-m-f-d-laderach-schweiz-ag-bilten",
@@ -1993,7 +2505,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/66096098/technical-product-owner-service-owner-power-bi-data-warehouse-m-w-d-",
-    "firstSeenAt": "2026-07-15T10:59:47.100Z"
+    "firstSeenAt": "2026-07-15T10:59:47.100Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technical-product-owner-service-owner-power-bi-data-warehouse-m-w-d-laderach-bilten": "GL"
+      },
+      "fr": {
+        "technical-product-owner-service-owner-power-bi-data-warehouse-m-w-d-laderach-bilten": "GL"
+      }
+    }
   },
   {
     "slug": "rilievo-di-natale-40-chocolaterie-bern-bahnhof-christoffel-temporaneo-fino-a-dicembre-2026-laderach-schweiz-ag-bern",
@@ -2044,7 +2565,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67554892/weihnachtsaushilfe-40%25-chocolaterie-bern-bahnhof-christoffel-befristet-bis-dezember-2026-",
-    "firstSeenAt": "2026-09-21T16:03:54.481Z"
+    "firstSeenAt": "2026-09-21T16:03:54.481Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-40-chocolaterie-bern-bahnhof-christoffel-befristet-bis-dezember-2026-laderach-bern": "BE",
+        "weihnachtsaushilfe-40-chocolaterie-bern-bahnhof-christoffel-befristet-bis-dezember-2026-laderach-schweiz-ag-bern": "BE"
+      },
+      "en": {
+        "weihnachtsaushilfe-40-chocolaterie-bern-bahnhof-christoffel-befristet-bis-dezember-2026-laderach-bern": "BE"
+      },
+      "fr": {
+        "weihnachtsaushilfe-40-chocolaterie-bern-bahnhof-christoffel-befristet-bis-dezember-2026-laderach-bern": "BE"
+      }
+    }
   },
   {
     "slug": "casa-manager-di-laderach-m-f-d-laderach-schweiz-ag-glarus",
@@ -2098,7 +2632,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/66816660/manager-house-of-l%c3%a4derach-w-m-d-",
-    "firstSeenAt": "2026-08-18T21:35:12.518Z"
+    "firstSeenAt": "2026-08-18T21:35:12.518Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "manager-house-of-laderach-w-m-d-laderach-glarus": "GL",
+        "manager-house-of-laderach-w-m-d-laderach-bilten": "GL"
+      },
+      "en": {
+        "manager-house-of-laderach-w-m-d-laderach-glarus": "GL"
+      },
+      "de": {
+        "manager-house-of-laderach-w-m-d-laderach-bilten": "GL"
+      },
+      "fr": {
+        "manager-house-of-laderach-w-m-d-laderach-glarus": "GL"
+      }
+    }
   },
   {
     "slug": "aiuto-di-natale-25-friburgo-cioccolato-cdd-dal-15-11-2026-al-31-01-2027-laderach-schweiz-ag-fribourg",
@@ -2147,7 +2697,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/68220876/aide-de-no%c3%abl-25%25-chocolaterie-fribourg-cdd-du-15-11-2026-au-31-01-2027-",
-    "firstSeenAt": "2026-10-22T09:24:40.232Z"
+    "firstSeenAt": "2026-10-22T09:24:40.232Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "aide-de-noel-25-chocolaterie-fribourg-cdd-du-15-11-2026-au-31-01-2027-laderach-fribourg": "FR"
+      },
+      "en": {
+        "aide-de-noel-25-chocolaterie-fribourg-cdd-du-15-11-2026-au-31-01-2027-laderach-fribourg": "FR"
+      },
+      "de": {
+        "aide-de-noel-25-chocolaterie-fribourg-cdd-du-15-11-2026-au-31-01-2027-laderach-fribourg": "FR"
+      }
+    }
   },
   {
     "slug": "vendita-60-80-chocolaterie-landquart-outlet-m-f-d-laderach-schweiz-ag-landquart",
@@ -2189,7 +2751,13 @@
     "salaryMax": 69600,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67262305/verk%c3%a4ufer-60-80%25-chocolaterie-landquart-outlet-w-m-d-"
+    "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67262305/verk%c3%a4ufer-60-80%25-chocolaterie-landquart-outlet-w-m-d-",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "verkaufer-60-80-chocolaterie-landquart-outlet-w-m-d-laderach-landquart": "GR"
+      }
+    }
   },
   {
     "slug": "rilievo-di-natale-40-80-chocolaterie-st-gallen-temporaneo-da-ottobre-a-dicembre-2026-laderach-schweiz-ag-st-gallen",
@@ -2318,8 +2886,6 @@
       "weihnachtsaushilfe-40-80-chocolaterie-st-gallen-befristet-von-oktober-bis-dezember-2026-laderach-st-gallen-1f35049c",
       "christmas-relief-40-80-chocolaterie-st-gallen-temporary-from-october-to-december-2026-laderach-schweiz-ag-st-b1e9a369",
       "relief-de-noel-40-80-chocolaterie-st-gallen-temporaire-d-octobre-a-decembre-2026-laderach-schweiz-ag-st-gallen-0a56f8f2",
-      "christmas-relief-40-80-chocolaterie-st-gallen-temporary-from-october-to-december-2026-laderach-schweiz-ag-st-gallen",
-      "relief-de-noel-40-80-chocolaterie-st-gallen-temporaire-d-octobre-a-decembre-2026-laderach-schweiz-ag-st-gallen",
       "weihnachtsaushilfe-40-80-chocolaterie-st-gallen-befristet-von-oktober-bis-dezember-2026-laderach-st-gallen-81503544",
       "christmas-relief-40-80-chocolaterie-st-gallen-temporary-from-october-to-december-2026-laderach-schweiz-ag-st-7c1b9929",
       "relief-de-noel-40-80-chocolaterie-st-gallen-temporaire-d-octobre-a-decembre-2026-laderach-schweiz-ag-st-gallen-9cf2570f",
@@ -2329,6 +2895,8 @@
       "weihnachtsaushilfe-40-80-chocolaterie-st-gallen-befristet-von-oktober-bis-dezember-2026-laderach-st-gallen-aec2bff1",
       "weihnachtsaushilfe-40-80-chocolaterie-st-gallen-befristet-von-oktober-bis-dezember-2026-laderach-st-gallen-5e4fbe3d",
       "weihnachtsaushilfe-40-80-chocolaterie-st-gallen-befristet-von-oktober-bis-dezember-2026-laderach-st-gallen-07b329e5",
+      "christmas-relief-40-80-chocolaterie-st-gallen-temporary-from-october-to-december-2026-laderach-schweiz-ag-st-gallen",
+      "relief-de-noel-40-80-chocolaterie-st-gallen-temporaire-d-octobre-a-decembre-2026-laderach-schweiz-ag-st-gallen",
       "weihnachtsaushilfe-40-80-chocolaterie-st-gallen-befristet-von-oktober-bis-dezember-2026-laderach-st-gallen"
     ],
     "previousSlugsByLocale": {
@@ -2545,7 +3113,25 @@
         "firstSeenAt": "2026-09-16T09:21:34.818Z",
         "title": "Weihnachtsaushilfe 40-80% Chocolaterie St. Gallen (befristet von Oktober bis Dezember 2026)"
       }
-    ]
+    ],
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-40-80-chocolaterie-st-gallen-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-st-gallen": "SG",
+        "weihnachtsaushilfe-40-80-chocolaterie-st-gallen-befristet-von-oktober-bis-dezember-2026-laderach-st-gallen-f170e504": "SG"
+      },
+      "en": {
+        "weihnachtsaushilfe-40-80-chocolaterie-st-gallen-befristet-von-oktober-bis-dezember-2026-laderach-st-gallen": "SG",
+        "christmas-relief-40-80-chocolaterie-st-gallen-temporary-from-october-to-december-2026-laderach-schweiz-ag-st-831afebc": "SG"
+      },
+      "de": {
+        "weihnachtsaushilfe-40-80-chocolaterie-st-gallen-befristet-von-oktober-bis-dezember-2026-laderach-st-gallen-f170e504": "SG"
+      },
+      "fr": {
+        "weihnachtsaushilfe-40-80-chocolaterie-st-gallen-befristet-von-oktober-bis-dezember-2026-laderach-st-gallen": "SG",
+        "relief-de-noel-40-80-chocolaterie-st-gallen-temporaire-d-octobre-a-decembre-2026-laderach-schweiz-ag-st-gallen-7632e62b": "SG"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-technologie-80-100-m-w-d-laderach-schweiz-ag-ennenda",
@@ -2599,7 +3185,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67070225/process-technology-specialist-80-100%25-w-m-d-",
-    "firstSeenAt": "2026-08-31T17:07:33.517Z"
+    "firstSeenAt": "2026-08-31T17:07:33.517Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-technologie-80-100-w-m-d-laderach-ennenda": "GL",
+        "process-technology-specialist-80-100-w-m-d-laderach-ennenda": "GL"
+      },
+      "en": {
+        "mitarbeiter-technologie-80-100-w-m-d-laderach-ennenda": "GL"
+      },
+      "de": {
+        "process-technology-specialist-80-100-w-m-d-laderach-ennenda": "GL"
+      },
+      "fr": {
+        "mitarbeiter-technologie-80-100-w-m-d-laderach-ennenda": "GL"
+      }
+    }
   },
   {
     "slug": "sviluppo-del-prodotto-del-dipendente-80-100-m-f-d-laderach-schweiz-ag-ennenda",
@@ -2822,7 +3424,24 @@
         "firstSeenAt": "2026-08-31T17:07:33.677Z",
         "title": "Product Developer 80-100% (w/m/d)"
       }
-    ]
+    ],
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-produktentwicklung-80-100-w-m-d-laderach-ennenda": "GL",
+        "collaboratore-trice-produktentwicklung-80-100-m-w-d-laderach-schweiz-ag-ennenda": "GL",
+        "product-developer-80-100-w-m-d-laderach-ennenda": "GL"
+      },
+      "en": {
+        "mitarbeiter-produktentwicklung-80-100-w-m-d-laderach-ennenda": "GL"
+      },
+      "de": {
+        "product-developer-80-100-w-m-d-laderach-ennenda": "GL"
+      },
+      "fr": {
+        "mitarbeiter-produktentwicklung-80-100-w-m-d-laderach-ennenda": "GL"
+      }
+    }
   },
   {
     "slug": "interno-kv-2027-m-f-d-laderach-schweiz-ag-bilten",
@@ -2875,7 +3494,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/66680423/wirtschaftsmittelschul-praktikum-2027-28-%e2%80%93-kaufm%c3%a4nnisches-pflichtpraktikum",
-    "firstSeenAt": "2026-08-12T10:18:55.648Z"
+    "firstSeenAt": "2026-08-12T10:18:55.648Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kv-praktikum-2027-w-m-d-laderach-bilten": "GL",
+        "wms-praktikum-2027-28-kaufmannisches-praxisjahr-laderach-bilten": "GL",
+        "wirtschaftsmittelschul-praktikum-2027-28-kaufmannisches-pflichtpraktikum-laderach-bilten": "GL"
+      },
+      "en": {
+        "kv-praktikum-2027-w-m-d-laderach-bilten": "GL"
+      },
+      "fr": {
+        "kv-praktikum-2027-w-m-d-laderach-bilten": "GL"
+      }
+    }
   },
   {
     "slug": "verkaufer-40-60-chocolaterie-oerlikon-befristet-bis-januar-2027-m-w-d-laderach-schweiz-ag-zurich",
@@ -2924,7 +3557,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/66993265/verk%c3%a4ufer-40-60%25-chocolaterie-oerlikon,-befristet-bis-januar-2027-w-m-d-",
-    "firstSeenAt": "2026-08-28T05:21:16.642Z"
+    "firstSeenAt": "2026-08-28T05:21:16.642Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "verkaufer-40-60-chocolaterie-oerlikon-befristet-bis-januar-2027-w-m-d-laderach-zurich": "ZH"
+      },
+      "en": {
+        "verkaufer-40-60-chocolaterie-oerlikon-befristet-bis-januar-2027-w-m-d-laderach-zurich": "ZH"
+      },
+      "fr": {
+        "verkaufer-40-60-chocolaterie-oerlikon-befristet-bis-januar-2027-w-m-d-laderach-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "weihnachtsaushilfe-80-100-chocolaterie-basel-freiestrasse-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag-basel",
@@ -2973,7 +3618,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67500507/weihnachtsaushilfe-80-100%25-chocolaterie-basel-freiestrasse-befristet-von-november-bis-dezember-2026-",
-    "firstSeenAt": "2026-09-19T22:54:47.187Z"
+    "firstSeenAt": "2026-09-19T22:54:47.187Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-80-100-chocolaterie-basel-freiestrasse-befristet-von-november-bis-dezember-2026-laderach-basel": "BS"
+      },
+      "en": {
+        "weihnachtsaushilfe-80-100-chocolaterie-basel-freiestrasse-befristet-von-november-bis-dezember-2026-laderach-basel": "BS"
+      },
+      "fr": {
+        "weihnachtsaushilfe-80-100-chocolaterie-basel-freiestrasse-befristet-von-november-bis-dezember-2026-laderach-basel": "BS"
+      }
+    }
   },
   {
     "slug": "assistente-esecutivo-50-bilten-m-f-d-laderach-schweiz-ag-bilten",
@@ -3021,7 +3678,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/68103776/executive-assistant-50%25-bilten-w-m-d-",
-    "firstSeenAt": "2026-10-15T09:22:47.686Z"
+    "firstSeenAt": "2026-10-15T09:22:47.686Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "executive-assistant-50-bilten-w-m-d-laderach-bilten": "GL"
+      },
+      "fr": {
+        "executive-assistant-50-bilten-w-m-d-laderach-bilten": "GL",
+        "executive-assistant-50-bilten-w-m-d-laderach-schweiz-ag-bilten": "GL"
+      }
+    }
   },
   {
     "slug": "weihnachtsaushilfe-40-60-chocolaterie-zurich-flughafen-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-zurich-flughafen",
@@ -3070,7 +3737,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67481017/weihnachtsaushilfe-40-60%25-chocolaterie-z%c3%bcrich-flughafen-befristet-von-oktober-bis-dezember-2026-",
-    "firstSeenAt": "2026-09-19T22:54:46.461Z"
+    "firstSeenAt": "2026-09-19T22:54:46.461Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-40-60-chocolaterie-zurich-flughafen-befristet-von-oktober-bis-dezember-2026-laderach-zurich-flughafen": "ZH"
+      },
+      "en": {
+        "weihnachtsaushilfe-40-60-chocolaterie-zurich-flughafen-befristet-von-oktober-bis-dezember-2026-laderach-zurich-flughafen": "ZH"
+      },
+      "fr": {
+        "weihnachtsaushilfe-40-60-chocolaterie-zurich-flughafen-befristet-von-oktober-bis-dezember-2026-laderach-zurich-flughafen": "ZH"
+      }
+    }
   },
   {
     "slug": "apprendistato-logistiker-in-cfc-2027-laderach-schweiz-ag-ennenda",
@@ -3119,7 +3798,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/66507313/lehrstelle-logistiker-in-efz-2027-",
-    "firstSeenAt": "2026-08-04T11:34:00.116Z"
+    "firstSeenAt": "2026-08-04T11:34:00.116Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-logistiker-in-efz-2027-laderach-ennenda": "GL"
+      },
+      "en": {
+        "lehrstelle-logistiker-in-efz-2027-laderach-ennenda": "GL"
+      },
+      "fr": {
+        "lehrstelle-logistiker-in-efz-2027-laderach-ennenda": "GL"
+      }
+    }
   },
   {
     "slug": "responsabile-engineering-w-m-d-laderach-schweiz-ag-ennenda",
@@ -3177,7 +3868,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/65995198/head-of-engineering-operational-excellence-w-m-d-",
-    "firstSeenAt": "2026-07-10T10:23:25.901Z"
+    "firstSeenAt": "2026-07-10T10:23:25.901Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "head-of-engineering-w-m-d-laderach-ennenda": "GL",
+        "head-of-engineering-operational-excellence-w-m-d-laderach-ennenda": "GL",
+        "head-of-engineering-operational-excellence-w-m-d-laderach-glarus": "GL",
+        "responsabile-engineering-w-m-d-laderach-schweiz-ag-glarus": "GL",
+        "head-of-engineering-operational-excellence-w-m-d-laderach-glarus-nord": "GL"
+      },
+      "de": {
+        "head-of-engineering-w-m-d-laderach-ennenda": "GL",
+        "head-of-engineering-operational-excellence-w-m-d-laderach-glarus-nord": "GL"
+      },
+      "fr": {
+        "head-of-engineering-w-m-d-laderach-ennenda": "GL"
+      }
+    }
   },
   {
     "slug": "adjoint-au-gerant-de-chocolaterie-biel-m-w-d-laderach-schweiz-ag-biel",
@@ -3225,7 +3933,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67756422/adjoint-au-g%c3%a9rant-de-chocolaterie-biel-f-h-d-",
-    "firstSeenAt": "2026-10-06T21:23:12.462Z"
+    "firstSeenAt": "2026-10-06T21:23:12.462Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "adjoint-au-gerant-de-chocolaterie-biel-f-h-d-laderach-biel": "BE"
+      },
+      "en": {
+        "adjoint-au-gerant-de-chocolaterie-biel-f-h-d-laderach-biel": "BE"
+      },
+      "de": {
+        "adjoint-au-gerant-de-chocolaterie-biel-f-h-d-laderach-biel": "BE"
+      }
+    }
   },
   {
     "slug": "pianificazione-delle-vendite-e-della-domanda-m-f-d-laderach-schweiz-ag-bilten",
@@ -3271,7 +3991,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67561692/sales-demand-planning-w-m-d-",
-    "firstSeenAt": "2026-09-23T23:45:56.910Z"
+    "firstSeenAt": "2026-09-23T23:45:56.910Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sales-demand-planning-w-m-d-laderach-bilten": "GL"
+      },
+      "fr": {
+        "sales-demand-planning-w-m-d-laderach-bilten": "GL"
+      }
+    }
   },
   {
     "slug": "aiuto-di-natale-40-60-chocolate-sion-cdd-dal-01-12-al-31-12-2026-con-possibilita-di-cdi-laderach-schweiz-ag-sion",
@@ -3320,7 +4049,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/68046557/aide-de-no%c3%abl-40%e2%80%9360-%25-chocolaterie-sion-cdd-du-01-12-au-31-12-2026,-avec-possibilit%c3%a9-de-cdi-",
-    "firstSeenAt": "2026-10-13T09:21:27.005Z"
+    "firstSeenAt": "2026-10-13T09:21:27.005Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "aide-de-noel-40-60-chocolaterie-sion-cdd-du-01-12-au-31-12-2026-avec-possibilite-de-cdi-laderach-sion": "VS"
+      },
+      "en": {
+        "aide-de-noel-40-60-chocolaterie-sion-cdd-du-01-12-au-31-12-2026-avec-possibilite-de-cdi-laderach-sion": "VS"
+      },
+      "de": {
+        "aide-de-noel-40-60-chocolaterie-sion-cdd-du-01-12-au-31-12-2026-avec-possibilite-de-cdi-laderach-sion": "VS"
+      }
+    }
   },
   {
     "slug": "magazzino-al-dettaglio-40-60-chocolaterie-aeroporto-di-zurigo-m-f-d-laderach-schweiz-ag-zurich-flughafen",
@@ -3369,7 +4110,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/68111731/lagerist-im-retail-40-60%25-chocolaterie-z%c3%bcrich-flughafen-w-m-d-",
-    "firstSeenAt": "2026-10-16T09:24:29.924Z"
+    "firstSeenAt": "2026-10-16T09:24:29.924Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lagerist-im-retail-40-60-chocolaterie-zurich-flughafen-w-m-d-laderach-zurich-flughafen": "ZH"
+      },
+      "en": {
+        "lagerist-im-retail-40-60-chocolaterie-zurich-flughafen-w-m-d-laderach-zurich-flughafen": "ZH"
+      },
+      "fr": {
+        "lagerist-im-retail-40-60-chocolaterie-zurich-flughafen-w-m-d-laderach-zurich-flughafen": "ZH"
+      }
+    }
   },
   {
     "slug": "60-chocolaterie-bern-spitalgasse-m-f-d-laderach-schweiz-ag-bern",
@@ -3404,7 +4157,8 @@
         "verkaufer-60-chocolaterie-bern-spitalgasse-w-m-d-laderach-bern"
       ],
       "en": [
-        "verkaufer-60-chocolaterie-bern-spitalgasse-w-m-d-laderach-bern"
+        "verkaufer-60-chocolaterie-bern-spitalgasse-w-m-d-laderach-bern",
+        "60-chocolaterie-bern-spitalgasse-m-f-d-laderach-schweiz-ag-bern"
       ],
       "fr": [
         "verkaufer-60-chocolaterie-bern-spitalgasse-w-m-d-laderach-bern"
@@ -3416,7 +4170,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67481247/verk%c3%a4ufer-60%25-chocolaterie-bern-spitalgasse-w-m-d-",
-    "firstSeenAt": "2026-09-19T22:54:46.612Z"
+    "firstSeenAt": "2026-09-19T22:54:46.612Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "verkaufer-60-chocolaterie-bern-spitalgasse-w-m-d-laderach-bern": "BE"
+      },
+      "en": {
+        "60-chocolaterie-bern-spitalgasse-m-f-d-laderach-schweiz-ag-bern": "BE",
+        "verkaufer-60-chocolaterie-bern-spitalgasse-w-m-d-laderach-bern": "BE"
+      },
+      "fr": {
+        "verkaufer-60-chocolaterie-bern-spitalgasse-w-m-d-laderach-bern": "BE"
+      }
+    }
   },
   {
     "slug": "stv-branch-manager-chocolaterie-landquart-outlet-m-f-d-laderach-schweiz-ag-landquart",
@@ -3461,7 +4228,16 @@
     "salaryMax": 153000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67262315/stv-filialleiter-chocolaterie-landquart-outlet-w-m-d-"
+    "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67262315/stv-filialleiter-chocolaterie-landquart-outlet-w-m-d-",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stv-filialleiter-chocolaterie-landquart-outlet-w-m-d-laderach-landquart": "GR"
+      },
+      "en": {
+        "stv-filialleiter-chocolaterie-landquart-outlet-w-m-d-laderach-landquart": "GR"
+      }
+    }
   },
   {
     "slug": "apprendistato-entwickler-in-digitales-business-cfc-laderach-schweiz-ag-bilten",
@@ -3510,7 +4286,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/66508768/lehrstelle-entwickler-in-digitales-business-efz-",
-    "firstSeenAt": "2026-08-04T11:34:00.554Z"
+    "firstSeenAt": "2026-08-04T11:34:00.554Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-entwickler-in-digitales-business-efz-laderach-bilten": "GL"
+      },
+      "en": {
+        "lehrstelle-entwickler-in-digitales-business-efz-laderach-bilten": "GL"
+      },
+      "fr": {
+        "lehrstelle-entwickler-in-digitales-business-efz-laderach-bilten": "GL"
+      }
+    }
   },
   {
     "slug": "rilievo-di-natale-40-80-chocolaterie-winterthur-temporaneo-da-novembre-a-dicembre-2026-laderach-schweiz-ag-winterthur",
@@ -3561,7 +4349,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67258270/weihnachtsaushilfe-40-80%25-chocolaterie-winterthur-befristet-von-november-bis-dezember-2026-",
-    "firstSeenAt": "2026-09-07T15:10:08.085Z"
+    "firstSeenAt": "2026-09-07T15:10:08.085Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-40-80-chocolaterie-winterthur-befristet-von-november-bis-dezember-2026-laderach-winterthur": "ZH",
+        "weihnachtsaushilfe-40-80-chocolaterie-winterthur-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag-winterthur": "ZH"
+      },
+      "en": {
+        "weihnachtsaushilfe-40-80-chocolaterie-winterthur-befristet-von-november-bis-dezember-2026-laderach-winterthur": "ZH"
+      },
+      "fr": {
+        "weihnachtsaushilfe-40-80-chocolaterie-winterthur-befristet-von-november-bis-dezember-2026-laderach-winterthur": "ZH"
+      }
+    }
   },
   {
     "slug": "weihnachtsaushilfe-60-80-chocolaterie-seedamm-center-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag-freienbach",
@@ -3604,7 +4405,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67471387/weihnachtsaushilfe-60-80%25-chocolaterie-seedamm-center-befristet-von-november-bis-dezember-2026-",
-    "firstSeenAt": "2026-09-19T22:54:46.040Z"
+    "firstSeenAt": "2026-09-19T22:54:46.040Z",
+    "canton": "SZ",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-60-80-chocolaterie-seedamm-center-befristet-von-november-bis-dezember-2026-laderach-freienbach": "SZ"
+      }
+    }
   },
   {
     "slug": "risorse-umane-generalist-m-w-d-befristet-con-option-auf-festanstellung-laderach-schweiz-ag-glarus",
@@ -3655,7 +4462,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67885447/hr-generalist-w-m-d-,-befristet-mit-option-auf-festanstellung",
-    "firstSeenAt": "2026-10-10T09:23:57.889Z"
+    "firstSeenAt": "2026-10-10T09:23:57.889Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hr-generalist-w-m-d-befristet-mit-option-auf-festanstellung-laderach-glarus": "GL",
+        "generaliste-rh-h-f-d-a-duree-determinee-avec-possibilite-d-engagement-fixe-laderach-schweiz-ag-glarus": "GL",
+        "hr-generalist-f-m-d-temporary-with-permanent-employment-option-laderach-schweiz-ag-glarus": "GL"
+      },
+      "fr": {
+        "ressources-humaines-generalist-m-w-d-befristet-mit-option-auf-festanstellung-laderach-schweiz-ag-glarus": "GL"
+      }
+    }
   },
   {
     "slug": "logistiker-warenbewirtschaftung-80-100-m-w-d-laderach-schweiz-ag-bilten",
@@ -3709,7 +4527,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67535387/logistiker-warenbewirtschaftung-in-schichtarbeit-w-m-d-",
-    "firstSeenAt": "2026-09-21T16:03:53.894Z"
+    "firstSeenAt": "2026-09-21T16:03:53.894Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "logistiker-warenbewirtschaftung-80-100-w-m-d-laderach-bilten": "GL",
+        "logistiker-warenbewirtschaftung-in-schichtarbeit-w-m-d-laderach-bilten": "GL"
+      },
+      "en": {
+        "logistiker-warenbewirtschaftung-80-100-w-m-d-laderach-bilten": "GL"
+      },
+      "de": {
+        "logistiker-warenbewirtschaftung-in-schichtarbeit-w-m-d-laderach-bilten": "GL"
+      },
+      "fr": {
+        "logistiker-warenbewirtschaftung-80-100-w-m-d-laderach-bilten": "GL"
+      }
+    }
   },
   {
     "slug": "senior-raw-materials-buyer-procurement-specialist-80-100-w-m-d-laderach-ennenda",
@@ -3739,7 +4573,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67487807/senior-raw-materials-buyer-procurement-specialist-80-100%25-w-m-d-",
-    "firstSeenAt": "2026-09-19T22:54:46.761Z"
+    "firstSeenAt": "2026-09-19T22:54:46.761Z",
+    "canton": "GL",
+    "previousSlugsByLocale": {
+      "en": [
+        "senior-raw-materials-buyer-procurement-specialist-80-100-w-m-d-laderach-ennenda"
+      ],
+      "de": [
+        "senior-raw-materials-buyer-procurement-specialist-80-100-w-m-d-laderach-ennenda"
+      ],
+      "fr": [
+        "senior-raw-materials-buyer-procurement-specialist-80-100-w-m-d-laderach-ennenda"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "senior-raw-materials-buyer-procurement-specialist-80-100-w-m-d-laderach-ennenda": "GL"
+      },
+      "de": {
+        "senior-raw-materials-buyer-procurement-specialist-80-100-w-m-d-laderach-ennenda": "GL"
+      },
+      "fr": {
+        "senior-raw-materials-buyer-procurement-specialist-80-100-w-m-d-laderach-ennenda": "GL"
+      }
+    }
   },
   {
     "slug": "weihnachtsaushilfe-60-80-chocolaterie-solothurn-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag-solothurn",
@@ -3788,7 +4645,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67455012/weihnachtsaushilfe-60-80%25-chocolaterie-solothurn-befristet-von-november-bis-dezember-2026-",
-    "firstSeenAt": "2026-09-16T09:21:36.747Z"
+    "firstSeenAt": "2026-09-16T09:21:36.747Z",
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-60-80-chocolaterie-solothurn-befristet-von-november-bis-dezember-2026-laderach-solothurn": "SO"
+      },
+      "en": {
+        "weihnachtsaushilfe-60-80-chocolaterie-solothurn-befristet-von-november-bis-dezember-2026-laderach-solothurn": "SO"
+      },
+      "fr": {
+        "weihnachtsaushilfe-60-80-chocolaterie-solothurn-befristet-von-november-bis-dezember-2026-laderach-solothurn": "SO"
+      }
+    }
   },
   {
     "slug": "weihnachtsaushilfe-20-40-chocolaterie-aarau-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag-aarau",
@@ -3837,7 +4706,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67408957/weihnachtsaushilfe-20-40%25-chocolaterie-aarau-befristet-von-november-bis-dezember-2026-",
-    "firstSeenAt": "2026-09-16T09:21:34.987Z"
+    "firstSeenAt": "2026-09-16T09:21:34.987Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-20-40-chocolaterie-aarau-befristet-von-november-bis-dezember-2026-laderach-aarau": "AG"
+      },
+      "en": {
+        "weihnachtsaushilfe-20-40-chocolaterie-aarau-befristet-von-november-bis-dezember-2026-laderach-aarau": "AG"
+      },
+      "fr": {
+        "weihnachtsaushilfe-20-40-chocolaterie-aarau-befristet-von-november-bis-dezember-2026-laderach-aarau": "AG"
+      }
+    }
   },
   {
     "slug": "weihnachtsaushilfe-60-100-chocolaterie-luzern-befristet-von-01-11-2026-bis-31-12-2026-laderach-schweiz-ag-luzern",
@@ -3897,7 +4778,27 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/66761080/weihnachtsaushilfe-60-100%25-chocolaterie-luzern-befristet-von-01-11-2026-bis-31-12-2026-",
-    "firstSeenAt": "2026-08-14T21:32:31.701Z"
+    "firstSeenAt": "2026-08-14T21:32:31.701Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-60-100-chocolaterie-luzern-befristet-von-01-11-2026-bis-31-12-2026-laderach-luzern": "LU",
+        "vendor-60-chocolaterie-lucerne-f-m-d-laderach-schweiz-ag-luzern": "LU",
+        "verkaufer-60-chocolaterie-luzern-w-m-d-laderach-luzern": "LU",
+        "fournisseur-60-chocolaterie-lucerne-f-m-d-laderach-schweiz-ag-luzern": "LU"
+      },
+      "en": {
+        "weihnachtsaushilfe-60-100-chocolaterie-luzern-befristet-von-01-11-2026-bis-31-12-2026-laderach-luzern": "LU",
+        "vendor-60-chocolaterie-lucerne-f-m-d-laderach-schweiz-ag-luzern": "LU"
+      },
+      "de": {
+        "verkaufer-60-chocolaterie-luzern-w-m-d-laderach-luzern": "LU"
+      },
+      "fr": {
+        "weihnachtsaushilfe-60-100-chocolaterie-luzern-befristet-von-01-11-2026-bis-31-12-2026-laderach-luzern": "LU",
+        "fournisseur-60-chocolaterie-lucerne-f-m-d-laderach-schweiz-ag-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich-3yn89f",
@@ -4020,7 +4921,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67593262/weihnachtsaushilfe-40-60%25-chocolaterie-basel-clarashopping-befristet-von-november-bis-dezember-2026-",
-    "firstSeenAt": "2026-09-23T23:45:57.469Z"
+    "firstSeenAt": "2026-09-23T23:45:57.469Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-40-60-chocolaterie-basel-clarashopping-befristet-von-november-bis-dezember-2026-laderach-basel": "BS",
+        "weihnachtsaushilfe-40-60-chocolaterie-basel-clarashopping-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag-basel": "BS"
+      },
+      "en": {
+        "weihnachtsaushilfe-40-60-chocolaterie-basel-clarashopping-befristet-von-november-bis-dezember-2026-laderach-basel": "BS"
+      },
+      "fr": {
+        "weihnachtsaushilfe-40-60-chocolaterie-basel-clarashopping-befristet-von-november-bis-dezember-2026-laderach-basel": "BS"
+      }
+    }
   },
   {
     "slug": "rilievo-di-natale-40-chocolaterie-bern-marktgasse-temporaneo-fino-a-dicembre-2026-laderach-schweiz-ag-bern",
@@ -4071,7 +4985,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67568737/weihnachtsaushilfe-40%25-chocolaterie-bern-marktgasse-befristet-bis-dezember-2026-",
-    "firstSeenAt": "2026-09-23T23:45:57.281Z"
+    "firstSeenAt": "2026-09-23T23:45:57.281Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-40-chocolaterie-bern-marktgasse-befristet-bis-dezember-2026-laderach-bern": "BE",
+        "weihnachtsaushilfe-40-chocolaterie-bern-marktgasse-befristet-bis-dezember-2026-laderach-schweiz-ag-bern": "BE"
+      },
+      "en": {
+        "weihnachtsaushilfe-40-chocolaterie-bern-marktgasse-befristet-bis-dezember-2026-laderach-bern": "BE"
+      },
+      "fr": {
+        "weihnachtsaushilfe-40-chocolaterie-bern-marktgasse-befristet-bis-dezember-2026-laderach-bern": "BE"
+      }
+    }
   },
   {
     "slug": "verkaufer-60-80-chocolaterie-bern-bahnhof-christoffel-befristet-bis-marz-2027-m-w-d-laderach-schweiz-ag-bern",
@@ -4120,7 +5047,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67554932/verk%c3%a4ufer-60-80%25-chocolaterie-bern-bahnhof-christoffel,-befristet-bis-m%c3%a4rz-2027-w-m-d-",
-    "firstSeenAt": "2026-09-21T16:03:54.788Z"
+    "firstSeenAt": "2026-09-21T16:03:54.788Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "verkaufer-60-80-chocolaterie-bern-bahnhof-christoffel-befristet-bis-marz-2027-w-m-d-laderach-bern": "BE"
+      },
+      "en": {
+        "verkaufer-60-80-chocolaterie-bern-bahnhof-christoffel-befristet-bis-marz-2027-w-m-d-laderach-bern": "BE"
+      },
+      "fr": {
+        "verkaufer-60-80-chocolaterie-bern-bahnhof-christoffel-befristet-bis-marz-2027-w-m-d-laderach-bern": "BE"
+      }
+    }
   },
   {
     "slug": "partner-per-l-acquisizione-talenti-f-m-d-laderach-schweiz-ag-bilten",
@@ -4170,7 +5109,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/65819191/talent-acquisition-partner-retail-w-m-d-",
-    "firstSeenAt": "2026-09-16T09:21:35.727Z"
+    "firstSeenAt": "2026-09-16T09:21:35.727Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "talent-acquisition-partner-retail-w-m-d-laderach-bilten": "GL"
+      },
+      "en": {
+        "talent-acquisition-partner-w-m-d-laderach-bilten": "GL"
+      },
+      "de": {
+        "talent-acquisition-partner-retail-w-m-d-laderach-bilten": "GL"
+      }
+    }
   },
   {
     "slug": "responsabile-dei-dati-anagrafici-laderach-schweiz-ag-bilten",
@@ -4214,7 +5165,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/66990330/master-data-manager-",
-    "firstSeenAt": "2026-08-28T05:21:16.422Z"
+    "firstSeenAt": "2026-08-28T05:21:16.422Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "master-data-manager-laderach-bilten": "GL",
+        "master-data-manager-laderach-schweiz-ag-bilten": "GL"
+      }
+    }
   },
   {
     "slug": "aiuto-di-natale-in-vendita-80-100-chocolaterie-basel-bahnhof-temporaneo-da-ottobre-a-dicembre-2026-laderach-schweiz-ag",
@@ -4285,7 +5243,32 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67018600/weihnachtsaushilfe-im-verkauf-80-100%25-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-",
-    "firstSeenAt": "2026-08-31T17:07:33.037Z"
+    "firstSeenAt": "2026-08-31T17:07:33.037Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-im-verkauf-80-100-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-basel": "BS",
+        "weihnachtsaushilfe-im-vendita-80-100-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-basel": "BS",
+        "rilievo-di-natale-nel-campo-60-80-chocolaterie-basel-bahnhof-temporaneo-da-ottobre-a-dicembre-2026-laderach-schweiz-ag": "BS",
+        "christmas-relief-in-the-camp-60-80-chocolaterie-basel-bahnhof-temporary-from-october-to-december-2026-laderach-schweiz": "BS",
+        "weihnachtsaushilfe-im-lager-60-80-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-basel": "BS",
+        "relief-de-noel-dans-le-camp-60-80-chocolaterie-basel-bahnhof-temporaire-d-octobre-a-decembre-2026-laderach-schweiz-ag": "BS",
+        "weihnachtsaushilfe-im-magazzino-60-80-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-basel": "BS"
+      },
+      "en": {
+        "weihnachtsaushilfe-im-verkauf-80-100-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-basel": "BS",
+        "weihnachtsaushilfe-im-sales-80-100-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-schweiz": "BS",
+        "christmas-relief-in-the-camp-60-80-chocolaterie-basel-bahnhof-temporary-from-october-to-december-2026-laderach-schweiz": "BS"
+      },
+      "de": {
+        "weihnachtsaushilfe-im-lager-60-80-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-basel": "BS"
+      },
+      "fr": {
+        "weihnachtsaushilfe-im-verkauf-80-100-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-basel": "BS",
+        "weihnachtsaushilfe-im-vente-80-100-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-schweiz": "BS",
+        "relief-de-noel-dans-le-camp-60-80-chocolaterie-basel-bahnhof-temporaire-d-octobre-a-decembre-2026-laderach-schweiz-ag": "BS"
+      }
+    }
   },
   {
     "slug": "it-retail-support-specialista-w-m-d-laderach-schweiz-ag-bilten",
@@ -4327,7 +5310,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/65778921/it-retail-support-specialist-w-m-d-",
-    "firstSeenAt": "2026-09-19T22:54:46.319Z"
+    "firstSeenAt": "2026-09-19T22:54:46.319Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "it-retail-support-specialist-w-m-d-laderach-bilten": "GL"
+      }
+    }
   },
   {
     "slug": "responsabile-global-financial-planning-w-m-d-laderach-schweiz-ag-bilten",
@@ -4372,7 +5361,96 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67672967/head-of-global-financial-planning-w-m-d-",
-    "firstSeenAt": "2026-09-26T13:56:35.108Z"
+    "firstSeenAt": "2026-09-26T13:56:35.108Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "head-of-global-financial-planning-w-m-d-laderach-bilten": "GL"
+      },
+      "fr": {
+        "head-of-global-financial-planning-w-m-d-laderach-bilten": "GL"
+      }
+    }
+  },
+  {
+    "slug": "gestione-della-funzionalita-m-w-d-laderach-schweiz-ag-glarus-nord",
+    "title": "Facility Manager (w/m/d)",
+    "titleByLocale": {
+      "it": "Gestione della funzionalità (m/f/d)",
+      "en": "Facility Manager (w/m/d)",
+      "de": "Facility Manager (w/m/d)",
+      "fr": "Gestionnaire d'installations (h/f/d)"
+    },
+    "company": "Läderach (Schweiz) AG",
+    "companyKey": "laderach-schweiz-ag",
+    "location": "Glarus Nord",
+    "addressLocality": "Glarus Nord",
+    "descriptionByLocale": {
+      "it": "Cioccolato fresco di alta qualità – ecco cosa rappresenta il produttore svizzero di cioccolato Läderach. Fondata nel 1962, l'azienda familiare oggi impiega più di 2.500 persone provenienti da più di 80 paesi del Gruppo, e la tendenza è in aumento. La sede della società si trova nel Canton Glarus. Di fronte a un pittoresco scenario alpino, produciamo i nostri cioccolatini freschi qui e sviluppiamo costantemente nuove idee innovative nelle squadre agili.\nLa nostra divisione Gestione della Supply Chain è responsabile di tutte le catene di approvvigionamento. Questo include anche l'acquisto e la logistica di magazzino. Dal nostro magazzino principale a Bilten, organizziamo il flusso di merci e forniamo i nostri cioccolatini e magazzini in tutto il mondo. Vuoi anche partecipare? Allora vieni da noi.\n\nQuesto è ciò che vi aspetta\n\n• Garantisci la fornitura di servizi presso i siti Bilten e Ennenda nei settori degli edifici, dei dintorni e del servizio tecnico secondo il mandato e gli obiettivi della BRL TD\n\n• Garantisci la funzionalità, la disponibilità e la conservazione del valore di edifici, infrastrutture e strutture\n\n• Voi rispettate le normative operative e igieniche e sostenete la loro coerente implementazione, anche verso gli assemblatori esterni\n\n• Lavori in modo collaborativo e orientato al team con tutti i dipartimenti e le posizioni coinvolte e contribuisci secondo la dichiarazione di missione di Läderach (Schweiz) AG\n\n• Effettuare lavori di manutenzione, pulizia e controllo, effettuare riparazioni minori e servizio invernale e garantire un adeguato smaltimento dei rifiuti\n\n• Assicura la pulizia nel laboratorio e sul luogo di lavoro e fornisce il servizio Pikett per risolvere rapidamente i problemi tecnici\n\nLo porti con te.\n\n• Porti esperienza in upkeep e piccole riparazioni a edifici e dintorni\n\n• Avete conoscenza del servizio e della manutenzione della tecnologia di costruzione e delle strutture tecniche\n\n• Lavori in modo sicuro, professionale e orientato alla soluzione nelle riparazioni e conosci lo smaltimento professionale dei materiali residui\n\n• Siete pronti a partecipare al servizio tecnico e al servizio pikett\n\n• Pensate avanti e coinvolgetevi con idee per un ulteriore sviluppo della tecnologia domestica, degli edifici e dei dintorni\n\n• Lavorate con attenzione, strutturate e assicurate una documentazione affidabile\n\nQuesto è ciò che vi offriamo\n\n• Un ambiente di lavoro emozionante con colleghi motivati\n\n• Una posizione con molta responsabilità personale\n\n• L'opportunità di portare idee fresche\n\n• Una cultura di feedback aperta e rispettosa\n\n• Formazione interna ed esterna\n\n• Opportunità di carriera individuali\n\n• Sconti generosi sui nostri prodotti\n\n• Cioccolato sul posto di lavoro\n\n• Parcheggio gratuito\n\n• Sconti in Läderach Café e ristorante personale\n\nDa solo. Crescete. Fallo fresco.\n\nSembra interessante? Allora applicaci. Juan Marfil, Responsabile del Servizio Tecnico, è a vostra disposizione per qualsiasi domanda.\n\nChiediamo la vostra comprensione che non consideriamo agenzie di reclutamento esterne durante il riempimento di questa posizione.",
+      "en": "High-quality fresh chocolate – that is what the Swiss chocolate manufacturer Läderach stands for. Founded in 1962, the family business today employs more than 2,500 people from more than 80 countries across the Group, and the trend is rising. The company’s headquarters are located in the Canton of Glarus. In front of a picturesque Alpine backdrop, we produce our fresh chocolates here and constantly develop new, innovative ideas in agile teams.\nOur Supply Chain Management division is responsible for all supply chains. This also includes purchasing and warehouse logistics. From our main warehouse in Bilten, we organize the flow of goods and supply our chocolateries and warehouses around the world. Do you also want to participate? Then come to us.\n\nThis is what awaits you\n\n• You ensure the provision of services at the Bilten and Ennenda sites in the areas of buildings, surroundings and technical service in accordance with the mandate and objectives of the BRL TD\n\n• You ensure the functionality, availability and value preservation of buildings, infrastructure and facilities\n\n• You comply with the operating and hygiene regulations and support their consistent implementation, also towards external assemblers\n\n• You work in a team-oriented and cooperative manner with all departments and positions involved and contribute according to the mission statement of Läderach (Schweiz) AG\n\n• You carry out maintenance, cleaning and control work, take over minor repairs as well as winter service and ensure proper waste disposal\n\n• You ensure cleanliness in the workshop and workplace and provide Pikett service to quickly resolve technical problems\n\nYou bring that with you\n\n• You bring experience in upkeep and minor repairs to buildings and surroundings\n\n• You have knowledge of service and maintenance of building technology and technical facilities\n\n• You work safely, professionally and solution-oriented in repairs and know the professional disposal of residual materials\n\n• You are ready to participate in the technical service as well as in the pikett service\n\n• You think ahead and get involved with ideas for the further development of home technology, buildings and surroundings\n\n• You work carefully, structured and ensure reliable documentation\n\nThis is what we offer you\n\n• An exciting working environment with motivated colleagues\n\n• A position with a lot of personal responsibility\n\n• The opportunity to bring in fresh ideas\n\n• An open and respectful feedback culture\n\n• Internal and external training\n\n• Individual career opportunities\n\n• Generous discounts on our products\n\n• Chocolate in the workplace\n\n• Free parking\n\n• Discounts in Läderach Café and staff restaurant\n\nOwn it. Grow it. Make it fresh.\n\nSounds interesting? Then apply to us. Juan Marfil, Head of Technical Service, is at your disposal for any questions.\n\nWe ask for your understanding that we do not consider external recruitment agencies when filling this position.",
+      "de": "Hochwertige frische Schokolade – dafür steht die Schweizer Schokoladenmanufaktur Läderach. 1962 gegründet, beschäftigt das Familienunternehmen heute gruppenweit über 2500 Menschen aus mehr als 80 Ländern, Tendenz steigend. Der Hauptsitz des Unternehmens liegt im Kanton Glarus. Vor malerischer Alpenkulisse produzieren wir hier unsere frischen Schokoladen und entwickeln in agilen Teams ständig neue, innovative Ideen.\nUnser Unternehmensbereich «Supply Chain Management» ist für sämtliche Lieferketten verantwortlich. Dazu zählen auch der Einkauf und die Lagerlogistik. Von unserem Hauptlager in Bilten aus organisieren wir die Warenströme und beliefern unsere Chocolaterien sowie Warehouses rund um den Globus. Willst auch du daran teilhaben? Dann komm zu uns.\n\nDas erwartet dich\n\n• Du stellst die Leistungserbringung an den Standorten Bilten und Ennenda in den Bereichen Gebäude, Umgebung und technischer Dienst gemäss Auftrag und Zielvorgaben des BRL TD sicher\n\n• Du stellst die Funktionalität, Verfügbarkeit und den Werterhalt von Gebäuden, Infrastruktur und Anlagen sicher\n\n• Du hältst die Betriebs- und Hygienevorschriften ein und unterstützt deren konsequente Umsetzung, auch gegenüber Fremdmonteuren\n\n• Du arbeitest teamorientiert und kooperativ mit allen involvierten Abteilungen und Stellen zusammen und bringst dich gemäss dem Leitbild der Läderach (Schweiz) AG ein\n\n• Du führst Unterhalts-, Reinigungs- und Kontrollarbeiten durch, übernimmst kleinere Reparaturen sowie den Winterdienst und stellst die fachgerechte Abfallentsorgung sicher\n\n• Du stellst die Sauberkeit in der Werkstatt und am Arbeitsplatz sicher und leistest Pikett-Dienst zur raschen Behebung technischer Probleme\n\nDas bringst du mit\n\n• Du bringst Erfahrung im Unterhalt und bei kleineren Reparaturen an Gebäude und Umgebung mit\n\n• Du verfügst über Kenntnisse im Service und Unterhalt von Haustechnik und technischen Anlagen\n\n• Du arbeitest sicher, fachgerecht und lösungsorientiert bei Reparaturen und kennst die fachgerechte Entsorgung von Reststoffen\n\n• Du bist bereit, im Technischen Dienst sowie im Pikett-Dienst mitzuwirken\n\n• Du denkst vorausschauend und bringst dich mit Ideen zur Weiterentwicklung von Haustechnik, Gebäude und Umgebung ein\n\n• Du arbeitest sorgfältig, strukturiert und stellst eine zuverlässige Dokumentation sicher\n\nDas bieten wir dir\n\n• Ein spannendes Arbeitsumfeld mit motivierten Kolleginnen und Kollegen\n\n• Eine Position mit viel Eigenverantwortung\n\n• Die Möglichkeit, frische Ideen einzubringen\n\n• Eine offene und respektvolle Feedbackkultur\n\n• Interne und externe Weiterbildungen\n\n• Individuelle Karrieremöglichkeiten\n\n• Grosszügige Rabatte auf unsere Produkte\n\n• Schokolade am Arbeitsplatz\n\n• Kostenlose Parkplätze\n\n• Vergünstigungen im Läderach Café und Personalrestaurant\n\nOwn it. Grow it. Make it fresh.\n\nKlingt interessant? Dann bewirb dich bei uns. Juan Marfil, Head of Technical Service, steht dir bei Fragen gern zur Verfügung.\n\nWir bitten um Verständnis, dass wir bei der Besetzung dieser Position keine externen Personalvermittlungen berücksichtigen.",
+      "fr": "Chocolat frais de haute qualité – c'est ce que représente le fabricant suisse de chocolat Läderach. Fondée en 1962, l'entreprise familiale emploie aujourd'hui plus de 2 500 personnes de plus de 80 pays dans l'ensemble du Groupe, et la tendance est à la hausse. Le siège de l'entreprise est situé dans le canton de Glarus. Devant un décor alpin pittoresque, nous produisons ici nos chocolats frais et développons constamment de nouvelles idées innovantes en équipe agile.\nNotre division Gestion de la chaîne d'approvisionnement est responsable de toutes les chaînes d'approvisionnement. Cela comprend également la logistique des achats et des entrepôts. De notre entrepôt principal à Bilten, nous organisons le flux de marchandises et fournissons nos chocolateries et entrepôts à travers le monde. Voulez-vous également participer? Alors venez nous voir.\n\nC'est ce qui vous attend\n\n• Vous veillez à la prestation de services sur les sites de Bilten et d'Ennenda dans les domaines des bâtiments, des environs et du service technique conformément au mandat et aux objectifs du BRL TD\n\n• Vous assurez la fonctionnalité, la disponibilité et la préservation de la valeur des bâtiments, des infrastructures et des installations\n\n• Vous respectez les règles de fonctionnement et d'hygiène et supportez leur mise en œuvre cohérente, également vers les assembleurs externes\n\n• Vous travaillez en équipe et en coopération avec tous les départements et postes concernés et contribuez selon l'énoncé de mission de Läderach (Schweiz) AG\n\n• Vous effectuez des travaux d'entretien, de nettoyage et de contrôle, prenez en charge des réparations mineures ainsi que le service d'hiver et assurez l'élimination appropriée des déchets\n\n• Vous assurez la propreté dans l'atelier et le lieu de travail et fournir le service Pikett pour résoudre rapidement les problèmes techniques\n\nApporte ça avec toi.\n\n• Vous apportez de l'expérience dans l'entretien et les réparations mineures aux bâtiments et aux environs\n\n• Vous avez une connaissance du service et de l'entretien de la technologie du bâtiment et des installations techniques\n\n• Vous travaillez en toute sécurité, professionnellement et en solution dans les réparations et connaissez l'élimination professionnelle des matériaux résiduels\n\n• Vous êtes prêt à participer au service technique ainsi qu'au service pikett\n\n• Vous pensez à l'avenir et vous engagez avec des idées pour le développement ultérieur de la technologie de la maison, des bâtiments et des environs\n\n• Vous travaillez avec soin, structuré et assurez la fiabilité de la documentation\n\nC'est ce que nous vous offrons.\n\n• Un environnement de travail passionnant avec des collègues motivés\n\n• Un poste avec beaucoup de responsabilités personnelles\n\n• L'occasion d'apporter de nouvelles idées\n\n• Une culture de rétroaction ouverte et respectueuse\n\n• Formation interne et externe\n\n• Possibilités de carrière individuelles\n\n• Des rabais généreux sur nos produits\n\n• Chocolat sur le lieu de travail\n\n• Parking gratuit\n\n• Réductions en Läderach Café et restaurant du personnel\n\nPose-le. Fais grandir. Fais-le frais.\n\nÇa semble intéressant ? Alors appliquez-nous. Juan Marfil, Chef du Service Technique, est à votre disposition pour toutes questions.\n\nNous demandons que vous compreniez que nous ne prenons pas en considération les agences de recrutement externes pour combler ce poste."
+    },
+    "slugByLocale": {
+      "it": "gestione-della-funzionalita-m-w-d-laderach-schweiz-ag-glarus-nord",
+      "en": "facility-manager-m-w-d-laderach-schweiz-ag-glarus-nord",
+      "de": "hauswart-w-m-d-laderach-glarus-nord",
+      "fr": "gestionnaire-d-installations-m-w-d-laderach-schweiz-ag-glarus-nord"
+    },
+    "sector": "",
+    "expiredAt": "2026-10-01T09:21:46.186Z",
+    "previousSlugs": [
+      "hauswart-w-m-d-laderach-glarus-nord",
+      "facility-manager-w-m-d-laderach-glarus-nord",
+      "facility-manager-m-w-d-laderach-schweiz-ag-glarus-nord",
+      "housekeeper-m-f-d-laderach-schweiz-ag-glarus-nord",
+      "menageuse-h-f-d-laderach-schweiz-ag-glarus-nord"
+    ],
+    "previousSlugsByLocale": {
+      "de": [
+        "facility-manager-w-m-d-laderach-glarus-nord"
+      ],
+      "it": [
+        "hauswart-w-m-d-laderach-glarus-nord",
+        "facility-manager-w-m-d-laderach-glarus-nord",
+        "facility-manager-m-w-d-laderach-schweiz-ag-glarus-nord",
+        "housekeeper-m-f-d-laderach-schweiz-ag-glarus-nord"
+      ],
+      "en": [
+        "hauswart-w-m-d-laderach-glarus-nord",
+        "housekeeper-m-f-d-laderach-schweiz-ag-glarus-nord"
+      ],
+      "fr": [
+        "hauswart-w-m-d-laderach-glarus-nord",
+        "menageuse-h-f-d-laderach-schweiz-ag-glarus-nord"
+      ]
+    },
+    "salaryMin": 118500,
+    "salaryMax": 159500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/66866905/facility-manager-w-m-d-",
+    "firstSeenAt": "2026-08-21T09:46:39.028Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hauswart-w-m-d-laderach-glarus-nord": "GL",
+        "facility-manager-w-m-d-laderach-glarus-nord": "GL",
+        "facility-manager-m-w-d-laderach-schweiz-ag-glarus-nord": "GL",
+        "housekeeper-m-f-d-laderach-schweiz-ag-glarus-nord": "GL"
+      },
+      "en": {
+        "hauswart-w-m-d-laderach-glarus-nord": "GL",
+        "housekeeper-m-f-d-laderach-schweiz-ag-glarus-nord": "GL"
+      },
+      "de": {
+        "facility-manager-w-m-d-laderach-glarus-nord": "GL"
+      },
+      "fr": {
+        "hauswart-w-m-d-laderach-glarus-nord": "GL",
+        "menageuse-h-f-d-laderach-schweiz-ag-glarus-nord": "GL"
+      }
+    }
   },
   {
     "slug": "servicetechniker-per-mechatronische-systeme-m-w-d-laderach-schweiz-ag-bilten",
@@ -4420,7 +5498,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/65967018/servicetechniker-f%c3%bcr-mechatronische-systeme-w-m-d-",
-    "firstSeenAt": "2026-07-10T10:23:25.590Z"
+    "firstSeenAt": "2026-07-10T10:23:25.590Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "servicetechniker-fur-mechatronische-systeme-w-m-d-laderach-bilten": "GL"
+      },
+      "en": {
+        "servicetechniker-fur-mechatronische-systeme-w-m-d-laderach-bilten": "GL"
+      },
+      "fr": {
+        "servicetechniker-fur-mechatronische-systeme-w-m-d-laderach-bilten": "GL"
+      }
+    }
   },
   {
     "slug": "weihnachtsaushilfe-60-80-chocolaterie-basel-marktplatz-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-basel",
@@ -4468,7 +5558,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67454462/weihnachtsaushilfe-60-80%25-chocolaterie-basel-marktplatz-befristet-von-oktober-bis-dezember-2026-",
-    "firstSeenAt": "2026-09-16T09:21:36.490Z"
+    "firstSeenAt": "2026-09-16T09:21:36.490Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-60-80-chocolaterie-basel-marktplatz-befristet-von-oktober-bis-dezember-2026-laderach-basel": "BS"
+      },
+      "en": {
+        "weihnachtsaushilfe-60-80-chocolaterie-basel-marktplatz-befristet-von-oktober-bis-dezember-2026-laderach-basel": "BS"
+      },
+      "fr": {
+        "weihnachtsaushilfe-60-80-chocolaterie-basel-marktplatz-befristet-von-oktober-bis-dezember-2026-laderach-basel": "BS"
+      }
+    }
   },
   {
     "slug": "stv-branch-manager-chocolaterie-bern-bahnhof-christoffel-m-f-d-laderach-schweiz-ag-bern",
@@ -4503,7 +5605,8 @@
         "stv-filialleiter-chocolaterie-bern-bahnhof-christoffel-w-m-d-laderach-bern"
       ],
       "en": [
-        "stv-filialleiter-chocolaterie-bern-bahnhof-christoffel-w-m-d-laderach-bern"
+        "stv-filialleiter-chocolaterie-bern-bahnhof-christoffel-w-m-d-laderach-bern",
+        "stv-branch-manager-chocolaterie-bern-bahnhof-christoffel-m-f-d-laderach-schweiz-ag-bern"
       ],
       "fr": [
         "stv-filialleiter-chocolaterie-bern-bahnhof-christoffel-w-m-d-laderach-bern"
@@ -4514,7 +5617,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67654417/stv-filialleiter-chocolaterie-bern-bahnhof-christoffel-w-m-d-",
-    "firstSeenAt": "2026-09-26T13:56:34.960Z"
+    "firstSeenAt": "2026-09-26T13:56:34.960Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stv-filialleiter-chocolaterie-bern-bahnhof-christoffel-w-m-d-laderach-bern": "BE"
+      },
+      "en": {
+        "stv-branch-manager-chocolaterie-bern-bahnhof-christoffel-m-f-d-laderach-schweiz-ag-bern": "BE",
+        "stv-filialleiter-chocolaterie-bern-bahnhof-christoffel-w-m-d-laderach-bern": "BE"
+      },
+      "fr": {
+        "stv-filialleiter-chocolaterie-bern-bahnhof-christoffel-w-m-d-laderach-bern": "BE"
+      }
+    }
   },
   {
     "slug": "weihnachtsaushilfe-im-magazzino-60-80-chocolaterie-glattzentrum-wallisellen-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-wallisellen",
@@ -4562,7 +5678,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67455802/weihnachtsaushilfe-im-lager-60-80%25-chocolaterie-glattzentrum-wallisellen-befristet-von-oktober-bis-dezember-2026-",
-    "firstSeenAt": "2026-09-16T09:21:37.027Z"
+    "firstSeenAt": "2026-09-16T09:21:37.027Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-im-lager-60-80-chocolaterie-glattzentrum-wallisellen-befristet-von-oktober-bis-dezember-2026-laderach-wallisellen": "ZH"
+      },
+      "en": {
+        "weihnachtsaushilfe-im-lager-60-80-chocolaterie-glattzentrum-wallisellen-befristet-von-oktober-bis-dezember-2026-laderach-wallisellen": "ZH"
+      },
+      "fr": {
+        "weihnachtsaushilfe-im-lager-60-80-chocolaterie-glattzentrum-wallisellen-befristet-von-oktober-bis-dezember-2026-laderach-wallisellen": "ZH"
+      }
+    }
   },
   {
     "slug": "rilievo-di-natale-50-60-chocolaterie-shopping-tivoli-temporaneo-da-novembre-a-dicembre-2026-laderach-schweiz-ag",
@@ -4613,7 +5741,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67019745/weihnachtsaushilfe-50-60%25-chocolaterie-shopping-tivoli-befristet-von-november-bis-dezember-2026-",
-    "firstSeenAt": "2026-08-31T17:07:33.198Z"
+    "firstSeenAt": "2026-08-31T17:07:33.198Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-50-60-chocolaterie-shopping-tivoli-befristet-von-november-bis-dezember-2026-laderach-spreitenbach": "AG",
+        "weihnachtsaushilfe-50-60-chocolaterie-shopping-tivoli-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag-spreitenbach": "AG"
+      },
+      "en": {
+        "weihnachtsaushilfe-50-60-chocolaterie-shopping-tivoli-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag": "AG"
+      },
+      "fr": {
+        "weihnachtsaushilfe-50-60-chocolaterie-shopping-tivoli-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag": "AG"
+      }
+    }
   },
   {
     "slug": "verkaufsaushilfe-60-80-chocolaterie-baden-metro-befristet-von-september-2026-bis-april-2027-laderach-schweiz-ag-baden",
@@ -4661,7 +5802,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67454202/verkaufsaushilfe-60-80%25-chocolaterie-baden-metro-befristet-von-september-2026-bis-april-2027-",
-    "firstSeenAt": "2026-09-16T09:21:36.180Z"
+    "firstSeenAt": "2026-09-16T09:21:36.180Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "verkaufsaushilfe-60-80-chocolaterie-baden-metro-befristet-von-september-2026-bis-april-2027-laderach-baden": "AG"
+      },
+      "en": {
+        "verkaufsaushilfe-60-80-chocolaterie-baden-metro-befristet-von-september-2026-bis-april-2027-laderach-baden": "AG"
+      },
+      "fr": {
+        "verkaufsaushilfe-60-80-chocolaterie-baden-metro-befristet-von-september-2026-bis-april-2027-laderach-baden": "AG"
+      }
+    }
   },
   {
     "slug": "weihnachtsaushilfe-40-60-chocolaterie-baden-metro-befristet-von-01-09-2026-bis-31-12-2026-laderach-schweiz-ag-baden",
@@ -4722,7 +5875,28 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/66856170/weihnachtsaushilfe-40-60%25-chocolaterie-baden-metro-befristet-von-01-09-2026-bis-31-12-2026-",
-    "firstSeenAt": "2026-08-20T10:08:38.420Z"
+    "firstSeenAt": "2026-08-20T10:08:38.420Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-40-60-chocolaterie-baden-metro-befristet-von-01-09-2026-bis-31-12-2026-laderach-baden": "AG",
+        "weihnachtsaushilfe-60-80-chocolaterie-baden-metro-befristet-von-01-09-2026-bis-30-04-2027-laderach-schweiz-ag-baden": "AG",
+        "christmas-relief-60-80-chocolaterie-baden-metro-temporary-from-01-09-2026-to-30-04-2027-laderach-schweiz-ag-baden": "AG",
+        "weihnachtsaushilfe-60-80-chocolaterie-baden-metro-befristet-von-01-09-2026-bis-30-04-2027-laderach-baden": "AG",
+        "relief-de-noel-60-80-chocolaterie-baden-metro-temporaire-du-01-09-2026-au-30-04-2027-laderach-schweiz-ag-baden": "AG"
+      },
+      "en": {
+        "weihnachtsaushilfe-40-60-chocolaterie-baden-metro-befristet-von-01-09-2026-bis-31-12-2026-laderach-baden": "AG",
+        "christmas-relief-60-80-chocolaterie-baden-metro-temporary-from-01-09-2026-to-30-04-2027-laderach-schweiz-ag-baden": "AG"
+      },
+      "de": {
+        "weihnachtsaushilfe-60-80-chocolaterie-baden-metro-befristet-von-01-09-2026-bis-30-04-2027-laderach-baden": "AG"
+      },
+      "fr": {
+        "weihnachtsaushilfe-40-60-chocolaterie-baden-metro-befristet-von-01-09-2026-bis-31-12-2026-laderach-baden": "AG",
+        "relief-de-noel-60-80-chocolaterie-baden-metro-temporaire-du-01-09-2026-au-30-04-2027-laderach-schweiz-ag-baden": "AG"
+      }
+    }
   },
   {
     "slug": "elettricista-industriale-m-f-d-laderach-schweiz-ag-glarus",
@@ -4772,7 +5946,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/66878055/betriebselektriker-w-m-d-",
-    "firstSeenAt": "2026-08-21T09:46:39.372Z"
+    "firstSeenAt": "2026-08-21T09:46:39.372Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "betriebselektriker-w-m-d-laderach-glarus": "GL",
+        "elettricista-commerciale-m-f-d-laderach-schweiz-ag-glarus": "GL",
+        "elettricista-industriale-m-f-d-laderach-schweiz-ag-glarus": "GL"
+      },
+      "fr": {
+        "electricien-d-affaires-h-f-d-laderach-schweiz-ag-glarus": "GL",
+        "electricien-industriel-h-f-d-laderach-schweiz-ag-glarus": "GL"
+      }
+    }
   },
   {
     "slug": "project-manager-r-d-copertura-laderach-schweiz-ag-bilten",
@@ -4814,7 +6000,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/63394664/project-manager-r-d-couverture-",
-    "firstSeenAt": "2026-05-23T11:05:13.687Z"
+    "firstSeenAt": "2026-05-23T11:05:13.687Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "project-manager-r-d-couverture-laderach-bilten": "GL"
+      }
+    }
   },
   {
     "slug": "responsabile-marketing-al-dettaglio-m-f-d-laderach-schweiz-ag-bilten",
@@ -4859,7 +6051,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/66037028/retail-marketing-manager-w-m-d-",
-    "firstSeenAt": "2026-09-16T09:21:35.908Z"
+    "firstSeenAt": "2026-09-16T09:21:35.908Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "retail-marketing-manager-w-m-d-laderach-bilten": "GL"
+      },
+      "fr": {
+        "retail-marketing-manager-w-m-d-laderach-bilten": "GL"
+      }
+    }
   },
   {
     "slug": "welcome-guest-experience-specialista-60-80-w-m-d-laderach-schweiz-ag-bilten",
@@ -4904,7 +6105,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67409227/welcome-guest-experience-specialist-60-80%25-w-m-d-",
-    "firstSeenAt": "2026-09-16T09:21:35.178Z"
+    "firstSeenAt": "2026-09-16T09:21:35.178Z",
+    "canton": "GL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "welcome-guest-experience-specialist-60-80-w-m-d-laderach-bilten": "GL"
+      },
+      "fr": {
+        "welcome-guest-experience-specialist-60-80-w-m-d-laderach-bilten": "GL"
+      }
+    }
   },
   {
     "slug": "testa-di-chocolaterie-st-moritz-m-f-d-laderach-schweiz-ag-sankt-moritz",
@@ -5164,6 +6374,54 @@
     ]
   },
   {
+    "slug": "rilievo-di-natale-nel-campo-60-80-chocolaterie-basel-bahnhof-temporaneo-da-ottobre-a-dicembre-2026-laderach-schweiz-ag",
+    "title": "Weihnachtsaushilfe im Lager 60-80% Chocolaterie Basel Bahnhof (befristet von Oktober bis Dezember 2026)",
+    "titleByLocale": {
+      "it": "Rilievo di Natale nel campo 60-80% Chocolaterie Basel Bahnhof (temporaneo da ottobre a dicembre 2026)",
+      "en": "Christmas relief in the camp 60-80% Chocolaterie Basel Bahnhof (temporary from October to December 2026)",
+      "de": "Weihnachtsaushilfe im Lager 60-80% Chocolaterie Basel Bahnhof (befristet von Oktober bis Dezember 2026)",
+      "fr": "Relief de Noël dans le camp 60-80% Chocolaterie Basel Bahnhof (temporaire d'octobre à décembre 2026)"
+    },
+    "company": "Läderach (Schweiz) AG",
+    "companyKey": "laderach-schweiz-ag",
+    "location": "Basel",
+    "addressLocality": "Basel",
+    "descriptionByLocale": {
+      "it": "Cioccolato fresco di alta qualità – ecco cosa rappresenta il produttore svizzero di cioccolato Läderach. Fondata nel 1962, l'azienda familiare oggi impiega più di 2.500 persone provenienti da più di 80 paesi del Gruppo, e la tendenza è in aumento. La sede della società si trova nel Canton Glarus. Di fronte a un pittoresco scenario alpino, produciamo i nostri cioccolatini freschi qui e sviluppiamo costantemente nuove idee innovative nelle squadre agili.\nLa divisione “Retail” comprende più di 250 cioccolatini in più di 30 paesi. Qui offriamo le nostre specialità di cioccolato e invitiamo i clienti a sperimentare il cioccolato fresco ancora e ancora. Vuoi anche partecipare? Allora vieni da noi.\n\nQuesto è ciò che vi aspetta\n\n• Si consiglia di orientare il cliente e vendere la nostra gamma di prodotti diversi, per esempio nella selezione di regali\n\n• Rispondete attivamente ai nostri clienti, riconoscete le loro esigenze e offrite soluzioni adeguate\n\n• Prendersi cura dei processi di cassa e garantire una fatturazione precisa e corretta\n\n• Vi presentiamo la squisita gamma di confiserie e cioccolato in un modo raffinato e invitante\n\n• Si occupa anche di attività di produzione, nonché il riempimento e la manutenzione delle aree di vendita\n\n• Attui i nostri standard di alta qualità con dedizione e cura\n\n• Si presta costantemente attenzione al rispetto del concetto di igiene e freschezza\n\n• Lavori di pari passo con il tuo team e contribuisci a un ambiente di lavoro positivo\n\nLo porti con te.\n\n• Porti esperienza professionale nel commercio al dettaglio e sei entusiasta delle vendite e del contatto diretto con i clienti\n\n• Riconosci le esigenze del cliente rapidamente e consiglia amichevole, individuale e convincente\n\n• Hai una buona conoscenza del tedesco e dell'inglese; francese e altre lingue sono utili\n\n• Si lavora in modo responsabile, affidabile e orientato alla qualità e rispettare costantemente gli standard di igiene e pulizia\n\n• Sei un giocatore di squadra, come assumersi la responsabilità e vogliono svilupparsi in vendite e servizi\n\n• Sei flessibile e pronto per le assegnazioni nei fine settimana e nei giorni festivi\n\nQuesto è ciò che vi offriamo\n\n• Un ambiente di lavoro emozionante con colleghi motivati\n\n• Una posizione con molta responsabilità personale\n\n• L'opportunità di portare idee fresche\n\n• Una cultura di feedback aperta e rispettosa\n\n• Sconti generosi sui nostri prodotti\n\n• Cioccolato sul posto di lavoro\n\n• Buona accessibilità dei luoghi\n\nSembra interessante? Allora applicaci. MIrella Bergantino, store manager, +41 61 363 10 15, è a vostra disposizione per qualsiasi domanda.\n\nChiediamo la vostra comprensione che non consideriamo agenzie di reclutamento esterne durante il riempimento di questa posizione.",
+      "en": "High-quality fresh chocolate – that is what the Swiss chocolate manufacturer Läderach stands for. Founded in 1962, the family business today employs more than 2,500 people from more than 80 countries across the Group, and the trend is rising. The company’s headquarters are located in the Canton of Glarus. In front of a picturesque Alpine backdrop, we produce our fresh chocolates here and constantly develop new, innovative ideas in agile teams.\nThe “Retail” division comprises more than 250 chocolateries in more than 30 countries. Here we offer our chocolate specialties and invite customers to experience fresh chocolate again and again. Do you also want to participate? Then come to us.\n\nThis is what awaits you\n\n• You advise customer-oriented and sell our diverse product range, for example in the selection of gifts\n\n• You actively respond to our customers, recognize their needs and offer suitable solutions\n\n• You take care of the cash processes and ensure a precise and correct billing\n\n• You present the exquisite confiserie and chocolate range in a tasteful and inviting way\n\n• You also take on production activities as well as the filling and maintenance of sales areas\n\n• You implement our high quality standards with dedication and care\n\n• You consistently pay attention to compliance with the hygiene and freshness concept\n\n• You work hand in hand with your team and contribute to a positive working environment\n\nYou bring that with you\n\n• You bring professional experience in the retail trade and are enthusiastic about sales and direct customer contact\n\n• You recognize customer needs quickly and advise friendly, individual and convincing\n\n• You have very good knowledge of German and English; French and other languages are beneficial\n\n• You work responsibly, reliably and quality-oriented and consistently adhere to hygiene and cleanliness standards\n\n• You are a team player, like to take on responsibility and want to develop in sales and service\n\n• You are flexible and ready for assignments on weekends and holidays\n\nThis is what we offer you\n\n• An exciting working environment with motivated colleagues\n\n• A position with a lot of personal responsibility\n\n• The opportunity to bring in fresh ideas\n\n• An open and respectful feedback culture\n\n• Generous discounts on our products\n\n• Chocolate in the workplace\n\n• Good accessibility of locations\n\nSounds interesting? Then apply to us. MIrella Bergantino, store manager, +41 61 363 10 15, is at your disposal for any questions.\n\nWe ask for your understanding that we do not consider external recruitment agencies when filling this position.",
+      "de": "Hochwertige frische Schokolade – dafür steht die Schweizer Schokoladenmanufaktur Läderach. 1962 gegründet, beschäftigt das Familienunternehmen heute gruppenweit über 2500 Menschen aus mehr als 80 Ländern, Tendenz steigend. Der Hauptsitz des Unternehmens liegt im Kanton Glarus. Vor malerischer Alpenkulisse produzieren wir hier unsere frischen Schokoladen und entwickeln in agilen Teams ständig neue, innovative Ideen.\nDer Unternehmensbereich «Retail» umfasst über 250 Chocolaterien in über 30 Ländern. Hier bieten wir unsere Schokoladenspezialitäten an und laden Kundinnen und Kunden ein, frische Schokolade immer wieder neu zu erleben. Willst auch du daran teilhaben? Dann komm zu uns.\n\nDas erwartet dich\n\n• Du berätst kundenorientiert und verkaufst unser vielfältiges Warensortiment, zum Beispiel bei der Geschenkauswahl\n\n• Du gehst aktiv auf unsere Kundinnen und Kunden ein, erkennst ihre Bedürfnisse und bietest passende Lösungen an\n\n• Du kümmerst dich um die Kassiervorgänge und sorgst für eine präzise und korrekte Abrechnung\n\n• Du präsentierst das erlesene Confiserie- und Schokoladensortiment auf eine geschmackvolle und einladende Weise\n\n• Du übernimmst auch produzierende Tätigkeiten sowie das Auffüllen und die Pflege der Verkaufsflächen\n\n• Du setzt unsere hohen Qualitätsstandards mit Hingabe und Sorgfalt um\n\n• Du achtest konsequent auf die Einhaltung des Hygiene- und Frischekonzepts\n\n• Du arbeitest Hand in Hand mit deinem Team und trägst zu einem positiven Arbeitsklima bei\n\nDas bringst du mit\n\n• Du bringst Berufserfahrung im Detailhandel mit und begeisterst dich für den Verkauf sowie den direkten Kundenkontakt\n\n• Du erkennst Kundenbedürfnisse schnell und berätst freundlich, individuell und überzeugend\n\n• Du verfügst über sehr gute Deutsch- und Englischkenntnisse; Französisch und weitere Sprachen sind von Vorteil\n\n• Du arbeitest verantwortungsbewusst, zuverlässig und qualitätsorientiert und hältst Hygiene- und Sauberkeitsstandards konsequent ein\n\n• Du bist ein Teamplayer, übernimmst gerne Verantwortung und möchtest dich im Verkauf und Service weiterentwickeln\n\n• Du bist flexibel und bereit für Einsätze an Wochenenden und Feiertagen\n\nDas bieten wir dir\n\n• Ein spannendes Arbeitsumfeld mit motivierten Kolleginnen und Kollegen\n\n• Eine Position mit viel Eigenverantwortung\n\n• Die Möglichkeit, frische Ideen einzubringen\n\n• Eine offene und respektvolle Feedbackkultur\n\n• Grosszügige Rabatte auf unsere Produkte\n\n• Schokolade am Arbeitsplatz\n\n• Gute Erreichbarkeit der Standorte\n\nKlingt interessant? Dann bewirb dich bei uns. MIrella Bergantino, Filialleiterin, +41 61 363 10 15, steht dir bei Fragen gern zur Verfügung.\n\nWir bitten um Verständnis, dass wir bei der Besetzung dieser Position keine externen Personalvermittlungen berücksichtigen.",
+      "fr": "Chocolat frais de haute qualité – c'est ce que représente le fabricant suisse de chocolat Läderach. Fondée en 1962, l'entreprise familiale emploie aujourd'hui plus de 2 500 personnes de plus de 80 pays dans l'ensemble du Groupe, et la tendance est à la hausse. Le siège de l'entreprise est situé dans le canton de Glarus. Devant un décor alpin pittoresque, nous produisons ici nos chocolats frais et développons constamment de nouvelles idées innovantes en équipe agile.\nLa division « Retail » comprend plus de 250 chocolateries dans plus de 30 pays. Ici, nous offrons nos spécialités de chocolat et invitons les clients à découvrir le chocolat frais encore et encore. Voulez-vous également participer? Alors venez nous voir.\n\nC'est ce qui vous attend\n\n• Vous conseillez le client et vendez notre gamme de produits, par exemple dans la sélection de cadeaux\n\n• Vous répondez activement à nos clients, reconnaissez leurs besoins et offrez des solutions adaptées\n\n• Vous prenez soin des processus de trésorerie et assurez une facturation précise et correcte\n\n• Vous présentez la confiserie exquise et la gamme de chocolats d'une manière agréable et accueillante\n\n• Vous prenez également des activités de production ainsi que le remplissage et l'entretien des zones de vente\n\n• Vous appliquez nos normes de haute qualité avec dévouement et soin\n\n• Vous faites toujours attention au respect du concept d'hygiène et de fraîcheur\n\n• Vous travaillez main dans la main avec votre équipe et contribuez à un environnement de travail positif\n\nApporte ça avec toi.\n\n• Vous apportez une expérience professionnelle dans le commerce de détail et êtes enthousiaste à propos des ventes et contact direct avec le client\n\n• Vous reconnaissez les besoins du client rapidement et conseillez amical, individuel et convaincant\n\n• Vous avez une très bonne connaissance de l'allemand et de l'anglais; le français et d'autres langues sont bénéfiques\n\n• Vous travaillez de manière responsable, fiable et orientée vers la qualité et vous respectez constamment les normes d'hygiène et de propreté\n\n• Vous êtes un joueur d'équipe, aimez prendre des responsabilités et voulez développer dans les ventes et le service\n\n• Vous êtes flexible et prêt pour les affectations le week-end et les vacances\n\nC'est ce que nous vous offrons.\n\n• Un environnement de travail passionnant avec des collègues motivés\n\n• Un poste avec beaucoup de responsabilités personnelles\n\n• L'occasion d'apporter de nouvelles idées\n\n• Une culture de rétroaction ouverte et respectueuse\n\n• Des rabais généreux sur nos produits\n\n• Chocolat sur le lieu de travail\n\n• Bonne accessibilité des sites\n\nÇa semble intéressant ? Alors appliquez-nous. MIrella Bergantino, responsable de magasin, +41 61 363 10 15, est à votre disposition pour toutes questions.\n\nNous demandons que vous compreniez que nous ne prenons pas en considération les agences de recrutement externes pour combler ce poste."
+    },
+    "slugByLocale": {
+      "it": "rilievo-di-natale-nel-campo-60-80-chocolaterie-basel-bahnhof-temporaneo-da-ottobre-a-dicembre-2026-laderach-schweiz-ag",
+      "en": "christmas-relief-in-the-camp-60-80-chocolaterie-basel-bahnhof-temporary-from-october-to-december-2026-laderach-schweiz",
+      "de": "weihnachtsaushilfe-im-lager-60-80-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-basel",
+      "fr": "relief-de-noel-dans-le-camp-60-80-chocolaterie-basel-bahnhof-temporaire-d-octobre-a-decembre-2026-laderach-schweiz-ag"
+    },
+    "sector": "",
+    "expiredAt": "2026-09-14T16:03:17.730Z",
+    "previousSlugs": [
+      "weihnachtsaushilfe-im-lager-60-80-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-basel",
+      "weihnachtsaushilfe-im-magazzino-60-80-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-basel"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "weihnachtsaushilfe-im-lager-60-80-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-basel",
+        "weihnachtsaushilfe-im-magazzino-60-80-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-basel"
+      ],
+      "en": [
+        "weihnachtsaushilfe-im-lager-60-80-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-basel"
+      ],
+      "fr": [
+        "weihnachtsaushilfe-im-lager-60-80-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-basel"
+      ]
+    },
+    "salaryMin": 55600,
+    "salaryMax": 74800,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "aiuto-di-natale-chocolate-shop-ginevra-balexer-50-tra-il-01-11-e-il-31-12-26-laderach-schweiz-ag-genf",
     "title": "Aide de Noël Chocolaterie Genève Balexer 50% (entre le 01.11 et le 31.12.26)",
     "titleByLocale": {
@@ -5405,6 +6663,52 @@
     "salaryMax": 90500,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "stv-branch-manager-chocolaterie-oerlikon-f-m-d-laderach-schweiz-ag-zurich",
+    "title": "Stv. Filialleiter Chocolaterie Oerlikon (w/m/d)",
+    "titleByLocale": {
+      "it": "Stv. Branch Manager Chocolaterie Oerlikon (f/m/d)",
+      "en": "Stv. Branch Manager Chocolaterie Oerlikon (f/m/d)",
+      "de": "Stv. Filialleiter Chocolaterie Oerlikon (w/m/d)",
+      "fr": "Directeur de succursale Stv Chocolaterie Oerlikon (f/m/d)"
+    },
+    "company": "Läderach (Schweiz) AG",
+    "companyKey": "laderach",
+    "location": "Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "it": "Cioccolato fresco di alta qualità – ecco cosa rappresenta il produttore svizzero di cioccolato Läderach. Fondata nel 1962, l'azienda familiare oggi impiega più di 2.500 persone provenienti da più di 80 paesi del Gruppo, e la tendenza è in aumento. La sede della società si trova nel Canton Glarus. Di fronte a un pittoresco scenario alpino, produciamo i nostri cioccolatini freschi qui e sviluppiamo costantemente nuove idee innovative nelle squadre agili.\nLa divisione “Retail” comprende più di 250 cioccolatini in più di 30 paesi. Qui offriamo le nostre specialità di cioccolato e invitiamo i clienti a sperimentare il cioccolato fresco ancora e ancora.\n\nOra stiamo scrivendo un nuovo capitolo: Con l'apertura del nostro primo outlet in Svizzera, stiamo creando un altro posto dove gli amanti del cioccolato possono scoprire il mondo di Läderach. Vuoi anche partecipare? Allora vieni da noi.\n\nQuesto è ciò che vi aspetta\n\n• Supporti la gestione del ramo nella gestione quotidiana e nell'organizzazione del ramo\n\n• Si assume la responsabilità operativa per il ramo in assenza della gestione del ramo e garantire il funzionamento regolare\n\n• Offriamo consulenza e supporto competenti e orientati al cliente nella selezione di regali dalla nostra gamma di prodotti diversi\n\n• Fornite una presentazione attraente della nostra vasta gamma di prodotti di confiserie e cioccolato, tra cui il design creativo negozio\n\n• Garantisci la massima qualità e implementa costantemente i nostri elevati standard\n\n• Si guida la strada nelle vendite e sostenere attivamente il team nel business giorno per giorno\n\n• Sei una persona di contatto importante per il team e per i clienti\n\n• Ti aiuterà a ottimizzare i flussi di lavoro e garantire che il negozio è efficiente e redditizio\n\nLo porti con te.\n\n• Hai completato un'istruzione nel commercio al dettaglio e/o portare\nsimile esperienza di gestione del cibo con\n\n• Porti la prima esperienza di leadership, preferibilmente da squadre più grandi\n\n• Hai idealmente la prima esperienza nel trattare con il cioccolato\n\n• Ami una mentalità pratica e sei tecnicamente affinità\n\n• Sei ottimista e hai una mentalità imprenditoriale\n\n• Hai una straordinaria consapevolezza della qualità e dell'igiene\n\n• Valori la comunicazione aperta e rispettosa e padroneggi il tedesco e l'inglese in modo sicuro; La conoscenza del francese e altre lingue è un vantaggio aggiunto\n\n• Non avete paura di orari di lavoro flessibili e sono anche pienamente coinvolti nei fine settimana, sabato, domenica o festivi\n\nQuesto è ciò che vi offriamo\n\n• Un ambiente di lavoro emozionante con colleghi motivati\n\n• Una posizione con molta responsabilità personale\n\n• L'opportunità di portare idee fresche\n\n• Una cultura di feedback aperta e rispettosa\n\n• Formazione interna ed esterna\n\n• Opportunità di carriera individuali\n\n• Sconti generosi sui nostri prodotti\n\n• Cioccolato sul posto di lavoro\n\n• Buona accessibilità dei luoghi\n\nDa solo. Crescete. Fallo fresco.\n\nSembra interessante? Allora applicaci. Maria Kalfopoulos, store manager, +41 55 645 00 12, è a vostra disposizione per qualsiasi domanda.\n\nChiediamo la vostra comprensione che non consideriamo agenzie di reclutamento esterne durante il riempimento di questa posizione.",
+      "en": "High-quality fresh chocolate – that is what the Swiss chocolate manufacturer Läderach stands for. Founded in 1962, the family business today employs more than 2,500 people from more than 80 countries across the Group, and the trend is rising. The company’s headquarters are located in the Canton of Glarus. In front of a picturesque Alpine backdrop, we produce our fresh chocolates here and constantly develop new, innovative ideas in agile teams.\nThe “Retail” division comprises more than 250 chocolateries in more than 30 countries. Here we offer our chocolate specialties and invite customers to experience fresh chocolate again and again.\n\nNow we are writing a new chapter: With the opening of our first outlet in Switzerland, we are creating another place where chocolate lovers can discover the world of Läderach. Do you also want to participate? Then come to us.\n\nThis is what awaits you\n\n• You support the branch management in the daily management and organization of the branch\n\n• You assume operational responsibility for the branch in the absence of the branch management and ensure the smooth operation\n\n• You offer competent, customer-oriented advice and support in the selection of gifts from our diverse product range\n\n• You provide an attractive presentation of our extensive range of confiserie and chocolate products, including creative shop design\n\n• You guarantee top quality and consistently implement our high standards\n\n• You lead the way in sales and actively support the team in day-to-day business\n\n• You are an important contact person for the team and for customers\n\n• You’ll help optimize workflows and ensure the store is efficient and profitable\n\nYou bring that with you\n\n• You have completed an education in the retail trade and/or bring\ncomparable food handling experience with\n\n• You bring first leadership experience, preferably from larger teams\n\n• You ideally have first experience in dealing with chocolate\n\n• You love a hands-on mentality and are technically affinity\n\n• You are optimistic and have an entrepreneurial mindset\n\n• You have an extraordinary quality and hygiene awareness\n\n• You value open and respectful communication and master German and English safely; Knowledge of French and other languages is an added advantage\n\n• You are not afraid of flexible working hours and are also fully involved on weekends, Saturdays, Sundays or public holidays\n\nThis is what we offer you\n\n• An exciting working environment with motivated colleagues\n\n• A position with a lot of personal responsibility\n\n• The opportunity to bring in fresh ideas\n\n• An open and respectful feedback culture\n\n• Internal and external training\n\n• Individual career opportunities\n\n• Generous discounts on our products\n\n• Chocolate in the workplace\n\n• Good accessibility of locations\n\nOwn it. Grow it. Make it fresh.\n\nSounds interesting? Then apply to us. Maria Kalfopoulos, store manager, +41 55 645 00 12, is at your disposal for any questions.\n\nWe ask for your understanding that we do not consider external recruitment agencies when filling this position.",
+      "de": "Hochwertige frische Schokolade – dafür steht die Schweizer Schokoladenmanufaktur Läderach. 1962 gegründet, beschäftigt das Familienunternehmen heute gruppenweit über 2500 Menschen aus mehr als 80 Ländern, Tendenz steigend. Der Hauptsitz des Unternehmens liegt im Kanton Glarus. Vor malerischer Alpenkulisse produzieren wir hier unsere frischen Schokoladen und entwickeln in agilen Teams ständig neue, innovative Ideen.\nDer Unternehmensbereich «Retail» umfasst über 250 Chocolaterien in über 30 Ländern. Hier bieten wir unsere Schokoladenspezialitäten an und laden Kundinnen und Kunden ein, frische Schokolade immer wieder neu zu erleben.\n\nNun schreiben wir ein neues Kapitel: Mit der Neueröffnung unseres ersten Outlets in der Schweiz schaffen wir einen weiteren Ort, an dem Schokoladenliebhaberinnen und-liebhaber die Welt von Läderach entdecken können. Willst auch du daran teilhaben? Dann komm zu uns.\n\nDas erwartet dich\n\n• Du unterstützt die Filialleitung bei der täglichen Führung und Organisation der Filiale\n\n• Du übernimmst bei Abwesenheit der Filialleitung die operative Verantwortung für die Filiale und stellst den reibungslosen Ablauf sicher\n\n• Du bietest eine kompetente, kundenorientierte Beratung und unterstützt bei der Auswahl von Geschenken aus unserem vielfältigen Warensortiment\n\n• Du sorgst für die ansprechende Präsentation unseres umfangreichen Confiserie- und Schokoladensortiments, unter anderem durch kreative Ladengestaltung\n\n• Du garantierst Spitzenqualität und setzt unsere hohen Standards konsequent um\n\n• Du gehst als Vorbild im Verkauf voran und unterstützt das Team aktiv im Tagesgeschäft\n\n• Du bist eine wichtige Ansprechperson für das Team und für die Kundinnen und Kunden\n\n• Du trägst zur Optimierung von Arbeitsabläufen bei und stellst sicher, dass die Filiale effizient und profitabel arbeitet\n\nDas bringst du mit\n\n• Du hast eine Ausbildung im Detailhandel abgeschlossen und/oder bringst\nvergleichbare Erfahrungen im Umgang mit Lebensmitteln mit\n\n• Du bringst erste Führungserfahrung mit, vorzugsweise von grösseren Teams\n\n• Du verfügst idealerweise über erste Erfahrung im Umgang mit Schokolade\n\n• Du liebst eine Hands-on-Mentalität und bist technisch affin\n\n• Du bist optimierungsfreudig und verfügst über ein unternehmerisches Denken\n\n• Du hast ein ausserordentliches Qualitäts- und Hygienebewusstsein\n\n• Du schätzt eine offene und respektvolle Kommunikation und beherrschst Deutsch und Englisch sicher; Kenntnisse in Französisch und weiteren Sprachen sind ein zusätzlicher Vorteil\n\n• Du hast keine Scheu vor flexiblen Arbeitszeiten und bist auch an Wochenenden, Samstagen, Sonntagen oder Feiertagen voll dabei\n\nDas bieten wir dir\n\n• Ein spannendes Arbeitsumfeld mit motivierten Kolleginnen und Kollegen\n\n• Eine Position mit viel Eigenverantwortung\n\n• Die Möglichkeit, frische Ideen einzubringen\n\n• Eine offene und respektvolle Feedbackkultur\n\n• Interne und externe Weiterbildungen\n\n• Individuelle Karrieremöglichkeiten\n\n• Grosszügige Rabatte auf unsere Produkte\n\n• Schokolade am Arbeitsplatz\n\n• Gute Erreichbarkeit der Standorte\n\nOwn it. Grow it. Make it fresh.\n\nKlingt interessant? Dann bewirb dich bei uns. Maria Kalfopoulos, Filialleiterin, +41 55 645 00 12, steht dir bei Fragen gern zur Verfügung.\n\nWir bitten um Verständnis, dass wir bei der Besetzung dieser Position keine externen Personalvermittlungen berücksichtigen.",
+      "fr": "Chocolat frais de haute qualité – c'est ce que représente le fabricant suisse de chocolat Läderach. Fondée en 1962, l'entreprise familiale emploie aujourd'hui plus de 2 500 personnes de plus de 80 pays dans l'ensemble du Groupe, et la tendance est à la hausse. Le siège de l'entreprise est situé dans le canton de Glarus. Devant un décor alpin pittoresque, nous produisons ici nos chocolats frais et développons constamment de nouvelles idées innovantes en équipe agile.\nLa division « Retail » comprend plus de 250 chocolateries dans plus de 30 pays. Ici, nous offrons nos spécialités de chocolat et invitons les clients à découvrir le chocolat frais encore et encore.\n\nMaintenant nous écrivons un nouveau chapitre: Avec l'ouverture de notre premier point de vente en Suisse, nous créons un autre endroit où les amateurs de chocolat peuvent découvrir le monde de Läderach. Voulez-vous également participer? Alors venez à nous.\n\nC'est ce qui vous attend\n\n• Vous soutenez la direction de la succursale dans la gestion quotidienne et l'organisation de la succursale\n\n• Vous assumez la responsabilité opérationnelle de la succursale en l'absence de la direction de la succursale et assurer le bon fonctionnement\n\n• Vous offrez des conseils et un soutien compétents et orientés vers le client dans la sélection de cadeaux de notre gamme de produits\n\n• Vous fournissez une présentation attrayante de notre vaste gamme de produits de confiserie et de chocolat, y compris la création de boutique\n\n• Vous garantissez une qualité supérieure et appliquez systématiquement nos normes élevées\n\n• Vous dirigez la vente et soutenez activement l'équipe dans les affaires quotidiennes\n\n• Vous êtes une personne de contact importante pour l'équipe et pour les clients\n\n• Vous allez aider à optimiser les flux de travail et s'assurer que le magasin est efficace et rentable\n\nApporte ça avec toi.\n\n• Vous avez suivi une formation dans le commerce de détail et/ou\nune expérience de manipulation des aliments comparable avec\n\n• Vous apportez une première expérience de leadership, de préférence de grandes équipes\n\n• Vous avez idéalement une première expérience dans le traitement du chocolat\n\n• Vous aimez une mentalité pratique et sont techniquement affinités\n\n• Vous êtes optimiste et avez un esprit d'entreprise\n\n• Vous avez une connaissance extraordinaire de la qualité et de l'hygiène\n\n• Vous appréciez la communication ouverte et respectueuse et maîtrisez l'allemand et l'anglais en toute sécurité; la connaissance du français et des autres langues est un avantage supplémentaire\n\n• Vous n'avez pas peur des horaires flexibles et vous êtes également pleinement impliqué le week-end, le samedi, le dimanche ou les jours fériés\n\nC'est ce que nous vous offrons.\n\n• Un environnement de travail passionnant avec des collègues motivés\n\n• Un poste avec beaucoup de responsabilités personnelles\n\n• L'occasion d'apporter de nouvelles idées\n\n• Une culture de rétroaction ouverte et respectueuse\n\n• Formation interne et externe\n\n• Possibilités de carrière individuelles\n\n• Des rabais généreux sur nos produits\n\n• Chocolat sur le lieu de travail\n\n• Bonne accessibilité des sites\n\nPose-le. Fais grandir. Fais-le frais.\n\nÇa semble intéressant ? Alors appliquez-nous. Maria Kalfopoulos, directrice de magasin, +41 55 645 00 12, est à votre disposition pour toutes questions.\n\nNous demandons que vous compreniez que nous ne prenons pas en considération les agences de recrutement externes pour combler ce poste."
+    },
+    "slugByLocale": {
+      "de": "stv-filialleiter-chocolaterie-oerlikon-w-m-d-laderach-zurich",
+      "fr": "directeur-de-succursale-stv-chocolaterie-oerlikon-f-m-d-laderach-schweiz-ag-zurich"
+    },
+    "sector": "",
+    "expiredAt": "2026-08-28T05:21:21.113Z",
+    "previousSlugs": [
+      "stv-filialleiter-chocolaterie-oerlikon-w-m-d-laderach-zurich"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "stv-filialleiter-chocolaterie-oerlikon-w-m-d-laderach-zurich"
+      ],
+      "en": [
+        "stv-filialleiter-chocolaterie-oerlikon-w-m-d-laderach-zurich"
+      ],
+      "fr": [
+        "stv-filialleiter-chocolaterie-oerlikon-w-m-d-laderach-zurich"
+      ]
+    },
+    "salaryMin": 134000,
+    "salaryMax": 180500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67413612/stv-filialleiter-chocolaterie-oerlikon-w-m-d-",
+    "firstSeenAt": "2026-09-16T09:21:35.541Z"
   },
   {
     "slug": "vendeur-50-taux-variable-chocolaterie-fribourg-cdd-du-1er-octobre-a-dezembre-m-w-d-laderach-schweiz-ag-fribourg",

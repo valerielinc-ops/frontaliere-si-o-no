@@ -85,10 +85,15 @@ describe('jobsSourceRelay', () => {
     }
   });
 
-  it('declares private IAM invocation before application authentication', () => {
+  it('declares the CI service account as the only IAM invoker', () => {
     const source = readFileSync('functions/index.js', 'utf8');
+    const generator = readFileSync('scripts/generate-crawler-group-workflows.mjs', 'utf8');
+    const account = /SOURCE_RELAY_SERVICE_ACCOUNT\s*=\s*'([^']+)'/u.exec(generator)?.[1];
 
-    expect(source).toMatch(/export const jobsSourceRelay = onRequest\(\s*\{\s*invoker: 'private',/u);
+    expect(account).toBe('jobs-source-relay-ci@frontaliere-ticino.iam.gserviceaccount.com');
+    expect(source).toContain(`SOURCE_RELAY_INVOKER_SERVICE_ACCOUNT = '${account}'`);
+    // A bare 'private' makes each deploy empty the Cloud Run policy (#20279).
+    expect(source).toMatch(/export const jobsSourceRelay = onRequest\(\s*\{\s*invoker: \[SOURCE_RELAY_INVOKER_SERVICE_ACCOUNT\],/u);
   });
 
   it('returns 403 for a host outside the allowlist', async () => {
@@ -284,6 +289,95 @@ describe('jobsSourceRelay', () => {
 
     await expect(verifyGithubOidcToken('not-a-jwt', { fetchImpl })).rejects.toThrow('invalid_jwt_shape');
     expect(fetchImpl).not.toHaveBeenCalled();
+  });
+});
+
+describe('source relay auth rejection diagnostics', () => {
+  const jwt = (claims: Record<string, unknown>, header: Record<string, unknown> = { alg: 'RS256', kid: 'kid-x' }) => {
+    const enc = (value: unknown) => Buffer.from(JSON.stringify(value)).toString('base64url');
+    return `${enc(header)}.${enc(claims)}.c2ln`;
+  };
+  const future = Math.floor(Date.now() / 1000) + 600;
+  const good = {
+    iss: 'https://token.actions.githubusercontent.com',
+    aud: 'frontaliere-jobs-source-relay',
+    repository: 'nanakokyobashi-rgb/frontaliere-articles',
+    exp: future,
+  };
+
+  async function reject(authorization: string, fetchImpl: any = vi.fn(), extraHeaders: Record<string, string> = {}) {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      const handler = createJobsSourceRelayHandler({ fetchImpl });
+      const req: any = request(CHUR_URL, { authorization });
+      req.headers = { ...(req.headers || {}), ...(authorization ? { authorization } : {}), ...extraHeaders };
+      const res = responseRecorder();
+      await handler(req, res);
+      expect(res.statusCode).toBe(401);
+      const line = warn.mock.calls.map((call) => String(call[0])).find((text) => text.includes('jobsSourceRelayAuthRejected'));
+      expect(line).toBeTruthy();
+      return { entry: JSON.parse(line as string), raw: line as string };
+    } finally {
+      warn.mockRestore();
+    }
+  }
+
+  it('logs missing_authorization with the header presence flags', async () => {
+    const { entry } = await reject('', vi.fn(), { 'x-serverless-authorization': 'Bearer g' });
+    expect(entry).toMatchObject({
+      reason: 'missing_authorization',
+      authorizationPresent: false,
+      serverlessAuthorizationPresent: true,
+    });
+    expect(entry.headerNames).toContain('x-serverless-authorization');
+  });
+
+  it('verifies a correctly signed token with the default clock (regression: now=Date.now() was a number)', async () => {
+    const { generateKeyPairSync, sign } = await import('node:crypto');
+    const { publicKey, privateKey } = generateKeyPairSync('rsa', { modulusLength: 2048 });
+    const jwk = { ...publicKey.export({ format: 'jwk' }), kid: 'kid-valid' };
+    const fetchImpl = vi.fn(async () => ({ ok: true, status: 200, json: async () => ({ keys: [jwk] }) }));
+    const enc = (value: unknown) => Buffer.from(JSON.stringify(value)).toString('base64url');
+    const signingInput = `${enc({ alg: 'RS256', kid: 'kid-valid' })}.${enc(good)}`;
+    const signature = sign('RSA-SHA256', Buffer.from(signingInput), privateKey).toString('base64url');
+    await expect(verifyGithubOidcToken(`${signingInput}.${signature}`, { fetchImpl }))
+      .resolves.toMatchObject({ repository: 'nanakokyobashi-rgb/frontaliere-articles' });
+  });
+
+  it('logs bad_scheme, bad_iss, bad_aud and bad_repository with non-sensitive observed values', async () => {
+    expect((await reject('Basic abc')).entry).toMatchObject({ reason: 'bad_scheme', authorizationScheme: 'basic' });
+    const iss = await reject(`Bearer ${jwt({ ...good, iss: 'https://evil.example' })}`);
+    expect(iss.entry).toMatchObject({ reason: 'bad_iss', iss: 'https://evil.example', authorizationPresent: true });
+    const aud = await reject(`Bearer ${jwt({ ...good, aud: 'other-audience' })}`);
+    expect(aud.entry).toMatchObject({ reason: 'bad_aud', aud: 'other-audience' });
+    const repo = await reject(`Bearer ${jwt({ ...good, repository: 'someone/else', job_workflow_ref: 'someone/else/.github/workflows/x.yml@refs/heads/main' })}`);
+    expect(repo.entry).toMatchObject({ reason: 'bad_repository', repository: 'someone/else' });
+    expect(repo.entry.jobWorkflowRef).toContain('x.yml');
+  });
+
+  it('logs expired and never the token or signature', async () => {
+    const token = jwt({ ...good, exp: 1_000 });
+    const { entry, raw } = await reject(`Bearer ${token}`);
+    expect(entry).toMatchObject({ reason: 'expired', exp: 1000 });
+    expect(raw).not.toContain(token);
+    expect(raw).not.toContain(token.split('.')[2] + '"');
+  });
+
+  it('logs jwks_fetch_failed when the JWKS cannot be downloaded', async () => {
+    const fetchImpl = vi.fn(async () => { throw new TypeError('fetch failed'); });
+    const { entry } = await reject(`Bearer ${jwt(good, { alg: 'RS256', kid: 'kid-jwks-fail' })}`, fetchImpl);
+    expect(entry.reason).toBe('jwks_fetch_failed');
+  });
+
+  it('logs kid_unknown with the kid and key count, and bad_signature through a known key', async () => {
+    const { generateKeyPairSync } = await import('node:crypto');
+    const { publicKey } = generateKeyPairSync('rsa', { modulusLength: 2048 });
+    const jwk = { ...publicKey.export({ format: 'jwk' }), kid: 'kid-known' };
+    const fetchImpl = vi.fn(async () => ({ ok: true, status: 200, json: async () => ({ keys: [jwk] }) }));
+    const unknown = await reject(`Bearer ${jwt(good, { alg: 'RS256', kid: 'kid-unknown-1' })}`, fetchImpl);
+    expect(unknown.entry).toMatchObject({ reason: 'kid_unknown', kid: 'kid-unknown-1', jwksKeyCount: 1 });
+    const badSig = await reject(`Bearer ${jwt(good, { alg: 'RS256', kid: 'kid-known' })}`, fetchImpl);
+    expect(badSig.entry.reason).toBe('bad_signature');
   });
 });
 
@@ -620,5 +714,249 @@ describe('source relay crawler client', () => {
     expect(stadt).toContain('const DETAIL_DELAY_MS = 1_000;');
     expect(has).toContain('const DETAIL_DELAY_MS = 1_000;');
     expect(has).toContain('setTimeout(r, DETAIL_DELAY_MS)');
+  });
+});
+
+// #20279: the relay is also the different-egress path for the Workday CXS API
+// (POST listing, GET detail), kept as narrow as the three static sources.
+describe('jobsSourceRelay: Workday CXS (#20279)', () => {
+  const WD_LISTING = 'https://alcon.wd5.myworkdayjobs.com/wday/cxs/alcon/careers_alcon/jobs';
+  const WD_DETAIL = 'https://alcon.wd5.myworkdayjobs.com/wday/cxs/alcon/careers_alcon/job/Zurich/Engineer_R-1';
+  const LISTING_BODY = {
+    appliedFacets: { locationCountry: ['187134fccb084a0ea9b4b95f23890dbe'] },
+    limit: 20,
+    offset: 0,
+    searchText: '',
+  };
+
+  function postRequest(url: string, body: unknown) {
+    return { ...request(url, { method: 'POST' }), body };
+  }
+
+  it('allows the listing as POST and the detail as GET, and nothing else on the tenant', () => {
+    expect(parseAllowedRelayTarget(WD_LISTING)).toMatchObject({ methods: ['POST'], upstream: 'workday' });
+    expect(parseAllowedRelayTarget(WD_DETAIL)).toMatchObject({ methods: ['GET'], upstream: 'workday' });
+    for (const url of [
+      'https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon',
+      'https://alcon.wd5.myworkdayjobs.com/wday/cxs/alcon/careers_alcon/jobs?x=1',
+      'https://alcon.wd5.myworkdayjobs.com/wday/cxs/alcon/careers_alcon/jobs#frag',
+      'https://alcon.wd5.myworkdayjobs.com/wday/cxs/alcon/careers_alcon/admin',
+      'https://alcon.wd5.myworkdayjobs.com/wday/cxs/alcon/careers_alcon/job',
+      'https://alcon.wd5.myworkdayjobs.com/wday/cxs/alcon/careers_alcon/jobs/../../x',
+      'https://alcon.wd5.myworkdayjobs.com:8443/wday/cxs/alcon/careers_alcon/jobs',
+      'https://user@alcon.wd5.myworkdayjobs.com/wday/cxs/alcon/careers_alcon/jobs',
+      'http://alcon.wd5.myworkdayjobs.com/wday/cxs/alcon/careers_alcon/jobs',
+      'https://alcon.myworkdayjobs.com/wday/cxs/alcon/careers_alcon/jobs',
+      'https://evil.example/wday/cxs/alcon/careers_alcon/jobs',
+      'https://alcon.wd5.myworkdayjobs.com.evil.example/wday/cxs/alcon/careers_alcon/jobs',
+      'https://wd5.myworkdaysite.com/wday/cxs/alcon/careers_alcon/jobs',
+    ]) {
+      expect(parseAllowedRelayTarget(url), url).toBeNull();
+    }
+  });
+
+  it('forwards a validated listing body as POST and marks the response as upstream', async () => {
+    const fetchImpl = vi.fn(async () => new Response(JSON.stringify({ total: 1, jobPostings: [] }), {
+      status: 200,
+      headers: { 'content-type': 'application/json;charset=utf-8' },
+    }));
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const handler = authenticatedHandler(fetchImpl, { rateLimiter: { allow: () => true } });
+    const res = responseRecorder();
+
+    try {
+      await handler(postRequest(WD_LISTING, { ...LISTING_BODY }), res);
+    } finally {
+      logSpy.mockRestore();
+    }
+
+    expect(res.statusCode).toBe(200);
+    expect(res.headers['x-relay-source']).toBe('upstream');
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    const [calledUrl, init] = fetchImpl.mock.calls[0] as unknown as [URL, RequestInit];
+    expect(String(calledUrl)).toBe(WD_LISTING);
+    expect(init.method).toBe('POST');
+    expect(init.redirect).toBe('manual');
+    expect(JSON.parse(String(init.body))).toEqual(LISTING_BODY);
+    expect((init.headers as Record<string, string>)['Content-Type']).toBe('application/json');
+  });
+
+  it.each([
+    ['an unknown field', { ...LISTING_BODY, extra: 1 }],
+    ['an oversized limit', { ...LISTING_BODY, limit: 5000 }],
+    ['a negative offset', { ...LISTING_BODY, offset: -1 }],
+    ['a non-string facet value', { ...LISTING_BODY, appliedFacets: { locationCountry: [1] } }],
+    ['an array body', []],
+    ['an oversized searchText', { ...LISTING_BODY, searchText: 'x'.repeat(201) }],
+  ])('rejects %s with 400 before any upstream call', async (_label, body) => {
+    const fetchImpl = vi.fn();
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const handler = authenticatedHandler(fetchImpl as unknown as typeof fetch, { rateLimiter: { allow: () => true } });
+    const res = responseRecorder();
+    try {
+      await handler(postRequest(WD_LISTING, body), res);
+    } finally {
+      logSpy.mockRestore();
+    }
+    expect(res.statusCode).toBe(400);
+    expect(fetchImpl).not.toHaveBeenCalled();
+  });
+
+  it('keeps the method contract per target: no GET on the listing, no POST on a detail or a static source', async () => {
+    const fetchImpl = vi.fn();
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const handler = authenticatedHandler(fetchImpl as unknown as typeof fetch, { rateLimiter: { allow: () => true } });
+    try {
+      for (const req of [
+        request(WD_LISTING),
+        postRequest(WD_DETAIL, LISTING_BODY),
+        postRequest(CHUR_URL, LISTING_BODY),
+      ]) {
+        const res = responseRecorder();
+        await handler(req, res);
+        expect(res.statusCode).toBe(405);
+      }
+    } finally {
+      logSpy.mockRestore();
+    }
+    expect(fetchImpl).not.toHaveBeenCalled();
+  });
+
+  it('answers a tenant 429 with a distinct upstream-marked 429 whatever its content type', async () => {
+    const fetchImpl = vi.fn(async () => new Response('slow down', { status: 429, headers: { 'content-type': 'text/plain' } }));
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const handler = authenticatedHandler(fetchImpl, { rateLimiter: { allow: () => true } });
+    const res = responseRecorder();
+    try {
+      await handler(request(WD_DETAIL), res);
+    } finally {
+      logSpy.mockRestore();
+    }
+    expect(res.statusCode).toBe(429);
+    expect(res.body).toContain('upstream_rate_limited');
+    expect(res.headers['x-relay-source']).toBe('upstream');
+  });
+
+  it('never replays a POST against a redirect', async () => {
+    const fetchImpl = vi.fn(async () => new Response('', {
+      status: 307,
+      headers: { location: WD_LISTING },
+    }));
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const handler = authenticatedHandler(fetchImpl, { rateLimiter: { allow: () => true } });
+    const res = responseRecorder();
+    try {
+      await handler(postRequest(WD_LISTING, LISTING_BODY), res);
+    } finally {
+      logSpy.mockRestore();
+    }
+    expect(res.statusCode).toBe(403);
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+  });
+
+  it('keeps the Workday daily ledger separate from the three static sources', async () => {
+    const fetchImpl = vi.fn(async (input: URL | string) => new Response(
+      String(input).includes('myworkdayjobs') ? '{"ok":true}' : '<html></html>',
+      {
+        status: 200,
+        headers: { 'content-type': String(input).includes('myworkdayjobs') ? 'application/json' : 'text/html' },
+      },
+    ));
+    const exhausted = { isExhausted: () => true, tryAcquire: () => false };
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const handler = authenticatedHandler(fetchImpl as unknown as typeof fetch, {
+      rateLimiter: { allow: () => true },
+      workdayDailyUpstreamCap: exhausted,
+    });
+    const workday = responseRecorder();
+    const chur = responseRecorder();
+    try {
+      await handler(request(WD_DETAIL), workday);
+      await handler(request(CHUR_URL), chur);
+    } finally {
+      logSpy.mockRestore();
+    }
+    expect(workday.statusCode).toBe(429);
+    expect(workday.body).toContain('daily_cap');
+    expect(chur.statusCode).toBe(200);
+  });
+
+  it('keeps a single relay instance so the per-host and daily ledgers stay shared (#19723 contract)', () => {
+    const index = readFileSync('functions/index.js', 'utf8');
+    const start = index.indexOf('export const jobsSourceRelay = onRequest(');
+    const config = index.slice(start, index.indexOf('handleJobsSourceRelay', start));
+    expect(config).toContain('maxInstances: 1,');
+    expect(config).toContain('concurrency: 4,');
+  });
+
+  it('the client sends a POST through the relay with its body and reports an upstream response', async () => {
+    const relayFetch = vi.fn(async (input: URL | string) => {
+      if (String(input).startsWith('https://token.actions.githubusercontent.com/')) {
+        return new Response(JSON.stringify({ value: 'oidc' }), { status: 200 });
+      }
+      return new Response('{"total":0}', { status: 200, headers: { 'x-relay-source': 'upstream' } });
+    });
+    const result = await fetchSourceViaRelay(WD_LISTING, {
+      relayUrl: 'https://relay.example.run.app',
+      fetchImpl: relayFetch as unknown as typeof fetch,
+      env: RELAY_ENV,
+      method: 'POST',
+      body: JSON.stringify(LISTING_BODY),
+      maxAttempts: 1,
+    });
+    expect(result).toEqual({ status: 200, text: '{"total":0}', upstream: true });
+    const call = relayFetch.mock.calls.find(([input]) => String(input).startsWith('https://relay.example.run.app')) as unknown as [URL, RequestInit];
+    expect(call[1].method).toBe('POST');
+    expect(call[1].body).toBe(JSON.stringify(LISTING_BODY));
+    expect((call[1].headers as Record<string, string>)['Content-Type']).toBe('application/json');
+    expect(new URL(String(call[0])).searchParams.get('url')).toBe(WD_LISTING);
+  });
+});
+
+describe('source relay client: GitHub OIDC request host (#20279)', () => {
+  const REAL_HOST_URL = 'https://pipelinesghubeus22.actions.githubusercontent.com/abc123/_apis/distributedtask/hubs/Actions/plans/p/jobs/j/idtoken?api-version=2.0';
+  const WORKDAY_LISTING = 'https://alcon.wd5.myworkdayjobs.com/wday/cxs/alcon/careers_alcon/jobs';
+
+  it('accepts the regional runtime host of a hosted runner', async () => {
+    const fetchImpl = vi.fn(async (input: URL | string) => (
+      String(input).startsWith('https://pipelinesghubeus22.')
+        ? new Response(JSON.stringify({ value: 'oidc' }), { status: 200 })
+        : new Response('{"ok":1}', { status: 200, headers: { 'x-relay-source': 'upstream' } })
+    ));
+    const result = await fetchSourceViaRelay(WORKDAY_LISTING, {
+      relayUrl: 'https://relay.example.run.app',
+      fetchImpl: fetchImpl as unknown as typeof fetch,
+      env: { ACTIONS_ID_TOKEN_REQUEST_URL: REAL_HOST_URL, ACTIONS_ID_TOKEN_REQUEST_TOKEN: 'request-token' },
+      method: 'POST',
+      body: '{}',
+      maxAttempts: 1,
+    });
+    expect(result).toMatchObject({ status: 200, upstream: true });
+  });
+
+  it.each([
+    'https://evil.example/idtoken',
+    'https://actions.githubusercontent.com.evil.example/idtoken',
+    'http://pipelinesghubeus22.actions.githubusercontent.com/idtoken',
+    'https://user@pipelinesghubeus22.actions.githubusercontent.com/idtoken',
+    'https://pipelinesghubeus22.actions.githubusercontent.com:8443/idtoken',
+    'https://actions.githubusercontent.com/idtoken',
+    'https://evil.pipelinesghubeus22.actions.githubusercontent.com/idtoken',
+  ])('still refuses %s without sending the request token', async (requestUrl) => {
+    const fetchImpl = vi.fn();
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      const result = await fetchSourceViaRelay(WORKDAY_LISTING, {
+        relayUrl: 'https://relay.example.run.app',
+        fetchImpl: fetchImpl as unknown as typeof fetch,
+        env: { ACTIONS_ID_TOKEN_REQUEST_URL: requestUrl, ACTIONS_ID_TOKEN_REQUEST_TOKEN: 'request-token' },
+        method: 'POST',
+        body: '{}',
+      });
+      expect(result).toBeNull();
+    } finally {
+      warn.mockRestore();
+    }
+    expect(fetchImpl).not.toHaveBeenCalled();
   });
 });

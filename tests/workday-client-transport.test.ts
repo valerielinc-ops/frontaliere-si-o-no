@@ -505,102 +505,113 @@ describe('Workday JSON transport', () => {
     }
   });
 
-  it('recovers a rate-limited listing through the browser transport exactly once per tenant', async () => {
-    vi.useFakeTimers();
-    const directFetch = vi.fn().mockResolvedValue(new Response('', { status: 429 }));
-    const browserFallback = vi.fn()
-      .mockResolvedValueOnce({ total: 0, jobPostings: [] })
-      .mockRejectedValue(new Error('browser must not be retried for the same tenant'));
-    vi.stubGlobal('fetch', directFetch);
-    const context = createWorkdayRequestContext(API_BASE, {
-      browserFallback,
-      fallbackCooldownMs: 1_000,
-      rateLimitCircuitThreshold: 2,
-    });
-    const listing = { method: 'POST', body: '{}', retries: 3, retryBaseMs: 0 };
-
-    try {
-      const first = context.request(`${API_BASE}/jobs`, listing);
-      await vi.runAllTimersAsync();
-      await expect(first).resolves.toEqual({ total: 0, jobPostings: [] });
-      expect(directFetch).toHaveBeenCalledTimes(2);
-      expect(browserFallback).toHaveBeenCalledTimes(1);
-      expect(browserFallback).toHaveBeenCalledWith(expect.objectContaining({
-        url: `${API_BASE}/jobs`,
-        method: 'POST',
-        body: '{}',
-      }));
-
-      const second = context.request(`${API_BASE}/jobs`, listing);
-      const rejection = expect(second).rejects.toBeInstanceOf(WorkdayRateLimitError);
-      await vi.runAllTimersAsync();
-      await rejection;
-      expect(browserFallback).toHaveBeenCalledTimes(1);
-    } finally {
-      await context.close();
-      vi.useRealTimers();
-    }
-  });
-
-  it('keeps the typed rate-limit error when the browser cannot recover the listing', async () => {
-    vi.useFakeTimers();
-    const directFetch = vi.fn().mockResolvedValue(new Response('', { status: 429 }));
-    const browserFallback = vi.fn().mockRejectedValue(new Error('browser blocked'));
-    vi.stubGlobal('fetch', directFetch);
-    const context = createWorkdayRequestContext(API_BASE, {
-      browserFallback,
-      fallbackCooldownMs: 1_000,
-      rateLimitCircuitThreshold: 2,
-    });
-
-    try {
-      const pending = context.request(`${API_BASE}/jobs`, {
-        method: 'POST', body: '{}', retries: 3, retryBaseMs: 0,
-      });
-      const rejection = expect(pending).rejects.toMatchObject({
-        name: 'WorkdayRateLimitError',
-        statusCode: 429,
-        circuitOpen: true,
-      });
-      await vi.runAllTimersAsync();
-      await rejection;
-      expect(browserFallback).toHaveBeenCalledTimes(1);
-    } finally {
-      await context.close();
-      vi.useRealTimers();
-    }
-  });
-
-  it('opens a bounded circuit for 429 without Retry-After and never repeats via browser egress', async () => {
-    vi.useFakeTimers();
+  it.each([
+    { kind: 'listing', url: `${API_BASE}/jobs`, requestOptions: { method: 'POST', body: '{}' } },
+    { kind: 'detail', url: `${API_BASE}/job/Zurich/Swiss_R3`, requestOptions: { method: 'GET' } },
+  ])('does not use browser fallback for a $kind after two direct 429s', async ({ url, requestOptions }) => {
     const directFetch = vi.fn().mockResolvedValue(new Response('', { status: 429 }));
     const browserFallback = vi.fn().mockResolvedValue({ recovered: true });
     vi.stubGlobal('fetch', directFetch);
     const context = createWorkdayRequestContext(API_BASE, {
       browserFallback,
-      fallbackCooldownMs: 60_000,
-      rateLimitCircuitThreshold: 2,
+      fallbackCooldownMs: 0,
+      egressStateDir: null,
     });
 
     try {
-      const pending = context.request(`${API_BASE}/job/Zurich/Swiss_R1`, {
-        retries: 3,
+      for (const detail of ['First_R1', 'Second_R2']) {
+        await expect(context.request(`${API_BASE}/job/Zurich/${detail}`, {
+          retries: 0,
+          retryBaseMs: 0,
+        })).rejects.toBeInstanceOf(WorkdayRateLimitError);
+      }
+
+      await expect(context.request(url, {
+        ...requestOptions,
+        retries: 0,
         retryBaseMs: 0,
-      });
-      const rejection = expect(pending).rejects.toMatchObject({
+      })).rejects.toMatchObject({
         name: 'WorkdayRateLimitError',
-        statusCode: 429,
-        consecutiveFailures: 2,
         circuitOpen: true,
-        retryExhausted: true,
       });
-      await vi.runAllTimersAsync();
-      await rejection;
       expect(directFetch).toHaveBeenCalledTimes(2);
       expect(browserFallback).not.toHaveBeenCalled();
     } finally {
       await context.close();
-      vi.useRealTimers();
+    }
+  });
+
+  it('opens the tenant circuit when browser fallback returns a Workday 429', async () => {
+    const directFetch = vi.fn().mockRejectedValue(new TypeError('fetch failed'));
+    const browserFallback = vi.fn().mockRejectedValue(new WorkdayRateLimitError(
+      `${API_BASE}/jobs`,
+      { consecutiveFailures: 1, retryAfterMs: 5_000, circuitOpen: true },
+    ));
+    vi.stubGlobal('fetch', directFetch);
+    const context = createWorkdayRequestContext(API_BASE, {
+      browserFallback,
+      fallbackCooldownMs: 0,
+      egressStateDir: null,
+    });
+
+    try {
+      const firstError = await context.request(`${API_BASE}/jobs`, {
+        method: 'POST', body: '{}', retries: 0, retryBaseMs: 0,
+      }).catch((error: unknown) => error);
+      expect(firstError).toMatchObject({
+        name: 'WorkdayRateLimitError',
+        circuitOpen: true,
+      });
+      expect((firstError as WorkdayRateLimitError).retryAfterMs).toBeGreaterThan(0);
+
+      await expect(context.request(`${API_BASE}/job/Zurich/Swiss_R1`, {
+        retries: 0,
+        retryBaseMs: 0,
+      })).rejects.toMatchObject({
+        name: 'WorkdayRateLimitError',
+        consecutiveFailures: 2,
+        circuitOpen: true,
+      });
+      expect(directFetch).toHaveBeenCalledOnce();
+      expect(browserFallback).toHaveBeenCalledOnce();
+    } finally {
+      await context.close();
+    }
+  });
+
+  it('opens the tenant circuit when browser 429 follows an exhausted direct 503', async () => {
+    const directFetch = vi.fn().mockResolvedValue(new Response('', { status: 503 }));
+    const browserFallback = vi.fn().mockRejectedValue(new WorkdayRateLimitError(
+      `${API_BASE}/jobs`,
+      { consecutiveFailures: 1, retryAfterMs: 5_000, circuitOpen: true },
+    ));
+    vi.stubGlobal('fetch', directFetch);
+    const context = createWorkdayRequestContext(API_BASE, {
+      browserFallback,
+      fallbackCooldownMs: 0,
+      egressStateDir: null,
+    });
+
+    try {
+      await expect(context.request(`${API_BASE}/jobs`, {
+        method: 'POST', body: '{}', retries: 0, retryBaseMs: 0,
+      })).rejects.toMatchObject({
+        name: 'WorkdayRateLimitError',
+        consecutiveFailures: 2,
+        circuitOpen: true,
+      });
+      await expect(context.request(`${API_BASE}/job/Zurich/Swiss_R1`, {
+        retries: 0,
+        retryBaseMs: 0,
+      })).rejects.toMatchObject({
+        name: 'WorkdayRateLimitError',
+        consecutiveFailures: 2,
+        circuitOpen: true,
+      });
+      expect(directFetch).toHaveBeenCalledOnce();
+      expect(browserFallback).toHaveBeenCalledOnce();
+    } finally {
+      await context.close();
     }
   });
 
@@ -662,32 +673,34 @@ describe('Workday JSON transport', () => {
     }
   });
 
-  it('carries browser Retry-After to the next queued tenant request', async () => {
+  it('opens the tenant circuit and carries browser Retry-After after a connection failure', async () => {
     vi.useFakeTimers();
     vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
     const directFetch = vi.fn().mockRejectedValue(new TypeError('fetch failed'));
     vi.stubGlobal('fetch', directFetch);
     const { page, browser } = browserTransport({ recovered: true });
-    page.evaluate
-      .mockResolvedValueOnce({ status: 429, retryAfter: '30', body: '' })
-      .mockResolvedValueOnce({ status: 200, body: JSON.stringify({ recovered: true }) });
+    page.evaluate.mockResolvedValueOnce({ status: 429, retryAfter: '30', body: '' });
     const context = createWorkdayRequestContext(API_BASE);
 
     try {
-      const first = context.request(`${API_BASE}/job/Zurich/Swiss_R1`);
-      await expect(first).rejects.toMatchObject({
+      await expect(context.request(`${API_BASE}/job/Zurich/Swiss_R1`)).rejects.toMatchObject({
         name: 'WorkdayRateLimitError',
         statusCode: 429,
+        retryAfterMs: 30_000,
+        consecutiveFailures: 2,
+        circuitOpen: true,
       });
       expect(page.evaluate).toHaveBeenCalledOnce();
 
-      const second = context.request(`${API_BASE}/job/Zurich/Swiss_R2`);
-      await vi.advanceTimersByTimeAsync(29_999);
+      await expect(context.request(`${API_BASE}/job/Zurich/Swiss_R2`)).rejects.toMatchObject({
+        name: 'WorkdayRateLimitError',
+        statusCode: 429,
+        retryAfterMs: 30_000,
+        consecutiveFailures: 2,
+        circuitOpen: true,
+      });
+      expect(directFetch).toHaveBeenCalledOnce();
       expect(page.evaluate).toHaveBeenCalledOnce();
-
-      await vi.advanceTimersByTimeAsync(1);
-      await expect(second).resolves.toEqual({ recovered: true });
-      expect(page.evaluate).toHaveBeenCalledTimes(2);
     } finally {
       await context.close();
       expect(browser.close).toHaveBeenCalledOnce();
@@ -695,36 +708,35 @@ describe('Workday JSON transport', () => {
     }
   });
 
-  it('preserves browser 429 metadata after direct retry exhaustion', async () => {
+  it('opens the tenant circuit when browser 429 follows direct retry exhaustion', async () => {
     vi.useFakeTimers();
     vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
     const directFetch = vi.fn().mockResolvedValue(new Response('', { status: 503 }));
     vi.stubGlobal('fetch', directFetch);
     const { page, browser } = browserTransport({ recovered: true });
-    page.evaluate
-      .mockResolvedValueOnce({ status: 429, retryAfter: '30', body: '' })
-      .mockResolvedValueOnce({ status: 200, body: JSON.stringify({ recovered: true }) });
+    page.evaluate.mockResolvedValueOnce({ status: 429, retryAfter: '30', body: '' });
     const context = createWorkdayRequestContext(API_BASE);
 
     try {
-      const first = context.request(`${API_BASE}/job/Zurich/Swiss_R1`);
-      await expect(first).rejects.toMatchObject({
+      await expect(context.request(`${API_BASE}/job/Zurich/Swiss_R1`)).rejects.toMatchObject({
         name: 'WorkdayRateLimitError',
         statusCode: 429,
         status: 429,
         retryAfterMs: 30_000,
+        consecutiveFailures: 2,
+        circuitOpen: true,
       });
       expect(page.evaluate).toHaveBeenCalledOnce();
 
-      const second = context.request(`${API_BASE}/job/Zurich/Swiss_R2`);
-      await vi.advanceTimersByTimeAsync(29_999);
+      await expect(context.request(`${API_BASE}/job/Zurich/Swiss_R2`)).rejects.toMatchObject({
+        name: 'WorkdayRateLimitError',
+        statusCode: 429,
+        retryAfterMs: 30_000,
+        consecutiveFailures: 2,
+        circuitOpen: true,
+      });
       expect(directFetch).toHaveBeenCalledOnce();
       expect(page.evaluate).toHaveBeenCalledOnce();
-
-      await vi.advanceTimersByTimeAsync(1);
-      await expect(second).resolves.toEqual({ recovered: true });
-      expect(directFetch).toHaveBeenCalledTimes(2);
-      expect(page.evaluate).toHaveBeenCalledTimes(2);
     } finally {
       await context.close();
       expect(browser.close).toHaveBeenCalledOnce();

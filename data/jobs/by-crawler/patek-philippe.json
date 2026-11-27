@@ -1,7 +1,7 @@
 {
   "crawlerKey": "patek-philippe",
-  "assembledAt": "2026-11-26T21:36:38.532Z",
-  "runId": "45896122190",
+  "assembledAt": "2026-11-27T09:30:13.711Z",
+  "runId": "45971284308",
   "jobs": [
     {
       "id": "patek-philippe-d20884e1117f",
@@ -34,7 +34,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Atelier-Bracelet-%28HF%29/1367485555/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:36:00.547Z",
+      "crawledAt": "2026-11-27T09:29:19.701Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -96,8 +96,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-04T21:36:00.547Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-04T09:29:19.701Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-responsable-atelier-bracelet-%28hf%29/1367485555"
     },
     {
       "id": "patek-philippe-5b93bf4d52d5",
@@ -130,7 +131,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Archiviste-%28HF%29/1376076855/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:35:59.854Z",
+      "crawledAt": "2026-11-27T09:29:19.200Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -180,8 +181,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:35:59.854Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-04T09:29:19.200Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-archiviste-%28hf%29/1376076855"
     },
     {
       "id": "patek-philippe-39e490920670",
@@ -195,12 +197,12 @@
       "company": "Patek Philippe",
       "companyKey": "patek-philippe",
       "companyDomain": "patek.com",
-      "title": "Horloger Régleur",
+      "title": "Horloger Restaurateur",
       "titleByLocale": {
         "it": "Restauratore di orologi (M/F)",
         "en": "Watchmaker Restaurateur (M/F)",
         "de": "Uhrmacher Restaurateur (M/W)",
-        "fr": "Horloger Régleur"
+        "fr": "Horloger Restaurateur"
       },
       "description": "Mission\n\nDans le cadre de cette fonction, rattachée à la Division Service Client International, vous aurez la responsabilité de réaliser les opérations de réglage sur les montres historiques (produites entre 1839 et 1970) lors de leur restauration.\n\nResponsabilités\n\n• Réaliser les diagnostics techniques sur la partie réglage.\n\n• Assurer la mise en marche et régler les balanciers avec spiraux plats et Breguet en garantissant un niveau de qualité optimal dans le respect des processus d'assemblage et de contrôle.\n\n• Garantir la conformité des fonctions d’achevage.\n\n• Assurer le contrôle esthétique, technique et dimensionnel de la partie réglage afin de répondre à nos normes qualité.\n\nProfil recherché\n\n• CFC d’Horloger Rhabilleur ou équivalent\n\n• Expérience impérative dans le rhabillage de produits horlogers haut de gamme.\n\n• Maîtrise des opérations de réglage impérative.\n\n• Excellent sens de l’analyse, rigueur et précision.\n\n• Capacité à travailler en binôme, coopération et entraide.\n\n• Aisance à communiquer de manière constructive et capacité à se remettre en question.\n\nRéférence du poste\n\n3608",
       "descriptionByLocale": {
@@ -211,10 +213,10 @@
       },
       "location": "Plan-Les-Ouates",
       "canton": "GE",
-      "url": "https://careers.patek.com/job/Plan-Les-Ouates-Horloger-R%C3%A9gleur/1351663055/",
+      "url": "https://careers.patek.com/job/Plan-Les-Ouates-Horloger-Restaurateur/1351663055/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:35:59.339Z",
+      "crawledAt": "2026-11-27T09:29:18.689Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -231,20 +233,22 @@
       "datePosted": "2026-09-01T02:00:00Z",
       "postedDate": "2026-09-01T02:00:00Z",
       "postingDateSource": "reported",
-      "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Horloger-R%C3%A9gleur/1351663055/",
+      "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Horloger-Restaurateur/1351663055/",
       "jobReqId": "1351663055",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates",
         "horloger-regleur-h-f-patek-philippe-plan-les-ouates",
-        "horloger-regleur-patek-philippe-plan-les-ouates"
+        "horloger-regleur-patek-philippe-plan-les-ouates",
+        "horloger-restaurateur-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates",
           "horloger-regleur-h-f-patek-philippe-plan-les-ouates",
-          "horloger-regleur-patek-philippe-plan-les-ouates"
+          "horloger-regleur-patek-philippe-plan-les-ouates",
+          "horloger-restaurateur-patek-philippe-plan-les-ouates"
         ]
       },
       "firstSeenAt": "2026-10-14T21:19:09.778Z",
@@ -262,8 +266,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:35:59.339Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:29:18.689Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-horloger-restaurateur/1351663055"
     },
     {
       "id": "patek-philippe-e877682411f0",
@@ -296,7 +301,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Horloger-Complications-%28HF%29/1376609755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:35:58.826Z",
+      "crawledAt": "2026-11-27T09:29:18.050Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -346,8 +351,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:35:58.826Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-09T09:29:18.050Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-horloger-complications-%28hf%29/1376609755"
     },
     {
       "id": "patek-philippe-799539f36190",
@@ -380,7 +386,7 @@
       "url": "https://careers.patek.com/job/La-Chaux-de-Fonds-Apprenti-Termineur-en-Habillage-Horloger-%28HF%29/1368154355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:35:58.310Z",
+      "crawledAt": "2026-11-27T09:29:17.550Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
@@ -432,8 +438,9 @@
       "postalCode": "2300",
       "streetAddress": "La Chaux-de-Fonds",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:35:58.310Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:29:17.550Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/la-chaux-de-fonds-apprenti-termineur-en-habillage-horloger-%28hf%29/1368154355"
     },
     {
       "id": "patek-philippe-e20c4339d889",
@@ -466,7 +473,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Constructeur-Mouvement-Am%C3%A9lioration-Continue-%28HF%29/1372806355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:35:57.753Z",
+      "crawledAt": "2026-11-27T09:29:17.054Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -516,8 +523,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T21:35:57.753Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-12T09:29:17.054Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-constructeur-mouvement-am%c3%a9lioration-continue-%28hf%29/1372806355"
     },
     {
       "id": "patek-philippe-a6df9c4e8753",
@@ -550,7 +558,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-Process-Performance-Industrielle-%28HF%29/1368593655/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:35:57.205Z",
+      "crawledAt": "2026-11-27T09:29:16.403Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -600,8 +608,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T21:35:57.205Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-13T09:29:16.403Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-charg%c3%a9-de-process-performance-industrielle-%28hf%29/1368593655"
     },
     {
       "id": "patek-philippe-b73797dde522",
@@ -634,7 +643,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-Process-Vie-S%C3%A9rie-%28HF%29/1372981955/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:35:56.611Z",
+      "crawledAt": "2026-11-27T09:29:15.854Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -684,8 +693,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T21:35:56.611Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-13T09:29:15.854Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-charg%c3%a9-de-process-vie-s%c3%a9rie-%28hf%29/1372981955"
     },
     {
       "id": "patek-philippe-89ee1f77d199",
@@ -718,7 +728,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Responsable-Qualit%C3%A9-%28HF%29/1364655255/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:35:55.871Z",
+      "crawledAt": "2026-11-27T09:29:15.357Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -789,92 +799,9 @@
       "postalCode": "2610",
       "streetAddress": "Saint-Imier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:35:55.871Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "patek-philippe-3033fec7cd9c",
-      "slug": "apprendista-tecnico-della-qualita-in-microtecnica-m-f-patek-philippe-plan-les-ouates",
-      "slugByLocale": {
-        "it": "apprendista-tecnico-della-qualita-in-microtecnica-m-f-patek-philippe-plan-les-ouates",
-        "en": "microtechnology-quality-technician-apprentice-m-f-patek-philippe-plan-les-ouates",
-        "de": "auszubildende-qualisticien-und-mikrotechnik-m-w-patek-philippe-plan-les-ouates",
-        "fr": "apprenti-qualiticien-en-microtechnique-h-f-patek-philippe-plan-les-ouates"
-      },
-      "company": "Patek Philippe",
-      "companyKey": "patek-philippe",
-      "companyDomain": "patek.com",
-      "title": "Apprenti Qualiticien en microtechnique (H/F)",
-      "titleByLocale": {
-        "it": "Apprendista tecnico della qualità in microtecnica (M/F)",
-        "en": "Microtechnology Quality Technician Apprentice (M/F)",
-        "de": "Auszubildende Qualisticien und Mikrotechnik (M/W)",
-        "fr": "Apprenti Qualiticien en microtechnique (H/F)"
-      },
-      "description": "Mission\n\nVous souhaitez vous investir dans une formation exigeante avec la chance de la réaliser dans le domaine de l’horlogerie haut de gamme et êtes motivé pour suivre une formation duale d’une durée de 4 ans à l’issue de laquelle vous obtiendrez un CFC de Qualiticien en microtechnique.\n\nResponsabilités\n\nLe Qualiticien en microtechnique exerce son activité au sein d'ateliers de production ou d’assemblage. Il contribue à garantir la qualité et la conformité des pièces produites ainsi que la maîtrise et l’amélioration des procédés de fabrication.\n\nIl possède des connaissances poussées des outils et méthodes de contrôle dimensionnel et esthétique, sait établir les gammes de contrôle adéquates et est capable de mettre sous contrôle un parc d’appareils de mesures.\n\nSa maîtrise des outils statistiques et des méthodologies Qualité lui permet de participer ou de conduire des démarches de résolution de problèmes et d’amélioration, autant au niveau des produits que des processus.\n\nEncadré par des formateurs expérimentés, cette formation vous permettra d’envisager de belles perspectives d’avenir grâce à l’apprentissage d’activités multiples, variées et pluridisciplinaires.\n\nProfil recherché\n\n• Aptitudes pour les mathématiques et les statistiques.\n\n• Aisance rédactionnelle.\n\n• Esprit logique, analytique et de synthèse.\n\n• Bonnes capacités en communication.\n\n• A l’aise dans les contacts humains.\n\n• Rigueur.\n\nLe dossier complet devra contenir un curriculum vitae, une lettre de motivation ainsi que les bulletins scolaires des 3 dernières années.\n\nRéférence du poste\n\n3838\n\nDélai de postulation\n\nCette publication est en ligne pour une durée limitée. Nous vous encourageons à postuler dans les meilleurs délais.",
-      "descriptionByLocale": {
-        "it": "Missione\n\nSi desidera investire in una formazione impegnativa con la possibilità di realizzarlo nel campo dell'orologeria di fascia alta e sono motivati a prendere un corso di formazione duale di 4 anni dopo di che si otterrà un CFC di Qualistician in microtecnica.\n\nresponsabilità\n\nIl Qualisticiano in microtecnica opera in laboratori di produzione o assemblaggio. Aiuta a garantire la qualità e la conformità delle parti prodotte e il controllo e il miglioramento dei processi produttivi.\n\nHa una vasta conoscenza di strumenti e metodi di controllo dimensionali ed estetici, è in grado di stabilire gli intervalli di controllo appropriati ed è in grado di controllare una flotta di dispositivi di misura.\n\nLa sua padronanza di strumenti statistici e metodologie Qualità permette di partecipare o condurre approcci alla soluzione e al miglioramento dei problemi, sia nei prodotti che nei processi.\n\nScatolato da formatori esperti, questa formazione vi permetterà di considerare un buon futuro attraverso l'apprendimento di attività multiple, varie e multidisciplinari.\n\nProfilo ricercato\n\n• Competenze per matematica e statistica.\n\n• Esperienza di scrittura.\n\n• Logico, analitico e sintetico.\n\n• Buone capacità di comunicazione.\n\n• Facile nei contatti umani.\n\n• Rigor.\n\nIl file completo deve contenere un curriculum vitae, una lettera di copertura e i bollettini scolastici per gli ultimi 3 anni.\n\nRiferimenti\n\n3838\n\nTempo di pubblicazione\n\nQuesta pubblicazione è online per un tempo limitato. Ti invitiamo a candidarti il prima possibile.",
-        "en": "Mission\n\nYou want to invest in a demanding training with the chance to realize it in the field of high-end watchmaking and are motivated to take a dual training course of 4 years after which you will obtain a CFC of Qualistician in microtechnics.\n\nResponsibilities\n\nThe Qualistician in microtechnics operates in production or assembly workshops. It helps to ensure the quality and conformity of the parts produced and the control and improvement of manufacturing processes.\n\nHe has extensive knowledge of dimensional and aesthetic control tools and methods, is able to establish the appropriate control ranges and is able to control a fleet of measuring devices.\n\nIts mastery of statistical tools and methodologies Quality allows it to participate or lead approaches to problem solving and improvement, both in products and processes.\n\nBoxed by experienced trainers, this training will allow you to consider a good future through the learning of multiple, varied and multidisciplinary activities.\n\nProfile sought\n\n• Skills for mathematics and statistics.\n\n• Writing experience.\n\n• Logical, analytical and synthetic.\n\n• Good communication skills.\n\n• Easy in human contacts.\n\n• Rigor.\n\nThe complete file must contain a curriculum vitae, a cover letter and the school bulletins for the last 3 years.\n\nPost reference\n\n3838\n\nPosting time\n\nThis publication is online for a limited time. We encourage you to apply as soon as possible.",
-        "de": "Mission\n\nSie möchten in eine anspruchsvolle Ausbildung mit der Chance investieren, diese im Bereich der High-End-Uhrmacherei zu realisieren und sind motiviert, eine duale Ausbildung von 4 Jahren zu absolvieren, nach der Sie einen CFC Qualistician in Mikrotechnik erhalten.\n\nZuständigkeiten\n\nDer Qualistician in Mikrotechnik arbeitet in Produktions- oder Montagewerkstätten. Es trägt dazu bei, die Qualität und Konformität der produzierten Teile sowie die Kontrolle und Verbesserung der Herstellungsprozesse zu gewährleisten.\n\nEr verfügt über umfangreiche Kenntnisse der dimensionalen und ästhetischen Steuerungswerkzeuge und -methoden, ist in der Lage, die entsprechenden Steuerungsbereiche festzulegen und eine Flotte von Messgeräten zu steuern.\n\nSeine Beherrschung der statistischen Werkzeuge und Methoden Qualität ermöglicht es ihm, an Ansätzen zur Problemlösung und -verbesserung sowohl in Produkten als auch in Prozessen teilzunehmen oder zu führen.\n\nDieses Training, das von erfahrenen Trainern angeboten wird, ermöglicht es Ihnen, eine gute Zukunft durch das Erlernen mehrerer, vielfältiger und multidisziplinärer Aktivitäten in Betracht zu ziehen.\n\nProfil gesucht\n\n• Fähigkeiten für Mathematik und Statistik.\n\n• Schreiberfahrung.\n\n• Logisch, analytische und synthetische.\n\n• Gute Kommunikationsfähigkeiten.\n\n• Einfach in menschlichen Kontakten.\n\n• Rigor.\n\nDie vollständige Akte muss einen Lebenslauf, ein Anschreiben und die Schulbulletins der letzten 3 Jahre enthalten.\n\nPostleitzahl\n\n3838\n\nPostzeit\n\nDiese Publikation ist für eine begrenzte Zeit online. Wir empfehlen Ihnen, sich so schnell wie möglich zu bewerben.",
-        "fr": "Mission\n\nVous souhaitez vous investir dans une formation exigeante avec la chance de la réaliser dans le domaine de l’horlogerie haut de gamme et êtes motivé pour suivre une formation duale d’une durée de 4 ans à l’issue de laquelle vous obtiendrez un CFC de Qualiticien en microtechnique.\n\nResponsabilités\n\nLe Qualiticien en microtechnique exerce son activité au sein d'ateliers de production ou d’assemblage. Il contribue à garantir la qualité et la conformité des pièces produites ainsi que la maîtrise et l’amélioration des procédés de fabrication.\n\nIl possède des connaissances poussées des outils et méthodes de contrôle dimensionnel et esthétique, sait établir les gammes de contrôle adéquates et est capable de mettre sous contrôle un parc d’appareils de mesures.\n\nSa maîtrise des outils statistiques et des méthodologies Qualité lui permet de participer ou de conduire des démarches de résolution de problèmes et d’amélioration, autant au niveau des produits que des processus.\n\nEncadré par des formateurs expérimentés, cette formation vous permettra d’envisager de belles perspectives d’avenir grâce à l’apprentissage d’activités multiples, variées et pluridisciplinaires.\n\nProfil recherché\n\n• Aptitudes pour les mathématiques et les statistiques.\n\n• Aisance rédactionnelle.\n\n• Esprit logique, analytique et de synthèse.\n\n• Bonnes capacités en communication.\n\n• A l’aise dans les contacts humains.\n\n• Rigueur.\n\nLe dossier complet devra contenir un curriculum vitae, une lettre de motivation ainsi que les bulletins scolaires des 3 dernières années.\n\nRéférence du poste\n\n3838\n\nDélai de postulation\n\nCette publication est en ligne pour une durée limitée. Nous vous encourageons à postuler dans les meilleurs délais."
-      },
-      "location": "Plan-Les-Ouates",
-      "canton": "GE",
-      "url": "https://careers.patek.com/job/Plan-Les-Ouates-Apprenti-Qualiticien-en-microtechnique-%28HF%29/1377518855/",
-      "source": "Patek Philippe Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:35:55.360Z",
-      "hiringOrganization": "Patek Philippe SA",
-      "addressLocality": "Plan-Les-Ouates",
-      "postalCode": "1228",
-      "streetAddress": "Chemin du Pont-du-Centenaire 141",
-      "addressRegion": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "employmentType": "INTERN",
-      "experienceLevel": "intern",
-      "sector": "Luxury / Watchmaking (Manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-18T00:00:00Z",
-      "postedDate": "2026-11-18T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Apprenti-Qualiticien-en-microtechnique-%28HF%29/1377518855/",
-      "jobReqId": "1377518855",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "apprenti-qualiticien-en-microtechnique-h-f-patek-philippe-plan-les-ouates"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenti-qualiticien-en-microtechnique-h-f-patek-philippe-plan-les-ouates"
-        ],
-        "en": [
-          "apprenti-qualiticien-en-microtechnique-h-f-patek-philippe-plan-les-ouates"
-        ],
-        "de": [
-          "apprenti-qualiticien-en-microtechnique-h-f-patek-philippe-plan-les-ouates"
-        ]
-      },
-      "firstSeenAt": "2026-11-18T21:21:44.771Z",
-      "salaryMin": 51100,
-      "salaryMax": 77500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51100,
-          "maxValue": 77500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-02T21:35:55.360Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:29:15.357Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/saint-imier-responsable-qualit%c3%a9-%28hf%29/1364655255"
     },
     {
       "id": "patek-philippe-2c5223aabf96",
@@ -907,7 +834,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Apprenti-Horloger-de-Production-%28HF%29/1377523455/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:35:54.574Z",
+      "crawledAt": "2026-11-27T09:29:14.841Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -957,8 +884,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-02T21:35:54.574Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-02T09:29:14.841Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-apprenti-horloger-de-production-%28hf%29/1377523455"
     },
     {
       "id": "patek-philippe-780b6e8a8080",
@@ -991,7 +919,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Apprenti-Termineur-en-Habillage-Horloger-%28HF%29/1377520455/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:35:54.051Z",
+      "crawledAt": "2026-11-27T09:29:14.308Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -1041,8 +969,94 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-02T21:35:54.051Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-02T09:29:14.308Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-apprenti-termineur-en-habillage-horloger-%28hf%29/1377520455"
+    },
+    {
+      "id": "patek-philippe-3033fec7cd9c",
+      "slug": "apprendista-tecnico-della-qualita-in-microtecnica-m-f-patek-philippe-plan-les-ouates",
+      "slugByLocale": {
+        "it": "apprendista-tecnico-della-qualita-in-microtecnica-m-f-patek-philippe-plan-les-ouates",
+        "en": "microtechnology-quality-technician-apprentice-m-f-patek-philippe-plan-les-ouates",
+        "de": "auszubildende-qualisticien-und-mikrotechnik-m-w-patek-philippe-plan-les-ouates",
+        "fr": "apprenti-qualiticien-en-microtechnique-h-f-patek-philippe-plan-les-ouates"
+      },
+      "company": "Patek Philippe",
+      "companyKey": "patek-philippe",
+      "companyDomain": "patek.com",
+      "title": "Apprenti Qualiticien en microtechnique (H/F)",
+      "titleByLocale": {
+        "it": "Apprendista tecnico della qualità in microtecnica (M/F)",
+        "en": "Microtechnology Quality Technician Apprentice (M/F)",
+        "de": "Auszubildende Qualisticien und Mikrotechnik (M/W)",
+        "fr": "Apprenti Qualiticien en microtechnique (H/F)"
+      },
+      "description": "Mission\n\nVous souhaitez vous investir dans une formation exigeante avec la chance de la réaliser dans le domaine de l’horlogerie haut de gamme et êtes motivé pour suivre une formation duale d’une durée de 4 ans à l’issue de laquelle vous obtiendrez un CFC de Qualiticien en microtechnique.\n\nResponsabilités\n\nLe Qualiticien en microtechnique exerce son activité au sein d'ateliers de production ou d’assemblage. Il contribue à garantir la qualité et la conformité des pièces produites ainsi que la maîtrise et l’amélioration des procédés de fabrication.\n\nIl possède des connaissances poussées des outils et méthodes de contrôle dimensionnel et esthétique, sait établir les gammes de contrôle adéquates et est capable de mettre sous contrôle un parc d’appareils de mesures.\n\nSa maîtrise des outils statistiques et des méthodologies Qualité lui permet de participer ou de conduire des démarches de résolution de problèmes et d’amélioration, autant au niveau des produits que des processus.\n\nEncadré par des formateurs expérimentés, cette formation vous permettra d’envisager de belles perspectives d’avenir grâce à l’apprentissage d’activités multiples, variées et pluridisciplinaires.\n\nProfil recherché\n\n• Aptitudes pour les mathématiques et les statistiques.\n\n• Aisance rédactionnelle.\n\n• Esprit logique, analytique et de synthèse.\n\n• Bonnes capacités en communication.\n\n• A l’aise dans les contacts humains.\n\n• Rigueur.\n\nLe dossier complet devra contenir un curriculum vitae, une lettre de motivation ainsi que les bulletins scolaires des 3 dernières années.\n\nRéférence du poste\n\n3838\n\nDélai de postulation\n\nCette publication est en ligne pour une durée limitée. Nous vous encourageons à postuler dans les meilleurs délais.",
+      "descriptionByLocale": {
+        "it": "Missione\n\nSi desidera investire in una formazione impegnativa con la possibilità di realizzarlo nel campo dell'orologeria di fascia alta e sono motivati a prendere un corso di formazione duale di 4 anni dopo di che si otterrà un CFC di Qualistician in microtecnica.\n\nresponsabilità\n\nIl Qualisticiano in microtecnica opera in laboratori di produzione o assemblaggio. Aiuta a garantire la qualità e la conformità delle parti prodotte e il controllo e il miglioramento dei processi produttivi.\n\nHa una vasta conoscenza di strumenti e metodi di controllo dimensionali ed estetici, è in grado di stabilire gli intervalli di controllo appropriati ed è in grado di controllare una flotta di dispositivi di misura.\n\nLa sua padronanza di strumenti statistici e metodologie Qualità permette di partecipare o condurre approcci alla soluzione e al miglioramento dei problemi, sia nei prodotti che nei processi.\n\nScatolato da formatori esperti, questa formazione vi permetterà di considerare un buon futuro attraverso l'apprendimento di attività multiple, varie e multidisciplinari.\n\nProfilo ricercato\n\n• Competenze per matematica e statistica.\n\n• Esperienza di scrittura.\n\n• Logico, analitico e sintetico.\n\n• Buone capacità di comunicazione.\n\n• Facile nei contatti umani.\n\n• Rigor.\n\nIl file completo deve contenere un curriculum vitae, una lettera di copertura e i bollettini scolastici per gli ultimi 3 anni.\n\nRiferimenti\n\n3838\n\nTempo di pubblicazione\n\nQuesta pubblicazione è online per un tempo limitato. Ti invitiamo a candidarti il prima possibile.",
+        "en": "Mission\n\nYou want to invest in a demanding training with the chance to realize it in the field of high-end watchmaking and are motivated to take a dual training course of 4 years after which you will obtain a CFC of Qualistician in microtechnics.\n\nResponsibilities\n\nThe Qualistician in microtechnics operates in production or assembly workshops. It helps to ensure the quality and conformity of the parts produced and the control and improvement of manufacturing processes.\n\nHe has extensive knowledge of dimensional and aesthetic control tools and methods, is able to establish the appropriate control ranges and is able to control a fleet of measuring devices.\n\nIts mastery of statistical tools and methodologies Quality allows it to participate or lead approaches to problem solving and improvement, both in products and processes.\n\nBoxed by experienced trainers, this training will allow you to consider a good future through the learning of multiple, varied and multidisciplinary activities.\n\nProfile sought\n\n• Skills for mathematics and statistics.\n\n• Writing experience.\n\n• Logical, analytical and synthetic.\n\n• Good communication skills.\n\n• Easy in human contacts.\n\n• Rigor.\n\nThe complete file must contain a curriculum vitae, a cover letter and the school bulletins for the last 3 years.\n\nPost reference\n\n3838\n\nPosting time\n\nThis publication is online for a limited time. We encourage you to apply as soon as possible.",
+        "de": "Mission\n\nSie möchten in eine anspruchsvolle Ausbildung mit der Chance investieren, diese im Bereich der High-End-Uhrmacherei zu realisieren und sind motiviert, eine duale Ausbildung von 4 Jahren zu absolvieren, nach der Sie einen CFC Qualistician in Mikrotechnik erhalten.\n\nZuständigkeiten\n\nDer Qualistician in Mikrotechnik arbeitet in Produktions- oder Montagewerkstätten. Es trägt dazu bei, die Qualität und Konformität der produzierten Teile sowie die Kontrolle und Verbesserung der Herstellungsprozesse zu gewährleisten.\n\nEr verfügt über umfangreiche Kenntnisse der dimensionalen und ästhetischen Steuerungswerkzeuge und -methoden, ist in der Lage, die entsprechenden Steuerungsbereiche festzulegen und eine Flotte von Messgeräten zu steuern.\n\nSeine Beherrschung der statistischen Werkzeuge und Methoden Qualität ermöglicht es ihm, an Ansätzen zur Problemlösung und -verbesserung sowohl in Produkten als auch in Prozessen teilzunehmen oder zu führen.\n\nDieses Training, das von erfahrenen Trainern angeboten wird, ermöglicht es Ihnen, eine gute Zukunft durch das Erlernen mehrerer, vielfältiger und multidisziplinärer Aktivitäten in Betracht zu ziehen.\n\nProfil gesucht\n\n• Fähigkeiten für Mathematik und Statistik.\n\n• Schreiberfahrung.\n\n• Logisch, analytische und synthetische.\n\n• Gute Kommunikationsfähigkeiten.\n\n• Einfach in menschlichen Kontakten.\n\n• Rigor.\n\nDie vollständige Akte muss einen Lebenslauf, ein Anschreiben und die Schulbulletins der letzten 3 Jahre enthalten.\n\nPostleitzahl\n\n3838\n\nPostzeit\n\nDiese Publikation ist für eine begrenzte Zeit online. Wir empfehlen Ihnen, sich so schnell wie möglich zu bewerben.",
+        "fr": "Mission\n\nVous souhaitez vous investir dans une formation exigeante avec la chance de la réaliser dans le domaine de l’horlogerie haut de gamme et êtes motivé pour suivre une formation duale d’une durée de 4 ans à l’issue de laquelle vous obtiendrez un CFC de Qualiticien en microtechnique.\n\nResponsabilités\n\nLe Qualiticien en microtechnique exerce son activité au sein d'ateliers de production ou d’assemblage. Il contribue à garantir la qualité et la conformité des pièces produites ainsi que la maîtrise et l’amélioration des procédés de fabrication.\n\nIl possède des connaissances poussées des outils et méthodes de contrôle dimensionnel et esthétique, sait établir les gammes de contrôle adéquates et est capable de mettre sous contrôle un parc d’appareils de mesures.\n\nSa maîtrise des outils statistiques et des méthodologies Qualité lui permet de participer ou de conduire des démarches de résolution de problèmes et d’amélioration, autant au niveau des produits que des processus.\n\nEncadré par des formateurs expérimentés, cette formation vous permettra d’envisager de belles perspectives d’avenir grâce à l’apprentissage d’activités multiples, variées et pluridisciplinaires.\n\nProfil recherché\n\n• Aptitudes pour les mathématiques et les statistiques.\n\n• Aisance rédactionnelle.\n\n• Esprit logique, analytique et de synthèse.\n\n• Bonnes capacités en communication.\n\n• A l’aise dans les contacts humains.\n\n• Rigueur.\n\nLe dossier complet devra contenir un curriculum vitae, une lettre de motivation ainsi que les bulletins scolaires des 3 dernières années.\n\nRéférence du poste\n\n3838\n\nDélai de postulation\n\nCette publication est en ligne pour une durée limitée. Nous vous encourageons à postuler dans les meilleurs délais."
+      },
+      "location": "Plan-Les-Ouates",
+      "canton": "GE",
+      "url": "https://careers.patek.com/job/Plan-Les-Ouates-Apprenti-Qualiticien-en-microtechnique-%28HF%29/1377518855/",
+      "source": "Patek Philippe Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-27T09:29:13.734Z",
+      "hiringOrganization": "Patek Philippe SA",
+      "addressLocality": "Plan-Les-Ouates",
+      "postalCode": "1228",
+      "streetAddress": "Chemin du Pont-du-Centenaire 141",
+      "addressRegion": "Genève",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "employmentType": "INTERN",
+      "experienceLevel": "intern",
+      "sector": "Luxury / Watchmaking (Manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-18T00:00:00Z",
+      "postedDate": "2026-11-18T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Apprenti-Qualiticien-en-microtechnique-%28HF%29/1377518855/",
+      "jobReqId": "1377518855",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "apprenti-qualiticien-en-microtechnique-h-f-patek-philippe-plan-les-ouates"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-qualiticien-en-microtechnique-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "en": [
+          "apprenti-qualiticien-en-microtechnique-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "de": [
+          "apprenti-qualiticien-en-microtechnique-h-f-patek-philippe-plan-les-ouates"
+        ]
+      },
+      "firstSeenAt": "2026-11-18T21:21:44.771Z",
+      "salaryMin": 51100,
+      "salaryMax": 77500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51100,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-02T09:29:13.734Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-apprenti-qualiticien-en-microtechnique-%28hf%29/1377518855"
     },
     {
       "id": "patek-philippe-58896d715b05",
@@ -1075,7 +1089,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Optimisation-du-processus-de-fabrication-de-platines/1369119755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:35:53.522Z",
+      "crawledAt": "2026-11-27T09:29:13.224Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -1122,8 +1136,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:35:53.522Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:29:13.224Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-stage-optimisation-du-processus-de-fabrication-de-platines/1369119755"
     },
     {
       "id": "patek-philippe-9148bbffef4c",
@@ -1156,7 +1171,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Processus-logistiques-et-pilotages-associ%C3%A9s/1369179855/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:35:52.993Z",
+      "crawledAt": "2026-11-27T09:29:12.569Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -1200,92 +1215,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:35:52.993Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "patek-philippe-f6db34deea04",
-      "slug": "responsabile-del-progetto-m-f-patek-philippe-plan-les-ouates",
-      "slugByLocale": {
-        "it": "responsabile-del-progetto-m-f-patek-philippe-plan-les-ouates",
-        "en": "project-manager-m-f-patek-philippe-plan-les-ouates",
-        "de": "projektmanager-m-w-patek-philippe-plan-les-ouates",
-        "fr": "charge-de-projets-h-f-patek-philippe-plan-les-ouates"
-      },
-      "company": "Patek Philippe",
-      "companyKey": "patek-philippe",
-      "companyDomain": "patek.com",
-      "title": "Chargé de Projets (H/F)",
-      "titleByLocale": {
-        "it": "Responsabile del progetto (M/F)",
-        "en": "Project Manager (M/F)",
-        "de": "Projektmanager (M/W)",
-        "fr": "Chargé de Projets (H/F)"
-      },
-      "description": "Mission\n\nDans le cadre de cette fonction, rattachée à la Division Service Client International (SCI), le Chargé de Projets aura pour mission principale d’assurer la gestion des données en respectant les standards en place et d’être le référent des processus d’information associés. Il aura la responsabilité de soutenir les métiers (Genève et filiales internationales) dans le cadre des flux liés aux systèmes d’information et pilotera les projets s’y rapportant.\n\nResponsabilités\n\n• Gérer les fiches articles, les gammes opératoires, les produits de service spécifiques au SCI ainsi que les nomenclatures.\n\n• Analyser les écarts par rapport aux standards et les dysfonctionnements des systèmes (structure produit, règles de codification, indicateurs, etc.) et mettre en place des actions correctives.\n\n• Garantir la cohérence des données entre les différents systèmes en appliquant les modifications issues de l’ERP.\n\n• Auditer les processus, les besoins des clients et les méthodes de travail afin de faire évoluer les systèmes existants.\n\n• Assurer un support à l’ensemble des divisions et filiales de Patek Philippe pour les demandes relatives aux données de base, à la codification et à la gestion des modifications.\n\n• Définir et élaborer le référentiel des systèmes d’information en garantissant les interfaces avec les autres métiers (Développement, Logistique, Qualité, Production, Filiales, etc.), ainsi qu’appliquer les protocoles de test et d’évolution des systèmes transversaux.\n\n• Mettre en place et assurer les formations sur les produits existants ainsi que sur les nouveaux processus et projets, aux niveaux local et international.\n\n• Piloter des projets de développement transverses de nouvelles fonctionnalités au sein des systèmes d’information (ERP, Salesforce, etc.) ainsi que l’intégration de nouveaux outils en interne et en externe.\n\n• Définir et garantir le respect des objectifs, des spécifications, des délais, du budget, des standards et des performances des solutions avec l’équipe projet, tout en assurant un reporting régulier.\n\n• Animer les comités de pilotage, maintenir les indicateurs à jour, capitaliser sur les retours d’expérience afin d’alimenter la base de connaissances et rechercher des solutions innovantes au-delà des processus déjà maîtrisés par Patek Philippe.\n\nProfil recherché\n\n• Master en sciences et techniques de l’ingénieur, informatique, management de la technologie ou équivalent.\n\n• Au minimum 3 ans d’expérience dans un poste similaire.\n\n• Compétences confirmées en gestion de projets.\n\n• Maîtrise de l’anglais, niveau C2.\n\n• Connaissance d’un ERP (SAP constitue un atout) et d’une plateforme CRM (Salesforce constitue un atout).\n\n• Excellentes capacités d’analyse et d’interprétation des résultats. Connaissance d’un système de Reporting (Tableau constitue un atout).\n\n• Maîtrise des flux logistiques et transversaux.\n\n• Maîtrise de l’audit interne des processus d’information.\n\n• Excellentes capacités de communication, de transmission des connaissances et de formation.\n\nRéférence du poste\n\n3851",
-      "descriptionByLocale": {
-        "it": "Missione\n\nNell'ambito di questa funzione, che fa parte della International Client Service Division (SCI), il Project Manager sarà responsabile della gestione dei dati in conformità con gli standard in vigore e del riferimento ai processi informativi associati. Sarà responsabile del supporto agli scambi (Ginevra e filiali internazionali) nell'ambito dei flussi del sistema informativo e guiderà i progetti correlati.\n\nresponsabilità\n\n• Gestisci fogli di articoli, intervalli operativi, prodotti di servizio specifici SCI e nomenclature.\n\n• Analizzare le deviazioni da standard e malfunzionamenti del sistema (struttura del prodotto, regole di codifica, indicatori, ecc.) e implementare azioni correttive.\n\n• Assicurare la coerenza dei dati tra diversi sistemi applicando le modifiche risultanti dall'ERP.\n\n• Processi di controllo, esigenze del cliente e metodi di lavoro per evolvere i sistemi esistenti.\n\n• Fornire supporto a tutte le divisioni e filiali di Patek Philippe per richieste di dati di base, codifica e gestione dei cambiamenti.\n\n• Definire e sviluppare il repository di sistemi informativi garantendo interfacce con altre professioni (Sviluppo, Logistica, Qualità, Produzione, Sussidiari, ecc.), oltre ad applicare protocolli per la sperimentazione e l'evoluzione dei sistemi trasversali.\n\n• Stabilire e fornire formazione sui prodotti esistenti e sui nuovi processi e progetti a livello locale e internazionale.\n\n• Progetti pilota per lo sviluppo trasversale di nuove funzionalità all'interno di sistemi informativi (ERP, Salesforce, ecc.) e l'integrazione di nuovi strumenti internamente ed esternamente.\n\n• Definire e garantire la conformità con gli obiettivi, le specifiche, le scadenze, il budget, gli standard e le prestazioni delle soluzioni con il team di progetto, assicurando al contempo un reporting regolare.\n\n• Comitati di guida, tenere aggiornati gli indicatori, capitalizzare il feedback per alimentare la base di conoscenza e cercare soluzioni innovative oltre i processi già controllati da Patek Philippe.\n\nProfilo ricercato\n\n• Laurea magistrale in ingegneria, informatica, gestione della tecnologia o equivalente.\n\n• Almeno 3 anni di esperienza in una posizione simile.\n\n• Competenze confermate nella gestione del progetto.\n\n• Laurea magistrale in inglese, livello C2.\n\n• Conoscenza di un ERP (SAP è un bene) e una piattaforma CRM (Salesforce è un bene).\n\n• Ottima capacità di analizzare e interpretare i risultati. Conoscenza di un sistema di segnalazione (Table è un bene).\n\n• Controllo dei flussi logistici e trasversali.\n\n• Controllo dell'audit interno dei processi informativi.\n\n• Ottima capacità di comunicazione, trasferimento di conoscenze e formazione.\n\nRiferimenti\n\n3851",
-        "en": "Mission\n\nAs part of this function, which is part of the International Client Service Division (SCI), the Project Manager will be responsible for managing data in accordance with the standards in place and for referring to the associated information processes. It will be responsible for supporting the trades (Geneva and international subsidiaries) as part of the information system flows and will lead the related projects.\n\nResponsibilities\n\n• Manage item sheets, operating ranges, SCI specific service products and nomenclatures.\n\n• Analyze deviations from standards and system malfunctions (product structure, coding rules, indicators, etc.) and implement corrective actions.\n\n• Ensure consistency of data between different systems by applying changes resulting from the ERP.\n\n• Audit processes, client needs and working methods to evolve existing systems.\n\n• Provide support to all of Patek Philippe's divisions and subsidiaries for requests for basic data, coding and change management.\n\n• Defining and developing the repository of information systems by guaranteeing interfaces with other professions (Development, Logistics, Quality, Production, Subsidiaries, etc.), as well as applying protocols for testing and evolution of transversal systems.\n\n• Establish and provide training on existing products and on new processes and projects at the local and international levels.\n\n• Pilot projects for the transversal development of new features within information systems (ERP, Salesforce, etc.) and the integration of new tools internally and externally.\n\n• Define and ensure compliance with the objectives, specifications, deadlines, budget, standards and performance of solutions with the project team, while ensuring regular reporting.\n\n• Lead steering committees, keep indicators up to date, capitalize on feedback in order to feed the knowledge base and seek innovative solutions beyond the processes already controlled by Patek Philippe.\n\nProfile sought\n\n• Master's degree in engineering, computer science, technology management or equivalent.\n\n• At least 3 years of experience in a similar position.\n\n• Confirmed skills in project management.\n\n• Master's degree in English, level C2.\n\n• Knowledge of an ERP (SAP is an asset) and a CRM platform (Salesforce is an asset).\n\n• Excellent ability to analyse and interpret results. Knowledge of a reporting system (Table is an asset).\n\n• Control of logistical and transversal flows.\n\n• Control of internal audit of information processes.\n\n• Excellent communication, knowledge transfer and training capabilities.\n\nPost reference\n\n3851",
-        "de": "Mission\n\nIm Rahmen dieser Funktion, die Teil der International Client Service Division (SCI) ist, ist der Projektmanager dafür verantwortlich, die Daten gemäß den geltenden Standards zu verwalten und auf die damit verbundenen Informationsprozesse hinzuweisen. Es wird für die Unterstützung des Handels (Genfer und internationale Tochtergesellschaften) als Teil der Informationssystemströme verantwortlich sein und die damit verbundenen Projekte leiten.\n\nZuständigkeiten\n\n• Verwalten Sie Artikelblätter, Betriebsbereiche, SCI-spezifische Serviceprodukte und Nomenklaturen.\n\n• Analysieren Sie Abweichungen von Standards und Systemstörungen (Produktstruktur, Kodierungsregeln, Indikatoren usw.) und implementieren Sie Korrekturmaßnahmen.\n\n• Gewährleistung der Datenkonsistenz zwischen verschiedenen Systemen durch Anwendung von Änderungen, die sich aus dem ERP ergeben.\n\n• Auditprozesse, Kundenbedürfnisse und Arbeitsmethoden zur Weiterentwicklung bestehender Systeme.\n\n• Unterstützung aller Geschäftsbereiche und Tochtergesellschaften von Patek Philippe bei Anfragen nach Basisdaten, Codierung und Change Management.\n\n• Definition und Entwicklung des Archivs von Informationssystemen durch Gewährleistung von Schnittstellen zu anderen Berufen (Entwicklung, Logistik, Qualität, Produktion, Tochtergesellschaften usw.) sowie Anwendung von Protokollen für die Prüfung und Entwicklung transversaler Systeme.\n\n• Aufbau und Durchführung von Schulungen zu bestehenden Produkten und zu neuen Prozessen und Projekten auf lokaler und internationaler Ebene.\n\n• Pilotprojekte zur transversalen Entwicklung neuer Features innerhalb von Informationssystemen (ERP, Salesforce, etc.) und zur internen und externen Integration neuer Tools.\n\n• Definieren und gewährleisten Sie die Einhaltung der Ziele, Spezifikationen, Fristen, Budget, Standards und Leistung der Lösungen mit dem Projektteam, während Sie eine regelmäßige Berichterstattung gewährleisten.\n\n• Leiten Sie Lenkungsausschüsse, halten Sie die Indikatoren auf dem neuesten Stand, nutzen Sie Feedback, um die Wissensbasis zu speisen, und suchen Sie nach innovativen Lösungen, die über die bereits von Patek Philippe kontrollierten Prozesse hinausgehen.\n\nProfil gesucht\n\n• Master-Abschluss in Ingenieurwissenschaften, Informatik, Technologiemanagement oder gleichwertig.\n\n• Mindestens 3 Jahre Erfahrung in einer ähnlichen Position.\n\n• Bestätigte Fähigkeiten im Projektmanagement.\n\n• Master-Abschluss in Englisch, Level C2.\n\n• Kenntnisse einer ERP (SAP ist ein Asset) und einer CRM-Plattform (Salesforce ist ein Asset).\n\n• Hervorragende Fähigkeit, Ergebnisse zu analysieren und zu interpretieren. Kenntnis eines Berichtssystems (Tabelle ist ein Vermögenswert).\n\n• Kontrolle der logistischen und transversalen Flüsse.\n\n• Kontrolle der internen Revision von Informationsprozessen.\n\n• Hervorragende Kommunikation, Wissenstransfer und Schulungsmöglichkeiten.\n\nPostleitzahl\n\n3851",
-        "fr": "Mission\n\nDans le cadre de cette fonction, rattachée à la Division Service Client International (SCI), le Chargé de Projets aura pour mission principale d’assurer la gestion des données en respectant les standards en place et d’être le référent des processus d’information associés. Il aura la responsabilité de soutenir les métiers (Genève et filiales internationales) dans le cadre des flux liés aux systèmes d’information et pilotera les projets s’y rapportant.\n\nResponsabilités\n\n• Gérer les fiches articles, les gammes opératoires, les produits de service spécifiques au SCI ainsi que les nomenclatures.\n\n• Analyser les écarts par rapport aux standards et les dysfonctionnements des systèmes (structure produit, règles de codification, indicateurs, etc.) et mettre en place des actions correctives.\n\n• Garantir la cohérence des données entre les différents systèmes en appliquant les modifications issues de l’ERP.\n\n• Auditer les processus, les besoins des clients et les méthodes de travail afin de faire évoluer les systèmes existants.\n\n• Assurer un support à l’ensemble des divisions et filiales de Patek Philippe pour les demandes relatives aux données de base, à la codification et à la gestion des modifications.\n\n• Définir et élaborer le référentiel des systèmes d’information en garantissant les interfaces avec les autres métiers (Développement, Logistique, Qualité, Production, Filiales, etc.), ainsi qu’appliquer les protocoles de test et d’évolution des systèmes transversaux.\n\n• Mettre en place et assurer les formations sur les produits existants ainsi que sur les nouveaux processus et projets, aux niveaux local et international.\n\n• Piloter des projets de développement transverses de nouvelles fonctionnalités au sein des systèmes d’information (ERP, Salesforce, etc.) ainsi que l’intégration de nouveaux outils en interne et en externe.\n\n• Définir et garantir le respect des objectifs, des spécifications, des délais, du budget, des standards et des performances des solutions avec l’équipe projet, tout en assurant un reporting régulier.\n\n• Animer les comités de pilotage, maintenir les indicateurs à jour, capitaliser sur les retours d’expérience afin d’alimenter la base de connaissances et rechercher des solutions innovantes au-delà des processus déjà maîtrisés par Patek Philippe.\n\nProfil recherché\n\n• Master en sciences et techniques de l’ingénieur, informatique, management de la technologie ou équivalent.\n\n• Au minimum 3 ans d’expérience dans un poste similaire.\n\n• Compétences confirmées en gestion de projets.\n\n• Maîtrise de l’anglais, niveau C2.\n\n• Connaissance d’un ERP (SAP constitue un atout) et d’une plateforme CRM (Salesforce constitue un atout).\n\n• Excellentes capacités d’analyse et d’interprétation des résultats. Connaissance d’un système de Reporting (Tableau constitue un atout).\n\n• Maîtrise des flux logistiques et transversaux.\n\n• Maîtrise de l’audit interne des processus d’information.\n\n• Excellentes capacités de communication, de transmission des connaissances et de formation.\n\nRéférence du poste\n\n3851"
-      },
-      "location": "Plan-Les-Ouates",
-      "canton": "GE",
-      "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-Projets-%28HF%29/1378153855/",
-      "source": "Patek Philippe Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:35:52.474Z",
-      "hiringOrganization": "Patek Philippe SA",
-      "addressLocality": "Plan-Les-Ouates",
-      "postalCode": "1228",
-      "streetAddress": "Chemin du Pont-du-Centenaire 141",
-      "addressRegion": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Luxury / Watchmaking (Manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-23T00:00:00Z",
-      "postedDate": "2026-11-23T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-Projets-%28HF%29/1378153855/",
-      "jobReqId": "1378153855",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "charge-de-projets-h-f-patek-philippe-plan-les-ouates"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "charge-de-projets-h-f-patek-philippe-plan-les-ouates"
-        ],
-        "en": [
-          "charge-de-projets-h-f-patek-philippe-plan-les-ouates"
-        ],
-        "de": [
-          "charge-de-projets-h-f-patek-philippe-plan-les-ouates"
-        ]
-      },
-      "firstSeenAt": "2026-11-23T21:18:47.038Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-21T21:35:52.474Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:29:12.569Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-stage-processus-logistiques-et-pilotages-associ%c3%a9s/1369179855"
     },
     {
       "id": "patek-philippe-ffc29a60c4b3",
@@ -1318,7 +1250,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Ordonnanceur-%28HF%29/1378121355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:35:51.964Z",
+      "crawledAt": "2026-11-27T09:29:12.077Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -1370,44 +1302,47 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-21T21:35:51.964Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-21T09:29:12.077Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-ordonnanceur-%28hf%29/1378121355"
     },
     {
-      "id": "patek-philippe-2daf4ab828fd",
-      "slug": "responsabile-per-industrializzazione-life-series-m-f-patek-philippe-saint-imier",
+      "id": "patek-philippe-f6db34deea04",
+      "slug": "responsabile-del-progetto-m-f-patek-philippe-plan-les-ouates",
       "slugByLocale": {
-        "it": "responsabile-per-industrializzazione-life-series-m-f-patek-philippe-saint-imier",
-        "en": "responsible-for-industrialization-life-series-m-f-patek-philippe-saint-imier",
-        "de": "verantwortlich-fur-industrialisierung-life-series-m-w-patek-philippe-saint-imier",
-        "fr": "charge-d-industrialisation-vie-serie-h-f-patek-philippe-saint-imier"
+        "it": "responsabile-del-progetto-m-f-patek-philippe-plan-les-ouates",
+        "en": "project-manager-m-f-patek-philippe-plan-les-ouates",
+        "de": "projektmanager-m-w-patek-philippe-plan-les-ouates",
+        "fr": "charge-de-projets-h-f-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
       "companyKey": "patek-philippe",
       "companyDomain": "patek.com",
-      "title": "Chargé d'Industrialisation Vie Série (H/F)",
+      "title": "Chargé de Projets (H/F)",
       "titleByLocale": {
-        "it": "Responsabile per Industrializzazione Life Series (M/F)",
-        "en": "Responsible for Industrialization Life Series (M/F)",
-        "de": "Verantwortlich für Industrialisierung Life Series (M/W)",
-        "fr": "Chargé d'Industrialisation Vie Série (H/F)"
+        "it": "Responsabile del progetto (M/F)",
+        "en": "Project Manager (M/F)",
+        "de": "Projektmanager (M/W)",
+        "fr": "Chargé de Projets (H/F)"
       },
-      "description": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Service Développement & Industrialisation, votre mission consistera à mener, en autonomie, des projets d’industrialisation des produits. Vous organiserez et animerez, en fonction des besoins, des réunions techniques entre Méthodes, Production et Qualité. De plus, vous participerez activement aux actions d’amélioration continue.\n\nResponsabilités\n\n• Définir les moyens à employer pour le lancement de la production des produits.\n\n• Participer à la définition des process de production, études de faisabilité.\n\n• Elaborer des dossiers de production tout en veillant à leur standardisation.\n\n• Gérer l’industrialisation de la conception au transfert en vie courante.\n\n• Coordonner l’avancement des ordres de fabrication durant la phase de réalisation.\n\nProfil recherché\n\n• Bachelor en mécanique ou microtechnique.\n\n• 7 ans d’expérience au minimum dans un poste similaire.\n\n• Expérience dans le domaine horloger ou dans le domaine du cadran haut de gamme.\n\n• Très bonne maîtrise des outils bureautiques (MS Office, notamment Excel).\n\n• Excellent sens relationnel et diplomatie.\n\n• Esprit d’équipe et aisance à collaborer de manière transversale.\n\n• Esprit d’analyse et de synthèse, critique et méthodique.\n\n• Force de proposition, sens de la négociation et de la persuasion.\n\nRéférence du poste\n\n3831",
+      "description": "Mission\n\nDans le cadre de cette fonction, rattachée à la Division Service Client International (SCI), le Chargé de Projets aura pour mission principale d’assurer la gestion des données en respectant les standards en place et d’être le référent des processus d’information associés. Il aura la responsabilité de soutenir les métiers (Genève et filiales internationales) dans le cadre des flux liés aux systèmes d’information et pilotera les projets s’y rapportant.\n\nResponsabilités\n\n• Gérer les fiches articles, les gammes opératoires, les produits de service spécifiques au SCI ainsi que les nomenclatures.\n\n• Analyser les écarts par rapport aux standards et les dysfonctionnements des systèmes (structure produit, règles de codification, indicateurs, etc.) et mettre en place des actions correctives.\n\n• Garantir la cohérence des données entre les différents systèmes en appliquant les modifications issues de l’ERP.\n\n• Auditer les processus, les besoins des clients et les méthodes de travail afin de faire évoluer les systèmes existants.\n\n• Assurer un support à l’ensemble des divisions et filiales de Patek Philippe pour les demandes relatives aux données de base, à la codification et à la gestion des modifications.\n\n• Définir et élaborer le référentiel des systèmes d’information en garantissant les interfaces avec les autres métiers (Développement, Logistique, Qualité, Production, Filiales, etc.), ainsi qu’appliquer les protocoles de test et d’évolution des systèmes transversaux.\n\n• Mettre en place et assurer les formations sur les produits existants ainsi que sur les nouveaux processus et projets, aux niveaux local et international.\n\n• Piloter des projets de développement transverses de nouvelles fonctionnalités au sein des systèmes d’information (ERP, Salesforce, etc.) ainsi que l’intégration de nouveaux outils en interne et en externe.\n\n• Définir et garantir le respect des objectifs, des spécifications, des délais, du budget, des standards et des performances des solutions avec l’équipe projet, tout en assurant un reporting régulier.\n\n• Animer les comités de pilotage, maintenir les indicateurs à jour, capitaliser sur les retours d’expérience afin d’alimenter la base de connaissances et rechercher des solutions innovantes au-delà des processus déjà maîtrisés par Patek Philippe.\n\nProfil recherché\n\n• Master en sciences et techniques de l’ingénieur, informatique, management de la technologie ou équivalent.\n\n• Au minimum 3 ans d’expérience dans un poste similaire.\n\n• Compétences confirmées en gestion de projets.\n\n• Maîtrise de l’anglais, niveau C2.\n\n• Connaissance d’un ERP (SAP constitue un atout) et d’une plateforme CRM (Salesforce constitue un atout).\n\n• Excellentes capacités d’analyse et d’interprétation des résultats. Connaissance d’un système de Reporting (Tableau constitue un atout).\n\n• Maîtrise des flux logistiques et transversaux.\n\n• Maîtrise de l’audit interne des processus d’information.\n\n• Excellentes capacités de communication, de transmission des connaissances et de formation.\n\nRéférence du poste\n\n3851",
       "descriptionByLocale": {
-        "it": "Missione\n\nNell'ambito di questa funzione, allegata al nostro Servizio Sviluppo & Industrializzazione, la vostra missione sarà di realizzare progetti autonomi di industrializzazione dei prodotti. Potrai organizzare e ospitare incontri tecnici tra Metodi, Produzione e Qualità, come richiesto. Inoltre, parteciperai attivamente alle azioni di miglioramento continuo.\n\nresponsabilità\n\n• Definire i mezzi da utilizzare per l'avvio della produzione di prodotto.\n\n• Partecipa alla definizione dei processi produttivi, studi di fattibilità.\n\n• Sviluppare record di produzione garantendo la loro standardizzazione.\n\n• Gestisci l'industrializzazione dal design al trasferimento per tutta la vita.\n\n• Coordinare il progresso degli ordini di produzione durante la fase di produzione.\n\nProfilo ricercato\n\n• Corso di laurea in meccanica o microtecnica.\n\n• Almeno 7 anni di esperienza in una posizione simile.\n\n• Esperienza nel campo dell'orologeria o nel campo del quadrante di fascia alta.\n\n• Ottima padronanza degli strumenti di ufficio (MS Office, incluso Excel).\n\n• Ottima relazione e diplomazia.\n\n• Spirito di squadra e facilità di collaborazione trasversale.\n\n• Spirito di analisi e sintesi, critico e metodico.\n\n• Forza di proposta, significato di negoziazione e persuasione.\n\nRiferimenti\n\n3831",
-        "en": "Mission\n\nWithin the framework of this function, attached to our Development & Industrialization Service, your mission will be to carry out autonomous projects industrialization of products. You will organize and host technical meetings between Methods, Production and Quality, as required. In addition, you will actively participate in continuous improvement actions.\n\nResponsibilities\n\n• Define the means to be used for the start-up of product production.\n\n• Participate in the definition of production processes, feasibility studies.\n\n• Develop production records while ensuring their standardization.\n\n• Manage industrialization from design to life-long transfer.\n\n• Coordinate the progress of manufacturing orders during the production phase.\n\nProfile sought\n\n• Bachelor in mechanics or microtechnics.\n\n• At least 7 years of experience in a similar position.\n\n• Experience in the watchmaking field or in the field of the high-end dial.\n\n• Very good mastery of office tools (MS Office, including Excel).\n\n• Excellent relationship and diplomacy.\n\n• Team spirit and ease of cross-sectional collaboration.\n\n• Spirit of analysis and synthesis, critical and methodical.\n\n• Strength of proposal, meaning of negotiation and persuasion.\n\nPost reference\n\n3831",
-        "de": "Mission\n\nIm Rahmen dieser Funktion, die unserem Entwicklungs- und Industrialisierungsservice angegliedert ist, besteht Ihre Mission darin, autonome Projekte zur Industrialisierung von Produkten durchzuführen. Sie organisieren und veranstalten nach Bedarf technische Meetings zwischen Methoden, Produktion und Qualität. Darüber hinaus beteiligen Sie sich aktiv an kontinuierlichen Verbesserungsmaßnahmen.\n\nZuständigkeiten\n\n• Definieren Sie die Mittel, die für die Inbetriebnahme der Produktproduktion verwendet werden sollen.\n\n• Beteiligen Sie sich an der Definition von Produktionsprozessen, Machbarkeitsstudien.\n\n• Entwicklung von Produktionsaufzeichnungen bei gleichzeitiger Gewährleistung ihrer Standardisierung.\n\n• Verwalten Sie die Industrialisierung vom Design bis zum lebenslangen Transfer.\n\n• Koordinieren Sie den Fortschritt der Fertigungsaufträge während der Produktionsphase.\n\nProfil gesucht\n\n• Bachelor in Mechanik oder Mikrotechnik.\n\n• Mindestens 7 Jahre Erfahrung in einer ähnlichen Position.\n\n• Erfahrung im Bereich der Uhrmacherei oder im Bereich des High-End-Ziffers.\n\n• Sehr gute Beherrschung von Office-Tools (MS Office, einschließlich Excel).\n\n• Ausgezeichnete Beziehungen und Diplomatie.\n\n• Teamgeist und Leichtigkeit der Zusammenarbeit im Querschnitt.\n\n• Geist der Analyse und Synthese, kritisch und methodisch.\n\n• Stärke des Vorschlags, Bedeutung von Verhandlungen und Überzeugungsarbeit.\n\nPostleitzahl\n\n3831",
-        "fr": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Service Développement & Industrialisation, votre mission consistera à mener, en autonomie, des projets d’industrialisation des produits. Vous organiserez et animerez, en fonction des besoins, des réunions techniques entre Méthodes, Production et Qualité. De plus, vous participerez activement aux actions d’amélioration continue.\n\nResponsabilités\n\n• Définir les moyens à employer pour le lancement de la production des produits.\n\n• Participer à la définition des process de production, études de faisabilité.\n\n• Elaborer des dossiers de production tout en veillant à leur standardisation.\n\n• Gérer l’industrialisation de la conception au transfert en vie courante.\n\n• Coordonner l’avancement des ordres de fabrication durant la phase de réalisation.\n\nProfil recherché\n\n• Bachelor en mécanique ou microtechnique.\n\n• 7 ans d’expérience au minimum dans un poste similaire.\n\n• Expérience dans le domaine horloger ou dans le domaine du cadran haut de gamme.\n\n• Très bonne maîtrise des outils bureautiques (MS Office, notamment Excel).\n\n• Excellent sens relationnel et diplomatie.\n\n• Esprit d’équipe et aisance à collaborer de manière transversale.\n\n• Esprit d’analyse et de synthèse, critique et méthodique.\n\n• Force de proposition, sens de la négociation et de la persuasion.\n\nRéférence du poste\n\n3831"
+        "it": "Missione\n\nNell'ambito di questa funzione, che fa parte della International Client Service Division (SCI), il Project Manager sarà responsabile della gestione dei dati in conformità con gli standard in vigore e del riferimento ai processi informativi associati. Sarà responsabile del supporto agli scambi (Ginevra e filiali internazionali) nell'ambito dei flussi del sistema informativo e guiderà i progetti correlati.\n\nresponsabilità\n\n• Gestisci fogli di articoli, intervalli operativi, prodotti di servizio specifici SCI e nomenclature.\n\n• Analizzare le deviazioni da standard e malfunzionamenti del sistema (struttura del prodotto, regole di codifica, indicatori, ecc.) e implementare azioni correttive.\n\n• Assicurare la coerenza dei dati tra diversi sistemi applicando le modifiche risultanti dall'ERP.\n\n• Processi di controllo, esigenze del cliente e metodi di lavoro per evolvere i sistemi esistenti.\n\n• Fornire supporto a tutte le divisioni e filiali di Patek Philippe per richieste di dati di base, codifica e gestione dei cambiamenti.\n\n• Definire e sviluppare il repository di sistemi informativi garantendo interfacce con altre professioni (Sviluppo, Logistica, Qualità, Produzione, Sussidiari, ecc.), oltre ad applicare protocolli per la sperimentazione e l'evoluzione dei sistemi trasversali.\n\n• Stabilire e fornire formazione sui prodotti esistenti e sui nuovi processi e progetti a livello locale e internazionale.\n\n• Progetti pilota per lo sviluppo trasversale di nuove funzionalità all'interno di sistemi informativi (ERP, Salesforce, ecc.) e l'integrazione di nuovi strumenti internamente ed esternamente.\n\n• Definire e garantire la conformità con gli obiettivi, le specifiche, le scadenze, il budget, gli standard e le prestazioni delle soluzioni con il team di progetto, assicurando al contempo un reporting regolare.\n\n• Comitati di guida, tenere aggiornati gli indicatori, capitalizzare il feedback per alimentare la base di conoscenza e cercare soluzioni innovative oltre i processi già controllati da Patek Philippe.\n\nProfilo ricercato\n\n• Laurea magistrale in ingegneria, informatica, gestione della tecnologia o equivalente.\n\n• Almeno 3 anni di esperienza in una posizione simile.\n\n• Competenze confermate nella gestione del progetto.\n\n• Laurea magistrale in inglese, livello C2.\n\n• Conoscenza di un ERP (SAP è un bene) e una piattaforma CRM (Salesforce è un bene).\n\n• Ottima capacità di analizzare e interpretare i risultati. Conoscenza di un sistema di segnalazione (Table è un bene).\n\n• Controllo dei flussi logistici e trasversali.\n\n• Controllo dell'audit interno dei processi informativi.\n\n• Ottima capacità di comunicazione, trasferimento di conoscenze e formazione.\n\nRiferimenti\n\n3851",
+        "en": "Mission\n\nAs part of this function, which is part of the International Client Service Division (SCI), the Project Manager will be responsible for managing data in accordance with the standards in place and for referring to the associated information processes. It will be responsible for supporting the trades (Geneva and international subsidiaries) as part of the information system flows and will lead the related projects.\n\nResponsibilities\n\n• Manage item sheets, operating ranges, SCI specific service products and nomenclatures.\n\n• Analyze deviations from standards and system malfunctions (product structure, coding rules, indicators, etc.) and implement corrective actions.\n\n• Ensure consistency of data between different systems by applying changes resulting from the ERP.\n\n• Audit processes, client needs and working methods to evolve existing systems.\n\n• Provide support to all of Patek Philippe's divisions and subsidiaries for requests for basic data, coding and change management.\n\n• Defining and developing the repository of information systems by guaranteeing interfaces with other professions (Development, Logistics, Quality, Production, Subsidiaries, etc.), as well as applying protocols for testing and evolution of transversal systems.\n\n• Establish and provide training on existing products and on new processes and projects at the local and international levels.\n\n• Pilot projects for the transversal development of new features within information systems (ERP, Salesforce, etc.) and the integration of new tools internally and externally.\n\n• Define and ensure compliance with the objectives, specifications, deadlines, budget, standards and performance of solutions with the project team, while ensuring regular reporting.\n\n• Lead steering committees, keep indicators up to date, capitalize on feedback in order to feed the knowledge base and seek innovative solutions beyond the processes already controlled by Patek Philippe.\n\nProfile sought\n\n• Master's degree in engineering, computer science, technology management or equivalent.\n\n• At least 3 years of experience in a similar position.\n\n• Confirmed skills in project management.\n\n• Master's degree in English, level C2.\n\n• Knowledge of an ERP (SAP is an asset) and a CRM platform (Salesforce is an asset).\n\n• Excellent ability to analyse and interpret results. Knowledge of a reporting system (Table is an asset).\n\n• Control of logistical and transversal flows.\n\n• Control of internal audit of information processes.\n\n• Excellent communication, knowledge transfer and training capabilities.\n\nPost reference\n\n3851",
+        "de": "Mission\n\nIm Rahmen dieser Funktion, die Teil der International Client Service Division (SCI) ist, ist der Projektmanager dafür verantwortlich, die Daten gemäß den geltenden Standards zu verwalten und auf die damit verbundenen Informationsprozesse hinzuweisen. Es wird für die Unterstützung des Handels (Genfer und internationale Tochtergesellschaften) als Teil der Informationssystemströme verantwortlich sein und die damit verbundenen Projekte leiten.\n\nZuständigkeiten\n\n• Verwalten Sie Artikelblätter, Betriebsbereiche, SCI-spezifische Serviceprodukte und Nomenklaturen.\n\n• Analysieren Sie Abweichungen von Standards und Systemstörungen (Produktstruktur, Kodierungsregeln, Indikatoren usw.) und implementieren Sie Korrekturmaßnahmen.\n\n• Gewährleistung der Datenkonsistenz zwischen verschiedenen Systemen durch Anwendung von Änderungen, die sich aus dem ERP ergeben.\n\n• Auditprozesse, Kundenbedürfnisse und Arbeitsmethoden zur Weiterentwicklung bestehender Systeme.\n\n• Unterstützung aller Geschäftsbereiche und Tochtergesellschaften von Patek Philippe bei Anfragen nach Basisdaten, Codierung und Change Management.\n\n• Definition und Entwicklung des Archivs von Informationssystemen durch Gewährleistung von Schnittstellen zu anderen Berufen (Entwicklung, Logistik, Qualität, Produktion, Tochtergesellschaften usw.) sowie Anwendung von Protokollen für die Prüfung und Entwicklung transversaler Systeme.\n\n• Aufbau und Durchführung von Schulungen zu bestehenden Produkten und zu neuen Prozessen und Projekten auf lokaler und internationaler Ebene.\n\n• Pilotprojekte zur transversalen Entwicklung neuer Features innerhalb von Informationssystemen (ERP, Salesforce, etc.) und zur internen und externen Integration neuer Tools.\n\n• Definieren und gewährleisten Sie die Einhaltung der Ziele, Spezifikationen, Fristen, Budget, Standards und Leistung der Lösungen mit dem Projektteam, während Sie eine regelmäßige Berichterstattung gewährleisten.\n\n• Leiten Sie Lenkungsausschüsse, halten Sie die Indikatoren auf dem neuesten Stand, nutzen Sie Feedback, um die Wissensbasis zu speisen, und suchen Sie nach innovativen Lösungen, die über die bereits von Patek Philippe kontrollierten Prozesse hinausgehen.\n\nProfil gesucht\n\n• Master-Abschluss in Ingenieurwissenschaften, Informatik, Technologiemanagement oder gleichwertig.\n\n• Mindestens 3 Jahre Erfahrung in einer ähnlichen Position.\n\n• Bestätigte Fähigkeiten im Projektmanagement.\n\n• Master-Abschluss in Englisch, Level C2.\n\n• Kenntnisse einer ERP (SAP ist ein Asset) und einer CRM-Plattform (Salesforce ist ein Asset).\n\n• Hervorragende Fähigkeit, Ergebnisse zu analysieren und zu interpretieren. Kenntnis eines Berichtssystems (Tabelle ist ein Vermögenswert).\n\n• Kontrolle der logistischen und transversalen Flüsse.\n\n• Kontrolle der internen Revision von Informationsprozessen.\n\n• Hervorragende Kommunikation, Wissenstransfer und Schulungsmöglichkeiten.\n\nPostleitzahl\n\n3851",
+        "fr": "Mission\n\nDans le cadre de cette fonction, rattachée à la Division Service Client International (SCI), le Chargé de Projets aura pour mission principale d’assurer la gestion des données en respectant les standards en place et d’être le référent des processus d’information associés. Il aura la responsabilité de soutenir les métiers (Genève et filiales internationales) dans le cadre des flux liés aux systèmes d’information et pilotera les projets s’y rapportant.\n\nResponsabilités\n\n• Gérer les fiches articles, les gammes opératoires, les produits de service spécifiques au SCI ainsi que les nomenclatures.\n\n• Analyser les écarts par rapport aux standards et les dysfonctionnements des systèmes (structure produit, règles de codification, indicateurs, etc.) et mettre en place des actions correctives.\n\n• Garantir la cohérence des données entre les différents systèmes en appliquant les modifications issues de l’ERP.\n\n• Auditer les processus, les besoins des clients et les méthodes de travail afin de faire évoluer les systèmes existants.\n\n• Assurer un support à l’ensemble des divisions et filiales de Patek Philippe pour les demandes relatives aux données de base, à la codification et à la gestion des modifications.\n\n• Définir et élaborer le référentiel des systèmes d’information en garantissant les interfaces avec les autres métiers (Développement, Logistique, Qualité, Production, Filiales, etc.), ainsi qu’appliquer les protocoles de test et d’évolution des systèmes transversaux.\n\n• Mettre en place et assurer les formations sur les produits existants ainsi que sur les nouveaux processus et projets, aux niveaux local et international.\n\n• Piloter des projets de développement transverses de nouvelles fonctionnalités au sein des systèmes d’information (ERP, Salesforce, etc.) ainsi que l’intégration de nouveaux outils en interne et en externe.\n\n• Définir et garantir le respect des objectifs, des spécifications, des délais, du budget, des standards et des performances des solutions avec l’équipe projet, tout en assurant un reporting régulier.\n\n• Animer les comités de pilotage, maintenir les indicateurs à jour, capitaliser sur les retours d’expérience afin d’alimenter la base de connaissances et rechercher des solutions innovantes au-delà des processus déjà maîtrisés par Patek Philippe.\n\nProfil recherché\n\n• Master en sciences et techniques de l’ingénieur, informatique, management de la technologie ou équivalent.\n\n• Au minimum 3 ans d’expérience dans un poste similaire.\n\n• Compétences confirmées en gestion de projets.\n\n• Maîtrise de l’anglais, niveau C2.\n\n• Connaissance d’un ERP (SAP constitue un atout) et d’une plateforme CRM (Salesforce constitue un atout).\n\n• Excellentes capacités d’analyse et d’interprétation des résultats. Connaissance d’un système de Reporting (Tableau constitue un atout).\n\n• Maîtrise des flux logistiques et transversaux.\n\n• Maîtrise de l’audit interne des processus d’information.\n\n• Excellentes capacités de communication, de transmission des connaissances et de formation.\n\nRéférence du poste\n\n3851"
       },
-      "location": "Saint-Imier",
-      "canton": "BE",
-      "url": "https://careers.patek.com/job/Saint-Imier-Charg%C3%A9-d'Industrialisation-Vie-S%C3%A9rie-%28HF%29/1374406755/",
+      "location": "Plan-Les-Ouates",
+      "canton": "GE",
+      "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-Projets-%28HF%29/1378153855/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:35:51.282Z",
+      "crawledAt": "2026-11-27T09:29:11.570Z",
       "hiringOrganization": "Patek Philippe SA",
-      "addressLocality": "Saint-Imier",
-      "addressRegion": "BE",
+      "addressLocality": "Plan-Les-Ouates",
+      "postalCode": "1228",
+      "streetAddress": "Chemin du Pont-du-Centenaire 141",
+      "addressRegion": "Genève",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Altro",
@@ -1416,46 +1351,45 @@
       "sector": "Luxury / Watchmaking (Manufacturing)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-26T00:00:00Z",
-      "postedDate": "2026-10-26T00:00:00Z",
+      "datePosted": "2026-11-23T00:00:00Z",
+      "postedDate": "2026-11-23T00:00:00Z",
       "postingDateSource": "reported",
-      "applyUrl": "https://careers.patek.com/job/Saint-Imier-Charg%C3%A9-d'Industrialisation-Vie-S%C3%A9rie-%28HF%29/1374406755/",
-      "jobReqId": "1374406755",
+      "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-Projets-%28HF%29/1378153855/",
+      "jobReqId": "1378153855",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "charge-d-industrialisation-vie-serie-h-f-patek-philippe-saint-imier"
+        "charge-de-projets-h-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-d-industrialisation-vie-serie-h-f-patek-philippe-saint-imier"
+          "charge-de-projets-h-f-patek-philippe-plan-les-ouates"
         ],
         "en": [
-          "charge-d-industrialisation-vie-serie-h-f-patek-philippe-saint-imier"
+          "charge-de-projets-h-f-patek-philippe-plan-les-ouates"
         ],
         "de": [
-          "charge-d-industrialisation-vie-serie-h-f-patek-philippe-saint-imier"
+          "charge-de-projets-h-f-patek-philippe-plan-les-ouates"
         ]
       },
-      "firstSeenAt": "2026-10-26T21:45:29.549Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
+      "firstSeenAt": "2026-11-23T21:18:47.038Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
+          "minValue": 83500,
+          "maxValue": 126500,
           "unitText": "YEAR"
         }
       },
-      "postalCode": "2610",
-      "streetAddress": "Saint-Imier",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:35:51.282Z",
-      "validThroughSource": "last-observed-window"
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-21T09:29:11.570Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-charg%c3%a9-de-projets-%28hf%29/1378153855"
     },
     {
       "id": "patek-philippe-d8db92b70b86",
@@ -1488,7 +1422,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Charg%C3%A9-de-Process-Vie-S%C3%A9rie-%28HF%29/1374443355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:35:50.768Z",
+      "crawledAt": "2026-11-27T09:29:11.072Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -1538,8 +1472,94 @@
       "postalCode": "2610",
       "streetAddress": "Saint-Imier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:35:50.768Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-24T09:29:11.072Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/saint-imier-charg%c3%a9-de-process-vie-s%c3%a9rie-%28hf%29/1374443355"
+    },
+    {
+      "id": "patek-philippe-2daf4ab828fd",
+      "slug": "responsabile-per-industrializzazione-life-series-m-f-patek-philippe-saint-imier",
+      "slugByLocale": {
+        "it": "responsabile-per-industrializzazione-life-series-m-f-patek-philippe-saint-imier",
+        "en": "responsible-for-industrialization-life-series-m-f-patek-philippe-saint-imier",
+        "de": "verantwortlich-fur-industrialisierung-life-series-m-w-patek-philippe-saint-imier",
+        "fr": "charge-d-industrialisation-vie-serie-h-f-patek-philippe-saint-imier"
+      },
+      "company": "Patek Philippe",
+      "companyKey": "patek-philippe",
+      "companyDomain": "patek.com",
+      "title": "Chargé d'Industrialisation Vie Série (H/F)",
+      "titleByLocale": {
+        "it": "Responsabile per Industrializzazione Life Series (M/F)",
+        "en": "Responsible for Industrialization Life Series (M/F)",
+        "de": "Verantwortlich für Industrialisierung Life Series (M/W)",
+        "fr": "Chargé d'Industrialisation Vie Série (H/F)"
+      },
+      "description": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Service Développement & Industrialisation, votre mission consistera à mener, en autonomie, des projets d’industrialisation des produits. Vous organiserez et animerez, en fonction des besoins, des réunions techniques entre Méthodes, Production et Qualité. De plus, vous participerez activement aux actions d’amélioration continue.\n\nResponsabilités\n\n• Définir les moyens à employer pour le lancement de la production des produits.\n\n• Participer à la définition des process de production, études de faisabilité.\n\n• Elaborer des dossiers de production tout en veillant à leur standardisation.\n\n• Gérer l’industrialisation de la conception au transfert en vie courante.\n\n• Coordonner l’avancement des ordres de fabrication durant la phase de réalisation.\n\nProfil recherché\n\n• Bachelor en mécanique ou microtechnique.\n\n• 7 ans d’expérience au minimum dans un poste similaire.\n\n• Expérience dans le domaine horloger ou dans le domaine du cadran haut de gamme.\n\n• Très bonne maîtrise des outils bureautiques (MS Office, notamment Excel).\n\n• Excellent sens relationnel et diplomatie.\n\n• Esprit d’équipe et aisance à collaborer de manière transversale.\n\n• Esprit d’analyse et de synthèse, critique et méthodique.\n\n• Force de proposition, sens de la négociation et de la persuasion.\n\nRéférence du poste\n\n3831",
+      "descriptionByLocale": {
+        "it": "Missione\n\nNell'ambito di questa funzione, allegata al nostro Servizio Sviluppo & Industrializzazione, la vostra missione sarà di realizzare progetti autonomi di industrializzazione dei prodotti. Potrai organizzare e ospitare incontri tecnici tra Metodi, Produzione e Qualità, come richiesto. Inoltre, parteciperai attivamente alle azioni di miglioramento continuo.\n\nresponsabilità\n\n• Definire i mezzi da utilizzare per l'avvio della produzione di prodotto.\n\n• Partecipa alla definizione dei processi produttivi, studi di fattibilità.\n\n• Sviluppare record di produzione garantendo la loro standardizzazione.\n\n• Gestisci l'industrializzazione dal design al trasferimento per tutta la vita.\n\n• Coordinare il progresso degli ordini di produzione durante la fase di produzione.\n\nProfilo ricercato\n\n• Corso di laurea in meccanica o microtecnica.\n\n• Almeno 7 anni di esperienza in una posizione simile.\n\n• Esperienza nel campo dell'orologeria o nel campo del quadrante di fascia alta.\n\n• Ottima padronanza degli strumenti di ufficio (MS Office, incluso Excel).\n\n• Ottima relazione e diplomazia.\n\n• Spirito di squadra e facilità di collaborazione trasversale.\n\n• Spirito di analisi e sintesi, critico e metodico.\n\n• Forza di proposta, significato di negoziazione e persuasione.\n\nRiferimenti\n\n3831",
+        "en": "Mission\n\nWithin the framework of this function, attached to our Development & Industrialization Service, your mission will be to carry out autonomous projects industrialization of products. You will organize and host technical meetings between Methods, Production and Quality, as required. In addition, you will actively participate in continuous improvement actions.\n\nResponsibilities\n\n• Define the means to be used for the start-up of product production.\n\n• Participate in the definition of production processes, feasibility studies.\n\n• Develop production records while ensuring their standardization.\n\n• Manage industrialization from design to life-long transfer.\n\n• Coordinate the progress of manufacturing orders during the production phase.\n\nProfile sought\n\n• Bachelor in mechanics or microtechnics.\n\n• At least 7 years of experience in a similar position.\n\n• Experience in the watchmaking field or in the field of the high-end dial.\n\n• Very good mastery of office tools (MS Office, including Excel).\n\n• Excellent relationship and diplomacy.\n\n• Team spirit and ease of cross-sectional collaboration.\n\n• Spirit of analysis and synthesis, critical and methodical.\n\n• Strength of proposal, meaning of negotiation and persuasion.\n\nPost reference\n\n3831",
+        "de": "Mission\n\nIm Rahmen dieser Funktion, die unserem Entwicklungs- und Industrialisierungsservice angegliedert ist, besteht Ihre Mission darin, autonome Projekte zur Industrialisierung von Produkten durchzuführen. Sie organisieren und veranstalten nach Bedarf technische Meetings zwischen Methoden, Produktion und Qualität. Darüber hinaus beteiligen Sie sich aktiv an kontinuierlichen Verbesserungsmaßnahmen.\n\nZuständigkeiten\n\n• Definieren Sie die Mittel, die für die Inbetriebnahme der Produktproduktion verwendet werden sollen.\n\n• Beteiligen Sie sich an der Definition von Produktionsprozessen, Machbarkeitsstudien.\n\n• Entwicklung von Produktionsaufzeichnungen bei gleichzeitiger Gewährleistung ihrer Standardisierung.\n\n• Verwalten Sie die Industrialisierung vom Design bis zum lebenslangen Transfer.\n\n• Koordinieren Sie den Fortschritt der Fertigungsaufträge während der Produktionsphase.\n\nProfil gesucht\n\n• Bachelor in Mechanik oder Mikrotechnik.\n\n• Mindestens 7 Jahre Erfahrung in einer ähnlichen Position.\n\n• Erfahrung im Bereich der Uhrmacherei oder im Bereich des High-End-Ziffers.\n\n• Sehr gute Beherrschung von Office-Tools (MS Office, einschließlich Excel).\n\n• Ausgezeichnete Beziehungen und Diplomatie.\n\n• Teamgeist und Leichtigkeit der Zusammenarbeit im Querschnitt.\n\n• Geist der Analyse und Synthese, kritisch und methodisch.\n\n• Stärke des Vorschlags, Bedeutung von Verhandlungen und Überzeugungsarbeit.\n\nPostleitzahl\n\n3831",
+        "fr": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Service Développement & Industrialisation, votre mission consistera à mener, en autonomie, des projets d’industrialisation des produits. Vous organiserez et animerez, en fonction des besoins, des réunions techniques entre Méthodes, Production et Qualité. De plus, vous participerez activement aux actions d’amélioration continue.\n\nResponsabilités\n\n• Définir les moyens à employer pour le lancement de la production des produits.\n\n• Participer à la définition des process de production, études de faisabilité.\n\n• Elaborer des dossiers de production tout en veillant à leur standardisation.\n\n• Gérer l’industrialisation de la conception au transfert en vie courante.\n\n• Coordonner l’avancement des ordres de fabrication durant la phase de réalisation.\n\nProfil recherché\n\n• Bachelor en mécanique ou microtechnique.\n\n• 7 ans d’expérience au minimum dans un poste similaire.\n\n• Expérience dans le domaine horloger ou dans le domaine du cadran haut de gamme.\n\n• Très bonne maîtrise des outils bureautiques (MS Office, notamment Excel).\n\n• Excellent sens relationnel et diplomatie.\n\n• Esprit d’équipe et aisance à collaborer de manière transversale.\n\n• Esprit d’analyse et de synthèse, critique et méthodique.\n\n• Force de proposition, sens de la négociation et de la persuasion.\n\nRéférence du poste\n\n3831"
+      },
+      "location": "Saint-Imier",
+      "canton": "BE",
+      "url": "https://careers.patek.com/job/Saint-Imier-Charg%C3%A9-d'Industrialisation-Vie-S%C3%A9rie-%28HF%29/1374406755/",
+      "source": "Patek Philippe Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-27T09:29:10.548Z",
+      "hiringOrganization": "Patek Philippe SA",
+      "addressLocality": "Saint-Imier",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Luxury / Watchmaking (Manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-26T00:00:00Z",
+      "postedDate": "2026-10-26T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.patek.com/job/Saint-Imier-Charg%C3%A9-d'Industrialisation-Vie-S%C3%A9rie-%28HF%29/1374406755/",
+      "jobReqId": "1374406755",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "charge-d-industrialisation-vie-serie-h-f-patek-philippe-saint-imier"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-d-industrialisation-vie-serie-h-f-patek-philippe-saint-imier"
+        ],
+        "en": [
+          "charge-d-industrialisation-vie-serie-h-f-patek-philippe-saint-imier"
+        ],
+        "de": [
+          "charge-d-industrialisation-vie-serie-h-f-patek-philippe-saint-imier"
+        ]
+      },
+      "firstSeenAt": "2026-10-26T21:45:29.549Z",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94500,
+          "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "2610",
+      "streetAddress": "Saint-Imier",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-24T09:29:10.548Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/saint-imier-charg%c3%a9-d'industrialisation-vie-s%c3%a9rie-%28hf%29/1374406755"
     },
     {
       "id": "patek-philippe-130a850567bf",
@@ -1572,7 +1592,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-S%C3%BBret%C3%A9-et-S%C3%A9curit%C3%A9-%28HF%29/1369899255/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:35:50.072Z",
+      "crawledAt": "2026-11-27T09:29:09.879Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -1620,8 +1640,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T21:35:50.072Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-28T09:29:09.879Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-charg%c3%a9-de-s%c3%bbret%c3%a9-et-s%c3%a9curit%c3%a9-%28hf%29/1369899255"
     },
     {
       "id": "patek-philippe-e33c79b6e14f",
@@ -1654,7 +1675,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Atelier-Embo%C3%AEtage-%28HF%29/1374773755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:35:49.548Z",
+      "crawledAt": "2026-11-27T09:29:09.323Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -1704,8 +1725,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:35:49.548Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-26T09:29:09.323Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.patek.com/job/plan-les-ouates-responsable-atelier-embo%c3%aetage-%28hf%29/1374773755"
     }
   ]
 }

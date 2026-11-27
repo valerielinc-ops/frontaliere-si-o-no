@@ -1,7 +1,7 @@
 {
   "crawlerKey": "rss-surselva",
-  "assembledAt": "2026-11-26T21:18:46.915Z",
-  "runId": "45895484056",
+  "assembledAt": "2026-11-27T09:19:38.398Z",
+  "runId": "45970557697",
   "jobs": [
     {
       "id": "rss-surselva-4a75de9a7bb2",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "professionista-sanitario-a-fage-efz-50-80-assistenza-infermieristica-interdisciplinare-a-partire-da-agosto-2027",
         "en": "health-professional-fage-efz-50-80-interdisciplinary-care-as-of-august-2027-regionalspital-surselva-ilanz",
-        "de": "fachperson-gesundheit-fage-efz-50-80-intersdisziplinare-pflege-per-august-2027-regionalspital-surselva-ilanz",
+        "de": "fachperson-gesundheit-fage-efz-50-80-intersdisziplinare-pflege-per-august-2027-rss",
         "fr": "professionnels-de-la-sante-fage-efz-50-80-soins-interdisciplinaires-en-aout-2027-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
@@ -34,7 +34,7 @@
       "url": "https://link.ostendis.com/publication/fachperson-gesundheit-fage-efz-intersdisziplinaere-pflege-per-august/lnly4vwrscu83z4jvdrsl5156d5hjjqgaz5mo3hvyjae9z3wu9r2smz2i770nnwe",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:18:12.160Z",
+      "crawledAt": "2026-11-27T09:19:32.861Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -57,11 +57,10 @@
       "pensum": "50 - 80%",
       "pensumMin": 50,
       "pensumMax": 80,
-      "previousSlugs": [
-        "fachperson-gesundheit-fage-efz-50-80-intersdisziplinare-pflege-per-august-2027-rss",
-        "fachperson-gesundheit-fage-efz-50-80-intersdisziplinare-pflege-per-august-2027-regionalspital-surselva-ilanz"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "fachperson-gesundheit-fage-efz-50-80-intersdisziplinare-pflege-per-august-2027-regionalspital-surselva-ilanz"
+        ],
         "it": [
           "fachperson-gesundheit-fage-efz-50-80-intersdisziplinare-pflege-per-august-2027-rss",
           "fachperson-gesundheit-fage-efz-50-80-intersdisziplinare-pflege-per-august-2027-regionalspital-surselva-ilanz"
@@ -71,11 +70,12 @@
         ],
         "fr": [
           "fachperson-gesundheit-fage-efz-50-80-intersdisziplinare-pflege-per-august-2027-regionalspital-surselva-ilanz"
-        ],
-        "de": [
-          "fachperson-gesundheit-fage-efz-50-80-intersdisziplinare-pflege-per-august-2027-rss"
         ]
       },
+      "previousSlugs": [
+        "fachperson-gesundheit-fage-efz-50-80-intersdisziplinare-pflege-per-august-2027-rss",
+        "fachperson-gesundheit-fage-efz-50-80-intersdisziplinare-pflege-per-august-2027-regionalspital-surselva-ilanz"
+      ],
       "firstSeenAt": "2026-11-14T09:16:21.735Z",
       "salaryMin": 65200,
       "salaryMax": 91200,
@@ -92,7 +92,7 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T21:18:12.160Z",
+      "validThrough": "2027-02-11T09:19:32.861Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://link.ostendis.com/publication/fachperson-gesundheit-fage-efz-intersdisziplinaere-pflege-per-august/lnly4vwrscu83z4jvdrsl5156d5hjjqgaz5mo3hvyjae9z3wu9r2smz2i770nnwe"
     },
@@ -102,7 +102,7 @@
       "slugByLocale": {
         "it": "professionista-sanitario-a-fage-efz-50-80-assistenza-infermieristica-interdisciplinare-a-partire-da-subito",
         "en": "professional-health-fage-efz-50-80-interdisciplinary-care-immediately-regionalspital-surselva-ilanz",
-        "de": "fachperson-gesundheit-fage-efz-50-80-intersdisziplinare-pflege-per-sofort-regionalspital-surselva-ilanz",
+        "de": "fachperson-gesundheit-fage-efz-50-80-intersdisziplinare-pflege-per-sofort-rss-surselva-ch",
         "fr": "sante-professionnelle-fage-efz-50-80-soins-interdisciplinaires-immediatement-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
@@ -127,7 +127,7 @@
       "url": "https://link.ostendis.com/publication/fachperson-gesundheit-fage-efz-intersdisziplinaere-pflege-per-sofort/kaoogo2eshpuzdbww6zqqadixul4qzlldtey2hu3w2m8i5ty2sdra2cv7ycrjsdy",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:18:11.412Z",
+      "crawledAt": "2026-11-27T09:19:32.152Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -150,11 +150,10 @@
       "pensum": "50 - 80%",
       "pensumMin": 50,
       "pensumMax": 80,
-      "previousSlugs": [
-        "fachperson-gesundheit-fage-efz-50-80-intersdisziplinare-pflege-per-sofort-rss-surselva-ch",
-        "fachperson-gesundheit-fage-efz-50-80-intersdisziplinare-pflege-per-sofort-regionalspital-surselva-ilanz"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "fachperson-gesundheit-fage-efz-50-80-intersdisziplinare-pflege-per-sofort-regionalspital-surselva-ilanz"
+        ],
         "it": [
           "fachperson-gesundheit-fage-efz-50-80-intersdisziplinare-pflege-per-sofort-rss-surselva-ch",
           "fachperson-gesundheit-fage-efz-50-80-intersdisziplinare-pflege-per-sofort-regionalspital-surselva-ilanz"
@@ -164,11 +163,12 @@
         ],
         "fr": [
           "fachperson-gesundheit-fage-efz-50-80-intersdisziplinare-pflege-per-sofort-regionalspital-surselva-ilanz"
-        ],
-        "de": [
-          "fachperson-gesundheit-fage-efz-50-80-intersdisziplinare-pflege-per-sofort-rss-surselva-ch"
         ]
       },
+      "previousSlugs": [
+        "fachperson-gesundheit-fage-efz-50-80-intersdisziplinare-pflege-per-sofort-rss-surselva-ch",
+        "fachperson-gesundheit-fage-efz-50-80-intersdisziplinare-pflege-per-sofort-regionalspital-surselva-ilanz"
+      ],
       "firstSeenAt": "2026-11-14T09:16:21.014Z",
       "salaryMin": 65200,
       "salaryMax": 91200,
@@ -185,7 +185,7 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T21:18:11.412Z",
+      "validThrough": "2027-02-11T09:19:32.152Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://link.ostendis.com/publication/fachperson-gesundheit-fage-efz-intersdisziplinaere-pflege-per-sofort/kaoogo2eshpuzdbww6zqqadixul4qzlldtey2hu3w2m8i5ty2sdra2cv7ycrjsdy"
     },
@@ -195,7 +195,7 @@
       "slugByLocale": {
         "it": "dipl-infermiera-hf-fh-dipartimento-interdisciplinare-50-100-a-partire-da-aprile-2027-regionalspital-surselva-ilanz",
         "en": "dipl-nurse-hf-fh-interdisciplinary-department-50-100-as-of-april-2027-regionalspital-surselva-ilanz",
-        "de": "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-april-2027-regionalspital-surselva-ilanz",
+        "de": "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-april-2027-rss-surselva",
         "fr": "dipl-infirmiere-hf-fh-departement-interdisciplinaire-50-100-en-avril-2027-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
@@ -220,7 +220,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-hf-fh-interdisziplinaere-abteilung-per-april/q1lrddnv4xt05sc2thybzx4ynba67m5dna8nnumiytlgzz76uxm57rttk2ei4ihk",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:18:10.667Z",
+      "crawledAt": "2026-11-27T09:19:31.441Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -243,11 +243,10 @@
       "pensum": "50 - 100%",
       "pensumMin": 50,
       "pensumMax": 100,
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-april-2027-rss-surselva",
-        "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-april-2027-regionalspital-surselva-ilanz"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-april-2027-regionalspital-surselva-ilanz"
+        ],
         "it": [
           "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-april-2027-rss-surselva",
           "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-april-2027-regionalspital-surselva-ilanz"
@@ -255,13 +254,14 @@
         "en": [
           "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-april-2027-regionalspital-surselva-ilanz"
         ],
-        "de": [
-          "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-april-2027-rss-surselva"
-        ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-april-2027-regionalspital-surselva-ilanz"
         ]
       },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-april-2027-rss-surselva",
+        "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-april-2027-regionalspital-surselva-ilanz"
+      ],
       "firstSeenAt": "2026-11-14T09:16:20.290Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -278,7 +278,7 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T21:18:10.667Z",
+      "validThrough": "2027-02-11T09:19:31.441Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://link.ostendis.com/publication/dipl-pflegefachperson-hf-fh-interdisziplinaere-abteilung-per-april/q1lrddnv4xt05sc2thybzx4ynba67m5dna8nnumiytlgzz76uxm57rttk2ei4ihk"
     },
@@ -288,7 +288,7 @@
       "slugByLocale": {
         "it": "dipl-infermiera-hf-fh-dipartimento-interdisciplinare-50-100-immediatamente-regionalspital-surselva-ilanz",
         "en": "dipl-nurse-hf-fh-interdisciplinary-department-50-100-immediately-regionalspital-surselva-ilanz",
-        "de": "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-sofort-regionalspital-surselva-ilanz",
+        "de": "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-sofort-rss-surselva-ch",
         "fr": "dipl-infirmiere-hf-fh-departement-interdisciplinaire-50-a-100-immediatement-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
@@ -313,7 +313,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-hf-fh-interdisziplinaere-abteilung-per-sofort/3veqirfw9sklkey0m4dw1r8ldiwq6cmsvpjglzt4m8zpsttktqvhswj8zc7ewcyk",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:18:09.924Z",
+      "crawledAt": "2026-11-27T09:19:30.710Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -336,11 +336,10 @@
       "pensum": "50 - 100%",
       "pensumMin": 50,
       "pensumMax": 100,
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-sofort-rss-surselva-ch",
-        "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-sofort-regionalspital-surselva-ilanz"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-sofort-regionalspital-surselva-ilanz"
+        ],
         "it": [
           "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-sofort-rss-surselva-ch",
           "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-sofort-regionalspital-surselva-ilanz"
@@ -348,13 +347,14 @@
         "en": [
           "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-sofort-regionalspital-surselva-ilanz"
         ],
-        "de": [
-          "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-sofort-rss-surselva-ch"
-        ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-sofort-regionalspital-surselva-ilanz"
         ]
       },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-sofort-rss-surselva-ch",
+        "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-50-100-per-sofort-regionalspital-surselva-ilanz"
+      ],
       "firstSeenAt": "2026-11-14T09:16:19.568Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -371,7 +371,7 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T21:18:09.924Z",
+      "validThrough": "2027-02-11T09:19:30.710Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://link.ostendis.com/publication/dipl-pflegefachperson-hf-fh-interdisziplinaere-abteilung-per-sofort/3veqirfw9sklkey0m4dw1r8ldiwq6cmsvpjglzt4m8zpsttktqvhswj8zc7ewcyk"
     },
@@ -406,7 +406,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-hf-fh-interdisziplinaere-abteilung-saisonstelle-winter/1pp4k3ioaji4qveyjqk0ivfrsi6q772snoexvauxgwom4txo8l6ay2o1w35kzfl8",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:18:09.176Z",
+      "crawledAt": "2026-11-27T09:19:29.998Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -475,7 +475,7 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:18:09.176Z",
+      "validThrough": "2026-12-27T09:19:29.998Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://link.ostendis.com/publication/dipl-pflegefachperson-hf-fh-interdisziplinaere-abteilung-saisonstelle-winter/1pp4k3ioaji4qveyjqk0ivfrsi6q772snoexvauxgwom4txo8l6ay2o1w35kzfl8"
     },
@@ -510,7 +510,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-hf-nds-anaesthesie/dpgym8b9bxlicfinjqbjygzd0usjk7dkxxy35ysh03bb7svl9k5crf7kca3mq25e",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:18:08.426Z",
+      "crawledAt": "2026-11-27T09:19:29.284Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -576,7 +576,7 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:18:08.426Z",
+      "validThrough": "2026-12-27T09:19:29.284Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://link.ostendis.com/publication/dipl-pflegefachperson-hf-nds-anaesthesie/dpgym8b9bxlicfinjqbjygzd0usjk7dkxxy35ysh03bb7svl9k5crf7kca3mq25e"
     },
@@ -611,7 +611,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-hf-imc-awr/s2k3jjw8ohwa0xannz483hm3ul5318ixidpvqze6z4c4q0fxpjlqmf2sdcx5tuu3",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:18:07.686Z",
+      "crawledAt": "2026-11-27T09:19:28.551Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -670,7 +670,7 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:18:07.686Z",
+      "validThrough": "2026-12-27T09:19:28.551Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://link.ostendis.com/publication/dipl-pflegefachperson-hf-imc-awr/s2k3jjw8ohwa0xannz483hm3ul5318ixidpvqze6z4c4q0fxpjlqmf2sdcx5tuu3"
     },
@@ -705,7 +705,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung/7z0s6e3l21p5x0vrbh5qa3260d8f11ki0ldx02uq0l3oka6pordnbsw0m34y2nai",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:18:06.941Z",
+      "crawledAt": "2026-11-27T09:19:27.828Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -756,7 +756,7 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:18:06.941Z",
+      "validThrough": "2026-12-27T09:19:27.828Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://link.ostendis.com/publication/dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung/7z0s6e3l21p5x0vrbh5qa3260d8f11ki0ldx02uq0l3oka6pordnbsw0m34y2nai"
     },
@@ -766,7 +766,7 @@
       "slugByLocale": {
         "it": "dipl-midwife-hf-fh-80-regionalspital-surselva-ilanz",
         "en": "dipl-midwife-hf-fh-80-regionalspital-surselva-ilanz",
-        "de": "dipl-hebamme-hf-fh-50-80-regionalspital-surselva-ilanz",
+        "de": "dipl-hebamme-hf-fh-50-80-rss-surselva-ch",
         "fr": "dipl-sage-femme-hf-fh-80-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
@@ -791,7 +791,7 @@
       "url": "https://link.ostendis.com/publication/dipl-hebamme-hf-fh/34mzo2ks0bc4ev5idufw4r4wjs2cf5i33sdfbiwf38wr17jx4adedoq4j83n6f9u",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:18:06.190Z",
+      "crawledAt": "2026-11-27T09:19:27.125Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -814,17 +814,13 @@
       "pensum": "50 - 80%",
       "pensumMin": 50,
       "pensumMax": 80,
-      "previousSlugs": [
-        "dipl-hebamme-hf-fh-80-rss-surselva-ch",
-        "dipl-midwife-hf-fh-60-80-regionalspital-surselva-ilanz",
-        "dipl-hebamme-hf-fh-60-80-rss-surselva-ch",
-        "dipl-sage-femme-hf-fh-60-80-regionalspital-surselva-ilanz",
-        "dipl-hebamme-hf-fh-60-80-regionalspital-surselva-ilanz",
-        "dipl-hebamme-hf-fh-80-regionalspital-surselva-ilanz",
-        "dipl-hebamme-hf-fh-50-70-rss-surselva-ch",
-        "dipl-hebamme-hf-fh-50-80-rss-surselva-ch"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "dipl-hebamme-hf-fh-60-80-rss-surselva-ch",
+          "dipl-hebamme-hf-fh-80-regionalspital-surselva-ilanz",
+          "dipl-hebamme-hf-fh-80-rss-surselva-ch",
+          "dipl-hebamme-hf-fh-50-80-regionalspital-surselva-ilanz"
+        ],
         "it": [
           "dipl-hebamme-hf-fh-80-rss-surselva-ch",
           "dipl-midwife-hf-fh-60-80-regionalspital-surselva-ilanz",
@@ -838,17 +834,22 @@
           "dipl-midwife-hf-fh-60-80-regionalspital-surselva-ilanz",
           "dipl-hebamme-hf-fh-80-rss-surselva-ch"
         ],
-        "de": [
-          "dipl-hebamme-hf-fh-60-80-rss-surselva-ch",
-          "dipl-hebamme-hf-fh-80-regionalspital-surselva-ilanz",
-          "dipl-hebamme-hf-fh-80-rss-surselva-ch",
-          "dipl-hebamme-hf-fh-50-80-rss-surselva-ch"
-        ],
         "fr": [
           "dipl-hebamme-hf-fh-80-rss-surselva-ch",
           "dipl-sage-femme-hf-fh-60-80-regionalspital-surselva-ilanz"
         ]
       },
+      "previousSlugs": [
+        "dipl-hebamme-hf-fh-80-rss-surselva-ch",
+        "dipl-midwife-hf-fh-60-80-regionalspital-surselva-ilanz",
+        "dipl-hebamme-hf-fh-60-80-rss-surselva-ch",
+        "dipl-sage-femme-hf-fh-60-80-regionalspital-surselva-ilanz",
+        "dipl-hebamme-hf-fh-60-80-regionalspital-surselva-ilanz",
+        "dipl-hebamme-hf-fh-80-regionalspital-surselva-ilanz",
+        "dipl-hebamme-hf-fh-50-70-rss-surselva-ch",
+        "dipl-hebamme-hf-fh-50-80-rss-surselva-ch",
+        "dipl-hebamme-hf-fh-50-80-regionalspital-surselva-ilanz"
+      ],
       "firstSeenAt": "2026-08-24T09:57:48.296Z",
       "salaryMin": 65200,
       "salaryMax": 91200,
@@ -865,7 +866,7 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:18:06.190Z",
+      "validThrough": "2026-12-27T09:19:27.125Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://link.ostendis.com/publication/dipl-hebamme-hf-fh/34mzo2ks0bc4ev5idufw4r4wjs2cf5i33sdfbiwf38wr17jx4adedoq4j83n6f9u"
     },
@@ -900,7 +901,7 @@
       "url": "https://link.ostendis.com/publication/dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op/xwf6ayr6toklo7tf3gpbb1sfm4wgzaoc52mx1s2wvtw3rtts2g4wa47ljc32zinc",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:18:05.453Z",
+      "crawledAt": "2026-11-27T09:19:26.434Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -951,7 +952,7 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:18:05.453Z",
+      "validThrough": "2026-12-27T09:19:26.434Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://link.ostendis.com/publication/dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op/xwf6ayr6toklo7tf3gpbb1sfm4wgzaoc52mx1s2wvtw3rtts2g4wa47ljc32zinc"
     },
@@ -986,7 +987,7 @@
       "url": "https://link.ostendis.com/publication/dipl-experten-expertin-hf-notfallpflege/vfrppklwtsu2zvfvrwyyo4vr68txzlxik0hr17bvv7d0f0nlfaui3vjq7rx0ucfn",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:18:04.701Z",
+      "crawledAt": "2026-11-27T09:19:25.698Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -1040,7 +1041,7 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:18:04.701Z",
+      "validThrough": "2026-12-27T09:19:25.698Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://link.ostendis.com/publication/dipl-experten-expertin-hf-notfallpflege/vfrppklwtsu2zvfvrwyyo4vr68txzlxik0hr17bvv7d0f0nlfaui3vjq7rx0ucfn"
     },
@@ -1075,7 +1076,7 @@
       "url": "https://link.ostendis.com/publication/radiologie-fachperson-mtr-hf/cqc4g5hihd3yo54po3ii8ehjvonrxgybwaivmkx4gr3nd7235opk8fp2uzqsp6rt",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:18:03.950Z",
+      "crawledAt": "2026-11-27T09:19:24.967Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -1125,7 +1126,7 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:18:03.950Z",
+      "validThrough": "2026-12-27T09:19:24.967Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://link.ostendis.com/publication/radiologie-fachperson-mtr-hf/cqc4g5hihd3yo54po3ii8ehjvonrxgybwaivmkx4gr3nd7235opk8fp2uzqsp6rt"
     },
@@ -1135,7 +1136,7 @@
       "slugByLocale": {
         "it": "luogo-di-formazione-dipl-paramedici-di-salvataggio-hf-regionalspital-surselva-ilanz",
         "en": "training-location-dipl-rescue-paramedics-hf-regionalspital-surselva-ilanz",
-        "de": "ausbildungsplatz-dipl-rettungssanitater-in-hf-regionalspital-surselva-ilanz",
+        "de": "ausbildungsplatz-dipl-rettungssanitater-in-hf-rss-surselva-ch",
         "fr": "lieu-de-formation-paramedics-de-sauvetage-hf-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
@@ -1160,7 +1161,7 @@
       "url": "https://link.ostendis.com/publication/ausbildungsplatz-dipl-rettungssanitaeter-in-hf/tq20tbnyz5fgvvt1jzuccx8zizi16fz2hxjlgrp6duqladvm2wf5arhvwbkhqwd7",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:18:03.200Z",
+      "crawledAt": "2026-11-27T09:19:24.266Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -1180,11 +1181,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Medizinisch technisches Personal",
-      "previousSlugs": [
-        "ausbildungsplatz-dipl-rettungssanitater-in-hf-regionalspital-surselva-ilanz",
-        "ausbildungsplatz-dipl-rettungssanitater-in-hf-rss-surselva-ch"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "ausbildungsplatz-dipl-rettungssanitater-in-hf-regionalspital-surselva-ilanz"
+        ],
         "it": [
           "ausbildungsplatz-dipl-rettungssanitater-in-hf-regionalspital-surselva-ilanz",
           "ausbildungsplatz-dipl-rettungssanitater-in-hf-rss-surselva-ch"
@@ -1192,13 +1192,14 @@
         "en": [
           "ausbildungsplatz-dipl-rettungssanitater-in-hf-regionalspital-surselva-ilanz"
         ],
-        "de": [
-          "ausbildungsplatz-dipl-rettungssanitater-in-hf-rss-surselva-ch"
-        ],
         "fr": [
           "ausbildungsplatz-dipl-rettungssanitater-in-hf-regionalspital-surselva-ilanz"
         ]
       },
+      "previousSlugs": [
+        "ausbildungsplatz-dipl-rettungssanitater-in-hf-regionalspital-surselva-ilanz",
+        "ausbildungsplatz-dipl-rettungssanitater-in-hf-rss-surselva-ch"
+      ],
       "firstSeenAt": "2026-09-16T23:42:54.638Z",
       "salaryMin": 48500,
       "salaryMax": 89500,
@@ -1215,9 +1216,95 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:18:03.200Z",
+      "validThrough": "2026-12-27T09:19:24.266Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://link.ostendis.com/publication/ausbildungsplatz-dipl-rettungssanitaeter-in-hf/tq20tbnyz5fgvvt1jzuccx8zizi16fz2hxjlgrp6duqladvm2wf5arhvwbkhqwd7"
+    },
+    {
+      "id": "rss-surselva-53679673aed3",
+      "slug": "applikationsverantwortliche-n-80-100-regionalspital-surselva-ilanz",
+      "slugByLocale": {
+        "it": "applikationsverantwortliche-n-80-100-regionalspital-surselva-ilanz",
+        "en": "applikationsverantwortliche-n-80-100-regionalspital-surselva-ilanz",
+        "de": "applikationsverantwortliche-n-80-100-rss-surselva-ch",
+        "fr": "applikationsverantwortliche-n-80-100-regionalspital-surselva-ilanz"
+      },
+      "company": "Regionalspital Surselva",
+      "companyKey": "rss-surselva",
+      "companyDomain": "rss.ch",
+      "title": "Applikationsverantwortliche*n 80-100 %",
+      "titleByLocale": {
+        "it": "Gestione delle applicazioni* 80-100%",
+        "en": "Application managers* 80-100%",
+        "de": "Applikationsverantwortliche*n 80-100 %",
+        "fr": "Gestionnaires de demandes* 80-100%"
+      },
+      "description": "Applikationsverantwortliche*n 80-100 %\nper sofort oder nach Vereinbarung\nDie Regionalspital Surselva AG stellt die erweiterte Grund- und Notfallversorgung für ca. 22‘000 Einwohner und saisonal rund 20‘000 Feriengäste der Tourismusregion Bündner Oberland sicher. Unsere rund 320 Mitarbeitenden behandeln mit zeitgemässer Infrastruktur (CT, MRI, IMC, etc.) jährlich rund 2‘600 stationäre und 16‘000 ambulante Patienten in den Kliniken Chirurgie und Orthopädie/Traumatologie mit Neurochirurgie und Urologie, Innere Medizin mit Kardiologie, Onkologie, Gastroenterologie Pneumologie und Rheumatologie, Gynäkologie und Geburtshilfe, Pädiatrie und Anästhesie. Die Regionalspital Surselva AG ist mit dem Label „Swiss Olympic Medical Base approved by Swiss Olympic“ ausgezeichnet. Durch die Kooperation mit dem Zentrumsspital in Chur kann ein erweitertes Leistungsspektrum angeboten werden.\n\nIhre Hauptaufgaben:\n\n• Verantwortung für den reibungslosen Betrieb und die Wartung unserer Business Applikationen, mit besonderem Fokus auf unser Klinikinformationssystem sowie das ERP-System.\n\n• Betreuung und Weiterentwicklung unserer Business-Applikationen, Auseinandersetzung mit aktuellen Technologien und aktives Einbringen dieser Kenntnisse\n\n• Austausch mit unseren Kliniken und Fachbereichen, um Anforderungen zu identifizieren und im System zu implementieren\n\n• Koordination von Updates und Hotfixes der Business-Applikationen\n\n• Teilprojektleitung bei der Integration von medizintechnischen Geräten und Software\n\n• Sicherstellung der Funktionalität, Leistungsfähigkeit und die Sicherheit der Applikationen\n\n• Unterstützung der Endanwender bei Fragen und Problemen\n\n• Durchführung von Schulungen zur Nutzung der Systeme\n\n• Link\n\nIhr Profil:\n\n• Eine abgeschlossene HF Ausbildung oder Studium im Bereich Informatik\n\n• Mehrjährige Berufserfahrung im Bereich der Applikationsbetreuung, idealerweise im Spitalumfeld (KIS,ERP, Spezialapplikationen)\n\n• Grundkenntnisse von Schnittstellen und Scriptsprachen von Vorteil\n\n• Hohes Mass an Serviceorientierung und Kommunikationsstärke\n\n• Bereitschaft zu Arbeitsleistungen ausserhalb der Bürozeiten (Wartungen, Pikettdienst)\n\n• Strukturierte, selbstständige Arbeitsweise\n\n• Teamfähigkeit und Bereitschaft zur kontinuierlichen Weiterbildung\n\n• Kommunikative, lösungsorientierte Persönlichkeit mit konzeptionellen und analytischen Fähigkeiten\n\nWir bieten\n\n• Eine interessante und verantwortungsvolle Tätigkeit sowie zeitgemässe Anstellungsbedingungen, moderne Arbeitszeitmodelle, fünf Wochen Ferien und eine Woche Kompensation, diverse Vergünstigungen (intern + externe Anbieter) für Mitarbeitende.\n\n• Die Besoldung erfolgt gemäss Empfehlung des BSH Graubünden. Darüber hinaus bietet das Bündner Oberland als eines der schönsten Berggebiete der Schweiz im Sommer wie im Winter reichhaltige Möglichkeiten der Freizeitgestaltung.\n\n• Mitarbeiter Benefits\n\nHaben wir Ihr Interesse geweckt? Wir freuen uns auf Ihre Bewerbung.\n\nAuskunft erteilt Ihnen gerne:\nReto Derungs, Leiter ICT, r.derungs@spitalilanz.ch oder via Tel.: 081 926 50 30\n\nIhre schriftliche Bewerbung richten Sie bitte\nper E-Mail an:\npersonalostendis@spitalilanz.ch\noder direkt über online.",
+      "descriptionByLocale": {
+        "it": "Gestione delle applicazioni* 80-100%\nimmediatamente o con accordo\nRegionalspital Surselva AG fornisce l'assistenza di base e di emergenza estesa per circa 22.000 abitanti e stagionalmente circa 20.000 ospiti di vacanza nella regione turistica di Bündner Oberland. I nostri circa 320 dipendenti trattano con infrastrutture moderne (CT, MRI, IMC, ecc.) circa 2.600 pazienti ambulatoriali e 16.000 pazienti ambulatoriali ogni anno nelle cliniche di chirurgia e ortopedia/traumatologia con neurochirurgia e urologia, medicina interna con cardiologia, oncologia, pneumologia gastroenterologica e reumatologia, ginecologia e ostetricia. La Regionalspital Surselva AG è premiata con l’etichetta “Swiss Olympic Medical Base omologata dalla Swiss Olympic”. Attraverso la collaborazione con il Center Hospital di Chur, è possibile offrire una vasta gamma di servizi.\n\nI loro compiti principali:\n\n• Responsabilità per il buon funzionamento e la manutenzione delle nostre applicazioni aziendali, con particolare attenzione al nostro sistema informativo clinico e al sistema ERP.\n\n• Supporto e ulteriore sviluppo delle nostre applicazioni aziendali, occupandosi delle tecnologie attuali e contribuendo attivamente a questa conoscenza\n\n• Scambiare con le nostre cliniche e aree specializzate per identificare i requisiti e implementarli nel sistema\n\n• Coordinamento degli aggiornamenti e hotfix delle applicazioni aziendali\n\n• Gestione del progetto nell'integrazione di dispositivi medici e software\n\n• Garantire funzionalità, prestazioni e sicurezza delle applicazioni\n\n• Sostenere gli utenti finali con domande e problemi\n\n• Disposizione della formazione sull'uso dei sistemi\n\n• Link\n\nIl tuo profilo:\n\n• Una formazione completa HF o studio in informatica\n\n• Diversi anni di esperienza professionale nel campo del supporto alle applicazioni, idealmente nell'ambiente ospedaliero (KIS, ERP, applicazioni speciali)\n\n• La conoscenza di base delle interfacce e delle lingue di scrittura è vantaggiosa\n\n• Alto grado di orientamento del servizio e forza di comunicazione\n\n• Volontà di fornire lavoro al di fuori delle ore di ufficio (manutenzione, cottura)\n\n• Metodo di lavoro strutturato e indipendente\n\n• Lavoro di squadra e prontezza per la formazione continua\n\n• Personalità comunicativa e orientata alla soluzione con competenze concettuali e analitiche\n\nOffriamo\n\n• Un lavoro interessante e responsabile così come le condizioni di lavoro contemporaneo, moderni modelli di tempo di lavoro, cinque settimane di vacanze e una settimana di compensazione, vari vantaggi (fornitori interni + esterni) per i dipendenti.\n\n• Lo stipendio è pagato secondo la raccomandazione del BSH Grigioni. Inoltre, l'Oberland Bündner come una delle zone di montagna più belle della Svizzera offre ricche opportunità di svago in estate e in inverno.\n\n• Prestazioni dei dipendenti\n\nAbbiamo suscitato il vostro interesse? Attendiamo con ansia la vostra applicazione.\n\nSi prega di fornire informazioni:\nReto Derungs, Responsabile ICT, r.derungs@spitalilanz.ch o via tel: 081 926 50 30\n\nFai la tua richiesta scritta\nvia email a:\npersonaleostendis@spitalilanz.ch\nO direttamente tramite online.",
+        "en": "Application managers* 80-100%\nimmediately or by agreement\nRegionalspital Surselva AG provides the extended basic and emergency care for approximately 22,000 inhabitants and seasonally around 20,000 holiday guests in the tourism region of Bündner Oberland. Our approximately 320 employees treat with modern infrastructure (CT, MRI, IMC, etc.) approximately 2,600 inpatient and 16,000 outpatient patients annually in the clinics of surgery and orthopaedics/traumatology with neurosurgery and urology, internal medicine with cardiology, oncology, gastroenterology pneumology and rheumatology, gynecology and obstetrics, pediatrics and anesthesia. Regionalspital Surselva AG is awarded the “Swiss Olympic Medical Base approved by Swiss Olympic” label. Through the cooperation with the Center Hospital in Chur, an extended range of services can be offered.\n\nTheir main tasks:\n\n• Responsibility for the smooth operation and maintenance of our business applications, with a particular focus on our clinic information system and the ERP system.\n\n• Support and further development of our business applications, dealing with current technologies and actively contributing this knowledge\n\n• Exchange with our clinics and specialist areas to identify requirements and implement them in the system\n\n• Coordination of updates and hotfixes of business applications\n\n• Project management in the integration of medical devices and software\n\n• Ensuring the functionality, performance and security of applications\n\n• Supporting end users with questions and problems\n\n• Provision of training on the use of the systems\n\n• Link\n\nYour profile:\n\n• A completed HF education or study in computer science\n\n• Several years of professional experience in the field of application support, ideally in the hospital environment (KIS, ERP, special applications)\n\n• Basic knowledge of interfaces and scripting languages is advantageous\n\n• High degree of service orientation and communication strength\n\n• Willingness to provide work outside office hours (maintenance, cooking)\n\n• Structured, independent working method\n\n• Teamwork and readiness for continuous training\n\n• Communicative, solution-oriented personality with conceptual and analytical skills\n\nWe offer\n\n• An interesting and responsible job as well as contemporary employment conditions, modern working time models, five weeks of holidays and one week compensation, various benefits (internal + external providers) for employees.\n\n• The salary is paid according to the recommendation of the BSH Graubünden. In addition, the Bündner Oberland as one of the most beautiful mountain areas in Switzerland offers rich opportunities for leisure in summer and winter.\n\n• Employee benefits\n\nHave we aroused your interest? We look forward to your application.\n\nPlease provide information:\nReto Derungs, Head of ICT, r.derungs@spitalilanz.ch or via tel: 081 926 50 30\n\nMake your written application Please\nby e-mail to:\npersonalostendis@spitalilanz.ch\nOr directly through online.",
+        "de": "Applikationsverantwortliche*n 80-100 %\nper sofort oder nach Vereinbarung\nDie Regionalspital Surselva AG stellt die erweiterte Grund- und Notfallversorgung für ca. 22‘000 Einwohner und saisonal rund 20‘000 Feriengäste der Tourismusregion Bündner Oberland sicher. Unsere rund 320 Mitarbeitenden behandeln mit zeitgemässer Infrastruktur (CT, MRI, IMC, etc.) jährlich rund 2‘600 stationäre und 16‘000 ambulante Patienten in den Kliniken Chirurgie und Orthopädie/Traumatologie mit Neurochirurgie und Urologie, Innere Medizin mit Kardiologie, Onkologie, Gastroenterologie Pneumologie und Rheumatologie, Gynäkologie und Geburtshilfe, Pädiatrie und Anästhesie. Die Regionalspital Surselva AG ist mit dem Label „Swiss Olympic Medical Base approved by Swiss Olympic“ ausgezeichnet. Durch die Kooperation mit dem Zentrumsspital in Chur kann ein erweitertes Leistungsspektrum angeboten werden.\n\nIhre Hauptaufgaben:\n\n• Verantwortung für den reibungslosen Betrieb und die Wartung unserer Business Applikationen, mit besonderem Fokus auf unser Klinikinformationssystem sowie das ERP-System.\n\n• Betreuung und Weiterentwicklung unserer Business-Applikationen, Auseinandersetzung mit aktuellen Technologien und aktives Einbringen dieser Kenntnisse\n\n• Austausch mit unseren Kliniken und Fachbereichen, um Anforderungen zu identifizieren und im System zu implementieren\n\n• Koordination von Updates und Hotfixes der Business-Applikationen\n\n• Teilprojektleitung bei der Integration von medizintechnischen Geräten und Software\n\n• Sicherstellung der Funktionalität, Leistungsfähigkeit und die Sicherheit der Applikationen\n\n• Unterstützung der Endanwender bei Fragen und Problemen\n\n• Durchführung von Schulungen zur Nutzung der Systeme\n\n• Link\n\nIhr Profil:\n\n• Eine abgeschlossene HF Ausbildung oder Studium im Bereich Informatik\n\n• Mehrjährige Berufserfahrung im Bereich der Applikationsbetreuung, idealerweise im Spitalumfeld (KIS,ERP, Spezialapplikationen)\n\n• Grundkenntnisse von Schnittstellen und Scriptsprachen von Vorteil\n\n• Hohes Mass an Serviceorientierung und Kommunikationsstärke\n\n• Bereitschaft zu Arbeitsleistungen ausserhalb der Bürozeiten (Wartungen, Pikettdienst)\n\n• Strukturierte, selbstständige Arbeitsweise\n\n• Teamfähigkeit und Bereitschaft zur kontinuierlichen Weiterbildung\n\n• Kommunikative, lösungsorientierte Persönlichkeit mit konzeptionellen und analytischen Fähigkeiten\n\nWir bieten\n\n• Eine interessante und verantwortungsvolle Tätigkeit sowie zeitgemässe Anstellungsbedingungen, moderne Arbeitszeitmodelle, fünf Wochen Ferien und eine Woche Kompensation, diverse Vergünstigungen (intern + externe Anbieter) für Mitarbeitende.\n\n• Die Besoldung erfolgt gemäss Empfehlung des BSH Graubünden. Darüber hinaus bietet das Bündner Oberland als eines der schönsten Berggebiete der Schweiz im Sommer wie im Winter reichhaltige Möglichkeiten der Freizeitgestaltung.\n\n• Mitarbeiter Benefits\n\nHaben wir Ihr Interesse geweckt? Wir freuen uns auf Ihre Bewerbung.\n\nAuskunft erteilt Ihnen gerne:\nReto Derungs, Leiter ICT, r.derungs@spitalilanz.ch oder via Tel.: 081 926 50 30\n\nIhre schriftliche Bewerbung richten Sie bitte\nper E-Mail an:\npersonalostendis@spitalilanz.ch\noder direkt über online.",
+        "fr": "Gestionnaires de demandes* 80-100%\nimmédiatement ou par accord\nRegionalspital Surselva AG fournit des soins de base et d'urgence prolongés pour environ 22 000 habitants et environ 20 000 visiteurs saisonniers dans la région touristique de Bündner Oberland. Nos quelque 320 employés traitent avec une infrastructure moderne (CT, IRM, IMC, etc.) environ 2 600 patients hospitalisés et 16 000 patients externes chaque année dans les cliniques de chirurgie et d'orthopédie/traumatologie avec neurochirurgie et urologie, médecine interne avec cardiologie, oncologie, gastroentérologie pneumologie et rhumatologie, gynécologie et obstétrique, pédiatrie et anesthésie. Regionalspital Surselva AG reçoit la base médicale olympique suisse approuvée par le label Swiss Olympic. Grâce à la coopération avec le Centre hospitalier de Chur, un large éventail de services peut être offert.\n\nLeurs principales tâches:\n\n• La responsabilité du bon fonctionnement et de la maintenance de nos applications commerciales, en particulier notre système d'information clinique et le système ERP.\n\n• Soutien et développement ultérieur de nos applications commerciales, traitant des technologies actuelles et apportant activement ces connaissances\n\n• Échange avec nos cliniques et nos domaines spécialisés pour identifier les besoins et les mettre en œuvre dans le système\n\n• Coordination des mises à jour et des correctifs des applications commerciales\n\n• Gestion de projet dans l'intégration des dispositifs et logiciels médicaux\n\n• Assurer la fonctionnalité, la performance et la sécurité des applications\n\n• Aider les utilisateurs finaux avec des questions et des problèmes\n\n• Formation à l ' utilisation des systèmes\n\n• Lien\n\nVotre profil:\n\n• Une formation HF terminée ou une étude en informatique\n\n• Plusieurs années d'expérience professionnelle dans le domaine du soutien aux applications, idéalement dans l'environnement hospitalier (KIS, ERP, applications spéciales)\n\n• La connaissance de base des interfaces et des langages de script est avantageuse\n\n• Niveau élevé d'orientation du service et de force de communication\n\n• Volonté de fournir du travail en dehors des heures de bureau (entretien, cuisine)\n\n• Méthode de travail structurée et indépendante\n\n• Travail d'équipe et préparation à la formation continue\n\n• Personnalité communicative, orientée vers la solution, avec des compétences conceptuelles et analytiques\n\nNous offrons\n\n• Un emploi intéressant et responsable ainsi que des conditions d'emploi contemporaines, des modèles modernes de temps de travail, cinq semaines de vacances et une semaine de rémunération, divers avantages (internes et externes) pour les salariés.\n\n• Le salaire est payé selon la recommandation de la BSH Graubünden. En outre, l'Oberland Bündner comme l'une des plus belles régions de montagne en Suisse offre de riches possibilités de loisirs en été et en hiver.\n\n• Avantages sociaux\n\nAvons-nous suscité votre intérêt ? Nous attendons avec impatience votre candidature.\n\nVeuillez fournir des informations:\nReto Derungs, Chef des TIC, r.derungs@spitalilanz.ch ou par téléphone : 081 926 50 30\n\nFaites votre demande écrite Veuillez\npar courriel à:\npersonalostendis@spitalilanz.ch\nOu directement via Internet."
+      },
+      "location": "Ilanz",
+      "canton": "GR",
+      "url": "https://link.ostendis.com/publication/applikationsverantwortliche/k15d7gnq3xj0dv4mnvthcp3yqj253riqdafmy6dh2dl1aw75rcktj2wqr6wj37jb",
+      "source": "Regionalspital Surselva Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-27T09:19:23.556Z",
+      "addressLocality": "Ilanz",
+      "postalCode": "7130",
+      "streetAddress": "Spitalstrasse 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-26",
+      "postedDate": "2026-11-26",
+      "postingDateSource": "reported",
+      "applyUrl": "https://link.ostendis.com/cvdropper/e3e047a0b6fa4b23ac45b56c83c1f3a8/DE?src=k15d7gnq3xj0dv4mnvthcp3yqj253riqdafmy6dh2dl1aw75rcktj2wqr6wj37jb",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "IT",
+      "pensum": "80 - 100%",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "previousSlugsByLocale": {
+        "de": [
+          "applikationsverantwortliche-n-80-100-regionalspital-surselva-ilanz"
+        ],
+        "it": [
+          "applikationsverantwortliche-n-80-100-rss-surselva-ch"
+        ]
+      },
+      "previousSlugs": [
+        "applikationsverantwortliche-n-80-100-rss-surselva-ch",
+        "applikationsverantwortliche-n-80-100-regionalspital-surselva-ilanz"
+      ],
+      "firstSeenAt": "2026-11-26T21:18:02.458Z",
+      "salaryMin": 60000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-24T09:19:23.556Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://link.ostendis.com/publication/applikationsverantwortliche/k15d7gnq3xj0dv4mnvthcp3yqj253riqdafmy6dh2dl1aw75rcktj2wqr6wj37jb"
     },
     {
       "id": "rss-surselva-575caa24775a",
@@ -1225,7 +1312,7 @@
       "slugByLocale": {
         "it": "linea-di-travi-80-100-regionalspital-surselva-ilanz",
         "en": "midwives-line-80-100-regionalspital-surselva-ilanz",
-        "de": "leitung-hebammen-80-100-regionalspital-surselva-ilanz",
+        "de": "leitung-hebammen-80-100-rss-surselva-ch",
         "fr": "ligne-des-sages-femmes-80-100-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
@@ -1250,7 +1337,7 @@
       "url": "https://link.ostendis.com/publication/leitung-hebammen/f9tijwrh6sfczuot8lne5dmihg40z2xjb5eiq1kq3tiyczo145s1okmsgxoj1pwq",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:18:01.715Z",
+      "crawledAt": "2026-11-27T09:19:22.853Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -1273,23 +1360,24 @@
       "pensum": "80 - 100%",
       "pensumMin": 80,
       "pensumMax": 100,
-      "previousSlugs": [
-        "leitung-hebammen-80-100-rss-surselva-ch"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "leitung-hebammen-80-100-regionalspital-surselva-ilanz"
+        ],
         "it": [
           "leitung-hebammen-80-100-rss-surselva-ch"
         ],
         "en": [
           "leitung-hebammen-80-100-rss-surselva-ch"
         ],
-        "de": [
-          "leitung-hebammen-80-100-rss-surselva-ch"
-        ],
         "fr": [
           "leitung-hebammen-80-100-rss-surselva-ch"
         ]
       },
+      "previousSlugs": [
+        "leitung-hebammen-80-100-rss-surselva-ch",
+        "leitung-hebammen-80-100-regionalspital-surselva-ilanz"
+      ],
       "firstSeenAt": "2026-11-12T21:19:31.816Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -1306,7 +1394,7 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T21:18:01.715Z",
+      "validThrough": "2027-02-10T09:19:22.853Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://link.ostendis.com/publication/leitung-hebammen/f9tijwrh6sfczuot8lne5dmihg40z2xjb5eiq1kq3tiyczo145s1okmsgxoj1pwq"
     },
@@ -1316,7 +1404,7 @@
       "slugByLocale": {
         "it": "addetta-o-alla-ristorazione-40-100-regionalspital-surselva-ilanz",
         "en": "employee-in-gastronomy-40-100-regionalspital-surselva-ilanz",
-        "de": "mitarbeiterin-in-gastronomie-40-100-regionalspital-surselva-ilanz",
+        "de": "mitarbeiterin-in-gastronomie-40-100-rss-surselva-ch",
         "fr": "mitarbeiterin-in-gastronomie-40-100-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
@@ -1341,7 +1429,7 @@
       "url": "https://link.ostendis.com/publication/mitarbeiterin-in-gastronomie/buw23zyjpze6nmfdn00gxbikwsiwsafjn6l6qocml2bga5je0phb4i22a40ml2vt",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:18:00.971Z",
+      "crawledAt": "2026-11-27T09:19:22.151Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -1364,12 +1452,10 @@
       "pensum": "40 - 100%",
       "pensumMin": 40,
       "pensumMax": 100,
-      "previousSlugs": [
-        "mitarbeiterin-in-gastronomie-40-100-regionalspital-surselva-ilanz",
-        "mitarbeiterin-in-gastronomie-40-100-rss-surselva-ch",
-        "dipendenti-in-gastronomia-40-100-regionalspital-surselva-ilanz"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "mitarbeiterin-in-gastronomie-40-100-regionalspital-surselva-ilanz"
+        ],
         "it": [
           "mitarbeiterin-in-gastronomie-40-100-regionalspital-surselva-ilanz",
           "mitarbeiterin-in-gastronomie-40-100-rss-surselva-ch",
@@ -1377,11 +1463,13 @@
         ],
         "en": [
           "mitarbeiterin-in-gastronomie-40-100-regionalspital-surselva-ilanz"
-        ],
-        "de": [
-          "mitarbeiterin-in-gastronomie-40-100-rss-surselva-ch"
         ]
       },
+      "previousSlugs": [
+        "mitarbeiterin-in-gastronomie-40-100-regionalspital-surselva-ilanz",
+        "mitarbeiterin-in-gastronomie-40-100-rss-surselva-ch",
+        "dipendenti-in-gastronomia-40-100-regionalspital-surselva-ilanz"
+      ],
       "firstSeenAt": "2026-10-02T09:16:23.684Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -1398,7 +1486,7 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:18:00.971Z",
+      "validThrough": "2026-12-27T09:19:22.151Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://link.ostendis.com/publication/mitarbeiterin-in-gastronomie/buw23zyjpze6nmfdn00gxbikwsiwsafjn6l6qocml2bga5je0phb4i22a40ml2vt"
     },
@@ -1433,7 +1521,7 @@
       "url": "https://link.ostendis.com/publication/hausaerztin-hausarzt/0na83sidjo3kfcjdj75k3827g7efq03w8zpm0mwfg38n3a5rs2unhxe8eezypgum",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:18:00.218Z",
+      "crawledAt": "2026-11-27T09:19:21.422Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -1503,95 +1591,9 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:18:00.218Z",
+      "validThrough": "2026-12-27T09:19:21.422Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://link.ostendis.com/publication/hausaerztin-hausarzt/0na83sidjo3kfcjdj75k3827g7efq03w8zpm0mwfg38n3a5rs2unhxe8eezypgum"
-    },
-    {
-      "id": "rss-surselva-53679673aed3",
-      "slug": "applikationsverantwortliche-n-80-100-regionalspital-surselva-ilanz",
-      "slugByLocale": {
-        "de": "applikationsverantwortliche-n-80-100-regionalspital-surselva-ilanz",
-        "it": "applikationsverantwortliche-n-80-100-regionalspital-surselva-ilanz",
-        "en": "applikationsverantwortliche-n-80-100-regionalspital-surselva-ilanz",
-        "fr": "applikationsverantwortliche-n-80-100-regionalspital-surselva-ilanz"
-      },
-      "company": "Regionalspital Surselva",
-      "companyKey": "rss-surselva",
-      "companyDomain": "rss.ch",
-      "title": "Applikationsverantwortliche*n 80-100 %",
-      "titleByLocale": {
-        "de": "Applikationsverantwortliche*n 80-100 %",
-        "it": "Gestione delle applicazioni* 80-100%",
-        "en": "Application managers* 80-100%",
-        "fr": "Gestionnaires de demandes* 80-100%"
-      },
-      "description": "Applikationsverantwortliche*n 80-100 %\nper sofort oder nach Vereinbarung\nDie Regionalspital Surselva AG stellt die erweiterte Grund- und Notfallversorgung für ca. 22‘000 Einwohner und saisonal rund 20‘000 Feriengäste der Tourismusregion Bündner Oberland sicher. Unsere rund 320 Mitarbeitenden behandeln mit zeitgemässer Infrastruktur (CT, MRI, IMC, etc.) jährlich rund 2‘600 stationäre und 16‘000 ambulante Patienten in den Kliniken Chirurgie und Orthopädie/Traumatologie mit Neurochirurgie und Urologie, Innere Medizin mit Kardiologie, Onkologie, Gastroenterologie Pneumologie und Rheumatologie, Gynäkologie und Geburtshilfe, Pädiatrie und Anästhesie. Die Regionalspital Surselva AG ist mit dem Label „Swiss Olympic Medical Base approved by Swiss Olympic“ ausgezeichnet. Durch die Kooperation mit dem Zentrumsspital in Chur kann ein erweitertes Leistungsspektrum angeboten werden.\n\nIhre Hauptaufgaben:\n\n• Verantwortung für den reibungslosen Betrieb und die Wartung unserer Business Applikationen, mit besonderem Fokus auf unser Klinikinformationssystem sowie das ERP-System.\n\n• Betreuung und Weiterentwicklung unserer Business-Applikationen, Auseinandersetzung mit aktuellen Technologien und aktives Einbringen dieser Kenntnisse\n\n• Austausch mit unseren Kliniken und Fachbereichen, um Anforderungen zu identifizieren und im System zu implementieren\n\n• Koordination von Updates und Hotfixes der Business-Applikationen\n\n• Teilprojektleitung bei der Integration von medizintechnischen Geräten und Software\n\n• Sicherstellung der Funktionalität, Leistungsfähigkeit und die Sicherheit der Applikationen\n\n• Unterstützung der Endanwender bei Fragen und Problemen\n\n• Durchführung von Schulungen zur Nutzung der Systeme\n\n• Link\n\nIhr Profil:\n\n• Eine abgeschlossene HF Ausbildung oder Studium im Bereich Informatik\n\n• Mehrjährige Berufserfahrung im Bereich der Applikationsbetreuung, idealerweise im Spitalumfeld (KIS,ERP, Spezialapplikationen)\n\n• Grundkenntnisse von Schnittstellen und Scriptsprachen von Vorteil\n\n• Hohes Mass an Serviceorientierung und Kommunikationsstärke\n\n• Bereitschaft zu Arbeitsleistungen ausserhalb der Bürozeiten (Wartungen, Pikettdienst)\n\n• Strukturierte, selbstständige Arbeitsweise\n\n• Teamfähigkeit und Bereitschaft zur kontinuierlichen Weiterbildung\n\n• Kommunikative, lösungsorientierte Persönlichkeit mit konzeptionellen und analytischen Fähigkeiten\n\nWir bieten\n\n• Eine interessante und verantwortungsvolle Tätigkeit sowie zeitgemässe Anstellungsbedingungen, moderne Arbeitszeitmodelle, fünf Wochen Ferien und eine Woche Kompensation, diverse Vergünstigungen (intern + externe Anbieter) für Mitarbeitende.\n\n• Die Besoldung erfolgt gemäss Empfehlung des BSH Graubünden. Darüber hinaus bietet das Bündner Oberland als eines der schönsten Berggebiete der Schweiz im Sommer wie im Winter reichhaltige Möglichkeiten der Freizeitgestaltung.\n\n• Mitarbeiter Benefits\n\nHaben wir Ihr Interesse geweckt? Wir freuen uns auf Ihre Bewerbung.\n\nAuskunft erteilt Ihnen gerne:\nReto Derungs, Leiter ICT, r.derungs@spitalilanz.ch oder via Tel.: 081 926 50 30\n\nIhre schriftliche Bewerbung richten Sie bitte\nper E-Mail an:\npersonalostendis@spitalilanz.ch\noder direkt über online.",
-      "descriptionByLocale": {
-        "de": "Applikationsverantwortliche*n 80-100 %\nper sofort oder nach Vereinbarung\nDie Regionalspital Surselva AG stellt die erweiterte Grund- und Notfallversorgung für ca. 22‘000 Einwohner und saisonal rund 20‘000 Feriengäste der Tourismusregion Bündner Oberland sicher. Unsere rund 320 Mitarbeitenden behandeln mit zeitgemässer Infrastruktur (CT, MRI, IMC, etc.) jährlich rund 2‘600 stationäre und 16‘000 ambulante Patienten in den Kliniken Chirurgie und Orthopädie/Traumatologie mit Neurochirurgie und Urologie, Innere Medizin mit Kardiologie, Onkologie, Gastroenterologie Pneumologie und Rheumatologie, Gynäkologie und Geburtshilfe, Pädiatrie und Anästhesie. Die Regionalspital Surselva AG ist mit dem Label „Swiss Olympic Medical Base approved by Swiss Olympic“ ausgezeichnet. Durch die Kooperation mit dem Zentrumsspital in Chur kann ein erweitertes Leistungsspektrum angeboten werden.\n\nIhre Hauptaufgaben:\n\n• Verantwortung für den reibungslosen Betrieb und die Wartung unserer Business Applikationen, mit besonderem Fokus auf unser Klinikinformationssystem sowie das ERP-System.\n\n• Betreuung und Weiterentwicklung unserer Business-Applikationen, Auseinandersetzung mit aktuellen Technologien und aktives Einbringen dieser Kenntnisse\n\n• Austausch mit unseren Kliniken und Fachbereichen, um Anforderungen zu identifizieren und im System zu implementieren\n\n• Koordination von Updates und Hotfixes der Business-Applikationen\n\n• Teilprojektleitung bei der Integration von medizintechnischen Geräten und Software\n\n• Sicherstellung der Funktionalität, Leistungsfähigkeit und die Sicherheit der Applikationen\n\n• Unterstützung der Endanwender bei Fragen und Problemen\n\n• Durchführung von Schulungen zur Nutzung der Systeme\n\n• Link\n\nIhr Profil:\n\n• Eine abgeschlossene HF Ausbildung oder Studium im Bereich Informatik\n\n• Mehrjährige Berufserfahrung im Bereich der Applikationsbetreuung, idealerweise im Spitalumfeld (KIS,ERP, Spezialapplikationen)\n\n• Grundkenntnisse von Schnittstellen und Scriptsprachen von Vorteil\n\n• Hohes Mass an Serviceorientierung und Kommunikationsstärke\n\n• Bereitschaft zu Arbeitsleistungen ausserhalb der Bürozeiten (Wartungen, Pikettdienst)\n\n• Strukturierte, selbstständige Arbeitsweise\n\n• Teamfähigkeit und Bereitschaft zur kontinuierlichen Weiterbildung\n\n• Kommunikative, lösungsorientierte Persönlichkeit mit konzeptionellen und analytischen Fähigkeiten\n\nWir bieten\n\n• Eine interessante und verantwortungsvolle Tätigkeit sowie zeitgemässe Anstellungsbedingungen, moderne Arbeitszeitmodelle, fünf Wochen Ferien und eine Woche Kompensation, diverse Vergünstigungen (intern + externe Anbieter) für Mitarbeitende.\n\n• Die Besoldung erfolgt gemäss Empfehlung des BSH Graubünden. Darüber hinaus bietet das Bündner Oberland als eines der schönsten Berggebiete der Schweiz im Sommer wie im Winter reichhaltige Möglichkeiten der Freizeitgestaltung.\n\n• Mitarbeiter Benefits\n\nHaben wir Ihr Interesse geweckt? Wir freuen uns auf Ihre Bewerbung.\n\nAuskunft erteilt Ihnen gerne:\nReto Derungs, Leiter ICT, r.derungs@spitalilanz.ch oder via Tel.: 081 926 50 30\n\nIhre schriftliche Bewerbung richten Sie bitte\nper E-Mail an:\npersonalostendis@spitalilanz.ch\noder direkt über online.",
-        "it": "Gestione delle applicazioni* 80-100%\nimmediatamente o con accordo\nRegionalspital Surselva AG fornisce l'assistenza di base e di emergenza estesa per circa 22.000 abitanti e stagionalmente circa 20.000 ospiti di vacanza nella regione turistica di Bündner Oberland. I nostri circa 320 dipendenti trattano con infrastrutture moderne (CT, MRI, IMC, ecc.) circa 2.600 pazienti ambulatoriali e 16.000 pazienti ambulatoriali ogni anno nelle cliniche di chirurgia e ortopedia/traumatologia con neurochirurgia e urologia, medicina interna con cardiologia, oncologia, pneumologia gastroenterologica e reumatologia, ginecologia e ostetricia. La Regionalspital Surselva AG è premiata con l’etichetta “Swiss Olympic Medical Base omologata dalla Swiss Olympic”. Attraverso la collaborazione con il Center Hospital di Chur, è possibile offrire una vasta gamma di servizi.\n\nI loro compiti principali:\n\n• Responsabilità per il buon funzionamento e la manutenzione delle nostre applicazioni aziendali, con particolare attenzione al nostro sistema informativo clinico e al sistema ERP.\n\n• Supporto e ulteriore sviluppo delle nostre applicazioni aziendali, occupandosi delle tecnologie attuali e contribuendo attivamente a questa conoscenza\n\n• Scambiare con le nostre cliniche e aree specializzate per identificare i requisiti e implementarli nel sistema\n\n• Coordinamento degli aggiornamenti e hotfix delle applicazioni aziendali\n\n• Gestione del progetto nell'integrazione di dispositivi medici e software\n\n• Garantire funzionalità, prestazioni e sicurezza delle applicazioni\n\n• Sostenere gli utenti finali con domande e problemi\n\n• Disposizione della formazione sull'uso dei sistemi\n\n• Link\n\nIl tuo profilo:\n\n• Una formazione completa HF o studio in informatica\n\n• Diversi anni di esperienza professionale nel campo del supporto alle applicazioni, idealmente nell'ambiente ospedaliero (KIS, ERP, applicazioni speciali)\n\n• La conoscenza di base delle interfacce e delle lingue di scrittura è vantaggiosa\n\n• Alto grado di orientamento del servizio e forza di comunicazione\n\n• Volontà di fornire lavoro al di fuori delle ore di ufficio (manutenzione, cottura)\n\n• Metodo di lavoro strutturato e indipendente\n\n• Lavoro di squadra e prontezza per la formazione continua\n\n• Personalità comunicativa e orientata alla soluzione con competenze concettuali e analitiche\n\nOffriamo\n\n• Un lavoro interessante e responsabile così come le condizioni di lavoro contemporaneo, moderni modelli di tempo di lavoro, cinque settimane di vacanze e una settimana di compensazione, vari vantaggi (fornitori interni + esterni) per i dipendenti.\n\n• Lo stipendio è pagato secondo la raccomandazione del BSH Grigioni. Inoltre, l'Oberland Bündner come una delle zone di montagna più belle della Svizzera offre ricche opportunità di svago in estate e in inverno.\n\n• Prestazioni dei dipendenti\n\nAbbiamo suscitato il vostro interesse? Attendiamo con ansia la vostra applicazione.\n\nSi prega di fornire informazioni:\nReto Derungs, Responsabile ICT, r.derungs@spitalilanz.ch o via tel: 081 926 50 30\n\nFai la tua richiesta scritta\nvia email a:\npersonaleostendis@spitalilanz.ch\nO direttamente tramite online.",
-        "en": "Application managers* 80-100%\nimmediately or by agreement\nRegionalspital Surselva AG provides the extended basic and emergency care for approximately 22,000 inhabitants and seasonally around 20,000 holiday guests in the tourism region of Bündner Oberland. Our approximately 320 employees treat with modern infrastructure (CT, MRI, IMC, etc.) approximately 2,600 inpatient and 16,000 outpatient patients annually in the clinics of surgery and orthopaedics/traumatology with neurosurgery and urology, internal medicine with cardiology, oncology, gastroenterology pneumology and rheumatology, gynecology and obstetrics, pediatrics and anesthesia. Regionalspital Surselva AG is awarded the “Swiss Olympic Medical Base approved by Swiss Olympic” label. Through the cooperation with the Center Hospital in Chur, an extended range of services can be offered.\n\nTheir main tasks:\n\n• Responsibility for the smooth operation and maintenance of our business applications, with a particular focus on our clinic information system and the ERP system.\n\n• Support and further development of our business applications, dealing with current technologies and actively contributing this knowledge\n\n• Exchange with our clinics and specialist areas to identify requirements and implement them in the system\n\n• Coordination of updates and hotfixes of business applications\n\n• Project management in the integration of medical devices and software\n\n• Ensuring the functionality, performance and security of applications\n\n• Supporting end users with questions and problems\n\n• Provision of training on the use of the systems\n\n• Link\n\nYour profile:\n\n• A completed HF education or study in computer science\n\n• Several years of professional experience in the field of application support, ideally in the hospital environment (KIS, ERP, special applications)\n\n• Basic knowledge of interfaces and scripting languages is advantageous\n\n• High degree of service orientation and communication strength\n\n• Willingness to provide work outside office hours (maintenance, cooking)\n\n• Structured, independent working method\n\n• Teamwork and readiness for continuous training\n\n• Communicative, solution-oriented personality with conceptual and analytical skills\n\nWe offer\n\n• An interesting and responsible job as well as contemporary employment conditions, modern working time models, five weeks of holidays and one week compensation, various benefits (internal + external providers) for employees.\n\n• The salary is paid according to the recommendation of the BSH Graubünden. In addition, the Bündner Oberland as one of the most beautiful mountain areas in Switzerland offers rich opportunities for leisure in summer and winter.\n\n• Employee benefits\n\nHave we aroused your interest? We look forward to your application.\n\nPlease provide information:\nReto Derungs, Head of ICT, r.derungs@spitalilanz.ch or via tel: 081 926 50 30\n\nMake your written application Please\nby e-mail to:\npersonalostendis@spitalilanz.ch\nOr directly through online.",
-        "fr": "Gestionnaires de demandes* 80-100%\nimmédiatement ou par accord\nRegionalspital Surselva AG fournit des soins de base et d'urgence prolongés pour environ 22 000 habitants et environ 20 000 visiteurs saisonniers dans la région touristique de Bündner Oberland. Nos quelque 320 employés traitent avec une infrastructure moderne (CT, IRM, IMC, etc.) environ 2 600 patients hospitalisés et 16 000 patients externes chaque année dans les cliniques de chirurgie et d'orthopédie/traumatologie avec neurochirurgie et urologie, médecine interne avec cardiologie, oncologie, gastroentérologie pneumologie et rhumatologie, gynécologie et obstétrique, pédiatrie et anesthésie. Regionalspital Surselva AG reçoit la base médicale olympique suisse approuvée par le label Swiss Olympic. Grâce à la coopération avec le Centre hospitalier de Chur, un large éventail de services peut être offert.\n\nLeurs principales tâches:\n\n• La responsabilité du bon fonctionnement et de la maintenance de nos applications commerciales, en particulier notre système d'information clinique et le système ERP.\n\n• Soutien et développement ultérieur de nos applications commerciales, traitant des technologies actuelles et apportant activement ces connaissances\n\n• Échange avec nos cliniques et nos domaines spécialisés pour identifier les besoins et les mettre en œuvre dans le système\n\n• Coordination des mises à jour et des correctifs des applications commerciales\n\n• Gestion de projet dans l'intégration des dispositifs et logiciels médicaux\n\n• Assurer la fonctionnalité, la performance et la sécurité des applications\n\n• Aider les utilisateurs finaux avec des questions et des problèmes\n\n• Formation à l ' utilisation des systèmes\n\n• Lien\n\nVotre profil:\n\n• Une formation HF terminée ou une étude en informatique\n\n• Plusieurs années d'expérience professionnelle dans le domaine du soutien aux applications, idéalement dans l'environnement hospitalier (KIS, ERP, applications spéciales)\n\n• La connaissance de base des interfaces et des langages de script est avantageuse\n\n• Niveau élevé d'orientation du service et de force de communication\n\n• Volonté de fournir du travail en dehors des heures de bureau (entretien, cuisine)\n\n• Méthode de travail structurée et indépendante\n\n• Travail d'équipe et préparation à la formation continue\n\n• Personnalité communicative, orientée vers la solution, avec des compétences conceptuelles et analytiques\n\nNous offrons\n\n• Un emploi intéressant et responsable ainsi que des conditions d'emploi contemporaines, des modèles modernes de temps de travail, cinq semaines de vacances et une semaine de rémunération, divers avantages (internes et externes) pour les salariés.\n\n• Le salaire est payé selon la recommandation de la BSH Graubünden. En outre, l'Oberland Bündner comme l'une des plus belles régions de montagne en Suisse offre de riches possibilités de loisirs en été et en hiver.\n\n• Avantages sociaux\n\nAvons-nous suscité votre intérêt ? Nous attendons avec impatience votre candidature.\n\nVeuillez fournir des informations:\nReto Derungs, Chef des TIC, r.derungs@spitalilanz.ch ou par téléphone : 081 926 50 30\n\nFaites votre demande écrite Veuillez\npar courriel à:\npersonalostendis@spitalilanz.ch\nOu directement via Internet."
-      },
-      "location": "Ilanz",
-      "canton": "GR",
-      "url": "https://link.ostendis.com/publication/applikationsverantwortliche/k15d7gnq3xj0dv4mnvthcp3yqj253riqdafmy6dh2dl1aw75rcktj2wqr6wj37jb",
-      "source": "Regionalspital Surselva Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:18:02.458Z",
-      "addressLocality": "Ilanz",
-      "postalCode": "7130",
-      "streetAddress": "Spitalstrasse 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-26",
-      "postedDate": "2026-11-26",
-      "postingDateSource": "reported",
-      "applyUrl": "https://link.ostendis.com/cvdropper/e3e047a0b6fa4b23ac45b56c83c1f3a8/DE?src=k15d7gnq3xj0dv4mnvthcp3yqj253riqdafmy6dh2dl1aw75rcktj2wqr6wj37jb",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "department": "IT",
-      "pensum": "80 - 100%",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "previousSlugsByLocale": {
-        "it": [
-          "applikationsverantwortliche-n-80-100-rss-surselva-ch"
-        ],
-        "de": [
-          "applikationsverantwortliche-n-80-100-rss-surselva-ch"
-        ]
-      },
-      "previousSlugs": [
-        "applikationsverantwortliche-n-80-100-rss-surselva-ch"
-      ],
-      "salaryMin": 60000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-24T21:18:02.458Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-26T21:18:02.458Z"
     }
   ]
 }

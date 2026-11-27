@@ -1,17 +1,17 @@
 {
   "key": "rado",
   "label": "rado",
-  "generatedAt": "2026-11-26T21:24:47.211Z",
+  "generatedAt": "2026-11-27T09:30:26.050Z",
   "total": 3,
-  "authoritativeEmptySnapshot": false,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 425341,
-  "avgDurationMs": 425341,
+  "durationMs": 458502,
+  "avgDurationMs": 458502,
   "durationHistory": [
-    425341
+    458502
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -50,6 +50,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T21:23:40.152Z",
       "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.swatchgroup.com/en/job/34621",
+      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -91,6 +93,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T21:23:40.152Z",
       "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.swatchgroup.com/de/job/34601",
+      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -132,6 +136,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T21:23:40.152Z",
       "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.swatchgroup.com/de/job/34596",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -141,5 +147,5 @@
       }
     }
   ],
-  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
+  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
 }

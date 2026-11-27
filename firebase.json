@@ -20,16 +20,17 @@
     }
   ],
   "hosting": {
-    "public": "dist",
+    "public": "infra/firebase-hosting-redirect",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
+    "redirects": [
       {
-        "source": "**",
-        "destination": "/index.html"
+        "regex": "^/(?P<p>(?:[^_]|_[^_]).*)?$",
+        "destination": "https://frontaliereticino.ch/:p",
+        "type": 301
       }
     ]
   },

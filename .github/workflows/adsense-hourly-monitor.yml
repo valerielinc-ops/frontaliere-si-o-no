@@ -7,13 +7,12 @@ run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '
 # AdSense exposes no hourly dimension, so each run stores the day's running
 # total in Firestore (adsense_hourly_snapshots) and the hourly detail is the
 # difference between consecutive snapshots. It opens a backlog issue when
-# earnings fall 20% against the same weekday of the previous week: thresholds,
-# backtest and confirmation rules are in scripts/lib/adsense-hourly.mjs.
+# earnings move against the same weekday of the previous week; confirmation
+# rules are in scripts/lib/adsense-hourly.mjs.
 #
-# It complements revenue-signal-monitor.yml, which reads GA4 for sharp drops
-# (-50%, IT+CH) and keeps no history. The Cloud Scheduler loop clock is what
-# makes this hourly: the native cron below is only a safety net, an hourly
-# workflow's native cron fired every 4.5-5 hours in October 2026.
+# It complements revenue-signal-monitor.yml, which reads GA4 and keeps no
+# history. The Cloud Scheduler loop clock provides the hourly cadence; the
+# native cron below is only a safety net.
 #
 # Exit code: 0 when the run measured, with or without an alarm. A run that
 # cannot measure fails and reports `Workflow Failure: AdSense hourly monitor`,
@@ -88,6 +87,7 @@ jobs:
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
+          umask 077
           if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
             printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
@@ -102,17 +102,9 @@ jobs:
           RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: node scripts/adsense-hourly-monitor.mjs --out=adsense-hourly.json --body-out=adsense-hourly-issue.md
 
-      - name: Append summary to job log
+      - name: Append private-data status to job log
         if: always()
-        run: |
-          if [ -s adsense-hourly.json ]; then
-            {
-              echo "## AdSense hourly monitor"
-              echo '```json'
-              cat adsense-hourly.json
-              echo '```'
-            } >> "$GITHUB_STEP_SUMMARY"
-          fi
+        run: echo 'AdSense monitor completed; financial measurements are withheld from the public run.' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Open or update the revenue issue
         if: steps.monitor.outputs.status == 'alarm'

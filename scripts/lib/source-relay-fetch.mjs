@@ -12,6 +12,18 @@ const GITHUB_OIDC_REQUEST_HOSTS = new Set([
   'vstoken.actions.githubusercontent.com',
   'pipelines.actions.githubusercontent.com',
 ]);
+// Hosted runners get a regional runtime host (e.g. pipelinesghubeus22.…)
+// directly under GitHub's own actions.githubusercontent.com zone, so the
+// exact-match list above rejected every real ACTIONS_ID_TOKEN_REQUEST_URL
+// (#20279: the relay never got its token, for Workday and for stadt-chur
+// alike). Exactly ONE label under that zone is accepted: nested names such as
+// evil.pipelines.actions.githubusercontent.com stay rejected. The https,
+// authority, userinfo and port checks below still apply.
+const GITHUB_OIDC_REGIONAL_HOST_RE = /^[a-z0-9][a-z0-9-]*\.actions\.githubusercontent\.com$/u;
+
+function isGithubOidcRequestHost(hostname) {
+  return GITHUB_OIDC_REQUEST_HOSTS.has(hostname) || GITHUB_OIDC_REGIONAL_HOST_RE.test(hostname);
+}
 /** Workflow flag set only on the relay members' launch steps (see the crawler group generator). */
 export const SOURCE_RELAY_REQUIRED_ENV = 'JOBS_SOURCE_RELAY_REQUIRED';
 /** Google ID token minted by google-github-actions/auth for the private Cloud Run invoker gate. */
@@ -135,10 +147,11 @@ function relayErrorCode(text) {
  * and, when that header is present, forwards the Authorization header untouched
  * to the handler, which verifies the GitHub OIDC token (second factor).
  */
-function relayRequestHeaders(githubToken, env) {
+function relayRequestHeaders(githubToken, env, { json = false } = {}) {
   const headers = {
     Authorization: `Bearer ${githubToken}`,
     Accept: 'text/html, application/json',
+    ...(json ? { 'Content-Type': 'application/json' } : {}),
   };
   const googleIdToken = envValue(env, SOURCE_RELAY_ID_TOKEN_ENV);
   if (googleIdToken) headers['X-Serverless-Authorization'] = `Bearer ${googleIdToken}`;
@@ -223,7 +236,7 @@ async function requestGithubOidcToken({
     const requestAuthority = requestUrl.match(/^https:\/\/([^/?#]*)/iu)?.[1] || '';
     if (
       tokenUrl.protocol !== 'https:'
-      || !GITHUB_OIDC_REQUEST_HOSTS.has(tokenUrl.hostname)
+      || !isGithubOidcRequestHost(tokenUrl.hostname)
       || requestAuthority.toLowerCase() !== tokenUrl.hostname
       || tokenUrl.username
       || tokenUrl.password
@@ -265,6 +278,9 @@ export async function fetchSourceViaRelay(
     audience = SOURCE_RELAY_OIDC_AUDIENCE,
     timeoutMs,
     retryDelayMs = SOURCE_RELAY_RETRY_DELAY_MS,
+    method = 'GET',
+    body,
+    maxAttempts = SOURCE_RELAY_MAX_ATTEMPTS,
   } = {},
 ) {
   const configuredRelayUrl = envValue(
@@ -285,29 +301,36 @@ export async function fetchSourceViaRelay(
       return null;
     }
 
+    if (method !== 'GET' && method !== 'POST') throw new Error('relay_method_not_supported');
+    if (method === 'POST' && typeof body !== 'string') throw new Error('relay_post_body_missing');
     endpoint.searchParams.set('url', sourceUrl);
-    let response = await fetchWithinRelayDeadline(fetchImpl, endpoint, {
-      method: 'GET',
+    const relayRequest = () => fetchWithinRelayDeadline(fetchImpl, endpoint, {
+      method,
       redirect: 'error',
-      headers: relayRequestHeaders(token, env),
+      headers: relayRequestHeaders(token, env, { json: method === 'POST' }),
+      ...(method === 'POST' ? { body } : {}),
     }, deadline);
+    // Set by the relay on responses whose status/body come from the source
+    // itself, as opposed to the relay's own auth, cap or timeout errors.
+    const relayResult = (res, bodyText) => ({
+      status: res?.status,
+      text: bodyText,
+      ...(responseHeader(res, 'x-relay-source') === 'upstream' ? { upstream: true } : {}),
+    });
+    let response = await relayRequest();
     let text = await readRelayBody(response, deadline);
 
-    for (let attempt = 1; attempt < SOURCE_RELAY_MAX_ATTEMPTS && response?.status === 429; attempt += 1) {
+    for (let attempt = 1; attempt < maxAttempts && response?.status === 429; attempt += 1) {
       const errorCode = relayErrorCode(text);
       if (errorCode === 'daily_cap') return null;
-      if (errorCode !== 'rate_limited') return { status: response?.status, text };
+      if (errorCode !== 'rate_limited') return relayResult(response, text);
       await sleepWithinRelayDeadline(retryAfterMs(response, retryDelayMs), deadline);
-      response = await fetchWithinRelayDeadline(fetchImpl, endpoint, {
-        method: 'GET',
-        redirect: 'error',
-        headers: relayRequestHeaders(token, env),
-      }, deadline);
+      response = await relayRequest();
       text = await readRelayBody(response, deadline);
     }
 
     if (response?.status === 429 && relayErrorCode(text) === 'daily_cap') return null;
-    return { status: response?.status, text };
+    return relayResult(response, text);
   } catch (error) {
     console.warn(`  ⚠️ Source relay fetch failed: ${error?.message || error}`);
     return null;

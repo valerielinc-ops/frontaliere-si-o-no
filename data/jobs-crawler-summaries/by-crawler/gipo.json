@@ -1,152 +1,46 @@
 {
+  "detailCandidates": 0,
+  "detailGone": 0,
+  "detailRejected": 0,
   "key": "gipo",
   "label": "GIPO GISLER POWER AG",
-  "generatedAt": "2026-11-26T21:31:43.868Z",
-  "total": 1,
-  "discovered": 14,
-  "parsed": 1,
+  "generatedAt": "2026-11-27T09:34:39.702Z",
+  "total": 0,
+  "discovered": 0,
+  "parsed": 0,
   "lastFetchOutcome": null,
   "fetchReceipt": {
     "specKey": "gipo",
     "seedUrls": [
       "https://gipo.ch/de/karriere-bei-gipo/stellenangebote-bei-gipo/"
     ],
-    "phase": "detail",
-    "pages": 15,
+    "phase": "listing",
+    "pages": 1,
     "httpStatuses": [
       {
         "status": 200,
         "url": "https://gipo.ch/de/karriere-bei-gipo/stellenangebote-bei-gipo/"
-      },
-      {
-        "status": 200,
-        "url": "https://gipo.ch/de/offene_stellen/sommerjob-oder-ganzjahresstelle-metallbauer-schlosser-anlagen-apparatebauer-0f974f5e/"
-      },
-      {
-        "status": 200,
-        "url": "https://gipo.ch/de/offene_stellen/mechaniker-8c5e208d/"
-      },
-      {
-        "status": 200,
-        "url": "https://gipo.ch/de/offene_stellen/teamleiter-bandschlosserei-3606b68d/"
-      },
-      {
-        "status": 200,
-        "url": "https://gipo.ch/de/offene_stellen/stv-abteilungsleiter-schlosserei-2edb5fed/"
-      },
-      {
-        "status": 200,
-        "url": "https://gipo.ch/de/offene_stellen/projektleiter-elektro-5b377502/"
-      },
-      {
-        "status": 200,
-        "url": "https://gipo.ch/de/offene_stellen/chefmonteur-anlagenbau-adcc70a0/"
-      },
-      {
-        "status": 200,
-        "url": "https://gipo.ch/de/offene_stellen/servicetechniker-mobile-anlagen-30d6b7b1/"
-      },
-      {
-        "status": 200,
-        "url": "https://gipo.ch/de/offene_stellen/lackierer-19af718c/"
-      },
-      {
-        "status": 200,
-        "url": "https://gipo.ch/de/offene_stellen/abteilungsleiter-in-oberflaechenbehandlung-601ba517/"
-      },
-      {
-        "status": 200,
-        "url": "https://gipo.ch/de/offene_stellen/fachmann-endmontage-f591cc7e/"
-      },
-      {
-        "status": 200,
-        "url": "https://gipo.ch/de/offene_stellen/berufsbildner-fuer-anlagen-apparatebauer-metallbaupraktiker-91775c12/"
-      },
-      {
-        "status": 200,
-        "url": "https://gipo.ch/de/offene_stellen/stellvertretender-leiter-kundendienst-1ae197a6/"
-      },
-      {
-        "status": 200,
-        "url": "https://gipo.ch/de/offene_stellen/teamleiter-schlosserei-65f98ba9/"
-      },
-      {
-        "status": 200,
-        "url": "https://gipo.ch/de/offene_stellen/metallbauer-anlagen-und-apparatebauer-b3665564/"
       }
     ],
+    "listingTerminalStatus": 200,
+    "listingCompletion": "incomplete",
     "proxiedBy": [],
     "fetchOutcome": null,
     "fetchDetail": null
   },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 1,
-  "detailCandidates": 14,
-  "detailGone": 0,
-  "detailRejected": 0,
-  "resurrectedJobs": 0,
-  "resurrectedWindowDays": 7,
-  "authoritativeEmptySnapshot": false,
+  "abortKind": "no-jobs-parsed",
+  "written": 0,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 20105,
-  "avgDurationMs": 20105,
-  "durationHistory": [
-    20105
-  ],
+  "unchangedCount": 0,
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "gipo-d61ceb9f0a2f",
-      "slug": "project-manager-electric-gipo-gisler-power-ag-seedorf-d61ceb9f",
-      "slugDisambiguator": "d61ceb9f",
-      "company": "GIPO GISLER POWER AG",
-      "companyKey": "gipo",
-      "companyDomain": "gipo.ch",
-      "title": "Projektleiter Elektro",
-      "location": "Seedorf",
-      "canton": "UR",
-      "url": "https://gipo.ch/de/offene_stellen/projektleiter-elektro-5b377502/",
-      "source": "GIPO GISLER POWER AG Official Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:28.049Z",
-      "addressLocality": "Seedorf",
-      "addressRegion": "UR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6462",
-      "streetAddress": "Kohlplatzstrasse 15",
-      "category": "Ingegneria",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "engineering",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-26T01:00:13+00:00",
-      "postedDate": "2026-08-26T01:00:13+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://gipo.ch/de/offene_stellen/projektleiter-elektro-5b377502/",
-      "firstSeenAt": "2026-10-15T21:23:40.684Z",
-      "salaryMin": 107000,
-      "salaryMax": 162500,
-      "salarySource": "estimated",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:31:28.049Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0,
+  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
 }

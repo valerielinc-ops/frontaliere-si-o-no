@@ -1,0 +1,25 @@
+{
+  "companyKey": "salesfocusinc",
+  "companyName": "Sales Focus Inc.",
+  "companyHost": "salesfocusinc.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://salesfocusinc.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 148,
+  "sampleTitles": [
+    "Field Sales Representative",
+    "Field Sales Representative",
+    "Field Sales Representative",
+    "Outside Sales Representative - Smart Home Security",
+    "Field Sales Representative - Smart Home Security"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-11-27T14:50:43.943Z",
+  "candidateKey": "salesfocusinc@applytojob.com"
+}

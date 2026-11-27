@@ -54,6 +54,7 @@ jobs:
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
+          umask 077
           if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
             printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
           else
@@ -107,20 +108,24 @@ jobs:
           fi
 
           echo "📊 Running analytics report ($SECTION, last $DAYS days)..."
-          node scripts/analytics-report.mjs "${args[@]}"
+          umask 077
+          node scripts/analytics-report.mjs "${args[@]}" > "$RUNNER_TEMP/analytics-report.log" 2>&1
         continue-on-error: true
 
       - name: Measure top50 search snippets
         if: always() && (inputs.sections == 'all' || inputs.sections == 'gsc' || inputs.sections == '')
         env:
           GSC_TOP50_DEPLOYED_AT: ${{ vars.GSC_TOP50_DEPLOYED_AT }}
-        run: node scripts/gsc-page-query-export.mjs --top50-monitor --out=reports/gsc-top50-monitor
+        run: |
+          umask 077
+          node scripts/gsc-page-query-export.mjs --top50-monitor --out=reports/gsc-top50-monitor > "$RUNNER_TEMP/gsc-top50-monitor.log" 2>&1
 
       - name: Measure observed application journeys
         if: always() && (inputs.sections == 'all' || inputs.sections == 'ga4' || inputs.sections == '')
         run: |
           mkdir -p reports
-          node scripts/job-application-funnel-report.mjs > reports/job-application-funnel.json
+          umask 077
+          node scripts/job-application-funnel-report.mjs > reports/job-application-funnel.json 2> "$RUNNER_TEMP/job-application-funnel.log"
 
       - name: Measure landing value by template
         # Valore/sessione per template (ricavo ads + candidature × valore di un
@@ -129,7 +134,8 @@ jobs:
         if: always() && (inputs.sections == 'all' || inputs.sections == 'ga4' || inputs.sections == '')
         run: |
           mkdir -p reports
-          node scripts/landing-value-report.mjs --out reports/landing-value-by-template.json >> "$GITHUB_STEP_SUMMARY"
+          umask 077
+          node scripts/landing-value-report.mjs --out reports/landing-value-by-template.json > /dev/null 2> "$RUNNER_TEMP/landing-value-report.log"
         continue-on-error: true
 
       - name: Commit AI channel history
@@ -170,310 +176,9 @@ jobs:
         run: node scripts/app-error-issue-sync.mjs
         continue-on-error: true
 
-      - name: Generate Report Summary
+      - name: Write status-only analytics summary
         if: always()
-        run: |
-          if [ -f reports/analytics-latest.json ]; then
-            node -e "
-              const r = JSON.parse(require('fs').readFileSync('reports/analytics-latest.json','utf8'));
-              const snapshot = require('fs').existsSync('reports/analytics-snapshot-latest.json')
-                ? JSON.parse(require('fs').readFileSync('reports/analytics-snapshot-latest.json','utf8'))
-                : null;
-              const g = r.ga4 || {};
-              const s = g.summary || {};
-              const safe = (v) => String(v ?? '').replace(/\|/g, '\\|');
-              console.log('## 📊 Weekly Analytics Summary');
-              console.log('');
-              console.log('| Metric | Value |');
-              console.log('|--------|-------|');
-              console.log('| Sessions | ' + (s.sessions || 'N/A') + ' |');
-              console.log('| Users | ' + (s.users || 'N/A') + ' |');
-              console.log('| Bounce Rate | ' + (s.bounceRate ? (s.bounceRate*100).toFixed(1)+'%' : 'N/A') + ' |');
-              console.log('| Avg Duration | ' + (s.avgSessionDuration ? Math.round(s.avgSessionDuration)+'s' : 'N/A') + ' |');
-              if (g.weekOverWeek) {
-                const w = g.weekOverWeek;
-                console.log('| WoW Users | ' + (w.users?.delta || '?') + '% |');
-                console.log('| WoW Sessions | ' + (w.sessions?.delta || '?') + '% |');
-              }
-              if (g.recommendations) {
-                const high = g.recommendations.filter(r=>r.severity==='high').length;
-                const med = g.recommendations.filter(r=>r.severity==='medium').length;
-                console.log('| 🔴 High Issues | ' + high + ' |');
-                console.log('| 🟡 Medium Issues | ' + med + ' |');
-              }
-              if (r.crux) {
-                for (const [k,v] of Object.entries(r.crux)) {
-                  if (v.p75 !== undefined) console.log('| CrUX ' + k + ' p75 | ' + v.p75 + ' |');
-                }
-              }
-
-              const topPages = Array.isArray(g.topPages) ? g.topPages.slice(0, 50) : [];
-              if (topPages.length) {
-                console.log('');
-                console.log('### Top 50 pagine grezze — frontaliereticino.ch');
-                console.log('Finestra: ' + safe(g.period));
-                console.log('');
-                console.log('| # | Pagina | Views | Users | Avg durata |');
-                console.log('|---|--------|------:|------:|-----------:|');
-                topPages.forEach((p, i) => {
-                  console.log('| ' + (i + 1) + ' | ' + safe(p.path) + ' | ' + (p.views || 0) + ' | ' + (p.users || 0) + ' | ' + (p.avgDuration || 0) + 's |');
-                });
-              }
-
-              const topArticles = Array.isArray(g.topArticlePages) ? g.topArticlePages.slice(0, 20) : [];
-              if (topArticles.length) {
-                console.log('');
-                console.log('### Top 20 articoli più visitati');
-                console.log('');
-                console.log('| # | Articolo | Views | Users | Avg durata |');
-                console.log('|---|----------|------:|------:|-----------:|');
-                topArticles.forEach((p, i) => {
-                  console.log('| ' + (i + 1) + ' | ' + safe(p.path) + ' | ' + (p.views || 0) + ' | ' + (p.users || 0) + ' | ' + (p.avgDuration || 0) + 's |');
-                });
-              }
-
-              const topArticlesByTime = Array.isArray(g.topArticlePagesByTime) ? g.topArticlePagesByTime.slice(0, 20) : [];
-              if (topArticlesByTime.length) {
-                console.log('');
-                console.log('### Articoli con tempo medio più alto');
-                console.log('');
-                console.log('| # | Articolo | Views | Avg durata |');
-                console.log('|---|----------|------:|-----------:|');
-                topArticlesByTime.forEach((p, i) => {
-                  console.log('| ' + (i + 1) + ' | ' + safe(p.path) + ' | ' + (p.views || 0) + ' | ' + (p.avgDuration || 0) + 's |');
-                });
-              }
-
-              const pageKw = Array.isArray(g.keywordInterest) ? g.keywordInterest.slice(0, 20) : [];
-              const articleKw = Array.isArray(g.articleKeywordInterest) ? g.articleKeywordInterest.slice(0, 20) : [];
-              if (pageKw.length || articleKw.length) {
-                console.log('');
-                console.log('### Keyword intent da pagine top');
-                if (pageKw.length) {
-                  console.log('- **Top keyword pagine**: ' + pageKw.slice(0, 12).map(k => safe(k.keyword) + ' (' + (k.score || 0) + ')').join(', '));
-                }
-                if (articleKw.length) {
-                  console.log('- **Top keyword articoli**: ' + articleKw.slice(0, 12).map(k => safe(k.keyword) + ' (' + (k.score || 0) + ')').join(', '));
-                }
-              }
-
-              if (g.keywordStrategyComment) {
-                console.log('');
-                console.log('### Direzione keyword consigliata');
-                console.log(g.keywordStrategyComment);
-              }
-
-              if (snapshot?.searchConsole?.nearWinQueries?.length) {
-                console.log('');
-                console.log('### Near-win SEO queries');
-                console.log('| Query | Impressions | CTR | Position |');
-                console.log('|-------|------------:|----:|---------:|');
-                snapshot.searchConsole.nearWinQueries.slice(0, 10).forEach((q) => {
-                  console.log('| ' + safe(q.query) + ' | ' + (q.impressions || 0) + ' | ' + (q.ctr || 0) + '% | ' + (q.position || 0) + ' |');
-                });
-              }
-
-              if (snapshot?.searchConsole?.pageTemplatePerformance?.length) {
-                console.log('');
-                console.log('### Search performance by page template');
-                console.log('| Template | Impressions | Clicks | CTR | Avg position |');
-                console.log('|----------|------------:|-------:|----:|-------------:|');
-                snapshot.searchConsole.pageTemplatePerformance.slice(0, 10).forEach((row) => {
-                  console.log('| ' + safe(row.pageTemplate) + ' | ' + (row.impressions || 0) + ' | ' + (row.clicks || 0) + ' | ' + (row.ctr || 0) + '% | ' + (row.avgPosition || 0) + ' |');
-                });
-              }
-
-              const quality = g.trafficQuality;
-              if (quality?.qualified) {
-                console.log('');
-                console.log('### Traffico grezzo e qualificato — confronto assestato');
-                console.log(safe(JSON.stringify(quality.dateRanges)));
-                console.log(safe(quality.interpretation));
-                console.log('| Popolazione | Stato | Sessioni | Engaged | Pageview | Ricavi GA4 / sessione |');
-                console.log('|---|---|---:|---:|---:|---|');
-                for (const [label, scope] of [['Grezzo', quality.raw], ['IT/CH organic/email', quality.qualified]]) {
-                  const s = scope.summary;
-                  console.log('| ' + label + ' | ' + safe(scope.status) + ' | ' + (s?.sessions ?? 'N/D') + ' | ' + (s?.engagedSessions ?? 'N/D') + ' | ' + (s?.screenPageViews ?? 'N/D') + ' | ' + (s?.adRevenuePerSession == null ? 'N/D' : s.adRevenuePerSession.toFixed(4) + ' ' + s.currency) + ' |');
-                  if (scope.status !== 'complete') console.log(safe(label + ': ' + JSON.stringify({ pages: scope.pageCoverage, totals: scope.totalCoverage, engagement: scope.engagement })));
-                }
-                console.log('');
-                console.log('#### Top50 IT/CH organic/email, ordinate per engagedSessions');
-                console.log('| # | Pagina | Pageview segmento | Sessioni | Engaged |');
-                console.log('|---|---|---:|---:|---:|');
-                quality.qualified.top50.forEach((row) => {
-                  console.log('| ' + row.rank + ' | ' + safe(row.path) + ' | ' + row.views + ' | ' + row.sessions + ' | ' + row.engagedSessions + ' |');
-                });
-                console.log('');
-                console.log('#### Pageview per template, copertura: ' + safe(quality.raw.pageCoverage.status));
-                console.log('| Template | Pageview | Path osservati |');
-                console.log('|---|---:|---:|');
-                quality.raw.pageViewsByTemplate.forEach((row) => console.log('| ' + safe(row.pageTemplate) + ' | ' + row.views + ' | ' + row.paths + ' |'));
-                const candidates = quality.segments.rows.filter((row) => row.reviewReason);
-                console.log('Segmenti da verificare (volume alto e visite brevi, nessuna classificazione bot): ' + candidates.length + '; copertura ' + safe(quality.segments.status));
-                candidates.slice(0, 10).forEach((row) => console.log('- ' + safe(row.deviceCategory + ' / ' + row.country + ' / ' + row.sessionSourceMedium) + ': ' + row.sessions + ' sessioni, ' + row.engagedSessions + ' engaged, durata ' + row.averageSessionDuration.toFixed(1) + 's'));
-              }
-
-              if (snapshot?.ga4?.internalSearchTerms?.length) {
-                console.log('');
-                console.log('### Internal search demand');
-                console.log('| Search term | Searches | Users |');
-                console.log('|-------------|---------:|------:|');
-                snapshot.ga4.internalSearchTerms.slice(0, 12).forEach((row) => {
-                  console.log('| ' + safe(row.term) + ' | ' + (row.searches || 0) + ' | ' + (row.users || 0) + ' |');
-                });
-              }
-
-              if (r.bing && r.bing.traffic) {
-                const b = r.bing.traffic;
-                console.log('');
-                console.log('### 🔵 Bing Webmaster');
-                console.log('| Metric | Value |');
-                console.log('|--------|-------|');
-                console.log('| Bing Clicks | ' + (b.clicks || 0) + ' |');
-                console.log('| Bing Impressions | ' + (b.impressions || 0) + ' |');
-                console.log('| Bing CTR | ' + (b.ctr || 0) + '% |');
-              }
-
-              if (r.historical && r.historical.deltas) {
-                const d = r.historical.deltas;
-                console.log('');
-                console.log('### 📈 Confronto con report precedente');
-                console.log('| Metric | Change |');
-                console.log('|--------|--------|');
-                if (d.searchConsole) {
-                  console.log('| GSC Clicks | ' + (d.searchConsole.clicks.change > 0 ? '+' : '') + d.searchConsole.clicks.change + ' |');
-                  console.log('| GSC Impressions | ' + (d.searchConsole.impressions.change > 0 ? '+' : '') + d.searchConsole.impressions.change + ' |');
-                }
-                if (d.ga4) {
-                  console.log('| GA4 Sessions | ' + (d.ga4.sessions.change > 0 ? '+' : '') + d.ga4.sessions.change + ' |');
-                  console.log('| GA4 Users | ' + (d.ga4.users.change > 0 ? '+' : '') + d.ga4.users.change + ' |');
-                }
-              }
-
-              // Error health summary
-              const eh = g.errorHealth;
-              if (eh && eh.totalErrors > 0) {
-                console.log('');
-                console.log('### 🔴 Error Health — ' + (eh.healthStatus || 'unknown'));
-                console.log('| Metric | Value |');
-                console.log('|--------|-------|');
-                console.log('| Total Errors | ' + eh.totalErrors + ' |');
-                console.log('| Error Rate | ' + (eh.errorRate || 0).toFixed(2) + '% |');
-                console.log('| Affected Users | ' + (eh.affectedUsers || 'N/A') + ' |');
-
-                // Errors by type breakdown
-                if (eh.errorsByType && eh.errorsByType.length > 0) {
-                  console.log('');
-                  console.log('#### Error Types');
-                  console.log('| Type | Count | Users |');
-                  console.log('|------|------:|------:|');
-                  for (const t of eh.errorsByType) {
-                    console.log('| ' + safe(t.errorType) + ' | ' + t.count + ' | ' + t.users + ' |');
-                  }
-                }
-
-                // Top error messages (the debugging table)
-                if (eh.appErrors && eh.appErrors.length > 0) {
-                  console.log('');
-                  console.log('#### Top Error Messages');
-                  console.log('| Type | Message | Page | Count | Users |');
-                  console.log('|------|---------|------|------:|------:|');
-                  for (const err of eh.appErrors.slice(0, 15)) {
-                    console.log('| ' + safe(err.errorType) + ' | ' + safe(String(err.errorMessage || '').slice(0, 60)) + ' | ' + safe(String(err.pagePath || '').slice(0, 40)) + ' | ' + err.count + ' | ' + err.users + ' |');
-                  }
-                }
-
-                // Stack traces
-                if (eh.topStacks && eh.topStacks.length > 0) {
-                  console.log('');
-                  console.log('#### Stack Traces');
-                  for (const s of eh.topStacks.slice(0, 5)) {
-                    console.log('- **' + safe(String(s.message || '').slice(0, 80)) + '** (' + s.count + 'x)');
-                    const lines = String(s.stack || '').split(/\\\\n|at /).filter(Boolean).slice(0, 2);
-                    for (const line of lines) {
-                      console.log('  - ' + String.fromCharCode(96) + safe(line.trim().slice(0, 80)) + String.fromCharCode(96));
-                    }
-                  }
-                }
-
-                // Component stacks (React)
-                if (eh.componentStacks && eh.componentStacks.length > 0) {
-                  console.log('');
-                  console.log('#### Crashing React Components');
-                  console.log('| Component | Message | Page | Count |');
-                  console.log('|-----------|---------|------|------:|');
-                  for (const c of eh.componentStacks.slice(0, 5)) {
-                    const comp = String(c.componentStack || '').split(/\\\\n|at /).filter(Boolean)[0] || '';
-                    console.log('| ' + safe(comp.trim().slice(0, 40)) + ' | ' + safe(String(c.message || '').slice(0, 50)) + ' | ' + safe(String(c.pagePath || '').slice(0, 30)) + ' | ' + c.count + ' |');
-                  }
-                }
-
-                // Device/browser breakdown
-                if (eh.errorsByDevice && eh.errorsByDevice.length > 0) {
-                  console.log('');
-                  console.log('#### Error Environment');
-                  console.log('| Device | OS | Browser | Count | Users |');
-                  console.log('|--------|----|---------| -----:|------:|');
-                  for (const d of eh.errorsByDevice.slice(0, 10)) {
-                    console.log('| ' + safe(d.device) + ' | ' + safe(d.os) + ' | ' + safe(d.browser) + ' | ' + d.count + ' | ' + d.users + ' |');
-                  }
-                }
-
-                // Top error pages
-                if (eh.topErrorPages && eh.topErrorPages.length > 0) {
-                  console.log('');
-                  console.log('#### Top Error Pages');
-                  console.log('| Page | Errors | Users |');
-                  console.log('|------|-------:|------:|');
-                  for (const p of eh.topErrorPages.slice(0, 10)) {
-                    console.log('| ' + safe(p.path) + ' | ' + p.errors + ' | ' + p.users + ' |');
-                  }
-                }
-
-                // Daily trend (last 7 days)
-                if (eh.dailyTrend && eh.dailyTrend.length > 0) {
-                  console.log('');
-                  console.log('#### Daily Error Trend');
-                  console.log('| Date | Errors | Users |');
-                  console.log('|------|-------:|------:|');
-                  for (const d of eh.dailyTrend.slice(-7)) {
-                    console.log('| ' + d.date + ' | ' + d.errors + ' | ' + d.users + ' |');
-                  }
-                }
-              }
-
-              if (g.runtimeIncidents) {
-                console.log('');
-                console.log('### Errori runtime storici e recenti');
-                console.log('Fonte: PostHog app_error; stato ' + safe(g.runtimeIncidents.status) + '. Zero osservazioni non prova assenza assoluta di errori.');
-                console.log('| Firma | Stato | Eventi finestra | Eventi ultimi 7 giorni assestati | Ultima osservazione |');
-                console.log('|---|---|---:|---:|---|');
-                for (const s of g.runtimeIncidents.signatures || []) console.log('| ' + safe(s.id) + ' | ' + safe(s.status) + ' | ' + s.eventCount + ' | ' + s.recentEventCount + ' | ' + safe(s.lastOccurrence || 'N/D') + ' |');
-              }
-
-              // Recommendations summary
-              if (g.recommendations && g.recommendations.length > 0) {
-                console.log('');
-                console.log('### 💡 Raccomandazioni');
-                for (const rec of g.recommendations) {
-                  const icon = rec.severity === 'high' ? '🔴' : '🟡';
-                  console.log('- ' + icon + ' **[' + rec.area + ']** ' + safe(rec.message));
-                }
-              }
-            " >> "$GITHUB_STEP_SUMMARY" 2>/dev/null || echo "⚠️ Could not generate summary"
-          fi
-
-      - name: Upload Report Artifact
-        if: always()
-        uses: actions/upload-artifact@v7
-        with:
-          name: analytics-report-${{ github.run_number }}
-          path: |
-            reports/analytics-*.json
-            reports/gsc-top50-monitor*
-            reports/job-application-funnel.json
-            reports/landing-value-by-template.json
-          retention-days: 90
+        run: echo 'Analytics processing completed; GA4 and monetization measurements are withheld from the public run.' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Cleanup Codex auth broker
         if: always()

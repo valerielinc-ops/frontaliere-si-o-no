@@ -37,6 +37,17 @@ const entries = [
     everyMinutes: 60,
     introducedAt: '2026-10-31T12:00:00Z',
   },
+  // GitHub created about 3 of the 48 slots a day of this workflow's native
+  // cron (39 scheduled runs in 12.3 days), so PR runs found no snapshot younger
+  // than their 60-minute limit. One seed an hour, from the external clock; the
+  // workflow keeps one native tick as a safety net and skips a duplicate.
+  {
+    id: 'site-test-assemble-snapshot',
+    repo: 'site',
+    workflow: 'hourly-test-assemble-snapshot.yml',
+    everyMinutes: 60,
+    introducedAt: '2026-11-28T00:00:00Z',
+  },
   { id: 'site-event-description-rewrite', repo: 'site', workflow: 'event-description-rewrite.yml', everyMinutes: 60 },
   // Verify the published candidate projection, not just the source JSON. A
   // stale source is re-mined; a healthy source with a missing/stale CDN feed

@@ -107,7 +107,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.oerlikon.com/job/global-ops-continuous-improvement-manager-%28gn%29/104472-en_us",
-    "firstSeenAt": "2026-10-16T21:50:59.178Z"
+    "firstSeenAt": "2026-10-16T21:50:59.178Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "global-ops-continuous-improvement-manager-gn-oerlikon-ch": "GR"
+      },
+      "de": {
+        "global-ops-continuous-improvement-manager-gn-oerlikon-ch": "GR"
+      },
+      "fr": {
+        "global-ops-continuous-improvement-manager-gn-oerlikon-ch": "GR"
+      }
+    }
   },
   {
     "slug": "installatore-meccanico-gn-per-la-costruzione-di-impianti-oerlikon-wohlen",
@@ -160,7 +172,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.oerlikon.com/job/monteurmechaniker-%28gn%29-f%c3%bcr-den-anlagenbau/104513-en_us",
-    "firstSeenAt": "2026-09-03T13:49:34.009Z"
+    "firstSeenAt": "2026-09-03T13:49:34.009Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "monteur-mechaniker-gn-fur-den-anlagenbau-oerlikon-ch": "AG",
+        "monteur-mechaniker-gn-per-den-anlagenbau-oerlikon-wohlen": "AG"
+      },
+      "en": {
+        "monteur-mechaniker-gn-fur-den-anlagenbau-oerlikon-wohlen": "AG"
+      },
+      "fr": {
+        "monteur-mechaniker-gn-fur-den-anlagenbau-oerlikon-wohlen": "AG"
+      }
+    }
   },
   {
     "slug": "receptionist-oerlikon-ch",
@@ -196,7 +221,8 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.oerlikon.com/job/receptionist/104921-en_us",
-    "firstSeenAt": "2026-09-09T14:04:23.192Z"
+    "firstSeenAt": "2026-09-09T14:04:23.192Z",
+    "canton": "TI"
   },
   {
     "slug": "team-leader-electric-manufacturing-gn-oerlikon-wohlen",
@@ -244,7 +270,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.oerlikon.com/job/teamleiter-elektrofertigung-%28gn%29/104960-en_us",
-    "firstSeenAt": "2026-09-24T14:43:07.962Z"
+    "firstSeenAt": "2026-09-24T14:43:07.962Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiter-elektrofertigung-gn-oerlikon-ch": "AG"
+      },
+      "fr": {
+        "teamleiter-elektrofertigung-gn-oerlikon-wohlen": "AG"
+      }
+    }
   },
   {
     "slug": "campo-di-prova-tecnico-gn-oerlikon-wohlen",
@@ -294,7 +329,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.oerlikon.com/job/techniker-%28gn%29-pr%c3%bcffeld/104517-en_us",
-    "firstSeenAt": "2026-09-24T00:08:37.769Z"
+    "firstSeenAt": "2026-09-24T00:08:37.769Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "techniker-gn-pruffeld-oerlikon-ch": "AG"
+      },
+      "en": {
+        "techniker-gn-pruffeld-oerlikon-ch": "AG"
+      },
+      "fr": {
+        "techniker-gn-pruffeld-oerlikon-ch": "AG"
+      }
+    }
   },
   {
     "slug": "capo-team-electrical-engineering-oerlikon-wohlen-78f0a5d0",
@@ -384,7 +431,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.oerlikon.com/job/sales-engineer-f%c3%bcr-upgrades-%28gn%29/104242-en_us",
-    "firstSeenAt": "2026-08-03T12:54:34.438Z"
+    "firstSeenAt": "2026-08-03T12:54:34.438Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sales-engineer-fur-upgrades-gn-oerlikon-ch": "AG"
+      }
+    }
   },
   {
     "slug": "service-techniker-per-produktionsanlagen-inhouse-gn-oerlikon-wohlen",
@@ -438,7 +491,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.oerlikon.com/job/elektrotechniker-f%c3%bcr-produktionsanlagen-%28inhouse%29-%28gn%29/104492-en_us",
-    "firstSeenAt": "2026-07-08T22:12:58.275Z"
+    "firstSeenAt": "2026-07-08T22:12:58.275Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "service-techniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch": "AG",
+        "elektrotechniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch": "AG"
+      },
+      "en": {
+        "service-techniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch": "AG"
+      },
+      "de": {
+        "elektrotechniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch": "AG"
+      },
+      "fr": {
+        "service-techniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch": "AG"
+      }
+    }
   },
   {
     "slug": "quality-ingegnere-equipment-gn-oerlikon-wohlen",
@@ -484,7 +553,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.oerlikon.com/job/quality-engineer-equipment-%28gn%29/104951-en_us",
-    "firstSeenAt": "2026-09-24T00:08:39.951Z"
+    "firstSeenAt": "2026-09-24T00:08:39.951Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "quality-engineer-equipment-gn-oerlikon-ch": "AG"
+      },
+      "fr": {
+        "quality-engineer-equipment-gn-oerlikon-ch": "AG"
+      }
+    }
   },
   {
     "slug": "manager-senior-risorse-umane-strategiche-e-progetti-digitali-oerlikon-pfaffikon-sz",
@@ -533,7 +611,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.oerlikon.com/job/sr_-manager-strategic-hr-&-digital-projects/105071-en_us",
-    "firstSeenAt": "2026-09-29T21:37:22.383Z"
+    "firstSeenAt": "2026-09-29T21:37:22.383Z",
+    "canton": "SZ",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sr-manager-strategic-hr-digital-projects-oerlikon-ch": "SZ"
+      },
+      "de": {
+        "sr-manager-strategic-hr-digital-projects-oerlikon-ch": "SZ"
+      },
+      "fr": {
+        "sr-manager-strategic-hr-digital-projects-oerlikon-ch": "SZ"
+      }
+    }
   },
   {
     "slug": "operatore-100-gn-oerlikon-brugg",
@@ -579,7 +669,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.oerlikon.com/job/operateur-100-%28gn%29/104924-en_us",
-    "firstSeenAt": "2026-09-09T23:25:18.479Z"
+    "firstSeenAt": "2026-09-09T23:25:18.479Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "operateur-100-gn-oerlikon-ch": "AG"
+      },
+      "en": {
+        "operateur-100-gn-oerlikon-ch": "AG"
+      }
+    }
   },
   {
     "slug": "apparecchiature-globali-di-approvvigionamento-della-testa-gn-oerlikon-wohlen",
@@ -628,7 +727,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.oerlikon.com/job/global-head-procurement-equipment-%28gn%29/104949-en_us",
-    "firstSeenAt": "2026-09-19T23:09:33.851Z"
+    "firstSeenAt": "2026-09-19T23:09:33.851Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "global-head-procurement-equipment-gn-oerlikon-ch": "AG"
+      },
+      "de": {
+        "global-head-procurement-equipment-gn-oerlikon-ch": "AG"
+      },
+      "fr": {
+        "global-head-procurement-equipment-gn-oerlikon-ch": "AG"
+      }
+    }
   },
   {
     "slug": "industrial-software-automation-ingegnere-gn-oerlikon-wohlen",
@@ -669,6 +780,9 @@
         "software-engineer-gn-oerlikon-ch",
         "software-ingenieur-gn-oerlikon-wohlen",
         "industrial-software-automation-engineer-gn-oerlikon-ch"
+      ],
+      "en": [
+        "industrial-software-automation-ingegnere-gn-oerlikon-wohlen"
       ]
     },
     "postalCode": "5610",
@@ -677,7 +791,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.oerlikon.com/job/industrial-software-&-automation-engineer-%28gn%29/104476-en_us",
-    "firstSeenAt": "2026-08-10T21:46:49.353Z"
+    "firstSeenAt": "2026-08-10T21:46:49.353Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "software-ingegnere-gn-oerlikon-wohlen": "AG",
+        "software-engineer-gn-oerlikon-wohlen": "AG",
+        "software-engineer-gn-oerlikon-ch": "AG",
+        "software-ingenieur-gn-oerlikon-wohlen": "AG",
+        "industrial-software-automation-engineer-gn-oerlikon-ch": "AG"
+      },
+      "en": {
+        "industrial-software-automation-ingegnere-gn-oerlikon-wohlen": "AG"
+      }
+    }
   },
   {
     "slug": "centro-soluzioni-di-rivestimento-dell-ingegnere-senior-europe-gn-oerlikon-wohlen",
@@ -728,7 +855,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.oerlikon.com/job/senior-project-engineer-coating-solution-center-europe-%28gn%29/104932-en_us",
-    "firstSeenAt": "2026-09-09T14:04:20.250Z"
+    "firstSeenAt": "2026-09-09T14:04:20.250Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-project-engineer-coating-solution-center-europe-gn-oerlikon-ch": "AG",
+        "senior-project-ingegnere-coating-solution-center-europe-gn-oerlikon-wohlen": "AG"
+      },
+      "de": {
+        "senior-project-engineer-coating-solution-center-europe-gn-oerlikon-ch": "AG"
+      },
+      "fr": {
+        "senior-project-engineer-coating-solution-center-europe-gn-oerlikon-ch": "AG"
+      }
+    }
   },
   {
     "slug": "contabilita-e-reporting-oerlikon-pfaffikon-sz",
@@ -777,7 +917,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.oerlikon.com/job/internship-accounting-&-reporting/104806-en_us",
-    "firstSeenAt": "2026-09-07T15:22:35.383Z"
+    "firstSeenAt": "2026-09-07T15:22:35.383Z",
+    "canton": "SZ",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "internship-accounting-reporting-oerlikon-ch": "SZ"
+      },
+      "de": {
+        "internship-accounting-reporting-oerlikon-ch": "SZ"
+      },
+      "fr": {
+        "internship-accounting-reporting-oerlikon-ch": "SZ"
+      }
+    }
   },
   {
     "slug": "ingegnere-di-progetto-gn-ingegneria-elettrica-oerlikon-wohlen-e8296d18",
@@ -880,15 +1032,18 @@
         "projektingenieur-gn-electrical-engineering-oerlikon-ch-41ae9a32",
         "projektingenieur-gn-electrical-engineering-oerlikon-ch-b4aeca39",
         "projektingenieur-gn-electrical-engineering-oerlikon-ch-885427f0",
-        "projektingenieur-gn-electrical-engineering-oerlikon-ch"
+        "projektingenieur-gn-electrical-engineering-oerlikon-ch",
+        "projektingenieur-gn-electrical-engineering-oerlikon-ch-0d8c9403"
       ],
       "en": [
         "projektingenieur-gn-electrical-engineering-oerlikon-wohlen",
-        "projektingenieur-gn-electrical-engineering-oerlikon-ch"
+        "projektingenieur-gn-electrical-engineering-oerlikon-ch",
+        "projektingenieur-gn-electrical-engineering-oerlikon-ch-0d8c9403"
       ],
       "fr": [
         "projektingenieur-gn-electrical-engineering-oerlikon-wohlen",
-        "projektingenieur-gn-electrical-engineering-oerlikon-ch"
+        "projektingenieur-gn-electrical-engineering-oerlikon-ch",
+        "projektingenieur-gn-electrical-engineering-oerlikon-ch-0d8c9403"
       ]
     },
     "postalCode": "9496",
@@ -985,7 +1140,31 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.oerlikon.com/job/konstrukteur-%28gn%29/104474-en_us",
-    "firstSeenAt": "2026-08-19T21:44:21.938Z"
+    "firstSeenAt": "2026-08-19T21:44:21.938Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "konstrukteur-gn-oerlikon-ch": "AG",
+        "service-technician-gn-oerlikon-wohlen": "AG",
+        "technicien-des-services-gn-oerlikon-wohlen": "AG",
+        "tecnico-di-servizio-gn-oerlikon-wohlen-94d2776b": "AG",
+        "servicetechniker-gn-oerlikon-ch-76470050": "AG",
+        "servicetechniker-gn-oerlikon-wohlen-6e0d0fe3": "AG"
+      },
+      "en": {
+        "konstrukteur-gn-oerlikon-wohlen": "AG",
+        "service-technician-gn-oerlikon-wohlen-3249bcf8": "AG",
+        "servicetechniker-gn-oerlikon-wohlen-6e0d0fe3": "AG"
+      },
+      "de": {
+        "servicetechniker-gn-oerlikon-ch-76470050": "AG",
+        "servicetechniker-gn-oerlikon-wohlen-6e0d0fe3": "AG"
+      },
+      "fr": {
+        "servicetechniker-gn-oerlikon-wohlen-6e0d0fe3": "AG",
+        "technicien-des-services-gn-oerlikon-wohlen-4632585a": "AG"
+      }
+    }
   },
   {
     "slug": "servizio-clienti-specialista-riri-zippers-oerlikon-mendrisio-ti",
@@ -1036,7 +1215,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.oerlikon.com/job/customer-service-specialist-riri-zippers-wm/104205-en_us",
-    "firstSeenAt": "2026-07-08T22:12:59.888Z"
+    "firstSeenAt": "2026-07-08T22:12:59.888Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "customer-service-specialist-riri-zippers-oerlikon-ch": "TI",
+        "customer-service-specialist-riri-zippers-w-m-oerlikon-ch": "TI"
+      },
+      "de": {
+        "customer-service-specialist-riri-zippers-oerlikon-ch": "TI"
+      },
+      "fr": {
+        "customer-service-specialist-riri-zippers-oerlikon-ch": "TI"
+      }
+    }
   },
   {
     "slug": "responsabile-ai-oerlikon-brugherio-ita",
@@ -1084,6 +1276,60 @@
     "salaryMax": 120000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "ingegnere-di-progettazione-gn-oerlikon-wohlen",
+    "title": "Konstruktionsingenieur (gn)",
+    "titleByLocale": {
+      "it": "Ingegnere di progettazione (gn)",
+      "en": "Design engineer (gn)",
+      "de": "Konstruktionsingenieur (gn)",
+      "fr": "Ingénieur de conception (gn)"
+    },
+    "company": "Oerlikon",
+    "companyKey": "oerlikon",
+    "location": "Wohlen",
+    "addressLocality": "Wohlen",
+    "descriptionByLocale": {
+      "it": "Leistungsfähigere Autos? Effizientere Flugzeuge? Strapazierfähigere Textilien? Ihre Karriere bei Oerlikon macht diese Innovationen möglich – und viele mehr!\n\nSie begeistern sich für technische Innovationen und anspruchsvolle Konstruktionsaufgaben? Dann verstärken Sie unser Team als\n\nKonstruktionsingenieur (gn)\n\nIhre Aufgaben\n\n• Entwicklung und Konstruktion von Handlingkomponenten sowie Teile-Aufspannungen für thermische Beschichtungsanlagen\n\n• Erstellung von Stücklisten, Zeichnungen und Fertigungsunterlagen\n\n• Statische Auslegung mechanischer Komponenten\n\n• Erstellung von Layouts für Beschichtungsanlagen sowie von Konzepten zur optimalen Gestaltung von Fertigungsabläufen\n\n• Anfertigung von Projektstudien und Konzepten für Kundenaufträge inkl. Kostenabschätzung\n\n• Unterstützung bei der Inbetriebnahme von Handling-Systemen, bei der Abnahme von Anlagen sowie bei der Erstellung der Kundenhandbücher\n\n• Weiterentwicklung von Anlagenkomponenten und Standards\n\n• Gelegentliche Unterstützungseinsätze an Kundenanlagen im In- und Ausland\n\nIhr Profil\n\n• Erfolgreich abgeschlossene Berufsausbildung als Konstrukteur bzw. Polymechaniker (gn) mit Weiterbildung auf Stufe TS oder FH (Maschinenbau oder vergleichbar)\n\n• Fundierte Berufserfahrung in der Konstruktion\n\n• Strukturierte, zielorientierte und eigenverantwortliche sowie proaktive und initiative Arbeitsweise\n\n• Erfahrung in der Analyse und Optimierung von Fertigungsprozessen von Vorteil\n\n• Versierter Umgang mit 3D-CAD-Systemen, idealerweise mit Inventor\n\n• Anwenderkenntnisse in SAP\n\n• Deutsch in Wort und Schrift; Englisch auf Sprachniveau B2\n\nWir bieten\n\n• Attraktives Vergütungspaket mit guten Sozialleistungen\n\n• Anfang 2027 wird Oerlikon Metco nach Hausen (AG) umziehen – ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung wartet auf uns\n\n• Abwechslungsreiche Tätigkeit in einem international ausgerichteten Unternehmen im Hightech-Bereich\n\n• Offene Unternehmenskultur und ein freundliches, aufgeschlossenen Team\n\n• Perspektiven zur persönlichen und fachlichen Weiterentwicklung\n\n• Eigenverantwortliches Arbeiten in einem attraktiven Arbeitsumfeld\n\nFühlen Sie sich angesprochen? Dann sind wir neugierig darauf, Sie kennen zu lernen!\n\nBewerben Sie sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nÜber Oerlikon\n\nOerlikon ist ein global führendes Unternehmen in den Bereichen Oberflächentechnologien und Hochleistungsmaterialien. Mit einem einzigartigen Portfolio, das Oberflächenengineering, Hochleistungsmaterialien, Beschichtungsanlagen und Komponenten umfasst, verbessern wir Produkte durch die Steigerung von Leistung, Effizienz und Nachhaltigkeit. Oerlikon bedient eine breite Palette von Branchen, darunter Luft‑ und Raumfahrt, Automobil, Energie, Medizin, Luxus, Halbleiter und Werkzeugtechnik. Der Hauptsitz befindet sich in Pfäffikon, Schweiz. Oerlikon ist in 38 Ländern tätig, beschäftigt rund 10.000 Mitarbeitende und erzielte 2025 einen Umsatz von 1,6 Milliarden CHF.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
+      "en": "Leistungsfähigere Autos? Effizientere Flugzeuge? Strapazierfähigere Textilien? Ihre Karriere bei Oerlikon macht diese Innovationen möglich – und viele mehr!\n\nSie begeistern sich für technische Innovationen und anspruchsvolle Konstruktionsaufgaben? Dann verstärken Sie unser Team als\n\nKonstruktionsingenieur (gn)\n\nIhre Aufgaben\n\n• Entwicklung und Konstruktion von Handlingkomponenten sowie Teile-Aufspannungen für thermische Beschichtungsanlagen\n\n• Erstellung von Stücklisten, Zeichnungen und Fertigungsunterlagen\n\n• Statische Auslegung mechanischer Komponenten\n\n• Erstellung von Layouts für Beschichtungsanlagen sowie von Konzepten zur optimalen Gestaltung von Fertigungsabläufen\n\n• Anfertigung von Projektstudien und Konzepten für Kundenaufträge inkl. Kostenabschätzung\n\n• Unterstützung bei der Inbetriebnahme von Handling-Systemen, bei der Abnahme von Anlagen sowie bei der Erstellung der Kundenhandbücher\n\n• Weiterentwicklung von Anlagenkomponenten und Standards\n\n• Gelegentliche Unterstützungseinsätze an Kundenanlagen im In- und Ausland\n\nIhr Profil\n\n• Erfolgreich abgeschlossene Berufsausbildung als Konstrukteur bzw. Polymechaniker (gn) mit Weiterbildung auf Stufe TS oder FH (Maschinenbau oder vergleichbar)\n\n• Fundierte Berufserfahrung in der Konstruktion\n\n• Strukturierte, zielorientierte und eigenverantwortliche sowie proaktive und initiative Arbeitsweise\n\n• Erfahrung in der Analyse und Optimierung von Fertigungsprozessen von Vorteil\n\n• Versierter Umgang mit 3D-CAD-Systemen, idealerweise mit Inventor\n\n• Anwenderkenntnisse in SAP\n\n• Deutsch in Wort und Schrift; Englisch auf Sprachniveau B2\n\nWir bieten\n\n• Attraktives Vergütungspaket mit guten Sozialleistungen\n\n• Anfang 2027 wird Oerlikon Metco nach Hausen (AG) umziehen – ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung wartet auf uns\n\n• Abwechslungsreiche Tätigkeit in einem international ausgerichteten Unternehmen im Hightech-Bereich\n\n• Offene Unternehmenskultur und ein freundliches, aufgeschlossenen Team\n\n• Perspektiven zur persönlichen und fachlichen Weiterentwicklung\n\n• Eigenverantwortliches Arbeiten in einem attraktiven Arbeitsumfeld\n\nFühlen Sie sich angesprochen? Dann sind wir neugierig darauf, Sie kennen zu lernen!\n\nBewerben Sie sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nÜber Oerlikon\n\nOerlikon ist ein global führendes Unternehmen in den Bereichen Oberflächentechnologien und Hochleistungsmaterialien. Mit einem einzigartigen Portfolio, das Oberflächenengineering, Hochleistungsmaterialien, Beschichtungsanlagen und Komponenten umfasst, verbessern wir Produkte durch die Steigerung von Leistung, Effizienz und Nachhaltigkeit. Oerlikon bedient eine breite Palette von Branchen, darunter Luft‑ und Raumfahrt, Automobil, Energie, Medizin, Luxus, Halbleiter und Werkzeugtechnik. Der Hauptsitz befindet sich in Pfäffikon, Schweiz. Oerlikon ist in 38 Ländern tätig, beschäftigt rund 10.000 Mitarbeitende und erzielte 2025 einen Umsatz von 1,6 Milliarden CHF.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
+      "de": "Leistungsfähigere Autos? Effizientere Flugzeuge? Strapazierfähigere Textilien? Ihre Karriere bei Oerlikon macht diese Innovationen möglich – und viele mehr!\n\nSie begeistern sich für technische Innovationen und anspruchsvolle Konstruktionsaufgaben? Dann verstärken Sie unser Team als\n\nKonstruktionsingenieur (gn)\n\nIhre Aufgaben\n\n• Entwicklung und Konstruktion von Handlingkomponenten sowie Teile-Aufspannungen für thermische Beschichtungsanlagen\n\n• Erstellung von Stücklisten, Zeichnungen und Fertigungsunterlagen\n\n• Statische Auslegung mechanischer Komponenten\n\n• Erstellung von Layouts für Beschichtungsanlagen sowie von Konzepten zur optimalen Gestaltung von Fertigungsabläufen\n\n• Anfertigung von Projektstudien und Konzepten für Kundenaufträge inkl. Kostenabschätzung\n\n• Unterstützung bei der Inbetriebnahme von Handling-Systemen, bei der Abnahme von Anlagen sowie bei der Erstellung der Kundenhandbücher\n\n• Weiterentwicklung von Anlagenkomponenten und Standards\n\n• Gelegentliche Unterstützungseinsätze an Kundenanlagen im In- und Ausland\n\nIhr Profil\n\n• Erfolgreich abgeschlossene Berufsausbildung als Konstrukteur bzw. Polymechaniker (gn) mit Weiterbildung auf Stufe TS oder FH (Maschinenbau oder vergleichbar)\n\n• Fundierte Berufserfahrung in der Konstruktion\n\n• Strukturierte, zielorientierte und eigenverantwortliche sowie proaktive und initiative Arbeitsweise\n\n• Erfahrung in der Analyse und Optimierung von Fertigungsprozessen von Vorteil\n\n• Versierter Umgang mit 3D-CAD-Systemen, idealerweise mit Inventor\n\n• Anwenderkenntnisse in SAP\n\n• Deutsch in Wort und Schrift; Englisch auf Sprachniveau B2\n\nWir bieten\n\n• Attraktives Vergütungspaket mit guten Sozialleistungen\n\n• Anfang 2027 wird Oerlikon Metco nach Hausen (AG) umziehen – ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung wartet auf uns\n\n• Abwechslungsreiche Tätigkeit in einem international ausgerichteten Unternehmen im Hightech-Bereich\n\n• Offene Unternehmenskultur und ein freundliches, aufgeschlossenen Team\n\n• Perspektiven zur persönlichen und fachlichen Weiterentwicklung\n\n• Eigenverantwortliches Arbeiten in einem attraktiven Arbeitsumfeld\n\nFühlen Sie sich angesprochen? Dann sind wir neugierig darauf, Sie kennen zu lernen!\n\nBewerben Sie sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nÜber Oerlikon\n\nOerlikon ist ein global führendes Unternehmen in den Bereichen Oberflächentechnologien und Hochleistungsmaterialien. Mit einem einzigartigen Portfolio, das Oberflächenengineering, Hochleistungsmaterialien, Beschichtungsanlagen und Komponenten umfasst, verbessern wir Produkte durch die Steigerung von Leistung, Effizienz und Nachhaltigkeit. Oerlikon bedient eine breite Palette von Branchen, darunter Luft‑ und Raumfahrt, Automobil, Energie, Medizin, Luxus, Halbleiter und Werkzeugtechnik. Der Hauptsitz befindet sich in Pfäffikon, Schweiz. Oerlikon ist in 38 Ländern tätig, beschäftigt rund 10.000 Mitarbeitende und erzielte 2025 einen Umsatz von 1,6 Milliarden CHF.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
+      "fr": "Leistungsfähigere Autos? Effizientere Flugzeuge? Strapazierfähigere Textilien? Ihre Karriere bei Oerlikon macht diese Innovationen möglich – und viele mehr!\n\nSie begeistern sich für technische Innovationen und anspruchsvolle Konstruktionsaufgaben? Dann verstärken Sie unser Team als\n\nKonstruktionsingenieur (gn)\n\nIhre Aufgaben\n\n• Entwicklung und Konstruktion von Handlingkomponenten sowie Teile-Aufspannungen für thermische Beschichtungsanlagen\n\n• Erstellung von Stücklisten, Zeichnungen und Fertigungsunterlagen\n\n• Statische Auslegung mechanischer Komponenten\n\n• Erstellung von Layouts für Beschichtungsanlagen sowie von Konzepten zur optimalen Gestaltung von Fertigungsabläufen\n\n• Anfertigung von Projektstudien und Konzepten für Kundenaufträge inkl. Kostenabschätzung\n\n• Unterstützung bei der Inbetriebnahme von Handling-Systemen, bei der Abnahme von Anlagen sowie bei der Erstellung der Kundenhandbücher\n\n• Weiterentwicklung von Anlagenkomponenten und Standards\n\n• Gelegentliche Unterstützungseinsätze an Kundenanlagen im In- und Ausland\n\nIhr Profil\n\n• Erfolgreich abgeschlossene Berufsausbildung als Konstrukteur bzw. Polymechaniker (gn) mit Weiterbildung auf Stufe TS oder FH (Maschinenbau oder vergleichbar)\n\n• Fundierte Berufserfahrung in der Konstruktion\n\n• Strukturierte, zielorientierte und eigenverantwortliche sowie proaktive und initiative Arbeitsweise\n\n• Erfahrung in der Analyse und Optimierung von Fertigungsprozessen von Vorteil\n\n• Versierter Umgang mit 3D-CAD-Systemen, idealerweise mit Inventor\n\n• Anwenderkenntnisse in SAP\n\n• Deutsch in Wort und Schrift; Englisch auf Sprachniveau B2\n\nWir bieten\n\n• Attraktives Vergütungspaket mit guten Sozialleistungen\n\n• Anfang 2027 wird Oerlikon Metco nach Hausen (AG) umziehen – ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung wartet auf uns\n\n• Abwechslungsreiche Tätigkeit in einem international ausgerichteten Unternehmen im Hightech-Bereich\n\n• Offene Unternehmenskultur und ein freundliches, aufgeschlossenen Team\n\n• Perspektiven zur persönlichen und fachlichen Weiterentwicklung\n\n• Eigenverantwortliches Arbeiten in einem attraktiven Arbeitsumfeld\n\nFühlen Sie sich angesprochen? Dann sind wir neugierig darauf, Sie kennen zu lernen!\n\nBewerben Sie sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nÜber Oerlikon\n\nOerlikon ist ein global führendes Unternehmen in den Bereichen Oberflächentechnologien und Hochleistungsmaterialien. Mit einem einzigartigen Portfolio, das Oberflächenengineering, Hochleistungsmaterialien, Beschichtungsanlagen und Komponenten umfasst, verbessern wir Produkte durch die Steigerung von Leistung, Effizienz und Nachhaltigkeit. Oerlikon bedient eine breite Palette von Branchen, darunter Luft‑ und Raumfahrt, Automobil, Energie, Medizin, Luxus, Halbleiter und Werkzeugtechnik. Der Hauptsitz befindet sich in Pfäffikon, Schweiz. Oerlikon ist in 38 Ländern tätig, beschäftigt rund 10.000 Mitarbeitende und erzielte 2025 einen Umsatz von 1,6 Milliarden CHF.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com"
+    },
+    "slugByLocale": {
+      "it": "ingegnere-di-progettazione-gn-oerlikon-wohlen",
+      "en": "design-engineer-gn-oerlikon-wohlen",
+      "de": "konstruktionsingenieur-gn-oerlikon-ch",
+      "fr": "ingenieur-de-conception-gn-oerlikon-wohlen"
+    },
+    "sector": "Tecnologia / Ingegneria di superficie",
+    "expiredAt": "2026-09-11T23:26:08.889Z",
+    "previousSlugs": [
+      "konstruktionsingenieur-gn-oerlikon-ch",
+      "konstruktionsingenieur-gn-oerlikon-wohlen"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "konstruktionsingenieur-gn-oerlikon-ch",
+        "konstruktionsingenieur-gn-oerlikon-wohlen"
+      ],
+      "en": [
+        "konstruktionsingenieur-gn-oerlikon-wohlen"
+      ],
+      "de": [
+        "konstruktionsingenieur-gn-oerlikon-wohlen"
+      ],
+      "fr": [
+        "konstruktionsingenieur-gn-oerlikon-wohlen"
+      ]
+    },
+    "postalCode": "9496",
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.oerlikon.com/job/konstruktionsingenieur-%28gn%29/104466-en_us",
+    "firstSeenAt": "2026-11-21T21:42:56.147Z"
   },
   {
     "slug": "marketing-communications-coordinatore-oerlikon-garching-deu",

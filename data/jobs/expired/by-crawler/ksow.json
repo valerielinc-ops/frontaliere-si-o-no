@@ -52,7 +52,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/mitarbeiter-in-abwaschkueche/itshiaa8qw3fp2fsw4myyjhbshkp2huom26hgiob7sl50qzx5ct7vkczac0p7j73",
-    "firstSeenAt": "2026-10-12T09:21:39.496Z"
+    "firstSeenAt": "2026-10-12T09:21:39.496Z",
+    "canton": "OW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-abwaschkuche-a-100-ksow-sarnen": "OW"
+      },
+      "en": {
+        "mitarbeiter-in-abwaschkuche-a-100-kantonsspital-obwalden-sarnen": "OW"
+      },
+      "de": {
+        "mitarbeiter-in-abwaschkuche-a-100-kantonsspital-obwalden-sarnen": "OW"
+      },
+      "fr": {
+        "mitarbeiter-in-abwaschkuche-a-100-kantonsspital-obwalden-sarnen": "OW"
+      }
+    }
   },
   {
     "id": "ksow-dc09ec1e7959",
@@ -107,7 +122,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/mitarbeiter-in-restaurant/e5ezu23qdm35hmmqetx0gv9tvvuffkr0pex87rcm5ixergj583jcm0iwmim4eu42",
-    "firstSeenAt": "2026-09-29T21:23:10.055Z"
+    "firstSeenAt": "2026-09-29T21:23:10.055Z",
+    "canton": "OW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-restaurant-a-60-ksow-sarnen": "OW"
+      },
+      "en": {
+        "mitarbeiter-in-restaurant-a-60-kantonsspital-obwalden-sarnen": "OW"
+      },
+      "de": {
+        "mitarbeiter-in-restaurant-a-60-ksow-sarnen": "OW"
+      },
+      "fr": {
+        "mitarbeiter-in-restaurant-a-60-kantonsspital-obwalden-sarnen": "OW"
+      }
+    }
   },
   {
     "slug": "apprendistato-chef-cuoco-efz-2027-kantonsspital-obwalden-sarnen",
@@ -157,7 +187,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/lehrstelle-koechin-koch-efz/pkihhblzupj8tzcuezrj0x6dvyd4l66pc5to2p54fimn1cifw3r4e8anlzpsh653",
-    "firstSeenAt": "2026-07-16T23:09:23.903Z"
+    "firstSeenAt": "2026-07-16T23:09:23.903Z",
+    "canton": "OW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "apprendistato-kochin-koch-cfc-2027-kantonsspital-obwalden-sarnen": "OW",
+        "lehrstelle-kochin-koch-efz-2027-ksow-sarnen": "OW"
+      },
+      "de": {
+        "lehrstelle-kochin-koch-efz-2027-kantonsspital-obwalden-sarnen": "OW"
+      }
+    }
   },
   {
     "slug": "assistente-di-studio-medico-a-per-l-accettazione-d-urgenza-e-l-ambulatorio-d-urgenza-a-70-kantonsspital-obwalden-sarnen",
@@ -216,7 +256,25 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/med-praxisassistent-in-notfallempfang-und-notfallpraxis/bq4nofsmbgv2yd6af7xkyspu2o1lp1z80mf7wfysnatm1iaebrxqdykhmihsobw3",
-    "firstSeenAt": "2026-10-08T21:28:44.007Z"
+    "firstSeenAt": "2026-10-08T21:28:44.007Z",
+    "canton": "OW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "med-praxisassistent-in-notfallempfang-und-notfallpraxis-a-70-ksow-sarnen": "OW",
+        "med-praxisassistent-in-notfallempfang-e-notfallpraxis-a-70-kantonsspital-obwalden-sarnen": "OW",
+        "med-praxisassistent-in-notfallempfang-und-notfallpraxis-a-40-70-ksow-sarnen": "OW"
+      },
+      "en": {
+        "med-praxisassistent-in-notfallempfang-und-notfallpraxis-a-70-kantonsspital-obwalden-sarnen": "OW"
+      },
+      "de": {
+        "med-praxisassistent-in-notfallempfang-und-notfallpraxis-a-70-ksow-sarnen": "OW",
+        "med-praxisassistent-in-notfallempfang-und-notfallpraxis-a-40-70-kantonsspital-obwalden-sarnen": "OW"
+      },
+      "fr": {
+        "med-praxisassistent-in-notfallempfang-und-notfallpraxis-a-70-kantonsspital-obwalden-sarnen": "OW"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-di-pulizia-e-servizio-a-domicilio-a-80-100-kantonsspital-obwalden-sarnen",
@@ -271,7 +329,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/mitarbeiter-in-reinigungs-und-hausdienst/2ithk1zyvhwh4gmr7h3yv42kwvgef0hjtx0br822l1mybnfuij1kf7qclpxwqes3",
-    "firstSeenAt": "2026-09-24T14:28:49.137Z"
+    "firstSeenAt": "2026-09-24T14:28:49.137Z",
+    "canton": "OW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratore-trice-reinigungs-e-hausdienst-a-80-100-kantonsspital-obwalden-sarnen": "OW",
+        "mitarbeiter-in-reinigungs-und-hausdienst-a-80-100-ksow-sarnen": "OW"
+      },
+      "en": {
+        "mitarbeiter-in-reinigungs-und-hausdienst-a-80-100-kantonsspital-obwalden-sarnen": "OW"
+      },
+      "de": {
+        "mitarbeiter-in-reinigungs-und-hausdienst-a-80-100-kantonsspital-obwalden-sarnen": "OW"
+      },
+      "fr": {
+        "mitarbeiter-in-reinigungs-und-hausdienst-a-80-100-kantonsspital-obwalden-sarnen": "OW"
+      }
+    }
   },
   {
     "slug": "assistente-medico-ambulatoriale-ricezione-di-emergenza-a-30-60-kantonsspital-obwalden-sarnen",
@@ -322,7 +396,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/med-praxisassistent-in-notfallempfang/ebewhvzv5wpchgueacvt0623t4jzdrsxiuyigeuz5wix4vhvkjvdvgubfco1m1bf",
-    "firstSeenAt": "2026-10-01T21:23:53.525Z"
+    "firstSeenAt": "2026-10-01T21:23:53.525Z",
+    "canton": "OW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "med-praxisassistent-in-notfallempfang-a-30-60-kantonsspital-obwalden-sarnen": "OW",
+        "med-praxisassistent-in-notfallempfang-a-30-60-ksow-sarnen": "OW"
+      },
+      "en": {
+        "med-praxisassistent-in-notfallempfang-a-30-60-kantonsspital-obwalden-sarnen": "OW"
+      },
+      "fr": {
+        "med-praxisassistent-in-notfallempfang-a-30-60-kantonsspital-obwalden-sarnen": "OW"
+      }
+    }
   },
   {
     "slug": "infermiera-hf-a-60-100-kantonsspital-obwalden-sarnen",
@@ -370,7 +457,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/dipl-pflegefachperson-hf/fhxo6l278epi2dgok5rmap3yy8b5u2id06xfy8r82s1rrx278iilohou3ssxfx8z",
-    "firstSeenAt": "2026-09-24T14:28:50.652Z"
+    "firstSeenAt": "2026-09-24T14:28:50.652Z",
+    "canton": "OW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-a-60-100-kantonsspital-obwalden-sarnen": "OW",
+        "dipl-pflegefachperson-hf-a-60-100-ksow-sarnen": "OW"
+      },
+      "fr": {
+        "dipl-pflegefachperson-hf-a-60-100-kantonsspital-obwalden-sarnen": "OW"
+      }
+    }
   },
   {
     "slug": "cucina-dietetica-cuoco-cuoco-efz-a-60-100-kantonsspital-obwalden-sarnen",
@@ -419,7 +516,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/diaetkoch-koechin-koch-koechin-efz/b25hpdst0m650cnwzvsprrbs7c6e70klrwvz5vnyvxp4bl27bh3sd5imd8if0f1v",
-    "firstSeenAt": "2026-07-24T11:19:42.304Z"
+    "firstSeenAt": "2026-07-24T11:19:42.304Z",
+    "canton": "OW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "diatkoch-kochin-koch-kochin-efz-a-60-100-ksow-sarnen": "OW",
+        "diatkoch-kochin-koch-kochin-cfc-a-60-100-kantonsspital-obwalden-sarnen": "OW"
+      },
+      "de": {
+        "diatkoch-kochin-koch-kochin-efz-a-60-100-kantonsspital-obwalden-sarnen": "OW"
+      }
+    }
   },
   {
     "slug": "dipl-midwife-hf-fh-100-kantonsspital-obwalden-sarnen",
@@ -454,7 +561,8 @@
         "dipl-hebamme-hf-fh-100-ksow-sarnen"
       ],
       "en": [
-        "dipl-hebamme-hf-fh-100-ksow-sarnen"
+        "dipl-hebamme-hf-fh-100-ksow-sarnen",
+        "dipl-midwife-hf-fh-100-kantonsspital-obwalden-sarnen"
       ],
       "fr": [
         "dipl-hebamme-hf-fh-100-ksow-sarnen"
@@ -466,7 +574,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/dipl-hebamme-hf-fh/4k5q252re11t68f10p7gfk51he726kplstebojpjq255gxlbotycazbvpo86yute",
-    "firstSeenAt": "2026-09-01T14:17:53.232Z"
+    "firstSeenAt": "2026-09-01T14:17:53.232Z",
+    "canton": "OW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-hebamme-hf-fh-100-ksow-sarnen": "OW"
+      },
+      "en": {
+        "dipl-midwife-hf-fh-100-kantonsspital-obwalden-sarnen": "OW",
+        "dipl-hebamme-hf-fh-100-ksow-sarnen": "OW"
+      },
+      "fr": {
+        "dipl-hebamme-hf-fh-100-ksow-sarnen": "OW"
+      }
+    }
   },
   {
     "slug": "dipl-soccorso-paramedico-con-responsabilita-professionale-a-80-100-kantonsspital-obwalden-sarnen",
@@ -517,7 +638,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/dipl-rettungssanitaeter-in-hf-mit-fachverantwortung/5fopcet5k6m3800bqzawaqlqi6kl3j1lews1rarox43wm06w7rfydt073as34l80",
-    "firstSeenAt": "2026-08-31T17:16:34.187Z"
+    "firstSeenAt": "2026-08-31T17:16:34.187Z",
+    "canton": "OW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-ksow-sarnen": "OW",
+        "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-kantonsspital-obwalden-sarnen": "OW"
+      },
+      "en": {
+        "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-kantonsspital-obwalden-sarnen": "OW"
+      },
+      "fr": {
+        "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-kantonsspital-obwalden-sarnen": "OW"
+      }
+    }
   },
   {
     "slug": "medico-senior-gastroenterology-20-kantonsspital-obwalden-sarnen",

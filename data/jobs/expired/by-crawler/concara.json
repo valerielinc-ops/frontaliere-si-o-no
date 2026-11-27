@@ -635,10 +635,10 @@
       "mitarbeiter-in-betreuung-und-pflege-50-100-concara-bern",
       "mitarbeiter-in-betreuung-und-pflege-30-100-concara-bern-063c7b69",
       "mitarbeiter-in-betreuung-und-pflege-30-100-concara-bern-8e895011",
-      "mitarbeiter-in-betreuung-und-pflege-30-100-concara-bern",
       "con-cuore-mano-e-mente-assistenza-e-cura-dei-dipendenti-40-100-ricercati-concara-domicil-spitex-bern-bern",
       "with-heart-hand-and-mind-employee-care-and-care-40-100-sought-after-concara-domicil-spitex-bern-bern",
-      "avec-c-ur-main-et-esprit-soins-et-soins-aux-employes-40-100-recherches-concara-domicil-spitex-bern-bern"
+      "avec-c-ur-main-et-esprit-soins-et-soins-aux-employes-40-100-recherches-concara-domicil-spitex-bern-bern",
+      "mitarbeiter-in-betreuung-und-pflege-30-100-concara-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -662,8 +662,8 @@
         "assistente-di-cura-e-assistenza-50-100-concara-domicil-spitex-bern-bern",
         "mitarbeiter-in-betreuung-und-pflege-50-100-concara-bern-4",
         "mitarbeiter-in-betreuung-und-pflege-30-100-concara-bern-063c7b69",
-        "mitarbeiter-in-betreuung-und-pflege-30-100-concara-bern",
-        "con-cuore-mano-e-mente-assistenza-e-cura-dei-dipendenti-40-100-ricercati-concara-domicil-spitex-bern-bern"
+        "con-cuore-mano-e-mente-assistenza-e-cura-dei-dipendenti-40-100-ricercati-concara-domicil-spitex-bern-bern",
+        "mitarbeiter-in-betreuung-und-pflege-30-100-concara-bern"
       ],
       "en": [
         "mit-herz-hand-und-verstand-mitarbeiter-in-betreuung-und-pflege-40-100-gesucht-concara-bern",
@@ -770,14 +770,16 @@
         "mit-herz-hand-und-verstand-collaborateur-trice-betreuung-und-pflege-40-100-gesucht-concara-domicil-spitex-bern-bern": "BE",
         "con-herz-hand-e-verstand-collaboratore-trice-betreuung-e-pflege-40-100-gesucht-concara-domicil-spitex-bern": "BE",
         "mit-herz-hand-und-verstand-mitarbeiter-in-betreuung-und-pflege-40-100-gesucht-concara-bern": "BE",
-        "con-cuore-mano-e-mente-assistenza-e-cura-dei-dipendenti-40-100-ricercati-concara-domicil-spitex-bern-bern-3d75be79ad": "BE"
+        "con-cuore-mano-e-mente-assistenza-e-cura-dei-dipendenti-40-100-ricercati-concara-domicil-spitex-bern-bern-3d75be79ad": "BE",
+        "mitarbeiter-in-betreuung-und-pflege-30-100-concara-bern-063c7b69": "BE"
       },
       "en": {
         "with-heart-hand-and-mind-employee-care-and-care-40-100-sought-after-concara-domicil-spitex-bern-bern": "BE",
         "with-heart-hand-and-mind-staff-sought-in-care-and-care-40-100-concara-domicil-spitex-bern-bern": "BE"
       },
       "de": {
-        "mit-herz-hand-und-verstand-mitarbeiter-in-betreuung-und-pflege-40-100-gesucht-concara-bern": "BE"
+        "mit-herz-hand-und-verstand-mitarbeiter-in-betreuung-und-pflege-40-100-gesucht-concara-bern": "BE",
+        "mitarbeiter-in-betreuung-und-pflege-30-100-concara-bern-8e895011": "BE"
       },
       "fr": {
         "avec-c-ur-main-et-esprit-soins-et-soins-aux-employes-40-100-recherches-concara-domicil-spitex-bern-bern": "BE",
@@ -1299,11 +1301,19 @@
     "canton": "BE",
     "previousSlugCantonByLocale": {
       "it": {
-        "teamleiter-in-pflege-80-100-concara-bern": "BE"
+        "teamleiter-in-pflege-80-100-concara-bern": "BE",
+        "team-leader-nella-cura-80-100-concara-domicil-spitex-bern-bern-e4344c3d": "BE"
       },
       "de": {
         "teamleiter-in-pflege-80-100-concara-bern": "BE",
-        "teamleiter-in-pflege-80-100-concara-bern-cvgk7s": "BE"
+        "teamleiter-in-pflege-80-100-concara-bern-cvgk7s": "BE",
+        "teamleiter-in-pflege-80-100-concara-bern-qj0e8g-51d8fd43": "BE"
+      },
+      "en": {
+        "team-leader-in-care-80-100-concara-domicil-spitex-bern-bern-7dbc8056": "BE"
+      },
+      "fr": {
+        "chef-d-equipe-en-soins-80-100-concara-domicil-spitex-bern-bern-847fe4c1": "BE"
       }
     }
   },
@@ -1873,18 +1883,18 @@
     "canton": "BE",
     "previousSlugCantonByLocale": {
       "it": {
-        "fachfrau-mann-hauswirtschaft-efz-60-100-concara-bern": "BE",
-        "fachfrau-mann-hauswirtschaft-cfc-60-100-concara-domicil-spitex-bern": "BE",
-        "fachfrau-mann-hauswirtschaft-efz-50-60-concara-bern": "BE"
+        "fachfrau-mann-hauswirtschaft-efz-50-60-concara-bern": "BE",
+        "fachfrau-mann-hauswirtschaft-efz-60-100-concara-bern-bcd61869": "BE",
+        "fachfrau-mann-hauswirtschaft-cfc-60-100-concara-domicil-spitex-bern-2b80304c": "BE"
       },
       "en": {
-        "fachfrau-mann-hauswirtschaft-efz-60-100-concara-bern": "BE"
+        "fachfrau-mann-hauswirtschaft-efz-60-100-concara-bern-bcd61869": "BE"
       },
       "de": {
-        "fachfrau-mann-hauswirtschaft-efz-60-100-concara-bern": "BE"
+        "fachfrau-mann-hauswirtschaft-efz-60-100-concara-bern-bcd61869": "BE"
       },
       "fr": {
-        "fachfrau-mann-hauswirtschaft-efz-60-100-concara-bern": "BE"
+        "fachfrau-mann-hauswirtschaft-efz-60-100-concara-bern-bcd61869": "BE"
       }
     }
   },

@@ -48,7 +48,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://romantikhotels.hcm4all.de/list/18877",
-    "firstSeenAt": "2026-09-29T21:15:02.870Z"
+    "firstSeenAt": "2026-09-29T21:15:02.870Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "housekeeping-mitarbeiter-in-m-w-d-flims-graubunden-schweizerhof-flims-ch": "GR"
+      },
+      "en": {
+        "housekeeping-mitarbeiter-in-m-w-d-flims-graubunden-schweizerhof-flims-ch": "GR"
+      },
+      "fr": {
+        "housekeeping-mitarbeiter-in-m-w-d-flims-graubunden-schweizerhof-flims-ch": "GR"
+      }
+    }
   },
   {
     "slug": "porter-housekeeping-m-f-d-schweizerhof-flims-graubunden",
@@ -126,7 +138,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://romantikhotels.hcm4all.de/list/18876",
-    "firstSeenAt": "2026-09-29T21:15:02.864Z"
+    "firstSeenAt": "2026-09-29T21:15:02.864Z",
+    "canton": "GR",
+    "previousSlugsByLocale": {
+      "en": [
+        "chef-de-rang-m-w-d-flims-graubunden-schweizerhof-flims-ch"
+      ],
+      "de": [
+        "chef-de-rang-m-w-d-flims-graubunden-schweizerhof-flims-ch"
+      ],
+      "fr": [
+        "chef-de-rang-m-w-d-flims-graubunden-schweizerhof-flims-ch"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "chef-de-rang-m-w-d-flims-graubunden-schweizerhof-flims-ch": "GR"
+      },
+      "de": {
+        "chef-de-rang-m-w-d-flims-graubunden-schweizerhof-flims-ch": "GR"
+      },
+      "fr": {
+        "chef-de-rang-m-w-d-flims-graubunden-schweizerhof-flims-ch": "GR"
+      }
+    }
   },
   {
     "slug": "receptionist-m-f-d-schweizerhof-flims",
@@ -161,7 +196,8 @@
         "receptionist-in-m-w-d-flims-graubunden-schweizerhof-flims-ch"
       ],
       "en": [
-        "receptionist-in-m-w-d-flims-graubunden-schweizerhof-flims-ch"
+        "receptionist-in-m-w-d-flims-graubunden-schweizerhof-flims-ch",
+        "receptionist-m-f-d-schweizerhof-flims"
       ]
     },
     "postalCode": "7017",
@@ -171,7 +207,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://romantikhotels.hcm4all.de/list/18879",
-    "firstSeenAt": "2026-09-29T21:15:02.868Z"
+    "firstSeenAt": "2026-09-29T21:15:02.868Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "receptionist-in-m-w-d-flims-graubunden-schweizerhof-flims-ch": "GR"
+      },
+      "en": {
+        "receptionist-m-f-d-schweizerhof-flims": "GR",
+        "receptionist-in-m-w-d-flims-graubunden-schweizerhof-flims-ch": "GR"
+      }
+    }
   },
   {
     "slug": "chef-de-rang-m-f-piace-anche-l-occupazione-a-lungo-termine-schweizerhof-flims",
@@ -219,7 +265,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.hotelcareer.ch/jobs/romantik-hotel-schweizerhof-11933/chef-de-rang-gerne-auch-langfristige-anstellung-3969883?rltr=comp",
-    "firstSeenAt": "2026-09-21T23:59:42.286Z"
+    "firstSeenAt": "2026-09-21T23:59:42.286Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-de-rang-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch": "GR"
+      },
+      "en": {
+        "chef-de-rang-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch": "GR"
+      },
+      "fr": {
+        "chef-de-rang-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch": "GR"
+      }
+    }
   },
   {
     "slug": "porter-housekeeping-m-f-schweizerhof-flims",
@@ -264,7 +322,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.hotelcareer.ch/jobs/romantik-hotel-schweizerhof-11933/portier-housekeeping-3886631?rltr=comp",
-    "firstSeenAt": "2026-09-21T23:59:42.288Z"
+    "firstSeenAt": "2026-09-21T23:59:42.288Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "portier-housekeeping-m-w-flims-schweizerhof-flims-ch": "GR"
+      },
+      "fr": {
+        "portier-housekeeping-m-w-flims-schweizerhof-flims-ch": "GR"
+      }
+    }
   },
   {
     "slug": "la-pulizia-della-stanza-m-f-piace-anche-l-occupazione-a-lungo-termine-schweizerhof-flims",
@@ -312,7 +379,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.hotelcareer.ch/jobs/romantik-hotel-schweizerhof-11933/zimmer-reinigungskraft-gerne-auch-langfristige-anstellung-3969884?rltr=comp",
-    "firstSeenAt": "2026-09-21T23:59:42.292Z"
+    "firstSeenAt": "2026-09-21T23:59:42.292Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "zimmer-reinigungskraft-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch": "GR"
+      },
+      "en": {
+        "zimmer-reinigungskraft-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch": "GR"
+      },
+      "fr": {
+        "zimmer-reinigungskraft-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch": "GR"
+      }
+    }
   },
   {
     "slug": "ricevitore-m-f-80-100-in-posizione-annuale-permanente-schweizerhof-flims",
@@ -360,6 +439,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.hotelcareer.ch/jobs/romantik-hotel-schweizerhof-11933/receptionist-80-100-in-unbefristeter-jahrestellung-3973778?rltr=comp",
-    "firstSeenAt": "2026-09-21T23:59:42.290Z"
+    "firstSeenAt": "2026-09-21T23:59:42.290Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "receptionist-m-w-80-100-in-unbefristeter-jahrestellung-flims-schweizerhof-flims-ch": "GR"
+      },
+      "en": {
+        "receptionist-m-w-80-100-in-unbefristeter-jahrestellung-flims-schweizerhof-flims-ch": "GR"
+      },
+      "fr": {
+        "receptionist-m-w-80-100-in-unbefristeter-jahrestellung-flims-schweizerhof-flims-ch": "GR"
+      }
+    }
   }
 ]

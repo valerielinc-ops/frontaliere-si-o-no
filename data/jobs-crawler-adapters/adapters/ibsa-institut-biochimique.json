@@ -10,63 +10,9 @@
     "jsonld"
   ],
   "seedUrls": [
-    "https://career.ibsagroup.com/job/Grancia-Project-Manager-R&D-TI-6916/1369323955/",
-    "https://career.ibsagroup.com/job/Lamone-Microbiological-Laboratory-Supervisor-TI-6814/1375511855/",
-    "https://career.ibsagroup.com/job/Grancia-Project-Management-Specialist-TI-6916/1369327655/",
-    "https://career.ibsagroup.com/job/Collina-d'Oro-International-Sales-Specialist-TI-6926/1376748455/",
-    "https://career.ibsagroup.com/job/Collina-d'Oro-Sr-Drug-Safety-Specialist-&-Deputy-QPPV-TI-6926/1372926555/",
-    "https://career.ibsagroup.com/job/Collina-d'Oro-Lead-HR-Operations-Officer-TI-6926/1365369255/"
+    "https://career.ibsagroup.com/search/?createNewAlert=false&q=&locationsearch=TI%2C+CH&optionsFacetsDD_location=&optionsFacetsDD_customfield1="
   ],
   "notes": "Dedicated IBSA crawler seeds from career.ibsagroup.com TI search and canonicalizes detail URLs under /job/.../:jobId/.",
-  "updatedAt": "2026-11-26T21:34:07.892Z",
-  "seedMetaByUrl": {
-    "https://career.ibsagroup.com/job/Grancia-Project-Manager-R&D-TI-6916/1369323955/": {
-      "location": "Grancia",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6916",
-      "company": "IBSA Institut Biochimique",
-      "companyDomain": "ibsa.ch"
-    },
-    "https://career.ibsagroup.com/job/Lamone-Microbiological-Laboratory-Supervisor-TI-6814/1375511855/": {
-      "location": "Lamone",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6814",
-      "company": "IBSA Institut Biochimique",
-      "companyDomain": "ibsa.ch"
-    },
-    "https://career.ibsagroup.com/job/Grancia-Project-Management-Specialist-TI-6916/1369327655/": {
-      "location": "Grancia",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6916",
-      "company": "IBSA Institut Biochimique",
-      "companyDomain": "ibsa.ch"
-    },
-    "https://career.ibsagroup.com/job/Collina-d'Oro-International-Sales-Specialist-TI-6926/1376748455/": {
-      "location": "Collina d'Oro",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6926",
-      "company": "IBSA Institut Biochimique",
-      "companyDomain": "ibsa.ch"
-    },
-    "https://career.ibsagroup.com/job/Collina-d'Oro-Sr-Drug-Safety-Specialist-&-Deputy-QPPV-TI-6926/1372926555/": {
-      "location": "Collina d'Oro",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6926",
-      "company": "IBSA Institut Biochimique",
-      "companyDomain": "ibsa.ch"
-    },
-    "https://career.ibsagroup.com/job/Collina-d'Oro-Lead-HR-Operations-Officer-TI-6926/1365369255/": {
-      "location": "Collina d'Oro",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6926",
-      "company": "IBSA Institut Biochimique",
-      "companyDomain": "ibsa.ch"
-    }
-  }
+  "updatedAt": "2026-11-27T09:38:21.487Z",
+  "seedMetaByUrl": {}
 }

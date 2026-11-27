@@ -1,7 +1,7 @@
 {
   "crawlerKey": "klinik-barmelweid",
-  "assembledAt": "2026-11-26T21:27:06.496Z",
-  "runId": "45896247443",
+  "assembledAt": "2026-11-27T09:21:10.193Z",
+  "runId": "45971433520",
   "jobs": [
     {
       "id": "klinik-barmelweid-6787ac7ee07f",
@@ -34,7 +34,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab1a268817b7e0168f08d561747e4",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:34.943Z",
+      "crawledAt": "2026-11-27T09:20:39.490Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -104,8 +104,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:34.943Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:39.490Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab1a268817b7e0168f08d561747e4"
     },
     {
       "id": "klinik-barmelweid-aa2e3ab827d4",
@@ -138,7 +139,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e80de5ccf01814e033043117e",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:33.842Z",
+      "crawledAt": "2026-11-27T09:20:38.414Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -213,8 +214,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:33.842Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:38.414Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e80de5ccf01814e033043117e"
     },
     {
       "id": "klinik-barmelweid-d9c0a5002940",
@@ -248,7 +250,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e90eb89660191556c2b5368a4",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:32.746Z",
+      "crawledAt": "2026-11-27T09:20:37.325Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -326,8 +328,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:32.746Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:37.325Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e90eb89660191556c2b5368a4"
     },
     {
       "id": "klinik-barmelweid-65d4670bb157",
@@ -360,7 +363,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39dbbb177019dddf6c8d6176e",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:31.653Z",
+      "crawledAt": "2026-11-27T09:20:36.253Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -437,8 +440,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:31.653Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:36.253Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39dbbb177019dddf6c8d6176e"
     },
     {
       "id": "klinik-barmelweid-48c2b7aabbe0",
@@ -471,7 +475,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39e6fddb5019ed0e0a7507901",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:30.530Z",
+      "crawledAt": "2026-11-27T09:20:35.186Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -518,8 +522,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:30.530Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:35.186Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39e6fddb5019ed0e0a7507901"
     },
     {
       "id": "klinik-barmelweid-4a0d79b59acd",
@@ -553,7 +558,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39d8964ea019d9bb31dec69ee",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:29.414Z",
+      "crawledAt": "2026-11-27T09:20:34.123Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -641,8 +646,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:29.414Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:34.123Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39d8964ea019d9bb31dec69ee"
     },
     {
       "id": "klinik-barmelweid-5c08e4a7c3e8",
@@ -676,7 +682,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e90eb896601919e19edb47961",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:28.289Z",
+      "crawledAt": "2026-11-27T09:20:33.046Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -731,8 +737,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:28.289Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:33.046Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e90eb896601919e19edb47961"
     },
     {
       "id": "klinik-barmelweid-03a12898127b",
@@ -766,7 +773,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b396a617590196aa10b8fa64a2",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:27.159Z",
+      "crawledAt": "2026-11-27T09:20:31.954Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -849,8 +856,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:27.159Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:31.954Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b396a617590196aa10b8fa64a2"
     },
     {
       "id": "klinik-barmelweid-48c1692055b1",
@@ -884,7 +892,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a044812101a056d1d8c74f37",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:26.016Z",
+      "crawledAt": "2026-11-27T09:20:30.875Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -935,8 +943,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:26.016Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:30.875Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a044812101a056d1d8c74f37"
     },
     {
       "id": "klinik-barmelweid-f6cff4d678b6",
@@ -970,7 +979,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39d2bb2d5019d6c6daa583d5c",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:24.899Z",
+      "crawledAt": "2026-11-27T09:20:29.769Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1050,8 +1059,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:24.899Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:29.769Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39d2bb2d5019d6c6daa583d5c"
     },
     {
       "id": "klinik-barmelweid-82a90e231802",
@@ -1084,7 +1094,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8908887f018968e9bbe138e6",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:23.747Z",
+      "crawledAt": "2026-11-27T09:20:28.671Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1133,8 +1143,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:23.747Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:28.671Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8908887f018968e9bbe138e6"
     },
     {
       "id": "klinik-barmelweid-70d21be00513",
@@ -1168,7 +1179,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab1a26a538778016a53a0004200a8",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:22.551Z",
+      "crawledAt": "2026-11-27T09:20:27.563Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1211,8 +1222,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:22.551Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:27.563Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab1a26a538778016a53a0004200a8"
     },
     {
       "id": "klinik-barmelweid-6965b2609be4",
@@ -1245,7 +1257,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a044812101a0c2aaac3b3f22",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:21.449Z",
+      "crawledAt": "2026-11-27T09:20:26.497Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1288,8 +1300,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:21.449Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:26.497Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a044812101a0c2aaac3b3f22"
     },
     {
       "id": "klinik-barmelweid-6e096f09fb33",
@@ -1323,7 +1336,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a0d74abb01a0e7e9d4e56634",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:20.285Z",
+      "crawledAt": "2026-11-27T09:20:25.409Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1366,8 +1379,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:26:20.285Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-28T09:20:25.409Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a0d74abb01a0e7e9d4e56634"
     },
     {
       "id": "klinik-barmelweid-c19293577897",
@@ -1401,7 +1415,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab1a249cf10d2014a395e97a634cc",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:19.154Z",
+      "crawledAt": "2026-11-27T09:20:24.311Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1479,8 +1493,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:19.154Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:24.311Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab1a249cf10d2014a395e97a634cc"
     },
     {
       "id": "klinik-barmelweid-f609ea72a34c",
@@ -1514,7 +1529,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3983dcc2b01989e2395da6cca",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:18.010Z",
+      "crawledAt": "2026-11-27T09:20:23.144Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1588,8 +1603,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:18.010Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:23.144Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3983dcc2b01989e2395da6cca"
     },
     {
       "id": "klinik-barmelweid-65919705caea",
@@ -1623,7 +1639,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a0d74abb01a0f2edc82c6b81",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:16.825Z",
+      "crawledAt": "2026-11-27T09:20:22.044Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1668,8 +1684,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T21:26:16.825Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-31T09:20:22.044Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a0d74abb01a0f2edc82c6b81"
     },
     {
       "id": "klinik-barmelweid-fc4c699af27a",
@@ -1703,7 +1720,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a044812101a0d34a35a24597",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:15.640Z",
+      "crawledAt": "2026-11-27T09:20:20.957Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1746,8 +1763,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:26:15.640Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-06T09:20:20.957Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a044812101a0d34a35a24597"
     },
     {
       "id": "klinik-barmelweid-06acb4aee9ac",
@@ -1781,7 +1799,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8998ab9d018a03555e2f5cac",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:14.519Z",
+      "crawledAt": "2026-11-27T09:20:19.884Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1824,8 +1842,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:14.519Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:19.884Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8998ab9d018a03555e2f5cac"
     },
     {
       "id": "klinik-barmelweid-6582c2737317",
@@ -1858,7 +1877,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39e6fddb5019ef8b0d4462241",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:13.407Z",
+      "crawledAt": "2026-11-27T09:20:18.780Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1901,8 +1920,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:13.407Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:18.780Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39e6fddb5019ef8b0d4462241"
     },
     {
       "id": "klinik-barmelweid-a40fe9a42b44",
@@ -1936,7 +1956,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a044812101a086e9acea2b9d",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:12.267Z",
+      "crawledAt": "2026-11-27T09:20:17.682Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1983,8 +2003,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:12.267Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:17.682Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a044812101a086e9acea2b9d"
     },
     {
       "id": "klinik-barmelweid-3c8761dc87fb",
@@ -2017,7 +2038,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8b6d55b6018b95e3f8f65ed6",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:11.144Z",
+      "crawledAt": "2026-11-27T09:20:16.590Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2067,8 +2088,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:11.144Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:16.590Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8b6d55b6018b95e3f8f65ed6"
     },
     {
       "id": "klinik-barmelweid-c8d484e8c151",
@@ -2102,7 +2124,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a189324601a18d574e397b55",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:09.980Z",
+      "crawledAt": "2026-11-27T09:20:15.439Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2161,8 +2183,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T21:26:09.980Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-20T09:20:15.439Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a189324601a18d574e397b55"
     },
     {
       "id": "klinik-barmelweid-9cb33e50a926",
@@ -2196,7 +2219,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a0d74abb01a187f50eb514f9",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:08.839Z",
+      "crawledAt": "2026-11-27T09:20:14.231Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2247,8 +2270,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:26:08.839Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-28T09:20:14.231Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a0d74abb01a187f50eb514f9"
     },
     {
       "id": "klinik-barmelweid-b328152e9400",
@@ -2282,7 +2306,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e93e07a3e01944608c4da6c68",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:07.690Z",
+      "crawledAt": "2026-11-27T09:20:13.025Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2325,8 +2349,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T21:26:07.690Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-20T09:20:13.025Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e93e07a3e01944608c4da6c68"
     },
     {
       "id": "klinik-barmelweid-d7d287ba2b4f",
@@ -2360,7 +2385,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8191efe30181ed9d439b6b2c",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:06.553Z",
+      "crawledAt": "2026-11-27T09:20:11.881Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2430,8 +2455,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:06.553Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:11.881Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8191efe30181ed9d439b6b2c"
     },
     {
       "id": "klinik-barmelweid-8cb691a1a1df",
@@ -2465,7 +2491,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8191efe30181eddd0b376d64",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:05.424Z",
+      "crawledAt": "2026-11-27T09:20:10.747Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2538,8 +2564,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:05.424Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:10.747Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8191efe30181eddd0b376d64"
     },
     {
       "id": "klinik-barmelweid-c912a3462958",
@@ -2573,7 +2600,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e90eb8966019173f53b8f4a57",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:04.317Z",
+      "crawledAt": "2026-11-27T09:20:09.621Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2653,8 +2680,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:04.317Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:09.621Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e90eb8966019173f53b8f4a57"
     },
     {
       "id": "klinik-barmelweid-b59e0a619139",
@@ -2687,7 +2715,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a189324601a1c106ed825555",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:03.191Z",
+      "crawledAt": "2026-11-27T09:20:08.505Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2736,8 +2764,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:26:03.191Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-08T09:20:08.505Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a189324601a1c106ed825555"
     },
     {
       "id": "klinik-barmelweid-9f428a5cd0aa",
@@ -2771,7 +2800,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a189324601a1c55e33c75371",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:02.054Z",
+      "crawledAt": "2026-11-27T09:20:07.409Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2820,8 +2849,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:26:02.054Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-09T09:20:07.409Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a189324601a1c55e33c75371"
     },
     {
       "id": "klinik-barmelweid-b9fa83a3b581",
@@ -2855,7 +2885,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a189324601a1c64fd40b5c63",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:26:00.880Z",
+      "crawledAt": "2026-11-27T09:20:06.305Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2904,8 +2934,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:26:00.880Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-09T09:20:06.305Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a189324601a1c64fd40b5c63"
     },
     {
       "id": "klinik-barmelweid-3c0583a6f97b",
@@ -2938,7 +2969,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39d2bb2d5019d8584679f0503",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:25:59.751Z",
+      "crawledAt": "2026-11-27T09:20:05.152Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2981,8 +3012,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:25:59.751Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-16T09:20:05.152Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39d2bb2d5019d8584679f0503"
     },
     {
       "id": "klinik-barmelweid-5e1273f35d77",
@@ -3016,7 +3048,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a189324601a1b18fbf93603d",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:25:58.608Z",
+      "crawledAt": "2026-11-27T09:20:04.042Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3067,8 +3099,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:25:58.608Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-16T09:20:04.042Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a189324601a1b18fbf93603d"
     },
     {
       "id": "klinik-barmelweid-1f432e9438c1",
@@ -3102,7 +3135,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39dbbb177019e3a161c9620da",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:25:57.463Z",
+      "crawledAt": "2026-11-27T09:20:02.771Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3163,41 +3196,43 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:25:57.463Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:20:02.771Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39dbbb177019e3a161c9620da"
     },
     {
       "id": "klinik-barmelweid-539d4cf82dd9",
-      "slug": "therapiedisponentin-therapiedisponent-a-klinik-barmelweid-barmelweid",
+      "slug": "erogatore-di-trattamento-dispensatore-di-terapia-a-klinik-barmelweid-barmelweid",
       "slugByLocale": {
+        "it": "erogatore-di-trattamento-dispensatore-di-terapia-a-klinik-barmelweid-barmelweid",
+        "en": "treatment-dispenser-therapy-dispenser-a-klinik-barmelweid-barmelweid",
         "de": "therapiedisponentin-therapiedisponent-a-klinik-barmelweid-barmelweid",
-        "it": "therapiedisponentin-therapiedisponent-a-klinik-barmelweid-barmelweid",
-        "en": "therapiedisponentin-therapiedisponent-a-klinik-barmelweid-barmelweid",
-        "fr": "therapiedisponentin-therapiedisponent-a-klinik-barmelweid-barmelweid"
+        "fr": "distributeur-de-traitement-distributeur-de-therapie-a-klinik-barmelweid-barmelweid"
       },
       "company": "Klinik Barmelweid",
       "companyKey": "klinik-barmelweid",
       "companyDomain": "barmelweid.ch",
       "title": "Therapiedisponentin/​Therapiedisponent(a)",
       "titleByLocale": {
-        "de": "Therapiedisponentin/​Therapiedisponent(a)",
         "it": "Erogatore di trattamento / dispensatore di terapia(a)",
         "en": "Treatment dispenser/therapy dispenser(a)",
+        "de": "Therapiedisponentin/​Therapiedisponent(a)",
         "fr": "Distributeur de traitement/distributeur de thérapie(a)"
       },
       "description": "Organisieren liegt dir im Blut und die Planung von Patiententerminen macht dir Freude - dann bist du bei uns genau richtig. Beschäftigungsgrad: 60–80% Eintritt per sofort oder nach Vereinbarung\n\nDu musst bei uns nicht alles wissen. Aber du darfst alles fragen. Du kannst Ideen ausprobieren und Verantwortung übernehmen. Denn Lean heisst für uns: Verantwortung geben, Vertrauen schenken und gemeinsam besser werden. So ticken wir Wir schaffen gemeinsam Erlebnisse und pflegen eine offene, herzliche und ehrliche Kultur. Erfolge erreichen wir im Team gemeinsam und brauchen lieber unser Herz um vorwärts zu kommen. Wir arbeiten mit Lebensfreude und mit Spass erweitern wir unseren Horizont. Das bewegst du bei uns\n• Du planst mit einem softwarebasiertem Planungstool die multidisziplinären Therapien unserer stationären Patientinnen und Patienten\n• Du bist für die Therapieplanung sowie Erstellung der Einsatzpläne für die Kollegen im therapeutischen Bereich zuständig\n• Durch deine Drehscheibenfunktion bist Du Ansprechpartner/Ansprechpartnerin für Patienten und Kollegen im Bereich Therapiedisposition\n• Du arbeitest aktiv an den Verbesserungen und Änderungen des planerischen Ablaufes mit Du begeisterst uns…\n• mit Deiner abgeschlossenen Ausbildung im kaufmännischen oder medizinischen Bereich (z.B. Kaufm. Angestellte/r, MPA, Fachfrau/mann Gesundheit, etc.)\n• weil Du bereits Erfahrung im Planen von Patiententerminen und/oder Erfahrung im Gesundheitswesen mitbringen\n• da Du idealerweise bereits Erfahrung mit RehaTIS oder anderen Planungsmodulen mitbringst\n• als dienstleistungsorientierte und teamfähige Persönlichkeit, welche vorausschauend und planerisch denkt Über uns Die verschiedenen Therapie- und Beratungsteams der Barmelweid arbeiten im Bereich MTD Hand in Hand – ganz im Dienst unserer Patientinnen und Patienten. Für die Drehscheibenfunktion des Patienten-Planungscenterteams suchen wir Verstärkung. Die Barmelweid bietet ihren über 700 Mitarbeitenden ein attraktives, interdisziplinäres Arbeitsumfeld in einer familiären Atmosphäre. Dazu gehören auch fortschrittliche Anstellungsbedingungen, vorteilhafte Sozialleistungen, ein vielseitiges Freizeitangebot und eine hauseigene Kindertagesstätte.",
       "descriptionByLocale": {
-        "de": "Organisieren liegt dir im Blut und die Planung von Patiententerminen macht dir Freude - dann bist du bei uns genau richtig. Beschäftigungsgrad: 60–80% Eintritt per sofort oder nach Vereinbarung\n\nDu musst bei uns nicht alles wissen. Aber du darfst alles fragen. Du kannst Ideen ausprobieren und Verantwortung übernehmen. Denn Lean heisst für uns: Verantwortung geben, Vertrauen schenken und gemeinsam besser werden. So ticken wir Wir schaffen gemeinsam Erlebnisse und pflegen eine offene, herzliche und ehrliche Kultur. Erfolge erreichen wir im Team gemeinsam und brauchen lieber unser Herz um vorwärts zu kommen. Wir arbeiten mit Lebensfreude und mit Spass erweitern wir unseren Horizont. Das bewegst du bei uns\n• Du planst mit einem softwarebasiertem Planungstool die multidisziplinären Therapien unserer stationären Patientinnen und Patienten\n• Du bist für die Therapieplanung sowie Erstellung der Einsatzpläne für die Kollegen im therapeutischen Bereich zuständig\n• Durch deine Drehscheibenfunktion bist Du Ansprechpartner/Ansprechpartnerin für Patienten und Kollegen im Bereich Therapiedisposition\n• Du arbeitest aktiv an den Verbesserungen und Änderungen des planerischen Ablaufes mit Du begeisterst uns…\n• mit Deiner abgeschlossenen Ausbildung im kaufmännischen oder medizinischen Bereich (z.B. Kaufm. Angestellte/r, MPA, Fachfrau/mann Gesundheit, etc.)\n• weil Du bereits Erfahrung im Planen von Patiententerminen und/oder Erfahrung im Gesundheitswesen mitbringen\n• da Du idealerweise bereits Erfahrung mit RehaTIS oder anderen Planungsmodulen mitbringst\n• als dienstleistungsorientierte und teamfähige Persönlichkeit, welche vorausschauend und planerisch denkt Über uns Die verschiedenen Therapie- und Beratungsteams der Barmelweid arbeiten im Bereich MTD Hand in Hand – ganz im Dienst unserer Patientinnen und Patienten. Für die Drehscheibenfunktion des Patienten-Planungscenterteams suchen wir Verstärkung. Die Barmelweid bietet ihren über 700 Mitarbeitenden ein attraktives, interdisziplinäres Arbeitsumfeld in einer familiären Atmosphäre. Dazu gehören auch fortschrittliche Anstellungsbedingungen, vorteilhafte Sozialleistungen, ein vielseitiges Freizeitangebot und eine hauseigene Kindertagesstätte.",
         "it": "Organizzare è nel tuo sangue e pianificare gli appuntamenti dei pazienti ti rende felice - allora hai esattamente ragione con noi. Livello di occupazione: 60–80% di ammissione immediata o di accordo\n\nNon devi sapere tutto con noi. Ma puoi chiedere qualsiasi cosa. Puoi provare idee e assumerti la responsabilità. Per noi, magra significa: dare responsabilità, fidarsi e migliorare insieme. Creiamo esperienze insieme e coltiviamo una cultura aperta, calda e onesta. Conseguiamo il successo insieme nella squadra e abbiamo bisogno del nostro cuore per andare avanti. Lavoriamo con joie de vivre e con divertimento espandiamo i nostri orizzonti. Lo sposti con noi.\n• Con uno strumento di pianificazione basato sul software, pianifichi le terapie multidisciplinari dei nostri pazienti\n• Lei è responsabile per la pianificazione della terapia e la preparazione di piani operativi per i colleghi nel campo terapeutico\n• Attraverso la vostra funzione giradischi, siete la persona di contatto per pazienti e colleghi nel campo della disposizione della terapia\n• Stai lavorando attivamente sui miglioramenti e i cambiamenti del processo di pianificazione con voi ci ispirano...\n• con la formazione completa nel settore commerciale o medico (ad esempio Kaufm). Dipendente, MPA, salute specialistica, ecc.\n• perché hai già esperienza nella pianificazione degli appuntamenti dei pazienti e/o dell'esperienza sanitaria\n• come si idealmente già hanno esperienza con RehaTIS o altri moduli di pianificazione\n• come personalità orientata al servizio e responsabile del team che pensa all'avanguardia e alla pianificazione su di noi Le diverse squadre di terapia e consulenza di Barmelweid mano di lavoro nel campo della MTD – completamente al servizio dei nostri pazienti. Per la funzione giradischi del team del centro di pianificazione del paziente stiamo cercando rinforzi. Barmelweid offre ai suoi oltre 700 dipendenti un ambiente di lavoro attraente e interdisciplinare in un'atmosfera familiare. Questo include anche condizioni di lavoro avanzate, vantaggi sociali vantaggiosi, un'offerta di svago versatile e un centro di cura in-house.",
         "en": "Organizing is in your blood and planning patient appointments makes you happy - then you are exactly right with us. Employment level: 60–80% admission by immediate or by agreement\n\nYou don't have to know everything with us. But you can ask anything. You can try out ideas and take responsibility. For us, lean means: giving responsibility, trusting and becoming better together. We create experiences together and cultivate an open, warm and honest culture. We achieve success together in the team and rather need our heart to move forward. We work with joie de vivre and with fun we expand our horizons. You move that with us\n• With a software-based planning tool, you plan the multidisciplinary therapies of our inpatients\n• You are responsible for therapy planning and preparation of operational plans for colleagues in the therapeutic field\n• Through your turntable function, you are the contact person for patients and colleagues in the field of therapy disposition\n• You are actively working on the improvements and changes of the planning process with you inspire us...\n• with your completed training in the commercial or medical sector (e.g. Kaufm). Employee, MPA, specialist health, etc.\n• because you already have experience in planning patient appointments and/or healthcare experience\n• as you ideally already have experience with RehaTIS or other planning modules\n• as a service-oriented and team-capable personality who thinks forward-looking and planning about us The different therapy and consulting teams at Barmelweid work hand in hand in the field of MTD – completely at the service of our patients. For the turntable function of the patient planning center team we are looking for reinforcement. Barmelweid offers its more than 700 employees an attractive, interdisciplinary working environment in a family atmosphere. This also includes advanced employment conditions, advantageous social benefits, a versatile leisure offer and an in-house day care centre.",
+        "de": "Organisieren liegt dir im Blut und die Planung von Patiententerminen macht dir Freude - dann bist du bei uns genau richtig. Beschäftigungsgrad: 60–80% Eintritt per sofort oder nach Vereinbarung\n\nDu musst bei uns nicht alles wissen. Aber du darfst alles fragen. Du kannst Ideen ausprobieren und Verantwortung übernehmen. Denn Lean heisst für uns: Verantwortung geben, Vertrauen schenken und gemeinsam besser werden. So ticken wir Wir schaffen gemeinsam Erlebnisse und pflegen eine offene, herzliche und ehrliche Kultur. Erfolge erreichen wir im Team gemeinsam und brauchen lieber unser Herz um vorwärts zu kommen. Wir arbeiten mit Lebensfreude und mit Spass erweitern wir unseren Horizont. Das bewegst du bei uns\n• Du planst mit einem softwarebasiertem Planungstool die multidisziplinären Therapien unserer stationären Patientinnen und Patienten\n• Du bist für die Therapieplanung sowie Erstellung der Einsatzpläne für die Kollegen im therapeutischen Bereich zuständig\n• Durch deine Drehscheibenfunktion bist Du Ansprechpartner/Ansprechpartnerin für Patienten und Kollegen im Bereich Therapiedisposition\n• Du arbeitest aktiv an den Verbesserungen und Änderungen des planerischen Ablaufes mit Du begeisterst uns…\n• mit Deiner abgeschlossenen Ausbildung im kaufmännischen oder medizinischen Bereich (z.B. Kaufm. Angestellte/r, MPA, Fachfrau/mann Gesundheit, etc.)\n• weil Du bereits Erfahrung im Planen von Patiententerminen und/oder Erfahrung im Gesundheitswesen mitbringen\n• da Du idealerweise bereits Erfahrung mit RehaTIS oder anderen Planungsmodulen mitbringst\n• als dienstleistungsorientierte und teamfähige Persönlichkeit, welche vorausschauend und planerisch denkt Über uns Die verschiedenen Therapie- und Beratungsteams der Barmelweid arbeiten im Bereich MTD Hand in Hand – ganz im Dienst unserer Patientinnen und Patienten. Für die Drehscheibenfunktion des Patienten-Planungscenterteams suchen wir Verstärkung. Die Barmelweid bietet ihren über 700 Mitarbeitenden ein attraktives, interdisziplinäres Arbeitsumfeld in einer familiären Atmosphäre. Dazu gehören auch fortschrittliche Anstellungsbedingungen, vorteilhafte Sozialleistungen, ein vielseitiges Freizeitangebot und eine hauseigene Kindertagesstätte.",
         "fr": "L'organisation est dans votre sang et la planification des rendez-vous des patients vous rend heureux - alors vous avez exactement raison avec nous. Niveau d'emploi: 60 à 80 % d'admission immédiate ou conventionnelle\n\nTu n'as pas à tout savoir avec nous. Mais tu peux tout demander. Vous pouvez essayer des idées et prendre des responsabilités. Pour nous, maigre signifie : donner des responsabilités, faire confiance et devenir mieux ensemble. Nous créons des expériences ensemble et cultivons une culture ouverte, chaleureuse et honnête. Nous réussissons ensemble dans l'équipe et avons plutôt besoin de notre cœur pour aller de l'avant. Nous travaillons avec joie de vivre et avec plaisir nous élargissons nos horizons. Bouge ça avec nous.\n• Avec un outil de planification logiciel, vous planifiez les thérapies multidisciplinaires de nos patients hospitalisés\n• Vous êtes responsable de la planification thérapeutique et de la préparation des plans opérationnels des collègues dans le domaine thérapeutique\n• Grâce à votre fonction tournante, vous êtes la personne de contact pour les patients et les collègues dans le domaine de la disposition thérapeutique\n• Vous travaillez activement sur les améliorations et les changements du processus de planification avec vous nous inspirez...\n• avec votre formation complète dans le secteur commercial ou médical (par exemple Kaufm). Employé, MPA, santé spécialisée, etc.\n• parce que vous avez déjà de l'expérience dans la planification des rendez-vous et/ou de l'expérience en soins de santé\n• comme vous avez idéalement déjà l'expérience avec RehaTIS ou d'autres modules de planification\n• en tant que personnalité orientée vers le service et capable d'équipe qui pense à l'avenir et planifie sur nous Les différentes équipes de thérapie et de conseil de Barmelweid travaillent main dans la main dans le domaine de la MTD – complètement au service de nos patients. Pour la fonction de table tournante de l'équipe du centre de planification des patients, nous cherchons du renfort. Barmelweid offre à ses plus de 700 employés un environnement de travail attrayant et interdisciplinaire dans une ambiance familiale. Cela comprend également des conditions d'emploi avancées, des prestations sociales avantageuses, une offre polyvalente de loisirs et une garderie à l'interne."
       },
+      "needsRetranslation": false,
       "location": "Barmelweid",
       "canton": "AG",
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a189324601a217431d144841",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:25:56.310Z",
+      "crawledAt": "2026-11-27T09:20:01.067Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3215,9 +3250,22 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a189324601a217431d144841",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-11-26T21:25:56.310Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "therapiedisponentin-therapiedisponent-a-klinik-barmelweid-barmelweid"
+        ],
+        "en": [
+          "therapiedisponentin-therapiedisponent-a-klinik-barmelweid-barmelweid"
+        ],
+        "fr": [
+          "therapiedisponentin-therapiedisponent-a-klinik-barmelweid-barmelweid"
+        ]
       },
+      "previousSlugs": [
+        "therapiedisponentin-therapiedisponent-a-klinik-barmelweid-barmelweid"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -3233,9 +3281,9 @@
       },
       "streetAddress": "Barmelweid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T21:25:56.310Z",
+      "validThrough": "2027-02-25T09:20:01.067Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-26T21:25:56.310Z"
+      "sourceIdentity": "url:https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a189324601a217431d144841"
     }
   ]
 }

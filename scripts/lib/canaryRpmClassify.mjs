@@ -9,51 +9,10 @@
  * two-signal gate, RPM-specific defaults/labels/output shape only. Public
  * API and returned object shape are unchanged from before this extraction.
  *
- * Two correctness properties this encodes — both born from real false
- * alarms (issue #2176, 2026-06-15..17):
- *
- *   1. NEVER measure the still-open current UTC day. AdSense reports a row
- *      for "today" the moment it has any data, but that day's EARNINGS are
- *      far from final, so its RPM reads artificially low. The old PV-only
- *      "is the last row complete?" heuristic (drop if PV < 50% of prior)
- *      failed on high-traffic mornings: on 2026-06-15 the still-open day's
- *      partial PV already exceeded half of the prior day, so the canary
- *      compared TODAY (incomplete) against the baseline and cried wolf.
- *      Fix: when `todayUtc` is known, any row dated >= today is dropped
- *      outright, then the PV-completeness guard still trims a yesterday
- *      that looks like it is still settling.
- *
- *   2. RPM is a RATIO (earnings ÷ page views). A page-view SPIKE with
- *      perfectly healthy earnings halves RPM mechanically — that is benign
- *      traffic (often bot/AI crawl or a Discover hit), NOT a revenue
- *      incident. On 2026-06-15 earnings were normal (5.46 CHF, in line with
- *      4.4–5.7 the surrounding days) while PV spiked to 3625 (~2.4×), so
- *      RPM "crashed" to 1.51 with zero lost revenue. A real incident
- *      (the 2026-05-28 stub regression that birthed this canary) instead
- *      collapses EARNINGS because no ads serve. Fix: only declare a
- *      regression when the RPM signal fires AND current-day earnings are
- *      also materially below the baseline earnings. This preserves the
- *      2026-05-28 catch (earnings cratered) while silencing PV-spike dips.
- *
- * A third property, added after issue #4610 (2026-07-20..25): the two rules
- * above only catch an ACUTE regression — one that stands out against a
- * trailing 7-day baseline (T-9..T-3). #4610 fired once (2026-07-20, RPM
- * 3.15→0.24) and self-closed the next day because that single day "rolled
- * back into" the comparison window. From then on every run stayed green
- * even though the underlying problem (bot/scraper traffic diluting ad
- * requests) kept getting worse for weeks — AdSense account-level
- * AD_REQUESTS_COVERAGE fell 58%→41%→21% June→August 2026. A MOVING
- * baseline that is itself built from the last 7-9 degraded days adapts to
- * the new (bad) level, so the day-over-day ratio stops showing any
- * contrast: a classic "baseline chasing the regression" blind spot that no
- * short moving window can see by construction.
- *
- * `classifyCoverage` closes that gap with a check that is deliberately NOT
- * baseline-relative: AD_REQUESTS_COVERAGE (the fraction of ad requests that
- * were actually filled) compared against a fixed absolute floor, averaged
- * over a short trailing window of fully-closed days so one noisy day can't
- * trip it. Because the floor never moves, it cannot be "adapted to" by a
- * sustained drift the way the RPM/earnings baseline can.
+ * The classifier excludes the unsettled current day, requires the RPM and
+ * earnings signals together, and also checks ad-request coverage against a
+ * fixed floor. The coverage check complements the moving baseline when a
+ * decline persists.
  */
 
 import {
@@ -68,14 +27,7 @@ export const BASELINE_DAYS = 7;
 export const BASELINE_LAG_DAYS = 3; // baseline ends at T-3 (skips noisy last days)
 export const REQUIRED_BASELINE_SAMPLES = 5; // need at least 5 days of baseline data
 
-// Coverage floor (issue #4610 fix): AD_REQUESTS_COVERAGE is a fraction
-// (0..1) of ad requests AdSense actually filled. Historical (Jan-Jun 2026)
-// daily coverage sat at 56-67%; by August 2026 monthly account coverage had
-// fallen to 21%. 0.45 sits comfortably below the healthy range so it does
-// not fire on normal noise, but above the 41% already seen in July —
-// catching the drift roughly a month earlier than waiting for it to reach
-// the ~21% territory the ratio/earnings gate above still wouldn't flag
-// (because by then the 7-day RPM baseline has adapted to the bad level too).
+// Keep coverage comparison independent of the moving RPM baseline.
 export const DEFAULT_COVERAGE_FLOOR = 0.45;
 // Require the floor breach to hold over several consecutive closed days —
 // "sustained", not a single bad day (that acute case is already covered by

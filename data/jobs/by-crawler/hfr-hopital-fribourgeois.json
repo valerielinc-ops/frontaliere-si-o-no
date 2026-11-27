@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hfr-hopital-fribourgeois",
-  "assembledAt": "2026-11-26T21:40:21.294Z",
-  "runId": "45897518485",
+  "assembledAt": "2026-11-27T09:53:37.693Z",
+  "runId": "45972935525",
   "jobs": [
     {
       "id": "hfr-hopital-fribourgeois-533bf9597390",
@@ -34,7 +34,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1538",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:40:12.712Z",
+      "crawledAt": "2026-11-27T09:53:27.713Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -82,8 +82,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:40:12.712Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-28T09:53:27.713Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1538"
     },
     {
       "id": "hfr-hopital-fribourgeois-16678d3ae0ba",
@@ -116,7 +117,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1523",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:40:12.128Z",
+      "crawledAt": "2026-11-27T09:53:26.972Z",
       "addressLocality": "Riaz",
       "addressRegion": "FR",
       "streetAddress": "Riaz",
@@ -169,8 +170,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:40:12.128Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-28T09:53:26.972Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1523"
     },
     {
       "id": "hfr-hopital-fribourgeois-4f74c8067dc5",
@@ -204,7 +206,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1508",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:40:11.566Z",
+      "crawledAt": "2026-11-27T09:53:26.287Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -255,8 +257,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:40:11.566Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-28T09:53:26.287Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1508"
     },
     {
       "id": "hfr-hopital-fribourgeois-307be8c981ed",
@@ -290,7 +293,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1511",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:40:11.042Z",
+      "crawledAt": "2026-11-27T09:53:25.488Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -351,8 +354,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:40:11.042Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-28T09:53:25.488Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1511"
     },
     {
       "id": "hfr-hopital-fribourgeois-7ce6eaf60c0e",
@@ -385,7 +389,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1477",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:40:10.295Z",
+      "crawledAt": "2026-11-27T09:53:24.437Z",
       "addressLocality": "Meyriez",
       "addressRegion": "FR",
       "streetAddress": "Meyriez",
@@ -433,8 +437,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:40:10.295Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-27T09:53:24.437Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1477"
     },
     {
       "id": "hfr-hopital-fribourgeois-c7afaf5ded4c",
@@ -468,7 +473,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1421",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:40:09.144Z",
+      "crawledAt": "2026-11-27T09:53:23.622Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -523,8 +528,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:40:09.144Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-28T09:53:23.622Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1421"
     },
     {
       "id": "hfr-hopital-fribourgeois-a4787cd8f211",
@@ -558,7 +564,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1420",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:40:08.617Z",
+      "crawledAt": "2026-11-27T09:53:23.108Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -609,8 +615,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:40:08.617Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-27T09:53:23.108Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1420"
     },
     {
       "id": "hfr-hopital-fribourgeois-392144471367",
@@ -644,7 +651,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1397",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:40:08.109Z",
+      "crawledAt": "2026-11-27T09:53:22.527Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -697,8 +704,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:40:08.109Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-27T09:53:22.527Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1397"
     },
     {
       "id": "hfr-hopital-fribourgeois-0fc4713bc8fd",
@@ -731,7 +739,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1605",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:40:07.562Z",
+      "crawledAt": "2026-11-27T09:53:21.864Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -779,8 +787,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:40:07.562Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-03T09:53:21.864Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1605"
     },
     {
       "id": "hfr-hopital-fribourgeois-959146abc73a",
@@ -813,7 +822,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1604",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:40:07.056Z",
+      "crawledAt": "2026-11-27T09:53:21.311Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -864,8 +873,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:40:07.056Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-03T09:53:21.311Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1604"
     },
     {
       "id": "hfr-hopital-fribourgeois-1df5e95f3232",
@@ -899,7 +909,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1601",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:40:05.997Z",
+      "crawledAt": "2026-11-27T09:53:20.550Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -950,8 +960,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:40:05.997Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-03T09:53:20.550Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1601"
     },
     {
       "id": "hfr-hopital-fribourgeois-bbca94ce4be1",
@@ -984,7 +995,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1599",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:40:05.464Z",
+      "crawledAt": "2026-11-27T09:53:19.680Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1032,8 +1043,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:40:05.464Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-03T09:53:19.680Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1599"
     },
     {
       "id": "hfr-hopital-fribourgeois-86dd599daf8a",
@@ -1067,7 +1079,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1537",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:40:04.722Z",
+      "crawledAt": "2026-11-27T09:53:19.157Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -1118,8 +1130,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:40:04.722Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-04T09:53:19.157Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1537"
     },
     {
       "id": "hfr-hopital-fribourgeois-1f0fa0d125a7",
@@ -1152,7 +1165,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1493",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:40:04.184Z",
+      "crawledAt": "2026-11-27T09:53:18.625Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1203,8 +1216,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:40:04.184Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-04T09:53:18.625Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1493"
     },
     {
       "id": "hfr-hopital-fribourgeois-a0fdfec9c76a",
@@ -1238,7 +1252,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1591",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:40:03.666Z",
+      "crawledAt": "2026-11-27T09:53:17.422Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1289,8 +1303,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:40:03.666Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-07T09:53:17.422Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1591"
     },
     {
       "id": "hfr-hopital-fribourgeois-2251c74ebe6c",
@@ -1324,7 +1339,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1476",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:40:03.142Z",
+      "crawledAt": "2026-11-27T09:53:16.911Z",
       "addressLocality": "Meyriez",
       "addressRegion": "FR",
       "streetAddress": "Meyriez",
@@ -1375,8 +1390,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:40:03.142Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-09T09:53:16.911Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1476"
     },
     {
       "id": "hfr-hopital-fribourgeois-ebed0423d502",
@@ -1409,7 +1425,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1419",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:40:02.608Z",
+      "crawledAt": "2026-11-27T09:53:16.401Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1466,8 +1482,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:40:02.608Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-10T09:53:16.401Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1419"
     },
     {
       "id": "hfr-hopital-fribourgeois-f3e6f4f56974",
@@ -1500,7 +1517,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1627",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:40:01.899Z",
+      "crawledAt": "2026-11-27T09:53:15.635Z",
       "addressLocality": "Riaz",
       "addressRegion": "FR",
       "streetAddress": "Riaz",
@@ -1551,8 +1568,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:40:01.899Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-12T09:53:15.635Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1627"
     },
     {
       "id": "hfr-hopital-fribourgeois-a9ab7bb1278a",
@@ -1586,7 +1604,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1480",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:40:00.959Z",
+      "crawledAt": "2026-11-27T09:53:14.898Z",
       "addressLocality": "Riaz",
       "addressRegion": "FR",
       "streetAddress": "Riaz",
@@ -1647,8 +1665,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:40:00.959Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-12T09:53:14.898Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1480"
     },
     {
       "id": "hfr-hopital-fribourgeois-b15f20fbf03b",
@@ -1682,7 +1701,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1646",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:40:00.376Z",
+      "crawledAt": "2026-11-27T09:53:13.991Z",
       "addressLocality": "Riaz",
       "addressRegion": "FR",
       "streetAddress": "Riaz",
@@ -1727,8 +1746,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:40:00.376Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-16T09:53:13.991Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1646"
     },
     {
       "id": "hfr-hopital-fribourgeois-d91d574aa15b",
@@ -1761,7 +1781,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1575",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:39:59.640Z",
+      "crawledAt": "2026-11-27T09:53:13.237Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1809,8 +1829,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:39:59.640Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-17T09:53:13.237Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1575"
     },
     {
       "id": "hfr-hopital-fribourgeois-289cddd40f65",
@@ -1843,7 +1864,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1626",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:39:59.110Z",
+      "crawledAt": "2026-11-27T09:53:12.526Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1888,8 +1909,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:39:59.110Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-19T09:53:12.526Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1626"
     },
     {
       "id": "hfr-hopital-fribourgeois-a0ccd1999539",
@@ -1922,7 +1944,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1583",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:39:58.349Z",
+      "crawledAt": "2026-11-27T09:53:11.819Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1967,8 +1989,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:39:58.349Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-19T09:53:11.819Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1583"
     },
     {
       "id": "hfr-hopital-fribourgeois-1e6bbcb48efb",
@@ -2001,7 +2024,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1086",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:39:57.545Z",
+      "crawledAt": "2026-11-27T09:53:11.306Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -2052,8 +2075,82 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T21:39:57.545Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-22T09:53:11.306Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1086"
+    },
+    {
+      "id": "hfr-hopital-fribourgeois-f31a2a143185",
+      "slug": "collaborateur-ou-collaboratrice-scientifique-pour-la-promotion-et-le-soutien-a-la",
+      "slugByLocale": {
+        "fr": "collaborateur-ou-collaboratrice-scientifique-pour-la-promotion-et-le-soutien-a-la",
+        "it": "collaborateur-ou-collaboratrice-scientifique-pour-la-promotion-et-le-soutien-a-la",
+        "en": "collaborateur-ou-collaboratrice-scientifique-pour-la-promotion-et-le-soutien-a-la",
+        "de": "collaborateur-ou-collaboratrice-scientifique-pour-la-promotion-et-le-soutien-a-la"
+      },
+      "company": "Hôpital fribourgeois (HFR)",
+      "companyKey": "hfr-hopital-fribourgeois",
+      "companyDomain": "h-fr.ch",
+      "title": "Collaborateur ou collaboratrice scientifique pour la promotion et le soutien à la recherche sur l’être humain (soumise à la LRH)",
+      "titleByLocale": {
+        "fr": "Collaborateur ou collaboratrice scientifique pour la promotion et le soutien à la recherche sur l’être humain (soumise à la LRH)",
+        "it": "Collaboratore scientifico per la promozione e il sostegno della ricerca umana (presentato all'HRA)",
+        "en": "Scientific Collaborator for the Promotion and Support of Human Research (submitted to the HRA)",
+        "de": "Wissenschaftlicher Mitarbeiter zur Förderung und Unterstützung der Humanforschung (bei der HRA eingereicht)"
+      },
+      "description": "Afin de renforcer la qualité des projets de recherche soumis à la Loi fédérale sur la recherche sur l’être humain (LRH) et d’apporter son aide et son expertise dans l’élaboration, la rédaction et la soumission des protocoles de recherche, l’HFR et l’UNIFR sont à la recherche d’un-e\n\n• Vérifier que les chercheur-euse-s respectent les recommandations des bonnes pratiques lors de la rédaction des demandes d’autorisation pour les projets de recherche et essais cliniques soumises aux commissions d’éthique, d’un point de vue éthique, épidémiologique et scientifique.\n\n• Assurer un suivi des demandes déposées devant les commissions d’éthique et swissmedic.\n\n• Soutenir les chercheur-euse-s dans leurs échanges avec les commissions d’éthique et swissmedic jusqu’à l’obtention de l’autorisation.\n\n• Participer à la gestion des dossiers et leur suivi.\n\n• Participer à l’élaboration de directives et de modèles de documents à l’intention des institutions et des chercheur-euse-s.\n\n• Gérer le consentement général au sein du HFR et l’adapter au fur et à mesure de l’évolution des exigences légales.\n\n• Gérer les accès clinicaltrials.gov.\n\n• Titulaire d’un diplôme universitaire (min. de niveau Master ou titre jugé équivalent) dans les domaines de la médecine, de la pharmacie, des sciences de la vie ou de la psychologie. Un doctorat est un atout.\n\n• Au bénéfice d’une formation GCP avancée et d’une expérience professionnelle de plusieurs années dans un poste où vous avez été directement impliqué-e dans l’élaboration de protocoles de recherche et de soumission à des commissions d’éthique (en particulier celles des cantons de Vaud et de Berne) dans le cadre de la LRH et au respect des exigences s’y rapportant.\n\n• Vous maîtrisez la langue française ou allemande avec de bonnes connaissances de l'autre langue et vous maîtrisez la langue anglaise écrite et orale\n\n• La capacité avérée à travailler en équipe et un fort esprit d’entraide.\n\n• La capacité de concilier les besoins des chercheur-euse-s et le cadre réglementaire\n\n• De la facilité à communiquer avec les différentes parties prenantes à la recherche (chercheur-euse-s, commissions d’éthique, services juridiques, services informatiques).\n\n• De l’autonomie, une capacité de gestion des priorités et d’initiative.\n\n• Une excellente maîtrise des outils bureautiques courants.\n\n• Une certaine flexibilité dans l’aménagement du temps de travail.",
+      "descriptionByLocale": {
+        "fr": "Afin de renforcer la qualité des projets de recherche soumis à la Loi fédérale sur la recherche sur l’être humain (LRH) et d’apporter son aide et son expertise dans l’élaboration, la rédaction et la soumission des protocoles de recherche, l’HFR et l’UNIFR sont à la recherche d’un-e\n\n• Vérifier que les chercheur-euse-s respectent les recommandations des bonnes pratiques lors de la rédaction des demandes d’autorisation pour les projets de recherche et essais cliniques soumises aux commissions d’éthique, d’un point de vue éthique, épidémiologique et scientifique.\n\n• Assurer un suivi des demandes déposées devant les commissions d’éthique et swissmedic.\n\n• Soutenir les chercheur-euse-s dans leurs échanges avec les commissions d’éthique et swissmedic jusqu’à l’obtention de l’autorisation.\n\n• Participer à la gestion des dossiers et leur suivi.\n\n• Participer à l’élaboration de directives et de modèles de documents à l’intention des institutions et des chercheur-euse-s.\n\n• Gérer le consentement général au sein du HFR et l’adapter au fur et à mesure de l’évolution des exigences légales.\n\n• Gérer les accès clinicaltrials.gov.\n\n• Titulaire d’un diplôme universitaire (min. de niveau Master ou titre jugé équivalent) dans les domaines de la médecine, de la pharmacie, des sciences de la vie ou de la psychologie. Un doctorat est un atout.\n\n• Au bénéfice d’une formation GCP avancée et d’une expérience professionnelle de plusieurs années dans un poste où vous avez été directement impliqué-e dans l’élaboration de protocoles de recherche et de soumission à des commissions d’éthique (en particulier celles des cantons de Vaud et de Berne) dans le cadre de la LRH et au respect des exigences s’y rapportant.\n\n• Vous maîtrisez la langue française ou allemande avec de bonnes connaissances de l'autre langue et vous maîtrisez la langue anglaise écrite et orale\n\n• La capacité avérée à travailler en équipe et un fort esprit d’entraide.\n\n• La capacité de concilier les besoins des chercheur-euse-s et le cadre réglementaire\n\n• De la facilité à communiquer avec les différentes parties prenantes à la recherche (chercheur-euse-s, commissions d’éthique, services juridiques, services informatiques).\n\n• De l’autonomie, une capacité de gestion des priorités et d’initiative.\n\n• Une excellente maîtrise des outils bureautiques courants.\n\n• Une certaine flexibilité dans l’aménagement du temps de travail.",
+        "it": "Al fine di migliorare la qualità dei progetti di ricerca presentati al Federal Human Research Act (HRA) e di fornire assistenza e competenza nello sviluppo, redazione e presentazione dei protocolli di ricerca, HFR e UNIFR sono in processo di sviluppo e attuazione dei protocolli di ricerca.\n\n• Verificare che i ricercatori rispettino le raccomandazioni di buona pratica durante la stesura di domande di autorizzazione per la ricerca e le prove cliniche presentate ai comitati etici, da un punto di vista etico, epidemiologica e scientifico.\n\n• Seguire le richieste di etica e tavole svizzere.\n\n• Sostenere i ricercatori nei loro scambi con etica e commissioni svizzere fino a quando l'autorizzazione è ottenuta.\n\n• Partecipa alla gestione dei casi e al follow-up.\n\n• Partecipa allo sviluppo di linee guida e modelli di documento per istituzioni e ricercatori.\n\n• Gestire il consenso generale all'interno dell'HFR e adattarlo come requisiti legali si evolvono.\n\n• Gestire gli studi clinici.gov.\n\n• Titolare di una laurea (min. Master o equivalente) nei campi di medicina, farmacia, scienze della vita o psicologia. Un dottorato e' una risorsa.\n\n• Per beneficiare della formazione GCP avanzata e di diversi anni di esperienza professionale in una posizione in cui siete stati direttamente coinvolti nello sviluppo di protocolli di ricerca e presentazione a commissioni etiche (in particolare nei Cantoni di Vaud e Berna) nell'ambito della LRH e nel rispetto dei requisiti pertinenti.\n\n• Sei fluente nella lingua francese o tedesca con buona conoscenza dell'altra lingua e sei fluente nella lingua inglese e orale.\n\n• La comprovata capacità di lavorare come squadra e un forte spirito di auto-aiuto.\n\n• La capacità di bilanciare le esigenze dei ricercatori con il quadro normativo\n\n• Facile comunicazione con i vari stakeholder di ricerca (ricercatore, commissioni etiche, servizi legali, servizi IT).\n\n• Autosufficienza, capacità di gestione delle priorità e dell'iniziativa.\n\n• Ottima padronanza degli strumenti di ufficio comuni.\n\n• Una certa flessibilità nell'organizzazione del tempo di lavoro.",
+        "en": "In order to enhance the quality of research projects submitted to the Federal Human Research Act (HRA) and to provide assistance and expertise in the development, drafting and submission of research protocols, HFR and UNIFR are in the process of developing and implementing research protocols.\n\n• Verify that researchers comply with the recommendations of good practice when drafting applications for authorisation for research and clinical trials submitted to the ethics committees, from an ethical, epidemiological and scientific point of view.\n\n• Follow up on applications to ethics and swissmedic boards.\n\n• Support researchers in their exchanges with ethics and swissmedic commissions until authorization is obtained.\n\n• Participate in case management and follow-up.\n\n• Participate in the development of guidelines and document templates for institutions and researchers.\n\n• Managing general consent within the HFR and adapting it as legal requirements evolve.\n\n• Manage clinicaltrials.gov.\n\n• Holder of a university degree (min. Master's degree or equivalent) in the fields of medicine, pharmacy, life sciences or psychology. A PhD is an asset.\n\n• To benefit from advanced GCP training and several years of professional experience in a position where you have been directly involved in the development of research and submission protocols to ethics commissions (in particular those in the cantons of Vaud and Bern) within the framework of the LRH and compliance with the relevant requirements.\n\n• You are fluent in the French or German language with good knowledge of the other language and you are fluent in the English and oral language.\n\n• The proven ability to work as a team and a strong self-help spirit.\n\n• The ability to balance the needs of researchers with the regulatory framework\n\n• Easy communication with the various research stakeholders (researcher, ethics commissions, legal services, IT services).\n\n• Self-reliance, capacity to manage priorities and initiative.\n\n• Excellent mastery of common office tools.\n\n• Some flexibility in the organization of working time.",
+        "de": "Um die Qualität der dem Bundesforschungsgesetz (HRA) vorgelegten Forschungsprojekte zu verbessern und Unterstützung und Expertise bei der Entwicklung, Erstellung und Einreichung von Forschungsprotokollen zu bieten, sind HFR und UNIFR dabei, Forschungsprotokolle zu entwickeln und umzusetzen.\n\n• Vergewissern Sie sich, dass die Forscher bei der Ausarbeitung von Anträgen auf Genehmigung von Forschungs- und klinischen Prüfungen, die den Ethikausschüssen aus ethischer, epidemiologischer und wissenschaftlicher Sicht vorgelegt werden, die Empfehlungen der bewährten Praxis einhalten.\n\n• Follow-up auf Anwendungen zu Ethik und swissmedic Boards.\n\n• Unterstützen Sie die Forschenden in ihrem Austausch mit Ethik- und schweizerischen Kommissionen, bis eine Genehmigung vorliegt.\n\n• Beteiligen Sie sich am Case Management und Follow-up.\n\n• Beteiligen Sie sich an der Entwicklung von Richtlinien und Dokumentvorlagen für Institutionen und Forscher.\n\n• Verwaltung der allgemeinen Zustimmung innerhalb des HFR und Anpassung an die sich entwickelnden gesetzlichen Anforderungen.\n\n• Verwalten clinicaltrials.gov.\n\n• Inhaber eines Hochschulabschlusses (min. Masterabschluss oder gleichwertig) in den Bereichen Medizin, Pharmazie, Biowissenschaften oder Psychologie. Ein PhD ist ein Asset.\n\n• Um von einer fortgeschrittenen GCP-Ausbildung und mehrjähriger Berufserfahrung in einer Position zu profitieren, in der Sie direkt an der Entwicklung von Forschungs- und Einreichungsprotokollen für Ethikkommissionen (insbesondere in den Kantonen Waadt und Bern) im Rahmen des LRH und der Einhaltung der einschlägigen Anforderungen beteiligt waren.\n\n• Sie sprechen fließend Französisch oder Deutsch mit guten Kenntnissen der anderen Sprache und Sie sprechen fließend Englisch und mündlich.\n\n• Die nachgewiesene Fähigkeit, als Team zu arbeiten und ein starker Selbsthilfegeist.\n\n• Die Fähigkeit, die Bedürfnisse der Forscher mit dem Rechtsrahmen in Einklang zu bringen\n\n• Einfache Kommunikation mit den verschiedenen Forschungsakteuren (Forscher, Ethikkommissionen, Rechtsdienstleistungen, IT-Services).\n\n• Eigenständigkeit, Fähigkeit, Prioritäten und Initiative zu verwalten.\n\n• Ausgezeichnete Beherrschung der gemeinsamen Office-Tools.\n\n• Etwas Flexibilität bei der Organisation der Arbeitszeit."
+      },
+      "location": "Fribourg, Switzerland",
+      "canton": "FR",
+      "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1663",
+      "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-27T09:53:10.442Z",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "streetAddress": "Fribourg",
+      "postalCode": "1700",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-27T06:00:00+00:00",
+      "postedDate": "2026-11-27T06:00:00+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1663",
+      "jobReqId": "1663",
+      "externalId": "1663",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-25T09:53:10.442Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-27T09:53:10.442Z"
     }
   ]
 }

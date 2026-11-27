@@ -391,7 +391,7 @@ export async function submitApplication(ctx) {
         round: Number(draft.round) || 1,
         sourceCvKey: preparedPhoto.sourceCvKey,
       });
-      if (persisted !== true) return { type: 'submit_failed', error: 'requirement_context_changed' };
+      if (persisted !== true) return { type: 'submit_failed', error: 'requirement_context_changed:prepared_photo_not_persisted' };
     }
   }
   const edited = candidateWithEdits({ order, draft, flow: submitFlow });
@@ -648,8 +648,22 @@ export async function submitApplication(ctx) {
   const documentPostingRoute = publishedPostingUrl || channel.postingUrl || postingUrl;
   const keepsDocumentApplyPage = channel.type === 'employer_site' && isPostingDocumentUrl(documentPostingRoute)
     && /^https:\/\//i.test(applyUrl) && !isPostingDocumentUrl(applyUrl) && applyUrl !== documentPostingRoute;
+  const isJobRoomUrl = (value) => {
+    try {
+      return /^(?:www\.)?job-room\.ch$/i.test(new URL(String(value || '')).hostname);
+    } catch {
+      return false;
+    }
+  };
+  const routeCandidate = publishedPostingUrl || channel.postingUrl || '';
+  const keepsResolvedJobRoomChannel = draft.job?.jobRoomChannelResolved === true
+    && /^https:\/\//i.test(applyUrl)
+    && !isJobRoomUrl(applyUrl)
+    && (!routeCandidate || isJobRoomUrl(routeCandidate));
   if (reResolveFromPosting && !keepsDocumentApplyPage && (postingUrl || applyUrl)) {
-    const routeUrl = publishedPostingUrl || channel.postingUrl || channel.applyUrl || draft.job?.applyUrl || postingUrl;
+    const routeUrl = keepsResolvedJobRoomChannel
+      ? applyUrl
+      : (routeCandidate || channel.applyUrl || draft.job?.applyUrl || postingUrl);
     const directChannel = classifyApplicationChannel({ applyUrl: routeUrl }).type;
     if (directChannel !== 'employer_site' && WAVE1_CHANNELS.has(directChannel)) {
       applyUrl = routeUrl;

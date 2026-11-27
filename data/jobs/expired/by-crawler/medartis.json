@@ -88,7 +88,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.medartis.com/job/fp&a-and-digitalization-manager/1455279733",
-    "firstSeenAt": "2026-11-06T22:07:51.062Z"
+    "firstSeenAt": "2026-11-06T22:07:51.062Z",
+    "canton": "BS",
+    "previousSlugsByLocale": {
+      "de": [
+        "fp-a-and-digitalization-manager-medartis-basel"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "de": {
+        "fp-a-and-digitalization-manager-medartis-basel": "BS"
+      }
+    }
   },
   {
     "slug": "personale-di-produzione-camera-pulita-medartis-basel",
@@ -152,7 +163,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.medartis.com/job/produktionsmitarbeiterin-reinraum/1433594733",
-    "firstSeenAt": "2026-09-03T23:29:35.259Z"
+    "firstSeenAt": "2026-09-03T23:29:35.259Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "produktionsmitarbeiter-in-reinraum-medartis-basel": "BS"
+      }
+    }
   },
   {
     "slug": "responsabile-prodotto-globale-senior-cmf-medartis-basel",
@@ -196,7 +213,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.medartis.com/job/senior-global-product-manager-cmf/1443182933",
-    "firstSeenAt": "2026-10-01T09:31:49.021Z"
+    "firstSeenAt": "2026-10-01T09:31:49.021Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-global-product-manager-cmf-medartis-basel": "BS"
+      }
+    }
   },
   {
     "slug": "full-stack-developer-angular-java-medartis-basel",
@@ -254,11 +277,13 @@
       ],
       "de": [
         "full-stack-entwickler-angular-java-medartis-basel",
-        "full-stack-developer-angular-java-medartis-basel-2"
+        "full-stack-developer-angular-java-medartis-basel-2",
+        "full-stack-developer-angular-java-medartis-basel"
       ],
       "fr": [
         "full-stack-developpeur-angular-java-medartis-basel",
-        "full-stack-developer-angular-java-medartis-basel-2"
+        "full-stack-developer-angular-java-medartis-basel-2",
+        "full-stack-developer-angular-java-medartis-basel"
       ]
     },
     "postalCode": "4001",
@@ -280,7 +305,19 @@
         "firstSeenAt": "2026-09-24T00:03:16.989Z",
         "title": "Full Stack Developer Angular/Java"
       }
-    ]
+    ],
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "en": {
+        "full-stack-developer-angular-java-medartis-basel": "BS"
+      },
+      "de": {
+        "full-stack-developer-angular-java-medartis-basel": "BS"
+      },
+      "fr": {
+        "full-stack-developer-angular-java-medartis-basel": "BS"
+      }
+    }
   },
   {
     "slug": "fornitura-e-produzione-planner-100-medartis-basel",
@@ -328,7 +365,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.medartis.com/job/supply-&-production-planner-100/1406388933",
-    "firstSeenAt": "2026-06-19T13:02:05.073Z"
+    "firstSeenAt": "2026-06-19T13:02:05.073Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "supply-and-production-planner-100-medartis-basel": "BS",
+        "supply-production-planner-100-medartis-basel": "BS"
+      },
+      "fr": {
+        "supply-and-production-planner-100-medartis-basel": "BS"
+      }
+    }
   },
   {
     "slug": "junior-finanza-manager-medartis-basel",
@@ -371,7 +418,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.medartis.com/job/junior-finance-manager/1428557533",
-    "firstSeenAt": "2026-08-21T10:03:09.237Z"
+    "firstSeenAt": "2026-08-21T10:03:09.237Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "junior-finance-manager-medartis-basel": "BS"
+      }
+    }
   },
   {
     "slug": "viti-meccanici-100-medartis-basel",
@@ -414,7 +467,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.medartis.com/job/mechanist-screws-100/1403452933",
-    "firstSeenAt": "2026-06-11T23:05:12.322Z"
+    "firstSeenAt": "2026-06-11T23:05:12.322Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mechanist-screws-100-medartis-basel": "BS"
+      }
+    }
   },
   {
     "slug": "ispettore-di-qualita-100-medartis-basel-842b67",
@@ -517,6 +576,25 @@
     ],
     "previousSlugsByLocale": {
       "it": [
+        "quality-inspector-100-medartis-basel-edebe63f",
+        "ispettore-di-qualita-100-medartis-basel-a86ffa30",
+        "ispettore-di-qualita-100-medartis-basel-a6f6b22a",
+        "quality-inspector-100-medartis-basel-ckj9dg",
+        "qualite-inspector-100-medartis-basel-3a5053",
+        "qualite-inspector-100-medartis-basel",
+        "qualitatsprufer-medartis-basel",
+        "inspecteur-de-qualite-100-medartis-basel",
+        "quality-inspector-100-medartis-basel-643dc489",
+        "ispettore-di-qualita-100-medartis-basel-10e077b7",
+        "quality-inspector-100-medartis-basel-a585cb7e",
+        "ispettore-di-qualita-100-medartis-basel-36e38b0e",
+        "quality-inspector-100-medartis-basel-9d0e26c7",
+        "ispettore-di-qualita-100-medartis-basel-7ef854cd",
+        "quality-inspector-100-medartis-basel-2c56893f",
+        "ispettore-di-qualita-100-medartis-basel-429836f8",
+        "quality-inspector-100-medartis-basel-6861f96a",
+        "ispettore-di-qualita-100-medartis-basel-6cf7712c",
+        "responsabile-della-qualita-100-medartis-basel",
         "quality-inspector-100-medartis-basel-6ce58e47",
         "ispettore-di-qualita-100-medartis-basel-02ea7150",
         "quality-inspector-100-medartis-basel-d34d8f20",
@@ -536,7 +614,6 @@
         "quality-inspector-100-medartis-basel-5d6e9d4a",
         "ispettore-di-qualita-100-medartis-basel",
         "quality-inspector-100-medartis-basel",
-        "responsabile-della-qualita-100-medartis-basel",
         "ispettore-di-qualita-100-medartis-basel-1ab43b00",
         "quality-inspector-100-medartis-basel-39f89d2a",
         "ispettore-di-qualita-100-medartis-basel-8a1975d2",
@@ -567,54 +644,9 @@
         "quality-inspector-100-medartis-basel-44f6757e",
         "ispettore-di-qualita-100-medartis-basel-457f48ac",
         "quality-inspector-100-medartis-basel-b7c753f9",
-        "ispettore-di-qualita-100-medartis-basel-500e3438",
-        "quality-inspector-100-medartis-basel-edebe63f",
-        "ispettore-di-qualita-100-medartis-basel-a86ffa30",
-        "ispettore-di-qualita-100-medartis-basel-a6f6b22a",
-        "quality-inspector-100-medartis-basel-ckj9dg",
-        "qualite-inspector-100-medartis-basel-3a5053",
-        "qualite-inspector-100-medartis-basel",
-        "qualitatsprufer-medartis-basel",
-        "inspecteur-de-qualite-100-medartis-basel",
-        "quality-inspector-100-medartis-basel-643dc489",
-        "ispettore-di-qualita-100-medartis-basel-10e077b7",
-        "quality-inspector-100-medartis-basel-a585cb7e",
-        "ispettore-di-qualita-100-medartis-basel-36e38b0e",
-        "quality-inspector-100-medartis-basel-9d0e26c7",
-        "ispettore-di-qualita-100-medartis-basel-7ef854cd",
-        "quality-inspector-100-medartis-basel-2c56893f",
-        "ispettore-di-qualita-100-medartis-basel-429836f8",
-        "quality-inspector-100-medartis-basel-6861f96a",
-        "ispettore-di-qualita-100-medartis-basel-6cf7712c"
+        "ispettore-di-qualita-100-medartis-basel-500e3438"
       ],
       "en": [
-        "quality-inspector-100-medartis-basel-a8969b15",
-        "quality-inspector-100-medartis-basel",
-        "ispettore-di-qualita-100-medartis-basel",
-        "quality-inspector-100-medartis-basel-6ce58e47",
-        "quality-inspector-100-medartis-basel-d34d8f20",
-        "quality-inspector-100-medartis-basel-59e6d7a0",
-        "quality-inspector-100-medartis-basel-ae5c4387",
-        "quality-inspector-100-medartis-basel-fdf2e3a0",
-        "quality-inspector-100-medartis-basel-ae2635f5",
-        "quality-inspector-100-medartis-basel-29596503",
-        "quality-inspector-100-medartis-basel-eb179535",
-        "quality-inspector-100-medartis-basel-5d6e9d4a",
-        "quality-inspector-100-medartis-basel-39f89d2a",
-        "quality-inspector-100-medartis-basel-49820903",
-        "quality-inspector-100-medartis-basel-b50bb779",
-        "quality-inspector-100-medartis-basel-32de7516",
-        "quality-inspector-100-medartis-basel-1eb1fac8",
-        "quality-inspector-100-medartis-basel-3e9e526a",
-        "quality-inspector-100-medartis-basel-ce0145f4",
-        "quality-inspector-100-medartis-basel-7a55077a",
-        "quality-inspector-100-medartis-basel-faae21f2",
-        "quality-inspector-100-medartis-basel-d4c82ccf",
-        "quality-inspector-100-medartis-basel-e2801b49",
-        "quality-inspector-100-medartis-basel-a9d37b10",
-        "quality-inspector-100-medartis-basel-ff9af1cf",
-        "quality-inspector-100-medartis-basel-b7c753f9",
-        "quality-inspector-100-medartis-basel-44f6757e",
         "quality-inspector-100-medartis-basel-edebe63f",
         "quality-inspector-100-medartis-basel-ckj9dg",
         "quality-inspector-100-medartis-basel-643dc489",
@@ -622,9 +654,7 @@
         "quality-inspector-100-medartis-basel-9d0e26c7",
         "qualite-inspector-100-medartis-basel",
         "quality-inspector-100-medartis-basel-2c56893f",
-        "quality-inspector-100-medartis-basel-6861f96a"
-      ],
-      "fr": [
+        "quality-inspector-100-medartis-basel-6861f96a",
         "quality-inspector-100-medartis-basel-a8969b15",
         "quality-inspector-100-medartis-basel",
         "ispettore-di-qualita-100-medartis-basel",
@@ -651,16 +681,55 @@
         "quality-inspector-100-medartis-basel-a9d37b10",
         "quality-inspector-100-medartis-basel-ff9af1cf",
         "quality-inspector-100-medartis-basel-b7c753f9",
-        "quality-inspector-100-medartis-basel-44f6757e",
+        "quality-inspector-100-medartis-basel-44f6757e"
+      ],
+      "fr": [
         "quality-inspector-100-medartis-basel-edebe63f",
         "qualite-inspector-100-medartis-basel-3a5053",
         "quality-inspector-100-medartis-basel-643dc489",
         "quality-inspector-100-medartis-basel-a585cb7e",
         "quality-inspector-100-medartis-basel-9d0e26c7",
         "quality-inspector-100-medartis-basel-2c56893f",
-        "quality-inspector-100-medartis-basel-6861f96a"
+        "quality-inspector-100-medartis-basel-6861f96a",
+        "inspecteur-de-qualite-100-medartis-basel",
+        "qualite-inspector-100-medartis-basel",
+        "quality-inspector-100-medartis-basel-a8969b15",
+        "quality-inspector-100-medartis-basel",
+        "ispettore-di-qualita-100-medartis-basel",
+        "quality-inspector-100-medartis-basel-6ce58e47",
+        "quality-inspector-100-medartis-basel-d34d8f20",
+        "quality-inspector-100-medartis-basel-59e6d7a0",
+        "quality-inspector-100-medartis-basel-ae5c4387",
+        "quality-inspector-100-medartis-basel-fdf2e3a0",
+        "quality-inspector-100-medartis-basel-ae2635f5",
+        "quality-inspector-100-medartis-basel-29596503",
+        "quality-inspector-100-medartis-basel-eb179535",
+        "quality-inspector-100-medartis-basel-5d6e9d4a",
+        "quality-inspector-100-medartis-basel-39f89d2a",
+        "quality-inspector-100-medartis-basel-49820903",
+        "quality-inspector-100-medartis-basel-b50bb779",
+        "quality-inspector-100-medartis-basel-32de7516",
+        "quality-inspector-100-medartis-basel-1eb1fac8",
+        "quality-inspector-100-medartis-basel-3e9e526a",
+        "quality-inspector-100-medartis-basel-ce0145f4",
+        "quality-inspector-100-medartis-basel-7a55077a",
+        "quality-inspector-100-medartis-basel-faae21f2",
+        "quality-inspector-100-medartis-basel-d4c82ccf",
+        "quality-inspector-100-medartis-basel-e2801b49",
+        "quality-inspector-100-medartis-basel-a9d37b10",
+        "quality-inspector-100-medartis-basel-ff9af1cf",
+        "quality-inspector-100-medartis-basel-b7c753f9",
+        "quality-inspector-100-medartis-basel-44f6757e"
       ],
       "de": [
+        "quality-inspector-100-medartis-basel-edebe63f",
+        "quality-inspector-100-medartis-basel-643dc489",
+        "quality-inspector-100-medartis-basel-a585cb7e",
+        "qualite-inspector-100-medartis-basel",
+        "quality-inspector-100-medartis-basel-9d0e26c7",
+        "quality-inspector-100-medartis-basel-2c56893f",
+        "quality-inspector-100-medartis-basel-6861f96a",
+        "qualitatsprufer-medartis-basel",
         "quality-inspector-100-medartis-basel",
         "ispettore-di-qualita-100-medartis-basel",
         "quality-inspector-100-medartis-basel-6ce58e47",
@@ -686,14 +755,7 @@
         "quality-inspector-100-medartis-basel-e2801b49",
         "quality-inspector-100-medartis-basel-44f6757e",
         "quality-inspector-100-medartis-basel-ff9af1cf",
-        "quality-inspector-100-medartis-basel-b7c753f9",
-        "quality-inspector-100-medartis-basel-edebe63f",
-        "quality-inspector-100-medartis-basel-643dc489",
-        "quality-inspector-100-medartis-basel-a585cb7e",
-        "qualite-inspector-100-medartis-basel",
-        "quality-inspector-100-medartis-basel-9d0e26c7",
-        "quality-inspector-100-medartis-basel-2c56893f",
-        "quality-inspector-100-medartis-basel-6861f96a"
+        "quality-inspector-100-medartis-basel-b7c753f9"
       ]
     },
     "postalCode": "4001",
@@ -719,7 +781,80 @@
         "firstSeenAt": "2026-10-08T22:42:39.591Z",
         "title": "Quality Inspector 100%"
       }
-    ]
+    ],
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ispettore-di-qualita-100-medartis-basel": "BS",
+        "quality-inspector-100-medartis-basel-ckj9dg": "BS",
+        "qualite-inspector-100-medartis-basel-3a5053": "BS",
+        "qualite-inspector-100-medartis-basel": "BS",
+        "responsabile-della-qualita-100-medartis-basel": "BS",
+        "qualitatsprufer-medartis-basel": "BS",
+        "inspecteur-de-qualite-100-medartis-basel": "BS",
+        "quality-inspector-100-medartis-basel": "BS",
+        "quality-inspector-100-medartis-basel-1eb1fac8": "BS",
+        "quality-inspector-100-medartis-basel-32de7516": "BS",
+        "quality-inspector-100-medartis-basel-3e9e526a": "BS",
+        "quality-inspector-100-medartis-basel-7a55077a": "BS",
+        "quality-inspector-100-medartis-basel-ce0145f4": "BS",
+        "quality-inspector-100-medartis-basel-faae21f2": "BS",
+        "quality-inspector-100-medartis-basel-d4c82ccf": "BS",
+        "quality-inspector-100-medartis-basel-a9d37b10": "BS",
+        "quality-inspector-100-medartis-basel-e2801b49": "BS",
+        "quality-inspector-100-medartis-basel-ff9af1cf": "BS",
+        "quality-inspector-100-medartis-basel-44f6757e": "BS",
+        "quality-inspector-100-medartis-basel-b7c753f9": "BS"
+      },
+      "en": {
+        "quality-inspector-100-medartis-basel": "BS",
+        "quality-inspector-100-medartis-basel-ckj9dg": "BS",
+        "quality-inspector-100-medartis-basel-1eb1fac8": "BS",
+        "quality-inspector-100-medartis-basel-32de7516": "BS",
+        "quality-inspector-100-medartis-basel-3e9e526a": "BS",
+        "quality-inspector-100-medartis-basel-7a55077a": "BS",
+        "quality-inspector-100-medartis-basel-ce0145f4": "BS",
+        "quality-inspector-100-medartis-basel-faae21f2": "BS",
+        "quality-inspector-100-medartis-basel-d4c82ccf": "BS",
+        "quality-inspector-100-medartis-basel-a9d37b10": "BS",
+        "quality-inspector-100-medartis-basel-e2801b49": "BS",
+        "quality-inspector-100-medartis-basel-ff9af1cf": "BS",
+        "quality-inspector-100-medartis-basel-44f6757e": "BS",
+        "quality-inspector-100-medartis-basel-b7c753f9": "BS"
+      },
+      "de": {
+        "quality-inspector-100-medartis-basel": "BS",
+        "quality-inspector-100-medartis-basel-1eb1fac8": "BS",
+        "quality-inspector-100-medartis-basel-32de7516": "BS",
+        "quality-inspector-100-medartis-basel-3e9e526a": "BS",
+        "quality-inspector-100-medartis-basel-7a55077a": "BS",
+        "quality-inspector-100-medartis-basel-ce0145f4": "BS",
+        "quality-inspector-100-medartis-basel-faae21f2": "BS",
+        "quality-inspector-100-medartis-basel-d4c82ccf": "BS",
+        "quality-inspector-100-medartis-basel-a9d37b10": "BS",
+        "quality-inspector-100-medartis-basel-e2801b49": "BS",
+        "quality-inspector-100-medartis-basel-ff9af1cf": "BS",
+        "quality-inspector-100-medartis-basel-44f6757e": "BS",
+        "quality-inspector-100-medartis-basel-b7c753f9": "BS"
+      },
+      "fr": {
+        "qualite-inspector-100-medartis-basel": "BS",
+        "qualite-inspector-100-medartis-basel-3a5053": "BS",
+        "quality-inspector-100-medartis-basel-1eb1fac8": "BS",
+        "quality-inspector-100-medartis-basel-32de7516": "BS",
+        "quality-inspector-100-medartis-basel-3e9e526a": "BS",
+        "quality-inspector-100-medartis-basel-7a55077a": "BS",
+        "quality-inspector-100-medartis-basel-ce0145f4": "BS",
+        "quality-inspector-100-medartis-basel-faae21f2": "BS",
+        "quality-inspector-100-medartis-basel-d4c82ccf": "BS",
+        "quality-inspector-100-medartis-basel-a9d37b10": "BS",
+        "quality-inspector-100-medartis-basel-e2801b49": "BS",
+        "quality-inspector-100-medartis-basel-ff9af1cf": "BS",
+        "quality-inspector-100-medartis-basel-44f6757e": "BS",
+        "quality-inspector-100-medartis-basel-b7c753f9": "BS",
+        "quality-inspector-100-medartis-basel": "BS"
+      }
+    }
   },
   {
     "slug": "instandhaltungsspezialist-in-reinraum-e-luftungstechnik-medartis-basel",
@@ -768,7 +903,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.medartis.com/job/instandhaltungsspezialistin-reinraum-und-l%c3%bcftungstechnik/1416293333",
-    "firstSeenAt": "2026-07-18T10:53:38.660Z"
+    "firstSeenAt": "2026-07-18T10:53:38.660Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "instandhaltungsspezialist-in-reinraum-und-luftungstechnik-medartis-basel": "BS"
+      },
+      "en": {
+        "instandhaltungsspezialist-in-reinraum-und-luftungstechnik-medartis-basel": "BS"
+      },
+      "fr": {
+        "instandhaltungsspezialist-in-reinraum-und-luftungstechnik-medartis-basel": "BS"
+      }
+    }
   },
   {
     "slug": "supporto-per-la-gestione-dell-apprendimento-medartis-basel",
@@ -811,7 +958,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.medartis.com/job/learning-management-support/1437659533",
-    "firstSeenAt": "2026-09-17T07:35:13.821Z"
+    "firstSeenAt": "2026-09-17T07:35:13.821Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "learning-management-support-medartis-basel": "BS"
+      }
+    }
   },
   {
     "slug": "piastre-di-comando-a-medartis-basel",
@@ -857,7 +1010,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.medartis.com/job/operator-plates-%28a%29/1412626233",
-    "firstSeenAt": "2026-07-08T11:19:11.098Z"
+    "firstSeenAt": "2026-07-08T11:19:11.098Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "operator-plates-a-medartis-basel": "BS"
+      },
+      "fr": {
+        "operator-plates-a-medartis-basel": "BS"
+      }
+    }
   },
   {
     "slug": "allrounder-di-produzione-confezionamento-e-etichettatura-medartis-basel",
@@ -903,7 +1065,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.medartis.com/job/production-allrounder-%28packaging&labeling%29/1434710033",
-    "firstSeenAt": "2026-09-08T13:52:45.315Z"
+    "firstSeenAt": "2026-09-08T13:52:45.315Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "production-allrounder-packaging-labeling-medartis-basel": "BS"
+      },
+      "en": {
+        "production-allrounder-packaging-labeling-medartis-basel": "BS"
+      }
+    }
   },
   {
     "slug": "amministratore-di-apprendimento-100-medartis-basel",
@@ -952,7 +1123,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.medartis.com/job/learning-administrator-100/1423525533",
-    "firstSeenAt": "2026-08-05T22:43:00.196Z"
+    "firstSeenAt": "2026-08-05T22:43:00.196Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "learning-administrator-100-medartis-basel": "BS"
+      },
+      "de": {
+        "learning-administrator-100-medartis-basel": "BS"
+      },
+      "fr": {
+        "learning-administrator-100-medartis-basel": "BS"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-polymechaniker-in-cfc-medartis-basel",
@@ -1034,13 +1217,16 @@
       },
       "en": {
         "apprenticeship-as-a-polymechanic-efz-medartis-basel": "BS",
-        "apprenticeship-as-mechanical-engineer-efz-medartis-basel": "BS"
+        "apprenticeship-as-mechanical-engineer-efz-medartis-basel": "BS",
+        "lehrstelle-als-polymechaniker-in-efz-medartis-basel": "BS"
       },
       "fr": {
         "apprentissage-en-tant-que-polytechnicien-efz-medartis-basel": "BS",
-        "apprentissage-en-technicien-ne-polyvalent-e-en-mecanique-efz-medartis-basel": "BS"
+        "apprentissage-en-technicien-ne-polyvalent-e-en-mecanique-efz-medartis-basel": "BS",
+        "lehrstelle-als-polymechaniker-in-efz-medartis-basel": "BS"
       }
-    }
+    },
+    "canton": "BS"
   },
   {
     "slug": "clinical-sales-specialista-romandie-medartis-basel",
@@ -1094,7 +1280,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.medartis.com/job/clinical-sales-specialist-romandie/1261182001",
-    "firstSeenAt": "2026-05-19T19:53:19.373Z"
+    "firstSeenAt": "2026-05-19T19:53:19.373Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "clinical-sales-specialist-romandie-medartis-basel": "BS",
+        "specialista-di-vendita-clinica-romandie-medartis-basel": "BS"
+      },
+      "de": {
+        "klinische-verkaufsspezialistin-romandie-medartis-basel": "BS",
+        "klinischer-vertriebsmitarbeiter-romandie-medartis-basel": "BS",
+        "clinical-sales-specialist-romandie-medartis-basel": "BS",
+        "clinical-sales-spezialist-romandie-medartis-basel": "BS"
+      }
+    }
   },
   {
     "slug": "direttore-generale-svizzera-medartis-basel",
@@ -1149,7 +1348,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.medartis.com/job/head-sales-switzerland/1420245933",
-    "firstSeenAt": "2026-07-29T11:57:15.719Z"
+    "firstSeenAt": "2026-07-29T11:57:15.719Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "general-manager-switzerland-medartis-basel": "BS",
+        "head-sales-switzerland-medartis-basel": "BS"
+      },
+      "en": {
+        "head-sales-switzerland-medartis-basel": "BS",
+        "general-manager-switzerland-medartis-basel": "BS"
+      },
+      "de": {
+        "general-manager-switzerland-medartis-basel": "BS"
+      },
+      "fr": {
+        "general-manager-switzerland-medartis-basel": "BS"
+      }
+    }
   },
   {
     "slug": "gestione-della-catena-di-approvvigionamento-digitale-medartis-basel",
@@ -1195,7 +1411,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.medartis.com/job/digital-supply-chain-manager/1441349333",
-    "firstSeenAt": "2026-09-25T14:56:49.974Z"
+    "firstSeenAt": "2026-09-25T14:56:49.974Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "digital-supply-chain-manager-medartis-basel": "BS"
+      },
+      "fr": {
+        "digital-supply-chain-manager-medartis-basel": "BS"
+      }
+    }
   },
   {
     "slug": "piatti-meccanici-medartis-basel",
@@ -1244,7 +1469,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.medartis.com/job/mechanist-plates/1412413833",
-    "firstSeenAt": "2026-07-07T22:31:42.395Z"
+    "firstSeenAt": "2026-07-07T22:31:42.395Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mechanist-plates-medartis-basel": "BS"
+      },
+      "en": {
+        "mechanist-plates-medartis-basel": "BS"
+      },
+      "fr": {
+        "mechanist-plates-medartis-basel": "BS"
+      }
+    }
   },
   {
     "slug": "produzione-allrounder-plates-medartis-basel",
@@ -1293,7 +1530,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.medartis.com/job/production-allrounder-%28plates%29/1434713733",
-    "firstSeenAt": "2026-09-08T13:52:45.971Z"
+    "firstSeenAt": "2026-09-08T13:52:45.971Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "production-allrounder-plates-medartis-basel": "BS"
+      },
+      "en": {
+        "production-allrounder-plates-medartis-basel": "BS"
+      },
+      "fr": {
+        "production-allrounder-plates-medartis-basel": "BS"
+      }
+    }
   },
   {
     "slug": "responsabile-capa-e-nc-medartis-basel",
@@ -1376,7 +1625,8 @@
       "fr": {
         "capa-et-nc-gestionnaire-medartis-basel-fca7d4": "BS"
       }
-    }
+    },
+    "canton": "BS"
   },
   {
     "slug": "servizio-clienti-manager-a-medartis-basel",
@@ -1422,7 +1672,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.medartis.com/job/customer-service-manager-%28a%29/1435158833",
-    "firstSeenAt": "2026-09-09T13:59:24.754Z"
+    "firstSeenAt": "2026-09-09T13:59:24.754Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "customer-service-manager-a-medartis-basel": "BS"
+      },
+      "fr": {
+        "customer-service-manager-a-medartis-basel": "BS"
+      }
+    }
   },
   {
     "slug": "gestione-di-gruppo-sistemi-di-gestione-della-qualita-globale-100-medartis-basel",
@@ -1468,7 +1727,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.medartis.com/job/group-manager-global-quality-management-systems-100/1433268633",
-    "firstSeenAt": "2026-09-03T13:45:09.585Z"
+    "firstSeenAt": "2026-09-03T13:45:09.585Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "group-manager-global-quality-management-systems-100-medartis-basel": "BS"
+      },
+      "fr": {
+        "group-manager-global-quality-management-systems-100-medartis-basel": "BS"
+      }
+    }
   },
   {
     "slug": "group-manager-affari-regolatori-100-medartis-basel",
@@ -1524,7 +1792,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.medartis.com/job/group-manager-regulatory-affairs-100/1392452233",
-    "firstSeenAt": "2026-05-19T19:53:25.039Z"
+    "firstSeenAt": "2026-05-19T19:53:25.039Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "group-manager-regulatory-affairs-100-medartis-basel": "BS",
+        "responsabile-regulatory-affairs-gruppo-medartis-basel": "BS",
+        "gestione-del-gruppo-regolatori-100-medartis-basel": "BS"
+      },
+      "de": {
+        "group-manager-regulatory-affairs-100-medartis-basel": "BS"
+      },
+      "fr": {
+        "responsable-reglementaire-groupe-medartis-basel": "BS",
+        "gestionnaire-de-groupe-affaires-reglementaires-100-medartis-basel": "BS"
+      }
+    }
   },
   {
     "slug": "consigliere-legale-senior-medartis-basel",
@@ -2017,7 +2300,10 @@
     "salaryMin": 62000,
     "salaryMax": 94000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugsByLocale": {
+      "it": []
+    }
   },
   {
     "slug": "payroll-benefits-specialist-100-medartis-basel",

@@ -51,7 +51,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://parmag.ch/stellen/327?view=joblisting",
-    "firstSeenAt": "2026-09-21T15:58:24.810Z"
+    "firstSeenAt": "2026-09-21T15:58:24.810Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "azure-cloud-engineer-m-w-d-ref-1251-zurich-parmag-ch": "ZH",
+        "parmag-ag-zurich-parmag-ch": "ZH"
+      },
+      "en": {
+        "parmag-ag-zurich-parmag-ch": "ZH"
+      },
+      "de": {
+        "parmag-ag-zurich-parmag-ch": "ZH"
+      },
+      "fr": {
+        "parmag-ag-zurich-parmag-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-consulente-ecm-m-w-d-ref-1273-parmag-ag-zurich",
@@ -97,7 +113,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://parmag.ch/stellen/355?view=joblisting",
-    "firstSeenAt": "2026-09-23T23:38:58.309Z"
+    "firstSeenAt": "2026-09-23T23:38:58.309Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch": "ZH"
+      },
+      "fr": {
+        "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "technical-consulente-ecm-m-w-d-ref-1274-parmag-ag-zurich",
@@ -143,6 +168,15 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://parmag.ch/stellen/356?view=joblisting",
-    "firstSeenAt": "2026-09-23T23:38:58.308Z"
+    "firstSeenAt": "2026-09-23T23:38:58.308Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch": "ZH"
+      },
+      "fr": {
+        "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch": "ZH"
+      }
+    }
   }
 ]

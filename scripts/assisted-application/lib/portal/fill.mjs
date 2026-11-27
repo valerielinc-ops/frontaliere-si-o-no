@@ -1212,13 +1212,26 @@ export async function applyActions(page, fields, actions, files, {
         // and chosen again, it would be the chosen value that gets clicked.
       } else {
         // A long text is shortened at a sentence end, never cut in the middle of one.
-        const topic = questionTopic(field.label, field.context, field);
-        const value = topic === 'phone'
-          ? formatPhoneForField(action.value, {
-            maxLength: field.maxLength,
-            ...separatePhonePrefixMetadata(field, fields, action.value),
-          })
-          : fitToLength(action.value, field.maxLength);
+        const value = action.preserveFullValue
+          ? String(action.value ?? '')
+          : questionTopic(field.label, field.context, field) === 'phone'
+            ? formatPhoneForField(action.value, {
+              maxLength: field.maxLength,
+              ...separatePhonePrefixMetadata(field, fields, action.value),
+            })
+            : fitToLength(action.value, field.maxLength);
+        if (action.preserveFullValue && Number.isFinite(field.maxLength) && field.maxLength > 0
+          && value.length > field.maxLength && typeof locator?.evaluate === 'function') {
+          // Some portal login inputs (e.g. Umantis #input_UserName maxlength="50") clamp client
+          // typing shorter than the address stored at registration; raise the DOM cap so the full
+          // login email reaches the backend unchanged.
+          await locator.evaluate((element, required) => {
+            const limit = Number(element?.getAttribute?.('maxlength'));
+            if (Number.isFinite(limit) && limit > 0 && limit < required) {
+              element.setAttribute('maxlength', String(required));
+            }
+          }, value.length).catch(() => {});
+        }
         await fillText(locator, value);
         if (field.kind === 'text' && !['email', 'password'].includes(field.inputType)) await pickSuggestion(page, field, locator, action.value);
       }

@@ -146,7 +146,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/public-area-cleaner-w-m-i/82cd9a6d-6002-4495-8496-8e410bf38333",
-    "firstSeenAt": "2026-11-21T21:24:13.117Z"
+    "firstSeenAt": "2026-11-21T21:24:13.117Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "public-area-cleaner-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "fr": {
+        "public-area-cleaner-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "id": "grand-resort-bad-ragaz-3df5789678c0",
@@ -194,7 +203,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/room-attendant-w-m-i/c4c677ff-bb47-477c-b1df-26159fe137a9",
-    "firstSeenAt": "2026-11-20T21:22:22.518Z"
+    "firstSeenAt": "2026-11-20T21:22:22.518Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "room-attendant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "fr": {
+        "room-attendant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "id": "grand-resort-bad-ragaz-3ca9f361a1ce",
@@ -239,7 +257,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/reservation-agent-w-m-i/18cb90d6-e530-4d67-a85c-3e127ba5db9a",
-    "firstSeenAt": "2026-11-13T21:22:03.926Z"
+    "firstSeenAt": "2026-11-13T21:22:03.926Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "reservation-agent-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "id": "grand-resort-bad-ragaz-8471d30ae48e",
@@ -283,7 +307,30 @@
         "firstSeenAt": "2026-09-02T13:34:39.815Z",
         "title": "Management Trainee Housekeeping 100% (m/w/i)"
       }
-    ]
+    ],
+    "canton": "SG",
+    "previousSlugsByLocale": {
+      "en": [
+        "management-trainee-housekeeping-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+      ],
+      "de": [
+        "management-trainee-housekeeping-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+      ],
+      "fr": [
+        "management-trainee-housekeeping-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "management-trainee-housekeeping-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "de": {
+        "management-trainee-housekeeping-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "fr": {
+        "management-trainee-housekeeping-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "servizio-interno-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz-b46e7765",
@@ -420,7 +467,13 @@
         "firstSeenAt": "2026-09-02T13:34:39.829Z",
         "title": "Front Office Praktikant 100% (m/w/i)"
       }
-    ]
+    ],
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "front-office-praktikant-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "dipendenti-di-servizio-dicembre-2026-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
@@ -472,7 +525,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/servicemitarbeiter-w-m-i-15-11-bis-31-12-2026-chf-5-000-+-kost-logis/16f3d174-c13d-4f3a-8a3b-8ad85535135d",
-    "firstSeenAt": "2026-08-19T09:50:37.153Z"
+    "firstSeenAt": "2026-08-19T09:50:37.153Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "servicemitarbeiter-dezember-2026-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG",
+        "servicemitarbeiter-w-m-i-15-11-bis-31-12-2026-chf-5-39-000-43-kost-amp-logis-grand-resort": "SG",
+        "servicemitarbeiter-w-m-i-15-11-bis-31-12-2026-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "de": {
+        "servicemitarbeiter-w-m-i-15-11-bis-31-12-2026-chf-5-39-000-43-kost-amp-logis-grand-resort": "SG",
+        "servicemitarbeiter-w-m-i-15-11-bis-31-12-2026-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "ricevitore-spa-60-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
@@ -522,7 +587,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/spa-rezeptionist-w-m-i/d7457cad-76b1-4102-b6c7-945889ed538c",
-    "firstSeenAt": "2026-11-05T21:19:59.766Z"
+    "firstSeenAt": "2026-11-05T21:19:59.766Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spa-rezeptionist-60-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "en": {
+        "spa-rezeptionist-60-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "fr": {
+        "spa-rezeptionist-60-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "dipendente-da-bagno-helenabad-60-80-grand-resort-bad-ragaz-bad-ragaz",
@@ -572,7 +649,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/badefachangestellte-helenabad/7d05801b-4a35-4928-87a2-a10d209c3217",
-    "firstSeenAt": "2026-10-19T21:16:08.184Z"
+    "firstSeenAt": "2026-10-19T21:16:08.184Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "badefachangestellte-helenabad-60-80-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "en": {
+        "badefachangestellte-helenabad-60-80-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "fr": {
+        "badefachangestellte-helenabad-60-80-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "responsabile-delle-relazioni-con-gli-ospiti-incluso-il-bar-del-casino-bad-ragaz-100-f-m-i-grand-resort-bad-ragaz-bad",
@@ -618,7 +707,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/gaestebetreuer-oder-gaestebetreuerin-inklusive-bar-im-casino-bad-ragaz-w-m-i/37e86522-da44-449a-ae16-521464f469c3",
-    "firstSeenAt": "2026-09-30T21:15:29.572Z"
+    "firstSeenAt": "2026-09-30T21:15:29.572Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "gastebetreuer-o-gastebetreuerin-inklusive-bar-im-casino-bad-ragaz-100-w-m-i-grand-resort-bad-ragaz": "SG",
+        "gastebetreuer-oder-gastebetreuerin-inklusive-bar-im-casino-bad-ragaz-100-w-m-i-grand": "SG"
+      }
+    }
   },
   {
     "slug": "vip-guest-services-executive-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
@@ -661,7 +757,30 @@
         "firstSeenAt": "2026-10-08T22:16:36.409Z",
         "title": "VIP Guest Services Executive 100 % (w/m/i)"
       }
-    ]
+    ],
+    "canton": "SG",
+    "previousSlugsByLocale": {
+      "en": [
+        "vip-guest-services-executive-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+      ],
+      "de": [
+        "vip-guest-services-executive-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+      ],
+      "fr": [
+        "vip-guest-services-executive-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "vip-guest-services-executive-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "de": {
+        "vip-guest-services-executive-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "fr": {
+        "vip-guest-services-executive-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "dipendenti-di-servizio-dicembre-2026-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz-2203f181",
@@ -761,7 +880,8 @@
         "firstSeenAt": "2026-08-31T17:06:32.313Z",
         "title": "Chef de Rang – Autentica Ospitalità Italiana | Nesso"
       }
-    ]
+    ],
+    "canton": "SG"
   },
   {
     "slug": "supervisore-del-barista-the-bar-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
@@ -805,7 +925,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/bartender-supervisor-the-bar-w-m-i/11092d9d-c8f9-461d-a109-4cb0ac384777",
-    "firstSeenAt": "2026-08-26T09:55:25.772Z"
+    "firstSeenAt": "2026-08-26T09:55:25.772Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "bartender-supervisor-the-bar-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "vice-head-greenkeeper-100-m-f-i-grand-resort-bad-ragaz",
@@ -856,7 +982,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/stv-head-greenkeeper-m-w-i/69818b79-fbf2-45fb-8a22-3ed7469321d4",
-    "firstSeenAt": "2026-09-11T13:36:12.048Z"
+    "firstSeenAt": "2026-09-11T13:36:12.048Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "capo-verde-3-00-m-p-i-grand-resort-bad-ragaz-bad-ragaz": "SG",
+        "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz": "SG",
+        "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz": "SG"
+      },
+      "en": {
+        "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "assistente-concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
@@ -900,7 +1037,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/assistant-head-concierge-w-m-i/1f9c9e30-9dd5-443f-8fa4-d5efb26388fb",
-    "firstSeenAt": "2026-10-12T21:17:35.951Z"
+    "firstSeenAt": "2026-10-12T21:17:35.951Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistant-head-concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "pavimenti-supervisore-manutenzione-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
@@ -931,12 +1074,16 @@
     "expiredAt": "2026-10-29T09:28:55.831Z",
     "previousSlugsByLocale": {
       "it": [
-        "floor-supervisor-housekeeping-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz-6bb537df"
+        "floor-supervisor-housekeeping-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz-6bb537df",
+        "floor-supervisor-housekeeping-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
       ],
       "en": [
         "floor-supervisor-housekeeping-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
       ],
       "fr": [
+        "floor-supervisor-housekeeping-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+      ],
+      "de": [
         "floor-supervisor-housekeeping-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
       ]
     },
@@ -959,7 +1106,22 @@
         "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/floor-supervisor-housekeeping-w-m-i/96c772e0-ef92-47cb-98bf-89b2819ee807",
         "title": "Floor Supervisor Housekeeping 100% (w/m/i)"
       }
-    ]
+    ],
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "floor-supervisor-housekeeping-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "en": {
+        "floor-supervisor-housekeeping-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "de": {
+        "floor-supervisor-housekeeping-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "fr": {
+        "floor-supervisor-housekeeping-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "vip-guest-services-executive-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz-5ffb0e98",
@@ -1023,7 +1185,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/brand-manager-w-m-i/93d01e09-cda8-4ca9-94a4-f9540c260044",
-    "firstSeenAt": "2026-10-22T09:15:01.537Z"
+    "firstSeenAt": "2026-10-22T09:15:01.537Z",
+    "canton": "SG",
+    "previousSlugsByLocale": {
+      "en": [
+        "brand-manager-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+      ],
+      "de": [
+        "brand-manager-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "brand-manager-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "de": {
+        "brand-manager-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "servizio-ristorante-gioie-part-time-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
@@ -1067,7 +1246,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/aushilfe-service-restaurant-gladys-in-teilzeit-m-w-i/93aa4783-502f-4efb-aa6e-70ca8b5f5626",
-    "firstSeenAt": "2026-09-23T23:36:28.018Z"
+    "firstSeenAt": "2026-09-23T23:36:28.018Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "aushilfe-service-restaurant-gladys-in-teilzeit-m-w-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "assistenza-come-coiffeuse-coiffeur-per-accordo-grand-resort-bad-ragaz-bad-ragaz-46ab4905",
@@ -1350,7 +1535,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/lehre-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-m-w-i/254fb6de-ba3e-4131-a86d-02218cb990fd",
-    "firstSeenAt": "2026-07-19T22:56:41.987Z"
+    "firstSeenAt": "2026-07-19T22:56:41.987Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehre-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-m-w-i-grand-resort-bad-ragaz-bad": "SG"
+      }
+    }
   },
   {
     "slug": "controller-tamina-therme-ag-50-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
@@ -1381,7 +1572,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/controller-tamina-therme-ag-w-m-i/d4ce46b9-ad01-4bf3-9223-dbb514c3622c",
-    "firstSeenAt": "2026-08-14T21:52:37.245Z"
+    "firstSeenAt": "2026-08-14T21:52:37.245Z",
+    "canton": "SG",
+    "previousSlugsByLocale": {
+      "en": [
+        "controller-tamina-therme-ag-50-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+      ],
+      "de": [
+        "controller-tamina-therme-ag-50-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+      ],
+      "fr": [
+        "controller-tamina-therme-ag-50-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "controller-tamina-therme-ag-50-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "de": {
+        "controller-tamina-therme-ag-50-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "fr": {
+        "controller-tamina-therme-ag-50-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "interno-anteriore-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz-08ed6292",
@@ -1561,7 +1775,16 @@
       "fr": [
         "demi-chef-de-partie-hauptkuchen-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
         "demi-chef-de-partie-verve-by-sven-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "chef-de-partie-restaurant-verve-by-sven-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        "chef-de-partie-restaurant-verve-by-sven-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "chef-de-partie-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz"
+      ],
+      "en": [
+        "chef-de-partie-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz",
+        "demi-chef-de-partie-hauptkuchen-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+      ],
+      "de": [
+        "chef-de-partie-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz",
+        "demi-chef-de-partie-hauptkuchen-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
       ]
     },
     "postalCode": "7310",
@@ -1588,7 +1811,24 @@
         "firstSeenAt": "2026-08-27T19:53:15.499Z",
         "title": "Demi Chef de Partie Patisserie Hauptküchen 100% (w/m/i)"
       }
-    ]
+    ],
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "demi-chef-de-partie-patisserie-hauptkuchen-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "en": {
+        "chef-de-partie-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz": "SG",
+        "demi-chef-de-partie-hauptkuchen-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "de": {
+        "chef-de-partie-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz": "SG",
+        "demi-chef-de-partie-hauptkuchen-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "fr": {
+        "chef-de-partie-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "meetings-events-coordinator-60-w-m-i-grand-resort-bad-ragaz",
@@ -1634,7 +1874,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/meetings-events-coordinator-w-m-i/9da22ee0-97e4-4944-8530-b3700059d03f",
-    "firstSeenAt": "2026-10-07T21:23:09.634Z"
+    "firstSeenAt": "2026-10-07T21:23:09.634Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "meetings-amp-events-coordinator-60-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG",
+        "coordinatore-coordinatrice-di-riunioni-ed-eventi-60-f-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-restaurantfachfrau-mann-cfc-m-w-i-grand-resort-bad-ragaz",
@@ -1697,7 +1944,27 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/lehre-als-restaurantfachfrau-mann-efz-m-w-i/b0cc0197-1c18-44b2-881a-314a23a19c94",
-    "firstSeenAt": "2026-07-04T10:49:04.306Z"
+    "firstSeenAt": "2026-07-04T10:49:04.306Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "apprendistato-come-hotel-kommunikationsfachfrau-mann-cfc-w-m-i-grand-resort-bad-ragaz": "SG",
+        "teaching-as-a-hotel-communication-specialist-efz-f-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG",
+        "lehre-als-hotel-kommunikationsfachfrau-mann-efz-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG",
+        "enseignement-en-tant-que-specialiste-des-communications-hotelieres-efz-f-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG",
+        "lehre-als-restaurantfachfrau-mann-efz-m-w-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "en": {
+        "teaching-as-a-hotel-communication-specialist-efz-f-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "de": {
+        "lehre-als-hotel-kommunikationsfachfrau-mann-efz-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "fr": {
+        "apprentissage-en-tant-que-specialiste-des-restaurants-efz-m-f-i-grand-resort-bad-ragaz-bad-ragaz": "SG",
+        "enseignement-en-tant-que-specialiste-des-communications-hotelieres-efz-f-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "massaggiatore-80-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
@@ -1741,7 +2008,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/masseur-w-m-i/89094b3b-1313-4add-ab05-87c56ec3e95a",
-    "firstSeenAt": "2026-10-01T09:16:28.142Z"
+    "firstSeenAt": "2026-10-01T09:16:28.142Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "masseur-80-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "chef-de-rang-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz",
@@ -1772,7 +2045,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/chef-de-rang-igniv-m-w-d/e070c860-402d-4df8-9aa6-6c36f6068083",
-    "firstSeenAt": "2026-08-27T19:53:15.475Z"
+    "firstSeenAt": "2026-08-27T19:53:15.475Z",
+    "canton": "SG",
+    "previousSlugsByLocale": {
+      "en": [
+        "chef-de-rang-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz"
+      ],
+      "de": [
+        "chef-de-rang-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz"
+      ],
+      "fr": [
+        "chef-de-rang-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "chef-de-rang-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "de": {
+        "chef-de-rang-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "fr": {
+        "chef-de-rang-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "commissione-di-cucina-igniv-m-f-d-grand-resort-bad-ragaz-bad-ragaz",
@@ -1816,7 +2112,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/commis-de-cuisine-igniv-m-w-d/35ac55d4-f460-459c-8cdc-de67445ebe0b",
-    "firstSeenAt": "2026-08-27T19:53:15.493Z"
+    "firstSeenAt": "2026-08-27T19:53:15.493Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "commis-de-cuisine-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "quindi-igniv-m-f-d-grand-resort-bad-ragaz-bad-ragaz",
@@ -1860,7 +2162,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/sommelier-igniv-m-w-d/5f4ad90d-95f3-41df-b1af-3fab505d6f43",
-    "firstSeenAt": "2026-08-27T19:53:15.490Z"
+    "firstSeenAt": "2026-08-27T19:53:15.490Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sommelier-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "elettricista-tecnico-edile-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
@@ -1910,7 +2218,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/betriebselektriker-gebaeudetechniker-w-m-i/e330814a-9f49-49af-b48a-54f0b402dc64",
-    "firstSeenAt": "2026-07-28T22:29:16.724Z"
+    "firstSeenAt": "2026-07-28T22:29:16.724Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "betriebselektriker-gebaudetechniker-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "en": {
+        "betriebselektriker-gebaudetechniker-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "fr": {
+        "betriebselektriker-gebaudetechniker-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "project-manager-in-health-restaurant-pre-opening-operations-grand-resort-bad-ragaz-bad-ragaz-0908654c",
@@ -2125,6 +2445,12 @@
     "previousSlugsByLocale": {
       "fr": [
         "commission-des-communautes-europeennes-h-f-d-grand-resort-bad-ragaz-bad-ragaz"
+      ],
+      "en": [
+        "commis-de-rang-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz"
+      ],
+      "de": [
+        "commis-de-rang-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz"
       ]
     },
     "postalCode": "7310",
@@ -2134,7 +2460,130 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/commis-de-rang-igniv-m-w-d/ac42dcd4-e96b-4211-b19a-b1963564a9b1",
-    "firstSeenAt": "2026-08-27T19:53:15.495Z"
+    "firstSeenAt": "2026-08-27T19:53:15.495Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "en": {
+        "commis-de-rang-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "de": {
+        "commis-de-rang-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "fr": {
+        "commission-des-communautes-europeennes-h-f-d-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
+  },
+  {
+    "slug": "room-service-collaboratore-trice-100-m-w-i-grand-resort-bad-ragaz",
+    "title": "Room Service Mitarbeiter 100% (m/w/i)",
+    "titleByLocale": {
+      "it": "Room Service Collaboratore/trice 100% (m/w/i)",
+      "en": "Room Service employees 100% (m/f/i)",
+      "de": "Room Service Mitarbeiter 100% (m/w/i)",
+      "fr": "Employés des services d'étage 100% (m/f/i)"
+    },
+    "company": "Grand Resort Bad Ragaz",
+    "companyKey": "grand-resort-bad-ragaz",
+    "location": "Bad Ragaz",
+    "addressLocality": "Bad Ragaz",
+    "descriptionByLocale": {
+      "it": "Compiti:\nCome dipendente del servizio in camera si assicura un processo regolare nel servizio in camera, questo include anche\n• Accettazione degli ordini al telefono e semplice consiglio per gli ospiti\n\n• Servizio di ristorazione e bevande in camera d'albergo\n\n• Preparazione di Mise en place per il processo quotidiano\n\n• Preparazione di bevande semplici per il servizio\n\n• Divulgazione del feedback degli ospiti e assistenza con le preoccupazioni\n\n• Compliance con pulizia, standard e compiti quotidiani secondo le specifiche\n\nRequisiti\nSiete interessati a lavorare al servizio e sono felici di essere in contatto con gli ospiti. Inoltre, si porta con voi\n• La prima esperienza in servizio o nel settore alberghiero è un vantaggio\n\n• Volontà di eseguire semplici compiti di servizio in modo affidabile\n\n• Metodi di lavoro attenti e strutturati\n\n• Lavoro di squadra e un modo amichevole di trattare con gli ospiti\n\n• Buona conoscenza della lingua tedesca o inglese\n\nOffriamo:\n• Serate e pergamene al Thermal Spa\n\n• Biglietti gratis Tamina Gorge\n\n• Prova il sonno dopo aver superato il periodo di prova\n\n• Fino al 50% di sconto nei ristoranti\n\n• Fino al 50% di sconto nel Fitness Center e Tamina Therme\n\nIl Grand Resort Bad Ragaz ha le sue origini nell'acqua termale curativa della sorgente Tamina. Dal 1242 questo luogo è sinonimo di rigenerazione, nuova energia e qualità della vita. Su questa base, continuiamo a sviluppare costantemente il resort – con l'obiettivo di diventare il leader Wellbeing & Healthy Living Resort in Europa e creare un luogo di forza per le generazioni.\n\nCirca 800 dipendenti plasmano l'esperienza dei nostri ospiti ogni giorno. Diversi talenti, culture e personalità lavorano insieme su un unico obiettivo: creare esperienze uniche. Ciò che ci unisce è l’aspirazione comune a rendere questo posto speciale un po’ meglio ogni giorno – One Resort – One Team.",
+      "en": "Tasks:\nAs a room service employee you ensure a smooth process in the room service, this also includes\n• Acceptance of orders on the phone and simple advice for guests\n\n• Service of food and drinks in the hotel room\n\n• Preparation of Mise en place for the daily process\n\n• Preparation of simple drinks for service\n\n• Disclosure of guest feedback and assistance with concerns\n\n• Compliance with cleanliness, standards and daily tasks according to specifications\n\nRequirements\nYou are interested in working in the service and are happy to be in contact with guests. In addition, you bring with you\n• First experience in service or in the hotel industry is an advantage\n\n• Willingness to perform simple service tasks reliably\n\n• Careful and structured working methods\n\n• Teamwork and a friendly way of dealing with guests\n\n• Good knowledge of German or English\n\nWe offer:\n• Taster evenings and perks at Thermal Spa\n\n• Free Tickets Tamina Gorge\n\n• Test sleep after passing the test period\n\n• Up to 50% discount in restaurants\n\n• Up to 50% discount in the Fitness Center and Tamina Therme\n\nThe Grand Resort Bad Ragaz has its origins in the healing thermal water of the Tamina spring. Since 1242 this place stands for regeneration, new energy and quality of life. On this basis, we continue to develop the resort consistently – with the aim of becoming the leading Wellbeing & Healthy Living Resort in Europe and creating a place of strength for generations.\n\nAround 800 employees shape the experience of our guests every day. Different talents, cultures and personalities work together on one goal: to create unique experiences. What unites us is the common aspiration to make this special place a bit better every day – One Resort – One Team.",
+      "de": "Aufgaben:\nAls Room Service Mitarbeiter stellst du einen reibungslosen Ablauf im Zimmerservice sicher, dazu gehören ebenfalls\n• Entgegennahme von Bestellungen am Telefon und einfache Beratung der Gäste\n\n• Service von Speisen und Getränken im Hotelzimmer\n\n• Vorbereitung von Mise en place für den täglichen Ablauf\n\n• Zubereitung von einfachen Getränken für den Service\n\n• Weitergabe von Gästerückmeldungen und Unterstützung bei Anliegen\n\n• Einhaltung von Sauberkeit, Standards und täglichen Aufgaben gemäss Vorgaben\n\nAnforderungen:\nDu hast Interesse an der Arbeit im Service und bist gerne im Kontakt mit Gästen. Zusätzlich bringst du mit\n• Erste Erfahrung im Service oder in der Hotellerie ist von Vorteil\n\n• Bereitschaft einfache Serviceaufgaben zuverlässig auszuführen\n\n• Sorgfältige und strukturierte Arbeitsweise\n\n• Teamfähigkeit und eine freundliche Art im Umgang mit Gästen\n\n• Gute Deutschkenntnisse oder gute Englischkenntnisse\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
+      "fr": "Tâches :\nEn tant qu'employé du service d'étage, vous assurez un processus en douceur dans le service d'étage, ceci comprend également\n• Acceptation des commandes au téléphone et conseils simples pour les clients\n\n• Service de restauration et de boissons dans la chambre d'hôtel\n\n• Préparation de Mise en place pour le processus quotidien\n\n• Préparation de boissons simples pour le service\n\n• Divulgation des commentaires des invités et aide à répondre aux préoccupations\n\n• Respect de la propreté, des normes et des tâches quotidiennes selon les spécifications\n\nExigences\nVous êtes intéressé à travailler dans le service et êtes heureux d'être en contact avec les invités. En outre, vous apportez avec vous\n• Première expérience en service ou dans l'hôtellerie est un avantage\n\n• Volonté d'effectuer des tâches de service simples de manière fiable\n\n• Méthodes de travail prudentes et structurées\n\n• Travail d'équipe et une façon amicale de traiter avec les invités\n\n• Bonne connaissance de l'allemand ou de l'anglais\n\nNous offrons:\n• Soirées taster et avantages au Thermal Spa\n\n• Billets gratuits Tamina Gorge\n\n• Sommeil d ' essai après avoir passé la période d ' essai\n\n• Jusqu'à 50% de réduction dans les restaurants\n\n• Jusqu'à 50% de réduction dans le centre de fitness et Tamina Therme\n\nLe Grand Resort Bad Ragaz a ses origines dans l'eau thermale curative du printemps Tamina. Depuis 1242 ce lieu représente la régénération, la nouvelle énergie et la qualité de vie. Sur cette base, nous continuons à développer la station de manière cohérente – dans le but de devenir le premier centre de bien-être et de vie saine en Europe et de créer un lieu de force pour des générations.\n\nEnviron 800 employés façonnent l'expérience de nos invités chaque jour. Différents talents, cultures et personnalités travaillent ensemble sur un seul objectif : créer des expériences uniques. Ce qui nous unit est l'aspiration commune à rendre cet endroit spécial un peu meilleur chaque jour – One Resort – One Team."
+    },
+    "slugByLocale": {
+      "it": "room-service-collaboratore-trice-100-m-w-i-grand-resort-bad-ragaz",
+      "en": "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+      "de": "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz-ff2f752c",
+      "fr": "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
+    },
+    "sector": "Turismo / Ospitalità",
+    "expiredAt": "2026-10-03T09:14:25.910Z",
+    "previousSlugs": [
+      "collaboratore-trice-bad-sauna-80-m-w-i-grand-resort-bad-ragaz",
+      "mitarbeiter-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+      "collaboratore-trice-gasteservice-vendita-40-80-m-w-i-grand-resort-bad-ragaz",
+      "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+      "lingerie-collaboratore-trice-100-w-m-i-grand-resort-bad-ragaz",
+      "lingerie-mitarbeiter-in-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+      "employee-bad-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+      "salarie-mauvais-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+      "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+      "mitarbeiter-gasteservice-sales-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+      "employe-mauvais-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+      "mitarbeiter-gasteservice-vente-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+      "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz-ff2f752c",
+      "room-service-collaboratore-trice-100-m-w-i-grand-resort-bad-ragaz-18487dd4",
+      "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+      "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz-4125435a"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz-ff2f752c",
+        "collaboratore-trice-bad-sauna-80-m-w-i-grand-resort-bad-ragaz",
+        "mitarbeiter-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "collaboratore-trice-gasteservice-vendita-40-80-m-w-i-grand-resort-bad-ragaz",
+        "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "lingerie-collaboratore-trice-100-w-m-i-grand-resort-bad-ragaz",
+        "lingerie-mitarbeiter-in-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "employee-bad-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+        "salarie-mauvais-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+        "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+        "room-service-collaboratore-trice-100-m-w-i-grand-resort-bad-ragaz-18487dd4",
+        "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+      ],
+      "fr": [
+        "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "employe-mauvais-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+        "mitarbeiter-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "mitarbeiter-gasteservice-vente-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "lingerie-mitarbeiter-in-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz-4125435a",
+        "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz-ff2f752c"
+      ],
+      "en": [
+        "employee-bad-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+        "mitarbeiter-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "mitarbeiter-gasteservice-sales-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz-ff2f752c",
+        "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
+      ],
+      "de": [
+        "mitarbeiter-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+        "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+      ]
+    },
+    "postalCode": "7310",
+    "streetAddress": "Bernhard-Simonstrasse 20",
+    "salaryMin": 62000,
+    "salaryMax": 78000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/room-service-mitarbeiter-m-w-i/09e8f0c6-803b-4950-9760-f26f1321fe9e",
+    "firstSeenAt": "2026-08-05T22:21:04.373Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/mitarbeiter-bad-sauna-m-w-i/c40e4b33-0b09-49a4-827f-99bceb4dc441",
+        "firstSeenAt": "2026-08-05T22:21:04.373Z",
+        "title": "Mitarbeiter Bad/Sauna 80% (m/w/i)"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/room-service-mitarbeiter-m-w-i/09e8f0c6-803b-4950-9760-f26f1321fe9e",
+        "firstSeenAt": "2026-08-05T22:21:04.373Z",
+        "title": "Room Service Mitarbeiter 100% (m/w/i)"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/room-service-mitarbeiter-m-w-i/420722a5-d987-4b9b-b30b-29153071aaf5",
+        "firstSeenAt": "2026-08-07T01:08:13.692Z",
+        "title": "Room Service Mitarbeiter 100% (m/w/i)"
+      }
+    ]
   },
   {
     "slug": "responsabile-formazione-f-b-al-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
@@ -2181,7 +2630,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/f-b-training-manager-w-m-i/431eeb9c-6923-4f6d-a824-aa295db06a1f",
-    "firstSeenAt": "2026-07-04T10:49:04.295Z"
+    "firstSeenAt": "2026-07-04T10:49:04.295Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "f-amp-b-training-manager-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "fr": {
+        "f-amp-b-training-manager-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "manager-esperienza-digitale-ospite-piattaforme-80-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
@@ -2225,7 +2683,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/manager-digital-guest-experience-platforms-w-m-i/aeea26d3-777c-4170-ac86-a8ff69099cbc",
-    "firstSeenAt": "2026-09-04T13:28:40.075Z"
+    "firstSeenAt": "2026-09-04T13:28:40.075Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "manager-digital-guest-experience-amp-platforms-80-100-w-m-i-grand-resort-bad-ragaz-bad": "SG"
+      }
+    }
   },
   {
     "slug": "chef-dipendente-ristorante-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
@@ -2275,7 +2739,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/koch-mitarbeiterrestaurant-w-m-i/114cc164-e09d-475f-9a6c-6b5449c98279",
-    "firstSeenAt": "2026-08-26T09:55:25.789Z"
+    "firstSeenAt": "2026-08-26T09:55:25.789Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "koch-mitarbeiterrestaurant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "en": {
+        "koch-mitarbeiterrestaurant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      },
+      "fr": {
+        "koch-mitarbeiterrestaurant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz": "SG"
+      }
+    }
   },
   {
     "slug": "f-amp-b-management-trainee-restaurant-verve-100-w-m-i-ab-juli-2027-grand-resort-bad-ragaz-20f71b95",
@@ -2494,6 +2970,139 @@
     "firstSeenAt": "2026-09-02T13:34:39.831Z"
   },
   {
+    "slug": "assistente-medico-80-100-grand-resort-bad-ragaz-bad-ragaz",
+    "title": "Medizinische Praxisassistentin / Medizinischer Praxisassistent 80-100%",
+    "titleByLocale": {
+      "it": "Assistente medico 80-100 %",
+      "en": "Medical practice assistant 80-100 %",
+      "de": "Medizinische Praxisassistentin / Medizinischer Praxisassistent 80-100%",
+      "fr": "Assistant médical 80-100 %"
+    },
+    "company": "Grand Resort Bad Ragaz",
+    "companyKey": "grand-resort-bad-ragaz",
+    "location": "Bad Ragaz",
+    "addressLocality": "Bad Ragaz",
+    "descriptionByLocale": {
+      "it": "Compiti:\nIn questa funzione versatile, si assume compiti medici-amministrativi, organizzativi e orientati agli ospiti. Questi includono:\n• I nostri ospiti internazionali ricevono, accompagnano e si prendono cura di voi personalmente, calorosamente e discretamente nel campo medico\n\n• Appuntamenti, trattamenti e procedure sono coordinati tra ospiti, medici, terapisti, infermieristica, clinica, front office, spa, pulizia e altri dipartimenti alberghieri\n\n• Attività amministrative quali corrispondenza, rapporti, lettere, documentazione e l'attenta manutenzione dei rispettivi sistemi che si assumono in modo affidabile\n\n• Servizi medici che calcoli correttamente e con attenzione\n\n• I trattamenti HBOT, le misurazioni InBody e le attività mediche minori come i cambiamenti occasionali di bendaggio e gli ECG vengono accuratamente eseguiti\n\n• Per una comunicazione chiara, apprezzativa e orientata alla soluzione attraverso i confini dipartimentali, sei attivamente coinvolto nella vita quotidiana\n\nRequisiti\nUna formazione medica completa, idealmente come assistente di pratica medica / assistente medico EFZ, è un prerequisito per questa funzione. L'esperienza in un ambiente di servizio su scala costituisce anche la base del tuo profilo. Porti anche con te:\n• Forte comprensione del servizio e del piacere nella cura personale degli ospiti internazionali\n\n• Buona conoscenza dell'utente del PC, gestione sicura di Microsoft Office e la conoscenza ideale di fatturazione medica con TARDOC\n\n• Un metodo di lavoro indipendente, strutturato e attento, nonché il godimento dei compiti di coordinamento e la cooperazione interdisciplinare\n\n• Un aspetto professionale, ben tenuto e vincolante, nonché discrezione, empatia, resilienza e impegno\n\n• Stylistic tedesco e buone abilità inglesi\n\n• Volontà di lavorare nei fine settimana e nelle vacanze\n\nOffriamo:\n• Serate e pergamene al Thermal Spa\n\n• Biglietti gratis Tamina Gorge\n\n• Prova il sonno dopo aver superato il periodo di prova\n\n• Fino al 50% di sconto nei ristoranti\n\n• Fino al 50% di sconto nel Fitness Center e Tamina Therme\n\nIl Grand Resort Bad Ragaz ha le sue origini nell'acqua termale curativa della sorgente Tamina. Dal 1242 questo luogo è sinonimo di rigenerazione, nuova energia e qualità della vita. Su questa base, continuiamo a sviluppare costantemente il resort – con l'obiettivo di diventare il leader Wellbeing & Healthy Living Resort in Europa e creare un luogo di forza per le generazioni.\n\nCirca 800 dipendenti plasmano l'esperienza dei nostri ospiti ogni giorno. Diversi talenti, culture e personalità lavorano insieme su un unico obiettivo: creare esperienze uniche. Ciò che ci unisce è l’aspirazione comune a rendere questo posto speciale un po’ meglio ogni giorno – One Resort – One Team.",
+      "en": "Tasks:\nIn this versatile function, you take on medical-administrative, organizational and guest-oriented tasks. These include:\n• Our international guests receive, accompany and look after you personally, warmly and discreetly in the medical field\n\n• Appointments, treatments and procedures are coordinated between guests, doctors, therapists, nursing, clinic, front office, spa, housekeeping and other hotel departments\n\n• Administrative tasks such as correspondence, reports, letters, documentation and the careful maintenance of the respective systems you take over reliably\n\n• Medical services you calculate correctly and carefully\n\n• HBOT treatments, InBody measurements, and minor medical activities such as occasional bandage changes and ECGs are carefully performed\n\n• For clear, appreciative and solution-oriented communication across departmental boundaries, you are actively involved in everyday life\n\nRequirements\nA completed basic medical training, ideally as medical practice assistant / medical practice assistant EFZ, is a prerequisite for this function. Experience in an upscale service environment also forms the basis of your profile. You also bring with you:\n• Strong understanding of service and pleasure in the personal care of international guests\n\n• Good PC user knowledge, secure handling of Microsoft Office and ideally knowledge of medical billing with TARDOC\n\n• An independent, structured and careful working method as well as enjoyment of coordinative tasks and interdisciplinary cooperation\n\n• A professional, well-kept and binding appearance as well as discretion, empathy, resilience and commitment\n\n• Stylistic German and good English skills\n\n• Willingness to work on weekends and holidays\n\nWe offer:\n• Taster evenings and perks at Thermal Spa\n\n• Free Tickets Tamina Gorge\n\n• Test sleep after passing the test period\n\n• Up to 50% discount in restaurants\n\n• Up to 50% discount in the Fitness Center and Tamina Therme\n\nThe Grand Resort Bad Ragaz has its origins in the healing thermal water of the Tamina spring. Since 1242 this place stands for regeneration, new energy and quality of life. On this basis, we continue to develop the resort consistently – with the aim of becoming the leading Wellbeing & Healthy Living Resort in Europe and creating a place of strength for generations.\n\nAround 800 employees shape the experience of our guests every day. Different talents, cultures and personalities work together on one goal: to create unique experiences. What unites us is the common aspiration to make this special place a bit better every day – One Resort – One Team.",
+      "de": "Aufgaben:\nIn dieser vielseitigen Funktion übernimmst du medizinisch-administrative, organisatorische und gästeorientierte Aufgaben. Dazu gehören:\n• Unsere internationalen Gäste empfängst, begleitest und betreust du im medizinischen Bereich persönlich, herzlich und diskret\n\n• Termine, Behandlungen und Abläufe koordinierst du zwischen Gästen, Ärzten, Therapeuten, Pflege, Clinic, Front Office, Spa, Housekeeping und weiteren Hotelabteilungen\n\n• Administrative Arbeiten wie Korrespondenz, Berichte, Briefe, Dokumentationen und die sorgfältige Pflege der jeweiligen Systeme übernimmst du zuverlässig\n\n• Medizinische Leistungen rechnest du korrekt und sorgfältig ab\n\n• HBOT-Behandlungen, InBody-Messungen sowie kleinere medizinische Tätigkeiten wie gelegentliche Verbandswechsel und EKGs führst du sorgfältig durch\n\n• Für eine klare, wertschätzende und lösungsorientierte Kommunikation über Abteilungsgrenzen hinweg sorgst du im Alltag aktiv\n\nAnforderungen:\nEine abgeschlossene medizinische Grundausbildung, idealerweise als Medizinische Praxisassistentin / Medizinischer Praxisassistent EFZ, ist Voraussetzung für diese Funktion. Erfahrung in einem gehobenen Dienstleistungsumfeld bildet zusätzlich die Grundlage deines Profils. Ausserdem bringst du mit:\n• Ausgeprägtes Serviceverständnis und Freude an der persönlichen Betreuung internationaler Gäste\n\n• Gute PC-Anwenderkenntnisse, sicheren Umgang mit Microsoft Office und idealerweise Kenntnisse in der medizinischen Abrechnung mit TARDOC\n\n• Eine selbständige, strukturierte und sorgfältige Arbeitsweise sowie Freude an koordinativen Aufgaben und interdisziplinärer Zusammenarbeit\n\n• Ein professionelles, gepflegtes und verbindliches Auftreten sowie Diskretion, Empathie, Belastbarkeit und Verbindlichkeit\n\n• Stilsicheres Deutsch und gute Englischkenntnisse\n\n• Bereitschaft an Wochenende und Feiertage zu arbeiten\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
+      "fr": "Tâches :\nDans cette fonction polyvalente, vous assumez des tâches médicales-administratives, organisationnelles et axées sur les clients. Il s'agit notamment :\n• Nos invités internationaux reçoivent, accompagnent et s'occupent de vous personnellement, chaleureusement et discrètement dans le domaine médical\n\n• Les rendez-vous, les traitements et les procédures sont coordonnés entre les clients, les médecins, les thérapeutes, les infirmières, les cliniques, le front office, le spa, le ménage et les autres services hôteliers\n\n• Tâches administratives telles que la correspondance, les rapports, les lettres, la documentation et l'entretien minutieux des systèmes respectifs que vous prenez en charge de manière fiable\n\n• Services médicaux que vous calculez correctement et soigneusement\n\n• Les traitements HBOT, les mesures InBody et les activités médicales mineures telles que les changements occasionnels de bandage et les ECG sont soigneusement effectués.\n\n• Pour une communication claire, reconnaissante et orientée vers la solution au-delà des limites du Ministère, vous participez activement à la vie quotidienne\n\nExigences\nUne formation médicale de base complète, idéalement comme assistant de pratique médicale / assistant de pratique médicale EFZ, est une condition préalable à cette fonction. L'expérience dans un environnement de service haut de gamme constitue également la base de votre profil. Vous apportez également avec vous:\n• Forte compréhension du service et du plaisir dans les soins personnels des invités internationaux\n\n• Bonne connaissance des utilisateurs de PC, gestion sécurisée de Microsoft Office et idéalement connaissance de la facturation médicale avec TARDOC\n\n• Une méthode de travail indépendante, structurée et prudente ainsi que la jouissance des tâches coordinatives et la coopération interdisciplinaire\n\n• Un aspect professionnel, bien gardé et contraignant ainsi que discrétion, empathie, résilience et engagement\n\n• Stylistique allemand et bonnes compétences en anglais\n\n• Volonté de travailler le week-end et les jours fériés\n\nNous offrons:\n• Soirées taster et avantages au Thermal Spa\n\n• Billets gratuits Tamina Gorge\n\n• Sommeil d ' essai après avoir passé la période d ' essai\n\n• Jusqu'à 50% de réduction dans les restaurants\n\n• Jusqu'à 50% de réduction dans le centre de fitness et Tamina Therme\n\nLe Grand Resort Bad Ragaz a ses origines dans l'eau thermale curative du printemps Tamina. Depuis 1242 ce lieu représente la régénération, la nouvelle énergie et la qualité de vie. Sur cette base, nous continuons à développer la station de manière cohérente – dans le but de devenir le premier centre de bien-être et de vie saine en Europe et de créer un lieu de force pour des générations.\n\nEnviron 800 employés façonnent l'expérience de nos invités chaque jour. Différents talents, cultures et personnalités travaillent ensemble sur un seul objectif : créer des expériences uniques. Ce qui nous unit est l'aspiration commune à rendre cet endroit spécial un peu meilleur chaque jour – One Resort – One Team."
+    },
+    "slugByLocale": {
+      "it": "assistente-medico-80-100-grand-resort-bad-ragaz-bad-ragaz",
+      "en": "medical-practice-assistant-80-100-grand-resort-bad-ragaz-bad-ragaz",
+      "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-80-100-grand-resort-bad-ragaz",
+      "fr": "assistant-medical-80-100-grand-resort-bad-ragaz-bad-ragaz"
+    },
+    "sector": "Turismo / Ospitalità",
+    "expiredAt": "2026-09-21T16:03:14.263Z",
+    "previousSlugs": [
+      "medizinische-praxisassistentin-medizinischer-praxisassistent-80-100-grand-resort-bad-ragaz"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-80-100-grand-resort-bad-ragaz"
+      ],
+      "en": [
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-80-100-grand-resort-bad-ragaz"
+      ],
+      "fr": [
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-80-100-grand-resort-bad-ragaz"
+      ]
+    },
+    "postalCode": "7310",
+    "streetAddress": "Bernhard-Simonstrasse 20",
+    "salaryMin": 62000,
+    "salaryMax": 78000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/medizinische-praxisassistentin-medizinischer-praxisassistent/8562595d-dc1f-4ad1-bb73-c4c18b3edf42",
+    "firstSeenAt": "2026-09-17T03:45:32.290Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/medizinische-praxisassistentin-medizinischer-praxisassistent/58e42d33-3212-45d9-b349-ac166374d7ab",
+        "firstSeenAt": "2026-09-21T16:02:52.234Z",
+        "title": "Medizinische Praxisassistentin / Medizinischer Praxisassistent 80-100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.resortragaz.ch/offene-stellen/medizinische-praxisassistentin-medizinischer-praxisassistent/8562595d-dc1f-4ad1-bb73-c4c18b3edf42",
+        "firstSeenAt": "2026-09-17T03:45:32.290Z",
+        "title": "Medizinische Praxisassistentin / Medizinischer Praxisassistent 80-100%"
+      }
+    ]
+  },
+  {
+    "slug": "collaboratore-trice-gasteservice-vendita-40-80-m-w-i-grand-resort-bad-ragaz",
+    "title": "Mitarbeiter Gästeservice & Verkauf 40% - 80% (m/w/i)",
+    "titleByLocale": {
+      "it": "Servizio clienti dipendenti e vendite 40% - 80% (m/f/i)",
+      "en": "Employee Guest Service & Sales 40% - 80% (m/f/i)",
+      "de": "Mitarbeiter Gästeservice & Verkauf 40% - 80% (m/w/i)",
+      "fr": "Service invité des employés & Ventes 40% - 80% (m/f/i)"
+    },
+    "company": "Grand Resort Bad Ragaz",
+    "companyKey": "grand-resort-bad-ragaz",
+    "location": "Bad Ragaz",
+    "addressLocality": "Bad Ragaz",
+    "descriptionByLocale": {
+      "it": "Compiti:\n• Supporto amichevole e professionale dei nostri ospiti alla reception del Tamina Therme (check-in / check-out)\n\n• Attivo, competente, personale e consulenza telefonica e vendita di tutte le offerte nelle aree di bagni, sauna, benessere, restauro e boutique termale\n\n• Voucher e vendita di prodotti in loco, nonché prenotazione e prenotazione di trattamenti, pacchetti e corsi\n\n• Punto di contatto per tutte le informazioni e le informazioni su Tamina Therme\n\n• Gestione del fondo incl. Accordi e chiusura dei pagamenti giornalieri\n\n• Una stretta cooperazione con i dipartimenti interdivisionali interni\n\nRequisiti\n• Formazione nel settore delle vendite e/o commerciale auspicabile\n\n• Esperienza professionale in una società di servizi (gastro/turismo industria benefica)\n\n• Conoscenza fluida della conoscenza tedesca e buona dell'inglese (francese e italiano vantaggioso)\n\n• Buona conoscenza degli utenti in MS Office fornito\n\n• Molto amichevole modi e l'aspetto ben curato\n\n• Aspetto comunicativo, sicuro e professionale\n\n• Alta flessibilità, resistenza e lavoro di squadra\n\n• Loyalty and Discretion\n\n• Divertimento della cura degli ospiti e lavorare in una squadra\n\n• Volontà di assegnare l'orario di lavoro a tutti i giorni della settimana, nonché a incarichi nei fine settimana e festivi forniti\n\nOffriamo:\n• Ingresso gratuito a Tamina Therme\n\n• Biglietti gratis Tamina Gorge\n\n• Prova il sonno dopo aver superato il periodo di prova\n\n• Fino al 50% di sconto nei ristoranti\n\n• Fino al 50% di sconto nel centro fitness\n\nLa Tamina Therme di Bad Ragaz è stata un faro nel settore del benessere da decenni e un luogo incomparabile per il relax e la rigenerazione. L'oro \"blu\" della selvaggia gola romantica Tamina è stato un dono della natura e dell'origine della nostra azienda da secoli. La Tamina Therme di Bad Ragaz è un capolavoro architettonico e si trova su 115 colonne. La cultura aziendale è caratterizzata da successo, dinamismo, innovazione e naturalezza.",
+      "en": "Tasks:\n• Friendly and professional support of our guests at the reception of the Tamina Therme (check-in / check-out)\n\n• Active, competent, personal as well as telephone advice and sale of all offers in the areas of bathrooms, sauna, wellness, restoration and thermal boutique\n\n• Voucher and product sales on site, as well as booking and reservation of treatments, packages and courses\n\n• Contact point for all information and information about the Tamina Therme\n\n• Managing the fund incl. Settlements and closing of daily payments\n\n• Close cooperation with internal cross-divisional departments\n\nRequirements\n• Training in sales and/or commercial sector desirable\n\n• Professional experience in a service company (gastro/tourism industry beneficial)\n\n• Fluent knowledge of German and good knowledge of English (French and Italian advantageous)\n\n• Good user knowledge in MS Office provided\n\n• Very friendly manners and well-groomed appearance\n\n• Communicative, safe and professional appearance\n\n• High flexibility, resilience and teamwork\n\n• Loyalty and Discretion\n\n• Enjoyment of guest care and working in a team\n\n• Willingness to allocate working time to all days of the week as well as to assignments on weekends and public holidays provided\n\nWe offer:\n• Free admission to Tamina Therme\n\n• Free Tickets Tamina Gorge\n\n• Test sleep after passing the test period\n\n• Up to 50% discount in restaurants\n\n• Up to 50% discount in the fitness center\n\nThe Tamina Therme in Bad Ragaz has been a beacon in the wellness industry for decades and an incomparable place for relaxation and regeneration. The \"blue\" gold from the wild romantic Tamina gorge has been a gift of nature and the origin of our company for centuries. The Tamina Therme in Bad Ragaz is an architectural masterpiece and stands on 115 columns. The corporate culture is characterized by success, dynamism, innovation and naturalness.",
+      "de": "Aufgaben:\n• Freundliche und professionelle Betreuung unserer Gäste am Empfang der Tamina Therme (Check-In / Check-Out)\n\n• Aktive, kompetente, persönliche sowie telefonische Beratung und Verkauf aller Angebote der Bereiche Bäder, Sauna, Wellness, Restauration und Therme Boutique\n\n• Gutschein- und Produkteverkauf vor Ort, sowie Buchung und Reservation von Behandlungen, Packages und Kursen\n\n• Anlaufstelle für sämtliche Informationen und Auskünfte über die Tamina Therme\n\n• Führen der Kasse inkl. Abrechnungen und Tagesabschluss\n\n• Enge Zusammenarbeit mit intern bereichsübergreifenden Abteilungen\n\nAnforderungen:\n• Ausbildung im Verkauf und/oder kaufmännischen Bereich wünschenswert\n\n• Berufserfahrung in einem Dienstleistungsunternehmen (Gastro-/Tourismusbranche von Vorteil)\n\n• Fliessende Deutschkenntnisse sowie gute Englischkenntnisse (Französisch und Italienisch von Vorteil)\n\n• Gute Anwenderkenntnisse in MS Office vorausgesetzt\n\n• Sehr freundliche Umgangsformen und gepflegtes Erscheinungsbild\n\n• Kommunikatives, sicheres und professionelles Auftreten\n\n• Hohe Flexibilität, Belastbarkeit und Teamfähigkeit\n\n• Loyalität und Diskretion\n\n• Freude an der Gästebetreuung und Arbeiten im Team\n\n• Bereitschaft zur Einteilung der Arbeitszeit auf alle Wochentage sowie zu Einsätzen an Wochenenden und Feiertagen vorausgesetzt\n\nWir bieten:\n• Kostenfreier Eintritt in die Tamina Therme\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center\n\nDie Tamina Therme in Bad Ragaz ist seit Jahrzehnten ein Leuchtturm in der Wellnessbranche und ein unvergleichbarer Ort zur Entspannung und Regeneration. Das \"blaue\" Gold aus der wildromantischen Taminaschlucht ist seit Jahrhunderten ein Geschenk der Natur und der Ursprung unseres Unternehmens. Die Tamina Therme in Bad Ragaz ist ein architektonisches Meisterwerk und steht auf 115 Säulen. Die Unternehmenskultur ist von Erfolg, Dynamik, Innovation und Natürlichkeit geprägt.",
+      "fr": "Tâches :\n• Soutien amical et professionnel de nos clients à la réception du Tamina Therme (enregistrement / départ)\n\n• Active, compétente, conseil personnel et téléphonique et vente de toutes les offres dans les domaines des salles de bains, sauna, bien-être, restauration et boutique thermale\n\n• Offre et vente de produits sur place, ainsi que réservation et réservation de traitements, de forfaits et de cours\n\n• Point de contact pour toute information et information sur le Tamina Therme\n\n• Gestion du fonds incl. Règlement et clôture des paiements quotidiens\n\n• Coopération étroite avec les départements interdivisions internes\n\nExigences\n• Formation dans le secteur commercial et/ou commercial souhaitable\n\n• Expérience professionnelle dans une entreprise de services (gastro/industrie touristique bénéfique)\n\n• Connaissance de l'allemand et bonne connaissance de l'anglais (bénéfice français et italien)\n\n• Bonnes connaissances des utilisateurs dans MS Office fourni\n\n• Des manières très amicales et une apparence soignée\n\n• Apparence communicative, sûre et professionnelle\n\n• Haute flexibilité, résilience et travail d'équipe\n\n• Fidélité et discrétion\n\n• Appréciation des soins aux clients et travail en équipe\n\n• Volonté d'allouer du temps de travail à tous les jours de la semaine ainsi qu'aux affectations le week-end et les jours fériés prévus\n\nNous offrons:\n• Entrée gratuite à Tamina Therme\n\n• Billets gratuits Tamina Gorge\n\n• Sommeil d ' essai après avoir passé la période d ' essai\n\n• Jusqu'à 50% de réduction dans les restaurants\n\n• Jusqu'à 50% de réduction dans le centre de fitness\n\nLe Tamina Therme de Bad Ragaz est un phare de l'industrie du bien-être depuis des décennies et un lieu incomparable pour la relaxation et la régénération. L'or \"bleu\" de la gorge romantique sauvage de Tamina a été un cadeau de la nature et l'origine de notre compagnie depuis des siècles. Le Tamina Therme à Bad Ragaz est un chef-d'œuvre architectural et se dresse sur 115 colonnes. La culture d'entreprise se caractérise par la réussite, le dynamisme, l'innovation et la nature."
+    },
+    "slugByLocale": {
+      "it": "collaboratore-trice-gasteservice-vendita-40-80-m-w-i-grand-resort-bad-ragaz",
+      "en": "mitarbeiter-gasteservice-sales-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+      "de": "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+      "fr": "mitarbeiter-gasteservice-vente-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+    },
+    "sector": "Turismo / Ospitalità",
+    "expiredAt": "2026-09-18T20:59:03.564Z",
+    "previousSlugs": [
+      "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+      "lingerie-collaboratore-trice-100-w-m-i-grand-resort-bad-ragaz",
+      "lingerie-mitarbeiter-in-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+      "collaboratore-trice-bad-sauna-80-m-w-i-grand-resort-bad-ragaz",
+      "employee-bad-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+      "mitarbeiter-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+      "salarie-mauvais-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+      "room-service-collaboratore-trice-100-m-w-i-grand-resort-bad-ragaz",
+      "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+      "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "lingerie-collaboratore-trice-100-w-m-i-grand-resort-bad-ragaz",
+        "lingerie-mitarbeiter-in-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "collaboratore-trice-bad-sauna-80-m-w-i-grand-resort-bad-ragaz",
+        "employee-bad-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+        "mitarbeiter-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "salarie-mauvais-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+        "room-service-collaboratore-trice-100-m-w-i-grand-resort-bad-ragaz",
+        "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
+      ],
+      "en": [
+        "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+      ],
+      "de": [
+        "mitarbeiter-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+      ],
+      "fr": [
+        "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "lingerie-mitarbeiter-in-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+      ]
+    },
+    "postalCode": "7310",
+    "streetAddress": "Bernhard-Simonstrasse 20",
+    "salaryMin": 49600,
+    "salaryMax": 62400,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "collaboratore-trice-gasteservice-vendita-40-80-m-w-i-grand-resort-bad-ragaz-76673d59",
     "title": "Mitarbeiter Gästeservice & Verkauf 40% - 80% (m/w/i)",
     "titleByLocale": {
@@ -2522,17 +3131,6 @@
     "expiredAt": "2026-09-18T20:59:03.564Z",
     "previousSlugsByLocale": {
       "it": [
-        "collaboratore-trice-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-59c12683",
-        "employee-bad-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz-c6304f3f",
-        "mitarbeiter-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-d9994521",
-        "salarie-mauvais-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz-2aa5a573",
-        "room-service-collaboratore-trice-100-m-w-i-grand-resort-bad-ragaz-0deea916",
-        "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz-3c82c935",
-        "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz-ce976716",
-        "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-3d7aacf2",
-        "lingerie-collaboratore-trice-100-w-m-i-grand-resort-bad-ragaz-6ab4ee08",
-        "collaboratore-trice-gasteservice-vendita-40-80-m-w-i-grand-resort-bad-ragaz-7a32195e",
-        "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-e4d9d42b",
         "lingerie-collaboratore-trice-100-w-m-i-grand-resort-bad-ragaz-cd12bbde",
         "lingerie-mitarbeiter-in-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz-34eaa0b2",
         "collaboratore-trice-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-07953b04",
@@ -2541,7 +3139,18 @@
         "salarie-mauvais-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz-ecee2b7a",
         "room-service-collaboratore-trice-100-m-w-i-grand-resort-bad-ragaz-53986058",
         "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz-abe083a2",
-        "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz-45e245a6"
+        "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz-45e245a6",
+        "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-34ebfcea",
+        "collaboratore-trice-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-59c12683",
+        "employee-bad-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz-c6304f3f",
+        "mitarbeiter-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-d9994521",
+        "salarie-mauvais-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz-2aa5a573",
+        "room-service-collaboratore-trice-100-m-w-i-grand-resort-bad-ragaz-0deea916",
+        "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz-3c82c935",
+        "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz-ce976716",
+        "lingerie-collaboratore-trice-100-w-m-i-grand-resort-bad-ragaz-6ab4ee08",
+        "collaboratore-trice-gasteservice-vendita-40-80-m-w-i-grand-resort-bad-ragaz-7a32195e",
+        "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-e4d9d42b"
       ],
       "en": [
         "mitarbeiter-gasteservice-sales-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-0043c2b0",
@@ -2549,18 +3158,18 @@
         "mitarbeiter-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-d9994521",
         "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz-3c82c935",
         "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz-ce976716",
-        "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-3d7aacf2",
         "lingerie-collaboratore-trice-100-w-m-i-grand-resort-bad-ragaz",
         "lingerie-mitarbeiter-in-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
         "collaboratore-trice-bad-sauna-80-m-w-i-grand-resort-bad-ragaz",
         "salarie-mauvais-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
         "room-service-collaboratore-trice-100-m-w-i-grand-resort-bad-ragaz",
         "mitarbeiter-gasteservice-sales-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-89ace65d",
-        "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-e4d9d42b",
         "employee-bad-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz-59d0cfe1",
         "mitarbeiter-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-45ab7881",
         "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz-abe083a2",
-        "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz-45e245a6"
+        "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz-45e245a6",
+        "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-34ebfcea",
+        "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-e4d9d42b"
       ],
       "de": [
         "mitarbeiter-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-d9994521",
@@ -2572,28 +3181,29 @@
         "employee-bad-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
         "salarie-mauvais-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
         "room-service-collaboratore-trice-100-m-w-i-grand-resort-bad-ragaz",
-        "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-e4d9d42b",
         "mitarbeiter-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-45ab7881",
         "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz-abe083a2",
-        "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz-45e245a6"
+        "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz-45e245a6",
+        "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-34ebfcea",
+        "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-e4d9d42b"
       ],
       "fr": [
         "mitarbeiter-gasteservice-vente-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-189032e9",
         "mitarbeiter-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-d9994521",
         "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz-3c82c935",
         "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz-ce976716",
-        "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-3d7aacf2",
         "lingerie-collaboratore-trice-100-w-m-i-grand-resort-bad-ragaz",
         "collaboratore-trice-bad-sauna-80-m-w-i-grand-resort-bad-ragaz",
         "employee-bad-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
         "salarie-mauvais-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
         "room-service-collaboratore-trice-100-m-w-i-grand-resort-bad-ragaz",
         "mitarbeiter-gasteservice-vente-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-e1f32002",
-        "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-e4d9d42b",
         "lingerie-mitarbeiter-in-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz-34eaa0b2",
         "mitarbeiter-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-45ab7881",
         "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz-abe083a2",
-        "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz-45e245a6"
+        "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz-45e245a6",
+        "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-34ebfcea",
+        "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-e4d9d42b"
       ]
     },
     "postalCode": "7310",
@@ -2612,7 +3222,6 @@
       "room-service-collaboratore-trice-100-m-w-i-grand-resort-bad-ragaz-21b0f11b",
       "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz-e127e801",
       "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz-5b2929a2",
-      "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-3d7aacf2",
       "collaboratore-trice-gasteservice-vendita-40-80-m-w-i-grand-resort-bad-ragaz-bc5bc774",
       "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-34ebfcea",
       "lingerie-collaboratore-trice-100-w-m-i-grand-resort-bad-ragaz-e7bf399f",
@@ -2680,6 +3289,50 @@
       ],
       "de": [
         "coiffeuse-coiffeur-80-100-grand-resort-bad-ragaz-bad-ragaz"
+      ]
+    },
+    "postalCode": "7310",
+    "streetAddress": "Bernhard-Simonstrasse 20",
+    "salaryMin": 62000,
+    "salaryMax": 78000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "demi-chef-de-partie-verve-by-sven-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+    "title": "Demi Chef de Partie verve by sven 100% (w/m/i)",
+    "titleByLocale": {
+      "it": "Demi Chef de Partie verve by sven 100% (f/m/i)",
+      "en": "Demi Chef de Partie verve by sven 100% (f/m/i)",
+      "de": "Demi Chef de Partie verve by sven 100% (w/m/i)",
+      "fr": "Demi Chef de Partie verve par sven 100% (f/m/i)"
+    },
+    "company": "Grand Resort Bad Ragaz",
+    "companyKey": "grand-resort-bad-ragaz",
+    "location": "Bad Ragaz",
+    "addressLocality": "Bad Ragaz",
+    "descriptionByLocale": {
+      "it": "Compiti:\nNella vita quotidiana della cucina, si trasporta attivamente il post e prendere i seguenti compiti:\n• Garantire una qualità costante e un ottimo gusto di cibo\n\n• Supporto attivo nella gestione di un posto cucina nelle aree di Saucier, Entremetier, Gardemanger e banchetto\n\n• Promozione e supporto agli studenti per lo sviluppo professionale e professionale\n\n• Responsabilità per il rispetto coerente del concetto di igiene\n\nRequisiti\nPer questa funzione si porta esperienza professionale, un metodo di lavoro strutturato e i seguenti requisiti:\n• Allenamento completo come cuoco o cuoco\n\n• Diversi anni di esperienza professionale in ristoranti o hotel di prima classe\n\n• Metodi di lavoro indipendenti, strutturati e organizzati\n\n• Flessibilità, innovazione e gioia di lavorare insieme in un team\n\nOffriamo:\n• Serate e pergamene al Thermal Spa\n\n• Biglietti gratis Tamina Gorge\n\n• Prova il sonno dopo aver superato il periodo di prova\n\n• Fino al 50% di sconto nei ristoranti\n\n• Fino al 50% di sconto nel Fitness Center e Tamina Therme\n\nIl Grand Resort Bad Ragaz ha le sue origini nell'acqua termale curativa della sorgente Tamina. Dal 1242 questo luogo è sinonimo di rigenerazione, nuova energia e qualità della vita. Su questa base, continuiamo a sviluppare costantemente il resort – con l'obiettivo di diventare il leader Wellbeing & Healthy Living Resort in Europa e creare un luogo di forza per le generazioni.\n\nCirca 800 dipendenti plasmano l'esperienza dei nostri ospiti ogni giorno. Diversi talenti, culture e personalità lavorano insieme su un unico obiettivo: creare esperienze uniche. Ciò che ci unisce è l’aspirazione comune a rendere questo posto speciale un po’ meglio ogni giorno – One Resort – One Team.",
+      "en": "Tasks:\nIn everyday kitchen life, you actively carry the post and take on the following tasks:\n• Ensuring consistently high quality and excellent taste of food\n\n• Active support in the management of a kitchen post in the areas of Saucier, Entremetier, Gardemanger and banquet\n\n• Promotion and support of learners for professional and professional development\n\n• Responsibility for consistent compliance with the hygiene concept\n\nRequirements\nFor this function you bring professional experience, a structured working method and the following requirements:\n• Completed training as a cook or cook\n\n• Several years of professional experience in first-class restaurants or hotels\n\n• Independent, structured and organized working methods\n\n• Flexibility, innovation and joy of working together in a team\n\nWe offer:\n• Taster evenings and perks at Thermal Spa\n\n• Free Tickets Tamina Gorge\n\n• Test sleep after passing the test period\n\n• Up to 50% discount in restaurants\n\n• Up to 50% discount in the Fitness Center and Tamina Therme\n\nThe Grand Resort Bad Ragaz has its origins in the healing thermal water of the Tamina spring. Since 1242 this place stands for regeneration, new energy and quality of life. On this basis, we continue to develop the resort consistently – with the aim of becoming the leading Wellbeing & Healthy Living Resort in Europe and creating a place of strength for generations.\n\nAround 800 employees shape the experience of our guests every day. Different talents, cultures and personalities work together on one goal: to create unique experiences. What unites us is the common aspiration to make this special place a bit better every day – One Resort – One Team.",
+      "de": "Aufgaben:\nIm Küchenalltag trägst du den Posten aktiv mit und übernimmst dabei folgende Aufgaben:\n• Sicherung der konstant hohen Qualität und des hervorragenden Geschmacks der Speisen\n\n• Aktive Unterstützung bei der Führung eines Küchenpostens in den Bereichen Saucier, Entremetier, Gardemanger und Bankett\n\n• Förderung und Unterstützung der Lernenden zur fachlichen und beruflichen Entwicklung\n\n• Verantwortung für die konsequente Einhaltung des Hygienekonzeptes\n\nAnforderungen:\nFür diese Funktion bringst du fachliche Erfahrung, eine strukturierte Arbeitsweise und folgende Voraussetzungen mit:\n• Abgeschlossene Ausbildung als Koch oder Köchin\n\n• Mehrjährige Berufserfahrung in erstklassigen Restaurants oder Hotels\n\n• Selbstständige, strukturierte und organisierte Arbeitsweise\n\n• Flexibilität, Innovationsfreude und Freude an der Zusammenarbeit im Team\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
+      "fr": "Tâches :\nDans la vie quotidienne de la cuisine, vous portez activement le poste et assumez les tâches suivantes:\n• Assurer une qualité constante et un excellent goût des aliments\n\n• Soutien actif à la gestion d'un poste de cuisine dans les zones de Saucier, Entremetier, Gardemanger et banquet\n\n• Promotion et soutien des apprenants au développement professionnel\n\n• Responsabilité du respect cohérent du concept d'hygiène\n\nExigences\nPour cette fonction, vous apportez une expérience professionnelle, une méthode de travail structurée et les exigences suivantes:\n• Formation complète comme cuisinier ou cuisinier\n\n• Plusieurs années d'expérience professionnelle dans des restaurants ou des hôtels de première classe\n\n• Méthodes de travail indépendantes, structurées et organisées\n\n• Flexibilité, innovation et joie de travailler ensemble dans une équipe\n\nNous offrons:\n• Soirées taster et avantages au Thermal Spa\n\n• Billets gratuits Tamina Gorge\n\n• Sommeil d ' essai après avoir passé la période d ' essai\n\n• Jusqu'à 50% de réduction dans les restaurants\n\n• Jusqu'à 50% de réduction dans le centre de fitness et Tamina Therme\n\nLe Grand Resort Bad Ragaz a ses origines dans l'eau thermale curative du printemps Tamina. Depuis 1242 ce lieu représente la régénération, la nouvelle énergie et la qualité de vie. Sur cette base, nous continuons à développer la station de manière cohérente – dans le but de devenir le premier centre de bien-être et de vie saine en Europe et de créer un lieu de force pour des générations.\n\nEnviron 800 employés façonnent l'expérience de nos invités chaque jour. Différents talents, cultures et personnalités travaillent ensemble sur un seul objectif : créer des expériences uniques. Ce qui nous unit est l'aspiration commune à rendre cet endroit spécial un peu meilleur chaque jour – One Resort – One Team."
+    },
+    "slugByLocale": {},
+    "sector": "Turismo / Ospitalità",
+    "expiredAt": "2026-09-16T21:48:25.644Z",
+    "previousSlugs": [
+      "chef-de-partie-restaurant-verve-by-sven-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+      "chef-de-partie-restaurant-memories-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+      "chef-de-partie-ricordi-del-ristorante-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "chef-de-partie-restaurant-verve-by-sven-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "chef-de-partie-restaurant-memories-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "chef-de-partie-ricordi-del-ristorante-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz"
+      ],
+      "fr": [
+        "chef-de-partie-restaurant-verve-by-sven-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
       ]
     },
     "postalCode": "7310",

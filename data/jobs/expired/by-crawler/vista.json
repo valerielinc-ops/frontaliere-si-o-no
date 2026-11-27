@@ -122,7 +122,27 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/dipl-fachfrau-mann-operationstechnik-hf-oder-toa/kiorj6xxjbhk53gmo2ptd7wzeoaqcxlqfhz7muvc0xx8gi2nps4wbayzhvw6bjsg",
-    "firstSeenAt": "2026-10-06T09:13:55.310Z"
+    "firstSeenAt": "2026-10-06T09:13:55.310Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-tecnica-operativa-professionale-hf-o-ota-toa-80-vista-augenpraxen-kliniken-thun": "BE",
+        "dipl-fachfrau-mann-operationstechnik-hf-o-ota-toa-80-vista-augenpraxen-kliniken-thun": "BE",
+        "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun": "BE",
+        "dipl-fachfrau-mann-operationstechnik-hf-oder-ota-toa-80-vista-thun": "BE"
+      },
+      "en": {
+        "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun": "BE",
+        "dipl-fachfrau-mann-operationstechnik-hf-oder-ota-toa-80-vista-thun": "BE"
+      },
+      "de": {
+        "dipl-fachfrau-mann-operationstechnik-hf-oder-ota-toa-80-vista-thun": "BE"
+      },
+      "fr": {
+        "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun": "BE",
+        "dipl-fachfrau-mann-operationstechnik-hf-oder-ota-toa-80-vista-thun": "BE"
+      }
+    }
   },
   {
     "slug": "dipl-esperto-in-anestesia-m-f-60-80-vista-augenpraxen-kliniken-burgdorf",
@@ -181,7 +201,25 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/dipl-experte-anaesthesiepflege-burgdorf/77qin0tyz4buxlhbaeed88wt4783dnkmczw5zgcu8sqcnewzkco7zcy545km4izk",
-    "firstSeenAt": "2026-08-04T11:53:28.350Z"
+    "firstSeenAt": "2026-08-04T11:53:28.350Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-experte-anasthesiepflege-m-w-60-80-burgdorf-vista-burgdorf": "BE",
+        "dipl-experte-anasthesiepflege-m-w-60-80-vista-burgdorf": "BE"
+      },
+      "en": {
+        "dipl-experte-anasthesiepflege-m-w-60-80-burgdorf-vista-burgdorf": "BE",
+        "dipl-expert-in-anesthesia-nursing-m-f-60-80-vista-augenpraxen-kliniken-burgdorf": "BE",
+        "dipl-experte-anasthesiepflege-m-w-60-80-burgdorf-vista-augenpraxen-kliniken-burgdorf": "BE"
+      },
+      "de": {
+        "dipl-experte-anasthesiepflege-m-w-60-80-burgdorf-vista-burgdorf": "BE"
+      },
+      "fr": {
+        "dipl-experte-anasthesiepflege-m-w-60-80-burgdorf-vista-burgdorf": "BE"
+      }
+    }
   },
   {
     "slug": "dipl-infermiera-hf-circa-il-40-servizi-notturni-e-diurni-nel-salario-orario-vista-augenpraxen-kliniken-binningen",
@@ -231,7 +269,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/dipl-pflegefachperson-hf-ca-nacht-tagdienste-im-std-lohn/nbjeob35jclg8iiog143w2o23x0rgfgb3mwrim4op7bmqje74rrk6lwhrsu5j7ca",
-    "firstSeenAt": "2026-10-22T21:14:50.542Z"
+    "firstSeenAt": "2026-10-22T21:14:50.542Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-ca-40-nacht-tagdienste-im-std-lohn-vista-binningen": "BL"
+      },
+      "en": {
+        "dipl-pflegefachperson-hf-ca-40-nacht-tagdienste-im-std-lohn-vista-binningen": "BL"
+      },
+      "fr": {
+        "dipl-pflegefachperson-hf-ca-40-nacht-tagdienste-im-std-lohn-vista-binningen": "BL"
+      }
+    }
   },
   {
     "slug": "assistente-tecnico-a-operativa-toa-60-80-vista-augenpraxen-kliniken-pfaffikon-sz",
@@ -281,7 +331,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/technische-operationsassistent-in-toa/rd17b6afu1beqj62xc3yzj5pibbil2betjad5wwfqp1lm5mik5pv23wau2mx8jcn",
-    "firstSeenAt": "2026-09-28T21:14:20.710Z"
+    "firstSeenAt": "2026-09-28T21:14:20.710Z",
+    "canton": "SZ",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technische-r-operationsassistent-in-toa-60-80-vista-pfaffikon-sz": "SZ"
+      },
+      "en": {
+        "technische-r-operationsassistent-in-toa-60-80-vista-pfaffikon-sz": "SZ"
+      },
+      "fr": {
+        "technische-r-operationsassistent-in-toa-60-80-vista-pfaffikon-sz": "SZ"
+      }
+    }
   },
   {
     "slug": "assistente-medico-m-f-50-60-vista-augenpraxen-kliniken-binningen",
@@ -347,7 +409,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/medizinische-praxisassistenz/ld8pmpv90u7fqskhcuc554ocdawemqweyqmtbfjyscso9gv1benwkrnq2ptvw07r",
-    "firstSeenAt": "2026-10-19T21:17:31.361Z"
+    "firstSeenAt": "2026-10-19T21:17:31.361Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "medizinische-praxisassistenz-m-w-80-100-vista-binningen": "BL",
+        "medizinische-praxisassistenz-m-w-d-80-100-vista-augenpraxen-kliniken-binningen": "BL"
+      },
+      "de": {
+        "medizinische-praxisassistenz-m-w-80-100-vista-binningen": "BL"
+      }
+    }
   },
   {
     "slug": "optometrista-responsabile-della-consultazione-biometrica-80-100-vista-augenpraxen-kliniken-basel-5c2cc208",
@@ -589,7 +661,183 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/dipl-expertin-bzw-experte-anaesthesiepflege-nds-hf/xd6uf1og4ywkm3ecr23ap56ndwzuq8lfdpe6h3aa76dhpiuqa9ryddkahed2it20",
-    "firstSeenAt": "2026-09-03T13:51:40.794Z"
+    "firstSeenAt": "2026-09-03T13:51:40.794Z",
+    "canton": "SZ",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-expertin-bzw-experte-anasthesiepflege-nds-hf-m-w-60-80-vista-pfaffikon-sz": "SZ"
+      },
+      "en": {
+        "dipl-expertin-bzw-experte-anasthesiepflege-nds-hf-m-w-60-80-vista-pfaffikon-sz": "SZ",
+        "dipl-expert-anesthesia-care-nds-hf-m-f-60-80-vista-augenpraxen-kliniken-pfaffikon-sz": "SZ"
+      },
+      "fr": {
+        "dipl-expertin-bzw-experte-anasthesiepflege-nds-hf-m-w-60-80-vista-pfaffikon-sz": "SZ"
+      }
+    }
+  },
+  {
+    "slug": "responsabile-dell-ambulatorio-di-lenti-e-biometria-80-100-vista-augenpraxen-kliniken-basel-021d5502",
+    "title": "Leiter/in Linsen & Biometrie-Sprechstunde 80-100%",
+    "titleByLocale": {
+      "de": "Leiter/in Linsen & Biometrie-Sprechstunde 80-100%",
+      "it": "Responsabile dell'ambulatorio di lenti e biometria 80-100%",
+      "en": "Head of Lens & Biometry Clinic 80-100%",
+      "fr": "Responsable de la consultation lentilles et biométrie 80-100%"
+    },
+    "company": "Vista Augenpraxen & Kliniken",
+    "companyKey": "vista",
+    "location": "Basel",
+    "addressLocality": "Basel",
+    "descriptionByLocale": {
+      "de": "Zur Verstärkung unseres Teams suchen wir gruppenweit per sofort oder nach Vereinbarung eine qualifizierte und engagierte Persönlichkeit als Die Vista Augenpraxen & Kliniken sind mit ihren rund 35 Standorten und etwa 500 Mitarbeitenden die grösste Anbieterin der Augenmedizin in der Schweiz. Wir bieten erstklassige medizinische Leistungen für unsere Patienten und setzen Standards in den Fachdisziplinen der Augenheilkunde, Augenchirurgie und der Augenlasermedizin. Basel mit Reisetätigkeit gruppenweit Ihre Aufgaben\n• Eigenverantwortliches Durchführen von optometrischen Voruntersuchungen für Excimer Behandlungen, phake Linsenimplantate und Katarakt/CLE Operationen\n• Aufklärung und Beratung der Patientlnnen nach neustem Wissensstand im Bereich Speziallinsen (IOL/MIOL/ICL) und Excimerbehandlungen\n• Weiterentwicklung des Bereiches Co-Payment und Speziallinsen innerhalb der Vista Gruppe sowie Optimierung der Prozesse im Bereich Biometrie\n• Fachliche Gesamtverantwortung für IOL und Optometrie sowie zentrale Ansprechperson für Mitarbeitende und externe Partner wie zuweisende Ärzte, Hersteller und Zulieferer\n• Konzeption und Durchführung von Schulungen inkl. Referententätigkeiten für ärztliche und nicht-ärztliche Mitarbeitende in den Bereichen IOL und Biometrie mit Fokus auf eine kompetente Patientenberatung\n• Testung und Evaluation neuer Produkte im Bereich Speziallinsen\n• Reisetätigkeit in der Deutschschweiz im Umfang von 40-60% Das bringen Sie mit\n• Höhere Fachausbildung in Augenoptik oder Optometrie\n• Fundierte Kenntnisse in Optometrie, physikalischer und medizinischer Optik sowie vertiefte Fachkenntnisse im Bereich Speziallinsen / Premium-IOL\n• Ausgeprägte Kompetenz in der patientenorientierten und bedarfsgerechten Beratung sowie Erfahrung in der Vermittlung komplexer medizinischer Inhalte\n• Erfahrung in der Konzeption und Durchführung von Schulungen und Beratungstrainings sowie Freude an der Befähigung und Weiterentwicklung von Mitarbeitenden\n• Kommunikationsstarke, empathische und überzeugende Persönlichkeit mit hoher Eigeninitiative, Verantwortungsbewusstsein und sicherem Auftreten\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse; Italienisch von Vorteil Wir bieten Ihnen\n• Eine verantwortungsvolle Position mit Gestaltungsspielraum in einer modernen Arbeitsumgebung und flexiblen Arbeitsmodellen\n• Entwicklungsmöglichkeiten in einem dynamischen und zukunftsorientierten Umfeld\n• Förderung und Unterstützung individueller fachlicher Weiterbildungen\n• Attraktive Benefits wie Reka-Beteiligung, vergünstigte Fitness- und Gesundheitsangebote, Flottenrabatte und viele weitere Extras\n• Sehr gute Verkehrsanbindung und Erreichbarkeit mit dem ÖV Der Standort\n• Standort: Vista Augenpraxen und Kliniken\n• Strasse: Viaduktstrasse 42\n• Stadt: 4051 Basel\n• Land: Schweiz Wir freuen uns sehr, Sie kennenzulernen. Bei Fragen dürfen Sie sich gerne an Frau Simone Hess unter Tel. +41 61 551 40 90 wenden. Jetzt bewerben Ich freue mich, Sie auf dem Weg zu Ihrem Traumjob begleiten zu dürfen. Für Fragen stehe ich Ihnen gerne zur Verfügung. Interessiert? Sabrina Cassan HR Managerin +41 61 551 40 33 Sie kennen Ihre Ziele - wir den Weg dorthin. Darin sind wir stark und erfahren. Wir engagieren uns für Sie und stellen Ihre Persönlichkeit ins Zentrum unserer Arbeit. Seit über drei Jahrzehnten, professionell, kompetent, flexibel und fair. Die Vista Augenpraxen und Kliniken bieten ihren Mitarbeitenden eine Vielzahl an Benefits, die das Arbeitsumfeld bereichern und die persönliche Entwicklung fördern. Eine Auswahl hiervon findet sich hier . Adresse Vista Augenpraxen und Kliniken Viaduktstrasse 42 4051 Basel Mail Link Whatsapp Linkedin Facebook",
+      "it": "Al fine di rafforzare il nostro team, stiamo cercando un gruppo di personalità qualificato e impegnato come Vista Eye Practices & Clinics, con i suoi circa 35 sedi e circa 500 dipendenti, sono il più grande fornitore di farmaci per gli occhi in Svizzera. Offriamo servizi medici di prima classe ai nostri pazienti e stabiliamo standard nelle discipline di oftalmologia, chirurgia oculare e medicina occhio laser. Basilea con attività di viaggio a livello di gruppo i vostri compiti\n• Esecuzione auto-responsabile di esami preliminari optometrici per trattamenti eccimeri, impianti di lente phake e operazioni cataratta/CLE\n• Educare e consigliare i pazienti sull'ultimo stato di conoscenza nel campo delle lenti speciali (IOL/MIOL/ICL) e trattamenti eccimeri\n• Ulteriore sviluppo della zona di co-pagamento e lenti speciali all'interno del Gruppo Vista, nonché ottimizzazione dei processi nell'area di biometrica\n• Responsabilità complessiva tecnica per IOL e optometria nonché il contatto centrale per i dipendenti e i partner esterni come l'assegnazione di medici, produttori e fornitori\n• Progettazione e realizzazione della formazione incl. Attività consultive per i dipendenti medici e non medici nei settori dell'IOL e della biometrica con particolare attenzione alla consulenza competente dei pazienti\n• Test e valutazione di nuovi prodotti nel campo delle lenti speciali\n• Attività di viaggio in Svizzera di lingua tedesca che ammontano al 40-60% Questo è ciò che portano con loro.\n• Formazione specialistica superiore in ottica o optometria\n• Conoscenza approfondita nell'ottica, nell'ottica fisica e medica e nell'approfondimento nel campo delle lenti speciali / premium IOL\n• Forte competenza nella consulenza orientata al paziente e basata sulle esigenze, nonché esperienza nella comunicazione di contenuti medici complessi\n• L'esperienza nella concezione e nell'attuazione della formazione e della consulenza nonché il piacere nella qualificazione e nello sviluppo dei dipendenti\n• Forte comunicazione, personalità empatica e convincente con un alto livello di iniziativa, un senso di responsabilità e un aspetto sicuro\n• Ottima conoscenza della lingua tedesca e buona conoscenza dell'inglese; vantaggio italiano Vi offriamo\n• Una posizione responsabile con spazio di manovra in un ambiente di lavoro moderno e modelli di lavoro flessibili\n• Opportunità di sviluppo in un ambiente dinamico e orientato al futuro\n• Promozione e sostegno della formazione professionale individuale\n• Vantaggi interessanti come la partecipazione Reka, offerte di fitness e salute scontate, sconti della flotta e molti altri extra\n• Molto buoni collegamenti di trasporto e accessibilità con i trasporti pubblici La posizione\n• Ubicazione: Vista Eye Practices and Clinics\n• Strada: Viaductstrasse 42\n• Città: 4051 Basel\n• Paese: Svizzera Siamo molto felici di conoscervi. Se avete domande, si prega di contattare la signora Simone Hess su tel. +41 61 551 40 90. Ora sono felice di accompagnarvi sulla strada per il vostro lavoro da sogno. Sono felice di essere a vostra disposizione per le domande. Interessante? Sabrina Cassan HR Manager +41 61 551 40 33 Conosci i tuoi obiettivi, siamo la strada giusta. In questo siamo forti ed esperti. Ci impegniamo a voi e mettiamo la vostra personalità al centro del nostro lavoro. Per oltre tre decenni, professionale, competente, flessibile e giusto. Le pratiche oculari e cliniche Vista offrono ai propri dipendenti una varietà di vantaggi che arricchiscono l'ambiente di lavoro e promuovono lo sviluppo personale. Una selezione di questi può essere trovato qui. Indirizzo Vista Eye Practices and Clinics Viaductstrasse 42 4051 Basel Mail Link Whatsapp Linkedin Facebook",
+      "en": "In order to strengthen our team, we are looking for a qualified and committed personality group-wide as Vista Eye Practices & Clinics, with its approximately 35 locations and approximately 500 employees, are the largest provider of eye medicine in Switzerland. We offer first-class medical services to our patients and set standards in the disciplines of ophthalmology, eye surgery and laser eye medicine. Basel with travel activity group-wide your tasks\n• Self-responsible performance of optometric preliminary examinations for excimer treatments, phake lens implants and cataract/CLE operations\n• Educating and advising patients on the latest state of knowledge in the field of special lenses (IOL/MIOL/ICL) and excimer treatments\n• Further development of the area of co-payment and special lenses within the Vista Group as well as optimization of processes in the area of biometrics\n• Technical overall responsibility for IOL and optometry as well as central contact for employees and external partners such as assigning physicians, manufacturers and suppliers\n• Design and implementation of training incl. Consultant activities for medical and non-medical employees in the areas of IOL and biometrics with a focus on competent patient advice\n• Testing and evaluation of new products in the field of special lenses\n• Travel activities in German-speaking Switzerland amounting to 40-60% This is what they bring with them.\n• Higher specialist training in optics or optometry\n• In-depth knowledge in optometry, physical and medical optics as well as in-depth expertise in the field of special lenses / premium IOL\n• Strong competence in patient-oriented and needs-based counselling as well as experience in communicating complex medical content\n• Experience in the conception and implementation of training and consulting training as well as pleasure in the qualification and further development of employees\n• Strong communication, empathetic and convincing personality with a high level of initiative, a sense of responsibility and a secure appearance\n• Very good knowledge of German and good knowledge of English; Italian advantage We offer you\n• A responsible position with room for manoeuvre in a modern working environment and flexible working models\n• Development opportunities in a dynamic and future-oriented environment\n• Promotion and support of individual professional training\n• Attractive benefits such as Reka participation, discounted fitness and health offers, fleet discounts and many more extras\n• Very good transport links and accessibility with public transport The location\n• Location: Vista Eye Practices and Clinics\n• Street: Viaductstrasse 42\n• City: 4051 Basel\n• Country: Switzerland We are very happy to meet you. If you have any questions, please contact Ms. Simone Hess on tel. +41 61 551 40 90. Now I am happy to accompany you on the way to your dream job. I am happy to be at your disposal for questions. Interested? Sabrina Cassan HR Manager +41 61 551 40 33 You know your goals - we are the way there. In this we are strong and experienced. We are committed to you and put your personality at the center of our work. For over three decades, professional, competent, flexible and fair. The Vista eye practices and clinics offer their employees a variety of benefits that enrich the working environment and promote personal development. A selection of these can be found here. Address Vista Eye Practices and Clinics Viaductstrasse 42 4051 Basel Mail Link Whatsapp Linkedin Facebook",
+      "fr": "Afin de renforcer notre équipe, nous recherchons une personnalité qualifiée et engagée à l'échelle du groupe, comme Vista Eye Practices & Clinics, avec ses quelque 35 emplacements et environ 500 employés, sont le plus grand fournisseur de médecine oculaire en Suisse. Nous offrons des services médicaux de première classe à nos patients et établissons des normes dans les disciplines de l'ophtalmologie, de la chirurgie oculaire et de la médecine oculaire au laser. Bâle avec une activité de voyage à l'échelle du groupe vos tâches\n• Résultats auto-responsables des examens préliminaires optométriques pour les traitements à l'excimère, les implants de lentilles phake et les opérations de cataracte/CLE\n• Éduquer et conseiller les patients sur l'état actuel des connaissances dans le domaine des verres spéciaux (IOL/MIOL/ICL) et des traitements à l'excimère\n• Poursuite du développement du domaine du co-paiement et des lentilles spéciales au sein du groupe Vista ainsi que l'optimisation des processus dans le domaine de la biométrie\n• La responsabilité technique globale de l'IOL et de l'optométrie ainsi que les contacts centraux pour les employés et les partenaires externes tels que l'affectation des médecins, des fabricants et des fournisseurs\n• Conception et mise en œuvre de la formation, y compris: Activités de consultants pour le personnel médical et non médical dans les domaines de l'IOL et de la biométrie, en mettant l'accent sur les conseils compétents des patients\n• Essai et évaluation de nouveaux produits dans le domaine des lentilles spéciales\n• Activités de voyage en Suisse germanophone s'élevant à 40-60% C'est ce qu'ils apportent avec eux.\n• Formation spécialisée supérieure en optique ou optométrie\n• Connaissance approfondie en optométrie, optique physique et médicale ainsi qu'une expertise approfondie dans le domaine des lentilles spéciales / IOL premium\n• Forte compétence en matière de counseling axé sur le patient et les besoins, et expérience de la communication de contenus médicaux complexes\n• Expérience dans la conception et la mise en œuvre de la formation et de la formation de conseil ainsi que plaisir dans la qualification et le perfectionnement des employés\n• Une communication forte, empathique et convaincante avec un haut niveau d'initiative, un sens des responsabilités et une apparence sûre\n• Très bonne connaissance de l'allemand et bonne connaissance de l'anglais; avantage italien Nous vous offrons\n• Une position responsable avec une marge de manœuvre dans un environnement de travail moderne et des modèles de travail flexibles\n• Possibilités de développement dans un environnement dynamique et tourné vers l ' avenir\n• Promotion et soutien de la formation professionnelle individuelle\n• Des avantages attrayants tels que la participation à Reka, des offres de remise de forme et de santé, des rabais sur la flotte et bien d'autres extras\n• Très bonnes liaisons de transport et accessibilité avec les transports en commun L'emplacement\n• Lieu: Vista pratiques oculaires et cliniques\n• Rue: Viaductstrasse 42\n• Ville: 4051 Bâle\n• Pays : Suisse Nous sommes très heureux de vous rencontrer. Si vous avez des questions, veuillez contacter Mme Simone Hess au +41 61 551 40 90. Maintenant, je suis heureux de vous accompagner sur le chemin de votre travail de rêve. Je suis heureux d'être à votre disposition pour les questions. Intéressé ? Sabrina Cassan HR Manager +41 61 551 40 33 Vous connaissez vos objectifs - nous y sommes. En cela, nous sommes forts et expérimentés. Nous sommes engagés envers vous et mettons votre personnalité au centre de notre travail. Depuis plus de trois décennies, professionnel, compétent, flexible et équitable. Les cabinets et cliniques Vista offrent à leurs employés une variété d'avantages qui enrichissent l'environnement de travail et favorisent le développement personnel. Une sélection de ceux-ci peut être trouvée ici. Adresse Vista Eye Practices and Clinics Viaductstrasse 42 4051 Basel Mail Link Whatsapp Linkedin Facebook"
+    },
+    "slugByLocale": {
+      "de": "leiter-in-linsen-biometrie-sprechstunde-80-100-vista-basel",
+      "it": "responsabile-dell-ambulatorio-di-lenti-e-biometria-80-100-vista-augenpraxen-kliniken-basel-021d5502",
+      "en": "head-of-lens-biometry-clinic-80-100-vista-augenpraxen-kliniken-basel-e75b0895",
+      "fr": "responsable-de-la-consultation-lentilles-et-biometrie-80-100-vista-augenpraxen-kliniken-basel-f9ffdecd"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-16T09:15:32.957Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "optometrista-responsabile-della-consultazione-biometrica-80-100-vista-augenpraxen-kliniken-basel-ef19d182",
+        "leiter-in-linsen-biometrie-sprechstunde-80-100-vista-basel-d4073672",
+        "responsabile-linsen-biometrie-sprechstunde-80-100-vista-augenpraxen-kliniken-basel-71df37bf",
+        "optometrist-with-responsibility-for-biometrics-consultation-80-100-vista-augenpraxen-kliniken-basel",
+        "optometrist-in-mit-fachverantwortung-biometrie-sprechstunde-80-100-vista-basel-7ab35a7c",
+        "optometriste-responsable-de-la-consultation-biometrique-80-100-vista-augenpraxen-kliniken-basel",
+        "responsabile-dell-ambulatorio-di-lenti-e-biometria-80-100-vista-augenpraxen-kliniken-basel-c6643168",
+        "optometrista-responsabile-della-consultazione-biometrica-80-100-vista-augenpraxen-kliniken-basel-5d7e79eb",
+        "leiter-in-linsen-biometrie-sprechstunde-80-100-vista-basel-8076f6b0",
+        "responsabile-linsen-biometrie-sprechstunde-80-100-vista-augenpraxen-kliniken-basel-d11c287b",
+        "optometrist-in-mit-fachverantwortung-biometrie-sprechstunde-80-100-vista-basel-9b41fd4f",
+        "responsabile-dell-ambulatorio-di-lenti-e-biometria-80-100-vista-augenpraxen-kliniken-basel-7f365572",
+        "optometrista-responsabile-della-consultazione-biometrica-80-100-vista-augenpraxen-kliniken-basel-f9329f9a",
+        "leiter-in-linsen-biometrie-sprechstunde-80-100-vista-basel-526ec337",
+        "responsabile-linsen-biometrie-sprechstunde-80-100-vista-augenpraxen-kliniken-basel-5c3462d3",
+        "optometrist-in-mit-fachverantwortung-biometrie-sprechstunde-80-100-vista-basel-3df35dd3"
+      ],
+      "en": [
+        "optometrist-with-responsibility-for-biometrics-consultation-80-100-vista-augenpraxen-kliniken-basel-1e471b3b",
+        "leiter-in-linsen-biometrie-sprechstunde-80-100-vista-basel",
+        "optometrista-responsabile-della-consultazione-biometrica-80-100-vista-augenpraxen-kliniken-basel",
+        "optometrist-in-mit-fachverantwortung-biometrie-sprechstunde-80-100-vista-basel-7ab35a7c",
+        "optometriste-responsable-de-la-consultation-biometrique-80-100-vista-augenpraxen-kliniken-basel",
+        "head-of-lens-biometry-clinic-80-100-vista-augenpraxen-kliniken-basel-d0736541",
+        "optometrist-with-responsibility-for-biometrics-consultation-80-100-vista-augenpraxen-kliniken-basel-07849c41",
+        "responsabile-linsen-biometrie-sprechstunde-80-100-vista-augenpraxen-kliniken-basel-d11c287b",
+        "optometrist-in-mit-fachverantwortung-biometrie-sprechstunde-80-100-vista-basel-9b41fd4f",
+        "head-of-lens-biometry-clinic-80-100-vista-augenpraxen-kliniken-basel-71ee7322",
+        "optometrist-with-responsibility-for-biometrics-consultation-80-100-vista-augenpraxen-kliniken-basel-5eb8b008",
+        "responsabile-linsen-biometrie-sprechstunde-80-100-vista-augenpraxen-kliniken-basel-5c3462d3",
+        "optometrist-in-mit-fachverantwortung-biometrie-sprechstunde-80-100-vista-basel-3df35dd3"
+      ],
+      "de": [
+        "optometrist-in-mit-fachverantwortung-biometrie-sprechstunde-80-100-vista-basel-7ab35a7c",
+        "optometrista-responsabile-della-consultazione-biometrica-80-100-vista-augenpraxen-kliniken-basel",
+        "leiter-in-linsen-biometrie-sprechstunde-80-100-vista-basel",
+        "optometrist-with-responsibility-for-biometrics-consultation-80-100-vista-augenpraxen-kliniken-basel",
+        "optometriste-responsable-de-la-consultation-biometrique-80-100-vista-augenpraxen-kliniken-basel",
+        "optometrist-in-mit-fachverantwortung-biometrie-sprechstunde-80-100-vista-basel-9b41fd4f",
+        "responsabile-linsen-biometrie-sprechstunde-80-100-vista-augenpraxen-kliniken-basel-d11c287b",
+        "optometrist-in-mit-fachverantwortung-biometrie-sprechstunde-80-100-vista-basel-3df35dd3",
+        "responsabile-linsen-biometrie-sprechstunde-80-100-vista-augenpraxen-kliniken-basel-5c3462d3"
+      ],
+      "fr": [
+        "optometriste-responsable-de-la-consultation-biometrique-80-100-vista-augenpraxen-kliniken-basel-b8bdd186",
+        "leiter-in-linsen-biometrie-sprechstunde-80-100-vista-basel",
+        "optometrista-responsabile-della-consultazione-biometrica-80-100-vista-augenpraxen-kliniken-basel",
+        "optometrist-with-responsibility-for-biometrics-consultation-80-100-vista-augenpraxen-kliniken-basel",
+        "optometrist-in-mit-fachverantwortung-biometrie-sprechstunde-80-100-vista-basel-7ab35a7c",
+        "responsable-de-la-consultation-lentilles-et-biometrie-80-100-vista-augenpraxen-kliniken-basel-c27a7bac",
+        "optometriste-responsable-de-la-consultation-biometrique-80-100-vista-augenpraxen-kliniken-basel-1528db0a",
+        "responsabile-linsen-biometrie-sprechstunde-80-100-vista-augenpraxen-kliniken-basel-d11c287b",
+        "optometrist-in-mit-fachverantwortung-biometrie-sprechstunde-80-100-vista-basel-9b41fd4f",
+        "responsable-de-la-consultation-lentilles-et-biometrie-80-100-vista-augenpraxen-kliniken-basel-f6aa839d",
+        "optometriste-responsable-de-la-consultation-biometrique-80-100-vista-augenpraxen-kliniken-basel-00cdd028",
+        "responsabile-linsen-biometrie-sprechstunde-80-100-vista-augenpraxen-kliniken-basel-5c3462d3",
+        "optometrist-in-mit-fachverantwortung-biometrie-sprechstunde-80-100-vista-basel-3df35dd3"
+      ]
+    },
+    "postalCode": "4001",
+    "streetAddress": "Viaduktstrasse 42",
+    "salaryMin": 119000,
+    "salaryMax": 166000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://link.ostendis.com/publication/leiter-in-linsen-biometrie-sprechstunde/7dep13y4glk16fb1wl1y6sdwdh272d750gw0m8c6d1egjn340hykcxeh438li0ag",
+    "firstSeenAt": "2026-09-09T14:05:24.364Z",
+    "previousSlugs": [
+      "optometrista-responsabile-della-consultazione-biometrica-80-100-vista-augenpraxen-kliniken-basel-ef19d182",
+      "leiter-in-linsen-biometrie-sprechstunde-80-100-vista-basel-d4073672",
+      "responsabile-linsen-biometrie-sprechstunde-80-100-vista-augenpraxen-kliniken-basel-71df37bf",
+      "optometrist-with-responsibility-for-biometrics-consultation-80-100-vista-augenpraxen-kliniken-basel",
+      "optometrist-in-mit-fachverantwortung-biometrie-sprechstunde-80-100-vista-basel-7ab35a7c",
+      "optometriste-responsable-de-la-consultation-biometrique-80-100-vista-augenpraxen-kliniken-basel",
+      "optometrist-with-responsibility-for-biometrics-consultation-80-100-vista-augenpraxen-kliniken-basel-1e471b3b",
+      "optometrista-responsabile-della-consultazione-biometrica-80-100-vista-augenpraxen-kliniken-basel",
+      "optometriste-responsable-de-la-consultation-biometrique-80-100-vista-augenpraxen-kliniken-basel-b8bdd186",
+      "responsabile-dell-ambulatorio-di-lenti-e-biometria-80-100-vista-augenpraxen-kliniken-basel-c6643168",
+      "leiter-in-linsen-biometrie-sprechstunde-80-100-vista-basel",
+      "optometrista-responsabile-della-consultazione-biometrica-80-100-vista-augenpraxen-kliniken-basel-5d7e79eb",
+      "leiter-in-linsen-biometrie-sprechstunde-80-100-vista-basel-8076f6b0",
+      "responsabile-linsen-biometrie-sprechstunde-80-100-vista-augenpraxen-kliniken-basel-d11c287b",
+      "optometrist-in-mit-fachverantwortung-biometrie-sprechstunde-80-100-vista-basel-9b41fd4f",
+      "head-of-lens-biometry-clinic-80-100-vista-augenpraxen-kliniken-basel-d0736541",
+      "optometrist-with-responsibility-for-biometrics-consultation-80-100-vista-augenpraxen-kliniken-basel-07849c41",
+      "responsable-de-la-consultation-lentilles-et-biometrie-80-100-vista-augenpraxen-kliniken-basel-c27a7bac",
+      "optometriste-responsable-de-la-consultation-biometrique-80-100-vista-augenpraxen-kliniken-basel-1528db0a",
+      "responsabile-dell-ambulatorio-di-lenti-e-biometria-80-100-vista-augenpraxen-kliniken-basel-7f365572",
+      "optometrista-responsabile-della-consultazione-biometrica-80-100-vista-augenpraxen-kliniken-basel-f9329f9a",
+      "leiter-in-linsen-biometrie-sprechstunde-80-100-vista-basel-526ec337",
+      "responsabile-linsen-biometrie-sprechstunde-80-100-vista-augenpraxen-kliniken-basel-5c3462d3",
+      "optometrist-in-mit-fachverantwortung-biometrie-sprechstunde-80-100-vista-basel-3df35dd3",
+      "head-of-lens-biometry-clinic-80-100-vista-augenpraxen-kliniken-basel-71ee7322",
+      "optometrist-with-responsibility-for-biometrics-consultation-80-100-vista-augenpraxen-kliniken-basel-5eb8b008",
+      "responsable-de-la-consultation-lentilles-et-biometrie-80-100-vista-augenpraxen-kliniken-basel-f6aa839d",
+      "optometriste-responsable-de-la-consultation-biometrique-80-100-vista-augenpraxen-kliniken-basel-00cdd028"
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsabile-dell-ambulatorio-di-lenti-e-biometria-80-100-vista-augenpraxen-kliniken-basel-7f365572": "BS",
+        "optometrista-responsabile-della-consultazione-biometrica-80-100-vista-augenpraxen-kliniken-basel-f9329f9a": "BS",
+        "leiter-in-linsen-biometrie-sprechstunde-80-100-vista-basel-526ec337": "BS",
+        "responsabile-linsen-biometrie-sprechstunde-80-100-vista-augenpraxen-kliniken-basel-5c3462d3": "BS",
+        "optometrist-with-responsibility-for-biometrics-consultation-80-100-vista-augenpraxen-kliniken-basel": "BS",
+        "optometrist-in-mit-fachverantwortung-biometrie-sprechstunde-80-100-vista-basel-3df35dd3": "BS",
+        "optometriste-responsable-de-la-consultation-biometrique-80-100-vista-augenpraxen-kliniken-basel": "BS"
+      },
+      "en": {
+        "head-of-lens-biometry-clinic-80-100-vista-augenpraxen-kliniken-basel-71ee7322": "BS",
+        "optometrist-with-responsibility-for-biometrics-consultation-80-100-vista-augenpraxen-kliniken-basel-5eb8b008": "BS",
+        "leiter-in-linsen-biometrie-sprechstunde-80-100-vista-basel": "BS",
+        "optometrista-responsabile-della-consultazione-biometrica-80-100-vista-augenpraxen-kliniken-basel": "BS",
+        "responsabile-linsen-biometrie-sprechstunde-80-100-vista-augenpraxen-kliniken-basel-5c3462d3": "BS",
+        "optometrist-in-mit-fachverantwortung-biometrie-sprechstunde-80-100-vista-basel-3df35dd3": "BS",
+        "optometriste-responsable-de-la-consultation-biometrique-80-100-vista-augenpraxen-kliniken-basel": "BS"
+      },
+      "de": {
+        "optometrist-in-mit-fachverantwortung-biometrie-sprechstunde-80-100-vista-basel-3df35dd3": "BS",
+        "optometrista-responsabile-della-consultazione-biometrica-80-100-vista-augenpraxen-kliniken-basel": "BS",
+        "responsabile-linsen-biometrie-sprechstunde-80-100-vista-augenpraxen-kliniken-basel-5c3462d3": "BS",
+        "optometrist-with-responsibility-for-biometrics-consultation-80-100-vista-augenpraxen-kliniken-basel": "BS",
+        "optometriste-responsable-de-la-consultation-biometrique-80-100-vista-augenpraxen-kliniken-basel": "BS"
+      },
+      "fr": {
+        "responsable-de-la-consultation-lentilles-et-biometrie-80-100-vista-augenpraxen-kliniken-basel-f6aa839d": "BS",
+        "optometriste-responsable-de-la-consultation-biometrique-80-100-vista-augenpraxen-kliniken-basel-00cdd028": "BS",
+        "leiter-in-linsen-biometrie-sprechstunde-80-100-vista-basel": "BS",
+        "optometrista-responsabile-della-consultazione-biometrica-80-100-vista-augenpraxen-kliniken-basel": "BS",
+        "responsabile-linsen-biometrie-sprechstunde-80-100-vista-augenpraxen-kliniken-basel-5c3462d3": "BS",
+        "optometrist-with-responsibility-for-biometrics-consultation-80-100-vista-augenpraxen-kliniken-basel": "BS",
+        "optometrist-in-mit-fachverantwortung-biometrie-sprechstunde-80-100-vista-basel-3df35dd3": "BS"
+      }
+    }
   },
   {
     "slug": "capo-della-contabilita-finanziaria-100-vista-augenpraxen-kliniken-basel",
@@ -641,7 +889,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/leiter-in-finanzbuchhaltung/ayb2p6iu76wwngwhqkpz7xewm3nfoy5vvt9ixtudyp32zkzdevm3powzva08fiip",
-    "firstSeenAt": "2026-09-11T13:54:07.125Z"
+    "firstSeenAt": "2026-09-11T13:54:07.125Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leiter-in-finanzbuchhaltung-100-vista-basel": "BS",
+        "responsabile-finanzbuchhaltung-100-vista-augenpraxen-kliniken-basel": "BS"
+      },
+      "en": {
+        "leiter-in-finanzbuchhaltung-100-vista-basel": "BS"
+      },
+      "fr": {
+        "leiter-in-finanzbuchhaltung-100-vista-basel": "BS"
+      }
+    }
   },
   {
     "slug": "dipl-tecnica-operativa-professionale-hf-o-ota-toa-80-vista-augenpraxen-kliniken-thun-15553f04",
@@ -746,7 +1007,12 @@
         "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun-151eb80a",
         "dipl-fachfrau-mann-operationstechnik-hf-oder-ota-toa-80-vista-thun-eec826ef",
         "dipl-fachfrau-mann-operationstechnik-hf-o-ota-toa-80-vista-augenpraxen-kliniken-thun-717654af",
-        "dipl-fachfrau-mann-operationstechnik-hf-o-toa-80-vista-augenpraxen-kliniken-thun-9f6597b5"
+        "dipl-fachfrau-mann-operationstechnik-hf-o-toa-80-vista-augenpraxen-kliniken-thun-9f6597b5",
+        "dipl-tecnica-operativa-professionale-hf-o-ota-toa-80-vista-augenpraxen-kliniken-thun-a09958c7",
+        "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun-3be7d8ef",
+        "dipl-fachfrau-mann-operationstechnik-hf-oder-ota-toa-80-vista-thun-310d1082",
+        "dipl-fachfrau-mann-operationstechnik-hf-o-ota-toa-80-vista-augenpraxen-kliniken-thun-f789bf58",
+        "dipl-fachfrau-mann-operationstechnik-hf-o-toa-80-vista-augenpraxen-kliniken-thun-560615ef"
       ],
       "en": [
         "dipl-fachfrau-mann-operationstechnik-hf-oder-ota-toa-80-vista-thun-d98996e7",
@@ -758,7 +1024,10 @@
         "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun-7f967f82",
         "dipl-professional-operating-technique-hf-or-ota-toa-80-vista-augenpraxen-kliniken-thun-792eed4c",
         "dipl-fachfrau-mann-operationstechnik-hf-oder-ota-toa-80-vista-thun-eec826ef",
-        "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun-151eb80a"
+        "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun-151eb80a",
+        "dipl-professional-operating-technique-hf-or-ota-toa-80-vista-augenpraxen-kliniken-thun-9bd528d6",
+        "dipl-fachfrau-mann-operationstechnik-hf-oder-ota-toa-80-vista-thun-310d1082",
+        "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun-3be7d8ef"
       ],
       "fr": [
         "dipl-fachfrau-mann-operationstechnik-hf-oder-ota-toa-80-vista-thun-d98996e7",
@@ -770,7 +1039,10 @@
         "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun-7f967f82",
         "dipl-technique-d-exploitation-professionnelle-hf-ou-ota-toa-80-vista-augenpraxen-kliniken-thun-3e6bdc73",
         "dipl-fachfrau-mann-operationstechnik-hf-oder-ota-toa-80-vista-thun-eec826ef",
-        "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun-151eb80a"
+        "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun-151eb80a",
+        "dipl-technique-d-exploitation-professionnelle-hf-ou-ota-toa-80-vista-augenpraxen-kliniken-thun-ff898551",
+        "dipl-fachfrau-mann-operationstechnik-hf-oder-ota-toa-80-vista-thun-310d1082",
+        "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun-3be7d8ef"
       ],
       "de": [
         "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun-8a12549f",
@@ -779,7 +1051,9 @@
         "dipl-fachfrau-mann-operationstechnik-hf-oder-ota-toa-80-vista-thun-fdf5afba",
         "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun-7f967f82",
         "dipl-fachfrau-mann-operationstechnik-hf-oder-ota-toa-80-vista-thun-eec826ef",
-        "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun-151eb80a"
+        "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun-151eb80a",
+        "dipl-fachfrau-mann-operationstechnik-hf-oder-ota-toa-80-vista-thun-310d1082",
+        "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun-3be7d8ef"
       ]
     },
     "postalCode": "3600",
@@ -810,7 +1084,14 @@
       "dipl-professional-operating-technique-hf-or-ota-toa-80-vista-augenpraxen-kliniken-thun-bc0da7a7",
       "dipl-professional-operating-technique-hf-or-ota-toa-80-vista-augenpraxen-kliniken-thun-792eed4c",
       "dipl-technique-d-exploitation-professionnelle-hf-ou-ota-toa-80-vista-augenpraxen-kliniken-thun-c4ce1050",
-      "dipl-technique-d-exploitation-professionnelle-hf-ou-ota-toa-80-vista-augenpraxen-kliniken-thun-3e6bdc73"
+      "dipl-technique-d-exploitation-professionnelle-hf-ou-ota-toa-80-vista-augenpraxen-kliniken-thun-3e6bdc73",
+      "dipl-tecnica-operativa-professionale-hf-o-ota-toa-80-vista-augenpraxen-kliniken-thun-a09958c7",
+      "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun-3be7d8ef",
+      "dipl-fachfrau-mann-operationstechnik-hf-oder-ota-toa-80-vista-thun-310d1082",
+      "dipl-fachfrau-mann-operationstechnik-hf-o-ota-toa-80-vista-augenpraxen-kliniken-thun-f789bf58",
+      "dipl-fachfrau-mann-operationstechnik-hf-o-toa-80-vista-augenpraxen-kliniken-thun-560615ef",
+      "dipl-professional-operating-technique-hf-or-ota-toa-80-vista-augenpraxen-kliniken-thun-9bd528d6",
+      "dipl-technique-d-exploitation-professionnelle-hf-ou-ota-toa-80-vista-augenpraxen-kliniken-thun-ff898551"
     ]
   },
   {
@@ -894,7 +1175,39 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/augenoptiker-in-oder-med-praxisassistent-in/o0s0few6o00bjjgtl3f7cxorkcx7vsd5ypw6r43drmpnogs882ahob57c0fzleyf",
-    "firstSeenAt": "2026-06-22T15:31:20.759Z"
+    "firstSeenAt": "2026-06-22T15:31:20.759Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "augenoptiker-in-oder-med-praxisassistent-in-60-100-vista-zurich": "ZH",
+        "optometrista-stra-60-vista-augenpraxen-kliniken-zurich": "ZH",
+        "ottico-60-vista-augenpraxen-kliniken-zurich": "ZH",
+        "augenoptiker-in-oder-med-praxisassistent-in-60-vista-zurich": "ZH",
+        "augenoptiker-in-o-med-praxisassistent-in-60-vista-augenpraxen-kliniken-zurich": "ZH",
+        "augenoptiker-in-oder-med-praxisassistent-in-40-vista-zurich": "ZH"
+      },
+      "en": {
+        "optometrist-60-vista-augenpraxen-kliniken-zurich": "ZH",
+        "optician-60-vista-augenpraxen-kliniken-zurich": "ZH",
+        "augenoptiker-in-oder-med-praxisassistent-in-60-100-vista-zurich": "ZH",
+        "augenoptiker-in-oder-med-praxisassistent-in-60-vista-zurich": "ZH",
+        "optician-in-or-med-practical-assistant-in-60-vista-augenpraxen-kliniken-zurich": "ZH"
+      },
+      "de": {
+        "augenoptiker-in-60-vista-zurich": "ZH",
+        "augenoptiker-in-60-vista-augenpraxen-kliniken-zurich": "ZH",
+        "augenoptiker-in-oder-med-praxisassistent-in-60-vista-zurich": "ZH",
+        "augenoptiker-in-oder-med-praxisassistent-in-40-vista-zurich": "ZH",
+        "augenoptiker-in-oder-med-praxisassistent-in-60-100-vista-zurich": "ZH"
+      },
+      "fr": {
+        "optometriste-60-vista-augenpraxen-kliniken-zurich": "ZH",
+        "opticien-ne-60-vista-augenpraxen-kliniken-zurich": "ZH",
+        "augenoptiker-in-oder-med-praxisassistent-in-60-100-vista-zurich": "ZH",
+        "augenoptiker-in-oder-med-praxisassistent-in-60-vista-zurich": "ZH",
+        "opticien-in-ou-med-assistant-pratique-in-60-vista-augenpraxen-kliniken-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "fage-infermiere-professionale-diplomato-40-m-f-vista-augenpraxen-kliniken-dattwil-ag",

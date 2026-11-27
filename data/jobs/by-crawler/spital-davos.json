@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spital-davos",
-  "assembledAt": "2026-11-27T01:53:31.505Z",
-  "runId": "45924044578",
+  "assembledAt": "2026-11-27T13:46:26.589Z",
+  "runId": "46008333389",
   "jobs": [
     {
       "id": "spital-davos-5a7dd002f54a",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/366/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:22.381Z",
+      "crawledAt": "2026-11-27T13:46:14.919Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -105,8 +105,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T01:53:22.381Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T13:46:14.919Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/366/description/1"
     },
     {
       "id": "spital-davos-635645b27dbc",
@@ -139,7 +140,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/416/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:21.529Z",
+      "crawledAt": "2026-11-27T13:46:14.001Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -218,8 +219,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T01:53:21.529Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T13:46:14.001Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/416/description/1"
     },
     {
       "id": "spital-davos-0fa61762dcc2",
@@ -252,7 +254,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/369/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:20.671Z",
+      "crawledAt": "2026-11-27T13:46:13.041Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -322,8 +324,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T01:53:20.671Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T13:46:13.041Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/369/description/1"
     },
     {
       "id": "spital-davos-9481c5b262d7",
@@ -356,7 +359,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/613/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:19.840Z",
+      "crawledAt": "2026-11-27T13:46:12.106Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -432,8 +435,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T01:53:19.840Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T13:46:12.106Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/613/description/1"
     },
     {
       "id": "spital-davos-4316d2e9f777",
@@ -466,7 +470,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/704/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:18.975Z",
+      "crawledAt": "2026-11-27T13:46:11.204Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -517,8 +521,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T01:53:18.975Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T13:46:11.204Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/704/description/1"
     },
     {
       "id": "spital-davos-cf136b0b6e70",
@@ -551,7 +556,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/724/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:18.093Z",
+      "crawledAt": "2026-11-27T13:46:10.272Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -614,8 +619,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T01:53:18.093Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T13:46:10.272Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/724/description/1"
     },
     {
       "id": "spital-davos-12263da966ee",
@@ -648,7 +654,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/723/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:17.219Z",
+      "crawledAt": "2026-11-27T13:46:09.320Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -707,8 +713,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T01:53:17.219Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T13:46:09.320Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/723/description/1"
     },
     {
       "id": "spital-davos-61f9fa513b4a",
@@ -741,7 +748,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/733/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:16.339Z",
+      "crawledAt": "2026-11-27T13:46:08.379Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -809,8 +816,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T01:53:16.339Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T13:46:08.379Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/733/description/1"
     },
     {
       "id": "spital-davos-7fa6fd515a3d",
@@ -843,7 +851,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/734/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:15.471Z",
+      "crawledAt": "2026-11-27T13:46:07.456Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -897,8 +905,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T01:53:15.471Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T13:46:07.456Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/734/description/1"
     },
     {
       "id": "spital-davos-f2fa7536bcba",
@@ -931,7 +940,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/736/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:14.619Z",
+      "crawledAt": "2026-11-27T13:46:06.498Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -979,8 +988,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T01:53:14.619Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T13:46:06.498Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/736/description/1"
     },
     {
       "id": "spital-davos-52fac3ee6994",
@@ -1013,7 +1023,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/737/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:13.768Z",
+      "crawledAt": "2026-11-27T13:46:05.548Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1077,8 +1087,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T01:53:13.768Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T13:46:05.548Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/737/description/1"
     },
     {
       "id": "spital-davos-cf2e08312e7b",
@@ -1111,7 +1122,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/739/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:12.915Z",
+      "crawledAt": "2026-11-27T13:46:04.641Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1167,8 +1178,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T01:53:12.915Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-20T13:46:04.641Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/739/description/1"
     },
     {
       "id": "spital-davos-f5990af89530",
@@ -1201,7 +1213,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/749/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:12.036Z",
+      "crawledAt": "2026-11-27T13:46:03.692Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1257,8 +1269,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-23T01:53:12.036Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-23T13:46:03.692Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/749/description/1"
     },
     {
       "id": "spital-davos-f0c54be52456",
@@ -1291,7 +1304,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/735/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:11.174Z",
+      "crawledAt": "2026-11-27T13:46:02.791Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1347,8 +1360,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T01:53:11.174Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-31T13:46:02.791Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/735/description/1"
     },
     {
       "id": "spital-davos-f40a5f070608",
@@ -1381,7 +1395,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/729/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:10.273Z",
+      "crawledAt": "2026-11-27T13:46:01.905Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1431,8 +1445,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T01:53:10.273Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T13:46:01.905Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/729/description/1"
     },
     {
       "id": "spital-davos-c9f631de81ec",
@@ -1465,7 +1480,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/751/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:09.379Z",
+      "crawledAt": "2026-11-27T13:46:01.003Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1527,8 +1542,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T01:53:09.379Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-20T13:46:01.003Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/751/description/1"
     },
     {
       "id": "spital-davos-85823965be38",
@@ -1561,7 +1577,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/752/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:08.523Z",
+      "crawledAt": "2026-11-27T13:46:00.265Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1615,8 +1631,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T01:53:08.523Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-09T13:46:00.265Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/752/description/1"
     },
     {
       "id": "spital-davos-8d93c3f7be28",
@@ -1649,7 +1666,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/721/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:07.655Z",
+      "crawledAt": "2026-11-27T13:45:59.570Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1702,8 +1719,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T01:53:07.655Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-11T13:45:59.570Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/721/description/1"
     },
     {
       "id": "spital-davos-0f3affce3521",
@@ -1736,7 +1754,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/756/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:06.783Z",
+      "crawledAt": "2026-11-27T13:45:58.639Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1790,8 +1808,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T01:53:06.783Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-22T13:45:58.639Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/756/description/1"
     },
     {
       "id": "spital-davos-637a3738828e",
@@ -1824,7 +1843,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/757/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:05.886Z",
+      "crawledAt": "2026-11-27T13:45:57.736Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1878,8 +1897,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T01:53:05.886Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-22T13:45:57.736Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/757/description/1"
     },
     {
       "id": "spital-davos-e56e93274f4e",
@@ -1912,7 +1932,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/758/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:04.995Z",
+      "crawledAt": "2026-11-27T13:45:56.808Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1966,8 +1986,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T01:53:04.995Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-22T13:45:56.808Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/758/description/1"
     },
     {
       "id": "spital-davos-daa95aa513f2",
@@ -2000,7 +2021,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/759/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:04.138Z",
+      "crawledAt": "2026-11-27T13:45:55.787Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2054,8 +2075,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T01:53:04.138Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-22T13:45:55.787Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/759/description/1"
     },
     {
       "id": "spital-davos-ea219a9c84ba",
@@ -2088,7 +2110,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/760/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:03.248Z",
+      "crawledAt": "2026-11-27T13:45:54.887Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2142,8 +2164,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T01:53:03.248Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-22T13:45:54.887Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/760/description/1"
     },
     {
       "id": "spital-davos-96f356ff140c",
@@ -2176,7 +2199,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/761/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:02.389Z",
+      "crawledAt": "2026-11-27T13:45:53.986Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2230,8 +2253,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T01:53:02.389Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-22T13:45:53.986Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/761/description/1"
     },
     {
       "id": "spital-davos-9ee7a190d0b2",
@@ -2264,7 +2288,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/699/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:01.513Z",
+      "crawledAt": "2026-11-27T13:45:53.054Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2337,8 +2361,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T01:53:01.513Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T13:45:53.054Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/699/description/1"
     },
     {
       "id": "spital-davos-391df091b826",
@@ -2371,7 +2396,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/742/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:53:00.657Z",
+      "crawledAt": "2026-11-27T13:45:52.126Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2425,8 +2450,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T01:53:00.657Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-11T13:45:52.126Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/742/description/1"
     },
     {
       "id": "spital-davos-3a77987ed4d9",
@@ -2459,7 +2485,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/741/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T01:52:59.809Z",
+      "crawledAt": "2026-11-27T13:45:51.210Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2512,8 +2538,9 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T01:52:59.809Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-12T13:45:51.210Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2966.umantis.com/vacancies/741/description/1"
     }
   ]
 }

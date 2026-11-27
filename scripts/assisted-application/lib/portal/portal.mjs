@@ -38,6 +38,7 @@ import { COVER_LETTER_DOCUMENT_CONTEXT_RE, COVER_LETTER_DOCUMENT_TERMS, CV_DOCUM
 import { advancedToFinalReview } from './final-review.mjs';
 export { advancedToFinalReview } from './final-review.mjs';
 import { AGENT_MAX_RUNTIME_MS, AGENT_ROUNDS, advanceLocator, agentNavigationEnabled, clickSubmitButton, completeWithAgent, isPreDispatchLocatorClickFailure, submitLocator } from './agent.mjs';
+import { avatureProtocolMatches, readAvatureSignInRouteInPage, readPortalProtocolInPage } from './protocol.mjs';
 import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, asksExistingPassword, authPageKind, codeField, hasExistingAccountPrompt, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields as extractFieldsRaw, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
@@ -112,7 +113,7 @@ function passwordResetAccessibleName(control) {
     .find(Boolean) || '';
 }
 
-const PASSWORD_RESET_CONFIRM_RE = /(?:reset|change|update|save|submit|continue|zurücksetzen|zuruecksetzen|speichern|ändern|aendern|modifier|enregistrer|réinitialiser|reinitialiser|salva|aggiorna|reimposta)/i;
+const PASSWORD_RESET_CONFIRM_RE = /(?:reset|change|update|save|submit|continue|confirm|set\s+(?:new\s+)?password|zurücksetzen|zuruecksetzen|speichern|setzen|vergeben|festlegen|absenden|bestätigen|bestaetigen|ändern|aendern|modifier|enregistrer|réinitialiser|reinitialiser|définir|definir|salva|aggiorna|reimposta|imposta)/i;
 const PASSWORD_RESET_REFUSED_RE = /(?:expired|invalid|not valid|cannot be used|could not be reset|abgelaufen|ungültig|nicht gültig|expiré|invalide|scadut[oa]|non valido|rifiutat[oa])/i;
 const ALREADY_APPLIED_RE = /(?:already applied|application already (?:exists|submitted|received)|you have already applied|déjà postulé|déjà candidaté|bereits beworben|bereits eine bewerbung|già candid(?:at[oa]|at[oa])|hai già inviato la candidatura|già presentata la candidatura)/iu;
 const APPLICATION_HISTORY_RE = /(?:my applications|mes candidatures|mes demandes de candidature|meine bewerbungen|le mie candidature|i miei invii)/iu;
@@ -1037,6 +1038,38 @@ function isSuccessFactorsPostingEntry({ applyUrl, postingUrl, postingRouteProof 
       });
   } catch {
     return false;
+  }
+}
+
+/** Reopening the proven module route is bounded: a portal that keeps landing elsewhere is a stop, not a loop. */
+export const SUCCESS_FACTORS_ENTRY_REOPEN_LIMIT = 2;
+
+/**
+ * Where a SuccessFactors session that landed beside the application goes back
+ * to. After a sign-in or an account verification the tenant can serve its
+ * profile shell at `/portalcareer` («Retour à la liste des postes», «Mon profil
+ * de candidature», no field) instead of the requisition's form. The only target
+ * is the order's own module route, and only when the resolver proved that route
+ * for this exact posting (isSuccessFactorsPostingEntry); the page is no evidence
+ * of anything, so it is merely required to be a SuccessFactors career surface
+ * with no application form and no account control, away from that route. The
+ * binding is then judged on the reopened page like any other. Without the proof
+ * (a title, a tenant, a first result) there is no target and the stop stays.
+ */
+export function successFactorsEntryReopenTarget({ pageUrl = '', applyUrl = '', postingUrl = '', postingRouteProof = null, snapshot = {}, reopened = 0 } = {}) {
+  if (!(reopened < SUCCESS_FACTORS_ENTRY_REOPEN_LIMIT)) return '';
+  try {
+    if (!isSuccessFactorsPostingEntry({ applyUrl, postingUrl, postingRouteProof })) return '';
+    const apply = new URL(String(applyUrl));
+    if (!isSuccessFactorsModuleRoute(apply) || !isSuccessFactorsCareerPath(pageUrl)) return '';
+    if (sameSuccessFactorsModuleAddress(pageUrl, apply.href)) return '';
+    if (hasApplicationForm(snapshot) || authPageKind(snapshot) !== 'none' || snapshot?.passwordVisible === true
+      || codeField(snapshot)) return '';
+    if ((snapshot?.fields || []).some((field) => !field.chrome && !field.disabled
+      && !['hidden', 'submit', 'button', 'reset', 'image'].includes(String(field.inputType || '').toLowerCase()))) return '';
+    return apply.href;
+  } catch {
+    return '';
   }
 }
 
@@ -4892,7 +4925,15 @@ function verifiedDirectApplicationUrl(stageContext, currentUrl) {
   }
 }
 
-const normalizeWords = (text) => String(text || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ');
+const normalizeWords = (text) => String(text || '')
+  .toLowerCase()
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
+  // Split concatenated DOM text runs (e.g. "Zürich16.", "Kundendienst80%")
+  // while keeping short alphanumeric brand tokens like 3M or S2 intact.
+  .replace(/([a-z]{3,})(?=\d)/g, '$1 ')
+  .replace(/(\d)(?=[a-z]{3,})/g, '$1 ')
+  .replace(/[^a-z0-9]+/g, ' ');
 // Legal forms and short words name no company: "Ospedale ABC SA" is "ospedale abc",
 // "Coop Genossenschaft" is "coop" (its SuccessFactors pages say only "Coop").
 const NOT_A_NAME = new Set(['sa', 'ag', 'gmbh', 'sagl', 'srl', 'spa', 'sarl', 'ltd', 'inc', 'llc', 'llp', 'kg', 'genossenschaft', 'cooperativa', 'cooperative', 'the', 'und', 'and', 'del', 'della', 'des', 'les', 'der', 'die', 'das']);
@@ -5125,6 +5166,7 @@ const FORM_VOCABULARY = new Set([
   'job', 'jobs', 'detail', 'details', 'career', 'careers', 'karriere', 'carriera', 'carriere', 'stelle', 'stellen', 'offerta', 'offre', 'vacancy', 'vacancies',
   'portal', 'portale', 'portail', 'online', 'form', 'formular', 'formulaire', 'modulo', 'login', 'home', 'tracking', 'system',
   'team', 'bereich', 'welcome', 'willkommen', 'benvenuti', 'bienvenue',
+  'lavora', 'noi', 'spontanea', 'arbeiten', 'rejoignez', 'nous', 'vous',
   // Italian SuccessFactors section controls and first fields are form chrome,
   // not an employer or role heading.
   'opzioni', 'esplodi', 'comprimi', 'tutte', 'sezioni', 'profilo', 'specifiche', 'visualizza', 'salva', 'lingua', 'appellativo',
@@ -5583,8 +5625,23 @@ function hasUnexplainedEmployerCommaHeading(value, job = {}) {
 // The exact Stadt Zürich detail shell can put its tenant marker and the
 // posting URL in the form text. They are route evidence, not a second
 // employer; remove only those proven shell tokens before the conflict guard.
+function isJobRoomPostingRoute({ pageUrl = '', postingUrl = '' } = {}) {
+  return [pageUrl, postingUrl].some((value) => {
+    try {
+      const parsed = new URL(String(value || ''));
+      return /^(?:www\.)?job-room\.ch$/i.test(parsed.hostname) && /^\/job-search\//i.test(parsed.pathname);
+    } catch {
+      return false;
+    }
+  });
+}
+
 function boundPostingConflictText(formText, job, { pageUrl = '', postingUrl = '' } = {}) {
   const text = String(formText || '');
+  if (isJobRoomPostingRoute({ pageUrl, postingUrl })) {
+    const stripped = text.replace(/^\s*Header\s+Contact\s+Registration\s+info\s+Login\s+work\s*\.swiss\s*$/gimu, '').trim();
+    if (stripped !== text) return stripped;
+  }
   const firstLine = text.split(/\r?\n/, 1)[0];
   if (!isStadtZurichPostingRoute({ pageUrl, postingUrl })
     || !/\bSTZH\b/iu.test(firstLine)
@@ -6312,7 +6369,9 @@ export function formPostingMatch(formText, job = {}, {
   const verifiedEmployerFormRoute = verifiedApplicationEntryRoute
     && Boolean(String(pageUrl || '').trim() && String(postingUrl || paidPostingUrl || '').trim())
     && currentFormUrlCarriesEmployerHost(pageUrl, job);
-  const identityFormText = formIdentityTextWithoutUrls(formText);
+  const identityFormText = isJobRoomPostingRoute({ pageUrl, postingUrl: formPostingUrl })
+    ? formIdentityTextWithoutUrls(formText).replace(/^\s*Header\s+Contact\s+Registration\s+info\s+Login\s+work\s*\.swiss\s*\r?\n?/gimu, '')
+    : formIdentityTextWithoutUrls(formText);
   const rawFormTitleLine = identityFormText.split(/\r?\n/, 1)[0];
   if ([...headingCandidates, rawFormTitleLine].some((heading) => hasUnexplainedEmployerCommaHeading(heading, job))) return 'unknown';
   const ambiguousBrandHeading = [...headingCandidates, rawFormTitleLine]
@@ -6405,13 +6464,19 @@ export function formPostingMatch(formText, job = {}, {
   // caption; the explicit heading/role conflict checks above remain authoritative.
   if (successFactorsRouteBound && roleHeading !== 'mismatch' && !headingConflict) return 'match';
   const sameBoundPosting = bound && samePostingAddress(pageUrl, formPostingUrl);
+  const allowBoundEmployerLocation = postingLocationBound
+    || (direct === 'match' && [formPostingUrl, applyUrl, paidPostingUrl]
+      .some((url) => Boolean(url) && samePostingAddress(pageUrl, url)));
+  const employerConflictText = (sameBoundPosting || isJobRoomPostingRoute({ pageUrl, postingUrl: formPostingUrl }))
+    ? boundPostingConflictText(employerTextWithoutNativeQuestionLines, job, { pageUrl, postingUrl: formPostingUrl })
+    : employerTextWithoutNativeQuestionLines;
   const boundPinpointApplication = bound && isPinpointPostingEntry({ applyUrl: pageUrl, postingUrl: postingUrl || paidPostingUrl });
   if (headingConflict && !trustedUmantisApplication && !sameBoundPosting && !successFactorsBound) return 'mismatch';
   if (direct === 'match' && !talentSoftAlias
     && (trustedUmantisApplication
       ? umantisHeadingConflict
       : (headingConflict || (!boundPinpointApplication
-        && namesAnotherEmployer(employerTextWithoutNativeQuestionLines, job, { allowPostingLocation: postingLocationBound }))))) return 'mismatch';
+        && namesAnotherEmployer(employerConflictText, job, { allowPostingLocation: allowBoundEmployerLocation }))))) return 'mismatch';
   // If the browser cannot return a bounded heading set on a TalentSoft form,
   // the tenant alias and title alone do not resolve who owns the final page.
   let isTalentSoftHost = false;
@@ -6482,10 +6547,10 @@ export function formPostingMatch(formText, job = {}, {
   // The requisition the runner entered, shown with its role on the same SuccessFactors tenant.
   // A conflicting employer identity on the form: no fallback to the role.
   if (successFactorsBound) return 'match';
-  if (namesAnotherEmployer(employerTextWithoutNativeQuestionLines, job, { allowPostingLocation: postingLocationBound })
+  if (namesAnotherEmployer(employerConflictText, job, { allowPostingLocation: allowBoundEmployerLocation })
     || (/\bhttps?:\/\//iu.test(formText)
       && !formTextMentionsEmployerHost(formText, job)
-      && namesAnotherEmployer(formText, job, { allowPostingLocation: postingLocationBound }))) return 'mismatch';
+      && namesAnotherEmployer(formText, job, { allowPostingLocation: allowBoundEmployerLocation }))) return 'mismatch';
   if (roleHeading === 'mismatch') return 'mismatch';
   // A verified posting can expose a generic application shell whose heading
   // normalizer deliberately remains uncertain (for example across languages),
@@ -7817,23 +7882,25 @@ async function waitForVerificationOutcome(page) {
   // (`/career`, then `/portalcareer`) and draws the application form in its
   // UI5 shell (2026-11-10): a read can fail between them, and a page with
   // nothing to act on is still drawing, not an unconfirmed verification.
+  // Proof the landing is a SuccessFactors tenant route (host + career path), judged on the live address.
+  const outcomeProof = () => ({ successFactorsLanding: isSuccessFactorsCareerPath(page.url()) });
   const read = () => extractFields(page).catch(() => null);
   const actionable = (view) => Boolean(view?.fields?.length) || (view?.buttons || []).some((button) => !button.disabled);
   const unsettled = (view, result) => !view || result === 'pending' || verificationIsPending(view)
     || (result === 'unconfirmed' && !actionable(view));
   let after = await read();
-  let outcome = after ? verificationOutcome(after) : 'pending';
+  let outcome = after ? verificationOutcome(after, outcomeProof()) : 'pending';
   const deadline = Date.now() + OUTCOME_TIMEOUT_MS;
   while (unsettled(after, outcome) && Date.now() < deadline) {
     await page.waitForTimeout(Math.min(1000, deadline - Date.now()));
     after = await read();
-    outcome = after ? verificationOutcome(after) : 'pending';
+    outcome = after ? verificationOutcome(after, outcomeProof()) : 'pending';
   }
   // The same non-throwing read: a page still unreadable at the deadline is a
   // pending outcome, answered by a bounded handoff, never an uncaught rejection.
   after ||= await read();
   if (!after) return { after: null, outcome: 'pending' };
-  return { after, outcome: outcome === 'pending' && !verificationIsPending(after) ? verificationOutcome(after) : outcome };
+  return { after, outcome: outcome === 'pending' && !verificationIsPending(after) ? verificationOutcome(after, outcomeProof()) : outcome };
 }
 
 /**
@@ -9991,6 +10058,11 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
     if (finalUrl.protocol !== 'https:' || finalUrl.username || finalUrl.password || !sameSite(finalUrl.href, portalHost)) return false;
     return true;
   }
+  // Avature (Deloitte CH `/CHCareers/Register`): the registration page has no sign-in link in its content,
+  // only the site-header «Login» anchor, which the snapshot leaves out as site chrome. Followed only when
+  // the live page attests the Avature portal and one same-origin anchor named «Login» leads to its Login page.
+  if (Array.isArray(currentSnapshot?.fields) && authPageKind(currentSnapshot) === 'create'
+    && await openAvatureSignInNavigation(page, currentSnapshot)) return true;
   // SuccessFactors' job-specific registration view can omit the visible
   // sign-in anchor entirely (SBB's `login_ns=register` page). Reuse only the
   // same-origin career route with its verified job context, changing the
@@ -10014,6 +10086,45 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
     }
   }
   return false;
+}
+
+/** Follow the Avature header «Login» route of a registration page; navigation only, nothing is clicked or submitted. */
+async function openAvatureSignInNavigation(page, snapshot) {
+  const identity = authFormIdentity(snapshot);
+  const frame = identity && page.frames()[identity.frame];
+  let currentUrl;
+  try {
+    currentUrl = new URL(frame?.url?.() || '');
+  } catch {
+    return false;
+  }
+  // Cheap URL pre-filter: `/<Namespace>/Register` over https; the live page must still attest Avature.
+  if (currentUrl.protocol !== 'https:' || currentUrl.username || currentUrl.password
+    || !/^\/[A-Za-z][A-Za-z0-9_-]{0,79}\/Register\/?$/.test(currentUrl.pathname)
+    || typeof frame.evaluate !== 'function') return false;
+  const live = await frame.evaluate(`(${readAvatureSignInRouteInPage.toString()})(${readPortalProtocolInPage.toString()})`)
+    .catch(() => null);
+  const protocol = live?.protocol;
+  if (!protocol || !avatureProtocolMatches(protocol, `${currentUrl.origin}${currentUrl.pathname}`)) return false;
+  const targets = new Set();
+  for (const link of Array.isArray(live.links) ? live.links : []) {
+    if (!isExplicitSignInNavigationLabel(link?.text, link?.title, link?.ariaLabel)) continue;
+    const target = verifiedSignInTarget(link.href, currentUrl.href, currentUrl.hostname);
+    if (!target) continue;
+    const parsed = new URL(target);
+    if (parsed.origin !== protocol.origin || parsed.pathname.replace(/\/$/, '') !== `${protocol.namespace}/Login`) continue;
+    targets.add(parsed.href);
+  }
+  // Two different Login destinations would be a guess between them: fail closed.
+  if (targets.size !== 1) return false;
+  try {
+    await frame.goto([...targets][0], { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    const finalUrl = new URL(frame.url());
+    return finalUrl.protocol === 'https:' && !finalUrl.username && !finalUrl.password
+      && finalUrl.origin === protocol.origin && finalUrl.pathname.replace(/\/$/, '') === `${protocol.namespace}/Login`;
+  } catch {
+    return false;
+  }
 }
 
 /** Open a reset route only from the live email+password form that owns the control. */
@@ -10184,8 +10295,8 @@ function resetPasswordFields(snapshot) {
   const fields = (snapshot?.fields || []).filter((field) => field.inputType === 'password');
   if (fields.length !== 2 || !fields[0].formId || fields.some((field) => String(field.formId) !== String(fields[0].formId))) return null;
   const labels = fields.map((field) => `${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`);
-  const confirmation = labels.findIndex((label) => /(?:confirm|repeat|re-?enter|again|bestätigen|wiederholen|confirmer|ripeti)/i.test(label));
-  const newPassword = labels.findIndex((label) => /(?:new|neue|nouveau|nuova|password|passwort|mot de passe)/i.test(label));
+  const confirmation = labels.findIndex((label) => /(?:confirm|repeat|re-?enter|again|best[äa]tig\w*|wiederhol\w*|erneut|confirmer|ripeti)/i.test(label));
+  const newPassword = labels.findIndex((label) => /(?:new|neue|nouveau|nuova|password|passwort|kennwort|mot de passe)/i.test(label));
   if (confirmation < 0 || newPassword < 0 || confirmation === newPassword) return null;
   return { password: fields[newPassword], confirmation: fields[confirmation], formId: String(fields[0].formId) };
 }
@@ -10338,8 +10449,9 @@ async function recoverAccountPassword({ page, snapshot, ctx, host, account, diag
     });
     return { ...signedIn, accountRecovered: true };
   }
-  const resetContext = /(?:reset|change|update).{0,30}(?:password|passwort)|(?:password|passwort).{0,30}(?:reset|change|update)|mot de passe.{0,30}(?:réinitial|reinitial|chang)|password.{0,30}(?:reimpost|cambi)/i
-    .test(`${pageUrl.pathname} ${resetView.title || ''} ${resetView.heading || ''} ${resetView.text || ''}`);
+  const resetContext = /[?&](?:password_?)?reset_?token=/i.test(pageUrl.search || '')
+    || /(?:reset|change|update|set).{0,30}(?:password|passwort|kennwort)|(?:password|passwort|kennwort).{0,30}(?:reset|change|update|set|setzen|vergeben|festlegen)|neues?\s+(?:passwort|kennwort)|mot de passe.{0,30}(?:réinitial|reinitial|chang|d[ée]finir)|password.{0,30}(?:reimpost|cambi|impost)/i
+      .test(`${pageUrl.pathname} ${pageUrl.search || ''} ${resetView.title || ''} ${resetView.heading || ''} ${resetView.text || ''}`);
   if (pageUrl.protocol !== 'https:' || pageUrl.hostname !== host || !resetContext || !resetFields) {
     return accountHandoff(PASSWORD_RESET_REFUSED_RE.test(resetView.errors?.join(' ') || resetView.text || '')
       ? 'account_recovery_rejected' : 'account_recovery_timeout',
@@ -10362,13 +10474,27 @@ async function recoverAccountPassword({ page, snapshot, ctx, host, account, diag
   const confirm = (resetView.buttons || []).find((button) => String(button.formId || '') === filled.formId
     && PASSWORD_RESET_CONFIRM_RE.test(String(button.text || button.label || '')) && button.disabled !== true);
   if (!confirm || !await clickButton(page, confirm)) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
-  const afterReset = await awaitAuthOutcome(page, 'create', resetView.errors || [], resetView.fields);
+  let afterReset = await awaitAuthOutcome(page, 'create', resetView.errors || [], resetView.fields);
   const resetRejected = PASSWORD_RESET_REFUSED_RE.test([afterReset.text, ...(afterReset.errors || [])].join(' '));
   if (resetRejected) {
     await ctx.accounts.abortRecovery(host, { requestSubmitted: true, reason: 'reset_rejected' });
     return accountHandoff('account_recovery_rejected', 'account_recovery_rejected', 'login');
   }
+  if (authPageKind(afterReset) !== 'sign_in' && !resetPasswordFields(afterReset) && !(afterReset.errors || []).length) {
+    if (await openVerifiedSignInNavigation(page, afterReset)) {
+      afterReset = await awaitAuthView(page, afterReset);
+    }
+    if (authPageKind(afterReset) !== 'sign_in' && resolvedSignInUrl && !signedInApplicationSurface(afterReset)) {
+      await page.goto(resolvedSignInUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      await settle(page);
+      afterReset = await extractFields(page, NAVIGATION);
+    }
+  }
   if (authPageKind(afterReset) !== 'sign_in') {
+    if (!resetPasswordFields(afterReset) && !(afterReset.errors || []).length && signedInApplicationSurface(afterReset)) {
+      if (!await ctx.accounts.completeRecovery(host)) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+      return { snapshot: afterReset, reopen: true, accountRecovered: true };
+    }
     return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
   }
   if (!await ctx.accounts.completeRecovery(host)) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
@@ -10484,6 +10610,49 @@ export function isSecurityQuestionField(field, fields = []) {
   return reciprocal.length === 1 && reciprocal[0] === field;
 }
 
+/** Bounded sign-in email/username aligned to the portal input's maxLength when finite (>= 20). */
+export function signInEmailValue(field, email) {
+  const trimmed = String(email || '').trim();
+  const limit = Number(field?.maxLength);
+  return Number.isFinite(limit) && limit >= 20 && trimmed.length > limit
+    ? trimmed.slice(0, limit)
+    : trimmed;
+}
+
+/** Fill, verify and submit the login form once for one candidate identifier string. */
+async function submitSignInForm({ page, snapshot, account, targetEmail, preserveFullValue = false, diagnostics = null }) {
+  // Typed, then read again: a form the portal draws anew meanwhile (Workday, when what it loads for the
+  // page arrives late) has lost what was typed and its button is another element. It is typed once more,
+  // and the button pressed is the one of the reading made right before the click.
+  let form = snapshot;
+  let typed = false;
+  for (let attempt = 0; attempt < 2 && !typed; attempt += 1) {
+    const { email, password } = loginFields(form);
+    if (!email || !password) return { handoff: accountHandoff('account', 'login_unobserved', 'login') };
+    const expected = String(targetEmail || '').trim().toLowerCase();
+    // An e-mail already in the field (the agentic fallback typed it where a pasted value does
+    // not stay) is left alone: filling it again would undo it.
+    const emailKept = String(email.value || '').trim().toLowerCase() === expected;
+    await applyActions(page, form.fields, [
+      ...(emailKept ? [] : [{ fieldId: email.id, action: 'fill', value: targetEmail, ...(preserveFullValue ? { preserveFullValue: true } : {}) }]),
+      { fieldId: password.id, action: 'fill', value: account.password },
+    ], {});
+    await page.waitForTimeout(AUTH_TYPED_WAIT_MS);
+    form = await extractFields(page, NAVIGATION);
+    const now = loginFields(form);
+    typed = String(now.email?.value || '').trim().toLowerCase() === expected
+      && await passwordControlMatches(page, now.password, account.password);
+  }
+  if (!typed) return { handoff: { ...accountHandoff('account', 'login_unobserved', 'login'), authStop: 'sign_in_typing_unconfirmed' } };
+  const shown = form.errors || [];
+  diagnostics?.beforeClick('account');
+  const pressed = await clickFirst(page, form, [SIGN_IN_RE, SUBMIT_RE, NEXT_RE]);
+  if (!pressed) return { handoff: accountHandoff('account', 'no_sign_in_button', 'login') };
+  const after = await awaitAuthOutcome(page, 'sign_in', shown, form.fields);
+  diagnostics?.afterClick();
+  return { after, pressed };
+}
+
 /**
  * One login page (account.mjs): sign in with the order's account, or create
  * it on the alias, or verify it. Returns the next page, a handoff reason,
@@ -10568,35 +10737,33 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   }
 
   if (kind === 'sign_in') {
-    // Typed, then read again: a form the portal draws anew meanwhile (Workday, when what it loads for the
-    // page arrives late) has lost what was typed and its button is another element. It is typed once more,
-    // and the button pressed is the one of the reading made right before the click.
-    let form = snapshot;
-    let typed = false;
     typedSecrets?.add(account.password);
-    for (let attempt = 0; attempt < 2 && !typed; attempt += 1) {
-      const { email, password } = loginFields(form);
-      if (!email || !password) return accountHandoff('account', 'login_unobserved', 'login');
-      // An e-mail already in the field (the agentic fallback typed it where a pasted value does
-      // not stay) is left alone: filling it again would undo it.
-      const emailKept = String(email.value || '').trim().toLowerCase() === String(account.email || '').trim().toLowerCase();
-      await applyActions(page, form.fields, [
-        ...(emailKept ? [] : [{ fieldId: email.id, action: 'fill', value: account.email }]),
-        { fieldId: password.id, action: 'fill', value: account.password },
-      ], {});
-      await page.waitForTimeout(AUTH_TYPED_WAIT_MS);
-      form = await extractFields(page, NAVIGATION);
-      const now = loginFields(form);
-      typed = String(now.email?.value || '').trim().toLowerCase() === String(account.email || '').trim().toLowerCase()
-        && await passwordControlMatches(page, now.password, account.password);
+    const fullEmail = String(account.email || '').trim();
+    const initialEmail = loginFields(snapshot).email;
+    const truncatedEmail = initialEmail ? signInEmailValue(initialEmail, fullEmail) : fullEmail;
+    let attemptResult = await submitSignInForm({
+      page,
+      snapshot,
+      account,
+      targetEmail: fullEmail,
+      preserveFullValue: true,
+      diagnostics,
+    });
+    if ((attemptResult.handoff?.authStop === 'sign_in_typing_unconfirmed'
+      || (!attemptResult.handoff && authPageKind(attemptResult.after) === 'sign_in'))
+      && truncatedEmail !== fullEmail) {
+      const fallbackSource = attemptResult.handoff ? await extractFields(page, NAVIGATION) : attemptResult.after;
+      attemptResult = await submitSignInForm({
+        page,
+        snapshot: fallbackSource,
+        account,
+        targetEmail: truncatedEmail,
+        preserveFullValue: false,
+        diagnostics,
+      });
     }
-    if (!typed) return { ...accountHandoff('account', 'login_unobserved', 'login'), authStop: 'sign_in_typing_unconfirmed' };
-    const shown = form.errors || [];
-    diagnostics?.beforeClick('account');
-    const pressed = await clickFirst(page, form, [SIGN_IN_RE, SUBMIT_RE, NEXT_RE]);
-    if (!pressed) return accountHandoff('account', 'no_sign_in_button', 'login');
-    const after = await awaitAuthOutcome(page, 'sign_in', shown, form.fields);
-    diagnostics?.afterClick();
+    if (attemptResult.handoff) return attemptResult.handoff;
+    const { after, pressed } = attemptResult;
     const postSignInVerificationText = accountResponseText(after);
     const hasActivationPrompt = isAccountVerificationResponse(after)
       || (hasResendVerificationControl(after) && (!codeField(after) || VERIFY_PAGE_RE.test(postSignInVerificationText)));
@@ -13394,6 +13561,7 @@ export async function submitViaPortal(ctx) {
     const agentDeadline = Date.now() + AGENT_MAX_RUNTIME_MS;
     const autonomousNavigation = agentNavigationEnabled();
     let finalPostingRecoveryUsed = false;
+    let successFactorsEntryReopens = 0;
     const agentTried = new Set();
     const runAgent = async (current, hint, { secrets = [], reservedButtons = [] } = {}) => {
       const key = `${pageSignature(page, current)}|${hint}`;
@@ -13777,6 +13945,22 @@ export async function submitViaPortal(ctx) {
           : diversionHint ? 'application_stage_unknown'
           : currentStage.kind === 'posting_mismatch' ? 'posting_mismatch' : 'application_stage_unknown');
         startupNavigationHint = '';
+        // A SuccessFactors session beside the application (profile shell) goes back to the
+        // route proven for this posting, with a short growing pause, before any agent is asked.
+        const sfEntry = successFactorsEntryReopenTarget({
+          pageUrl: page.url(), applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl,
+          postingRouteProof: ctx.postingRouteProof, snapshot, reopened: successFactorsEntryReopens,
+        });
+        if (sfEntry) {
+          successFactorsEntryReopens += 1;
+          evidence.steps.at(-1).successFactorsEntryReopen = successFactorsEntryReopens;
+          await page.waitForTimeout(2_000 * successFactorsEntryReopens);
+          await page.goto(sfEntry, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+          await settle(page);
+          snapshot = await awaitFields(page, await extractFields(page));
+          step -= 1;
+          continue;
+        }
         if (!autonomousNavigation) return await handoff(navigationHint === 'posting_mismatch' ? 'posting_mismatch' : 'application_stage_unknown');
         const recovery = await runNavigationRecovery(snapshot, navigationHint);
         if (recovery.result) return recovery.result;

@@ -116,6 +116,7 @@ jobs:
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
+          umask 077
           if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
             printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
@@ -132,17 +133,9 @@ jobs:
           if [ -n "${CURRENT_HOUR:-}" ]; then args+=("--current-hour=$CURRENT_HOUR"); fi
           node scripts/monitor-revenue-signals.mjs "${args[@]}"
 
-      - name: Append summary to job log
+      - name: Append private-data status to job log
         if: always()
-        run: |
-          if [ -s revenue-signals.json ]; then
-            {
-              echo "## Revenue signals"
-              echo '```json'
-              cat revenue-signals.json
-              echo '```'
-            } >> "$GITHUB_STEP_SUMMARY"
-          fi
+        run: echo 'Revenue signal monitor completed; GA4 measurements are withheld from the public run.' >> "$GITHUB_STEP_SUMMARY"
 
       # A replay (current_hour set) never touches the issue: the hourly runs
       # judge the real hour, so nothing would resolve an issue a replay opened.

@@ -49,7 +49,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.crr-suva.ch/clinique-readaptation/stagiaire-mp-e-2449.html",
-    "firstSeenAt": "2026-11-12T09:26:51.105Z"
+    "firstSeenAt": "2026-11-12T09:26:51.105Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stagiaire-mp-e-crr-suva-sion-sion": "VS"
+      },
+      "en": {
+        "stagiaire-mp-e-crr-suva-sion-sion": "VS"
+      },
+      "de": {
+        "stagiaire-mp-e-crr-suva-sion-sion": "VS"
+      }
+    }
   },
   {
     "id": "crr-suva-sion-65098bc91794",
@@ -101,7 +112,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.crr-suva.ch/clinique-readaptation/apprenti-bottier-ere-orthopediste-2446.html",
-    "firstSeenAt": "2026-11-12T09:26:50.092Z"
+    "firstSeenAt": "2026-11-12T09:26:50.092Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "apprenti-e-bottier-ere-orthopediste-cfc-crr-suva-sion-sion": "VS"
+      },
+      "en": {
+        "apprenti-e-bottier-ere-orthopediste-cfc-crr-suva-sion-sion": "VS"
+      },
+      "de": {
+        "apprenti-e-bottier-ere-orthopediste-cfc-crr-suva-sion-sion": "VS"
+      }
+    }
   },
   {
     "id": "crr-suva-sion-6dedf67d2c82",
@@ -153,7 +175,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.crr-suva.ch/clinique-readaptation/apprenti-assistant-soins-sante-communautaire-2447.html",
-    "firstSeenAt": "2026-11-12T09:26:49.580Z"
+    "firstSeenAt": "2026-11-12T09:26:49.580Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "apprenti-e-assistant-e-en-soins-et-sante-communautaire-assc-cfc-voie-duale-mixte-crr-suva": "VS"
+      },
+      "en": {
+        "apprenti-e-assistant-e-en-soins-et-sante-communautaire-assc-cfc-voie-duale-mixte-crr-suva": "VS"
+      },
+      "de": {
+        "apprenti-e-assistant-e-en-soins-et-sante-communautaire-assc-cfc-voie-duale-mixte-crr-suva": "VS"
+      }
+    }
   },
   {
     "id": "crr-suva-sion-90f7b1317b3e",
@@ -207,7 +240,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.crr-suva.ch/clinique-readaptation/apprenti-gestionnaire-hotellerie-intendance-2448.html",
-    "firstSeenAt": "2026-11-12T09:26:50.604Z"
+    "firstSeenAt": "2026-11-12T09:26:50.604Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "apprenti-e-gestionnaire-en-hotellerie-intendance-cfc-crr-suva-sion-sion": "VS",
+        "apprenti-e-gestionnaire-en-hotellerie-intendance-cfc-clinique-romande-de-readaptation-crr-suva-sion": "VS"
+      },
+      "en": {
+        "apprenti-e-gestionnaire-en-hotellerie-intendance-cfc-crr-suva-sion-sion": "VS"
+      },
+      "de": {
+        "apprenti-e-gestionnaire-en-hotellerie-intendance-cfc-crr-suva-sion-sion": "VS"
+      }
+    }
   },
   {
     "id": "crr-suva-sion-58cb24be429f",
@@ -292,7 +337,33 @@
         "firstSeenAt": "2026-05-26T22:35:14.977Z",
         "title": "Infirmier/ère HES – ES"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-hes-es-crr-suva-sion-sion": "VS",
+        "infirmier-ere-hes-es-crr-suva-sion-sion-873cbbdf": "VS",
+        "infirmier-ere-hes-es-crr-suva-sion-sion-6167b0ad": "VS",
+        "infermiera-hes-es-clinique-romande-de-readaptation-crr-suva-sion-3ab43275": "VS",
+        "infirmier-ere-hes-es-crr-suva-sion-sion-6fc20265": "VS"
+      },
+      "en": {
+        "infirmier-ere-hes-es-crr-suva-sion-sion": "VS",
+        "infirmier-ere-hes-es-crr-suva-sion-sion-873cbbdf": "VS",
+        "nurse-hes-es-clinique-romande-de-readaptation-crr-suva-sion-f4663cb6": "VS",
+        "infirmier-ere-hes-es-crr-suva-sion-sion-6167b0ad": "VS"
+      },
+      "de": {
+        "infirmier-ere-hes-es-crr-suva-sion-sion": "VS",
+        "krankenschwester-hes-es-clinique-romande-de-readaptation-crr-suva-sion": "VS",
+        "infirmier-ere-hes-es-crr-suva-sion-sion-873cbbdf": "VS",
+        "infirmier-ere-hes-es-crr-suva-sion-sion-6167b0ad": "VS"
+      },
+      "fr": {
+        "infirmier-ere-hes-es-crr-suva-sion-sion-873cbbdf": "VS",
+        "infirmier-ere-hes-es-crr-suva-sion-sion-6167b0ad": "VS",
+        "infirmier-ere-hes-es-crr-suva-sion-sion-6fc20265": "VS"
+      }
+    }
   },
   {
     "id": "crr-suva-sion-1ef627a9dcec",
@@ -347,7 +418,14 @@
     "firstSeenAt": "2026-10-16T21:23:10.719Z",
     "previousSlugCantonByLocale": {
       "it": {
-        "qualita-e-assistente-di-processo-clinique-romande-de-readaptation-crr-suva-sion-1173f089": "VS"
+        "qualita-e-assistente-di-processo-clinique-romande-de-readaptation-crr-suva-sion-1173f089": "VS",
+        "assistant-e-de-qualite-et-de-processus-crr-suva-sion-sion": "VS"
+      },
+      "en": {
+        "assistant-e-de-qualite-et-de-processus-crr-suva-sion-sion": "VS"
+      },
+      "de": {
+        "assistant-e-de-qualite-et-de-processus-crr-suva-sion-sion": "VS"
       }
     }
   },
@@ -384,7 +462,8 @@
         "maitre-socioprofessionnel-le-crr-suva-sion-sion"
       ],
       "en": [
-        "maitre-socioprofessionnel-le-crr-suva-sion-sion"
+        "maitre-socioprofessionnel-le-crr-suva-sion-sion",
+        "socioprofessional-master-the-clinique-romande-de-readaptation-crr-suva-sion"
       ],
       "de": [
         "maitre-socioprofessionnel-le-crr-suva-sion-sion"
@@ -397,7 +476,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.crr-suva.ch/clinique-readaptation/maitre-socioprofessionnel-2428.html",
-    "firstSeenAt": "2026-09-17T03:47:43.613Z"
+    "firstSeenAt": "2026-09-17T03:47:43.613Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "maitre-socioprofessionnel-le-crr-suva-sion-sion": "VS"
+      },
+      "en": {
+        "socioprofessional-master-the-clinique-romande-de-readaptation-crr-suva-sion": "VS",
+        "maitre-socioprofessionnel-le-crr-suva-sion-sion": "VS"
+      },
+      "de": {
+        "maitre-socioprofessionnel-le-crr-suva-sion-sion": "VS"
+      }
+    }
   },
   {
     "slug": "ict-senior-security-ingegnere-clinique-romande-de-readaptation-crr-suva-sion",
@@ -443,7 +535,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.crr-suva.ch/clinique-readaptation/senior-security-engineer-2434.html",
-    "firstSeenAt": "2026-10-06T21:15:05.534Z"
+    "firstSeenAt": "2026-10-06T21:15:05.534Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ict-senior-security-engineer-crr-suva-sion-sion": "VS"
+      },
+      "de": {
+        "ict-senior-security-engineer-crr-suva-sion-sion": "VS"
+      }
+    }
   },
   {
     "slug": "assistente-di-qualita-e-processo-clinique-romande-de-readaptation-crr-suva-sion",
@@ -527,7 +628,8 @@
         "ingenieur-e-ict-senior-microsoft-cloud-plateformes-hybrides-crr-suva-sion-sion"
       ],
       "en": [
-        "ingenieur-e-ict-senior-microsoft-cloud-plateformes-hybrides-crr-suva-sion-sion"
+        "ingenieur-e-ict-senior-microsoft-cloud-plateformes-hybrides-crr-suva-sion-sion",
+        "senior-ict-engineer-microsoft-cloud-hybrid-platforms-clinique-romande-de-readaptation-crr-suva-sion"
       ],
       "de": [
         "ingenieur-e-ict-senior-microsoft-cloud-plateformes-hybrides-crr-suva-sion-sion"
@@ -539,7 +641,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.crr-suva.ch/clinique-readaptation/ingenieur-senior-microsoft-cloud-plateformes-2424.html",
-    "firstSeenAt": "2026-07-30T22:22:15.064Z"
+    "firstSeenAt": "2026-07-30T22:22:15.064Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ingenieur-e-ict-senior-microsoft-cloud-plateformes-hybrides-crr-suva-sion-sion": "VS"
+      },
+      "en": {
+        "senior-ict-engineer-microsoft-cloud-hybrid-platforms-clinique-romande-de-readaptation-crr-suva-sion": "VS",
+        "ingenieur-e-ict-senior-microsoft-cloud-plateformes-hybrides-crr-suva-sion-sion": "VS"
+      },
+      "de": {
+        "ingenieur-e-ict-senior-microsoft-cloud-plateformes-hybrides-crr-suva-sion-sion": "VS"
+      }
+    }
   },
   {
     "slug": "stivali-e-ortopedia-clinique-romande-de-readaptation-crr-suva-sion",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lidl-svizzera",
-  "assembledAt": "2026-11-26T22:00:55.623Z",
+  "assembledAt": "2026-11-27T14:40:03.470Z",
   "runId": "45898022916",
   "jobs": [
     {
@@ -80,7 +80,8 @@
       "streetAddress": "Sevelen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T21:59:43.562Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-sevelen-775840"
     },
     {
       "id": "company-e40227",
@@ -159,7 +160,8 @@
       "streetAddress": "Dübendorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T21:59:43.562Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-duebendorf-775273"
     },
     {
       "id": "company-s6o4gu",
@@ -238,7 +240,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T21:59:43.562Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-zuerich-775274"
     },
     {
       "id": "company-ewev0f",
@@ -317,7 +320,8 @@
       "streetAddress": "Ins",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T21:59:43.562Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-ins-775603"
     },
     {
       "id": "company-v9j8q7",
@@ -396,7 +400,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T21:59:43.562Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-st.-gallen-775627"
     },
     {
       "id": "company-n5snaf",
@@ -475,7 +480,8 @@
       "streetAddress": "Rudolfstetten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T21:59:43.562Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-rudolfstetten-775773"
     },
     {
       "id": "company-wbt1h8",
@@ -554,7 +560,8 @@
       "streetAddress": "Aegerten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T21:59:43.562Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-aegerten-775600"
     },
     {
       "id": "company-a6xj7p",
@@ -633,7 +640,8 @@
       "streetAddress": "Aegerten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T21:59:43.562Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://team.lidl.ch/de/jobs/studentenjob-verkauf-m-w-d-20-aegerten-775587"
     },
     {
       "id": "company-fttdjk",
@@ -712,7 +720,8 @@
       "streetAddress": "Aegerten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T21:59:43.562Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-aegerten-775583"
     },
     {
       "id": "company-7ugcb6",
@@ -791,7 +800,8 @@
       "streetAddress": "Lyss",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T21:59:43.562Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-lyss-775574"
     },
     {
       "id": "company-hfk4e2",
@@ -870,7 +880,8 @@
       "streetAddress": "Derendingen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T21:59:43.562Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://team.lidl.ch/de/jobs/assistant-team-manager-operations-m-w-d-80-100-derendingen-770559"
     },
     {
       "id": "company-z8jtky",
@@ -949,7 +960,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T21:59:43.562Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://team.lidl.ch/de/jobs/ch_verkaeufer-verkaeuferin-m-w-d-20-80-zuerich-775542"
     },
     {
       "id": "company-n9v6k9",
@@ -23708,98 +23720,6 @@
       "salaryMax": 91500
     },
     {
-      "id": "company-2ic7w2",
-      "slug": "venditore-venditore-m-f-d-40-60-solothurn-lidl-svizzera-solothurn",
-      "company": "Lidl Svizzera",
-      "title": "Verkäufer / Verkäuferin (m/w/d) 40 - 60 % — Solothurn",
-      "location": "Solothurn",
-      "canton": "SO",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Der Verkauf ist deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels.\nDeine Aufgaben\n- Beitrag zu einem positiven Einkaufserlebnis unserer Kundschaft\n\n- Kassiertätigkeit\n\n- Warenverräumung und -pflege innerhalb der Filiale\n\n- Beitrag zum sauberen Erscheinungsbild der Verkaufsfläche\nDein Profil\n- Berufserfahrung im Verkauf oder vergleichbarer Branche von Vorteil\n\n- Flexibilität betreffend der Einsatzzeiten (MO-SA zwischen 05:00-22:00 Uhr; Früh- und/oder Spätschicht von ca. jeweils 9 Stunden)\n\n- Gute körperliche Fitness\n\n- Freundliches und gepflegtes Auftreten\n\n- Zuverlässigkeit sowie Verantwortungsgefühl\n\n- Gute Deutschkenntnisse\n\nWir bieten\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung sind interne Weiterentwicklungen möglich. Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!\n\nBenefitsWir bietenVorsorgeJeder Lohnfranken ist BVG-versichert, wobei der Koordinationsabzug entfällt.\nAttraktiver LohnFaire und marktgerechte Entlöhnung, die deiner Position, Qualifikation und Erfahrung entspricht.\n41h / WocheDie wöchentliche Arbeitszeit liegt bei einem Vollzeitpensum bei 41 Stunden.\nFerienWir bieten fünf Wochen Ferien, für über 50-jährige sechs Wochen und für über 60-jährige sogar sieben Wochen. Wer mehr Ferientage wünscht, erhält bei uns die Möglichkeit zum Ferienkauf.\nKostenloser Parkplatz (falls vorhanden)Kostenloser Parkplatz (falls vorhanden)\nFit mit LidlEigenes Fitnesscenter am Hauptsitz und attraktive Angebote bei Fitnesspartnern schweizweit.\nUnbefristete FestanstellungDein Arbeitsvertrag ist grundsätzlich unbefristet. Denn wir sind an einer langfristigen Zusammenarbeit interessiert. Befristete Verträge schliessen wir nur ab, wenn diese durch einen sachlichen Grund gerechtfertigt sind – z.B. für eine Schwangerschaftsvertretung.\nSpannende Aufgaben & PerspektivenBei uns erwarten dich spannende und verantwortungsvolle Aufgaben im dynamischen Umfeld des Detailhandels. Deine persönliche Entwicklung geniesst dabei höchste Priorität.\nEin «Gspänli» für DichWährend deiner umfassenden Einarbeitungszeit in deine Position steht dir ein persönlicher Pate oder eine persönliche Patin zur Seite.\nVereinbarkeit von Familie & Beruf4 Wochen Vaterschaftsurlaub und 18 Wochen Mutterschaftsurlaub bei 100% Lohn.\nTeamspiritErfolg ist Teamwork und soll gefeiert werden. So stehen neben dem Berufsalltag verteilt über das ganze Jahr diverse Anlässe und Events an.",
-      "requirements": [],
-      "featured": false,
-      "datePosted": "2026-10-16T06:52:58+00:00",
-      "postedDate": "2026-10-16T06:52:58+00:00",
-      "postingDateSource": "reported",
-      "url": "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-solothurn-761114",
-      "applyUrl": "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-solothurn-761114",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Solothurn",
-        "canton": "SO"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-11-24T09:41:46.464Z",
-      "firstSeenAt": "2026-10-16T21:36:43.944Z",
-      "titleByLocale": {
-        "it": "Venditore / Venditore (m/f/d) 40 - 60% — Solothurn",
-        "en": "Seller / Seller (m/f/d) 40 - 60% — Solothurn",
-        "de": "Verkäufer / Verkäuferin (m/w/d) 40 - 60 % — Solothurn",
-        "fr": "Vendeur / Vendeur (h/f/d) 40 - 60% — Soleure — Solothurn"
-      },
-      "descriptionByLocale": {
-        "it": "Vendere è la tua passione? Vuoi fare del tuo meglio ogni giorno per offrire ai nostri clienti la migliore esperienza di shopping possibile? Vuoi fare parte di una squadra che è necessaria ogni giorno? Allora hai ragione con noi. Le opportunità di carriera emozionanti e versatili vi aspettano nell'ambiente dinamico del retail.\nI tuoi compiti\n- Contributo a una positiva esperienza di shopping dei nostri clienti\n\n- Attività di cassa\n\n- Trasferimento e manutenzione delle merci all'interno del ramo\n\n- Contributo all'aspetto pulito della zona di vendita\nIl tuo profilo\n- Esperienza professionale nelle vendite o nel settore comparabile\n\n- Flessibilità rispetto agli orari operativi (MO-SA tra le 05:00 e le 22:00); primo e/o tardo turno di circa 9 ore ciascuna\n\n- Buona forma fisica\n\n- Aspetto amichevole e curato\n\n- Affidabilità e senso di responsabilità\n\n- Buona conoscenza del tedesco\n\nOffriamo\nA Lidl Svizzera, c'è spazio per l'ambizione e l'innovazione. Partecipa attivamente. Crescere ogni giorno a livello professionale e personale. Vi prepariamo per i vostri vari e interessanti compiti con una formazione intensiva. Se desiderato e buona idoneità personale, gli sviluppi interni sono possibili. Inoltre, vi offriamo la sicurezza di un lavoro permanente, una grande squadra, i vantaggi del Lidl GAV, un'eccellente fornitura professionale e altri benefici interessanti. Cogliete l'opportunità e applicate online ora!\n\nOgni franco salariale è assicurato da BVG, per cui la deduzione di coordinamento è omessa.\nEquità salariale attraente e remunerazione basata sul mercato che corrisponde alla tua posizione, qualifica e esperienza.\nL'orario di lavoro settimanale è di 41 ore per un carico di lavoro a tempo pieno.\nOffriamo cinque settimane di vacanze, per oltre 50 anni sei settimane e per oltre 60 anni anche sette settimane. Se vuoi più giorni di vacanza, avrai l'opportunità di acquistare una vacanza con noi.\nParcheggio gratuito (se disponibile) Parcheggio gratuito (se disponibile)\nCon il centro fitness di LidlE presso la sede centrale e le interessanti offerte con partner di fitness in tutta la Svizzera.\nOccupazione permanente Il tuo contratto di lavoro è sostanzialmente permanente. Perché siamo interessati alla cooperazione a lungo termine. Concludiamo solo contratti a tempo determinato se sono giustificati da una ragione oggettiva – ad esempio per una rappresentazione della gravidanza.\nLe attività e le prospettive emozionanti vi attendono con compiti entusiasmanti e responsabili nell'ambiente dinamico del commercio al dettaglio. Il vostro sviluppo personale è una priorità assoluta.\nDurante il vostro lungo periodo di allenamento nella vostra posizione, un padrino personale o madrina è al vostro fianco.\nCompatibilità di famiglia & lavoro 4 settimane congedo di paternità e 18 settimane congedo di maternità al 100% salario.\nIl successo è il lavoro di squadra e deve essere festeggiato. Oltre al lavoro quotidiano, ci sono vari eventi e eventi durante tutto l'anno.",
-        "en": "Selling is your passion? Do you want to do your best every day to offer our customers the best possible shopping experience? Do you want to be part of a team that is needed every day? Then you are exactly right with us. Exciting and versatile career opportunities await you in the dynamic retail environment.\nYour tasks\n- Contribution to a positive shopping experience of our customers\n\n- Cash activity\n\n- Transfer and maintenance of goods within the branch\n\n- Contribution to the clean appearance of the sales area\nYour profile\n- Professional experience in sales or comparable industry beneficial\n\n- Flexibility regarding operating times (MO-SA between 05:00 and 22:00); Early and/or late shift of about 9 hours each\n\n- Good physical fitness\n\n- Friendly and well-groomed appearance\n\n- Reliability and sense of responsibility\n\n- Good knowledge of German\n\nWe offer\nAt Lidl Switzerland, there is room for ambition and innovation. Actively participate. Grow daily on a professional and personal level. We prepare you for your varied and interesting tasks with an intensive training. If desired and good personal suitability, internal further developments are possible. In addition, we offer you the security of a permanent job, a great team, the advantages of the Lidl GAV, an excellent occupational provision and other attractive benefits. Take the opportunity & apply online now!\n\nEvery wage franc is BVG-insured, whereby the coordination deduction is omitted.\nAttractive wage fairness and market-based remuneration that matches your position, qualification and experience.\nThe weekly working time is 41 hours for a full-time workload.\nWe offer five weeks holidays, for over 50 years six weeks and for over 60 years even seven weeks. If you want more holiday days, you will get the opportunity to buy a holiday with us.\nFree parking (if available) Free parking (if available)\nFit with LidlE’s own fitness center at the headquarters and attractive offers with fitness partners throughout Switzerland.\nPermanent employmentYour employment contract is basically permanent. Because we are interested in long-term cooperation. We only conclude fixed-term contracts if they are justified by an objective reason – e.g. for a pregnancy representation.\nExciting tasks & perspectives await you with exciting and responsible tasks in the dynamic environment of the retail trade. Your personal development is a top priority.\nDuring your extensive training period in your position, a personal godfather or godmother is at your side.\nCompatibility of family & work4 weeks paternity leave and 18 weeks maternity leave at 100% wage.\nSuccess is teamwork and should be celebrated. In addition to everyday work, there are various events and events throughout the year.",
-        "de": "Der Verkauf ist deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels.\nDeine Aufgaben\n- Beitrag zu einem positiven Einkaufserlebnis unserer Kundschaft\n\n- Kassiertätigkeit\n\n- Warenverräumung und -pflege innerhalb der Filiale\n\n- Beitrag zum sauberen Erscheinungsbild der Verkaufsfläche\nDein Profil\n- Berufserfahrung im Verkauf oder vergleichbarer Branche von Vorteil\n\n- Flexibilität betreffend der Einsatzzeiten (MO-SA zwischen 05:00-22:00 Uhr; Früh- und/oder Spätschicht von ca. jeweils 9 Stunden)\n\n- Gute körperliche Fitness\n\n- Freundliches und gepflegtes Auftreten\n\n- Zuverlässigkeit sowie Verantwortungsgefühl\n\n- Gute Deutschkenntnisse\n\nWir bieten\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung sind interne Weiterentwicklungen möglich. Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!\n\nBenefitsWir bietenVorsorgeJeder Lohnfranken ist BVG-versichert, wobei der Koordinationsabzug entfällt.\nAttraktiver LohnFaire und marktgerechte Entlöhnung, die deiner Position, Qualifikation und Erfahrung entspricht.\n41h / WocheDie wöchentliche Arbeitszeit liegt bei einem Vollzeitpensum bei 41 Stunden.\nFerienWir bieten fünf Wochen Ferien, für über 50-jährige sechs Wochen und für über 60-jährige sogar sieben Wochen. Wer mehr Ferientage wünscht, erhält bei uns die Möglichkeit zum Ferienkauf.\nKostenloser Parkplatz (falls vorhanden)Kostenloser Parkplatz (falls vorhanden)\nFit mit LidlEigenes Fitnesscenter am Hauptsitz und attraktive Angebote bei Fitnesspartnern schweizweit.\nUnbefristete FestanstellungDein Arbeitsvertrag ist grundsätzlich unbefristet. Denn wir sind an einer langfristigen Zusammenarbeit interessiert. Befristete Verträge schliessen wir nur ab, wenn diese durch einen sachlichen Grund gerechtfertigt sind – z.B. für eine Schwangerschaftsvertretung.\nSpannende Aufgaben & PerspektivenBei uns erwarten dich spannende und verantwortungsvolle Aufgaben im dynamischen Umfeld des Detailhandels. Deine persönliche Entwicklung geniesst dabei höchste Priorität.\nEin «Gspänli» für DichWährend deiner umfassenden Einarbeitungszeit in deine Position steht dir ein persönlicher Pate oder eine persönliche Patin zur Seite.\nVereinbarkeit von Familie & Beruf4 Wochen Vaterschaftsurlaub und 18 Wochen Mutterschaftsurlaub bei 100% Lohn.\nTeamspiritErfolg ist Teamwork und soll gefeiert werden. So stehen neben dem Berufsalltag verteilt über das ganze Jahr diverse Anlässe und Events an.",
-        "fr": "Vendre est votre passion ? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours ? Alors vous avez raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n- Contribution à une expérience d'achat positive de nos clients\n\n- Activités de trésorerie\n\n- Transfert et entretien de biens au sein de la succursale\n\n- Contribution à l'aspect propre de la zone de vente\nVotre profil\n- Expérience professionnelle dans les ventes ou l'industrie comparable bénéfique\n\n- Flexibilité en ce qui concerne les temps d'exploitation (MO-SA entre 5h00 et 22h00);\n\n- Bonne condition physique\n\n- Aspect amical et soigné\n\n- Fiabilité et sens des responsabilités\n\n- Bonne connaissance de l'allemand\n\nNous offrons\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Participer activement. Augmenter quotidiennement sur le plan professionnel et personnel. Nous vous préparons à vos tâches variées et intéressantes avec une formation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, des développements internes sont possibles. En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du Lidl GAV, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne maintenant!\n\nChaque franc de salaire est assuré par BVG, ce qui exclut la déduction pour coordination.\nAttractive équité salariale et rémunération fondée sur le marché qui correspondent à votre poste, qualification et expérience.\nLe temps de travail hebdomadaire est de 41 heures pour une charge de travail à plein temps.\nNous offrons cinq semaines de vacances, pour plus de 50 ans six semaines et pour plus de 60 ans même sept semaines. Si vous voulez plus de jours de vacances, vous aurez la possibilité d'acheter des vacances avec nous.\nParking gratuit (si disponible) Parking gratuit (si disponible)\nS'adapte avec le centre de fitness LidlE-S au siège et offre attrayante avec des partenaires de fitness partout en Suisse.\nEmploi permanent Votre contrat de travail est essentiellement permanent. Parce que nous sommes intéressés par la coopération à long terme. Nous ne concluons des contrats à durée déterminée que s'ils sont justifiés par une raison objective – par exemple pour une représentation de grossesse.\nDes tâches et des perspectives passionnantes vous attendent avec des tâches passionnantes et responsables dans l'environnement dynamique du commerce de détail. Votre développement personnel est une priorité absolue.\nPendant votre longue période de formation dans votre poste, un parrain ou une marraine est à vos côtés.\nCompatibilité entre la famille et le travail4 semaines de congé de paternité et 18 semaines de congé de maternité à 100% de salaire.\nLe succès est un travail d'équipe et devrait être célébré. Outre le travail quotidien, il y a plusieurs événements et événements tout au long de l'année."
-      },
-      "slugByLocale": {
-        "it": "venditore-venditore-m-f-d-40-60-solothurn-lidl-svizzera-solothurn",
-        "en": "seller-m-w-d-40-60-solothurn-lidl-svizzera-solothurn-2ic7w2",
-        "de": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-solothurn-2ic7w2",
-        "fr": "vendeur-m-w-d-40-60-soleure-lidl-svizzera-solothurn-2ic7w2"
-      },
-      "requirementsByLocale": {},
-      "country": "CH",
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-solothurn",
-          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-solothurn-2ic7w2"
-        ],
-        "en": [
-          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-solothurn-2ic7w2",
-          "seller-seller-m-f-d-40-60-solothurn-lidl-svizzera-solothurn"
-        ],
-        "fr": [
-          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-solothurn-2ic7w2",
-          "vendeur-vendeur-h-f-d-40-60-soleure-lidl-svizzera-solothurn"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-solothurn",
-        "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-solothurn-2ic7w2",
-        "seller-seller-m-f-d-40-60-solothurn-lidl-svizzera-solothurn",
-        "vendeur-vendeur-h-f-d-40-60-soleure-lidl-svizzera-solothurn"
-      ],
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41100,
-          "maxValue": 62400,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Solothurn",
-      "addressRegion": "SO",
-      "employmentType": "FULL_TIME",
-      "postalCode": "4500",
-      "streetAddress": "Solothurn",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:41:46.464Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-solothurn-761114",
-      "salaryMin": 41100,
-      "salaryMax": 62400
-    },
-    {
       "id": "company-8ejpgk",
       "slug": "lehre-commercio-al-dettaglio-afp-o-cfc-beginn-2027-visp-lidl-svizzera-visp",
       "company": "Lidl Svizzera",
@@ -24245,190 +24165,6 @@
       "sourceIdentity": "url:https://team.lidl.ch/de/jobs/ch_-filialleiter-filialleiterin-m-w-d-80-100-moudon-773763",
       "salaryMin": 60500,
       "salaryMax": 91500
-    },
-    {
-      "id": "company-61j4uk",
-      "slug": "agent-agente-de-nettoyage-m-w-d-20-lidl-svizzera-noville-61j4uk",
-      "company": "Lidl Svizzera",
-      "title": "Agent / Agente de nettoyage (h/f/d) 20% — Noville",
-      "location": "Noville",
-      "canton": "VD",
-      "category": "other",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Lidl Suisse peut se targuer d‘une présence de plus en plus dense sur le marché suisse. Depuis son entrée sur le marché en 2009, l’entreprise poursuit progressivement son expansion.\nVotre mission\n- Nettoyage de la surface de vente et des pièces annexes du magasin\n\n- Respect des standards hygiéniques et de qualité\n\n- Contribution à une expérience d‘achat positive pour notre clientèle\nVotre profil\n- Une expérience dans le domaine du nettoyage est un atout\n\n- Flexibilité concernant les heures de travail (plusieurs fois par semaine entre 5h30 et 9h00)\n\n- Attitude de travail fiable et autonome\n\n- Esprit d’équipe\nNotre offre\nPendant ta formation initiale approfondie, nous te préparerons à tes missions. Par ailleurs, nous te garantissons un emploi sûr, une équipe de rêve, les privilèges de la CCT Lidl, une excellente prévoyance professionnelle et plein d’autres avantages intéressants. Saisis ta chance et postule maintenant en ligne !\n\nAvantagesNous offronsPrévoyanceLe salaire est assuré LPP dès le premier franc ; il n’y a pas de déduction de coordination.\nSalaire attractifUne rémunération juste et compétitive, en adéquation avec votre poste, vos qualifications et votre expérience.\n41 h / semaineLa durée de travail hebdomadaire pour une personne à plein temps est de 41 heures.\nCongésNous proposons cinq semaines de congés par an, six semaines pour les plus de 50 ans, et même sept pour les plus de 60 ans. Si quelqu’un souhaite plus de jours de congés, nous lui offrons la possibilité d’en acheter.\nParking gratuitsi disponible\nEn forme avec LidlNotre propre salle de sport au siège et des offres intéressantes chez des partenaires fitness dans toute la Suisse.\nPoste fixe à durée indéterminéeTon contrat de travail est toujours à durée indéterminée, nous sommes en effet intéressés par une collaboration à long terme. Nous ne proposons des contrats à durée déterminée qu’en cas de motif justifié, comme pour un remplacement durant une grossesse.\nTâches et perspectives intéressantesNous te proposons des tâches intéressantes et des responsabilités variées dans ce secteur dynamique qu’est le commerce de détail. Ton développement personnel est la priorité.\nUn soutien pour toiPendant ta période de formation, tu seras accompagné(e) d’un parrain ou d’une marraine personnel(le).\nConciliation vie privée et vie professionnelle4 semaines de congé paternité et 18 semaines de congé maternité avec maintien du salaire.\nEsprit d’équipeLe succès est un travail d’équipe et il se doit d’être célébré. Nous organisons donc tout au long de l’année de nombreux événements et manifestations afin de nous retrouver en dehors du quotidien professionnel.\nPlus d'informations",
-      "requirements": [],
-      "featured": false,
-      "datePosted": "2026-11-16T08:08:57+00:00",
-      "postedDate": "2026-11-16T08:08:57+00:00",
-      "postingDateSource": "reported",
-      "url": "https://team.lidl.ch/fr/jobs/agent-agente-de-nettoyage-h-f-d-20-noville-771771",
-      "applyUrl": "https://team.lidl.ch/fr/jobs/agent-agente-de-nettoyage-h-f-d-20-noville-771771",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Noville",
-        "canton": "VD"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-11-23T21:42:03.301Z",
-      "firstSeenAt": "2026-11-18T09:54:11.045Z",
-      "titleByLocale": {
-        "it": "Agent / Agente de nettoyage (f/m/d) 20% — Noville",
-        "en": "Cleaning Agent (m/f/d) 20% — Noville",
-        "de": "Reinigungsmittel (m/w/d) 20% - Noville",
-        "fr": "Agent / Agente de nettoyage (h/f/d) 20% — Noville"
-      },
-      "descriptionByLocale": {
-        "it": "Lidl Svizzera vanta una presenza sempre più densa sul mercato svizzero. Dal suo ingresso nel mercato nel 2009, l'azienda si è gradualmente ampliata.\nLa tua missione\n- Pulizia della superficie di vendita del negozio e delle parti accessorie\n\n- Rispetto degli standard igienici e di qualità\n\n- Contributo a una positiva esperienza di shopping per i nostri clienti\nIl tuo profilo\n- Un'esperienza nella pulizia è un bene\n\n- Flessibilità per l'orario di lavoro (ogni volta alla settimana tra le 5.30 e le 9.00)\n\n- Attuazione lavorativa affidabile e autonoma\n\n- Spirito di squadra\nLa nostra offerta\nDurante la vostra formazione iniziale approfondita, vi prepareremo per le vostre missioni. Inoltre, vi garantiamo un lavoro sicuro, un team di sogno, i privilegi del CTC Lidl, un'eccellente previsione professionale e molti altri benefici interessanti. Prendi la tua occasione e applica ora online!\n\nVantaggiOfferiamoPrevisione Lo stipendio è assicurato dal primo franco; Non esiste una deduzione di coordinamento.\nRetribuzione equa e competitiva, in linea con la vostra posizione, qualifiche ed esperienza.\n41 ore / settimana L'orario di lavoro settimanale per una persona a tempo pieno è di 41 ore.\nLeaveWe offrono cinque settimane di congedo all'anno, sei settimane per quelli sopra i 50, e anche sette settimane per quelli sopra i 60. Se qualcuno vuole più giorni libero, offriamo loro l'opportunità di comprarli.\nParcheggio gratuito disponibile\nIn forma con LidlLa nostra palestra presso la sede e le offerte interessanti presso i partner di fitness in tutta la Svizzera.\nPosizione fissa indeterminata Il vostro contratto di lavoro è sempre indefinito, siamo davvero interessati alla collaborazione a lungo termine. Proponiamo contratti a tempo determinato solo in caso di motivi giustificati, come la sostituzione durante la gravidanza.\nAttività e prospettive interessanti Vi offriamo compiti interessanti e varie responsabilità in questo settore dinamico della vendita al dettaglio. Il vostro sviluppo personale è la priorità.\nDurante il periodo di formazione, sarai accompagnato da uno sponsor personale.\nRiconciliazione di vita privata e professionale4 settimane di congedo di paternità e 18 settimane di congedo di maternità con mantenimento di stipendio.\nSpirito di squadraSuccess è lavoro di squadra e dovrebbe essere festeggiato. Organizziamo quindi numerosi eventi e eventi durante tutto l'anno per trovarci al di fuori del quotidiano professionale.\nMaggiori informazioni",
-        "en": "Lidl Switzerland can boast of an increasingly dense presence on the Swiss market. Since its entry into the market in 2009, the company has been gradually expanding.\nYour Mission\n- Cleaning the store's sales surface and ancillary parts\n\n- Compliance with hygienic and quality standards\n\n- Contribution to a positive shopping experience for our customers\nYour profile\n- An experience in cleaning is an asset\n\n- Flexibility for working hours (several times a week between 5.30 and 9.00)\n\n- Reliable and autonomous work attitude\n\n- Team spirit\nOur offer\nDuring your in-depth initial training, we will prepare you for your missions. In addition, we guarantee you a safe job, a dream team, the privileges of the CTC Lidl, excellent professional foresight and many other interesting benefits. Take your chance and apply now online!\n\nBenefitsWe offerPrevisionThe salary is insured from the first franc; There is no coordination deduction.\nAttractive wagesA fair and competitive remuneration, in line with your position, qualifications and experience.\n41 hours / weekThe weekly working time for a full-time person is 41 hours.\nLeaveWe offer five weeks of leave per year, six weeks for those over 50, and even seven weeks for those over 60. If someone wants more days off, we offer them the opportunity to buy them.\nFree parking available\nIn shape with LidlOur own gym at the headquarters and interesting offers at fitness partners throughout Switzerland.\nIndeterminate fixed-term positionYour employment contract is always indefinite, we are indeed interested in long-term collaboration. We propose fixed-term contracts only in the case of justified reasons, such as replacement during pregnancy.\nInteresting tasks and perspectivesWe offer you interesting tasks and various responsibilities in this dynamic sector of retailing. Your personal development is the priority.\nSupport for you During your training period, you will be accompanied by a personal sponsor.\nReconciliation of private and professional life4 weeks of paternity leave and 18 weeks of maternity leave with maintenance of salary.\nTeam spiritSuccess is teamwork and it should be celebrated. We therefore organise numerous events and events throughout the year in order to find ourselves outside the professional daily.\nMore information",
-        "de": "Lidl Schweiz kann sich einer immer dichter werdenden Präsenz auf dem Schweizer Markt rühmen. Seit dem Markteintritt im Jahr 2009 expandiert das Unternehmen schrittweise.\nDeine Mission\n- Reinigung der Verkaufsfläche und der Nebenteile des Ladens\n\n- Einhaltung von Hygiene- und Qualitätsstandards\n\n- Beitrag zu einem positiven Einkaufserlebnis für unsere Kunden\nDein Profil\n- Eine Erfahrung in der Reinigung ist ein Asset\n\n- Flexibilität der Arbeitszeit (mehrmals wöchentlich zwischen 5.30 und 9.00 Uhr)\n\n- Zuverlässige und autonome Arbeitseinstellung\n\n- Teamgeist\nUnser Angebot\nWährend Ihrer intensiven Erstausbildung bereiten wir Sie auf Ihre Missionen vor. Darüber hinaus garantieren wir Ihnen einen sicheren Job, ein Traumteam, die Privilegien des CTC Lidl, exzellente professionelle Weitsicht und viele weitere interessante Vorteile. Nutzen Sie Ihre Chance und bewerben Sie sich jetzt online!\n\nVorteileWir bietenPrevision Das Gehalt ist ab dem ersten Franken versichert; Es gibt keinen Koordinationsabzug.\nAttraktive Löhne Eine faire und wettbewerbsfähige Vergütung, die Ihrer Position, Ihren Qualifikationen und Ihrer Erfahrung entspricht.\n41 Stunden / Woche Die wöchentliche Arbeitszeit für eine Vollzeitperson beträgt 41 Stunden.\nWir bieten fünf Wochen Urlaub pro Jahr, sechs Wochen für diejenigen über 50 und sogar sieben Wochen für diejenigen über 60. Wenn jemand mehr freie Tage möchte, bieten wir ihm die Möglichkeit, sie zu kaufen.\nKostenlose Parkplätze verfügbar\nIn Form mit LidlUnser eigenes Fitnessstudio am Hauptsitz und interessante Angebote bei Fitnesspartnern in der ganzen Schweiz.\nUnbestimmte befristete Position Ihr Arbeitsvertrag ist immer unbefristet, wir sind in der Tat an einer langfristigen Zusammenarbeit interessiert. Wir schlagen befristete Verträge nur im Falle von berechtigten Gründen vor, wie zum Beispiel Ersatz während der Schwangerschaft.\nInteressante Aufgaben und Perspektiven Wir bieten Ihnen interessante Aufgaben und verschiedene Aufgaben in diesem dynamischen Bereich des Einzelhandels. Ihre persönliche Entwicklung hat Priorität.\nUnterstützung für Sie Während Ihrer Ausbildungszeit werden Sie von einem persönlichen Sponsor begleitet.\nVereinbarkeit von Privat- und Berufsleben4 Wochen Vaterschaftsurlaub und 18 Wochen Mutterschaftsurlaub unter Beibehaltung des Gehalts.\nTeamgeistErfolg ist Teamarbeit und sollte gefeiert werden. Deshalb organisieren wir das ganze Jahr über zahlreiche Events und Events, um uns außerhalb des professionellen Tages zu finden.\nWeitere Informationen",
-        "fr": "Lidl Suisse peut se targuer d‘une présence de plus en plus dense sur le marché suisse. Depuis son entrée sur le marché en 2009, l’entreprise poursuit progressivement son expansion.\nVotre mission\n- Nettoyage de la surface de vente et des pièces annexes du magasin\n\n- Respect des standards hygiéniques et de qualité\n\n- Contribution à une expérience d‘achat positive pour notre clientèle\nVotre profil\n- Une expérience dans le domaine du nettoyage est un atout\n\n- Flexibilité concernant les heures de travail (plusieurs fois par semaine entre 5h30 et 9h00)\n\n- Attitude de travail fiable et autonome\n\n- Esprit d’équipe\nNotre offre\nPendant ta formation initiale approfondie, nous te préparerons à tes missions. Par ailleurs, nous te garantissons un emploi sûr, une équipe de rêve, les privilèges de la CCT Lidl, une excellente prévoyance professionnelle et plein d’autres avantages intéressants. Saisis ta chance et postule maintenant en ligne !\n\nAvantagesNous offronsPrévoyanceLe salaire est assuré LPP dès le premier franc ; il n’y a pas de déduction de coordination.\nSalaire attractifUne rémunération juste et compétitive, en adéquation avec votre poste, vos qualifications et votre expérience.\n41 h / semaineLa durée de travail hebdomadaire pour une personne à plein temps est de 41 heures.\nCongésNous proposons cinq semaines de congés par an, six semaines pour les plus de 50 ans, et même sept pour les plus de 60 ans. Si quelqu’un souhaite plus de jours de congés, nous lui offrons la possibilité d’en acheter.\nParking gratuitsi disponible\nEn forme avec LidlNotre propre salle de sport au siège et des offres intéressantes chez des partenaires fitness dans toute la Suisse.\nPoste fixe à durée indéterminéeTon contrat de travail est toujours à durée indéterminée, nous sommes en effet intéressés par une collaboration à long terme. Nous ne proposons des contrats à durée déterminée qu’en cas de motif justifié, comme pour un remplacement durant une grossesse.\nTâches et perspectives intéressantesNous te proposons des tâches intéressantes et des responsabilités variées dans ce secteur dynamique qu’est le commerce de détail. Ton développement personnel est la priorité.\nUn soutien pour toiPendant ta période de formation, tu seras accompagné(e) d’un parrain ou d’une marraine personnel(le).\nConciliation vie privée et vie professionnelle4 semaines de congé paternité et 18 semaines de congé maternité avec maintien du salaire.\nEsprit d’équipeLe succès est un travail d’équipe et il se doit d’être célébré. Nous organisons donc tout au long de l’année de nombreux événements et manifestations afin de nous retrouver en dehors du quotidien professionnel.\nPlus d'informations"
-      },
-      "slugByLocale": {
-        "it": "agent-agente-de-nettoyage-m-w-d-20-lidl-svizzera-noville-61j4uk",
-        "en": "cleaning-agent-m-f-d-20-noville-lidl-svizzera-noville",
-        "de": "reinigungsmittel-m-w-d-20-noville-lidl-svizzera-noville",
-        "fr": "agent-agente-de-nettoyage-m-w-d-20-lidl-svizzera-noville-61j4uk"
-      },
-      "requirementsByLocale": {},
-      "country": "CH",
-      "sourceLang": "fr",
-      "previousSlugsByLocale": {
-        "it": [
-          "agent-agente-de-nettoyage-m-w-d-20-lidl-svizzera-noville"
-        ],
-        "en": [
-          "agent-agente-de-nettoyage-m-w-d-20-lidl-svizzera-noville-61j4uk"
-        ],
-        "de": [
-          "agent-agente-de-nettoyage-m-w-d-20-lidl-svizzera-noville-61j4uk"
-        ]
-      },
-      "previousSlugs": [
-        "agent-agente-de-nettoyage-m-w-d-20-lidl-svizzera-noville",
-        "agent-agente-de-nettoyage-m-w-d-20-lidl-svizzera-noville-61j4uk"
-      ],
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 12100,
-          "maxValue": 18300,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Noville",
-      "addressRegion": "VD",
-      "employmentType": "FULL_TIME",
-      "postalCode": "1845",
-      "streetAddress": "Noville",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:42:03.301Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://team.lidl.ch/fr/jobs/agent-agente-de-nettoyage-h-f-d-20-noville-771771",
-      "salaryMin": 12100,
-      "salaryMax": 18300
-    },
-    {
-      "id": "company-9pr3sh",
-      "slug": "junior-manager-sicurezza-sul-lavoro-m-f-d-80-100-lidl-svizzera-weinfelden",
-      "company": "Lidl Svizzera",
-      "title": "(Junior) Manager Arbeitssicherheit (m/w/d) 80-100%",
-      "location": "Weinfelden",
-      "canton": "TG",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "description": "Einleitung\n\nZiel dieser Position ist die fachliche und strategische Beratung der Unternehmensleitung, der Führungskräfte sowie der Fachbereiche in allen Belangen der Arbeitssicherheit und des Gesundheitsschutzes. Du unterstützt bei der Weiterentwicklung unserer Sicherheitskultur, gestaltet die Strukturierung relevanter Prozesse und stellst die rechtssichere Einhaltung aller gesetzlichen und internen Vorgaben im Unternehmen sicher.\nDeine\n• Aufgaben\n\n● Erstellung, Pflege und Weiterentwicklung der betrieblichen Sicherheitskonzepte und -richtlinien auf Basis nationaler Gesetze sowie interner Vorgaben.\n● Durchführen von Standortbegehungen sowie Erstellen und Prüfen von Gefährdungsermittlungen, um Arbeitssicherheitskonzepte und Präventionsmassnahmen aufzugleisen.\n● Kompetente Beratung von Führungskräften aller Stufen und Erstellung praxisnaher Schulungen für die Mitarbeitenden zur Förderung einer aktiven Sicherheitskultur.\n● Erhebung, Analyse und Berichterstattung relevanter Safety- Kennzahlen (z. B. Unfallstatistiken) sowie Ableitung von kontinuierlichen Optimierungsmassnahmen.\n● Koordination externer ASGS-Dienstleister, zentraler Ansprechpartner bei Anfragen von Behörden, Suva und öffentlichen Stellen sowie Teilnahme an ASA-Systemkontrollen schweizweit.\nDein Profil\n\n● Abgeschlossene Berufslehre (EFZ) oder ein Hochschulstudium (z. B. im technischen oder betriebswirtschaftlichen Bereich); eine Weiterbildung als Spezialist/in ASGS oder Sicherheitsingenieur/in ist von Vorteil bzw. die Bereitschaft, diese zu absolvieren.\n● Mehrjährige praktische Erfahrung im Bereich Arbeitssicherheit und Gesundheitsschutz (ASGS) in einem industriellen oder logistischen Umfeld.\n● Fundierte Kenntnisse der Schweizer Gesetzgebung, Verordnungen und Richtlinien (EKAS / Suva).\n● Starke Beratungskompetenz, Durchsetzungsvermögen und die Fähigkeit, Sicherheitsvorgaben praxisnah und überzeugend zu vermitteln.\n● Verhandlungssichere Deutschkenntnisse, gute Französischkenntnisse von Vorteil sowie Führerschein Kat. B\nWir bieten\n\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten\n• Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
-      "requirements": [
-        "● Verhandlungssichere Deutschkenntnisse, gute Französischkenntnisse von Vorteil sowie Führerschein Kat."
-      ],
-      "featured": false,
-      "datePosted": "2026-10-08T14:52:55+00:00",
-      "postedDate": "2026-10-08T14:52:55+00:00",
-      "postingDateSource": "reported",
-      "url": "https://team.lidl.ch/de/jobs/junior-manager-arbeitssicherheit-m-w-d-80-100-weinfelden-757422",
-      "applyUrl": "https://team.lidl.ch/de/jobs/junior-manager-arbeitssicherheit-m-w-d-80-100-weinfelden-757422",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Weinfelden",
-        "canton": "TG"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-11-23T21:42:03.301Z",
-      "firstSeenAt": "2026-10-08T21:44:12.559Z",
-      "titleByLocale": {
-        "en": "(Junior) Manager Occupational Safety (m/f/d) 80-100 %",
-        "de": "(Junior) Manager Arbeitssicherheit (m/w/d) 80-100%",
-        "it": "(Junior) Manager Sicurezza sul lavoro (m/f/d) 80-100 %",
-        "fr": "(Junior) Gestionnaire Sécurité au travail (h/f/d) 80-100 %"
-      },
-      "descriptionByLocale": {
-        "de": "Einleitung\n Ziel dieser Position ist die fachliche und strategische Beratung der Unternehmensleitung, der Führungskräfte sowie der Fachbereiche in allen Belangen der Arbeitssicherheit und des Gesundheitsschutzes. Du unterstützt bei der Weiterentwicklung unserer Sicherheitskultur, gestaltet die Strukturierung relevanter Prozesse und stellst die rechtssichere Einhaltung aller gesetzlichen und internen Vorgaben im Unternehmen sicher. Deine\n• Aufgaben\n ● Erstellung, Pflege und Weiterentwicklung der betrieblichen Sicherheitskonzepte und -richtlinien auf Basis nationaler Gesetze sowie interner Vorgaben. ● Durchführen von Standortbegehungen sowie Erstellen und Prüfen von Gefährdungsermittlungen, um Arbeitssicherheitskonzepte und Präventionsmassnahmen aufzugleisen. ● Kompetente Beratung von Führungskräften aller Stufen und Erstellung praxisnaher Schulungen für die Mitarbeitenden zur Förderung einer aktiven Sicherheitskultur. ● Erhebung, Analyse und Berichterstattung relevanter Safety- Kennzahlen (z. B. Unfallstatistiken) sowie Ableitung von kontinuierlichen Optimierungsmassnahmen. ● Koordination externer ASGS-Dienstleister, zentraler Ansprechpartner bei Anfragen von Behörden, Suva und öffentlichen Stellen sowie Teilnahme an ASA-Systemkontrollen schweizweit. Dein Profil\n ● Abgeschlossene Berufslehre (EFZ) oder ein Hochschulstudium (z. B. im technischen oder betriebswirtschaftlichen Bereich); eine Weiterbildung als Spezialist/in ASGS oder Sicherheitsingenieur/in ist von Vorteil bzw. die Bereitschaft, diese zu absolvieren. ● Mehrjährige praktische Erfahrung im Bereich Arbeitssicherheit und Gesundheitsschutz (ASGS) in einem industriellen oder logistischen Umfeld. ● Fundierte Kenntnisse der Schweizer Gesetzgebung, Verordnungen und Richtlinien (EKAS / Suva). ● Starke Beratungskompetenz, Durchsetzungsvermögen und die Fähigkeit, Sicherheitsvorgaben praxisnah und überzeugend zu vermitteln. ● Verhandlungssichere Deutschkenntnisse, gute Französischkenntnisse von Vorteil sowie Führerschein Kat. B\n• Wir bieten\n Bei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten\n• Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
-        "it": "Introduzione\n\nL'obiettivo di questa posizione è la consulenza professionale e strategica della gestione aziendale, dei dirigenti e delle aree specializzate in tutti gli aspetti della sicurezza e della tutela della salute sul lavoro. L'utente supporta l'ulteriore sviluppo della nostra cultura della sicurezza, la struttura dei processi pertinenti e garantisce la conformità giuridica a tutti i requisiti legali e interni dell'azienda.\nIl tuo\n• Compiti\n\n● Creazione, manutenzione e sviluppo di concetti e linee guida sulla sicurezza operativa basati sulle leggi nazionali e sulle normative interne.\n● Eseguire visite al sito, nonché creare e testare la determinazione dei rischi al fine di sviluppare concetti di sicurezza e misure di prevenzione professionale.\nConsulenza competente per i manager a tutti i livelli e formazione pratica per i dipendenti per promuovere una cultura attiva della sicurezza.\n● Raccolta, analisi e reporting di indicatori di sicurezza rilevanti (ad esempio statistiche sugli incidenti) e derivazione di misure di ottimizzazione continua.\n● Coordinamento dei fornitori esterni di servizi ASGS, contatto centrale per le indagini da parte di autorità, Suva e enti pubblici, e la partecipazione ai controlli di sistema ASA in tutta la Svizzera.\nIl tuo profilo\n\n● Apprendistato professionale completato (EFZ) o una laurea (ad esempio in amministrazione tecnica o aziendale); ulteriore formazione come specialista in ASGS o ingegnere di sicurezza è un vantaggio o la volontà di completarlo.\n● Diversi anni di esperienza pratica nel campo della salute e della sicurezza sul lavoro (ASGS) in un ambiente industriale o logistico.\n● Conoscenza approfondita della legislazione, dei regolamenti e delle linee guida svizzere (EKAS / Suva).\n● Forte capacità di consulenza, assertività e capacità di trasmettere i requisiti di sicurezza in modo pratico e convincente.\n● Conoscenza negoziante del tedesco, buona conoscenza del francese e patente di guida Cat. B\nOffriamo\n\nA Lidl Svizzera, c'è spazio per l'ambizione e l'innovazione. Partecipa attivamente. Crescere ogni giorno a livello professionale e personale. Sulla vostra varia e interessante\n• Vi prepariamo per i compiti con formazione intensiva. Inoltre, vi offriamo la sicurezza di un lavoro permanente, una grande squadra, i vantaggi del Lidl GAV, un'eccellente fornitura professionale e altri benefici interessanti. Cogliete l'opportunità e applicate online ora!",
-        "en": "Introduction\n\nThe aim of this position is the professional and strategic advice of the company management, the executives and the specialist areas in all aspects of occupational safety and health protection. You support the further development of our security culture, structure relevant processes and ensure legally compliant compliance with all legal and internal requirements in the company.\nYour\n• Tasks\n\n● Creation, maintenance and further development of operational safety concepts and guidelines based on national laws and internal regulations.\n● Perform site visits as well as create and test hazard determinations in order to develop occupational safety concepts and prevention measures.\nCompetent advice to managers at all levels and practical training for employees to promote an active safety culture.\n● Collection, analysis and reporting of relevant safety indicators (e.g. accident statistics) as well as derivation of continuous optimization measures.\n● Coordination of external ASGS service providers, central contact for inquiries from authorities, Suva and public bodies, and participation in ASA system controls throughout Switzerland.\nYour profile\n\n● Completed vocational apprenticeship (EFZ) or a university degree (e.g. in technical or business administration); further training as a specialist in ASGS or safety engineer is an advantage or the willingness to complete it.\n● Several years of practical experience in the field of occupational health and safety (ASGS) in an industrial or logistical environment.\n● In-depth knowledge of Swiss legislation, regulations and guidelines (EKAS / Suva).\n● Strong consulting skills, assertiveness and the ability to convey safety requirements in a practical and convincing manner.\n● Negotiating knowledge of German, good knowledge of French and driving license Cat. B\nWe offer\n\nAt Lidl Switzerland, there is room for ambition and innovation. Actively participate. Grow daily on a professional and personal level. On your varied and interesting\n• We prepare you for tasks with intensive training. In addition, we offer you the security of a permanent job, a great team, the advantages of the Lidl GAV, an excellent occupational provision and other attractive benefits. Take the opportunity & apply online now!",
-        "fr": "Présentation\n\nLe but de ce poste est le conseil professionnel et stratégique de la direction de l'entreprise, des cadres et des domaines spécialisés dans tous les aspects de la sécurité et de la protection de la santé au travail. Vous soutenez le développement de notre culture de sécurité, structurez les processus pertinents et assurez le respect légal de toutes les exigences légales et internes de l'entreprise.\nVotre\n• Tâche\n\n∙ Création, entretien et développement de concepts et de lignes directrices en matière de sécurité opérationnelle fondés sur les lois nationales et les règlements internes.\n● Effectuer des visites sur place ainsi que créer et tester des déterminations des dangers afin d'élaborer des concepts de sécurité au travail et des mesures de prévention.\nConseils compétents aux gestionnaires à tous les niveaux et formation pratique pour les employés afin de promouvoir une culture de sécurité active.\n∙ Collecte, analyse et communication d ' indicateurs de sécurité pertinents (par exemple statistiques sur les accidents) et établissement de mesures d ' optimisation continue.\n● Coordination des prestataires externes de services ASGS, contact central pour les demandes des autorités, Suva et organismes publics, et participation aux contrôles du système ASA dans toute la Suisse.\nVotre profil\n\n● Apprentissage professionnel terminé (EFZ) ou diplôme universitaire (par exemple dans l'administration technique ou commerciale); la formation continue en tant que spécialiste de l'ASGS ou ingénieur de sécurité est un avantage ou la volonté de l'achever.\n● Plusieurs années d'expérience pratique dans le domaine de la santé et de la sécurité au travail (ASGS) dans un environnement industriel ou logistique.\n● Connaissance approfondie de la législation, des règlements et des directives suisses (EKAS / Suva).\n● De solides compétences en matière de consultation, d'affirmation de soi et de capacité à transmettre les exigences de sécurité de manière pratique et convaincante.\n● Connaissance de l'allemand, bonne connaissance du français et permis de conduire Cat. B\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Participer activement. Augmenter quotidiennement sur le plan professionnel et personnel. Sur votre variété et intéressant\n• Nous vous préparons à des tâches avec une formation intensive. En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne maintenant!"
-      },
-      "slugByLocale": {
-        "it": "junior-manager-sicurezza-sul-lavoro-m-f-d-80-100-lidl-svizzera-weinfelden",
-        "en": "junior-manager-occupational-safety-m-f-d-80-100-lidl-svizzera-weinfelden",
-        "de": "junior-manager-arbeitssicherheit-m-w-d-80-100-lidl-svizzera-weinfelden-9pr3sh",
-        "fr": "junior-gestionnaire-securite-au-travail-h-f-d-80-100-lidl-svizzera-weinfelden"
-      },
-      "requirementsByLocale": {
-        "it": [],
-        "en": [],
-        "de": [
-          "● Verhandlungssichere Deutschkenntnisse, gute Französischkenntnisse von Vorteil sowie Führerschein Kat."
-        ],
-        "fr": []
-      },
-      "country": "CH",
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "junior-manager-arbeitssicherheit-m-w-d-80-100-lidl-svizzera-weinfelden",
-          "junior-manager-arbeitssicherheit-m-w-d-80-100-lidl-svizzera-weinfelden-9pr3sh"
-        ],
-        "en": [
-          "junior-manager-arbeitssicherheit-m-w-d-80-100-lidl-svizzera-weinfelden-9pr3sh"
-        ],
-        "fr": [
-          "junior-manager-arbeitssicherheit-m-w-d-80-100-lidl-svizzera-weinfelden-9pr3sh"
-        ]
-      },
-      "previousSlugs": [
-        "junior-manager-arbeitssicherheit-m-w-d-80-100-lidl-svizzera-weinfelden",
-        "junior-manager-arbeitssicherheit-m-w-d-80-100-lidl-svizzera-weinfelden-9pr3sh"
-      ],
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Weinfelden",
-      "addressRegion": "TG",
-      "employmentType": "FULL_TIME",
-      "postalCode": "8570",
-      "streetAddress": "Weinfelden",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:42:03.301Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://team.lidl.ch/de/jobs/junior-manager-arbeitssicherheit-m-w-d-80-100-weinfelden-757422",
-      "salaryMin": 48000,
-      "salaryMax": 73000
     },
     {
       "id": "company-a9zsmu",

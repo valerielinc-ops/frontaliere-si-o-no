@@ -1,76 +1,20 @@
 name: Send Job Alert Emails
 
+# Cloud Scheduler owns the primary slot and names its run so retries can find
+# the already accepted dispatch. GitHub's native midnight cron was created 6-10
+# hours late (30-day median 394 min, p90 492; last week 490-580 min), which
+# moved the morning emails into mid-morning. The fixed primary clock is 05:00
+# UTC. Do not add the old cron back: it would create a second daily run while
+# the Firestore anti-duplicate guard is keyed by UTC day. The native 12:07 UTC
+# slot below is the same-day safety net if Cloud Scheduler fails.
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.trigger_source == 'cloud-scheduler' && inputs.dry_run != true && inputs.dry_run != 'true' && format('Send Job Alert Emails [cloud-scheduler {0}]', inputs.scheduled_slot) || 'Send Job Alert Emails' }}
+
 on:
   schedule:
-    # Daily 00:33 UTC. Issue #3798 Fase 1 — KEPT, but the earlier rationale for
-    # this slot was measured on the wrong metric and is corrected here.
-    #
-    # Re-audited 2026-08-05 (30 days of scheduled runs across all 100+ crontabbed
-    # workflows in this repo, delay = run.created_at - nominal cron minute):
-    #
-    #  * The account-wide concurrency pool is NOT the constraint any more. Job
-    #    queue wait (job.started_at - job.created_at) is a median of 2s and a
-    #    p90 of 8-9s for every run created between 00:00 and 06:00 UTC (n=414
-    #    jobs sampled over 7 days). The ~20-job free-tier ceiling that drove
-    #    incident #2882 stopped biting when the 581 per-crawler workflows were
-    #    consolidated into 24 groups (docs/CI-CD-PIPELINE.md), and since
-    #    2026-09-30 the account is on GitHub Pro, whose ceiling is 40 jobs.
-    #    Picking a slot to dodge our own concurrent jobs optimises something
-    #    that no longer costs anything.
-    #  * What actually costs hours is GitHub's own scheduled-DISPATCH backlog,
-    #    which never appears in a "runs created per hour" histogram because that
-    #    histogram counts runs at the delayed time, not the nominal one. Median
-    #    delay by nominal cron hour: 00h 240m, 02h 199m, 03h 159m, 05h 147m,
-    #    10h 109m, 15h 65m, 21h 62m, 22h 51m. Confirmed WITHIN a single
-    #    workflow, which rules out any per-workflow confound:
-    #    orchestrate-crawlers.yml runs at both 09:00 (median 133m) and 21:00
-    #    (median 62m) — same workflow, same repo, 2.1x apart.
-    #  * So the 00:00-04:00 band is the WORST band of the day for dispatch, not
-    #    a "quiet window". It only LOOKS quiet in a created-at histogram
-    #    (00h-02h show 11-22 runs/h vs 68-75 at 10h-11h) because the night's own
-    #    scheduled work is being deferred into the morning. Delay is in fact
-    #    ANTI-correlated with our own run volume: 22h is the 5th busiest hour
-    #    and has the LOWEST delay.
-    #
-    # Why 00:33 stays anyway, despite being the worst-drifting slot measured
-    # (median 240m, p90 471m, max 590m): moving to the low-drift 15:00-22:00
-    # band would fire this workflow in the afternoon, and
-    # scripts/lib/send-schedule.mjs computeScheduledSendAt schedules each
-    # subscriber for the NEXT occurrence of their preferred hour. The later in
-    # the UTC day the run fires, the more subscribers have already passed their
-    # hour and get pushed to tomorrow's slot — receiving ~24h-old job matches.
-    # Firing early is worth more than firing punctually. 00:33 + 240m median
-    # lands ~04:33 UTC, the earliest effective start of any sampled slot, and
-    # even the p90 (~08:24) stays clear of the morning crawler batch (dispatched
-    # ~11:20).
-    #
-    # The one candidate that could beat it is the 23:00 slot, which the audit
-    # could not evaluate because no workflow is scheduled there. That gap is now
-    # being filled automatically: cron-dispatch-canary.yml samples 23:17 and
-    # 00:33 on the same night (paired, so GitHub's day-to-day backlog swings
-    # cancel) into data/cron-dispatch-history.jsonl. Standing verdict:
-    #   node scripts/ci/audit-cron-dispatch-delay.mjs
-    # Pre-committed rule: at >=14 paired nights, if 23:17 has the earlier median
-    # EFFECTIVE START, move this cron there — nothing else about this workflow
-    # changes. Do not move it on the delay figure alone; see the canary's
-    # docblock for why early beats punctual.
-    #
-    # Note the minute is NOT load-bearing: the ":00/:15/:30/:45 get
-    # deprioritised" folklore does not hold here. Median delay is 150m at :00,
-    # 149m at :15/:30/:45 and 158m at off-minutes (n=1462) — off-minutes are if
-    # anything marginally worse.
-    #
-    # The previously-claimed "full 3h gap before send-newsletter at 03:33" does
-    # not exist in practice: effective start is ~04:33 here vs ~06:13 for the
-    # newsletter (a ~1h40m gap), and on p90 days this one starts AFTER the
-    # newsletter. The newsletter keeps its cron as a fallback and also accepts
-    # a verified handoff after this primary slot completes; neither path changes
-    # the job-alert data contract or its own concurrency group.
-    - cron: '33 0 * * *'
     # SECONDO SLOT — 12:07 UTC. Aggiunto il 2026-08-14 su decisione del
     # proprietario, ora che il soffitto di cadenza e' tolto e la tabella
     # [1, 3, 7] e' di nuovo in vigore: chi clicca ha diritto a un invio al
-    # giorno, e un solo giro che parte in media alle 04:33 lascia indietro
+    # giorno, e un solo giro che parte alle 05:00 lascia indietro
     # tutti quelli la cui ora preferita cade dopo.
     #
     # IL VINCOLO CHE DECIDE L'ORA, e viene prima di ogni considerazione sul
@@ -109,6 +53,16 @@ on:
         required: false
         default: true
         type: boolean
+      trigger_source:
+        description: 'Who dispatched the primary slot (Cloud Scheduler sends cloud-scheduler; leave manual)'
+        required: false
+        default: 'manual'
+        type: string
+      scheduled_slot:
+        description: 'Nominal UTC slot (ISO) of a Cloud Scheduler dispatch; empty for a manual one'
+        required: false
+        default: ''
+        type: string
 concurrency:
   group: job-alerts
   # CANCEL-IN-PROGRESS: FALSE dal 2026-08-14, ed e' la meta' che rende sicuro il
@@ -128,9 +82,9 @@ permissions:
 
 jobs:
   send-alerts:
-    # GATE DEL SECONDO SLOT. Il giro delle 15:07 spedisce solo se la
-    # repo-variable JOB_ALERT_SECOND_SLOT_ARMED vale 'true'; il giro delle 00:33
-    # e il dispatch manuale non sono mai gated.
+    # GATE DEL SECONDO SLOT. Il giro delle 12:07 spedisce solo se la
+    # repo-variable JOB_ALERT_SECOND_SLOT_ARMED vale 'true'; il dispatch
+    # Cloud Scheduler delle 05:00 e il dispatch manuale non sono mai gated.
     #
     # Serve perche' due slot senza la protezione anti-doppione nella LOGICA
     # sono un doppio invio, e quella protezione non puo' stare nella spaziatura
@@ -298,30 +252,40 @@ jobs:
           echo "::error::invio delle job alert fallito — vedi l'issue aperta sopra."
           exit 1
 
-      # The newsletter is chained only from the primary daily slot. The marker
-      # is uploaded after the failure gate, so a partial/failed alert run can
-      # never authorize a newsletter send. The UTC date is the handoff key used
-      # to correlate the event-driven run with the fallback cron; recipient-level
-      # idempotency remains in the newsletter campaign ledger.
+      # The newsletter is chained only from the successful, non-dry-run primary
+      # Cloud Scheduler dispatch. The marker is uploaded after the failure gate,
+      # so a partial/failed alert run, the 12:07 fallback slot, or a manual/dry
+      # run can never authorize a newsletter send. The stable slot identity is
+      # independent of the scheduler cron; the UTC date remains the handoff key
+      # used to correlate the event-driven run with the fallback cron.
       - name: Create primary newsletter handoff marker
-        if: steps.send-alerts.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule == '33 0 * * *'
+        if: steps.send-alerts.outcome == 'success' && github.event_name == 'workflow_dispatch' && inputs.trigger_source == 'cloud-scheduler' && inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           HANDOFF_DIR: ${{ runner.temp }}/newsletter-handoff
+          TRIGGER_SOURCE: ${{ inputs.trigger_source }}
+          SCHEDULED_SLOT: ${{ inputs.scheduled_slot }}
+          DRY_RUN: ${{ inputs.dry_run }}
         run: |
           mkdir -p "$HANDOFF_DIR"
           jq -n \
             --arg source_run_id "$GITHUB_RUN_ID" \
             --arg source_run_attempt "$GITHUB_RUN_ATTEMPT" \
             --arg source_branch "$GITHUB_REF_NAME" \
+            --arg trigger_source "$TRIGGER_SOURCE" \
+            --arg scheduled_slot "$SCHEDULED_SLOT" \
+            --arg dry_run "$DRY_RUN" \
             --arg newsletter_key "$(date -u +%F)" \
             '{
-              schema_version: 1,
+              schema_version: 2,
               kind: "newsletter-jobalert-handoff",
-              schedule: "33 0 * * *",
+              schedule: "job-alert-primary",
               source_workflow: "Send Job Alert Emails",
               source_workflow_path: ".github/workflows/send-job-alerts.yml",
-              source_event: "schedule",
+              source_event: "workflow_dispatch",
               source_conclusion: "success",
+              trigger_source: $trigger_source,
+              scheduled_slot: $scheduled_slot,
+              dry_run: $dry_run,
               source_run_id: $source_run_id,
               source_run_attempt: $source_run_attempt,
               source_branch: $source_branch,
@@ -329,7 +293,7 @@ jobs:
             }' > "$HANDOFF_DIR/primary.json"
 
       - name: Upload primary newsletter handoff
-        if: steps.send-alerts.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule == '33 0 * * *'
+        if: steps.send-alerts.outcome == 'success' && github.event_name == 'workflow_dispatch' && inputs.trigger_source == 'cloud-scheduler' && inputs.dry_run != true && inputs.dry_run != 'true'
         uses: actions/upload-artifact@v7
         with:
           name: newsletter-handoff-${{ github.run_id }}

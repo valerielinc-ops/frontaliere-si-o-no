@@ -65,6 +65,9 @@ jobs:
   crawler_group_07:
     runs-on: ubuntu-latest
     timeout-minutes: 340
+    permissions:
+      contents: read
+      id-token: write
     env:
       CRAWLER_GENERATION_TOKEN: ${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}
       CRAWLER_GENERATION_RECEIPT_DIR: crawler-generation/receipts
@@ -281,6 +284,19 @@ jobs:
       - name: Confirm crawler shared setup succeeded
         id: crawler_group_setup
         run: "true"
+      - name: Authenticate the jobs source relay (temenos, trafigura, fnz, medtronic, lonza)
+        id: source_relay_auth
+        if: steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
+        uses: google-github-actions/auth@c200f3691d83b41bf9bbd8638997a462592937ed
+        with:
+          workload_identity_provider: projects/957502085858/locations/global/workloadIdentityPools/github-actions/providers/github
+          service_account: jobs-source-relay-ci@frontaliere-ticino.iam.gserviceaccount.com
+          token_format: id_token
+          id_token_audience: https://jobssourcerelay-cekssc5eoa-oa.a.run.app
+          id_token_include_email: true
+          create_credentials_file: false
+          export_environment_variables: false
       - name: Launch spital-emmental
         id: crawler-launch-spital-emmental
         if: always() && steps.crawler_group_setup.outcome == 'success'
@@ -505,6 +521,8 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: temenos
           JOBS_SLICE_FILE: data/jobs/by-crawler/temenos.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          JOBS_SOURCE_RELAY_URL: https://jobssourcerelay-cekssc5eoa-oa.a.run.app
+          JOBS_SOURCE_RELAY_ID_TOKEN: ${{ steps.source_relay_auth.outputs.id_token }}
         run: |-
           # shellcheck disable=SC2016,SC1003
           set -euo pipefail
@@ -589,6 +607,7 @@ jobs:
           export CRAWLER_LAUNCH_MINUTES=128 CRAWLER_LAUNCH_PARALLEL=4
           export CRAWLER_LAUNCH_WATCHDOG_FILE='temenos.watchdog'
           export CRAWLER_LAUNCH_CRAWL_EXIT='temenos.crawl-exit'
+          export CRAWLER_LAUNCH_RELAY_SLOT='relay-temenos.lock'
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -1030,6 +1049,8 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: trafigura
           JOBS_SLICE_FILE: data/jobs/by-crawler/trafigura.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          JOBS_SOURCE_RELAY_URL: https://jobssourcerelay-cekssc5eoa-oa.a.run.app
+          JOBS_SOURCE_RELAY_ID_TOKEN: ${{ steps.source_relay_auth.outputs.id_token }}
         run: |-
           # shellcheck disable=SC2016,SC1003
           set -euo pipefail
@@ -1114,6 +1135,7 @@ jobs:
           export CRAWLER_LAUNCH_MINUTES=96 CRAWLER_LAUNCH_PARALLEL=4
           export CRAWLER_LAUNCH_WATCHDOG_FILE='trafigura.watchdog'
           export CRAWLER_LAUNCH_CRAWL_EXIT='trafigura.crawl-exit'
+          export CRAWLER_LAUNCH_RELAY_SLOT='relay-trafigura.lock'
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -1977,6 +1999,8 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: fnz
           JOBS_SLICE_FILE: data/jobs/by-crawler/fnz.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          JOBS_SOURCE_RELAY_URL: https://jobssourcerelay-cekssc5eoa-oa.a.run.app
+          JOBS_SOURCE_RELAY_ID_TOKEN: ${{ steps.source_relay_auth.outputs.id_token }}
         run: |-
           # shellcheck disable=SC2016,SC1003
           set -euo pipefail
@@ -2061,6 +2085,7 @@ jobs:
           export CRAWLER_LAUNCH_MINUTES=44 CRAWLER_LAUNCH_PARALLEL=4
           export CRAWLER_LAUNCH_WATCHDOG_FILE='fnz.watchdog'
           export CRAWLER_LAUNCH_CRAWL_EXIT='fnz.crawl-exit'
+          export CRAWLER_LAUNCH_RELAY_SLOT='relay-fnz.lock'
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -2187,6 +2212,8 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: medtronic
           JOBS_SLICE_FILE: data/jobs/by-crawler/medtronic.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          JOBS_SOURCE_RELAY_URL: https://jobssourcerelay-cekssc5eoa-oa.a.run.app
+          JOBS_SOURCE_RELAY_ID_TOKEN: ${{ steps.source_relay_auth.outputs.id_token }}
         run: |-
           # shellcheck disable=SC2016,SC1003
           set -euo pipefail
@@ -2271,6 +2298,7 @@ jobs:
           export CRAWLER_LAUNCH_MINUTES=32 CRAWLER_LAUNCH_PARALLEL=4
           export CRAWLER_LAUNCH_WATCHDOG_FILE='medtronic.watchdog'
           export CRAWLER_LAUNCH_CRAWL_EXIT='medtronic.crawl-exit'
+          export CRAWLER_LAUNCH_RELAY_SLOT='relay-medtronic.lock'
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -3133,6 +3161,8 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: lonza
           JOBS_SLICE_FILE: data/jobs/by-crawler/lonza.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          JOBS_SOURCE_RELAY_URL: https://jobssourcerelay-cekssc5eoa-oa.a.run.app
+          JOBS_SOURCE_RELAY_ID_TOKEN: ${{ steps.source_relay_auth.outputs.id_token }}
         run: |-
           # shellcheck disable=SC2016,SC1003
           set -euo pipefail
@@ -3217,6 +3247,7 @@ jobs:
           export CRAWLER_LAUNCH_MINUTES=35 CRAWLER_LAUNCH_PARALLEL=4
           export CRAWLER_LAUNCH_WATCHDOG_FILE='lonza.watchdog'
           export CRAWLER_LAUNCH_CRAWL_EXIT='lonza.crawl-exit'
+          export CRAWLER_LAUNCH_RELAY_SLOT='relay-lonza.lock'
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else

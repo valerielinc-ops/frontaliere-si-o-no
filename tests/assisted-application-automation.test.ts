@@ -938,15 +938,15 @@ describe('sweep', () => {
     await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
     const draft = { ...readyDraft(), questions: [
       { id: 'work_permit', required: true, question: 'Permesso svizzero?', options: ['C', 'B', 'L', 'G', 'none'] },
-      // A fact only the candidate states (the platform answers relocation since 2026-11-09).
-      { id: 'driving_licence', required: true, question: 'Patente di categoria B?', options: ['yes', 'no'] },
+      // A fact only the candidate states (category B licence is defaulted yes since 2026-11-27).
+      { id: 'driving_licence_c', required: true, question: 'Patente di categoria C?', options: ['yes', 'no'] },
     ] };
     await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft);
     effects = [];
     await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'draft_ready', round: 1 }, runEffect, nowMs: T0 });
     expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({
       state: 'candidate_review',
-      heldBy: ['question:work_permit', 'question:driving_licence'],
+      heldBy: ['question:work_permit', 'question:driving_licence_c'],
       deadlineAt: null,
     });
     expect(effects).toEqual([{ type: 'email', kind: 'candidate_review', held: true, round: 1 }]);
@@ -954,11 +954,11 @@ describe('sweep', () => {
     effects = [];
     await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({
       ...store.read(`${ORDER_PATH}/automation/flow`),
-      answers: { work_permit: 'C', driving_licence: 'yes' },
+      answers: { work_permit: 'C', driving_licence_c: 'yes' },
     });
     await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'candidate_answers' }, actor: 'candidate', runEffect, nowMs: T0 + 1000 });
     expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'candidate_review',
-      heldBy: ['question:work_permit', 'question:driving_licence'], deadlineAt: null });
+      heldBy: ['question:work_permit', 'question:driving_licence_c'], deadlineAt: null });
     expect(effects).toEqual([]);
   });
 
@@ -1477,7 +1477,7 @@ describe('account failure observability', () => {
     expect(timedOut).toEqual({ handoff: 'account_verification_timeout', accountFailure: { code: 'verification_timeout', stage: 'verification' } });
   });
 
-  it('archives stale >30 day candidate-held flows and missing-CV orders in sweep and unarchives on resume', async () => {
+  it('closes candidate-held flows waiting >30 days (and archives missing-CV orders) in the sweep; a reply before the 30 days resumes', async () => {
     const dayMs = 24 * 60 * 60 * 1000;
     const staleSince = T0 - 31 * dayMs;
     const recentSince = T0 - 10 * dayMs;
@@ -1505,8 +1505,10 @@ describe('account failure observability', () => {
 
     const summary = await runAutomationSweep({ db: store.db, runEffect, nowMs: T0 });
     expect(summary.staleArchived).toBe(2);
-    expect(store.read('assisted_applications/stale_flow')?.candidateStaleArchivedAt).toBe(T0);
-    expect(store.read('assisted_applications/stale_flow/automation/flow')?.candidateStaleArchivedAt).toBe(T0);
+    // The marker belongs to a wait that goes on: the closed flow (a terminal state) clears it, as any exit from the waiting states does.
+    expect(store.read('assisted_applications/stale_flow/automation/flow')).toMatchObject({ state: 'withdrawn', withdrawnReason: 'candidate_requirements_expired' });
+    expect(store.read('assisted_applications/stale_flow')).toMatchObject({ submissionStatus: 'withdrawn', withdrawalReason: 'candidate_requirements_expired' });
+    expect(effects).toEqual([{ type: 'refund', reason: 'candidate_requirements_expired', notify: 'candidate_requirements_expired_refunded' }]);
     expect(store.read('assisted_applications/recent_flow')?.candidateStaleArchivedAt).toBeUndefined();
     expect(store.read('assisted_applications/stale_cv')?.candidateStaleArchivedAt).toBe(T0);
     expect(store.read('assisted_applications/recent_cv')?.candidateStaleArchivedAt).toBeUndefined();
@@ -1515,14 +1517,10 @@ describe('account failure observability', () => {
     const secondSweep = await sweepStaleCandidateOrders({ db: store.db, runEffect, nowMs: T0 + 1000 });
     expect(secondSweep.total).toBe(0);
 
-    // Candidate answering releases the archive marker and restores the flow.
-    await store.db.collection('assisted_applications').doc('stale_flow').collection('automation').doc('flow').set({
-      documents: { referenze: { files: [{ key: 'assisted-application-uploads/stale_flow/ref.pdf' }] } },
-    }, { merge: true });
-    const answered = await applyAutomationEvent({ db: store.db, orderId: 'stale_flow', event: { type: 'candidate_answers' }, actor: 'candidate', runEffect, nowMs: T0 + 2000 });
+    // A reply before the 30 days resumes the flow as ever.
+    const answered = await applyAutomationEvent({ db: store.db, orderId: 'recent_flow', event: { type: 'candidate_answers' }, actor: 'candidate', runEffect, nowMs: T0 + 2000 });
     expect(answered.ok).toBe(true);
-    expect(answered.flow.candidateStaleArchivedAt).toBeNull();
-    expect(store.read('assisted_applications/stale_flow')?.candidateStaleArchivedAt).toBeNull();
+    expect(store.read('assisted_applications/recent_flow/automation/flow')?.state).not.toBe('withdrawn');
     expect(CANDIDATE_STALE_ARCHIVE_AFTER_MS).toBe(30 * dayMs);
   });
 });

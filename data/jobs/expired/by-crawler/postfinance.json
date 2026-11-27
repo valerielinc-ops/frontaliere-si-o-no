@@ -27,7 +27,7 @@
       "fr": "ai-ingenieur-chat-und-voicebot-postfinance-bern"
     },
     "sector": "Servizi Finanziari",
-    "expiredAt": "2026-11-26T16:35:22.734Z",
+    "expiredAt": "2026-11-27T13:13:51.250Z",
     "previousSlugs": [
       "ai-engineer-chat-und-voicebot-postfinance"
     ],
@@ -38,6 +38,14 @@
       "fr": [
         "ai-engineer-chat-und-voicebot-postfinance"
       ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ai-engineer-chat-und-voicebot-postfinance": "BE"
+      },
+      "fr": {
+        "ai-engineer-chat-und-voicebot-postfinance": "BE"
+      }
     },
     "salaryMin": 73000,
     "salaryMax": 124500,
@@ -74,7 +82,7 @@
       "fr": "collaborateur-trice-kompetenzcenter-nachlass-telefonie-postfinance-bern"
     },
     "sector": "Servizi Finanziari",
-    "expiredAt": "2026-11-26T16:35:22.734Z",
+    "expiredAt": "2026-11-27T13:13:51.250Z",
     "previousSlugs": [
       "mitarbeiter-in-kompetenzcenter-nachlass-telefonie-postfinance"
     ],
@@ -88,6 +96,17 @@
       "fr": [
         "mitarbeiter-in-kompetenzcenter-nachlass-telefonie-postfinance"
       ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-kompetenzcenter-nachlass-telefonie-postfinance": "BE"
+      },
+      "en": {
+        "mitarbeiter-in-kompetenzcenter-nachlass-telefonie-postfinance": "BE"
+      },
+      "fr": {
+        "mitarbeiter-in-kompetenzcenter-nachlass-telefonie-postfinance": "BE"
+      }
     },
     "salaryMin": 68500,
     "salaryMax": 104000,
@@ -124,7 +143,7 @@
       "fr": "embedded-tester-test-automation-ingenieur-chatbot-voicebot-w-m-d-postfinance-bern"
     },
     "sector": "Servizi Finanziari",
-    "expiredAt": "2026-11-26T16:35:22.734Z",
+    "expiredAt": "2026-11-27T13:13:51.250Z",
     "previousSlugs": [
       "embedded-tester-test-automation-ingegnere-chatbot-voicebot-w-m-d-postfinance-bern"
     ],
@@ -132,6 +151,11 @@
       "it": [
         "embedded-tester-test-automation-ingegnere-chatbot-voicebot-w-m-d-postfinance-bern"
       ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "embedded-tester-test-automation-ingegnere-chatbot-voicebot-w-m-d-postfinance-bern": "BE"
+      }
     },
     "salaryMin": 73000,
     "salaryMax": 124500,
@@ -168,7 +192,7 @@
       "fr": "integration-platform-ingenieur-w-m-d-postfinance-bern"
     },
     "sector": "Servizi Finanziari",
-    "expiredAt": "2026-11-26T16:35:22.734Z",
+    "expiredAt": "2026-11-27T13:13:51.250Z",
     "previousSlugs": [
       "platform-ingegnere-continuous-integration-w-m-d-postfinance-bern"
     ],
@@ -176,6 +200,11 @@
       "it": [
         "platform-ingegnere-continuous-integration-w-m-d-postfinance-bern"
       ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "platform-ingegnere-continuous-integration-w-m-d-postfinance-bern": "BE"
+      }
     },
     "salaryMin": 73000,
     "salaryMax": 124500,
@@ -212,7 +241,7 @@
       "fr": "gestionnaire-de-projet-et-de-processus-dans-les-operations-de-conformite-postfinance-bern"
     },
     "sector": "Finanza",
-    "expiredAt": "2026-11-26T16:35:22.734Z",
+    "expiredAt": "2026-11-27T13:13:51.250Z",
     "previousSlugs": [
       "projekt-und-prozessmanager-in-compliance-operations-postfinance"
     ],
@@ -226,6 +255,17 @@
       "fr": [
         "projekt-und-prozessmanager-in-compliance-operations-postfinance"
       ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projekt-und-prozessmanager-in-compliance-operations-postfinance": "BE"
+      },
+      "en": {
+        "projekt-und-prozessmanager-in-compliance-operations-postfinance": "BE"
+      },
+      "fr": {
+        "projekt-und-prozessmanager-in-compliance-operations-postfinance": "BE"
+      }
     },
     "salaryMin": 68500,
     "salaryMax": 104000,
@@ -262,7 +302,7 @@
       "fr": "gestionnaire-d-examen-en-gouvernance-d-entreprise-h-f-d-postfinance-bern"
     },
     "sector": "Servizi Finanziari",
-    "expiredAt": "2026-11-26T16:35:22.734Z",
+    "expiredAt": "2026-11-27T13:13:51.250Z",
     "previousSlugs": [
       "review-manager-im-bereich-corporate-governance-w-m-d-postfinance",
       "review-manager-im-bereich-corporate-governance-m-w-d-postfinance-bern"
@@ -275,6 +315,15 @@
       "fr": [
         "review-manager-im-bereich-corporate-governance-w-m-d-postfinance"
       ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "review-manager-im-bereich-corporate-governance-w-m-d-postfinance": "BE",
+        "review-manager-im-bereich-corporate-governance-m-w-d-postfinance-bern": "BE"
+      },
+      "fr": {
+        "review-manager-im-bereich-corporate-governance-w-m-d-postfinance": "BE"
+      }
     },
     "salaryMin": 94500,
     "salaryMax": 143000,
@@ -311,7 +360,7 @@
       "fr": "senior-fullstack-ingenieur-w-m-d-postfinance-bern"
     },
     "sector": "Servizi Finanziari",
-    "expiredAt": "2026-11-26T16:35:22.734Z",
+    "expiredAt": "2026-11-27T13:13:51.250Z",
     "previousSlugs": [
       "senior-fullstack-engineer-w-m-d-postfinance"
     ],
@@ -319,6 +368,11 @@
       "it": [
         "senior-fullstack-engineer-w-m-d-postfinance"
       ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-fullstack-engineer-w-m-d-postfinance": "BE"
+      }
     },
     "salaryMin": 113000,
     "salaryMax": 192000,
@@ -355,7 +409,7 @@
       "fr": "senior-process-specialiste-third-party-management-w-m-d-postfinance-bern"
     },
     "sector": "Servizi Finanziari",
-    "expiredAt": "2026-11-26T16:35:22.734Z",
+    "expiredAt": "2026-11-27T13:13:51.250Z",
     "salaryMin": 94500,
     "salaryMax": 143000,
     "salaryCurrency": "CHF",
@@ -391,7 +445,7 @@
       "fr": "specialiste-dans-les-operations-du-fonds-postfinance-bern"
     },
     "sector": "Servizi Finanziari",
-    "expiredAt": "2026-11-26T16:35:22.734Z",
+    "expiredAt": "2026-11-27T13:13:51.250Z",
     "previousSlugs": [
       "spezialist-in-fund-operations-postfinance",
       "spezialist-in-fund-operations-postfinance-bern"
@@ -405,12 +459,96 @@
         "spezialist-in-fund-operations-postfinance"
       ]
     },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spezialist-in-fund-operations-postfinance": "BE",
+        "spezialist-in-fund-operations-postfinance-bern": "BE"
+      },
+      "fr": {
+        "spezialist-in-fund-operations-postfinance": "BE"
+      }
+    },
     "salaryMin": 68500,
     "salaryMax": 104000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/spezialistin-fund-operations/74347-de_de",
     "firstSeenAt": "2026-08-14T10:18:27.800Z"
+  },
+  {
+    "slug": "kundenberater-in-privatkunden-postfinance",
+    "title": "Kundenberater:in Privatkunden",
+    "titleByLocale": {
+      "de": "Kundenberater:in Privatkunden"
+    },
+    "company": "PostFinance",
+    "companyKey": "postfinance",
+    "location": "Stans",
+    "canton": "NW",
+    "addressLocality": "",
+    "descriptionByLocale": {
+      "de": "Bei PostFinance stehen unsere Kund:innen im Mittelpunkt – und du gleich mit ihnen. Als Kundenberater:in erkennst du, was Menschen rund um Finanzfragen wirklich brauchen, und begleitest sie mit einer kompetenten Beratung auf Augenhöhe – ob digital, am Telefon oder vor Ort. Dich erwartet ein engagiertes Team, das sich gegenseitig unterstützt, gemeinsam Erfolge feiert und auch in hektischen Momenten den Humor nicht verliert. Gemeinsam gestaltet ihr die Zukunft der Beratung: persönlich, relevant und mit Wirkung.\n\nDas kannst du bewirken\n\n- Du übernimmst Verantwortung für dein eigenes Kundenportefeuille und führst ganzheitliche Beratungsgespräche rund um Anlegen, Vorsorgen und Finanzieren\n\n- Du planst deinen Tag eigenverantwortlich, vereinbarst aktiv Kundentermine und gestaltest deinen Alltag mit grosser Autonomie\n\n- Du bringst deine Ideen ein, verfolgst neue Beratungsansätze und erreichst gemeinsam mit dem Team ambitionierte Ziele\n\n- Du entwickelst dein Wissen gezielt weiter – besonders in den Themen Anlegen, Vorsorgen und Finanzieren – und gibst dein Know-how aktiv im Team weiter\n\nDas bringst du mit\n\n- Abgeschlossene Grundausbildung (EFZ) im kaufmännischen Bereich oder im Detailhandel (Fachgeschäft), idealerweise ergänzt durch Weiterbildungen im Banking\n\n- Erfahrung in der Vorsorge- oder Anlageberatung – und vor allem Freude an Finanzthemen\n\n- Ein offenes, empathisches Auftreten, das Vertrauen schafft und Kund:innen ins Zentrum stellt\n\n- Sehr gute Deutschkenntnisse. Jede weitere Sprache von Vorteil"
+    },
+    "slugByLocale": {
+      "de": "kundenberater-in-privatkunden-postfinance"
+    },
+    "sector": "Consulenza",
+    "expiredAt": "2026-11-27T10:03:23.894Z",
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.postfinance.ch/job/kundenberaterin-privatkunden/75323-de_de",
+    "firstSeenAt": "2026-11-27T10:02:27.716Z"
+  },
+  {
+    "id": "postfinance-a2e105d9ca29",
+    "slug": "addetto-a-al-servizio-clienti-customer-center-biel-postfinance-biel-bienne",
+    "title": "Kundenbetreuer:in Customer Center Biel",
+    "titleByLocale": {
+      "it": "Addetto/a al servizio clienti Customer Center Biel",
+      "en": "Account Manager Customer Center Biel",
+      "de": "Kundenbetreuer:in Customer Center Biel",
+      "fr": "Conseiller à la clientèle :dans le Customer Center de Bienne"
+    },
+    "company": "PostFinance",
+    "companyKey": "postfinance",
+    "location": "Biel/Bienne",
+    "canton": "BE",
+    "addressLocality": "Biel/Bienne",
+    "descriptionByLocale": {
+      "it": "Nel Centro Clienti di PostFinance siete in contatto diretto con i nostri clienti e riconoscete le loro preoccupazioni finanziarie. Lei li sostiene con consigli competenti attraverso vari canali e fornire il vostro impegno a esperienze positive. In questo modo, si rafforza la connessione dei nostri clienti con PostFinance e contribuire attivamente al successo congiunto in un ambiente dinamico.\n\nPuoi farlo.\n\n- Sei la prima persona di contatto a elaborare professionalmente il telefono e le richieste scritte dei nostri clienti per quanto riguarda prodotti e servizi\n\n- Riconosce e utilizza le opportunità di vendita proattivamente offrendo ai clienti prodotti e servizi adatti\n\n- Con la vostra natura empatica, comunicativa e aperta, ispirate i nostri diversi clienti e create un'esperienza clienti positiva.\n\nLo porti con te.\n\n- Completa l'istruzione di base o l'esperienza di servizio\n\n- Approfitta del contatto telefonico con i clienti e dell'esperienza ideale nel servizio clienti e nelle vendite\n\n- Eccellente capacità di comunicazione orale in tedesco e in una seconda lingua nazionale (francese o italiano)\n\n- Applicazione sicura di più applicazioni IT e strumenti di comunicazione (telefono, e-mail, chat)\n\n- Capacità di orientare in un ambiente veloce con cambiamenti e empatia per diverse esigenze del cliente\n\n- La volontà di avere una presenza al 100% durante la fase introduttiva di tre a sei mesi, nonché la possibilità di un successivo adeguamento del livello di occupazione e dell'attività di ufficio domestico da accordo",
+      "en": "In the Customer Center of PostFinance you are in direct contact with our customers and recognize their financial concerns. You support them with competent advice through various channels and provide your commitment to positive experiences. In doing so, you strengthen the connection of our customers with PostFinance and actively contribute to joint success in a dynamic environment.\n\nYou can do that.\n\n- You are the first contact person to professionally process the telephone and written inquiries of our customers regarding products and services\n\n- You recognize and use sales opportunities proactively by offering customers suitable products and services\n\n- With your empathetic, communicative and open nature, you inspire our diverse customers and create a positive customer experience.\n\nYou bring that with you\n\n- Completed basic education or service experience\n\n- Enjoy telephone customer contact as well as ideal experience in customer service and sales\n\n- Excellent oral communication skills in German as well as in a second national language (French or Italian)\n\n- Secure application of multiple IT applications and communication tools (telephone, email, chat)\n\n- Ability to orient in a fast-paced environment with changing shifts and empathy for different customer needs\n\n- Willingness to have a 100% presence during the introductory phase of three to six months as well as the possibility of later adjustment of the employment level and home office activity by agreement",
+      "de": "Im Customer Center von PostFinance stehst du im direkten Austausch mit unseren Kund:innen und erkennst ihre finanziellen Anliegen. Du unterstützt sie mit kompetenter Beratung über verschiedene Kanäle und sorgst mit deinem Engagement für positive Erlebnisse. Dabei stärkst du die Verbundenheit unserer Kund:innen mit PostFinance und trägst in einem dynamischen Umfeld aktiv zum gemeinsamen Erfolg bei.\n\nDas kannst du bewirken\n\n- Du bearbeitest als erste Ansprechperson professionell die telefonischen und schriftlichen Anfragen unserer Kund:innen zu Produkten und Dienstleistungen\n\n- Du erkennst und nutzt Verkaufschancen proaktiv, indem du Kund:innen passende Produkte und Dienstleistungen anbietest\n\n- Du begeisterst mit deiner empathischen, kommunikativen und offenen Art unsere vielfältigen Kund:innen und schaffst ein positives Kundenerlebnis\n\nDas bringst du mit\n\n- Abgeschlossene Grundbildung oder Erfahrung im Dienstleistungsbereich\n\n- Freude am telefonischen Kundenkontakt sowie idealerweise Erfahrung im Kundenservice und Verkauf\n\n- Ausgezeichnete mündliche Kommunikationsfähigkeiten in Deutsch sowie in einer zweiten Landessprache (Französisch oder Italienisch)\n\n- Sichere Anwendung mehrerer IT-Anwendungen und Kommunikationstools (Telefon, E-Mail, Chat)\n\n- Fähigkeit zur Orientierung in einem schnelllebigen Umfeld mit wechselnden Schichten sowie Einfühlungsvermögen für unterschiedliche Kundenbedürfnisse\n\n- Bereitschaft zur 100-prozentigen Präsenz während der Einführungsphase von drei bis sechs Monaten sowie Möglichkeit zur späteren Anpassung des Beschäftigungsgrads und Homeoffice-Tätigkeit nach Absprache",
+      "fr": "Dans le Centre Client de PostFinance, vous êtes en contact direct avec nos clients et reconnaissez leurs préoccupations financières. Vous les aidez avec des conseils compétents par divers canaux et vous fournissez votre engagement à des expériences positives. Ce faisant, vous renforcez la connexion de nos clients avec PostFinance et contribuez activement au succès conjoint dans un environnement dynamique.\n\nTu peux le faire.\n\n- Vous êtes la première personne à traiter professionnellement les demandes téléphoniques et écrites de nos clients concernant les produits et services\n\n- Vous reconnaissez et utilisez les opportunités de vente proactive en offrant aux clients des produits et services adaptés\n\n- Avec votre nature empathique, communicative et ouverte, vous inspirez nos différents clients et créez une expérience client positive.\n\nApporte ça avec toi.\n\n- Enseignement de base ou expérience des services\n\n- Profitez du contact téléphonique avec le client ainsi que de l'expérience idéale dans le service à la clientèle et les ventes\n\n- Excellente maîtrise de la communication orale en allemand ainsi que dans une deuxième langue nationale (français ou italien)\n\n- Application sécurisée de multiples applications informatiques et outils de communication (téléphone, e-mail, chat)\n\n- Capacité à s'orienter dans un environnement à rythme rapide avec des changements et de l'empathie pour différents besoins du client\n\n- Volonté d'avoir une présence à 100% pendant la phase introductive de trois à six mois ainsi que la possibilité d'un ajustement ultérieur du niveau d'emploi et de l'activité de bureau à domicile par accord"
+    },
+    "slugByLocale": {
+      "it": "addetto-a-al-servizio-clienti-customer-center-biel-postfinance-biel-bienne",
+      "en": "account-manager-customer-center-biel-postfinance-biel-bienne",
+      "de": "kundenbetreuer-in-customer-center-biel-postfinance",
+      "fr": "conseiller-a-la-clientele-dans-le-customer-center-de-bienne-postfinance-biel-bienne"
+    },
+    "sector": "Servizi Finanziari",
+    "expiredAt": "2026-11-26T21:55:45.836Z",
+    "previousSlugs": [
+      "kundenbetreuer-in-customer-center-biel-postfinance"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "kundenbetreuer-in-customer-center-biel-postfinance"
+      ]
+    },
+    "postalCode": "2502",
+    "streetAddress": "Biel/Bienne",
+    "salaryMin": 109000,
+    "salaryMax": 167000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.postfinance.ch/job/kundenbetreuerin-customer-center-biel/74895-de_de",
+    "firstSeenAt": "2026-10-01T09:32:58.564Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenbetreuer-in-customer-center-biel-postfinance": "BE"
+      }
+    }
   },
   {
     "id": "postfinance-b3a78c68a726",
@@ -458,7 +596,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/junior-financial-closing-&-taxes-%28wmd%29/75208-de_de",
-    "firstSeenAt": "2026-11-18T09:50:22.340Z"
+    "firstSeenAt": "2026-11-18T09:50:22.340Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "junior-financial-closing-taxes-w-m-d-postfinance": "BE"
+      },
+      "fr": {
+        "junior-financial-closing-taxes-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "id": "postfinance-9d99e3468738",
@@ -509,7 +656,88 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/ict-application-managerin-2nd-level-betrieb-&-support/75154-de_de",
-    "firstSeenAt": "2026-11-18T09:50:23.221Z"
+    "firstSeenAt": "2026-11-18T09:50:23.221Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ict-application-manager-in-2nd-level-betrieb-support-postfinance": "BE"
+      },
+      "en": {
+        "ict-application-manager-in-2nd-level-betrieb-support-postfinance": "BE"
+      },
+      "fr": {
+        "ict-application-manager-in-2nd-level-betrieb-support-postfinance": "BE"
+      }
+    }
+  },
+  {
+    "slug": "team-assistent-in-finance-risk-legal-and-compliance-postfinance",
+    "title": "Team-Assistent:in Finance & Risk, Legal and Compliance",
+    "titleByLocale": {
+      "de": "Team-Assistent:in Finance & Risk, Legal and Compliance"
+    },
+    "company": "PostFinance",
+    "companyKey": "postfinance",
+    "location": "Bern",
+    "addressLocality": "",
+    "descriptionByLocale": {
+      "de": "Im Assistenz-Team bist du die zentrale Drehscheibe für die Bereiche Finance, Risk, Legal and Compliance. Du strukturierst den Alltag, denkst voraus, behältst Fristen und Details im Blick und stellst sicher, dass Führungspersonen und Teams sich auf ihre Kernaufgaben konzentrieren können. Du hilfst beim Aufbau einer neuen Unit und wirst konzeptionell stark eingebunden. Mit deinem Organisationstalent und deiner Verbindlichkeit bringst du Ordnung in komplexe Themen und übernimmst Verantwortung.\n\nDas kannst du bewirken\n\n- Du koordinierst selbstständig organisatorische und administrative Aufgaben und sorgst für einen reibungslosen Arbeitsalltag.\n\n- Du planst und koordinierst Termine, Workshops, Geschäftsreisen und Veranstaltungen und behältst Fristen zuverlässig im Blick.\n\n- Du bearbeitest und priorisierst unterschiedliche Anliegen und arbeitest professionell mit internen und externen Schnittstellen zusammen.\n\n- Du erstellst und überarbeitest Präsentationen, Intranet-Beiträge und weitere Kommunikationsunterlagen adressatengerecht.\n\n- Du koordinierst Unterlagen, stellst deren Qualität und Vollständigkeit sicher und sorgst für die fristgerechte Weiterleitung.\n\n- Du unterstützt bei Projekten mit, wie der Aufbau einer neuen Unit, bringst Optimierungsideen ein und entwickelst Prozesse sowie die Zusammenarbeit aktiv weiter.\n\nDas bringst du mit\n\n- Kaufmännische Grundbildung (EFZ) oder gleichwertige Ausbildung sowie Erfahrung in einer Assistenz- oder Administrationsfunktion\n\n- Sehr gute Kenntnisse in M365 bringst du mit und Erfahrungen mit Confluence und Power-Apps sind von Vorteil\n\n- Ausgeprägtes Organisations- und Koordinationstalent sowie die Fähigkeit, Prioritäten sicher zu steuern\n\n- Selbstständige, zuverlässige und diskrete Arbeitsweise mit hohem Qualitätsanspruch\n\n- Proaktive Persönlichkeit mit Eigeninitiative und Freude daran, Abläufe mitzugestalten und zu verbessern\n\n- Verhandlungssichere Deutschkenntnisse werden vorausgesetzt, zusätzliche Kenntnisse in Französisch, Italienisch oder Englisch sind ein Plus"
+    },
+    "slugByLocale": {
+      "de": "team-assistent-in-finance-risk-legal-and-compliance-postfinance"
+    },
+    "sector": "Finanza",
+    "expiredAt": "2026-11-25T21:47:02.976Z",
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.postfinance.ch/job/team-assistentin-finance-&-risk%2c-legal-and-compliance/75297-de_de",
+    "firstSeenAt": "2026-11-25T21:46:40.633Z"
+  },
+  {
+    "slug": "software-engineer-digital-assets-w-m-d-postfinance",
+    "title": "Software Engineer Digital Assets (w/m/d)",
+    "titleByLocale": {
+      "de": "Software Engineer Digital Assets (w/m/d)"
+    },
+    "company": "PostFinance",
+    "companyKey": "postfinance",
+    "location": "Bern",
+    "addressLocality": "",
+    "descriptionByLocale": {
+      "de": "Im Delivery Team von PostFinance entwickelst du Lösungen im Bereich Digital Assets und verbindest unsere neue Verwahrungslösung mit internen Bankensystemen. Du stellst sicher, dass Datenflüsse zuverlässig funktionieren und Transaktionen mit digitalen Vermögenswerten sicher verarbeitet werden. Mit deinem technischen Know-how schaffst du die Basis für innovative Finanzlösungen. So trägst du dazu bei, die Zukunft von PostFinance aktiv mitzugestalten.\n\nDas kannst du bewirken\n\n- Du entwickelst Backend-Komponenten mit Java und Spring Boot und setzt abgestimmte Entwicklungs-Stories in wartbaren, versionierten Code um\n\n- Du integrierst externe Systeme über APIs und Webhooks und realisierst Schnittstellen zu verschiedenen Systemen\n\n- Du implementierst Datenmapping, Validierungen und Bestandsabgleiche zur Prüfung von Quell- und Zieladressen sowie freigegebenen Adresslisten\n\n- Du stellst eine zuverlässige Verarbeitung durch Fehlerbehandlung, Timeouts, Wiederholungsmechanismen und Schutz vor doppelter Verarbeitung sicher\n\n- Du entwickelst automatisierte Tests, beteiligst dich an Code Reviews und Integrationstests und dokumentierst technische Lösungen und Schnittstellen\n\n- Du unterstützt CI/CD und Deployments auf Kubernetes mit Helm sowie Monitoring und Audit Logging und arbeitest dabei eng mit Architektur, Business Analyse, Security und Betrieb zusammen\n\nDas bringst du mit\n\n- Mehrjährige Praxiserfahrung in der Backend-Entwicklung mit Java und Spring Boot sowie abgeschlossene Informatikausbildung oder gleichwertige Berufserfahrung\n\n- Erfahrung in der Arbeit mit REST-APIs, Webhooks, asynchroner Verarbeitung und Integration verteilter Systeme\n\n- Praxis im Umgang mit Git, CI/CD, automatisierten Tests und containerisierten Anwendungen sowie Kenntnisse in Kubernetes und Helm\n\n- Verständnis für sichere Softwareentwicklung, Authentifizierung, Berechtigungen und den sorgfältigen Umgang mit Secrets und sensiblen Daten\n\n- Strukturierte und eigenverantwortliche Arbeitsweise sowie Fähigkeit zur verständlichen Vermittlung technischer Themen in Deutsch und Englisch"
+    },
+    "slugByLocale": {
+      "de": "software-engineer-digital-assets-w-m-d-postfinance"
+    },
+    "sector": "IT",
+    "expiredAt": "2026-11-23T21:43:51.395Z",
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.postfinance.ch/job/software-engineer-digital-assets-%28wmd%29/75024-de_de",
+    "firstSeenAt": "2026-11-23T21:42:55.619Z"
+  },
+  {
+    "slug": "architecture-owner-w-m-d-postfinance",
+    "title": "Architecture Owner (w/m/d)",
+    "titleByLocale": {
+      "de": "Architecture Owner (w/m/d)"
+    },
+    "company": "PostFinance",
+    "companyKey": "postfinance",
+    "location": "Bern",
+    "addressLocality": "",
+    "descriptionByLocale": {
+      "de": "PostFinance treibt die strategische Modernisierung ihrer CRM-Landschaft voran. Als Architecture Owner verbindest du Technologie und Business: Du durchdringst unsere CRM-Prozesse und gestaltest daraus nachhaltige, sichere, stabile und möglichst einfache technische Lösungen.\n\nDas kannst du bewirken\n\n- Du bildest gemeinsam mit Product Owner und Delivery Team Lead das Leadership-Trio des Delivery Teams CRX.\n\n- Du verantwortest die technische Architektur unseres CRM und entwickelst sie gemeinsam mit dem Team und weiteren Architekturrollen weiter.\n\n- Du übernimmst Verantwortung für einen stabilen und reibungslosen technischen Betrieb und stellst sicher, dass Architektur und Umsetzung die Anforderungen an Verfügbarkeit, Wartbarkeit und Betriebsfähigkeit erfüllen.\n\n- Du setzt dich intensiv mit dem CRM-Business und seinen Geschäftsprozessen auseinander.\n\n- Du reduzierst Komplexität, entwickelst klare Lösungsbilder und vermittelst diese so, dass Stakeholder fundierte Entscheidungen treffen können.\n\n- Du entscheidest mit, wann Standardfunktionalität, Konfiguration, Erweiterung oder Integration die passende Lösung ist.\n\n- Du definierst technische Leitplanken, Architekturprinzipien und Coding Guidelines und stellst deren Anwendung sowie eine hohe Code- und Lösungsqualität sicher.\n\nDas bringst du mit\n\n- Mehrjährige Erfahrung als Senior Developer, Tech Lead oder Software Architect und fundierte Kenntnisse in Software- und Lösungsarchitektur.\n\n- Sehr gutes Verständnis von Clean Code, Softwarequalität, APIs, Integration, Datenmodellen, Security und technischem Betrieb.\n\n- Gute Kenntnisse in JavaScript/TypeScript oder vergleichbaren Technologien und Freude daran, dein technisches Know-how hands-on einzubringen.\n\n- Ein ausgeprägtes Interesse am Business und an Geschäftsprozessen sowie die Bereitschaft, das CRM-Business in der Tiefe zu verstehen.\n\n- Erfahrung mit komplexen Standardsoftware- oder Plattformlösungen ist von Vorteil.\n\n- Fähigkeit, komplexe Zusammenhänge zu strukturieren, zu vereinfachen und verständlich zu vermitteln"
+    },
+    "slugByLocale": {
+      "de": "architecture-owner-w-m-d-postfinance"
+    },
+    "sector": "Servizi Finanziari",
+    "expiredAt": "2026-11-23T09:52:30.385Z",
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.postfinance.ch/job/architecture-owner-%28wmd%29/75191-de_de",
+    "firstSeenAt": "2026-11-23T09:51:59.547Z"
   },
   {
     "slug": "senior-finanzplaner-in-region-mittelland-nordwestschweiz-postfinance",
@@ -535,6 +763,29 @@
     "firstSeenAt": "2026-11-23T09:52:01.704Z"
   },
   {
+    "slug": "senior-finanzplaner-in-region-ostschweiz-postfinance",
+    "title": "Senior Finanzplaner:in - Region Ostschweiz",
+    "titleByLocale": {
+      "de": "Senior Finanzplaner:in - Region Ostschweiz"
+    },
+    "company": "PostFinance",
+    "companyKey": "postfinance",
+    "location": "Ostschweiz",
+    "addressLocality": "",
+    "descriptionByLocale": {
+      "de": "Wir begleiten unsere Kundinnen und Kunden bei wichtigen finanziellen Entscheidungen in unterschiedlichen Lebensphasen. Mit unserer Expertise in der Finanzplanung unterstützen wir sie dabei, ihre finanzielle Zukunft vorausschauend zu gestalten. Gemeinsam mit unseren Kundenberater:innen entwickeln wir individuelle Lösungen, stärken die Finanzplanung als festen Bestandteil unseres Beratungsangebots und sorgen für eine ganzheitliche und vertrauensvolle Beratung.\n\nDas kannst du bewirken\n\n- Du analysierst komplexe Kundensituationen und erarbeitest ganzheitliche Finanz-, Vorsorge- und Pensionierungsplanungen mit individuellen Handlungsempfehlungen\n\n- Du begleitest unsere Kundinnen und Kunden sowie selbständig Erwerbende bei wichtigen finanziellen Entscheidungen in den Bereichen Vorsorge, Vermögen, Steuern, Pensionierung und Nachlassplanung\n\n- Du unterstützt unsere Kundenberater:innen in anspruchsvollen Beratungssituationen, bringst deine Fachexpertise gezielt ein und hilfst dabei, Beratungs- und Kundenpotenziale zu erschliessen\n\n- Du stellst eine hohe fachliche Qualität sowie ein konsistentes und kundenzentriertes Beratungserlebnis sicher\n\n- Du engagierst dich bei der Weiterentwicklung von Beratungsansätzen, Fachthemen und Arbeitsinstrumenten und bringst Markt-, Kunden- und Praxiserfahrungen aktiv ein\n\n- Du vertrittst die Finanzplanung an internen und externen Veranstaltungen, stärkst die regionale Verankerung des Angebots und leistest einen Beitrag zur Weiterentwicklung des Finanzplanungsgeschäfts\n\nDas bringst du mit\n\n- Kaufmännische Grundausbildung im Bank-, Versicherungs- oder Finanzbereich sowie eine Weiterbildung als Finanzplaner:in mit eidg. Fachausweis, Finanzplanungs-Expert:in, CFP oder eine vergleichbare Qualifikation\n\n- Mehrjährige praktische Erfahrung in der umfassenden Finanzplanung sowie ausgewiesene Expertise in der eigenverantwortlichen Erstellung und Präsentation anspruchsvoller Finanz-, Vorsorge- und Pensionierungsplanungen und der damit verbundenen Kundenberatung\n\n- Fundierte Kenntnisse in den Bereichen Vorsorge, Pensionierung, Vermögensstrukturierung, Steuern und Nachlassplanung\n\n- Erfahrung in der Begleitung komplexer Kundensituationen sowie in der Entwicklung individueller Finanzplanungslösungen\n\n- Freude daran, Kundenbedürfnisse zu erkennen, Potenziale aufzuzeigen und aktiv zum Ausbau der Finanzplanung beizutragen\n\n- Ein gut etabliertes Netzwerk in der Finanzplanung deiner Region sowie ausgeprägte Beratungs-, Kommunikations- und Vernetzungskompetenzen\n\n- Verhandlungssichere Deutschkenntnisse, idealerweise ergänzt durch eine weitere Landessprache, sowie die Bereitschaft zu regelmässigen Reisen innerhalb deiner Region"
+    },
+    "slugByLocale": {
+      "de": "senior-finanzplaner-in-region-ostschweiz-postfinance"
+    },
+    "sector": "Finanza",
+    "expiredAt": "2026-11-23T09:52:30.385Z",
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.postfinance.ch/job/senior-finanzplanerin-region-ostschweiz/75266-de_de",
+    "firstSeenAt": "2026-11-23T09:52:02.806Z"
+  },
+  {
     "slug": "senior-finanzplaner-in-region-romandie-postfinance",
     "title": "Senior Finanzplaner:in - Region Romandie",
     "titleByLocale": {
@@ -556,6 +807,103 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/senior-finanzplanerin-region-romandie/75268-de_de",
     "firstSeenAt": "2026-11-23T09:52:00.633Z"
+  },
+  {
+    "slug": "senior-finanzplaner-in-region-zurich-zentralschweiz-postfinance",
+    "title": "Senior Finanzplaner:in - Region Zürich & Zentralschweiz",
+    "titleByLocale": {
+      "de": "Senior Finanzplaner:in - Region Zürich & Zentralschweiz"
+    },
+    "company": "PostFinance",
+    "companyKey": "postfinance",
+    "location": "Zürich",
+    "addressLocality": "",
+    "descriptionByLocale": {
+      "de": "Wir begleiten unsere Kundinnen und Kunden bei wichtigen finanziellen Entscheidungen in unterschiedlichen Lebensphasen. Mit unserer Expertise in der Finanzplanung unterstützen wir sie dabei, ihre finanzielle Zukunft vorausschauend zu gestalten. Gemeinsam mit unseren Kundenberater:innen entwickeln wir individuelle Lösungen, stärken die Finanzplanung als festen Bestandteil unseres Beratungsangebots und sorgen für eine ganzheitliche und vertrauensvolle Beratung.\n\nDas kannst du bewirken\n\n- Du analysierst komplexe Kundensituationen und erarbeitest ganzheitliche Finanz-, Vorsorge- und Pensionierungsplanungen mit individuellen Handlungsempfehlungen\n\n- Du begleitest unsere Kundinnen und Kunden sowie selbständig Erwerbende bei wichtigen finanziellen Entscheidungen in den Bereichen Vorsorge, Vermögen, Steuern, Pensionierung und Nachlassplanung\n\n- Du unterstützt unsere Kundenberater:innen in anspruchsvollen Beratungssituationen, bringst deine Fachexpertise gezielt ein und hilfst dabei, Beratungs- und Kundenpotenziale zu erschliessen\n\n- Du stellst eine hohe fachliche Qualität sowie ein konsistentes und kundenzentriertes Beratungserlebnis sicher\n\n- Du engagierst dich bei der Weiterentwicklung von Beratungsansätzen, Fachthemen und Arbeitsinstrumenten und bringst Markt-, Kunden- und Praxiserfahrungen aktiv ein\n\n- Du vertrittst die Finanzplanung an internen und externen Veranstaltungen, stärkst die regionale Verankerung des Angebots und leistest einen Beitrag zur Weiterentwicklung des Finanzplanungsgeschäfts\n\nDas bringst du mit\n\n- Kaufmännische Grundausbildung im Bank-, Versicherungs- oder Finanzbereich sowie eine Weiterbildung als Finanzplaner:in mit eidg. Fachausweis, Finanzplanungs-Expert:in, CFP oder eine vergleichbare Qualifikation\n\n- Mehrjährige praktische Erfahrung in der umfassenden Finanzplanung sowie ausgewiesene Expertise in der eigenverantwortlichen Erstellung und Präsentation anspruchsvoller Finanz-, Vorsorge- und Pensionierungsplanungen und der damit verbundenen Kundenberatung\n\n- Fundierte Kenntnisse in den Bereichen Vorsorge, Pensionierung, Vermögensstrukturierung, Steuern und Nachlassplanung\n\n- Erfahrung in der Begleitung komplexer Kundensituationen sowie in der Entwicklung individueller Finanzplanungslösungen\n\n- Freude daran, Kundenbedürfnisse zu erkennen, Potenziale aufzuzeigen und aktiv zum Ausbau der Finanzplanung beizutragen\n\n- Ein gut etabliertes Netzwerk in der Finanzplanung deiner Region sowie ausgeprägte Beratungs-, Kommunikations- und Vernetzungskompetenzen\n\n- Verhandlungssichere Deutschkenntnisse, idealerweise ergänzt durch eine weitere Landessprache, sowie die Bereitschaft zu regelmässigen Reisen innerhalb deiner Region"
+    },
+    "slugByLocale": {
+      "de": "senior-finanzplaner-in-region-zurich-zentralschweiz-postfinance"
+    },
+    "sector": "Finanza",
+    "expiredAt": "2026-11-23T09:52:30.385Z",
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.postfinance.ch/job/senior-finanzplanerin-region-z%c3%bcrich-&-zentralschweiz/75265-de_de",
+    "firstSeenAt": "2026-11-23T09:52:03.916Z"
+  },
+  {
+    "slug": "teamleitung-finanzplanung-postfinance",
+    "title": "Teamleitung Finanzplanung",
+    "titleByLocale": {
+      "de": "Teamleitung Finanzplanung"
+    },
+    "company": "PostFinance",
+    "companyKey": "postfinance",
+    "location": "Bern",
+    "addressLocality": "",
+    "descriptionByLocale": {
+      "de": "Wir entwickeln die Finanzplanung als integralen Bestandteil der Kundenberatung weiter und begleiten unsere Kundinnen und Kunden bei wichtigen finanziellen Entscheidungen in unterschiedlichen Lebensphasen. Gemeinsam mit deinem Team stellst du eine erstklassige Beratungsqualität sicher, stärkst die Finanzplanung als festen Bestandteil unseres Beratungsangebots und entwickelst das Geschäftsfeld mit Blick auf zukünftige Kundenbedürfnisse gezielt weiter.\n\nDas kannst du bewirken\n\n- Du führst, coachst und entwickelst ein regional aufgestelltes Team von Finanzplaner:innen und förderst eine wertschätzende, leistungsorientierte Zusammenarbeit, auch über verschiedene Standorte hinweg\n\n- Du verantwortest die Zielerreichung deines Teams und steuerst die relevanten Leistungs- und Qualitätskennzahlen\n\n- Du stellst ein einheitliches, qualitativ hochwertiges und kundenorientiertes Beratungserlebnis sicher.\n\n- Du unterstützt dein Team bei anspruchsvollen Kundenmandaten und bringst deine Finanzplanungsexpertise gezielt in komplexe Beratungssituationen ein\n\n- Du entwickelst die Finanzplanung strategisch weiter und setzt Impulse für den Ausbau der Themen Unternehmertum, Nachfolge- und Nachlassplanung\n\n- Du arbeitest eng mit Kundenberatung, Vertrieb, Fachbereichen und weiteren Anspruchsgruppen zusammen und positionierst die Finanzplanung als wichtigen Erfolgsfaktor in der Kundenberatung\n\n- Du erkennst Markttrends und Kundenbedürfnisse frühzeitig und leitest daraus konkrete Weiterentwicklungen für Angebot, Beratung und Zusammenarbeit ab\n\n- Du repräsentierst die Finanzplanung intern sowie extern und leistest einen aktiven Beitrag zur erfolgreichen Weiterentwicklung des Geschäfts\n\nDas bringst du mit\n\n- Aus- oder Weiterbildung als Finanzplaner:in mit eidg. Fachausweis, Finanzplanungs-Expert:in, CFP oder eine vergleichbare Qualifikation\n\n- Mehrjährige Erfahrung in der ganzheitlichen Finanzplanung sowie fundierte Kenntnisse in den Bereichen Vorsorge, Pensionierung, Vermögensstrukturierung, Steuern sowie Nachfolge- und Nachlassplanung\n\n- Erste Führungserfahrung oder ausgewiesene Erfahrung in der fachlichen Führung und Entwicklung von Mitarbeitenden\n\n- Freude daran, Menschen zu befähigen, Veränderungen aktiv mitzugestalten und Teams auch auf Distanz erfolgreich zu führen\n\n- Unternehmerisches Denken sowie Erfahrung in der Weiterentwicklung von Dienstleistungen, Beratungsansätzen oder Geschäftsfeldern\n\n- Hohe Sozial-, Kommunikations- und Vernetzungskompetenz sowie die Fähigkeit, unterschiedliche Anspruchsgruppen für gemeinsame Ziele zu gewinnen\n\n- Verhandlungssichere Deutschkenntnisse sowie idealerweise verhandlungssichere Französischkenntnisse, sowie Bereitschaft zu regelmässigen Reisen innerhalb der Region"
+    },
+    "slugByLocale": {
+      "de": "teamleitung-finanzplanung-postfinance"
+    },
+    "sector": "Finanza",
+    "expiredAt": "2026-11-23T09:52:30.385Z",
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.postfinance.ch/job/teamleitung-finanzplanung/75260-de_de",
+    "firstSeenAt": "2026-11-23T09:52:04.992Z"
+  },
+  {
+    "id": "postfinance-fe195634dcc0",
+    "slug": "collaboratore-trice-kompetenz-center-kreditkarten-postfinance-niederurnen",
+    "title": "Mitarbeiter:in Kompetenz-Center Kreditkarten",
+    "titleByLocale": {
+      "it": "Collaboratore/trice Kompetenz-Center Kreditkarten",
+      "en": "Associate Kompetenz-Center Kreditkarten",
+      "de": "Mitarbeiter:in Kompetenz-Center Kreditkarten",
+      "fr": "Collaborateur/trice Kompetenz-Center Kreditkarten"
+    },
+    "company": "PostFinance",
+    "companyKey": "postfinance",
+    "location": "Niederurnen",
+    "addressLocality": "Niederurnen",
+    "descriptionByLocale": {
+      "it": "Nel centro di competenza carte di credito sei il primo punto di contatto per le richieste telefoniche sulle nostre carte di credito. Si accompagnano clienti interni ed esterni dall'apertura alla cessazione e fornire consulenza competente. Con il vostro impegno, contribuite a garantire che PostFinance rimanga un fornitore di servizi finanziari orientato all'innovazione in futuro. In questo modo, si crea fiducia e rafforzare la soddisfazione del cliente in modo sostenibile.\n\nPuoi farlo.\n\n- Risponde alle richieste telefoniche di clienti interni ed esterni: competenti e orientati alla soluzione\n\n- Sei la persona di contatto per varie mutazioni intorno a carte di credito come cancellazioni o limiti\n\n- Supporti i consulenti dei clienti: nelle vendite fisiche in casi complessi\n\n- Accetti i reclami correttamente e trovi soluzioni semplici e pragmatiche\n\nLo porti con te.\n\n- Formazione commerciale completata con esperienza nel settore dei servizi finanziari e/o nel settore amministrativo\n\n- Rapida comprensione e capacità di orientarsi in un ambiente dinamico\n\n- Divertimento del contatto con il cliente e della competenza nella consulenza per creare un'esperienza positiva del cliente\n\n- Conoscenza completa del tedesco nelle parole e nella scrittura nonché buona conoscenza del francese e/o italiano al livello B2",
+      "en": "In the Competence Center Credit Cards you are the first point of contact for telephone inquiries about our credit cards. You accompany internal and external customers from opening to termination and provide competent advice. With your commitment, you contribute to ensuring that PostFinance remains an innovation-driven financial service provider in the future. In this way, you create trust and strengthen customer satisfaction sustainably.\n\nYou can do that.\n\n- You answer telephone inquiries from internal and external customers: competent and solution-oriented\n\n- You are the contact person for various mutations around credit cards such as cancellations or limits\n\n- You support customer advisors: in physical sales in complex cases\n\n- You accept complaints properly and find simple, pragmatic solutions\n\nYou bring that with you\n\n- Completed basic commercial training with experience in the financial services industry and/or in the administrative sector\n\n- Rapid comprehension and ability to orient in a dynamic environment\n\n- Enjoyment of customer contact and competence in consulting to create a positive customer experience\n\n- Complete knowledge of German in words and writing as well as good knowledge of French and/or Italian at level B2",
+      "de": "Im Kompetenz-Center Kreditkarten bist du die erste Anlaufstelle für telefonische Anfragen rund um unsere Kreditkarten. Du begleitest interne und externe Kund:innen von der Eröffnung bis zur Kündigung und stellst eine kompetente Beratung sicher. Mit deinem Einsatz trägst du dazu bei, dass PostFinance auch in Zukunft eine innovationsgetriebene Finanzdienstleisterin bleibt. So schaffst du Vertrauen und stärkst die Kundenzufriedenheit nachhaltig.\n\nDas kannst du bewirken\n\n- Du beantwortest telefonische Anfragen von internen und externen Kund:innen kompetent und lösungsorientiert\n\n- Du bist Ansprechperson für verschiedene Mutationen rund um Kreditkarten wie Kündigungen oder Limiten\n\n- Du unterstützt Kundenberater:innen im physischen Vertrieb bei komplexen Fällen\n\n- Du nimmst Beschwerden sachgerecht entgegen und findest einfache, pragmatische Lösungen\n\nDas bringst du mit\n\n- Abgeschlossene kaufmännische Grundausbildung mit Erfahrung in der Finanzdienstleistungsbranche und/oder im administrativen Bereich\n\n- Schnelle Auffassungsgabe und Fähigkeit zur Orientierung in einem dynamischen Umfeld\n\n- Freude am Kundenkontakt sowie Kompetenz in der Beratung zur Schaffung eines positiven Kundenerlebnisses\n\n- Einwandfreie Deutschkenntnisse in Wort und Schrift sowie gute Französisch- und/oder Italienischkenntnisse auf Niveau B2",
+      "fr": "Dans le Centre de compétences Cartes de crédit, vous êtes le premier point de contact pour les demandes téléphoniques concernant nos cartes de crédit. Vous accompagnez les clients internes et externes de l'ouverture à la terminaison et vous fournissez des conseils compétents. Avec votre engagement, vous contribuez à faire en sorte que PostFinance demeure un fournisseur de services financiers axé sur l'innovation à l'avenir. De cette façon, vous créez la confiance et renforcez la satisfaction des clients de manière durable.\n\nTu peux le faire.\n\n- Vous répondez aux demandes téléphoniques de clients internes et externes : compétents et orientés vers la solution\n\n- Vous êtes la personne de contact pour diverses mutations autour des cartes de crédit telles que les annulations ou les limites\n\n- Vous aidez les conseillers clients: dans les ventes physiques dans les cas complexes\n\n- Vous acceptez les plaintes correctement et trouvez des solutions simples et pragmatiques\n\nApporte ça avec toi.\n\n- Formation commerciale de base complétée avec expérience dans le secteur des services financiers et/ou dans le secteur administratif\n\n- Compréhension rapide et aptitude à s'orienter dans un environnement dynamique\n\n- Profitez du contact client et de la compétence dans le conseil pour créer une expérience client positive\n\n- Connaissance complète de l'allemand en mots et en écriture ainsi que bonne connaissance du français et/ou de l'italien au niveau B2"
+    },
+    "slugByLocale": {
+      "it": "collaboratore-trice-kompetenz-center-kreditkarten-postfinance-niederurnen",
+      "en": "associate-kompetenz-center-kreditkarten-postfinance-niederurnen",
+      "de": "mitarbeiter-in-kompetenz-center-kreditkarten-postfinance",
+      "fr": "collaborateur-trice-kompetenz-center-kreditkarten-postfinance-niederurnen"
+    },
+    "sector": "Servizi Finanziari",
+    "expiredAt": "2026-11-22T09:52:24.456Z",
+    "previousSlugs": [
+      "mitarbeiter-in-kompetenz-center-kreditkarten-postfinance"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "mitarbeiter-in-kompetenz-center-kreditkarten-postfinance"
+      ],
+      "en": [
+        "mitarbeiter-in-kompetenz-center-kreditkarten-postfinance"
+      ],
+      "fr": [
+        "mitarbeiter-in-kompetenz-center-kreditkarten-postfinance"
+      ]
+    },
+    "postalCode": "8867",
+    "streetAddress": "Niederurnen",
+    "salaryMin": 65000,
+    "salaryMax": 98500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.postfinance.ch/job/mitarbeiterin-kompetenz-center-kreditkarten/74490-de_de",
+    "firstSeenAt": "2026-08-17T10:02:05.031Z"
   },
   {
     "id": "postfinance-3279e5367635",
@@ -603,7 +951,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/head-human-resources-%28wmd%29/75121-de_de",
-    "firstSeenAt": "2026-11-02T21:40:34.902Z"
+    "firstSeenAt": "2026-11-02T21:40:34.902Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "head-human-resources-w-m-d-postfinance": "BE"
+      },
+      "fr": {
+        "head-human-resources-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "consulente-alla-clientela-con-specializzazione-in-investimenti-e-previdenza-postfinance-kreuzlingen",
@@ -655,7 +1012,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/kundenberaterin-mit-schwerpunkt-anlegen-&-vorsorge/75054-de_de",
-    "firstSeenAt": "2026-10-30T21:44:44.340Z"
+    "firstSeenAt": "2026-10-30T21:44:44.340Z",
+    "canton": "TG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenberater-in-mit-schwerpunkt-anlegen-vorsorge-postfinance": "TG",
+        "kundenberater-in-con-schwerpunkt-anlegen-previdenza-postfinance-kreuzlingen": "TG"
+      },
+      "en": {
+        "kundenberater-in-mit-schwerpunkt-anlegen-vorsorge-postfinance": "TG"
+      },
+      "fr": {
+        "kundenberater-in-mit-schwerpunkt-anlegen-vorsorge-postfinance": "TG"
+      }
+    }
   },
   {
     "slug": "responsabile-dell-eccellenza-del-servizio-clienti-clienti-privati-postfinance-bern",
@@ -707,7 +1077,43 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/leiterin-customer-excellence-privatkunden/75168-de_de",
-    "firstSeenAt": "2026-11-09T21:45:43.089Z"
+    "firstSeenAt": "2026-11-09T21:45:43.089Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leiter-in-customer-excellence-privatkunden-postfinance": "BE",
+        "responsabile-customer-excellence-privatkunden-postfinance-bern": "BE"
+      },
+      "en": {
+        "leiter-in-customer-excellence-privatkunden-postfinance": "BE"
+      },
+      "fr": {
+        "leiter-in-customer-excellence-privatkunden-postfinance": "BE"
+      }
+    }
+  },
+  {
+    "slug": "it-business-analyst-in-postfinance-app-postfinance",
+    "title": "IT Business Analyst:in PostFinance App",
+    "titleByLocale": {
+      "de": "IT Business Analyst:in PostFinance App"
+    },
+    "company": "PostFinance",
+    "companyKey": "postfinance",
+    "location": "Bern",
+    "addressLocality": "",
+    "descriptionByLocale": {
+      "de": "Mit über einer Million aktiven App-User:innen betreiben wir bei PostFinance eine der grössten Mobile Banking Apps der Schweiz. Digitale Kundenzufriedenheit steht für uns im Mittelpunkt. Neben der Schaffung eines beeindruckenden Kundenerlebnisses auf dem App-Kanal ist auch die Einhaltung hoher Qualität unser gemeinsames Ziel. Dafür suchen wir Macher:innen wie dich, die ihrer Zeit stets einen Schritt voraus sind! Werde Teil unseres Scrum Teams mit Nearshoring in Lissabon und übernehme die Ownership für neue und bestehende Features. Mit deinem technischen Wissen und deiner Erfahrung mit simulierten Backends hilfst du, die Architektur sowie die Schnittstellen der PostFinance App von morgen mitzugestalten.\n\nDas kannst du bewirken\n\n- Du analysierst, spezifizierst, modellierst und validierst komplexe fachliche sowie technische Anforderungen und schaffst die Grundlage für innovative Funktionen in der PostFinance App\n\n- Du verstehst Daten, Prozesse und Funktionalitäten ganzheitlich und übersetzt fachliche Anforderungen in nachhaltige technische Konzepte und Designs\n\n- Du übernimmst gemeinsam mit unserem agilen Nearshoring-Team in Lissabon Verantwortung für neue und bestehende Features und begleitest deine spezifizierten Lösungen während den Umsetzungszyklen bis hin zur erfolgreichen Einführung und darüber hinaus\n\n- Du arbeitest bereichsübergreifend mit verschiedenen Stakeholdern zusammen und trägst aktiv zur erfolgreichen Zusammenarbeit in interdisziplinären Teams bei\n\n- Du entwickelst unsere Requirements-Dokumentation kontinuierlich weiter und setzt dabei moderne Ansätzen wie Docs-as-Code ein, um Wissen nachhaltig und effizient zu dokumentieren\n\nDas bringst du mit\n\n- Höhere Ausbildung in Informatik, Wirtschaftsinformatik oder eine vergleichbare Weiterbildung im IT-Bereich\n\n- Technologisches Verständnis, ausgeprägte analytische Fähigkeitensowie eine vernetzte und lösungsorientierte Denkweise mit Blick für das grosse Ganze\n\n- Hohe IT-Affinität und Eigeninitiative, um komplexe Systemlandschaften rasch zu durchdringen, Zusammenhänge zu erkennen und Schnittstellen erfolgreich mitzugestalten\n\n- Erfahrung im Lesen,Definieren und Dokumentieren von Service-Schnittstellen mit YAML/OAS3 sowie Kenntnisse in GIT und Git-flow\n\n- Fundierte Kenntnisse agiler Methoden und Werkzeuge der Produkt- und Softwareentwicklung\n\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift"
+    },
+    "slugByLocale": {
+      "de": "it-business-analyst-in-postfinance-app-postfinance"
+    },
+    "sector": "Finanza",
+    "expiredAt": "2026-11-20T21:58:12.690Z",
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.postfinance.ch/job/it-business-analystin-postfinance-app/74932-de_de",
+    "firstSeenAt": "2026-11-20T21:57:20.837Z"
   },
   {
     "slug": "kundenberater-in-postfinance-corner-postfinance",
@@ -900,7 +1306,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/mitarbeiterin-chargeback/74081-de_de",
-    "firstSeenAt": "2026-09-23T11:57:45.123Z"
+    "firstSeenAt": "2026-09-23T11:57:45.123Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-chargeback-postfinance": "BE"
+      },
+      "de": {
+        "mitarbeiter-in-chargeback-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "learning-specialista-w-m-d-postfinance-bern",
@@ -950,7 +1365,65 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/learning-specialist-%28wmd%29/75170-de_de",
-    "firstSeenAt": "2026-11-05T21:49:42.489Z"
+    "firstSeenAt": "2026-11-05T21:49:42.489Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "learning-specialist-w-m-d-postfinance": "BE"
+      },
+      "en": {
+        "learning-specialist-w-m-d-postfinance": "BE"
+      },
+      "fr": {
+        "learning-specialist-w-m-d-postfinance": "BE"
+      }
+    }
+  },
+  {
+    "slug": "junior-specialist-governance-policy-management-60-befristet-fur-6-12-monate-postfinance",
+    "title": "Junior Specialist Governance & Policy Management (60%, befristet für 6-12 Monate)",
+    "titleByLocale": {
+      "de": "Junior Specialist Governance & Policy Management (60%, befristet für 6-12 Monate)"
+    },
+    "company": "PostFinance",
+    "companyKey": "postfinance",
+    "location": "Bern",
+    "addressLocality": "",
+    "descriptionByLocale": {
+      "de": "Unser Team Governance & Regulatory Affairs sorgt dafür, dass PostFinance verantwortungsvoll und im Einklang mit regulatorischen Anforderungen geführt wird. Wir schaffen Orientierung, stärken die Integrität im Unternehmen und stellen sicher, dass Entscheidungen auf verlässlichen Governance-Grundlagen beruhen. Im Fachbereich Governance unterstützen wir die Units in gesellschaftsrechtlichen Fragestellungen und stellen sicher, dass die internen Vorgaben aktuell, konsistent und rechtskonform sind. Darüber hinaus gestalten und betreuen wir die Gremienstruktur der Bank und unterstützen bei der Definition von Zuständigkeiten und Entscheidprozessen. Als kompetente Anlaufstelle für Führungsorgane und Fachbereiche verbindet der Fachbereich strategische Perspektive mit operativer Umsetzbarkeit und schafft damit Transparenz und Verlässlichkeit in einem zunehmend komplexen regulatorischen Umfeld.\n\nHinweis: Die Funktion eignet sich ideal für Studierende im fortgeschrittenen Studium oder für Absolvent:innen, die ihren Studienabschluss kürzlich erworben haben und den Einstieg ins Berufsleben suchen. Die Stelle ist auf 6 bis 12 Monate befristet und umfasst ein Pensum von rund 60 %.\n\nDas kannst du bewirken\n\n- Du prüfst Vorgabedokumente inhaltlich und formal, bevor diese den zuständigen Gremien zur Behandlung vorgelegt werden\n\n- Du unterstützt bei der Qualitätssicherung und Weiterentwicklung unseres Vorgabewesens\n\n- Du beantwortest Anfragen von Fachbereichen rund um interne Vorgaben und Governance-Themen\n\n- Du unterstützt die Bewirtschaftung und Koordination des Lifecycle Managements unserer Vorgabedokumente\n\n- Du arbeitest mit verschiedenen Anspruchsgruppen zusammen und trägst zu einer konsistenten Umsetzung von Vorgaben bei\n\n- Du bringst dich je nach Interesse und Verfügbarkeit auch in weitere operative Tätigkeiten des Teams ein\n\nDas bringst du mit\n\n- Laufendes oder abgeschlossenes Studium in Rechtswissenschaften, Wirtschaftswissenschaften oder einer vergleichbaren Fachrichtung\n\n- Erste Berufserfahrung in einem ähnlichen Berufsumfeld von Vorteil\n\n- Interesse an Governance-, Policy- oder regulatorischen Fragestellungen\n\n- Sorgfältige, strukturierte und zuverlässige Arbeitsweise\n\n- Rasche Auffassungsgabe und Freude daran, dich in neue Themen einzuarbeiten\n\n- Hohe Eigeninitiative sowie eine selbstständige und lösungsorientierte Arbeitsweise\n\n- Freude an der Zusammenarbeit mit unterschiedlichen Anspruchsgruppen\n\n- Verhandlungssichere Deutschkenntnisse in Wort und Schrift"
+    },
+    "slugByLocale": {
+      "de": "junior-specialist-governance-policy-management-60-befristet-fur-6-12-monate-postfinance"
+    },
+    "sector": "Servizi Finanziari",
+    "expiredAt": "2026-11-18T09:50:41.688Z",
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.postfinance.ch/job/junior-specialist-governance-&-policy-management-%2860%2c-befristet-f%c3%bcr-6-12-monate%29/75264-de_de",
+    "firstSeenAt": "2026-11-18T09:50:21.598Z"
+  },
+  {
+    "slug": "kundenberater-in-privatkunden-basel-steinenberg-postfinance",
+    "title": "Kundenberater:in Privatkunden Basel Steinenberg",
+    "titleByLocale": {
+      "de": "Kundenberater:in Privatkunden Basel Steinenberg"
+    },
+    "company": "PostFinance",
+    "companyKey": "postfinance",
+    "location": "Basel",
+    "addressLocality": "",
+    "descriptionByLocale": {
+      "de": "Bei PostFinance stehen unsere Kund:innen im Mittelpunkt. Als Kundenberater:in erkennst du ihre finanziellen Bedürfnisse und begleitest sie mit kompetenter Beratung – digital, telefonisch oder persönlich. In einem erfahrenen Team entwickelst du innovative Lösungen, die echten Mehrwert schaffen. Mit deinem Engagement stärkst du das Vertrauen unserer Kund:innen und gestaltest die Zukunft der Beratung persönlich, relevant und wirkungsvoll.\n\nDas kannst du bewirken\n\n- Du übernimmst die Verantwortung für dein eigenes Kundenportefeuille und führst ganzheitliche Beratungsgespräche zu den Themen Anlegen, Vorsorgen und Finanzieren\n\n- Du planst deinen Tag selbstständig, vereinbarst aktiv Kundentermine und gestaltest deinen Alltag mit grosser Eigenverantwortung\n\n- Du bringst deine Ideen ein, verfolgst neue Beratungsansätze und erreichst gemeinsam mit deinem Team ambitionierte Ziele\n\n- Du entwickelst dein Wissen gezielt weiter, insbesondere in den Bereichen Anlegen, Vorsorgen und Finanzieren, und teilst dein Know-how aktiv im Team\n\nDas bringst du mit\n\n- Abgeschlossene Grundausbildung (EFZ) im kaufmännischen Bereich oder im Verkauf, idealerweise mit Weiterbildungen im Banking oder in der Vorsorge\n\n- Erfahrung in der Vorsorge- und Anlageberatung sowie Begeisterung für Finanzthemen\n\n- Offenes und empathisches Auftreten mit Fokus auf Kund:innen und Vertrauensbildung\n\n- Sehr gute Deutschkenntnisse und Vorteil durch zusätzliche Sprachkenntnisse"
+    },
+    "slugByLocale": {
+      "de": "kundenberater-in-privatkunden-basel-steinenberg-postfinance"
+    },
+    "sector": "Consulenza",
+    "expiredAt": "2026-11-18T09:50:41.688Z",
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.postfinance.ch/job/kundenberaterin-privatkunden-basel-steinenberg/75211-de_de",
+    "firstSeenAt": "2026-11-18T09:50:20.834Z"
   },
   {
     "slug": "senior-specialista-tprm-security-monitoring-cyber-security-w-m-d-postfinance-bern",
@@ -997,7 +1470,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/senior-specialist-tprm-security-monitoring-cyber-security-%28wmd%29/74946-de_de",
-    "firstSeenAt": "2026-10-13T09:40:44.037Z"
+    "firstSeenAt": "2026-10-13T09:40:44.037Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-specialist-tprm-security-monitoring-cyber-security-w-m-d-postfinance": "BE"
+      },
+      "fr": {
+        "senior-specialist-tprm-security-monitoring-cyber-security-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "senior-specialista-tprm-security-monitoring-information-security-w-m-d-postfinance-bern",
@@ -1044,7 +1526,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/senior-specialist-tprm-security-monitoring-information-security-%28wmd%29/74945-de_de",
-    "firstSeenAt": "2026-10-13T09:40:43.226Z"
+    "firstSeenAt": "2026-10-13T09:40:43.226Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-specialist-tprm-security-monitoring-information-security-w-m-d-postfinance": "BE"
+      },
+      "fr": {
+        "senior-specialist-tprm-security-monitoring-information-security-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "senior-specialista-tprm-security-operations-contracting-w-m-d-postfinance-bern",
@@ -1091,7 +1582,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/senior-specialist-tprm-security-operations-&-contracting-%28wmd%29/74944-de_de",
-    "firstSeenAt": "2026-10-13T09:40:44.845Z"
+    "firstSeenAt": "2026-10-13T09:40:44.845Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-specialist-tprm-security-operations-contracting-w-m-d-postfinance": "BE"
+      },
+      "fr": {
+        "senior-specialist-tprm-security-operations-contracting-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "platform-ingegnere-continuous-integration-w-m-d-postfinance-bern-8e256c14",
@@ -1189,7 +1689,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/leiterin-cyber-defense-center/74954-de_de",
-    "firstSeenAt": "2026-10-13T21:42:11.795Z"
+    "firstSeenAt": "2026-10-13T21:42:11.795Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leiter-in-cyber-defense-center-postfinance": "BE"
+      },
+      "en": {
+        "leiter-in-cyber-defense-center-postfinance": "BE"
+      },
+      "fr": {
+        "leiter-in-cyber-defense-center-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "consulente-clienti-sales-zone-basel-clara-shopping-postfinance-basel",
@@ -1239,7 +1751,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/kundenberaterin-sales-zone-%28basel-clara-shopping%29/74731-de_de",
-    "firstSeenAt": "2026-10-20T09:40:07.326Z"
+    "firstSeenAt": "2026-10-20T09:40:07.326Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenberater-in-sales-zone-basel-clara-shopping-postfinance": "BS"
+      },
+      "en": {
+        "kundenberater-in-sales-zone-basel-clara-shopping-postfinance": "BS"
+      },
+      "fr": {
+        "kundenberater-in-sales-zone-basel-clara-shopping-postfinance": "BS"
+      }
+    }
   },
   {
     "slug": "product-owner-per-uno-stage-universitario-postfinance-bern",
@@ -1291,7 +1815,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/hochschulpraktikum-product-ownerin/75058-de_de",
-    "firstSeenAt": "2026-10-22T09:44:08.745Z"
+    "firstSeenAt": "2026-10-22T09:44:08.745Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hochschulpraktikum-product-owner-in-postfinance": "BE"
+      },
+      "en": {
+        "hochschulpraktikum-product-owner-in-postfinance": "BE",
+        "hochschulpraktikum-product-owner-in-postfinance-bern": "BE"
+      },
+      "fr": {
+        "hochschulpraktikum-product-owner-in-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "addetto-a-alle-riconciliazioni-del-traffico-dei-pagamenti-interbancari-postfinance-bern",
@@ -1341,7 +1878,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/sachbearbeiterin-abstimmungen-interbanken-zahlungsverkehr/75034-de_de",
-    "firstSeenAt": "2026-10-29T09:52:14.621Z"
+    "firstSeenAt": "2026-10-29T09:52:14.621Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-abstimmungen-interbanken-zahlungsverkehr-postfinance": "BE"
+      },
+      "en": {
+        "sachbearbeiter-in-abstimmungen-interbanken-zahlungsverkehr-postfinance": "BE"
+      },
+      "fr": {
+        "sachbearbeiter-in-abstimmungen-interbanken-zahlungsverkehr-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "addetto-a-al-supporto-clienti-e-trading-postfinance-bern",
@@ -1391,7 +1940,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/kundenbetreuerin-support-e-trading/75028-de_de",
-    "firstSeenAt": "2026-10-16T09:41:22.144Z"
+    "firstSeenAt": "2026-10-16T09:41:22.144Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenbetreuer-in-support-e-trading-postfinance": "BE"
+      },
+      "en": {
+        "kundenbetreuer-in-support-e-trading-postfinance": "BE"
+      },
+      "fr": {
+        "kundenbetreuer-in-support-e-trading-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "responsabile-del-team-di-soluzioni-per-l-automazione-dei-processi-degli-ordini-dei-clienti-m-f-d-postfinance-bern",
@@ -1440,7 +2001,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/solution-team-lead-customer-order-process-automation-%28wmd%29/74923-de_de",
-    "firstSeenAt": "2026-10-13T21:42:11.134Z"
+    "firstSeenAt": "2026-10-13T21:42:11.134Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "solution-team-lead-customer-order-process-automation-w-m-d-postfinance": "BE",
+        "solution-capo-team-customer-order-process-automation-w-m-d-postfinance-bern": "BE"
+      },
+      "fr": {
+        "solution-team-lead-customer-order-process-automation-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "solution-team-lead-relazione-con-i-clienti-m-f-d-postfinance-bern",
@@ -1494,7 +2065,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/solution-team-lead-kundenbeziehung-%28wmd%29/74892-de_de",
-    "firstSeenAt": "2026-10-13T21:42:10.465Z"
+    "firstSeenAt": "2026-10-13T21:42:10.465Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "solution-team-lead-kundenbeziehung-w-m-d-postfinance": "BE"
+      },
+      "en": {
+        "solution-team-lead-kundenbeziehung-w-m-d-postfinance": "BE"
+      },
+      "de": {
+        "solution-teamleiter-kundenbeziehung-w-m-d-postfinance-bern": "BE"
+      },
+      "fr": {
+        "solution-team-lead-kundenbeziehung-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "responsabile-clienti-nel-centro-clienti-postfinance-zofingen",
@@ -1540,7 +2126,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/kundenbetreuerin-customer-center/72476-de_de",
-    "firstSeenAt": "2026-08-24T10:13:19.972Z"
+    "firstSeenAt": "2026-08-24T10:13:19.972Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenbetreuer-in-customer-center-postfinance": "AG",
+        "kundenbetreuer-in-customer-center-postfinance-zofingen": "AG"
+      }
+    }
   },
   {
     "slug": "capo-team-test-data-platform-w-m-d-postfinance-bern",
@@ -1577,7 +2170,11 @@
         "team-lead-test-data-platform-w-m-d-postfinance"
       ],
       "de": [
-        "team-lead-test-data-platform-w-m-d-postfinance"
+        "team-lead-test-data-platform-w-m-d-postfinance",
+        "senior-fullstack-engineer-w-m-d-postfinance-22eb3337"
+      ],
+      "fr": [
+        "senior-fullstack-ingenieur-w-m-d-postfinance-bern-5160ecae"
       ]
     },
     "postalCode": "3004",
@@ -1587,7 +2184,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/team-lead-test-data-platform-%28wmd%29/74783-de_de",
-    "firstSeenAt": "2026-10-29T21:51:19.292Z"
+    "firstSeenAt": "2026-10-29T21:51:19.292Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "team-lead-test-data-platform-w-m-d-postfinance": "BE"
+      },
+      "de": {
+        "team-lead-test-data-platform-w-m-d-postfinance": "BE",
+        "senior-fullstack-engineer-w-m-d-postfinance-22eb3337": "BE"
+      },
+      "fr": {
+        "senior-fullstack-ingenieur-w-m-d-postfinance-bern-5160ecae": "BE"
+      }
+    }
   },
   {
     "slug": "responsabile-di-sede-customer-center-clienti-privati-bienne-postfinance-biel-bienne",
@@ -1631,7 +2241,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/standortleiterin-customer-center-privatkunden-biel/74894-de_de",
-    "firstSeenAt": "2026-09-30T21:35:43.116Z"
+    "firstSeenAt": "2026-09-30T21:35:43.116Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "standortleiter-in-customer-center-privatkunden-biel-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "consulente-senior-per-la-clientela-privata-con-specializzazione-negli-investimenti-postfinance-zurich",
@@ -1674,7 +2290,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/senior-kundenberaterin-privatkunden-mit-schwerpunkt-anlage/74877-de_de",
-    "firstSeenAt": "2026-10-02T21:38:33.368Z"
+    "firstSeenAt": "2026-10-02T21:38:33.368Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-kundenberater-in-privatkunden-mit-schwerpunkt-anlage-postfinance": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-senior-del-rischio-di-terze-parti-m-f-d-postfinance-bern",
@@ -1717,7 +2339,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/senior-third-party-risk-manager-%28mwd%29/74953-de_de",
-    "firstSeenAt": "2026-10-08T21:40:56.462Z"
+    "firstSeenAt": "2026-10-08T21:40:56.462Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-third-party-risk-manager-m-w-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "sales-coach-leadership-sviluppo-vendite-m-f-d-postfinance-bern",
@@ -1760,7 +2388,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/sales-coach-leadership-&-sales-development-%28mwd%29/74651-de_de",
-    "firstSeenAt": "2026-09-28T21:40:36.032Z"
+    "firstSeenAt": "2026-09-28T21:40:36.032Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sales-coach-leadership-sales-development-m-w-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "programma-d-ingresso-nell-it-per-imprenditore-imprenditrice-tech-postfinance-bern",
@@ -1809,7 +2443,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/it-einstiegsprogramm-tech-unternehmerin/74973-de_de",
-    "firstSeenAt": "2026-10-09T09:49:38.091Z"
+    "firstSeenAt": "2026-10-09T09:49:38.091Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "it-einstiegsprogramm-tech-unternehmer-in-postfinance": "BE"
+      },
+      "en": {
+        "it-einstiegsprogramm-tech-unternehmer-in-postfinance": "BE"
+      },
+      "fr": {
+        "it-einstiegsprogramm-tech-unternehmer-in-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "bi-data-analista-project-portfolio-steering-w-m-d-postfinance-bern",
@@ -1852,7 +2498,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/bi-&-data-analyst-project-portfolio-steering-%28wmd%29/74845-de_de",
-    "firstSeenAt": "2026-09-25T15:08:43.569Z"
+    "firstSeenAt": "2026-09-25T15:08:43.569Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "bi-data-analyst-project-portfolio-steering-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "business-analista-pk-journeys-w-m-d-postfinance-bern",
@@ -1912,7 +2564,28 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/business-analyst-pk-journeys-%28wmd%29/74934-de_de",
-    "firstSeenAt": "2026-10-15T09:56:04.636Z"
+    "firstSeenAt": "2026-10-15T09:56:04.636Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "portfolio-business-analyst-in-postfinance": "BE",
+        "business-analyst-in-pk-journeys-w-m-d-postfinance": "BE",
+        "business-analyst-pk-journeys-w-m-d-postfinance": "BE"
+      },
+      "en": {
+        "portfolio-business-analyst-in-postfinance": "BE",
+        "business-analyst-in-pk-journeys-w-m-d-postfinance": "BE"
+      },
+      "de": {
+        "portfolio-business-analyst-in-postfinance": "BE",
+        "business-analyst-in-pk-journeys-w-m-d-postfinance": "BE"
+      },
+      "fr": {
+        "portfolio-business-analyst-in-postfinance": "BE",
+        "business-analyst-in-pk-journeys-w-m-d-postfinance": "BE",
+        "business-analyst-pk-journeys-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "programma-atletico-progetto-portfolio-steering-business-intelligence-m-f-d-postfinance-bern",
@@ -1971,7 +2644,26 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/athletenprogramm-project-portfolio-steering-&-business-intelligence-%28wmd%29/74926-de_de",
-    "firstSeenAt": "2026-10-05T22:00:32.507Z"
+    "firstSeenAt": "2026-10-05T22:00:32.507Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "athletenprogramm-project-portfolio-steering-business-intelligence-postfinance": "BE",
+        "programma-atleto-progetto-portfolio-steering-business-intelligence-postfinance-bern": "BE",
+        "athletenprogramm-project-portfolio-steering-business-intelligence-w-m-d-postfinance": "BE"
+      },
+      "en": {
+        "athletenprogramm-project-portfolio-steering-business-intelligence-postfinance": "BE"
+      },
+      "de": {
+        "athletenprogramm-project-portfolio-steering-business-intelligence-postfinance": "BE"
+      },
+      "fr": {
+        "athletenprogramm-project-portfolio-steering-business-intelligence-postfinance": "BE",
+        "programme-des-athletes-portefeuille-du-projet-direction-et-renseignements-commerciaux-postfinance-bern": "BE",
+        "athletenprogramm-project-portfolio-steering-business-intelligence-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "athletic-program-asset-management-m-f-d-postfinance-bern",
@@ -2008,7 +2700,8 @@
         "athletenprogramm-asset-management-w-m-d-postfinance"
       ],
       "en": [
-        "athletenprogramm-asset-management-w-m-d-postfinance"
+        "athletenprogramm-asset-management-w-m-d-postfinance",
+        "athletic-program-asset-management-m-f-d-postfinance-bern"
       ],
       "fr": [
         "athletenprogramm-asset-management-w-m-d-postfinance",
@@ -2022,7 +2715,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/athletenprogramm-asset-management-%28wmd%29/74880-de_de",
-    "firstSeenAt": "2026-10-05T09:36:41.204Z"
+    "firstSeenAt": "2026-10-05T09:36:41.204Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "athletenprogramm-asset-management-w-m-d-postfinance": "BE"
+      },
+      "en": {
+        "athletic-program-asset-management-m-f-d-postfinance-bern": "BE",
+        "athletenprogramm-asset-management-w-m-d-postfinance": "BE"
+      },
+      "fr": {
+        "athletenprogramm-asset-management-w-m-d-postfinance": "BE",
+        "programme-d-athletes-asset-management-h-f-d-postfinance-bern": "BE",
+        "athletenprogramm-asset-management-m-w-d-postfinance-bern": "BE"
+      }
+    }
   },
   {
     "slug": "ai-assisted-solutions-ingegnere-w-m-d-postfinance-bern",
@@ -2065,7 +2773,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/ai-assisted-solutions-engineer-%28wmd%29/74844-de_de",
-    "firstSeenAt": "2026-09-25T15:08:43.569Z"
+    "firstSeenAt": "2026-09-25T15:08:43.569Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ai-assisted-solutions-engineer-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "devops-ingegnere-w-m-d-postfinance-zofingen",
@@ -2111,7 +2825,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/devops-engineer-%28wmd%29/74805-de_de",
-    "firstSeenAt": "2026-10-02T09:33:37.172Z"
+    "firstSeenAt": "2026-10-02T09:33:37.172Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "devops-engineer-w-m-d-postfinance": "AG"
+      },
+      "fr": {
+        "devops-engineer-w-m-d-postfinance": "AG"
+      }
+    }
   },
   {
     "slug": "tirocinio-universitario-digital-assets-m-f-d-postfinance-bern",
@@ -2160,7 +2883,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/hochschulpraktikum-digital-assets-%28wmd%29/74906-de_de",
-    "firstSeenAt": "2026-10-12T09:46:47.354Z"
+    "firstSeenAt": "2026-10-12T09:46:47.354Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hochschulpraktikum-digital-assets-w-m-d-postfinance": "BE"
+      },
+      "en": {
+        "hochschulpraktikum-digital-assets-w-m-d-postfinance": "BE"
+      },
+      "fr": {
+        "hochschulpraktikum-digital-assets-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "tirocinio-universitario-compliance-m-f-d-postfinance-bern",
@@ -2213,7 +2948,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/hochschulpraktikum-compliance-%28wmd%29/74905-de_de",
-    "firstSeenAt": "2026-10-12T09:46:45.113Z"
+    "firstSeenAt": "2026-10-12T09:46:45.113Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hochschulpraktikum-compliance-w-m-d-postfinance": "BE",
+        "hochschulpraktikum-compliance-w-m-d-postfinance-bern": "BE"
+      },
+      "en": {
+        "hochschulpraktikum-compliance-w-m-d-postfinance-bern": "BE"
+      },
+      "fr": {
+        "hochschulpraktikum-compliance-w-m-d-postfinance-bern": "BE",
+        "hochschulpraktikum-compliance-m-w-d-postfinance-bern": "BE"
+      }
+    }
   },
   {
     "slug": "tirocinio-universitario-hr-digital-m-f-d-postfinance-bern",
@@ -2264,7 +3013,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/hochschulpraktikum-hr-digital-%28wmd%29/74907-de_de",
-    "firstSeenAt": "2026-10-12T09:46:48.104Z"
+    "firstSeenAt": "2026-10-12T09:46:48.104Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hochschulpraktikum-hr-digital-w-m-d-postfinance": "BE",
+        "hochschulpraktikum-hr-digital-w-m-d-postfinance-bern": "BE"
+      },
+      "en": {
+        "hochschulpraktikum-hr-digital-w-m-d-postfinance-bern": "BE"
+      },
+      "fr": {
+        "hochschulpraktikum-hr-digital-w-m-d-postfinance-bern": "BE"
+      }
+    }
   },
   {
     "slug": "tirocinio-universitario-marketing-programma-bonus-clienti-aziendali-m-f-d-postfinance-bern",
@@ -2313,7 +3075,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/hochschulpraktikum-marketing-bonusprogramm-&-firmenkunden-%28wmd%29/74908-de_de",
-    "firstSeenAt": "2026-10-12T09:46:45.850Z"
+    "firstSeenAt": "2026-10-12T09:46:45.850Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hochschulpraktikum-marketing-bonusprogramm-firmenkunden-w-m-d-postfinance": "BE"
+      },
+      "en": {
+        "hochschulpraktikum-marketing-bonusprogramm-firmenkunden-w-m-d-postfinance": "BE"
+      },
+      "fr": {
+        "hochschulpraktikum-marketing-bonusprogramm-firmenkunden-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "tirocinio-universitario-in-gestione-dei-progetti-enterprise-services-m-f-d-postfinance-bern",
@@ -2362,7 +3136,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/hochschulpraktikum-projektmanagement-enterprise-services-%28wmd%29/74909-de_de",
-    "firstSeenAt": "2026-10-12T09:46:42.860Z"
+    "firstSeenAt": "2026-10-12T09:46:42.860Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hochschulpraktikum-projektmanagement-enterprise-services-w-m-d-postfinance": "BE"
+      },
+      "en": {
+        "hochschulpraktikum-projektmanagement-enterprise-services-w-m-d-postfinance": "BE"
+      },
+      "fr": {
+        "hochschulpraktikum-projektmanagement-enterprise-services-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "tirocinio-universitario-in-gestione-del-rischio-m-f-d-postfinance-bern",
@@ -2411,7 +3197,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/hochschulpraktikum-risk-management-%28wmd%29/74910-de_de",
-    "firstSeenAt": "2026-10-12T09:46:43.606Z"
+    "firstSeenAt": "2026-10-12T09:46:43.606Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hochschulpraktikum-risk-management-w-m-d-postfinance": "BE"
+      },
+      "en": {
+        "hochschulpraktikum-risk-management-w-m-d-postfinance": "BE"
+      },
+      "fr": {
+        "hochschulpraktikum-risk-management-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "tirocinio-universitario-in-sostenibilita-m-f-d-postfinance-bern",
@@ -2462,7 +3260,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/hochschulpraktikum-sustainability-%28wmd%29/74904-de_de",
-    "firstSeenAt": "2026-10-12T09:46:49.649Z"
+    "firstSeenAt": "2026-10-12T09:46:49.649Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hochschulpraktikum-sustainability-w-m-d-postfinance": "BE",
+        "hochschulpraktikum-sustainability-w-m-d-postfinance-bern": "BE"
+      },
+      "en": {
+        "hochschulpraktikum-sustainability-w-m-d-postfinance-bern": "BE"
+      },
+      "fr": {
+        "hochschulpraktikum-sustainability-w-m-d-postfinance-bern": "BE"
+      }
+    }
   },
   {
     "slug": "specialista-di-chargeback-in-acquisizione-postfinance-bern",
@@ -2508,7 +3319,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/chargeback-spezialistin-acquiring/74693-de_de",
-    "firstSeenAt": "2026-09-04T23:00:38.850Z"
+    "firstSeenAt": "2026-09-04T23:00:38.850Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chargeback-spezialist-in-acquiring-postfinance": "BE"
+      },
+      "fr": {
+        "chargeback-spezialist-in-acquiring-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "conformita-degli-studenti-postfinance-bern",
@@ -2560,7 +3380,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/werkstudentin-compliance/74753-de_de",
-    "firstSeenAt": "2026-09-23T11:57:45.123Z"
+    "firstSeenAt": "2026-09-23T11:57:45.123Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "werkstudent-in-compliance-postfinance": "BE"
+      },
+      "en": {
+        "werkstudent-in-compliance-postfinance": "BE"
+      },
+      "de": {
+        "werkstudent-in-compliance-postfinance": "BE"
+      },
+      "fr": {
+        "werkstudent-in-compliance-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "gestione-dei-partner-universitari-viaggi-di-pagamento-m-f-d-postfinance-bern",
@@ -2624,7 +3459,29 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/hochschulpraktikum-partnermanagement-payment-journeys-%28wmd%29/74912-de_de",
-    "firstSeenAt": "2026-10-16T21:39:52.317Z"
+    "firstSeenAt": "2026-10-16T21:39:52.317Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hochschulpraktikum-partnerstrategie-payment-journeys-w-m-d-postfinance": "BE",
+        "tirocinio-universitario-strategia-dei-partner-payment-journeys-m-f-d-postfinance-bern": "BE",
+        "hochschulpraktikum-partnermanagement-payment-journeys-w-m-d-postfinance": "BE"
+      },
+      "en": {
+        "hochschulpraktikum-partnerstrategie-payment-journeys-w-m-d-postfinance": "BE",
+        "university-internship-partner-strategy-payment-journeys-m-f-d-postfinance-bern": "BE",
+        "hochschulpraktikum-partnermanagement-payment-journeys-w-m-d-postfinance": "BE"
+      },
+      "de": {
+        "hochschulpraktikum-partnerstrategie-payment-journeys-w-m-d-postfinance": "BE"
+      },
+      "fr": {
+        "hochschulpraktikum-partnerstrategie-payment-journeys-w-m-d-postfinance": "BE",
+        "hochschulpraktikum-partnerstrategie-payment-journeys-m-w-d-postfinance-bern": "BE",
+        "stage-universitaire-strategie-de-partenariat-parcours-de-paiement-h-f-d-postfinance-bern": "BE",
+        "hochschulpraktikum-partnermanagement-payment-journeys-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "tirocinio-universitario-business-development-clienti-aziendali-m-f-d-postfinance-bern",
@@ -2673,7 +3530,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/hochschulpraktikum-business-development-firmenkunden-%28wmd%29/74911-de_de",
-    "firstSeenAt": "2026-10-12T09:46:48.901Z"
+    "firstSeenAt": "2026-10-12T09:46:48.901Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hochschulpraktikum-business-development-firmenkunden-w-m-d-postfinance": "BE"
+      },
+      "en": {
+        "hochschulpraktikum-business-development-firmenkunden-w-m-d-postfinance": "BE"
+      },
+      "fr": {
+        "hochschulpraktikum-business-development-firmenkunden-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "tirocinio-universitario-in-governance-regulatory-affairs-m-f-d-postfinance-bern",
@@ -2719,7 +3588,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/hochschulpraktikum-governance-&-regulatory-affairs-%28wmd%29/74903-de_de",
-    "firstSeenAt": "2026-10-12T09:46:44.336Z"
+    "firstSeenAt": "2026-10-12T09:46:44.336Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hochschulpraktikum-governance-regulatory-affairs-w-m-d-postfinance": "BE"
+      },
+      "en": {
+        "hochschulpraktikum-governance-regulatory-affairs-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-compliance-office-firmenkunden-postfinance-bern",
@@ -2770,7 +3648,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/mitarbeiterin-compliance-office-firmenkunden/74803-de_de",
-    "firstSeenAt": "2026-09-29T09:42:03.998Z"
+    "firstSeenAt": "2026-09-29T09:42:03.998Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-compliance-office-firmenkunden-postfinance": "BE"
+      },
+      "en": {
+        "mitarbeiter-in-compliance-office-firmenkunden-postfinance": "BE"
+      },
+      "fr": {
+        "mitarbeiter-in-compliance-office-firmenkunden-postfinance": "BE",
+        "collaborateur-trice-compliance-office-firmenkunden-postfinance-bern": "BE"
+      }
+    }
   },
   {
     "id": "postfinance-f099b77c1b09",
@@ -2837,19 +3728,38 @@
     "previousSlugCantonByLocale": {
       "it": {
         "tirocinio-universitario-strategia-dei-partner-payment-journeys-m-f-d-postfinance-bern-4bb1e59e": "BE",
-        "hochschulpraktikum-partnerstrategie-payment-journeys-w-m-d-postfinance-5a6170a6": "BE"
+        "hochschulpraktikum-partnerstrategie-payment-journeys-w-m-d-postfinance-5a6170a6": "BE",
+        "hochschulpraktikum-partnerstrategie-payment-journeys-m-w-d-postfinance-bern": "BE",
+        "tirocinio-universitario-strategia-dei-partner-payment-journeys-m-f-d-postfinance-bern-6bbcab5e": "BE",
+        "hochschulpraktikum-partnerstrategie-payment-journeys-w-m-d-postfinance-79478e3c": "BE",
+        "tirocinio-universitario-strategia-dei-partner-payment-journeys-m-f-d-postfinance-bern-b39beb8f": "BE",
+        "hochschulpraktikum-partnerstrategie-payment-journeys-w-m-d-postfinance-43b0da79": "BE"
       },
       "en": {
         "university-internship-partner-strategy-payment-journeys-m-f-d-postfinance-bern-96822c98": "BE",
-        "hochschulpraktikum-partnerstrategie-payment-journeys-w-m-d-postfinance-5a6170a6": "BE"
+        "hochschulpraktikum-partnerstrategie-payment-journeys-w-m-d-postfinance-5a6170a6": "BE",
+        "hochschulpraktikum-partnerstrategie-payment-journeys-m-w-d-postfinance-bern": "BE",
+        "university-internship-partner-strategy-payment-journeys-m-f-d-postfinance-bern-ce24f0ec": "BE",
+        "hochschulpraktikum-partnerstrategie-payment-journeys-w-m-d-postfinance-79478e3c": "BE",
+        "university-internship-partner-strategy-payment-journeys-m-f-d-postfinance-bern-42971752": "BE",
+        "hochschulpraktikum-partnerstrategie-payment-journeys-w-m-d-postfinance-43b0da79": "BE"
       },
       "de": {
-        "hochschulpraktikum-partnerstrategie-payment-journeys-w-m-d-postfinance-5a6170a6": "BE"
+        "hochschulpraktikum-partnerstrategie-payment-journeys-w-m-d-postfinance-5a6170a6": "BE",
+        "hochschulpraktikum-partnerstrategie-payment-journeys-m-w-d-postfinance-bern": "BE",
+        "hochschulpraktikum-partnerstrategie-payment-journeys-w-m-d-postfinance-79478e3c": "BE",
+        "hochschulpraktikum-partnerstrategie-payment-journeys-w-m-d-postfinance-43b0da79": "BE"
       },
       "fr": {
         "stage-universitaire-strategie-de-partenariat-parcours-de-paiement-h-f-d-postfinance-bern-24fec585": "BE",
         "hochschulpraktikum-partnerstrategie-payment-journeys-w-m-d-postfinance-5a6170a6": "BE",
-        "hochschulpraktikum-partnerstrategie-payment-journeys-m-w-d-postfinance-bern-bc37258b": "BE"
+        "hochschulpraktikum-partnerstrategie-payment-journeys-m-w-d-postfinance-bern-bc37258b": "BE",
+        "stage-universitaire-strategie-de-partenariat-parcours-de-paiement-h-f-d-postfinance-bern-3cc0b171": "BE",
+        "hochschulpraktikum-partnerstrategie-payment-journeys-w-m-d-postfinance-79478e3c": "BE",
+        "hochschulpraktikum-partnerstrategie-payment-journeys-m-w-d-postfinance-bern-f5f2a67c": "BE",
+        "stage-universitaire-strategie-de-partenariat-parcours-de-paiement-h-f-d-postfinance-bern-22c661e8": "BE",
+        "hochschulpraktikum-partnerstrategie-payment-journeys-w-m-d-postfinance-43b0da79": "BE",
+        "hochschulpraktikum-partnerstrategie-payment-journeys-m-w-d-postfinance-bern-7a36cd23": "BE"
       }
     },
     "postalCode": "3004",
@@ -3037,6 +3947,15 @@
     "previousSlugsByLocale": {
       "it": [
         "portfolio-business-analyst-in-postfinance-77200c5a"
+      ],
+      "en": [
+        "portfolio-business-analyst-in-postfinance-77200c5a"
+      ],
+      "de": [
+        "portfolio-business-analyst-in-postfinance-77200c5a"
+      ],
+      "fr": [
+        "portfolio-business-analyst-in-postfinance-77200c5a"
       ]
     },
     "postalCode": "3004",
@@ -3045,7 +3964,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/portfolio-business-analystin/74934-de_de",
-    "firstSeenAt": "2026-10-14T21:46:22.509Z"
+    "firstSeenAt": "2026-10-14T21:46:22.509Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "portfolio-business-analyst-in-postfinance-77200c5a": "BE"
+      },
+      "en": {
+        "portfolio-business-analyst-in-postfinance-77200c5a": "BE"
+      },
+      "de": {
+        "portfolio-business-analyst-in-postfinance-77200c5a": "BE"
+      },
+      "fr": {
+        "portfolio-business-analyst-in-postfinance-77200c5a": "BE"
+      }
+    }
   },
   {
     "slug": "specialista-di-testing-nella-gestione-patrimoniale-m-f-d-postfinance-bern",
@@ -3091,7 +4025,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/fachspezialistin-testing-asset-management-%28wmd%29/74767-de_de",
-    "firstSeenAt": "2026-09-26T14:14:15.597Z"
+    "firstSeenAt": "2026-09-26T14:14:15.597Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialist-in-testing-asset-management-w-m-d-postfinance": "BE"
+      },
+      "fr": {
+        "fachspezialist-in-testing-asset-management-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "delivery-capo-team-digital-commerce-payments-w-m-d-postfinance-bern",
@@ -3134,7 +4077,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/delivery-team-lead-digital-commerce-payments-%28wmd%29/74764-de_de",
-    "firstSeenAt": "2026-09-23T11:57:45.123Z"
+    "firstSeenAt": "2026-09-23T11:57:45.123Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "delivery-team-lead-digital-commerce-payments-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "manager-delle-campagne-e-della-comunicazione-per-clienti-aziendali-a-tempo-determinato-postfinance-bern",
@@ -3185,7 +4134,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/kampagnen-und-kommunikationsmanagerin-firmenkunden-%28befristet%29/74740-de_de",
-    "firstSeenAt": "2026-09-29T09:42:03.998Z"
+    "firstSeenAt": "2026-09-29T09:42:03.998Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kampagnen-und-kommunikationsmanager-in-firmenkunden-befristet-postfinance": "BE",
+        "kampagnen-e-kommunikationsmanager-in-firmenkunden-befristet-postfinance-bern": "BE"
+      },
+      "en": {
+        "kampagnen-und-kommunikationsmanager-in-firmenkunden-befristet-postfinance": "BE"
+      },
+      "fr": {
+        "kampagnen-und-kommunikationsmanager-in-firmenkunden-befristet-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "programma-traine-revisione-interna-m-f-d-postfinance-bern",
@@ -3238,7 +4200,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/traineeprogramm-interne-revision-%28wmd%29/74916-de_de",
-    "firstSeenAt": "2026-10-05T09:36:42.012Z"
+    "firstSeenAt": "2026-10-05T09:36:42.012Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "traineeprogramm-interne-revision-w-m-d-postfinance": "BE",
+        "programma-di-tirocinio-revisione-interna-m-f-d-postfinance-bern": "BE",
+        "traineeprogramm-interne-revision-m-w-d-postfinance-bern": "BE"
+      },
+      "en": {
+        "traineeprogramm-interne-revision-w-m-d-postfinance": "BE"
+      },
+      "fr": {
+        "traineeprogramm-interne-revision-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "programma-trainee-basic-banking-viaggi-clienti-privati-m-f-d-postfinance-bern",
@@ -3287,7 +4263,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/traineeprogramm-basic-banking-journeys-privatkunden-%28wmd%29/74914-de_de",
-    "firstSeenAt": "2026-10-05T09:36:39.478Z"
+    "firstSeenAt": "2026-10-05T09:36:39.478Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "traineeprogramm-basic-banking-journeys-privatkunden-w-m-d-postfinance": "BE"
+      },
+      "en": {
+        "traineeprogramm-basic-banking-journeys-privatkunden-w-m-d-postfinance": "BE"
+      },
+      "fr": {
+        "traineeprogramm-basic-banking-journeys-privatkunden-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "programma-di-formazione-ai-business-engineering-m-f-d-postfinance-bern",
@@ -3349,7 +4337,28 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/traineeprogramm-ai-business-engineering-%28wmd%29/74913-de_de",
-    "firstSeenAt": "2026-10-06T09:44:30.000Z"
+    "firstSeenAt": "2026-10-06T09:44:30.000Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "traineeprogramm-operations-excellence-w-m-d-postfinance": "BE",
+        "operazioni-del-programma-trainee-excellence-m-f-d-postfinance-bern": "BE",
+        "traineeprogramm-ai-business-engineering-w-m-d-postfinance": "BE"
+      },
+      "en": {
+        "traineeprogramm-operations-excellence-w-m-d-postfinance": "BE",
+        "trainee-program-operations-excellence-m-f-d-postfinance-bern": "BE",
+        "traineeprogramm-ai-business-engineering-w-m-d-postfinance": "BE"
+      },
+      "de": {
+        "traineeprogramm-operations-excellence-w-m-d-postfinance": "BE"
+      },
+      "fr": {
+        "traineeprogramm-operations-excellence-w-m-d-postfinance": "BE",
+        "programme-de-stagiaires-excellence-des-operations-h-f-d-postfinance-bern": "BE",
+        "traineeprogramm-ai-business-engineering-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "programma-trainee-trasformazione-project-management-customer-experience-m-f-d-postfinance-bern",
@@ -3398,7 +4407,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/traineeprogramm-transformation-&-projektmanagement-customer-experience-%28wmd%29/74915-de_de",
-    "firstSeenAt": "2026-10-05T09:36:40.421Z"
+    "firstSeenAt": "2026-10-05T09:36:40.421Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "traineeprogramm-transformation-projektmanagement-customer-experience-w-m-d-postfinance": "BE"
+      },
+      "en": {
+        "traineeprogramm-transformation-projektmanagement-customer-experience-w-m-d-postfinance": "BE"
+      },
+      "fr": {
+        "traineeprogramm-transformation-projektmanagement-customer-experience-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "senior-devops-software-specification-ingegnere-w-m-d-postfinance-bern",
@@ -3441,7 +4462,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/senior-devops-software-&-specification-engineer-%28wmd%29/74128-de_de",
-    "firstSeenAt": "2026-09-09T13:52:28.945Z"
+    "firstSeenAt": "2026-09-09T13:52:28.945Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-devops-software-specification-engineer-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "consulente-clienti-del-team-speciale-twint-postfinance-bern",
@@ -3484,7 +4511,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/kundenbetreuerin-spezialteam-twint/74843-de_de",
-    "firstSeenAt": "2026-09-30T21:35:43.116Z"
+    "firstSeenAt": "2026-09-30T21:35:43.116Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenbetreuer-in-spezialteam-twint-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "ux-ui-designer-mit-fokus-visual-design-w-m-d-postfinance",
@@ -3516,7 +4549,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/uxui-designer-mit-fokus-visual-design-%28wmd%29/74806-de_de",
-    "firstSeenAt": "2026-10-01T09:32:58.564Z"
+    "firstSeenAt": "2026-10-01T09:32:58.564Z",
+    "canton": "BE",
+    "previousSlugsByLocale": {
+      "en": [
+        "ux-ui-designer-mit-fokus-visual-design-w-m-d-postfinance"
+      ],
+      "de": [
+        "ux-ui-designer-mit-fokus-visual-design-w-m-d-postfinance"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "ux-ui-designer-mit-fokus-visual-design-w-m-d-postfinance": "BE"
+      },
+      "de": {
+        "ux-ui-designer-mit-fokus-visual-design-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "people-attraction-manager-m-w-d-befristet-postfinance-bern",
@@ -3562,7 +4612,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/people-attraction-manager-%28wmd%29-befristet/74829-de_de",
-    "firstSeenAt": "2026-09-30T21:35:43.116Z"
+    "firstSeenAt": "2026-09-30T21:35:43.116Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "people-attraction-manager-w-m-d-befristet-postfinance": "BE"
+      },
+      "fr": {
+        "people-attraction-manager-w-m-d-befristet-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "enterprise-it-architect-con-un-focus-su-ai-engineering-postfinance-bern",
@@ -3611,7 +4670,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/enterprise-it-architektin-mit-schwerpunkt-ai-engineering/74677-de_de",
-    "firstSeenAt": "2026-09-23T11:57:45.123Z"
+    "firstSeenAt": "2026-09-23T11:57:45.123Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "enterprise-it-architekt-in-mit-schwerpunkt-ai-engineering-postfinance": "BE"
+      },
+      "en": {
+        "enterprise-it-architekt-in-mit-schwerpunkt-ai-engineering-postfinance": "BE"
+      },
+      "fr": {
+        "enterprise-it-architekt-in-mit-schwerpunkt-ai-engineering-postfinance": "BE"
+      }
+    }
   },
   {
     "id": "postfinance-4e51f3cb99d0",
@@ -3942,7 +5013,8 @@
     "expiredAt": "09.09.26",
     "previousSlugsByLocale": {
       "it": [
-        "mitarbeiter-in-compliance-office-privatkunden-postfinance-178894ce"
+        "mitarbeiter-in-compliance-office-privatkunden-postfinance-178894ce",
+        "mitarbeiter-in-compliance-office-privatkunden-postfinance"
       ],
       "en": [
         "mitarbeiter-in-compliance-office-privatkunden-postfinance-178894ce",
@@ -3950,6 +5022,9 @@
       ],
       "fr": [
         "mitarbeiter-in-compliance-office-privatkunden-postfinance-178894ce",
+        "mitarbeiter-in-compliance-office-privatkunden-postfinance"
+      ],
+      "de": [
         "mitarbeiter-in-compliance-office-privatkunden-postfinance"
       ]
     },
@@ -3973,7 +5048,22 @@
     ],
     "previousSlugs": [
       "mitarbeiter-in-compliance-office-privatkunden-postfinance"
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-compliance-office-privatkunden-postfinance": "BE"
+      },
+      "en": {
+        "mitarbeiter-in-compliance-office-privatkunden-postfinance": "BE"
+      },
+      "de": {
+        "mitarbeiter-in-compliance-office-privatkunden-postfinance": "BE"
+      },
+      "fr": {
+        "mitarbeiter-in-compliance-office-privatkunden-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "gestione-delle-risorse-postfinance-bern",
@@ -4018,7 +5108,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/fachspezialistin-asset-management/74642-de_de",
-    "firstSeenAt": "2026-09-09T13:52:28.945Z"
+    "firstSeenAt": "2026-09-09T13:52:28.945Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialist-in-asset-management-postfinance": "BE"
+      },
+      "fr": {
+        "fachspezialist-in-asset-management-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "advisor-ere-client-en-placement-losanna-postfinance-lausanne",
@@ -4389,7 +5488,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/kubernetes-engineer/74638-de_de",
-    "firstSeenAt": "2026-09-04T13:32:08.390Z"
+    "firstSeenAt": "2026-09-04T13:32:08.390Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kubernetes-engineer-postfinance": "BE"
+      },
+      "fr": {
+        "kubernetes-engineer-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "senior-software-ingegnere-acquiring-merchants-w-m-d-postfinance-bern",
@@ -4431,7 +5539,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/senior-software-engineer-acquiring-&-merchants-%28wmd%29/74709-de_de",
-    "firstSeenAt": "2026-09-04T13:32:08.390Z"
+    "firstSeenAt": "2026-09-04T13:32:08.390Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-software-engineer-acquiring-merchants-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "compliance-officer-w-m-d-postfinance",
@@ -4507,7 +5621,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/product-owner-data-insights-%28wmd%29/74606-de_de",
-    "firstSeenAt": "2026-09-03T23:19:56.654Z"
+    "firstSeenAt": "2026-09-03T23:19:56.654Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "product-owner-data-insights-w-m-d-postfinance": "BE"
+      },
+      "fr": {
+        "product-owner-data-insights-w-m-d-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "platform-ingegnere-postfinance-bern",
@@ -4549,7 +5672,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/platform-engineer/74636-de_de",
-    "firstSeenAt": "2026-09-03T13:41:15.545Z"
+    "firstSeenAt": "2026-09-03T13:41:15.545Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "platform-engineer-postfinance": "BE"
+      }
+    }
   },
   {
     "slug": "platform-ingegnere-windows-automation-postfinance-zofingen",
@@ -4591,52 +5720,12 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.postfinance.ch/job/platform-engineer-windows-&-automation/74635-de_de",
-    "firstSeenAt": "2026-09-02T13:44:09.116Z"
-  },
-  {
-    "id": "postfinance-a2e105d9ca29",
-    "slug": "addetto-a-al-servizio-clienti-customer-center-biel-postfinance-biel-bienne",
-    "title": "Kundenbetreuer:in Customer Center Biel",
-    "titleByLocale": {
-      "it": "Addetto/a al servizio clienti Customer Center Biel",
-      "en": "Account Manager Customer Center Biel",
-      "de": "Kundenbetreuer:in Customer Center Biel",
-      "fr": "Conseiller à la clientèle :dans le Customer Center de Bienne"
-    },
-    "company": "PostFinance",
-    "companyKey": "postfinance",
-    "location": "Biel/Bienne",
-    "canton": "BE",
-    "addressLocality": "Biel/Bienne",
-    "descriptionByLocale": {
-      "it": "Nel Centro Clienti di PostFinance siete in contatto diretto con i nostri clienti e riconoscete le loro preoccupazioni finanziarie. Lei li sostiene con consigli competenti attraverso vari canali e fornire il vostro impegno a esperienze positive. In questo modo, si rafforza la connessione dei nostri clienti con PostFinance e contribuire attivamente al successo congiunto in un ambiente dinamico.\n\nPuoi farlo.\n\n- Sei la prima persona di contatto a elaborare professionalmente il telefono e le richieste scritte dei nostri clienti per quanto riguarda prodotti e servizi\n\n- Riconosce e utilizza le opportunità di vendita proattivamente offrendo ai clienti prodotti e servizi adatti\n\n- Con la vostra natura empatica, comunicativa e aperta, ispirate i nostri diversi clienti e create un'esperienza clienti positiva.\n\nLo porti con te.\n\n- Completa l'istruzione di base o l'esperienza di servizio\n\n- Approfitta del contatto telefonico con i clienti e dell'esperienza ideale nel servizio clienti e nelle vendite\n\n- Eccellente capacità di comunicazione orale in tedesco e in una seconda lingua nazionale (francese o italiano)\n\n- Applicazione sicura di più applicazioni IT e strumenti di comunicazione (telefono, e-mail, chat)\n\n- Capacità di orientare in un ambiente veloce con cambiamenti e empatia per diverse esigenze del cliente\n\n- La volontà di avere una presenza al 100% durante la fase introduttiva di tre a sei mesi, nonché la possibilità di un successivo adeguamento del livello di occupazione e dell'attività di ufficio domestico da accordo",
-      "en": "In the Customer Center of PostFinance you are in direct contact with our customers and recognize their financial concerns. You support them with competent advice through various channels and provide your commitment to positive experiences. In doing so, you strengthen the connection of our customers with PostFinance and actively contribute to joint success in a dynamic environment.\n\nYou can do that.\n\n- You are the first contact person to professionally process the telephone and written inquiries of our customers regarding products and services\n\n- You recognize and use sales opportunities proactively by offering customers suitable products and services\n\n- With your empathetic, communicative and open nature, you inspire our diverse customers and create a positive customer experience.\n\nYou bring that with you\n\n- Completed basic education or service experience\n\n- Enjoy telephone customer contact as well as ideal experience in customer service and sales\n\n- Excellent oral communication skills in German as well as in a second national language (French or Italian)\n\n- Secure application of multiple IT applications and communication tools (telephone, email, chat)\n\n- Ability to orient in a fast-paced environment with changing shifts and empathy for different customer needs\n\n- Willingness to have a 100% presence during the introductory phase of three to six months as well as the possibility of later adjustment of the employment level and home office activity by agreement",
-      "de": "Im Customer Center von PostFinance stehst du im direkten Austausch mit unseren Kund:innen und erkennst ihre finanziellen Anliegen. Du unterstützt sie mit kompetenter Beratung über verschiedene Kanäle und sorgst mit deinem Engagement für positive Erlebnisse. Dabei stärkst du die Verbundenheit unserer Kund:innen mit PostFinance und trägst in einem dynamischen Umfeld aktiv zum gemeinsamen Erfolg bei.\n\nDas kannst du bewirken\n\n- Du bearbeitest als erste Ansprechperson professionell die telefonischen und schriftlichen Anfragen unserer Kund:innen zu Produkten und Dienstleistungen\n\n- Du erkennst und nutzt Verkaufschancen proaktiv, indem du Kund:innen passende Produkte und Dienstleistungen anbietest\n\n- Du begeisterst mit deiner empathischen, kommunikativen und offenen Art unsere vielfältigen Kund:innen und schaffst ein positives Kundenerlebnis\n\nDas bringst du mit\n\n- Abgeschlossene Grundbildung oder Erfahrung im Dienstleistungsbereich\n\n- Freude am telefonischen Kundenkontakt sowie idealerweise Erfahrung im Kundenservice und Verkauf\n\n- Ausgezeichnete mündliche Kommunikationsfähigkeiten in Deutsch sowie in einer zweiten Landessprache (Französisch oder Italienisch)\n\n- Sichere Anwendung mehrerer IT-Anwendungen und Kommunikationstools (Telefon, E-Mail, Chat)\n\n- Fähigkeit zur Orientierung in einem schnelllebigen Umfeld mit wechselnden Schichten sowie Einfühlungsvermögen für unterschiedliche Kundenbedürfnisse\n\n- Bereitschaft zur 100-prozentigen Präsenz während der Einführungsphase von drei bis sechs Monaten sowie Möglichkeit zur späteren Anpassung des Beschäftigungsgrads und Homeoffice-Tätigkeit nach Absprache",
-      "fr": "Dans le Centre Client de PostFinance, vous êtes en contact direct avec nos clients et reconnaissez leurs préoccupations financières. Vous les aidez avec des conseils compétents par divers canaux et vous fournissez votre engagement à des expériences positives. Ce faisant, vous renforcez la connexion de nos clients avec PostFinance et contribuez activement au succès conjoint dans un environnement dynamique.\n\nTu peux le faire.\n\n- Vous êtes la première personne à traiter professionnellement les demandes téléphoniques et écrites de nos clients concernant les produits et services\n\n- Vous reconnaissez et utilisez les opportunités de vente proactive en offrant aux clients des produits et services adaptés\n\n- Avec votre nature empathique, communicative et ouverte, vous inspirez nos différents clients et créez une expérience client positive.\n\nApporte ça avec toi.\n\n- Enseignement de base ou expérience des services\n\n- Profitez du contact téléphonique avec le client ainsi que de l'expérience idéale dans le service à la clientèle et les ventes\n\n- Excellente maîtrise de la communication orale en allemand ainsi que dans une deuxième langue nationale (français ou italien)\n\n- Application sécurisée de multiples applications informatiques et outils de communication (téléphone, e-mail, chat)\n\n- Capacité à s'orienter dans un environnement à rythme rapide avec des changements et de l'empathie pour différents besoins du client\n\n- Volonté d'avoir une présence à 100% pendant la phase introductive de trois à six mois ainsi que la possibilité d'un ajustement ultérieur du niveau d'emploi et de l'activité de bureau à domicile par accord"
-    },
-    "slugByLocale": {
-      "it": "addetto-a-al-servizio-clienti-customer-center-biel-postfinance-biel-bienne",
-      "en": "account-manager-customer-center-biel-postfinance-biel-bienne",
-      "de": "kundenbetreuer-in-customer-center-biel-postfinance",
-      "fr": "conseiller-a-la-clientele-dans-le-customer-center-de-bienne-postfinance-biel-bienne"
-    },
-    "sector": "Servizi Finanziari",
-    "expiredAt": "2026-11-26T21:55:45.836Z",
-    "previousSlugs": [
-      "kundenbetreuer-in-customer-center-biel-postfinance"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "kundenbetreuer-in-customer-center-biel-postfinance"
-      ]
-    },
-    "postalCode": "2502",
-    "streetAddress": "Biel/Bienne",
-    "salaryMin": 109000,
-    "salaryMax": 167000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.postfinance.ch/job/kundenbetreuerin-customer-center-biel/74895-de_de",
-    "firstSeenAt": "2026-10-01T09:32:58.564Z"
+    "firstSeenAt": "2026-09-02T13:44:09.116Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "platform-engineer-windows-automation-postfinance": "AG"
+      }
+    }
   }
 ]

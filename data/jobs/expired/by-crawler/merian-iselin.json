@@ -1096,7 +1096,26 @@
         "firstSeenAt": "2026-06-30T23:13:48.677Z",
         "title": "Ausbildung als Fachfrau / Fachmann Gesundheit EFZ ab August 2027"
       }
-    ]
+    ],
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachfrau-fachmann-gesundheit-cfc-con-zusatzfunktion-come-berufsbildner-in-merian-iselin-klinik-basel": "BS",
+        "specialist-health-efz-with-additional-function-as-a-vocational-trainer-in-merian-iselin-klinik-basel": "BS",
+        "fachfrau-fachmann-gesundheit-efz-mit-zusatzfunktion-als-berufsbildner-in-merian-iselin": "BS",
+        "specialiste-de-la-sante-efz-avec-fonction-supplementaire-de-formateur-professionnel-merian-iselin-klinik-basel": "BS",
+        "ausbildung-als-fachfrau-fachmann-gesundheit-efz-ab-august-2027-merian-iselin-basel": "BS"
+      },
+      "en": {
+        "specialist-health-efz-with-additional-function-as-a-vocational-trainer-in-merian-iselin-klinik-basel": "BS"
+      },
+      "de": {
+        "fachfrau-fachmann-gesundheit-efz-mit-zusatzfunktion-als-berufsbildner-in-merian-iselin": "BS"
+      },
+      "fr": {
+        "specialiste-de-la-sante-efz-avec-fonction-supplementaire-de-formateur-professionnel-merian-iselin-klinik-basel": "BS"
+      }
+    }
   },
   {
     "slug": "ausbildung-come-fachfrau-fachmann-gesundheit-cfc-ab-august-2027-merian-iselin-klinik-basel-510d2baf",
@@ -1897,7 +1916,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/52f11934-56b8-4969-88e6-cc7ddc11c1c8",
-    "firstSeenAt": "2026-10-05T09:14:19.651Z"
+    "firstSeenAt": "2026-10-05T09:14:19.651Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-mitarbeiter-kuche-merian-iselin-basel": "BS",
+        "mitarbeiterin-collaboratore-trice-kuche-merian-iselin-klinik-basel": "BS"
+      }
+    }
   },
   {
     "slug": "kochin-koch-cfc-merian-iselin-klinik-basel",
@@ -1952,7 +1978,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/9503fd02-2bbf-4807-83e1-427d5f7836e2",
-    "firstSeenAt": "2026-06-30T12:17:18.454Z"
+    "firstSeenAt": "2026-06-30T12:17:18.454Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kochin-koch-efz-merian-iselin-basel": "BS"
+      },
+      "en": {
+        "kochin-koch-efz-merian-iselin-basel": "BS"
+      },
+      "fr": {
+        "kochin-koch-efz-merian-iselin-basel": "BS"
+      }
+    }
   },
   {
     "slug": "med-praxisassistentin-praxisassistent-mpa-merian-iselin-basel",

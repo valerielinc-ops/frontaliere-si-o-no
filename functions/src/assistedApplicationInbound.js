@@ -311,7 +311,7 @@ const isAccountCreatedNotice = (text) => ACCOUNT_NOTICE_RE.test(text) || ACCOUNT
 // The rest of an account's life cycle, as the portal itself reports it: activated, or its password changed.
 const ACCOUNT_ACTIVATED_RE = /((ihr|dein) (benutzer|bewerbungs)?(konto|profil) (wurde|ist) (erfolgreich )?(aktiviert|freigeschaltet|best[aä]tigt|verifiziert)|(your )?(account|profile) (has been |was |is (now )?)?(successfully )?(activated|verified|confirmed)|(il tuo |il suo )?(account|profilo) (è stato )?(attivato|verificato|confermato)|(votre )?(compte|profil) (a été )?(activé|vérifié|confirmé))/i;
 const PASSWORD_CHANGED_RE = /((ihr|dein) (passwort|kennwort) (wurde|ist) (erfolgreich )?(geändert|zurückgesetzt|aktualisiert)|(your )?password (has been |was )?(successfully )?(changed|reset(?!\s+(?:(?:has been|was)\s+)?(?:requested|request|link|instructions)\b)|updated)|(la tua |la sua )?password (è stata )?(modificata|cambiata|reimpostata)|(votre )?mot de passe (a été )?(modifié|changé|réinitialisé))/i;
-const PASSWORD_RESET_REQUEST_RE = /(?:\b(?:you\s+(?:have\s+)?requested|request(?:ed)?\s+(?:a\s+)?(?:password\s+)?reset|reset\s+(?:your\s+)?(?:account\s+)?password|password\s+reset\s+(?:(?:has\s+been\s+|was\s+)?requested|link|instructions|request))\b|\bpasswort\s+(?:zurücksetzen|zuruecksetzen|wiederherstellen)(?:\s+(?:angefordert|beantragt))?\b|\bkennwort\s+(?:zurücksetzen|zuruecksetzen)(?:\s+(?:angefordert|beantragt))?\b|\bmot de passe\s+(?:réinitialiser|reinitialiser|réinitialisation|reinitialisation)(?:\s+(?:demandée|demandee))?\b|\b(?:réinitialiser|reinitialiser|récupérer|recuperer)\s+(?:votre\s+)?mot de passe\b|\b(?:hai\s+)?richiesto\s+(?:di\s+)?(?:reimpostare\s+)?la?\s*password\b|\b(?:reimpostare|recuperare)\s+(?:la\s+)?password\b)/iu;
+const PASSWORD_RESET_REQUEST_RE = /(?:\b(?:you\s+(?:have\s+)?requested|request(?:ed)?\s+(?:a\s+)?(?:password\s+)?reset|reset\s+(?:your\s+)?(?:account\s+)?password|set\s+(?:a\s+)?(?:new\s+)?(?:your\s+)?password|password\s+reset\s+(?:(?:has\s+been\s+|was\s+)?requested|link|instructions|request))\b|\b(?:ihr|dein|neues)?\s*(?:passwort|kennwort)\s+(?:zu\s+)?(?:zurück(?:zu)?setzen|zurueck(?:zu)?setzen|wieder(?:her)?zustellen|wiederherstellen|setzen|neu\s+(?:zu\s+)?setzen|vergeben|festzulegen|festlegen)(?:\s+(?:angefordert|beantragt))?\b|\bmot de passe\s+(?:réinitialiser|reinitialiser|réinitialisation|reinitialisation)(?:\s+(?:demandée|demandee))?\b|\b(?:réinitialiser|reinitialiser|récupérer|recuperer|d[ée]finir)\s+(?:un\s+nouveau\s+|votre\s+)?mot de passe\b|\b(?:hai\s+)?richiesto\s+(?:di\s+)?(?:reimpostare\s+)?la?\s*password\b|\b(?:reimpostare|recuperare|impostare)\s+(?:una\s+nuova\s+|la\s+)?password\b)/iu;
 // The receipt wording the rules know (RULES' auto_acknowledgement), and more.
 // The federal SuccessFactors tenant (2026-11-10): «Ihre Bewerbung ist bei uns angekommen».
 const APPLICATION_RECEIVED_RE = /(we have received|abbiamo ricevuto|nous avons bien reçu|thank you for (your )?appl|thanks for applying|vielen dank für (ihre|deine) bewerbung|grazie per (la tua|la sua|aver inviato)( la)? candidatura|merci pour votre candidature|bewerbung (ist )?(bei uns )?(gut |erfolgreich )?(eingegangen|erhalten|angekommen|eingetroffen)|eingang (ihrer|deiner) bewerbung|wir haben (ihre|deine) (bewerbung|bewerbungsunterlagen)|received your application|your application (has been |was )?(successfully )?(received|submitted|registered)|bewerbung (wurde|ist) (erfolgreich |bei uns )?(registriert|erfasst)|candidatura (è stata )?(correttamente )?(ricevuta|inviata|registrata)|ricevuto la (tua|sua) candidatura|candidature (a bien été |a été )?(reçue|envoyée|transmise|enregistrée)|reçu votre candidature)/i;
@@ -557,10 +557,16 @@ function acknowledgesApplication(sentence) {
     && !HYPOTHETICAL_RE.test(sentence.slice(0, receipt.index));
 }
 
+/** A non-hypothetical, non-negated sentence instructing or confirming a password reset/setup request. */
+function asksPasswordResetSentence(sentence) {
+  if (/\?\s*$/.test(sentence) || PASSWORD_CHANGED_RE.test(sentence)) return false;
+  const match = PASSWORD_RESET_REQUEST_RE.exec(sentence);
+  return Boolean(match) && !NEGATED.test(sentence) && !HYPOTHETICAL_RE.test(sentence.slice(0, match.index));
+}
+
 function categoryOfSentences(sentences, topic, body) {
   const any = (purpose) => sentences.some(purpose);
-  if (sentences.some((sentence) => !/\?\s*$/.test(sentence)
-    && PASSWORD_RESET_REQUEST_RE.test(sentence) && !PASSWORD_CHANGED_RE.test(sentence))) return 'verification';
+  if (any(asksPasswordResetSentence)) return 'verification';
   if (any(asksAccountVerification)) return 'verification';
   if (any(changesInterview)) return 'other';
   if (any(rejectsApplication)) return any(proposesInterview) ? 'other' : 'rejection';
@@ -591,8 +597,7 @@ function readByRules({ subject = '', text = '' }) {
     sourceText,
     category: categoryOfSentences(sentences, topic, body),
     verificationAsked: sentences.some(asksAccountVerification),
-    asksPasswordReset: sentences.some((sentence) => !/\?\s*$/.test(sentence)
-      && PASSWORD_RESET_REQUEST_RE.test(sentence) && !PASSWORD_CHANGED_RE.test(sentence)),
+    asksPasswordReset: sentences.some(asksPasswordResetSentence),
     postingWithdrawn: sentences.some(withdrawsPosting),
     linkAsked: sentences.some(requestsVerification) && !sentences.some(acknowledgesApplication) && !sentences.some((sentence) => INTERVIEW_RE.test(sentence)),
   };
@@ -1185,7 +1190,9 @@ async function passwordResetAccount(orderRef, { authenticated, asksPasswordReset
   const normalized = normalizedMail(decodeHtmlEntities(text));
   const link = soleSecureLink(text);
   const temporaryPassword = extractTemporaryResetPassword(text);
+  const resetTokenLink = /[?&](?:password_?reset_?token|reset_?token)=/i.test(link);
   const resetContext = Boolean(asksPasswordReset)
+    || resetTokenLink
     || (Boolean(temporaryPassword) && (PASSWORD_CHANGED_RE.test(normalized) || PASSWORD_RESET_REQUEST_RE.test(normalized)));
   if (!resetContext || (!link && !temporaryPassword)) return null;
   const accounts = await portalAccountsForOrder(orderRef);

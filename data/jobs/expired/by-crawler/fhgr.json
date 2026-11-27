@@ -50,7 +50,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.fhgr.ch/vacancies/814/description/1",
-    "firstSeenAt": "2026-09-29T09:26:08.665Z"
+    "firstSeenAt": "2026-09-29T09:26:08.665Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "organisationsassistenz-direktionsassistenz-fhgr-ch": "GR",
+        "organisationsassistenz-direktionsassistenz-fachhochschule-graubunden-chur": "GR"
+      },
+      "en": {
+        "organisationsassistenz-direktionsassistenz-fachhochschule-graubunden-chur": "GR"
+      },
+      "fr": {
+        "assistant-d-organisation-assistant-de-direction-fachhochschule-graubunden-chur": "GR",
+        "organisationsassistenz-direktionsassistenz-fachhochschule-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "coordinatore-delle-operazioni-di-studio-fachhochschule-graubunden-zurich",
@@ -101,7 +115,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.fhgr.ch/vacancies/807/description/1",
-    "firstSeenAt": "2026-09-11T13:41:07.210Z"
+    "firstSeenAt": "2026-09-11T13:41:07.210Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "studienbetriebskoordinator-in-fhgr-ch": "ZH",
+        "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich": "ZH"
+      },
+      "en": {
+        "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich": "ZH"
+      },
+      "fr": {
+        "studienbetriebskoordinator-in-fachhochschule-graubunden-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-del-progetto-direttore-amministrativo-fachhochschule-graubunden-chur",
@@ -155,7 +182,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.fhgr.ch/vacancies/797/description/1",
-    "firstSeenAt": "2026-08-28T05:26:57.952Z"
+    "firstSeenAt": "2026-08-28T05:26:57.952Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-verwaltungsdirektion-fhgr-ch": "GR",
+        "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur": "GR"
+      },
+      "en": {
+        "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur": "GR"
+      },
+      "de": {
+        "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur": "GR"
+      },
+      "fr": {
+        "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "assistente-hr-fachhochschule-graubunden-chur",
@@ -208,7 +251,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.fhgr.ch/vacancies/808/description/1",
-    "firstSeenAt": "2026-09-08T23:31:09.494Z"
+    "firstSeenAt": "2026-09-08T23:31:09.494Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hr-assistent-in-fhgr-ch": "GR"
+      },
+      "en": {
+        "hr-assistent-in-fhgr-ch": "GR"
+      },
+      "de": {
+        "hr-assistent-in-fachhochschule-graubunden-chur": "GR"
+      },
+      "fr": {
+        "hr-assistent-in-fhgr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "assistenza-organizzativa-fachhochschule-graubunden-zurich",

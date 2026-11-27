@@ -156,8 +156,8 @@ async function main() {
     result.propertyId = propertyId;
     result.targetMarketCountries = [...TARGET_MARKET_COUNTRIES];
     result.rows = rows;
-  } catch (err) {
-    console.error(`[canary-user-value] auth/API failure: ${err.message || err}`);
+  } catch {
+    console.error('[canary-user-value] auth/API failure; details withheld');
     process.exit(2);
   }
   result.timestamp = new Date().toISOString();

@@ -4,7 +4,7 @@
   "detailRejected": 4,
   "key": "recruitingapp-1154",
   "label": "SGKB Bewerbermanagement Stellen",
-  "generatedAt": "2026-11-26T21:48:43.511Z",
+  "generatedAt": "2026-11-27T09:36:39.654Z",
   "total": 0,
   "discovered": 17,
   "parsed": 0,
@@ -90,6 +90,8 @@
         "url": "https://recruitingapp-1154.umantis.com/Vacancies/3813/Description/1/Default?"
       }
     ],
+    "listingTerminalStatus": 200,
+    "listingCompletion": "complete",
     "proxiedBy": [],
     "fetchOutcome": null,
     "fetchDetail": "[prospector:recruitingapp-1154] detail snapshot incompleto: 4/17 detail page(s) dropped (24% > 15%); refusing partial publication"
@@ -108,5 +110,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
+  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
 }

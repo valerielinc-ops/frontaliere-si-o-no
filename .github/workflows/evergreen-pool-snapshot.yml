@@ -8,10 +8,9 @@ name: Evergreen Pool Snapshot (weekly)
 #
 # Reuses `scripts/evergreen-pool-consumption.mjs --json` (one source of
 # truth for the pool math, no duplicated logic) and appends a compact entry
-# to the append-only `data/evergreen-pool-history.json`, same pattern as
-# `funnel-metrics-snapshot.yml` / `data/funnel-metrics-history.json`.
+# to the separate editorial history `data/evergreen-pool-history.json`.
 #
-# Runs Sunday 05:00 UTC, ahead of the Monday funnel-metrics snapshot.
+# Runs Sunday 05:00 UTC to snapshot editorial topic-pool consumption.
 
 on:
   schedule:

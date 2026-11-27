@@ -10,8 +10,7 @@
  * It does NOT compute the pool itself: it consumes the JSON already
  * produced by `scripts/evergreen-pool-consumption.mjs --json` (array of
  * `{section, poolTotal, poolRemaining, poolConsumed, poolConsumedPct}`).
- * Same pattern as `scripts/funnel-metrics-snapshot.mjs` /
- * `data/funnel-metrics-history.json`.
+ * Its separate history contains editorial topic-pool counts only.
  *
  * Pipeline (see .github/workflows/evergreen-pool-snapshot.yml):
  *   node scripts/evergreen-pool-consumption.mjs --json > /tmp/pool.json

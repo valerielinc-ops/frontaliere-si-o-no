@@ -41,7 +41,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/688/description/1",
-    "firstSeenAt": "2026-09-30T21:20:44.922Z"
+    "firstSeenAt": "2026-09-30T21:20:44.922Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "wochenendarzt-arztin-sanatorium-kilchberg-kilchberg": "ZH"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-grundreinigung-sanatorium-kilchberg",
@@ -85,7 +91,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/691/description/1",
-    "firstSeenAt": "2026-10-07T21:38:50.544Z"
+    "firstSeenAt": "2026-10-07T21:38:50.544Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-grundreinigung-sanatorium-kilchberg-kilchberg": "ZH"
+      }
+    }
   },
   {
     "slug": "psicologo-psicologo-sanatorium-kilchberg-kilchberg",
@@ -128,7 +140,8 @@
         "psicologo-a-sanatorium-kilchberg-kilchberg",
         "psychologe-psychologin-sanatorium-kilchberg-kilchberg-b4fcea1e",
         "psychologe-psychologin-sanatorium-kilchberg-kilchberg-4x5fnk",
-        "psychologe-psychologin-sanatorium-kilchberg"
+        "psychologe-psychologin-sanatorium-kilchberg",
+        "psychologe-psychologin-sanatorium-kilchberg-kilchberg"
       ],
       "de": [
         "psychologe-psychologin-sanatorium-kilchberg-kilchberg-4x5fl2",
@@ -136,10 +149,12 @@
         "psychologe-psychologin-sanatorium-kilchberg-kilchberg-4x5fnk"
       ],
       "en": [
-        "psychologist-m-f-sanatorium-kilchberg-kilchberg"
+        "psychologist-m-f-sanatorium-kilchberg-kilchberg",
+        "psychologe-psychologin-sanatorium-kilchberg-kilchberg"
       ],
       "fr": [
-        "psychologue-sanatorium-kilchberg-kilchberg"
+        "psychologue-sanatorium-kilchberg-kilchberg",
+        "psychologe-psychologin-sanatorium-kilchberg-kilchberg"
       ]
     },
     "postalCode": "8802",
@@ -161,7 +176,16 @@
         "firstSeenAt": "2026-09-09T13:51:54.805Z",
         "title": "Psychologe / Psychologin"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "psychologe-psychologin-sanatorium-kilchberg-kilchberg": "ZH"
+      },
+      "de": {
+        "psychologe-psychologin-sanatorium-kilchberg-kilchberg-4x5fl2": "ZH"
+      }
+    }
   },
   {
     "slug": "professionista-hf-fh-sanatorium-kilchberg-kilchberg",
@@ -265,7 +289,8 @@
       "professionnel-de-soins-hf-fh-60-90-sanatorium-kilchberg-kilchberg",
       "infirmier-ere-diplome-e-hf-fh-sanatorium-kilchberg-kilchberg",
       "professionista-hf-fh-sanatorium-kilchberg-kilchberg-582efb-a5a02c93",
-      "professionista-hf-fh-sanatorium-kilchberg-kilchberg-f145f8a645"
+      "professionista-hf-fh-sanatorium-kilchberg-kilchberg-f145f8a645",
+      "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4683189b"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -276,7 +301,8 @@
         "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg",
         "pflegefachperson-hf-fh-60-90-sanatorium-kilchberg-kilchberg",
         "professionista-hf-fh-sanatorium-kilchberg-kilchberg-f145f8a645",
-        "care-professional-hf-fh-sanatorium-kilchberg-kilchberg-a679fa66"
+        "care-professional-hf-fh-sanatorium-kilchberg-kilchberg-a679fa66",
+        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4683189b"
       ],
       "en": [
         "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-62cca9bf",
@@ -284,7 +310,8 @@
         "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-eac9b326",
         "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg",
         "pflegefachperson-hf-fh-60-90-sanatorium-kilchberg-kilchberg",
-        "care-professional-hf-fh-sanatorium-kilchberg-kilchberg-a679fa66"
+        "care-professional-hf-fh-sanatorium-kilchberg-kilchberg-a679fa66",
+        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4683189b"
       ],
       "fr": [
         "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-62cca9bf",
@@ -293,7 +320,8 @@
         "care-professional-hf-fh-sanatorium-kilchberg-kilchberg",
         "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg",
         "pflegefachperson-hf-fh-60-90-sanatorium-kilchberg-kilchberg",
-        "care-professional-hf-fh-sanatorium-kilchberg-kilchberg-a679fa66"
+        "care-professional-hf-fh-sanatorium-kilchberg-kilchberg-a679fa66",
+        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4683189b"
       ],
       "de": [
         "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-62cca9bf",
@@ -565,7 +593,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/644/description/1",
-    "firstSeenAt": "2026-08-05T22:44:13.811Z"
+    "firstSeenAt": "2026-08-05T22:44:13.811Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-kauffrau-mann-efz-ab-august-2027-sanatorium-kilchberg-kilchberg": "ZH"
+      }
+    }
   },
   {
     "slug": "massaggio-medico-sanatorium-kilchberg-kilchberg",
@@ -616,7 +650,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/685/description/1",
-    "firstSeenAt": "2026-09-23T23:45:35.392Z"
+    "firstSeenAt": "2026-09-23T23:45:35.392Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "medizinische-masseur-in-sanatorium-kilchberg-kilchberg": "ZH",
+        "medizinische-r-masseur-in-sanatorium-kilchberg-kilchberg": "ZH"
+      },
+      "en": {
+        "medizinische-masseur-in-sanatorium-kilchberg-kilchberg": "ZH"
+      },
+      "fr": {
+        "medizinische-masseur-in-sanatorium-kilchberg-kilchberg": "ZH"
+      }
+    }
   },
   {
     "slug": "cura-specializzata-sanatorium-kilchberg-kilchberg",
@@ -659,7 +706,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/684/description/1",
-    "firstSeenAt": "2026-09-28T21:21:37.191Z"
+    "firstSeenAt": "2026-09-28T21:21:37.191Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachverantwortung-pflege-sanatorium-kilchberg-kilchberg": "ZH"
+      }
+    }
   },
   {
     "slug": "apprendistato-fachfrau-mann-gesundheit-cfc-ab-august-2027-sanatorium-kilchberg",
@@ -702,7 +755,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/620/description/1",
-    "firstSeenAt": "2026-07-01T12:46:14.550Z"
+    "firstSeenAt": "2026-07-01T12:46:14.550Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-fachfrau-mann-gesundheit-efz-ab-august-2027-sanatorium-kilchberg-kilchberg": "ZH"
+      }
+    }
   },
   {
     "slug": "terapeuta-dello-sport-o-terapeuta-del-movimento-sanatorium-kilchberg-kilchberg",
@@ -755,7 +814,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/674/description/1",
-    "firstSeenAt": "2026-09-10T23:10:05.819Z"
+    "firstSeenAt": "2026-09-10T23:10:05.819Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sporttherapeutin-sporttherapeut-oder-bewegungstherapeutin-bewegungstherapeut-sanatorium": "ZH",
+        "sporttherapeutin-sporttherapeut-o-bewegungstherapeutin-bewegungstherapeut-sanatorium-kilchberg": "ZH"
+      },
+      "en": {
+        "sporttherapeutin-sporttherapeut-oder-bewegungstherapeutin-bewegungstherapeut-sanatorium": "ZH",
+        "sporttherapeutin-sporttherapeut-oder-bewegungstherapeutin-bewegungstherapeut-sanatorium-kilchberg": "ZH"
+      },
+      "fr": {
+        "sporttherapeutin-sporttherapeut-oder-bewegungstherapeutin-bewegungstherapeut-sanatorium": "ZH"
+      }
+    }
   },
   {
     "slug": "fachperson-gesundheit-cfc-sanatorium-kilchberg-kilchberg",
@@ -861,7 +934,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/664/description/1",
-    "firstSeenAt": "2026-08-21T21:42:23.150Z"
+    "firstSeenAt": "2026-08-21T21:42:23.150Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-hr-administration-und-lohn-sanatorium-kilchberg-kilchberg": "ZH",
+        "sachbearbeiter-in-risorse-umane-administration-e-lohn-sanatorium-kilchberg": "ZH"
+      },
+      "en": {
+        "sachbearbeiter-in-hr-administration-und-lohn-sanatorium-kilchberg-kilchberg": "ZH"
+      },
+      "fr": {
+        "sachbearbeiter-in-hr-administration-und-lohn-sanatorium-kilchberg-kilchberg": "ZH"
+      }
+    }
   },
   {
     "slug": "specialista-di-attivazione-hf-sanatorium-kilchberg-kilchberg",
@@ -910,7 +996,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/665/description/1",
-    "firstSeenAt": "2026-09-02T13:43:31.499Z"
+    "firstSeenAt": "2026-09-02T13:43:31.499Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "aktivierungsfachperson-hf-sanatorium-kilchberg-kilchberg": "ZH"
+      },
+      "en": {
+        "aktivierungsfachperson-hf-sanatorium-kilchberg-kilchberg": "ZH"
+      },
+      "fr": {
+        "aktivierungsfachperson-hf-sanatorium-kilchberg-kilchberg": "ZH"
+      }
+    }
   },
   {
     "slug": "cuciniere-sanatorium-kilchberg-kilchberg",
@@ -956,6 +1054,9 @@
       "fr": [
         "koch-kochin-sanatorium-kilchberg-kilchberg-26f441cf",
         "koch-kochin-sanatorium-kilchberg-kilchberg"
+      ],
+      "de": [
+        "koch-kochin-sanatorium-kilchberg-kilchberg"
       ]
     },
     "postalCode": "8802",
@@ -976,7 +1077,19 @@
         "firstSeenAt": "2026-05-19T14:37:11.948Z",
         "title": "Koch/Köchin"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "koch-kochin-sanatorium-kilchberg-kilchberg": "ZH"
+      },
+      "en": {
+        "koch-kochin-sanatorium-kilchberg": "ZH"
+      },
+      "de": {
+        "koch-kochin-sanatorium-kilchberg-kilchberg": "ZH"
+      }
+    }
   },
   {
     "slug": "personale-in-segreteria-clinica-sanatorium-kilchberg-kilchberg",
@@ -1027,7 +1140,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/645/description/1",
-    "firstSeenAt": "2026-08-07T01:08:49.383Z"
+    "firstSeenAt": "2026-08-07T01:08:49.383Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-kliniksekretariat-sanatorium-kilchberg-kilchberg": "ZH"
+      },
+      "en": {
+        "sachbearbeiter-in-kliniksekretariat-sanatorium-kilchberg-kilchberg": "ZH",
+        "personnel-in-clinic-secretariat-sanatorium-kilchberg-kilchberg": "ZH"
+      },
+      "fr": {
+        "sachbearbeiter-in-kliniksekretariat-sanatorium-kilchberg-kilchberg": "ZH"
+      }
+    }
   },
   {
     "slug": "sanitario-di-soccorso-estivo-2026-50-100-spital-davos-davos",

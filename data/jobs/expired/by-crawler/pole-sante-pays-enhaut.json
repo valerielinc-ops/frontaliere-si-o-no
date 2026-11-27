@@ -122,7 +122,8 @@
         "mehrzweck-gesundheitsassistent-cdi-50-bis-100-pole-sante-pays-d-enhaut-chateau-d-oex"
       ],
       "fr": [
-        "assistente-sanitario-multiuso-cdi-50-al-100-pole-sante-pays-d-enhaut-chateau-d-oex"
+        "assistente-sanitario-multiuso-cdi-50-al-100-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "auxiliaire-de-sante-polyvalent-e-cdi-50-a-100-pole-sante-pays-enhaut-chateau-d-oex"
       ]
     },
     "previousSlugCantonByLocale": {
@@ -136,16 +137,19 @@
       "en": {
         "multi-purpose-health-assistant-cdi-50-to-100-pole-sante-pays-d-enhaut-chateau-d-oex-9db3a218": "VD",
         "auxiliaire-de-sante-polyvalent-e-cdi-50-a-100-pole-sante-pays-enhaut-chateau-d-oex": "VD",
-        "assistente-sanitario-multiuso-cdi-50-al-100-pole-sante-pays-d-enhaut-chateau-d-oex": "VD"
+        "assistente-sanitario-multiuso-cdi-50-al-100-pole-sante-pays-d-enhaut-chateau-d-oex": "VD",
+        "multi-purpose-health-assistant-cdi-50-to-100-pole-sante-pays-d-enhaut-chateau-d-oex": "VD"
       },
       "de": {
         "mehrzweck-gesundheitsassistent-cdi-50-bis-100-pole-sante-pays-d-enhaut-chateau-d-oex-edf2966a": "VD",
         "auxiliaire-de-sante-polyvalent-e-cdi-50-a-100-pole-sante-pays-enhaut-chateau-d-oex": "VD",
-        "assistente-sanitario-multiuso-cdi-50-al-100-pole-sante-pays-d-enhaut-chateau-d-oex": "VD"
+        "assistente-sanitario-multiuso-cdi-50-al-100-pole-sante-pays-d-enhaut-chateau-d-oex": "VD",
+        "mehrzweck-gesundheitsassistent-cdi-50-bis-100-pole-sante-pays-d-enhaut-chateau-d-oex": "VD"
       },
       "fr": {
         "auxiliaire-de-sante-polyvalent-e-cdi-50-a-100-pole-sante-pays-enhaut-chateau-d-oex-359e4840": "VD",
-        "assistente-sanitario-multiuso-cdi-50-al-100-pole-sante-pays-d-enhaut-chateau-d-oex": "VD"
+        "assistente-sanitario-multiuso-cdi-50-al-100-pole-sante-pays-d-enhaut-chateau-d-oex": "VD",
+        "auxiliaire-de-sante-polyvalent-e-cdi-50-a-100-pole-sante-pays-enhaut-chateau-d-oex": "VD"
       }
     },
     "postalCode": "1660",
@@ -199,18 +203,37 @@
     "expiredAt": "2026-11-24T21:25:29.556Z",
     "previousSlugs": [
       "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex",
-      "assistant-e-en-soins-et-sante-communautaire-assc-au-cms-pole-sante-pays-enhaut-chateau-d"
+      "assistant-e-en-soins-et-sante-communautaire-assc-au-cms-pole-sante-pays-enhaut-chateau-d",
+      "community-care-and-health-assistant-assc-pole-sante-pays-d-enhaut-chateau-d-oex",
+      "assistente-per-la-salute-e-la-cura-della-comunita-chs-pole-sante-pays-d-enhaut-chateau-d-oex-cc00fa4e",
+      "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex-c44fea96",
+      "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex-6c033081",
+      "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex-3c98e212",
+      "community-health-and-care-assistant-chs-pole-sante-pays-d-enhaut-chateau-d-oex-e78a245d"
     ],
     "previousSlugsByLocale": {
       "it": [
         "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex",
-        "assistant-e-en-soins-et-sante-communautaire-assc-au-cms-pole-sante-pays-enhaut-chateau-d"
+        "assistant-e-en-soins-et-sante-communautaire-assc-au-cms-pole-sante-pays-enhaut-chateau-d",
+        "community-care-and-health-assistant-assc-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "assistente-per-la-salute-e-la-cura-della-comunita-chs-pole-sante-pays-d-enhaut-chateau-d-oex-cc00fa4e",
+        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex-c44fea96",
+        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex-6c033081",
+        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex-3c98e212"
       ],
       "en": [
-        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex"
+        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex",
+        "community-health-and-care-assistant-chs-pole-sante-pays-d-enhaut-chateau-d-oex-e78a245d",
+        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex-c44fea96",
+        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex-6c033081",
+        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex-3c98e212"
       ],
       "fr": [
-        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex"
+        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex",
+        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex-c44fea96"
+      ],
+      "de": [
+        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex-c44fea96"
       ]
     },
     "postalCode": "1660",
@@ -232,7 +255,21 @@
         "firstSeenAt": "2026-08-28T05:13:15.638Z",
         "title": "Assistant·e en soins et santé communautaire (ASSC) au CMS"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex": "VD",
+        "assistant-e-en-soins-et-sante-communautaire-assc-au-cms-pole-sante-pays-enhaut-chateau-d": "VD",
+        "community-care-and-health-assistant-assc-pole-sante-pays-d-enhaut-chateau-d-oex": "VD"
+      },
+      "en": {
+        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex": "VD"
+      },
+      "fr": {
+        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex": "VD"
+      }
+    }
   },
   {
     "id": "pole-sante-pays-enhaut-19767b4111f8",
@@ -267,21 +304,28 @@
       "it": [
         "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-58d19322",
         "infermiera-di-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-5efe5e90",
+        "mental-health-nurse-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "psychische-gesundheit-krankenschwester-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
         "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex",
         "infermiera-di-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex"
       ],
       "en": [
         "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex",
         "infermiera-di-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "psychische-gesundheit-krankenschwester-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
         "mental-health-nurse-50-70-pole-sante-pays-d-enhaut-chateau-d-oex"
       ],
       "de": [
         "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex",
         "infermiera-di-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "mental-health-nurse-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
         "psychische-gesundheit-krankenschwester-50-70-pole-sante-pays-d-enhaut-chateau-d-oex"
       ],
       "fr": [
-        "infermiera-di-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex"
+        "infermiera-di-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "mental-health-nurse-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "psychische-gesundheit-krankenschwester-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex"
       ]
     },
     "postalCode": "1660",
@@ -291,28 +335,61 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/b06d4dbc-b055-4fd6-a4a4-9f9ff300fd38",
-    "firstSeenAt": "2026-10-26T21:29:17.333Z",
+    "firstSeenAt": "2026-08-28T05:13:16.258Z",
     "previousSlugCantonByLocale": {
       "it": {
         "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-58d19322": "VD",
-        "infermiera-di-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-5efe5e90": "VD"
+        "infermiera-di-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-5efe5e90": "VD",
+        "mental-health-nurse-50-70-pole-sante-pays-d-enhaut-chateau-d-oex": "VD",
+        "psychische-gesundheit-krankenschwester-50-70-pole-sante-pays-d-enhaut-chateau-d-oex": "VD",
+        "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex": "VD",
+        "infermiera-di-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex": "VD"
       },
       "en": {
-        "mental-health-nurse-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-d3aa7066": "VD"
+        "mental-health-nurse-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-d3aa7066": "VD",
+        "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex": "VD",
+        "infermiera-di-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex": "VD",
+        "psychische-gesundheit-krankenschwester-50-70-pole-sante-pays-d-enhaut-chateau-d-oex": "VD",
+        "mental-health-nurse-50-70-pole-sante-pays-d-enhaut-chateau-d-oex": "VD"
       },
       "de": {
-        "psychische-gesundheit-krankenschwester-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-f55464cb": "VD"
+        "psychische-gesundheit-krankenschwester-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-f55464cb": "VD",
+        "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex": "VD",
+        "infermiera-di-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex": "VD",
+        "mental-health-nurse-50-70-pole-sante-pays-d-enhaut-chateau-d-oex": "VD",
+        "psychische-gesundheit-krankenschwester-50-70-pole-sante-pays-d-enhaut-chateau-d-oex": "VD"
       },
       "fr": {
-        "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-58d19322": "VD"
+        "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-58d19322": "VD",
+        "infermiera-di-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex": "VD",
+        "mental-health-nurse-50-70-pole-sante-pays-d-enhaut-chateau-d-oex": "VD",
+        "psychische-gesundheit-krankenschwester-50-70-pole-sante-pays-d-enhaut-chateau-d-oex": "VD",
+        "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex": "VD"
       }
     },
     "previousSlugs": [
+      "infermiera-di-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-5efe5e90",
       "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex",
       "infermiera-di-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
-      "infermiera-di-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-5efe5e90",
       "mental-health-nurse-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
       "psychische-gesundheit-krankenschwester-50-70-pole-sante-pays-d-enhaut-chateau-d-oex"
+    ],
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/8cf9226e-3c18-4da7-9a61-2d5b7119d893",
+        "firstSeenAt": "2026-10-26T21:29:17.333Z",
+        "title": "Infirmier·ère référent·e en santé mentale (50–70 %)"
+      },
+      {
+        "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/b06d4dbc-b055-4fd6-a4a4-9f9ff300fd38",
+        "firstSeenAt": "2026-08-28T05:13:16.258Z",
+        "title": "Infirmier·ère référent·e en santé mentale (50–70 %)"
+      },
+      {
+        "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/ff20cb2d-bc7a-4eb5-a5e6-f952404b51c1",
+        "firstSeenAt": "2026-08-28T05:13:16.258Z",
+        "title": "Infirmier·ère référent·e en santé mentale (50–70 %)"
+      }
     ]
   },
   {
@@ -344,7 +421,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/7e7196d4-d20c-4a17-ba10-0c48e91112c4",
-    "firstSeenAt": "2026-09-29T21:14:39.560Z"
+    "firstSeenAt": "2026-09-29T21:14:39.560Z",
+    "canton": "VD",
+    "previousSlugsByLocale": {
+      "en": [
+        "specialiste-rh-payroll-60-cdi-pole-sante-pays-enhaut-chateau-d-oex"
+      ],
+      "de": [
+        "specialiste-rh-payroll-60-cdi-pole-sante-pays-enhaut-chateau-d-oex"
+      ],
+      "fr": [
+        "specialiste-rh-payroll-60-cdi-pole-sante-pays-enhaut-chateau-d-oex"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "specialiste-rh-payroll-60-cdi-pole-sante-pays-enhaut-chateau-d-oex": "VD"
+      },
+      "de": {
+        "specialiste-rh-payroll-60-cdi-pole-sante-pays-enhaut-chateau-d-oex": "VD"
+      },
+      "fr": {
+        "specialiste-rh-payroll-60-cdi-pole-sante-pays-enhaut-chateau-d-oex": "VD"
+      }
+    }
   },
   {
     "slug": "infermiera-cdi-80-al-100-pole-sante-pays-d-enhaut-chateau-d-oex",
@@ -480,7 +580,14 @@
     "salaryMax": 84400,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/28f59e0a-32d2-41eb-8be6-3fffe35c49f6"
+    "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/28f59e0a-32d2-41eb-8be6-3fffe35c49f6",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante-pays-d-enhaut-chateau-d-oex": "VD",
+        "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante": "VD"
+      }
+    }
   },
   {
     "slug": "tasso-di-attivita-da-40-a-60-dal-01-12-2026-o-da-concordare-pole-sante-pays-d-enhaut-chateau-d-oex",
@@ -529,61 +636,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/51957b24-8098-406d-afbf-42f279cbeda8",
-    "firstSeenAt": "2026-09-24T14:49:48.070Z"
-  },
-  {
-    "slug": "assistente-per-la-salute-e-la-cura-della-comunita-chs-pole-sante-pays-d-enhaut-chateau-d-oex-cc00fa4e",
-    "title": "Assistant·e en soins et santé communautaire (ASSC)",
-    "titleByLocale": {
-      "it": "Assistente per la salute e la cura della comunità (CHS)",
-      "en": "Community Health and Care Assistant (CHS)",
-      "de": "Assistent·e en soins et santé communautaire (ASSC)",
-      "fr": "Assistant·e en soins et santé communautaire (ASSC)"
-    },
-    "company": "Pôle Santé Pays-d'Enhaut",
-    "companyKey": "pole-sante-pays-enhaut",
-    "location": "Château d'Oex",
-    "addressLocality": "Château d'Oex",
-    "descriptionByLocale": {
-      "it": "Situato a Château-d’Œx, a 1000 metri di altitudine, il Pôle Santé Pays-d’Enhaut offre un’ampia gamma di servizi ospedalieri, alloggi, sostegno agli anziani e assistenza domiciliare. Secondo il cosiddetto approccio di assistenza integrata, questa organizzazione innovativa rappresenta un'opportunità per gli operatori sanitari di lavorare all'interno di piccoli team multidisciplinari, per una migliore continuità delle cure e in risposta ai bisogni sanitari della popolazione del Pays-d'Enhaut.\nNel cuore di un ambiente naturale privilegiato, a meno di un'ora da Losanna o Berna, il Pays-d'Enhaut è rinomato per la qualità del suo ambiente di vita e offre un'ampia gamma di attività sportive, ricreative e culturali, da vivere in estate e in inverno!\nPer il settore dell'assistenza domiciliare, il Centro sanitario Pays-d'Enhaut cerca:\n\nAssistenza comunitaria e assistente sanitario (ASSC) Tasso di attività 80 - 100%\n\nEntrata in carica: 1 ottobre 2026\nIn linea di principio legato al settore dell'assistenza domiciliare, sarai tenuto a svolgere missioni occasionali anche nei settori ricettivo e ospedaliero.\nLa tua missione:\n\n• Fornire assistenza di base e assistenza medico-tecnica nell'ambito delle proprie competenze\n\n• Supportare i clienti nelle attività della vita quotidiana\n\n• Osservare lo stato di salute dei clienti e trasmettere le informazioni rilevanti al team\n\n• Partecipare all'implementazione e al monitoraggio dei piani di assistenza\n\n• Promuovere l'autonomia e il supporto domiciliare per i clienti\n\n• Garantire una documentazione rigorosa e completa dei servizi svolti\n\n• Partecipare attivamente alla qualità e alla continuità delle cure\n\n• Collaborare con il team multidisciplinare nella cura del cliente\nIl tuo profilo:\n\n• Titolare di un CFC Community Care and Health Assistant (ASSC) o di un titolo ritenuto equivalente riconosciuto in Svizzera\n\n• Forte interesse per l'assistenza domiciliare e il sostegno a persone con bisogni diversi\n\n• Autonomia, senso di responsabilità e capacità di adattamento\n\n• Buone capacità interpersonali e capacità di ascolto\n\n• Capacità di lavorare in un team interdisciplinare\n\n• Organizzazione, affidabilità e flessibilità\n\n• Disponibilità di patente di guida valida e veicolo personale, indispensabili per l'esercizio della funzione\nOffriamo:\n\n• Partecipazione allo sviluppo di un modello di assistenza integrata, che prevede il coordinamento e la collaborazione di diversi professionisti sanitari\n\n• Lavorare in un ambiente piacevole, all'interno di una struttura a misura d'uomo\n\n• I vantaggi di vivere in montagna rimanendo vicino ai centri urbani (da scoprire su www.alpesvaudoises.ch/fr/stories/paysdenhaut)\n\n• Condizioni di lavoro conformi alla CCT San-Vaud (13° stipendio, formazione, 5-6 settimane di ferie all'anno, ecc.)\nInviaci il tuo file completo (CV, lettera di presentazione, diplomi, riconoscimento della Croce Rossa Svizzera se necessario e certificati di lavoro) su Jobup",
-      "en": "Located in Château-d’Œx, at an altitude of 1000 meters, the Pôle Santé Pays-d’Enhaut offers a wide range of hospital services, accommodation, support for the elderly, as well as home care. According to the so-called integrated care approach, this innovative organization represents an opportunity for health professionals to work within small multidisciplinary teams, for better continuity of care and in response to the health needs of the population of Pays-d'Enhaut.\nAt the heart of a privileged natural environment, less than an hour from Lausanne or Bern, the Pays-d'Enhaut is renowned for the quality of its living environment and offers a very wide range of sporting, leisure and cultural activities, to experience in summer and winter!\nFor its Home Care Sector, the Pays-d’Enhaut Health Center is looking for a:\n\nCommunity care and health assistant (ASSC) Activity rate 80 - 100%\n\nEntry into office: October 1, 2026\nIn principle attached to the home care sector, you will also be required to carry out occasional missions within the accommodation and hospital sectors.\nYour mission:\n\n• Provide basic care and medico-technical care within the framework of your skills\n\n• Support clients in activities of daily living\n\n• Observe the state of health of clients and transmit relevant information to the team\n\n• Participate in the implementation and monitoring of care plans\n\n• Promote autonomy and home support for clients\n\n• Ensure rigorous and complete documentation of the services carried out\n\n• Actively participate in the quality and continuity of care\n\n• Collaborate with the multidisciplinary team in taking care of the client\nYour profile:\n\n• Holder of a CFC Community Care and Health Assistant (ASSC) or a title deemed equivalent recognized in Switzerland\n\n• Strong interest in home care and support for people with varied needs\n\n• Autonomy, sense of responsibility and ability to adapt\n\n• Good interpersonal skills and listening skills\n\n• Ability to work in an interdisciplinary team\n\n• Organization, reliability and flexibility\n\n• Valid driving license and personal vehicle available, essential for the exercise of the function\nWe offer:\n\n• Participation in the development of an integrated care model, involving the coordination and collaboration of different health professionals\n\n• Work in a pleasant environment, within a human-sized structure\n\n• The advantages of living in the mountains while remaining close to urban centers (to discover under www.alpesvaudoises.ch/fr/stories/paysdenhaut)\n\n• Working conditions in compliance with the San-Vaud CCT (13th salary, training, 5-6 weeks of vacation per year, etc.)\nPlease send us your complete file (CV, cover letter, diplomas, Swiss Red Cross recognition if necessary and work certificates) on Jobup",
-      "de": "Das Pôle Santé Pays-d’Enhaut befindet sich in Château-d’Œx auf einer Höhe von 1000 Metern und bietet ein breites Spektrum an Krankenhausdienstleistungen, Unterkünften, Unterstützung für ältere Menschen sowie häusliche Pflege. Gemäß dem sogenannten integrierten Versorgungsansatz bietet diese innovative Organisation den Gesundheitsfachkräften die Möglichkeit, in kleinen multidisziplinären Teams zu arbeiten, um eine bessere Kontinuität der Versorgung zu gewährleisten und auf die Gesundheitsbedürfnisse der Bevölkerung des Pays-d'Enhaut einzugehen.\nIm Herzen einer privilegierten Naturlandschaft, weniger als eine Stunde von Lausanne oder Bern entfernt, ist das Pays-d'Enhaut für seine Lebensqualität bekannt und bietet im Sommer wie im Winter ein sehr breites Angebot an Sport-, Freizeit- und Kulturaktivitäten!\nFür den Bereich häusliche Pflege sucht das Gesundheitszentrum Pays-d’Enhaut einen:\n\nCommunity Care and Health Assistant (ASSC) Aktivitätsquote 80 - 100 %\n\nAmtsantritt: 1. Oktober 2026\nSie sind grundsätzlich dem häuslichen Pflegebereich zugeordnet und müssen auch gelegentliche Einsätze im Beherbergungs- und Krankenhausbereich durchführen.\nIhre Mission:\n\n• Erbringen Sie im Rahmen Ihrer Kompetenzen Grundversorgung und medizinisch-technische Betreuung\n\n• Unterstützen Sie Klienten bei Aktivitäten des täglichen Lebens\n\n• Beobachten Sie den Gesundheitszustand der Kunden und übermitteln Sie relevante Informationen an das Team\n\n• Beteiligen Sie sich an der Umsetzung und Überwachung von Pflegeplänen\n\n• Förderung der Autonomie und häuslichen Unterstützung der Klienten\n\n• Sorgen Sie für eine strenge und vollständige Dokumentation der durchgeführten Dienstleistungen\n\n• Beteiligen Sie sich aktiv an der Qualität und Kontinuität der Pflege\n\n• Zusammenarbeit mit dem multidisziplinären Team bei der Betreuung des Kunden\nIhr Profil:\n\n• Inhaber eines CFC Community Care and Health Assistant (ASSC) oder eines als gleichwertig anerkannten, in der Schweiz anerkannten Titels\n\n• Starkes Interesse an häuslicher Pflege und Unterstützung für Menschen mit unterschiedlichen Bedürfnissen\n\n• Autonomie, Verantwortungsbewusstsein und Anpassungsfähigkeit\n\n• Gute zwischenmenschliche Fähigkeiten und Zuhörfähigkeiten\n\n• Fähigkeit zur Arbeit in einem interdisziplinären Team\n\n• Organisation, Zuverlässigkeit und Flexibilität\n\n• Gültiger Führerschein und persönliches Fahrzeug vorhanden, erforderlich für die Ausübung der Funktion\nWir bieten:\n\n• Beteiligung an der Entwicklung eines integrierten Versorgungsmodells, das die Koordination und Zusammenarbeit verschiedener Gesundheitsfachkräfte beinhaltet\n\n• Arbeiten Sie in einer angenehmen Umgebung in einer menschengroßen Struktur\n\n• Die Vorteile des Lebens in den Bergen und gleichzeitiger Nähe zu städtischen Zentren (zu entdecken unter www.alpesvaudoises.ch/fr/stories/paysdenhaut)\n\n• Arbeitsbedingungen gemäß San-Vaud CCT (13. Gehalt, Ausbildung, 5-6 Wochen Urlaub pro Jahr usw.)\nBitte senden Sie uns Ihre vollständigen Unterlagen (Lebenslauf, Anschreiben, Diplome, ggf. Anerkennung des Schweizerischen Roten Kreuzes und Arbeitszeugnisse) auf Jobup",
-      "fr": "Situé à Château-d’Œx, à 1000 mètres d’altitude, le Pôle Santé Pays-d’Enhaut offre un large éventail de prestations hospitalières, d’hébergement, d’accompagnement de la personne âgée, ainsi que des soins à domicile. Selon l’approche dite de soins intégrés, cette organisation novatrice représente une opportunité pour les professionnel·le·s de la santé de travailler au sein de petites équipes multidisciplinaires, pour une meilleure continuité des soins et en réponse aux besoins de santé de la population du Pays-d’Enhaut.\nAu cœur d’un environnement naturel privilégié, à moins d’une heure de Lausanne ou de Berne, le Pays-d’Enhaut est réputé pour la qualité de son cadre de vie et offre un très large éventail d’activités sportives, de loisirs et culturelles, à vivre été comme hiver!\nPour son Secteur Soins à domicile, le Pôle Santé du Pays-d’Enhaut recherche un·e :\n\nAssistant·e en soins et santé communautaire (ASSC) Taux d’activité 80 - 100 %\n\nEntrée en fonction : 1er octobre 2026\nEn principe rattaché au secteur des soins à domicile, vous serez également amené à effectuer des missions ponctuelles au sein des secteurs hébergement et de l'hospitalier.\nVotre mission :\n\n• Assurer des soins de base et des soins médico-techniques dans le cadre de vos compétences\n\n• Accompagner les client·e·s dans les activités de la vie quotidienne\n\n• Observer l’état de santé des client·e·s et transmettre les informations pertinentes à l’équipe\n\n• Participer à la mise en œuvre et au suivi des plans de soins\n\n• Favoriser l’autonomie et le maintien à domicile des client·e·s\n\n• Assurer une documentation rigoureuse et complète des prestations réalisées\n\n• Participer activement à la qualité et à la continuité des soins\n\n• Collaborer avec l’équipe pluridisciplinaire à la prise en charge du client\nVotre profil :\n\n• Titulaire d’un CFC d’Assistant·e en soins et santé communautaire (ASSC) ou d’un titre jugé équivalent reconnu en Suisse\n\n• Intérêt marqué pour les soins à domicile et l’accompagnement de personnes aux besoins variés\n\n• Autonomie, sens des responsabilités et capacité d’adaptation\n\n• Bonnes compétences relationnelles et sens de l’écoute\n\n• Capacité à travailler en équipe interdisciplinaire\n\n• Organisation, fiabilité et flexibilité\n\n• Permis de conduire valable et véhicule personnel à disposition indispensables pour l’exercice de la fonction\nNous offrons :\n\n• Une participation au développement d’un modèle de soins intégrés, impliquant la coordination et la collaboration de différents professionnels de la santé\n\n• Un travail dans un environnement agréable, au sein d’une structure à taille humaine\n\n• Les avantages de la vie en montagne tout en restant proches de centres urbains (à découvrir sous www.alpesvaudoises.ch/fr/stories/paysdenhaut)\n\n• Des conditions de travail conformes à la CCT san-vaud (13e salaire, formations, 5-6 semaines de vacances par année, etc...)\n *\nMerci de nous faire parvenir votre dossier complet (CV, lettre de motivation, diplômes, reconnaissances Croix-Rouge suisse si nécessaire et certificats de travail) sur Jobup"
-    },
-    "slugByLocale": {
-      "it": "assistente-per-la-salute-e-la-cura-della-comunita-chs-pole-sante-pays-d-enhaut-chateau-d-oex-cc00fa4e",
-      "en": "community-health-and-care-assistant-chs-pole-sante-pays-d-enhaut-chateau-d-oex-e78a245d",
-      "de": "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex-c44fea96",
-      "fr": "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex-c44fea96"
-    },
-    "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-09-26T09:44:50.779Z",
-    "previousSlugs": [
-      "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex-c44fea96",
-      "community-care-and-health-assistant-assc-pole-sante-pays-d-enhaut-chateau-d-oex",
-      "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex-6c033081",
-      "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex-3c98e212"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex-c44fea96",
-        "community-care-and-health-assistant-assc-pole-sante-pays-d-enhaut-chateau-d-oex",
-        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex-6c033081",
-        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex-3c98e212"
-      ],
-      "en": [
-        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex-c44fea96",
-        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex-6c033081",
-        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex-3c98e212"
-      ]
-    },
-    "postalCode": "1660",
-    "salaryMin": 86500,
-    "salaryMax": 120500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/3ea4d3b3-fc82-4d41-a41e-8e05d6bed749",
-    "firstSeenAt": "2026-08-28T05:13:15.638Z"
+    "firstSeenAt": "2026-09-24T14:49:48.070Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "receptionniste-hospitalier-ere-taux-d-activite-40-a-60-des-le-01-12-2026-ou-a-convenir": "VD"
+      },
+      "en": {
+        "receptionniste-hospitalier-ere-taux-d-activite-40-a-60-des-le-01-12-2026-ou-a-convenir": "VD"
+      },
+      "de": {
+        "receptionniste-hospitalier-ere-taux-d-activite-40-a-60-des-le-01-12-2026-ou-a-convenir": "VD"
+      }
+    }
   },
   {
     "slug": "infermiera-della-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
@@ -1008,8 +1073,6 @@
       "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-484e9634",
       "mental-health-nurse-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-0ef272f3",
       "psychische-gesundheit-krankenschwester-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-a05f0e0d",
-      "mental-health-nurse-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
-      "psychische-gesundheit-krankenschwester-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
       "infermiera-di-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-af6997d7",
       "infermiera-di-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-c2acac64d5"
     ],
@@ -1096,8 +1159,6 @@
         "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-c26a7fca",
         "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-fbc3779f",
         "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-a7831c47",
-        "mental-health-nurse-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
-        "psychische-gesundheit-krankenschwester-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
         "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-c50177aa",
         "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-3788f75c",
         "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-05c33a8e",
@@ -1314,7 +1375,6 @@
         "mental-health-nurse-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-13414433",
         "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-a7831c47",
         "mental-health-nurse-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-1c38f26c",
-        "psychische-gesundheit-krankenschwester-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
         "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-c50177aa",
         "mental-health-nurse-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-fa54fae6",
         "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-3788f75c",
@@ -1580,7 +1640,6 @@
         "psychische-gesundheit-krankenschwester-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-f023cdf9",
         "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-a7831c47",
         "psychische-gesundheit-krankenschwester-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-99718157",
-        "mental-health-nurse-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
         "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-c50177aa",
         "psychische-gesundheit-krankenschwester-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-94dc8d5a",
         "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-3788f75c",
@@ -1688,8 +1747,6 @@
       ],
       "fr": [
         "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-b55e4842",
-        "mental-health-nurse-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
-        "psychische-gesundheit-krankenschwester-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
         "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-52a5913a",
         "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-e5abe8ab",
         "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-b8db3869",
@@ -1772,9 +1829,22 @@
       "it": {
         "infermiera-di-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-c2acac64d5-960e7910": "VD",
         "infermiera-di-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-724c5913": "VD",
-        "infermiera-di-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-af6997d7": "VD"
+        "infermiera-di-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-af6997d7": "VD",
+        "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-484e9634": "VD"
+      },
+      "en": {
+        "mental-health-nurse-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-0ef272f3": "VD",
+        "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-484e9634": "VD"
+      },
+      "de": {
+        "psychische-gesundheit-krankenschwester-50-70-pole-sante-pays-d-enhaut-chateau-d-oex-a05f0e0d": "VD",
+        "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-484e9634": "VD"
+      },
+      "fr": {
+        "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex-484e9634": "VD"
       }
-    }
+    },
+    "canton": "VD"
   },
   {
     "slug": "socio-educational-assistant-cfc-80-in-carica-il-1-luglio-o-da-concordare-pole-sante-pays-d-enhaut-chateau-d-oex",

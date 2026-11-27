@@ -285,7 +285,7 @@ describe('audit-expired-at-parsable — the gate on a corrupt archive', () => {
       if (file === 'backfill-expired-from-history.yml') {
         expect(checkoutConfig).toContain('filter: blob:none');
         expect(source).toContain('scripts/ci/prefetch-history-blobs.mjs');
-        expect(source).toContain('git-commit-data.sh --slice-only');
+        expect(source).toContain("commit_scope='--slice-only'");
         expect(source).toContain('- name: Record self-driven deploy handoff after validated backfill');
         continue;
       }

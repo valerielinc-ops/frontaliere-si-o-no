@@ -339,7 +339,10 @@
       "it": [
         "mitarbeiter-in-rezeption-claraspital-basel-bc0f3f25",
         "collaboratore-trice-rezeption-st-claraspital-basel-dd6ac66a",
-        "mitarbeiter-in-rezeption-claraspital-basel"
+        "mitarbeiter-in-rezeption-claraspital-basel",
+        "collaboratore-trice-rezeption-st-claraspital-basel-a3f9ed5f1e",
+        "receptionist-st-claraspital-basel-1157928c",
+        "collaborateur-trice-a-la-reception-st-claraspital-basel-a83683db"
       ],
       "en": [
         "mitarbeiter-in-rezeption-claraspital-basel",
@@ -383,12 +386,16 @@
       "collaboratore-trice-rezeption-st-claraspital-basel-dd6ac66a",
       "mitarbeiter-in-rezeption-claraspital-basel",
       "receptionist-st-claraspital-basel-1157928c",
-      "collaborateur-trice-a-la-reception-st-claraspital-basel-a83683db"
+      "collaborateur-trice-a-la-reception-st-claraspital-basel-a83683db",
+      "collaboratore-trice-rezeption-st-claraspital-basel-a3f9ed5f1e"
     ],
     "canton": "BS",
     "previousSlugCantonByLocale": {
       "it": {
-        "mitarbeiter-in-rezeption-claraspital-basel": "BS"
+        "mitarbeiter-in-rezeption-claraspital-basel": "BS",
+        "collaboratore-trice-rezeption-st-claraspital-basel-a3f9ed5f1e": "BS",
+        "receptionist-st-claraspital-basel-1157928c": "BS",
+        "collaborateur-trice-a-la-reception-st-claraspital-basel-a83683db": "BS"
       },
       "en": {
         "mitarbeiter-in-rezeption-claraspital-basel": "BS"
@@ -2924,18 +2931,24 @@
         "title": "Fachperson Gesundheit"
       }
     ],
-    "previousSlugs": [
-      "fachperson-gesundheit-claraspital-basel"
-    ],
     "canton": "BS",
     "previousSlugCantonByLocale": {
       "it": {
-        "fachperson-gesundheit-claraspital-basel": "BS"
+        "fachperson-gesundheit-claraspital-basel-da24afae": "BS"
       },
       "de": {
-        "fachperson-gesundheit-claraspital-basel": "BS"
+        "fachperson-gesundheit-claraspital-basel-da24afae": "BS"
+      },
+      "en": {
+        "fachperson-gesundheit-claraspital-basel-da24afae": "BS"
+      },
+      "fr": {
+        "fachperson-gesundheit-claraspital-basel-da24afae": "BS"
       }
-    }
+    },
+    "previousSlugs": [
+      "fachperson-gesundheit-claraspital-basel"
+    ]
   },
   {
     "slug": "corso-post-diploma-per-diventare-esperto-a-di-infermieristica-intensiva-nds-hf-st-claraspital-basel",

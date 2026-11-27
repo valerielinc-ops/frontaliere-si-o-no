@@ -50,7 +50,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/disponent-in-schwer-und-spezialtransporte-100-3",
-    "firstSeenAt": "2026-10-05T21:27:45.144Z"
+    "firstSeenAt": "2026-10-05T21:27:45.144Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "disponent-in-schwer-und-spezialtransporte-100-emil-egger-ag-st-gallen-0bd41a13": "SG",
+        "disponent-in-schwer-e-spezialtransporte-100-emil-egger-ag-st-gallen": "SG"
+      },
+      "en": {
+        "disponent-in-schwer-und-spezialtransporte-100-emil-egger-ag-st-gallen-0bd41a13": "SG"
+      },
+      "fr": {
+        "disponent-in-schwer-und-spezialtransporte-100-emil-egger-ag-st-gallen-0bd41a13": "SG"
+      }
+    }
   },
   {
     "id": "ete-feec8724ee5b",
@@ -84,22 +97,39 @@
       "chauffeur-chauffeuse-per-kat-c-e-per-hebebuhnen-e-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen",
       "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete",
       "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen",
-      "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen-feec8724"
+      "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen-feec8724",
+      "chauffeur-chauffeuse-per-kat-c-e-per-hebebuhnen-e-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano",
+      "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete-cfe69a26",
+      "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-bassersdorf-dad26f9b",
+      "chauffeur-chauffeuse-for-cat-c-e-for-lifting-platform-and-construction-machines-semitrailers-100-emil-egger-ag-lugano",
+      "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano",
+      "chauffeur-chauffeuse-pour-cat-c-e-pour-plate-forme-de-levage-et-machines-de-construction-semi-remorques-100-emil-egger"
     ],
     "previousSlugsByLocale": {
       "it": [
         "chauffeur-chauffeuse-per-kat-c-e-per-hebebuhnen-e-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen",
         "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete",
-        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen-feec8724"
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen-feec8724",
+        "chauffeur-chauffeuse-per-kat-c-e-per-hebebuhnen-e-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete-cfe69a26",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-bassersdorf-dad26f9b"
       ],
       "en": [
-        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen"
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen",
+        "chauffeur-chauffeuse-for-cat-c-e-for-lifting-platform-and-construction-machines-semitrailers-100-emil-egger-ag-lugano",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete"
       ],
       "fr": [
-        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen"
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen",
+        "chauffeur-chauffeuse-pour-cat-c-e-pour-plate-forme-de-levage-et-machines-de-construction-semi-remorques-100-emil-egger",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete"
       ],
       "de": [
-        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete"
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete-cfe69a26"
       ]
     },
     "postalCode": "9000",
@@ -121,79 +151,35 @@
         "firstSeenAt": "2026-08-23T21:34:45.821Z",
         "title": "Chauffeur / Chauffeuse für Kat. C/E für Hebebühnen- und Baumaschinen Sattelschlepper 100%"
       }
-    ]
-  },
-  {
-    "id": "ete-dad26f9be703",
-    "slug": "chauffeur-chauffeuse-per-kat-c-e-per-hebebuhnen-e-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano",
-    "title": "Chauffeur / Chauffeuse für Kat. C/E für Hebebühnen- und Baumaschinen Sattelschlepper 100%",
-    "titleByLocale": {
-      "it": "Chauffeur / Chauffeuse per Cat C/E per piattaforme di sollevamento e macchine da costruzione semirimorchio 100%",
-      "en": "Chauffeur / Chauffeuse for Cat C/E for lifting platform and construction machines semitrailers 100%",
-      "de": "Chauffeur / Chauffeuse für Kat. C/E für Hebebühnen- und Baumaschinen Sattelschlepper 100%",
-      "fr": "Chauffeur / Chauffeuse pour Cat C/E pour plate-forme de levage et machines de construction semi-remorques 100%"
-    },
-    "company": "Emil Egger AG",
-    "companyKey": "ete",
-    "location": "Bassersdorf",
-    "addressLocality": "Bassersdorf",
-    "descriptionByLocale": {
-      "it": "Descrizione del lavoro\nSiamo alla ricerca di un autista/tutti-rounder che fa rotolare i nostri stadi, camion e macchine – pur essendo altrettanto flessibile come le nostre missioni.\nIl Gruppo Emil Egger è il fornitore leader della logistica dei beni pesanti in Svizzera. Nei settori dei lavori di gru, dei trasporti speciali, delle rimozioni industriali e degli impianti di noleggio, sono impiegati più di 230 dipendenti. Con il know-how speciale completo, le soluzioni clienti individuali e innovative vengono sviluppate ogni giorno.\nCompiti\nPer noi, tutto ruota intorno piattaforme di lavoro, camion e macchine da costruzione – e abbiamo bisogno di voi per questo! Come autista / tuttofare, assicurarsi che le nostre macchine raggiungano la loro destinazione in modo sicuro e affidabile e che i nostri clienti sono sempre serviti.\n- Servizio di consegna e pick-up delle nostre piattaforme di lavoro e camion con il semi-trattore (Volvo FH 540 con 3 assi semi-trailer)\n- Trasporto di macchine da costruzione, zavorra, gru e altri beni pesanti di tutti i tipi\n- Fornitura di piattaforme di lavoro e carrelli elevatori per il trasporto\n- Eseguire sporadici lavori di manutenzione minori\n- Assegnazioni come salti su vari veicoli\nCi aspettiamo\n- Conoscenza approfondita nel campo delle piattaforme di sollevamento e dei macchinari per la costruzione (compreso il funzionamento per il carico e lo scarico)\n- Idealmente, formazione IPAF (Operatore e Corso di Sollevamento Introduttivo)\n- Resiliente, flessibile e un vero giocatore di squadra\n- orientato al cliente con aspetto amichevole\n- Prontezza per notti occasionali\nOffriamo\n- Attività interessanti e orientate al futuro in un'azienda dinamica\n- Varie attività in un ambiente emozionante\n- Condizioni di lavoro progressiste e benefici sociali attraenti\n- Flotta moderna e ben attrezzata\n- Parcheggio gratuito direttamente in loco\n- Cultura aziendale familiare con duccultura vissuta\n- Entrata per accordo",
-      "en": "Job description\nWe are looking for a chauffeur/all-rounder that gets our stages, trucks and machines rolling – while being just as flexible as our missions.\nThe Emil Egger Group is the leading provider of heavy goods logistics in Switzerland. In the areas of crane work, special transports, industrial removals and rental lifts, more than 230 employees are employed. With the comprehensive special know-how, individual and innovative customer solutions are developed every day.\nTasks\nFor us, everything revolves around work platforms, trucks and construction machines – and we need you for that! As a chauffeur/all-rounder, you ensure that our machines reach their destination safely and reliably and that our customers are served at all times.\n- Delivery and pick-up service of our work platforms and trucks with the semi-tractor (Volvo FH 540 with 3-axis semi-trailer)\n- Transport of construction machinery, ballast, crane parts and other heavy goods of all kinds\n- Provision of work platforms and forklifts for transport\n- Performing sporadic minor maintenance work\n- Assignments as jumpers on various vehicles\nWe expect\n- In-depth knowledge in the field of lifting platforms and construction machinery (including operation for loading and unloading)\n- Ideally, IPAF training (Operator and Introductory Lift Course)\n- Resilient, flexible and a real team player\n- Customer-oriented with friendly appearance\n- Readiness for occasional nights\nWe offer\n- Interesting, future-oriented activities in a dynamic company\n- Varied tasks in an exciting environment\n- Progressive employment conditions and attractive social benefits\n- Modern, well-equipped fleet\n- Free parking directly on site\n- Family corporate culture with lived du-culture\n- Entry by arrangement",
-      "de": "Jobbeschreibung\nWir suchen einen Chauffeur/Allrounder, der unsere Bühnen, Stapler und Maschinen ins Rollen bringt – und dabei genauso flexibel ist wie unsere Einsätze.\nDie Emil Egger Gruppe ist in der Schweiz der führende Anbieter von Schwergut-Logistik. In den Bereichen Kranarbeiten, Spezialtransporte, Industrieumzüge und Miethebebühnen sind über 230 Mitarbeitende beschäftigt. Mit dem umfassenden Spezial Know-how werden tagtäglich individuelle und innovative Kundenlösungen erarbeitet.\nAufgaben\nBei uns dreht sich alles um Arbeitsbühnen, Stapler und Baumaschinen – und dafür brauchen wir dich! Als Chauffeur/Allrounder sorgst du dafür, dass unsere Maschinen sicher und zuverlässig ans Ziel kommen und unsere Kunden jederzeit bestens bedient werden.\n- Bring- und Abholservice unserer Arbeitsbühnen und Staplern mit dem Sattelschlepper (Volvo FH 540 mit 3-Achs Semi-Rampenauflieger)\n- Transport von Baumaschinen, Ballast, Kranteile und sonstige Schwergüter aller Art\n- Bereitstellen von Arbeitsbühnen und Staplern für den Transport\n- Ausführen von sporadischen kleineren Wartungsarbeiten\n- Einsätze als Springer auf verschiedenen Fahrzeugen\nWir erwarten\n- Fundierte Kenntnisse im Bereich Hebebühnen und Baumaschinen (inkl. Bedienung für Verlad und Ablad)\n- Idealerweise IPAF-Ausbildung (Hebebühnen Bediener- und Einweiserkurs)\n- Belastbar, flexibel und ein echter Teamplayer\n- Kundenorientiert mit freundlichem Auftreten\n- Bereitschaft zu gelegentlichen Übernachtungen\nWir bieten\n- Interessante, zukunftsorientierte Tätigkeiten in einem dynamischem Unternehmen\n- Abwechslungsreiche Aufgaben in einem spannenden Umfeld\n- Fortschrittliche Anstellungsbedingungen und attraktive Sozialleistungen\n- Moderner, gut ausgerüsteter Fuhrpark\n- Kostenloser Parkplatz direkt vor Ort\n- Familiäre Firmenkultur mit gelebter Du-Kultur\n- Eintritt nach Vereinbarung",
-      "fr": "Description de l'emploi\nNous sommes à la recherche d'un chauffeur / tout-rounder qui fait rouler nos étapes, camions et machines, tout en étant aussi flexibles que nos missions.\nLe groupe Emil Egger est le premier fournisseur de logistique de marchandises lourdes en Suisse. Dans les domaines du travail des grues, des transports spéciaux, des déménagements industriels et des ascenseurs de location, plus de 230 employés sont employés. Grâce au savoir-faire complet, des solutions client individuelles et innovantes sont développées chaque jour.\nTâches\nPour nous, tout tourne autour des plates-formes de travail, des camions et des machines de construction – et nous avons besoin de vous pour cela! En tant que chauffeur, vous veillez à ce que nos machines atteignent leur destination de manière sûre et fiable et que nos clients soient servis en tout temps.\n- Service de livraison et de ramassage de nos plateformes de travail et de nos camions avec le semi-tracteur (Volvo FH 540 avec semi-remorque 3 axes)\n- Transport de machines de construction, de ballast, de pièces de grues et d'autres marchandises lourdes de toutes sortes\n- Fourniture de plates-formes de travail et de chariots élévateurs pour les transports\n- Effectuer des travaux d'entretien mineurs sporadiques\n- Affectations en tant que jumpers sur divers véhicules\nNous nous attendons\n- Connaissance approfondie dans le domaine des plates-formes de levage et des machines de construction (y compris les opérations de chargement et de déchargement)\n- Idéalement, la formation IPAF (Cours d'exploitation et d'initiation au levage)\n- Résilient, flexible et véritable joueur d'équipe\n- Orientation client avec une apparence amicale\n- Préparation pour les nuits occasionnelles\nNous offrons\n- Activités intéressantes et orientées vers l'avenir dans une entreprise dynamique\n- Des tâches variées dans un environnement passionnant\n- Conditions d'emploi progressives et avantages sociaux intéressants\n- flotte moderne et bien équipée\n- Parking gratuit directement sur place\n- Culture d'entreprise familiale avec du-culture vécue\n- Entrée par arrangement"
-    },
-    "slugByLocale": {
-      "it": "chauffeur-chauffeuse-per-kat-c-e-per-hebebuhnen-e-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano",
-      "en": "chauffeur-chauffeuse-for-cat-c-e-for-lifting-platform-and-construction-machines-semitrailers-100-emil-egger-ag-lugano",
-      "de": "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano",
-      "fr": "chauffeur-chauffeuse-pour-cat-c-e-pour-plate-forme-de-levage-et-machines-de-construction-semi-remorques-100-emil-egger"
-    },
-    "sector": "Altro",
-    "expiredAt": "2026-11-25T21:27:21.370Z",
-    "previousSlugs": [
-      "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano",
-      "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-bassersdorf-dad26f9b",
-      "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete-cfe69a26",
-      "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete"
     ],
-    "previousSlugsByLocale": {
-      "it": [
-        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete-cfe69a26",
-        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-bassersdorf-dad26f9b"
-      ],
-      "en": [
-        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano",
-        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete"
-      ],
-      "de": [
-        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete-cfe69a26"
-      ],
-      "fr": [
-        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano",
-        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete"
-      ]
-    },
-    "postalCode": "8303",
-    "streetAddress": "Bassersdorf",
-    "salaryMin": 73500,
-    "salaryMax": 111500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://www.ete.ch/jobs/chauffeur-chauffeuse-fuer-kat-c-e-fuer-hebebuehnen-und-baumaschinen-sattelschlepper-100-2",
-    "firstSeenAt": "2026-08-23T21:34:45.821Z",
-    "sourceIdentityHistory": [
-      {
-        "sourceIdentity": "url:https://www.ete.ch/jobs/chauffeur-chauffeuse-fuer-kat-c-e-fuer-hebebuehnen-und-baumaschinen-sattelschlepper-100",
-        "firstSeenAt": "2026-09-01T05:44:50.244Z",
-        "title": "Chauffeur / Chauffeuse für Kat. C/E für Hebebühnen- und Baumaschinen Sattelschlepper 100%"
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chauffeur-chauffeuse-per-kat-c-e-per-hebebuhnen-e-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen": "SG",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete": "ZH",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen-feec8724": "SG",
+        "chauffeur-chauffeuse-per-kat-c-e-per-hebebuhnen-e-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano": "ZH",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete-cfe69a26": "ZH",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-bassersdorf-dad26f9b": "ZH"
       },
-      {
-        "sourceIdentity": "url:https://www.ete.ch/jobs/chauffeur-chauffeuse-fuer-kat-c-e-fuer-hebebuehnen-und-baumaschinen-sattelschlepper-100-2",
-        "firstSeenAt": "2026-08-23T21:34:45.821Z",
-        "title": "Chauffeur / Chauffeuse für Kat. C/E für Hebebühnen- und Baumaschinen Sattelschlepper 100%"
+      "en": {
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen": "SG",
+        "chauffeur-chauffeuse-for-cat-c-e-for-lifting-platform-and-construction-machines-semitrailers-100-emil-egger-ag-lugano": "ZH",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano": "ZH",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete": "ZH"
+      },
+      "de": {
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete": "ZH",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano": "ZH",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete-cfe69a26": "ZH"
+      },
+      "fr": {
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen": "SG",
+        "chauffeur-chauffeuse-pour-cat-c-e-pour-plate-forme-de-levage-et-machines-de-construction-semi-remorques-100-emil-egger": "ZH",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano": "ZH",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete": "ZH"
       }
-    ]
+    }
   },
   {
     "slug": "addetto-a-ai-traslochi-industriali-e-allo-spostamento-di-macchinari-100-emil-egger-ag-st-gallen-f213e2f6",
@@ -245,7 +231,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/mitarbeiterin-industrieumzuege-und-maschinenverschiebungen-100",
-    "firstSeenAt": "2026-11-05T21:35:11.719Z"
+    "firstSeenAt": "2026-11-05T21:35:11.719Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-industrieumzuge-und-maschinenverschiebungen-100-emil-egger-ag-st-gallen-f213e2f6": "SG",
+        "collaboratore-trice-industrieumzuge-e-maschinenverschiebungen-100-emil-egger-ag-st-gallen": "SG"
+      },
+      "en": {
+        "mitarbeiter-in-industrieumzuge-und-maschinenverschiebungen-100-emil-egger-ag-st-gallen-f213e2f6": "SG"
+      },
+      "fr": {
+        "mitarbeiter-in-industrieumzuge-und-maschinenverschiebungen-100-emil-egger-ag-st-gallen-f213e2f6": "SG"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-servizio-interno-e-pianificazione-100-per-il-settore-delle-piattaforme-di-lavoro-e-di-1271f788",
@@ -297,7 +296,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/mitarbeiter-in-innendienst-disposition-100-fuer-den-bereich-arbeits-und-hebebuehnen",
-    "firstSeenAt": "2026-10-27T21:22:49.744Z"
+    "firstSeenAt": "2026-10-27T21:22:49.744Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-innendienst-038-disposition-100-fur-den-bereich-arbeits-und-hebebuhnen-emil-egger-ag-st-gallen-1271f788": "SG",
+        "collaboratore-trice-servizio-interno-disposition-100-per-den-bereich-arbeits-e-hebebuhnen-emil-egger-ag-st-gallen": "SG"
+      },
+      "en": {
+        "mitarbeiter-in-innendienst-038-disposition-100-fur-den-bereich-arbeits-und-hebebuhnen-emil-egger-ag-st-gallen-1271f788": "SG"
+      },
+      "fr": {
+        "mitarbeiter-in-innendienst-038-disposition-100-fur-den-bereich-arbeits-und-hebebuhnen-emil-egger-ag-st-gallen-1271f788": "SG"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-servizio-interno-e-pianificazione-100-per-il-settore-delle-piattaforme-di-lavoro-e-di-2829298c",
@@ -349,7 +361,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/mitarbeiter-in-innendienst-disposition-100-fuer-den-bereich-arbeits-und-hebebuehnen-2",
-    "firstSeenAt": "2026-10-27T21:22:49.744Z"
+    "firstSeenAt": "2026-10-27T21:22:49.744Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-innendienst-038-disposition-100-fur-den-bereich-arbeits-und-hebebuhnen-emil-egger-ag-bassersdorf-2829298c": "ZH",
+        "collaboratore-trice-servizio-interno-disposition-100-per-den-bereich-arbeits-e-hebebuhnen-emil-egger-ag-bassersdorf": "ZH"
+      },
+      "en": {
+        "mitarbeiter-in-innendienst-038-disposition-100-fur-den-bereich-arbeits-und-hebebuhnen-emil-egger-ag-bassersdorf-2829298c": "ZH"
+      },
+      "fr": {
+        "mitarbeiter-in-innendienst-038-disposition-100-fur-den-bereich-arbeits-und-hebebuhnen-emil-egger-ag-bassersdorf-2829298c": "ZH"
+      }
+    }
   },
   {
     "slug": "accompagnatore-trice-di-trasporti-eccezionali-100-emil-egger-ag-avenches-fdeaf069",
@@ -557,7 +582,24 @@
         "firstSeenAt": "2026-11-02T21:28:27.102Z",
         "title": "Ausnahmetransportbegleiter/in 100 %"
       }
-    ]
+    ],
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ausnahmetransportbegleiter-in-100-emil-egger-ag-avenches-9d77545a": "SO",
+        "ausnahmetransportbegleiter-in-100-emil-egger-ag-avenches-fdeaf069": "SO"
+      },
+      "en": {
+        "ausnahmetransportbegleiter-in-100-emil-egger-ag-avenches-fdeaf069": "SO"
+      },
+      "de": {
+        "ausnahmetransportbegleiter-in-100-emil-egger-ag-avenches-9d77545a": "SO",
+        "ausnahmetransportbegleiter-in-100-emil-egger-ag-avenches-fdeaf069": "SO"
+      },
+      "fr": {
+        "ausnahmetransportbegleiter-in-100-emil-egger-ag-avenches-fdeaf069": "SO"
+      }
+    }
   },
   {
     "slug": "carico-del-carrello-elevatore-turno-notturno-m-f-d-emil-egger-ag-st-gallen-67030dcd",
@@ -607,7 +649,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/staplerfahrer-lkw-verlad-nachtschicht-m-w-d",
-    "firstSeenAt": "2026-10-02T21:14:04.925Z"
+    "firstSeenAt": "2026-10-02T21:14:04.925Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "staplerfahrer-lkw-verlad-nachtschicht-m-w-d-emil-egger-ag-st-gallen-67030dcd": "SG"
+      },
+      "en": {
+        "staplerfahrer-lkw-verlad-nachtschicht-m-w-d-emil-egger-ag-st-gallen-67030dcd": "SG"
+      },
+      "fr": {
+        "staplerfahrer-lkw-verlad-nachtschicht-m-w-d-emil-egger-ag-st-gallen-67030dcd": "SG"
+      }
+    }
   },
   {
     "slug": "assistenti-di-trasporto-eccezionali-100-emil-egger-ag-bassersdorf-15aba32c",
@@ -651,7 +705,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/ausnahmetransportbegleiter-in-100-9",
-    "firstSeenAt": "2026-11-02T21:28:27.102Z"
+    "firstSeenAt": "2026-11-02T21:28:27.102Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ausnahmetransportbegleiter-in-100-emil-egger-ag-bassersdorf-15aba32c": "ZH"
+      }
+    }
   },
   {
     "slug": "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-harkingen-0b498480",
@@ -706,7 +766,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/atb-fahrer-ausnahmetransportbegleiter-a-100",
-    "firstSeenAt": "2026-08-23T21:34:40.053Z"
+    "firstSeenAt": "2026-08-23T21:34:40.053Z",
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "atb-fahrer-ausnahmetransportbegleiter-a-100-ete-ch": "SO",
+        "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano": "SO",
+        "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-harkingen-0b498480": "SO"
+      },
+      "en": {
+        "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano": "SO"
+      },
+      "de": {
+        "atb-fahrer-ausnahmetransportbegleiter-a-100-ete-ch": "SO"
+      },
+      "fr": {
+        "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano": "SO"
+      }
+    }
   },
   {
     "slug": "ausnahmetransportbegleiter-in-100-emil-egger-ag-bassersdorf-224fcb1a",
@@ -761,7 +838,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/ausnahmetransportbegleiter-in-100-3",
-    "firstSeenAt": "2026-08-23T21:34:41.871Z"
+    "firstSeenAt": "2026-08-23T21:34:41.871Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ausnahmetransportbegleiter-in-100-ete-ch": "ZH",
+        "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano": "ZH",
+        "ausnahmetransportbegleiter-in-100-emil-egger-ag-bassersdorf-224fcb1a": "ZH"
+      },
+      "en": {
+        "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano": "ZH"
+      },
+      "de": {
+        "ausnahmetransportbegleiter-in-100-ete-ch": "ZH"
+      },
+      "fr": {
+        "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano": "ZH"
+      }
+    }
   },
   {
     "slug": "chauffeur-in-kat-c-e-fur-spezialtransporte-4-215-4-man-100-emil-egger-ag-bassersdorf-692f3baf",
@@ -815,7 +909,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/chauffeurin-kat-c-e-fuer-spezialtransporte-4x4-man-100",
-    "firstSeenAt": "2026-08-23T21:34:41.264Z"
+    "firstSeenAt": "2026-08-23T21:34:41.264Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-ete-ch": "ZH",
+        "chauffeur-in-kat-c-e-fur-spezialtransporte-4-215-4-man-100-emil-egger-ag-bassersdorf-692f3baf": "ZH"
+      },
+      "en": {
+        "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-emil-egger-ag-lugano": "ZH"
+      },
+      "de": {
+        "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-ete-ch": "ZH"
+      },
+      "fr": {
+        "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-emil-egger-ag-lugano": "ZH"
+      }
+    }
   },
   {
     "slug": "lw-kranchauffeur-in-kat-ce-100-8211-36mt-fassi-kran-emil-egger-ag-bassersdorf-6346c369",
@@ -846,7 +956,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/lw-kranchauffeurin-kat-ce-100-36mt-fassi-kran-2",
-    "firstSeenAt": "2026-09-19T22:53:24.287Z"
+    "firstSeenAt": "2026-09-19T22:53:24.287Z",
+    "canton": "ZH",
+    "previousSlugsByLocale": {
+      "en": [
+        "lw-kranchauffeur-in-kat-ce-100-8211-36mt-fassi-kran-emil-egger-ag-bassersdorf-6346c369"
+      ],
+      "de": [
+        "lw-kranchauffeur-in-kat-ce-100-8211-36mt-fassi-kran-emil-egger-ag-bassersdorf-6346c369"
+      ],
+      "fr": [
+        "lw-kranchauffeur-in-kat-ce-100-8211-36mt-fassi-kran-emil-egger-ag-bassersdorf-6346c369"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "lw-kranchauffeur-in-kat-ce-100-8211-36mt-fassi-kran-emil-egger-ag-bassersdorf-6346c369": "ZH"
+      },
+      "de": {
+        "lw-kranchauffeur-in-kat-ce-100-8211-36mt-fassi-kran-emil-egger-ag-bassersdorf-6346c369": "ZH"
+      },
+      "fr": {
+        "lw-kranchauffeur-in-kat-ce-100-8211-36mt-fassi-kran-emil-egger-ag-bassersdorf-6346c369": "ZH"
+      }
+    }
   },
   {
     "slug": "lw-kranchauffeur-in-kat-ce-100-8211-36mt-fassi-kran-emil-egger-ag-harkingen-d5ea0472",
@@ -899,7 +1032,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/lw-kranchauffeurin-kat-ce-100-36mt-fassi-kran",
-    "firstSeenAt": "2026-08-23T21:34:40.355Z"
+    "firstSeenAt": "2026-08-23T21:34:40.355Z",
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch": "SO",
+        "lw-kranchauffeur-in-kat-ce-100-8211-36mt-fassi-kran-emil-egger-ag-harkingen-d5ea0472": "SO"
+      },
+      "en": {
+        "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch": "SO"
+      },
+      "de": {
+        "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch": "SO"
+      },
+      "fr": {
+        "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch": "SO"
+      }
+    }
   },
   {
     "slug": "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-harkingen-27fbe7b5",
@@ -953,7 +1102,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/chauffeur-kat-c-e-fuer-wechselpritschen-100-m-w-d-4",
-    "firstSeenAt": "2026-08-23T21:34:43.693Z"
+    "firstSeenAt": "2026-08-23T21:34:43.693Z",
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-ete-ch": "SO",
+        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-harkingen-27fbe7b5": "SO"
+      },
+      "en": {
+        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-lugano": "SO"
+      },
+      "de": {
+        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-ete-ch": "SO"
+      },
+      "fr": {
+        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-lugano": "SO"
+      }
+    }
   },
   {
     "slug": "spontanbewerbung-emil-egger-ag-st-gallen-b5449b49",
@@ -1007,7 +1172,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/spontanbewerbung-2",
-    "firstSeenAt": "2026-09-01T05:44:44.499Z"
+    "firstSeenAt": "2026-09-01T05:44:44.499Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spontanbewerbung-emil-egger-ag-st-gallen": "SG",
+        "spontanbewerbung-ete-ch-st-gallen": "SG",
+        "spontanbewerbung-emil-egger-ag-st-gallen-b5449b49": "SG"
+      },
+      "en": {
+        "spontanbewerbung-emil-egger-ag-st-gallen": "SG"
+      },
+      "de": {
+        "spontanbewerbung-ete-ch-st-gallen": "SG"
+      },
+      "fr": {
+        "spontanbewerbung-emil-egger-ag-st-gallen": "SG"
+      }
+    }
   },
   {
     "slug": "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-emil-egger-ag-st-gallen-2d4d449c",
@@ -1059,7 +1241,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100",
-    "firstSeenAt": "2026-08-23T21:34:40.961Z"
+    "firstSeenAt": "2026-08-23T21:34:40.961Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch": "SG",
+        "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-emil-egger-ag-st-gallen-2d4d449c": "SG"
+      },
+      "en": {
+        "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch": "SG"
+      },
+      "de": {
+        "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch": "SG"
+      },
+      "fr": {
+        "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch": "SG"
+      }
+    }
   },
   {
     "slug": "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-6517d934",
@@ -1112,7 +1310,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027",
-    "firstSeenAt": "2026-08-23T21:34:46.129Z"
+    "firstSeenAt": "2026-08-23T21:34:46.129Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-ete-ch": "SG",
+        "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-6517d934": "SG"
+      },
+      "en": {
+        "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano": "SG"
+      },
+      "de": {
+        "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-ete-ch": "SG"
+      },
+      "fr": {
+        "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano": "SG"
+      }
+    }
   },
   {
     "slug": "disponent-in-lw-krane-100-emil-egger-ag-st-gallen-207db82b",
@@ -1180,7 +1394,22 @@
         "firstSeenAt": "2026-08-23T21:34:42.782Z",
         "title": "Disponent / in LW-Krane 100%"
       }
-    ]
+    ],
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "disponent-in-lw-krane-100-ete-ch": "SG",
+        "disponent-in-industrieumzuge-100-ete-ch-st-gallen": "SG",
+        "disponent-in-industrieumzuge-100-emil-egger-ag-st-gallen": "SG",
+        "disponent-in-lw-krane-100-emil-egger-ag-st-gallen-207db82b": "SG"
+      },
+      "de": {
+        "disponent-in-industrieumzuge-100-ete-ch-st-gallen": "SG"
+      },
+      "fr": {
+        "disponent-in-industrieumzuge-100-emil-egger-ag-st-gallen": "SG"
+      }
+    }
   },
   {
     "slug": "logisticien-ne-de-nuit-emil-egger-ag-avenches-f71f0455",
@@ -1256,7 +1485,26 @@
         "firstSeenAt": "2026-11-12T09:17:59.369Z",
         "title": "Logisticien/ne de nuit"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "logisticien-ne-de-nuit-emil-egger-ag-avenches": "VD",
+        "logisticien-ne-de-nuit-ete-ch-avenches": "VD",
+        "logisticien-ne-de-nuit-emil-egger-ag-avenches-f71f0455": "VD"
+      },
+      "en": {
+        "logistician-emil-egger-ag-avenches": "VD",
+        "logisticien-ne-de-nuit-ete-ch-avenches": "VD"
+      },
+      "de": {
+        "logistiker-emil-egger-ag-avenches": "VD",
+        "logisticien-ne-de-nuit-ete-ch-avenches": "VD"
+      },
+      "fr": {
+        "logisticien-ne-de-nuit-ete-ch-avenches": "VD"
+      }
+    }
   },
   {
     "slug": "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-harkingen-b3aa4e17",
@@ -1310,7 +1558,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/mitarbeiterin-gueterumschlag-dauerhafte-nachtschicht-2",
-    "firstSeenAt": "2026-08-23T21:34:44.299Z"
+    "firstSeenAt": "2026-08-23T21:34:44.299Z",
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-ete-ch": "SO",
+        "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano": "SO",
+        "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-harkingen-b3aa4e17": "SO"
+      },
+      "en": {
+        "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano": "SO"
+      },
+      "de": {
+        "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-ete-ch": "SO"
+      },
+      "fr": {
+        "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano": "SO"
+      }
+    }
   },
   {
     "slug": "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-emil-egger-ag-harkingen-08d39e29",
@@ -1362,7 +1627,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/chauffeur-chauffeuse-fuer-kat-c-e-fuer-spezialtransporte-fuer-offenen-sattelschlepper-100",
-    "firstSeenAt": "2026-08-23T21:34:43.087Z"
+    "firstSeenAt": "2026-08-23T21:34:43.087Z",
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-ete": "SO",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-emil-egger-ag-harkingen-08d39e29": "SO"
+      },
+      "en": {
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-emil-egger-ag-lugano": "SO"
+      },
+      "de": {
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-ete": "SO"
+      },
+      "fr": {
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-emil-egger-ag-lugano": "SO"
+      }
+    }
   },
   {
     "slug": "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-bassersdorf-03c5de57",
@@ -1416,7 +1697,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/chauffeur-kat-c-e-fuer-wechselpritschen-100-m-w-d-3",
-    "firstSeenAt": "2026-09-01T05:44:48.129Z"
+    "firstSeenAt": "2026-09-01T05:44:48.129Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chauffeur-kat-c-e-per-wechselpritschen-100-m-w-d-emil-egger-ag-bassersdorf": "ZH",
+        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-ete-ch-bassersdorf": "ZH",
+        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-bassersdorf-03c5de57": "ZH"
+      },
+      "en": {
+        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-bassersdorf": "ZH"
+      },
+      "de": {
+        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-ete-ch-bassersdorf": "ZH"
+      },
+      "fr": {
+        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-bassersdorf": "ZH"
+      }
+    }
   },
   {
     "slug": "sachbearbeiterin-auftragserfassung-transport-logistik-100-emil-egger-ag-harkingen-f8c27dc9",
@@ -1469,7 +1767,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/sachbearbeiterin-auftragserfassung-transport-logistik-100-4",
-    "firstSeenAt": "2026-09-04T23:01:38.513Z"
+    "firstSeenAt": "2026-09-04T23:01:38.513Z",
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiterin-auftragserfassung-transport-logistik-100-emil-egger-ag-harkingen": "SO",
+        "sachbearbeiterin-auftragserfassung-transport-logistik-100-ete-ch-harkingen": "SO",
+        "sachbearbeiterin-auftragserfassung-transport-logistik-100-emil-egger-ag-harkingen-f8c27dc9": "SO"
+      },
+      "en": {
+        "sachbearbeiterin-auftragserfassung-transport-logistik-100-emil-egger-ag-harkingen": "SO"
+      },
+      "de": {
+        "sachbearbeiterin-auftragserfassung-transport-logistik-100-ete-ch-harkingen": "SO"
+      },
+      "fr": {
+        "sachbearbeiterin-auftragserfassung-transport-logistik-100-emil-egger-ag-harkingen": "SO"
+      }
+    }
   },
   {
     "slug": "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-st-gallen-7672e8ba",
@@ -1504,7 +1819,8 @@
     ],
     "previousSlugsByLocale": {
       "de": [
-        "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-ete-ch"
+        "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-ete-ch",
+        "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-st-gallen-7672e8ba"
       ],
       "it": [
         "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-ete-ch",
@@ -1522,7 +1838,25 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-2",
-    "firstSeenAt": "2026-08-23T21:34:44.911Z"
+    "firstSeenAt": "2026-08-23T21:34:44.911Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-ete-ch": "SG",
+        "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano": "SG",
+        "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-st-gallen-7672e8ba": "SG"
+      },
+      "en": {
+        "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano": "SG"
+      },
+      "de": {
+        "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-ete-ch": "SG",
+        "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-st-gallen-7672e8ba": "SG"
+      },
+      "fr": {
+        "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano": "SG"
+      }
+    }
   },
   {
     "slug": "chauffeur-chauffeuse-auf-lw-kran-50m-t-mit-fly-jib-100-emil-egger-ag-harkingen-1874e798",

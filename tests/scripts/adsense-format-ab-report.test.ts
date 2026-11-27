@@ -11,7 +11,6 @@ import YAML from 'yaml';
 // tests/scripts/revenue-monitor.test.ts.
 import * as reportModule from '../../scripts/adsense-format-ab-report.mjs';
 import * as planModule from '../../scripts/lib/adsense-format-ab-plan.mjs';
-import { SKIP_LIVE_DATA } from '../helpers/live-data';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const {
@@ -150,18 +149,6 @@ describe('adsense-format-ab-report / identifiers', () => {
     }
   });
 
-  // Dato vivo: data/adsense-format-ab-history.jsonl, a cui il report settimanale appende una riga per run.
-  it.skipIf(SKIP_LIVE_DATA)('keeps every checked-in history row explicitly attributed', () => {
-    const entries = readFileSync(path.resolve(REPO_ROOT, 'data/adsense-format-ab-history.jsonl'), 'utf8')
-      .trim()
-      .split('\n')
-      .map((line) => JSON.parse(line));
-
-    expect(entries.length).toBeGreaterThanOrEqual(3);
-    expect(entries.every((entry) => typeof entry.experimentId === 'string' && entry.experimentId.length > 0)).toBe(true);
-    expect(entries.slice(0, 2).map((entry) => entry.experimentId)).toEqual(['basilea-lucerna', 'basilea-lucerna']);
-  });
-
   it('classifies pre, mixed and clean post-treatment reporting windows', () => {
     const experiment = findExperiment('svizzera-ticino');
     const boundary = new Date(`${experiment.firstFullTreatmentDate}T00:00:00Z`);
@@ -183,7 +170,7 @@ describe('adsense-format-ab-report / identifiers', () => {
  * Monday (and `github-issue-creator.mjs` reopens it when closed). The plan is
  * the single switch: no active experiment, no tracking-issue update.
  */
-describe('adsense-format-ab-report / weekly plan gates the tracking issue', () => {
+describe('adsense-format-ab-report / retained plan utility and retired public workflow', () => {
   type Plan = { active: boolean; experimentIds: string[]; message: string };
   const { EXPERIMENT_SURFACES, ACTIVE_EXPERIMENT_IDS, buildReportPlan, publishReportPlan } = planModule as unknown as {
     EXPERIMENT_SURFACES: readonly { id: string; canton: string }[];
@@ -229,11 +216,11 @@ describe('adsense-format-ab-report / weekly plan gates the tracking issue', () =
     expect(trackingIssueCalls(false)).toEqual([]);
   });
 
-  it('with an active experiment the plan is active and the issue creator is invoked', () => {
+  it('with an active historical experiment the public retired workflow does not invoke the issue creator', () => {
     const id = DEFAULT_EXPERIMENT.id;
     expect(buildReportPlan([id])).toMatchObject({ active: true, experimentIds: [id] });
     expect(publish([id]).output).toBe(`active=true\nexperiments=${id}\n`);
-    expect(trackingIssueCalls(true).length).toBeGreaterThan(0);
+    expect(trackingIssueCalls(true)).toEqual([]);
   });
 
   it('says why nothing is reported instead of going silent', () => {
@@ -253,7 +240,7 @@ describe('adsense-format-ab-report / weekly plan gates the tracking issue', () =
     expect(() => buildReportPlan(['a; rm -rf .'])).toThrow(/non valido/);
   });
 
-  it('runs the plan through the real CLI, as the workflow does', () => {
+  it('runs the plan through its real local CLI', () => {
     const dir = mkdtempSync(path.join(tmpdir(), 'adsense-ab-plan-cli-'));
     const outputFile = path.join(dir, 'output');
     writeFileSync(outputFile, '');
@@ -271,9 +258,8 @@ describe('adsense-format-ab-report / weekly plan gates the tracking issue', () =
     }
   });
 
-  it('the gate job stays light: the plan runs with no installed dependency and without the report script', () => {
-    // The gate job runs without `npm ci` and with a sparse checkout; the
-    // report script would drag in the full-checkout closure of revenue-monitor.
+  it('keeps the report-plan utility light and dependency-free', () => {
+    // The report script would drag in the full-checkout closure of revenue-monitor.
     // Run the CLI from a copy that holds only the two files of the declared
     // closure, away from any node_modules: a new import on either side
     // (static, bare or dynamic) fails here before it fails on a Monday.
@@ -297,38 +283,28 @@ describe('adsense-format-ab-report / weekly plan gates the tracking issue', () =
     }
   });
 
-  it('the workflow publishes the plan from a job that cannot fail open', () => {
-    const { plan } = jobs();
-    const planStep = plan.steps.find((step) => step.id === 'plan');
-    expect(planStep?.run).toContain(`node ${PLAN_MODULE}`);
-    expect(planStep).not.toHaveProperty('continue-on-error');
-    expect(planStep).not.toHaveProperty('if');
-    expect(plan).not.toHaveProperty('continue-on-error');
-    expect(plan.outputs?.active).toBe('${{ steps.plan.outputs.active }}');
-    expect(plan.outputs).not.toHaveProperty('experiments');
-    // The gate itself never installs, loads credentials or touches the tracking issue.
-    for (const step of plan.steps) {
-      expect(String(step.run ?? '')).not.toMatch(/npm ci|load-rc-env|firebase-sa/);
-      expect(callsTrackingIssue(step)).toBe(false);
-    }
+  it('publishes a fixed retirement status without checking out or loading analytics', () => {
+    const { retired } = jobs();
+    expect(retired.steps).toHaveLength(1);
+    expect(retired.steps[0].run).toContain('Public AdSense history collection is retired');
+    expect(retired.steps[0].run).toContain('private operator report');
+    expect(retired.steps[0].uses).toBeUndefined();
+    expect(retired).not.toHaveProperty('continue-on-error');
+    const source = readFileSync(WORKFLOW_PATH, 'utf8');
+    expect(source).not.toMatch(/actions\/checkout|npm ci|load-rc-env|firebase-sa|FIREBASE_SERVICE_ACCOUNT_JSON/u);
   });
 
-  it('every other job of the workflow runs only with an active plan', () => {
-    const others = Object.entries(jobs()).filter(([id]) => id !== 'plan');
-    expect(others.length).toBeGreaterThan(0);
-    for (const [id, job] of others) {
-      expect([job.needs].flat(), `job ${id}`).toContain('plan');
-      expect(String(job.if ?? ''), `job ${id}`).toContain(ACTIVE_CONDITION);
-      // `always()` / `failure()` at job level would run the job despite a skipped or failed gate.
-      expect(String(job.if ?? ''), `job ${id}`).not.toMatch(/always\(\)|failure\(\)|\|\|/);
-    }
+  it('has no measurement or report job in the retired public workflow', () => {
+    expect(Object.keys(jobs())).toEqual(['retired']);
+    const source = readFileSync(WORKFLOW_PATH, 'utf8');
+    expect(source).not.toContain('adsense-format-ab-report.mjs');
+    expect(source).not.toContain('actions/upload-artifact');
+    expect(source).not.toContain('--description-file');
   });
 
-  it('keeps the tracking issue conditional on report production and posts a fixed status', () => {
-    const [tracking] = trackingIssueCalls(true);
-    expect(tracking.run).toContain('[ ! -s "$RUNNER_TEMP/adsense-format-ab-report.md" ]');
-    expect(tracking.run).toContain('--description "AdSense format A/B report output is available only on the runner.');
-    expect(tracking.run).not.toContain('--description-file');
+  it('does not post a tracking issue from the retired public workflow', () => {
+    expect(trackingIssueCalls(true)).toEqual([]);
+    expect(readFileSync(WORKFLOW_PATH, 'utf8')).not.toContain('github-issue-creator.mjs');
   });
 });
 

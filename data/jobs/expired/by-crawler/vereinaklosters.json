@@ -50,7 +50,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.hotelcareer.ch/jobs/hotel-vereina-52746/zimmer-reinigungskraft-4035476?rltr=comp",
-    "firstSeenAt": "2026-11-16T09:42:46.315Z"
+    "firstSeenAt": "2026-11-16T09:42:46.315Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "zimmer-reinigungskraft-m-w-klosters-vereinaklosters-ch": "GR",
+        "zimmer-reinigungskraft-m-w-vereina-klosters": "GR"
+      },
+      "en": {
+        "zimmer-reinigungskraft-m-w-vereina-klosters": "GR"
+      },
+      "fr": {
+        "zimmer-reinigungskraft-m-w-vereina-klosters": "GR"
+      }
+    }
   },
   {
     "slug": "chef-de-rang-m-w-vereina-klosters",
@@ -82,6 +95,12 @@
     "previousSlugsByLocale": {
       "it": [
         "chef-de-rang-m-w-klosters-vereinaklosters-ch"
+      ],
+      "en": [
+        "chef-de-rang-m-w-vereina-klosters"
+      ],
+      "fr": [
+        "chef-de-rang-m-w-vereina-klosters"
       ]
     },
     "salaryMin": 57500,
@@ -89,7 +108,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.hotelcareer.ch/jobs/hotel-vereina-52746/chef-de-rang-3635441?rltr=comp",
-    "firstSeenAt": "2026-09-17T07:37:26.047Z"
+    "firstSeenAt": "2026-09-17T07:37:26.047Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-de-rang-m-w-klosters-vereinaklosters-ch": "GR"
+      },
+      "en": {
+        "chef-de-rang-m-w-vereina-klosters": "GR"
+      },
+      "fr": {
+        "chef-de-rang-m-w-vereina-klosters": "GR"
+      }
+    }
   },
   {
     "slug": "housemaid-roomboy-m-f-vereina-klosters",

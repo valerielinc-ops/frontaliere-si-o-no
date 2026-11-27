@@ -1,7 +1,7 @@
 {
   "key": "stellenpartner",
   "label": "Stellenpartner AG",
-  "generatedAt": "2026-11-26T21:22:58.979Z",
+  "generatedAt": "2026-11-27T09:24:58.350Z",
   "total": 0,
   "discovered": null,
   "parsed": null,
@@ -23,6 +23,8 @@
         "url": "https://www.stellenpartner.ch/stellen/page/2/?sort=title-asc"
       }
     ],
+    "listingTerminalStatus": 403,
+    "listingCompletion": null,
     "proxiedBy": [],
     "fetchOutcome": null,
     "fetchDetail": "Prospector fetch failed for https://www.stellenpartner.ch/stellen/page/2/?sort=title-asc: HTTP 403"
@@ -41,5 +43,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
+  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
 }

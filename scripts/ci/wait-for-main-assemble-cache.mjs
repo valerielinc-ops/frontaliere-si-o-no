@@ -5,16 +5,21 @@ const MAIN_SEED_WORKFLOW_PATHS = new Set([
 
 const defaultSleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 
+const FULL_SHA = /^[0-9a-f]{40}$/i;
+
 /**
  * Give an in-flight trusted main run a short window to publish the exact
  * content-addressed assembler cache before a PR pays for the same assembly.
- * No wait is added when there is no main seed in flight.
+ * The key hashes the inputs of one commit, so only a main run whose head is
+ * `baseSha` (the base of the PR merge) can publish it. No wait is added when
+ * `baseSha` is not a full commit SHA or no main run on that commit is in flight.
  */
 export async function waitForMainAssembleCache({
   github,
   context,
   core,
   cacheKey,
+  baseSha,
   timeoutMs = 60_000,
   intervalMs = 10_000,
   now = Date.now,
@@ -27,22 +32,31 @@ export async function waitForMainAssembleCache({
     return false;
   }
 
+  if (!FULL_SHA.test(String(baseSha || ''))) {
+    setReady(false);
+    core.info('Merge base commit is unknown; no main run can be matched, continuing with the cold path.');
+    return false;
+  }
+  const expectedSha = String(baseSha).toLowerCase();
+
   try {
     const { data: runs } = await github.rest.actions.listWorkflowRunsForRepo({
       owner: context.repo.owner,
       repo: context.repo.repo,
       branch: 'main',
+      head_sha: expectedSha,
       per_page: 100,
     });
     const seedInFlight = runs.workflow_runs.some((run) => {
       const workflowPath = String(run.path || '').split('@')[0];
       return run.head_branch === 'main'
+        && String(run.head_sha || '').toLowerCase() === expectedSha
         && ['queued', 'in_progress'].includes(run.status)
         && MAIN_SEED_WORKFLOW_PATHS.has(workflowPath);
     });
     if (!seedInFlight) {
       setReady(false);
-      core.info('No trusted main assemble-cache seed is in flight; continuing with the cold path.');
+      core.info('No trusted main assemble-cache seed is in flight for the merge base; continuing with the cold path.');
       return false;
     }
 

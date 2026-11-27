@@ -154,8 +154,29 @@ function readOriginalIndex(dir) {
 }
 
 export function projectRecord(record) {
-  if (record.loopId !== 'L8' || !object(record.sourceSnapshot)) return null;
   const { sourceSnapshot } = record;
+  if (!object(sourceSnapshot)) return null;
+  if (record.loopId === 'L9') {
+    const outcomes = sourceSnapshot.outcomes;
+    if (!object(outcomes)) return null;
+    const economicFields = ['mrrRecognizedChf', 'recognizedMrrChf'];
+    const metrics = object(outcomes.metrics) ? outcomes.metrics : null;
+    const hasEconomicFields = economicFields.some((field) => Object.hasOwn(outcomes, field)
+      || (metrics && Object.hasOwn(metrics, field)));
+    if (!hasEconomicFields) return null;
+    const projectedOutcomes = { ...outcomes };
+    for (const field of economicFields) delete projectedOutcomes[field];
+    if (metrics) {
+      const projectedMetrics = { ...metrics };
+      for (const field of economicFields) delete projectedMetrics[field];
+      projectedOutcomes.metrics = projectedMetrics;
+    }
+    return {
+      ...record,
+      sourceSnapshot: { ...sourceSnapshot, outcomes: projectedOutcomes },
+    };
+  }
+  if (record.loopId !== 'L8') return null;
   const { history } = sourceSnapshot;
   if (!object(history)) return null;
   const projectedHistory = { ...history };

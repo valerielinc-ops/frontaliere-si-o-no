@@ -1,7 +1,7 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-11-26T21:24:38.212Z",
-  "runId": "45895871343",
+  "assembledAt": "2026-11-27T09:30:14.731Z",
+  "runId": "45970991038",
   "jobs": [
     {
       "id": "company-7ucqp9",
@@ -94,7 +94,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T21:23:40.152Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/en/job/34621"
+      "sourceIdentity": "url:https://www.swatchgroup.com/en/job/34621",
+      "crawlerMissStreak": 1
     },
     {
       "id": "company-7ucqnj",
@@ -187,7 +188,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T21:23:40.152Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/de/job/34601"
+      "sourceIdentity": "url:https://www.swatchgroup.com/de/job/34601",
+      "crawlerMissStreak": 1
     },
     {
       "id": "company-7ucq4q",
@@ -265,7 +267,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T21:23:40.152Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/de/job/34596"
+      "sourceIdentity": "url:https://www.swatchgroup.com/de/job/34596",
+      "crawlerMissStreak": 1
     }
   ]
 }

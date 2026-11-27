@@ -47,7 +47,7 @@ describe('loop-fleet-ledger-audit', () => {
     writeJsonl(ledgerDir, 'loop-health-history-run-100.jsonl', [seedRecord('health')]);
     const audit = auditLedger({ ledgerDir, registry, now: NOW });
     expect(audit.errors).toEqual([]);
-    expect(audit.summary).toMatchObject({ loopCount: 12, completeLoopCount: 1, coverageRate: 1 / 12 });
+    expect(audit.summary).toMatchObject({ loopCount: 10, completeLoopCount: 1, coverageRate: 1 / 10 });
     expect(audit.loops.find((row: any) => row.loopId === 'L0')).toMatchObject({
       coverageState: 'complete', completeRunCount: 1, missingRecordTypes: [],
     });
@@ -57,6 +57,27 @@ describe('loop-fleet-ledger-audit', () => {
     expect(audit.loops.find((row: any) => row.loopId === 'L2')).toMatchObject({
       coverageState: 'missing', completeRunCount: 0,
     });
+  });
+
+  it('excludes private L8 and L9 ledger records before public aggregation and rendering', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-ledger-audit-private-'));
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(ledgerDir);
+    const privateRecord = (loopId: 'L8' | 'L9') => ({
+      ...seedRecord('health'),
+      loopId,
+      recordId: `private-${loopId.toLowerCase()}-record-id`,
+      execution: { ...seedRecord('health').execution, loopId, runId: `private-${loopId.toLowerCase()}-run` },
+      privateMetric: `private-${loopId.toLowerCase()}-value`,
+    });
+    writeJsonl(ledgerDir, 'loop-health-history.jsonl', [seedRecord('health'), privateRecord('L8'), privateRecord('L9')]);
+    const audit = auditLedger({ ledgerDir, registry, now: NOW });
+    const serialized = JSON.stringify(audit);
+    expect(audit.errors).toEqual([]);
+    expect(audit.summary).toMatchObject({ loopCount: 10, totalRecords: 1 });
+    expect(audit.loops.some((row: any) => ['L8', 'L9'].includes(row.loopId))).toBe(false);
+    expect(serialized).not.toContain('private-l8');
+    expect(serialized).not.toContain('private-l9');
   });
 
   it('fails closed on malformed JSON and conflicting duplicate record IDs', () => {
@@ -121,7 +142,7 @@ describe('loop-fleet-ledger-audit', () => {
 
   it('checks 90-day artifacts and recognizes L8 runner-local evidence', () => {
     const audit = auditWorkflowRetention({ workflowDir: '.github/workflows' });
-    expect(audit.summary).toMatchObject({ loopCount: 12, compliantCount: 12, noncompliantCount: 0 });
+    expect(audit.summary).toMatchObject({ loopCount: 11, compliantCount: 11, noncompliantCount: 0 });
     expect(audit.errors).toEqual([]);
     expect(audit.loops.find((row: { loopId: string }) => row.loopId === 'L8')).toMatchObject({
       privateEvidence: true, uploadsExecutionStatus: true,

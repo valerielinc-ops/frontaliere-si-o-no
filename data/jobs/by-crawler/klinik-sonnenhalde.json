@@ -1,7 +1,7 @@
 {
   "crawlerKey": "klinik-sonnenhalde",
-  "assembledAt": "2026-11-26T21:53:46.044Z",
-  "runId": "45897771969",
+  "assembledAt": "2026-11-27T09:37:25.118Z",
+  "runId": "45973230963",
   "jobs": [
     {
       "id": "klinik-sonnenhalde-f74f498d3bb7",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/311/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:53:34.499Z",
+      "crawledAt": "2026-11-27T09:37:19.166Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -94,8 +94,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:53:34.499Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:37:19.166Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/311/description/1"
     },
     {
       "id": "klinik-sonnenhalde-193b0c90bcc8",
@@ -128,7 +129,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/318/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:53:33.641Z",
+      "crawledAt": "2026-11-27T09:37:18.288Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -172,8 +173,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:53:33.641Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:37:18.288Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/318/description/1"
     },
     {
       "id": "klinik-sonnenhalde-733386d47707",
@@ -207,7 +209,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/320/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:53:32.794Z",
+      "crawledAt": "2026-11-27T09:37:17.380Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -261,8 +263,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:53:32.794Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:37:17.380Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/320/description/1"
     },
     {
       "id": "klinik-sonnenhalde-ca132c018962",
@@ -296,7 +299,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/389/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:53:31.912Z",
+      "crawledAt": "2026-11-27T09:37:16.499Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -345,8 +348,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:53:31.912Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:37:16.499Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/389/description/1"
     },
     {
       "id": "klinik-sonnenhalde-b3a36c11609a",
@@ -380,7 +384,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/396/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:53:31.078Z",
+      "crawledAt": "2026-11-27T09:37:15.597Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -435,8 +439,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:53:31.078Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:37:15.597Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/396/description/1"
     },
     {
       "id": "klinik-sonnenhalde-74e1f1b55a1b",
@@ -469,7 +474,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/398/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:53:30.212Z",
+      "crawledAt": "2026-11-27T09:37:14.679Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -519,8 +524,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:53:30.212Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:37:14.679Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/398/description/1"
     },
     {
       "id": "klinik-sonnenhalde-e40f838d52ed",
@@ -553,7 +559,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/399/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:53:29.309Z",
+      "crawledAt": "2026-11-27T09:37:13.713Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -607,8 +613,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:53:29.309Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:37:13.713Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/399/description/1"
     },
     {
       "id": "klinik-sonnenhalde-5119a6eb8091",
@@ -642,7 +649,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/406/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:53:28.739Z",
+      "crawledAt": "2026-11-27T09:37:12.812Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -686,8 +693,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:53:28.739Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:37:12.812Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/406/description/1"
     },
     {
       "id": "klinik-sonnenhalde-37d831f58fd1",
@@ -721,7 +729,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/407/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:53:27.873Z",
+      "crawledAt": "2026-11-27T09:37:11.896Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -771,8 +779,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:53:27.873Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:37:11.896Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/407/description/1"
     },
     {
       "id": "klinik-sonnenhalde-b9ce51f5470b",
@@ -805,7 +814,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/409/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:53:26.978Z",
+      "crawledAt": "2026-11-27T09:37:10.988Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -855,8 +864,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:53:26.978Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-06T09:37:10.988Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/409/description/1"
     },
     {
       "id": "klinik-sonnenhalde-a2d866529cc9",
@@ -890,7 +900,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/410/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:53:26.077Z",
+      "crawledAt": "2026-11-27T09:37:10.047Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -940,8 +950,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:53:26.077Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:37:10.047Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/410/description/1"
     },
     {
       "id": "klinik-sonnenhalde-e4c0942fefa5",
@@ -975,7 +986,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/416/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:53:25.213Z",
+      "crawledAt": "2026-11-27T09:37:09.084Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1027,8 +1038,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:53:25.213Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:37:09.084Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/416/description/1"
     },
     {
       "id": "klinik-sonnenhalde-aad4a450f969",
@@ -1061,7 +1073,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/417/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:53:24.348Z",
+      "crawledAt": "2026-11-27T09:37:08.181Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1111,8 +1123,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:53:24.348Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-01T09:37:08.181Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/417/description/1"
     },
     {
       "id": "klinik-sonnenhalde-2634a0f26a14",
@@ -1146,7 +1159,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/418/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:53:23.457Z",
+      "crawledAt": "2026-11-27T09:37:07.261Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1196,8 +1209,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:53:23.457Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-01T09:37:07.261Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/418/description/1"
     },
     {
       "id": "klinik-sonnenhalde-b3fe494a5c4f",
@@ -1230,7 +1244,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/419/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:53:22.436Z",
+      "crawledAt": "2026-11-27T09:37:06.339Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1280,8 +1294,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:53:22.436Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-05T09:37:06.339Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/419/description/1"
     },
     {
       "id": "klinik-sonnenhalde-dc3d9be4f5c1",
@@ -1315,7 +1330,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/420/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:53:21.310Z",
+      "crawledAt": "2026-11-27T09:37:05.457Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1365,8 +1380,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:53:21.310Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-05T09:37:05.457Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/420/description/1"
     },
     {
       "id": "klinik-sonnenhalde-b816975895c8",
@@ -1400,7 +1416,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/421/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:53:20.285Z",
+      "crawledAt": "2026-11-27T09:37:04.564Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1450,8 +1466,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:53:20.285Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-01T09:37:04.564Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/421/description/1"
     },
     {
       "id": "klinik-sonnenhalde-e8a671ffb857",
@@ -1485,7 +1502,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/422/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:53:19.398Z",
+      "crawledAt": "2026-11-27T09:37:03.598Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1535,8 +1552,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-19T21:53:19.398Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-19T09:37:03.598Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/422/description/1"
     },
     {
       "id": "klinik-sonnenhalde-a92a4c49234f",
@@ -1570,7 +1588,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/424/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:53:18.538Z",
+      "crawledAt": "2026-11-27T09:37:02.725Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1616,8 +1634,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:53:18.538Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:37:02.725Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/424/description/1"
     },
     {
       "id": "klinik-sonnenhalde-7d8980fd024e",
@@ -1651,7 +1670,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/425/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:53:17.658Z",
+      "crawledAt": "2026-11-27T09:37:01.819Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1701,8 +1720,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:53:17.658Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-04T09:37:01.819Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/425/description/1"
     }
   ]
 }

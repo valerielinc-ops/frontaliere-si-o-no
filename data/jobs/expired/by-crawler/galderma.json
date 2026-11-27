@@ -44,7 +44,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://galderma.wd3.myworkdayjobs.com/en-us/external/job/lausanne/medical-scientific-liaison-romandie---ticino_jr020215-1",
-    "firstSeenAt": "2026-08-13T10:17:26.726Z"
+    "firstSeenAt": "2026-08-13T10:17:26.726Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "medical-scientific-liaison-romandie-ticino-galderma-ch": "VD"
+      },
+      "fr": {
+        "liaison-medicale-scientifique-romandie-tessin-galderma-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "responsabile-commerciale-fp-a-del-gruppo-galderma-zug",
@@ -90,7 +99,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://galderma.wd3.myworkdayjobs.com/en-us/external/job/zug/group-commercial-fp-a-manager_jr020691-1",
-    "firstSeenAt": "2026-09-10T23:24:34.836Z"
+    "firstSeenAt": "2026-09-10T23:24:34.836Z",
+    "canton": "ZG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "group-commercial-fp-a-manager-galderma-ch": "ZG"
+      },
+      "de": {
+        "group-commercial-fp-a-manager-galderma-ch": "ZG"
+      }
+    }
   },
   {
     "slug": "responsabile-risorse-umane-emea-canada-galderma-zug",
@@ -139,7 +157,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://galderma.wd3.myworkdayjobs.com/en-us/external/job/zug/head-of-hr-emea---canada_jr020136-1",
-    "firstSeenAt": "2026-08-27T00:59:35.365Z"
+    "firstSeenAt": "2026-08-27T00:59:35.365Z",
+    "canton": "ZG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "head-of-hr-emea-canada-galderma-ch": "ZG"
+      },
+      "de": {
+        "head-of-hr-emea-canada-galderma-ch": "ZG"
+      },
+      "fr": {
+        "head-of-hr-emea-canada-galderma-ch": "ZG"
+      }
+    }
   },
   {
     "slug": "medical-scientific-liaison-svizzera-settentrionale-e-orientale-galderma-zug",
@@ -184,7 +214,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://galderma.wd3.myworkdayjobs.com/en-us/external/job/zug/medical-scientific-liaison---northern---eastern-switzerland_jr019888-1",
-    "firstSeenAt": "2026-07-29T11:35:52.731Z"
+    "firstSeenAt": "2026-07-29T11:35:52.731Z",
+    "canton": "ZG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "medical-scientific-liaison-northern-eastern-switzerland-galderma-ch": "ZG"
+      },
+      "fr": {
+        "medical-scientific-liaison-northern-eastern-switzerland-galderma-ch": "ZG"
+      }
+    }
   },
   {
     "slug": "hr-operations-team-manager-switzerland-germany-and-poland-galderma-ch",
@@ -213,7 +252,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://galderma.wd3.myworkdayjobs.com/en-us/external/job/lausanne/hr-operations-team-manager---switzerland--germany-and-poland_jr020362-1",
-    "firstSeenAt": "2026-08-17T21:29:23.979Z"
+    "firstSeenAt": "2026-08-17T21:29:23.979Z",
+    "canton": "VD",
+    "previousSlugsByLocale": {
+      "en": [
+        "hr-operations-team-manager-switzerland-germany-and-poland-galderma-ch"
+      ],
+      "de": [
+        "hr-operations-team-manager-switzerland-germany-and-poland-galderma-ch"
+      ],
+      "fr": [
+        "hr-operations-team-manager-switzerland-germany-and-poland-galderma-ch"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "hr-operations-team-manager-switzerland-germany-and-poland-galderma-ch": "VD"
+      },
+      "de": {
+        "hr-operations-team-manager-switzerland-germany-and-poland-galderma-ch": "VD"
+      },
+      "fr": {
+        "hr-operations-team-manager-switzerland-germany-and-poland-galderma-ch": "VD"
+      }
+    }
   },
   {
     "slug": "responsabile-medical-experts-therapeutic-dermatology-galderma-zug",
@@ -261,7 +323,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://galderma.wd3.myworkdayjobs.com/en-us/external/job/zug/head-of-medical-experts--therapeutic-dermatology_jr019828-1",
-    "firstSeenAt": "2026-07-15T22:08:22.550Z"
+    "firstSeenAt": "2026-07-15T22:08:22.550Z",
+    "canton": "ZG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "head-of-medical-experts-therapeutic-dermatology-galderma-ch": "ZG"
+      },
+      "de": {
+        "head-of-medical-experts-therapeutic-dermatology-galderma-ch": "ZG"
+      },
+      "fr": {
+        "head-of-medical-experts-therapeutic-dermatology-galderma-ch": "ZG"
+      }
+    }
   },
   {
     "slug": "responsabile-globale-della-skincare-dermatologica-per-i-consumatori-responsabile-globale-del-marketing-per-la-skincare",

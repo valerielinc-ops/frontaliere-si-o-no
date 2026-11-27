@@ -1,7 +1,7 @@
 {
   "key": "christinavassalli",
   "label": "CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät",
-  "generatedAt": "2026-11-26T21:54:38.077Z",
+  "generatedAt": "2026-11-27T10:04:08.843Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -27,6 +27,8 @@
         "url": "https://christinavassalli.ch/job/telefonistin-40-wollerau/"
       }
     ],
+    "listingTerminalStatus": 200,
+    "listingCompletion": "complete",
     "proxiedBy": [],
     "fetchOutcome": null,
     "fetchDetail": null
@@ -44,10 +46,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 6589,
-  "avgDurationMs": 6589,
+  "durationMs": 6242,
+  "avgDurationMs": 6242,
   "durationHistory": [
-    6589
+    6242
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -65,7 +67,7 @@
       "url": "https://christinavassalli.ch/job/telefonistin-40-wollerau/",
       "source": "CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:54:24.820Z",
+      "crawledAt": "2026-11-27T10:03:52.528Z",
       "addressLocality": "Wollerau",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -88,7 +90,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-11-19T21:45:13.248Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:54:24.820Z",
+      "validThrough": "2026-12-27T10:03:52.528Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -110,7 +112,7 @@
       "url": "https://christinavassalli.ch/job/telefonistin-20-40-zuerich/",
       "source": "CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:54:24.819Z",
+      "crawledAt": "2026-11-27T10:03:52.523Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -133,7 +135,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-26T14:25:57.444Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:54:24.819Z",
+      "validThrough": "2026-12-27T10:03:52.523Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -144,5 +146,5 @@
       }
     }
   ],
-  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
+  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
 }

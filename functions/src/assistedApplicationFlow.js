@@ -40,6 +40,13 @@ import { codexBrokerInfrastructureFailure } from './assistedApplicationTransport
 import { dispatchRecoveryCountValue, dispatchRecoveryDueAt } from './assistedApplicationDispatchRetryPolicy.js';
 import { EMPLOYER_WITHDRAWAL_EMAIL_KIND, EMPLOYER_WITHDRAWAL_REASON, nativeClosureOf, recordedNativeClosure } from './assistedApplicationEmployerWithdrawal.js';
 import { refundEndsAtStart } from './assistedApplicationConstants.js';
+import {
+  CANDIDATE_REQUIREMENTS_EXPIRED_EMAIL_KIND,
+  CANDIDATE_REQUIREMENTS_EXPIRED_REASON,
+  CANDIDATE_REQUIREMENTS_EXPIRED_REFUNDED_EMAIL_KIND,
+  CANDIDATE_WAIT_EXPIRY_AFTER_MS,
+  nextWeeklyReminderAt,
+} from './assistedApplicationCandidateWaitExpiry.js';
 import { isMatcherExperienceQuestion } from './assistedApplicationCvAnswers.js';
 import {
   REGION_UNSUPPORTED_HOLD,
@@ -73,7 +80,8 @@ export const HANDOFF_REMINDER_MS = 24 * 60 * 60 * 1000;
 // 2026-10-01: «cosa succede se l'utente non risponde alle domande?»).
 export const HELD_REMINDERS_AFTER_MS = Object.freeze([24 * 60 * 60 * 1000, 72 * 60 * 60 * 1000]);
 export const HELD_OWNER_NOTICE_AFTER_MS = 5 * 24 * 60 * 60 * 1000;
-export const CANDIDATE_STALE_ARCHIVE_AFTER_MS = 30 * 24 * 60 * 60 * 1000;
+// Owner decision 2026-11-27: the wait ends at 30 days (assistedApplicationCandidateWaitExpiry.js); weekly reminders until then.
+export const CANDIDATE_STALE_ARCHIVE_AFTER_MS = CANDIDATE_WAIT_EXPIRY_AFTER_MS;
 // Expedited dispatch for unpredicted ATS screening questions: 4 hours operator escalation
 // instead of 5 days of silent wait, preventing job posting expiration in Switzerland.
 export const URGENT_FIELD_DISPATCH_TIMEOUT_MS = 4 * 60 * 60 * 1000;
@@ -104,13 +112,20 @@ export const MAX_REVIEW_ROUNDS = 3;
 // Transient draft/broker run failures are dispatched up to this many times.
 // Infrastructure send failures use their independent queue policy instead.
 export const MAX_RUN_ATTEMPTS = 3;
-const TRANSIENT_RUN_ERROR_RE = /runner_infrastructure_unavailable|portal_question_localization_unavailable|requirement_context_changed|broker|timed[ _]?out|timeout|rate[ _]?limit|(?:^|[^0-9])(?:429|5\d\d)(?![0-9])|econnreset|econnrefused|etimedout|enetunreach|ehostunreach|eai_again|socket|(?:service|temporarily)[ _]?unavailable|overloaded/i;
+const TRANSIENT_RUN_ERROR_RE = /runner_infrastructure_unavailable|portal_question_localization_unavailable|broker|timed[ _]?out|timeout|rate[ _]?limit|(?:^|[^0-9])(?:429|5\d\d)(?![0-9])|econnreset|econnrefused|etimedout|enetunreach|ehostunreach|eai_again|socket|(?:service|temporarily)[ _]?unavailable|overloaded/i;
 
 /** Codex broker refusals, timeouts, rate limits, 5xx: worth another run. */
 // runner_timeout is the watchdog's own verdict after its re-dispatches: not retried again.
 // Codex quota/usage limits won't clear within minutes and use delayed draft/transport backoff instead.
+// `requirement_context_changed[:<reason>]` (agent.mjs, lib/portal/merge-live-requirements.mjs): the bare
+// code and the reasons below clear by themselves (a concurrent edit, a superseded run). Any other reason
+// is deterministic (e.g. ambiguous_identity: the same run would fail again) and goes straight to the owner.
+const CONTEXT_CHANGED_RE = /^requirement_context_changed(?::([a-z_]+))?$/;
+const TRANSIENT_CONTEXT_REASONS = new Set(['execution_superseded', 'order_changed', 'flow_changed', 'draft_changed', 'prepared_photo_not_persisted']);
 export function isTransientRunError(error) {
   const text = String(error || '');
+  const context = CONTEXT_CHANGED_RE.exec(text);
+  if (context) return !context[1] || TRANSIENT_CONTEXT_REASONS.has(context[1]);
   return text !== 'runner_timeout' && !isCodexUsageLimitError(text) && TRANSIENT_RUN_ERROR_RE.test(text);
 }
 
@@ -156,6 +171,8 @@ export const FLOW_STATES = Object.freeze([
 ]);
 
 export const TERMINAL_STATES = new Set(['submitted', 'owner_takeover', 'failed', 'withdrawn']);
+// The states an order Valerie sent herself can leave: held by her or the robot, not waiting for the candidate.
+export const OWNER_SUBMITTED_STATES = new Set(['submitting', 'owner_review', 'operator_expedited_review', 'owner_takeover', 'candidate_handoff', 'failed']);
 // What Valerie can do on an order that stopped (each event still checks the state it accepts).
 const OWNER_EXITS = new Set(['owner_resume', 'owner_regenerate', 'owner_retry_submit', 'owner_handoff', 'owner_submitted', 'portal_auto_retry', 'draft_auto_retry']);
 // ...and what settles one without her: the employer's e-mail proving a held submit arrived.
@@ -1106,9 +1123,13 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
           next.reminderAt = since + (HELD_REMINDERS_AFTER_MS[nudge] ?? HELD_OWNER_NOTICE_AFTER_MS);
           effects = [{ type: 'email', kind: 'candidate_questions_reminder', nudge, since }];
         } else {
-          // The order keeps waiting (nothing leaves without the answers): Valerie decides.
-          next.reminderAt = null;
-          effects = [{ type: 'email', kind: 'owner_candidate_silent', since, days: Math.max(1, Math.round((nowMs - since) / (24 * 60 * 60 * 1000))), nudges: HELD_REMINDERS_AFTER_MS.length }];
+          // Nothing leaves without the answers. Valerie hears of the silence once (nudge 3); from then on the
+          // candidate is reminded weekly, until the wait turns 30 days old and the sweep closes the order
+          // (candidate_stale_archive, owner decision 2026-11-27). The last reminder is the one before that day.
+          next.reminderAt = nextWeeklyReminderAt(since, nowMs);
+          effects = nudge === HELD_REMINDERS_AFTER_MS.length + 1
+            ? [{ type: 'email', kind: 'owner_candidate_silent', since, days: Math.max(1, Math.round((nowMs - since) / (24 * 60 * 60 * 1000))), nudges: HELD_REMINDERS_AFTER_MS.length }]
+            : [{ type: 'email', kind: 'candidate_questions_reminder', nudge, since }];
         }
         break;
       }
@@ -1266,8 +1287,13 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
     case 'owner_submitted':
       // Valerie sent it herself on the portal (the fill extension, or by
       // hand), after the robot stopped: the candidate paid for the sending,
-      // so it is never handed to them (owner decision 2026-10-01).
-      if (!['owner_takeover', 'candidate_handoff'].includes(state)) return ignore('not_taken_over');
+      // so it is never handed to them (owner decision 2026-10-01). The same
+      // fact closes the flow wherever the robot or the owner holds it, also a
+      // run still `submitting` (the robot relaunched while she sent by hand):
+      // leaving the flow open let that run report a handoff later and reopen
+      // an order already sent. Closing it also fences the run: its claim and
+      // its final-click mark need `submitting` (assistedApplicationSubmissionGuard.js).
+      if (!OWNER_SUBMITTED_STATES.has(state)) return ignore('not_taken_over');
       if (isPostalSubmission(flow)) return ignore('postal_submission_requires_candidate');
       next.state = 'submitted';
       next.deadlineAt = null;
@@ -1284,14 +1310,35 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       effects = [{ type: 'mark_submitted', by: 'candidate' }];
       break;
     case 'candidate_stale_archive': {
-      if (!CANDIDATE_REMINDER_STATES.has(state)) return ignore('not_waiting_for_candidate');
-      if (current.candidateStaleArchivedAt) return ignore('already_archived');
+      // Owner decision 2026-11-27 («Scadenza con chiusura»): a wait for documents or answers only the candidate
+      // can give that reached 30 days closes the order, for every such wait. An order already marked
+      // `candidateStaleArchivedAt` by the earlier archive-only rule closes the same way. A review waiting only
+      // for its 12 h clock, or a portal step handed over (candidate_handoff), is not such a wait.
+      if (!waitsForCandidate(current)) return ignore('not_waiting_for_candidate');
       const since = candidateWaitSince(current);
-      if (!since || nowMs - since < CANDIDATE_STALE_ARCHIVE_AFTER_MS) return ignore('not_stale');
+      if (!since || nowMs - since < CANDIDATE_WAIT_EXPIRY_AFTER_MS) return ignore('not_stale');
+      // The posting's own closure on record closes it as the employer's withdrawal (the sweep applies that).
+      if (employerWithdrawalPending(current, order)) return ignore('employer_withdrawal_pending');
+      // Never close over a send that may have left, nor over holds the candidate has in fact resolved (the
+      // next tick releases those and the flow resumes as today).
+      if (sendMayHaveLeft) return ignore('send_may_have_left');
+      if (candidateHolds(flags).length === 0) return ignore('holds_resolved');
       next.candidateStaleArchivedAt = nowMs;
+      next.state = 'withdrawn';
+      next.withdrawnAt = nowMs;
+      next.withdrawnReason = CANDIDATE_REQUIREMENTS_EXPIRED_REASON;
+      next.withdrawalEvidence = { kind: CANDIDATE_REQUIREMENTS_EXPIRED_REASON, source: 'candidate_wait', at: since, heldBy: current.heldBy.slice(0, 20) };
       next.deadlineAt = null;
       next.reminderAt = null;
-      effects = [];
+      next.heldBy = [];
+      next.portalAutoRetryAt = null;
+      next.draftAutoRetryAt = null;
+      next.dispatchRecoveryAt = null;
+      // Refund only where the Terms the candidate accepted promise it (v1/v2); the existing refund effect
+      // sends the "refunded" e-mail once the refund went through. v3 and concierge children: e-mail only.
+      effects = refundEndsAtStart(order)
+        ? [{ type: 'email', kind: CANDIDATE_REQUIREMENTS_EXPIRED_EMAIL_KIND }]
+        : [{ type: 'refund', reason: CANDIDATE_REQUIREMENTS_EXPIRED_REASON, notify: CANDIDATE_REQUIREMENTS_EXPIRED_REFUNDED_EMAIL_KIND }];
       break;
     }
     case 'posting_closed': {

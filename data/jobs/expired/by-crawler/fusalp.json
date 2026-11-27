@@ -42,7 +42,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fusalp.welcomekit.co/jobs/assistant-store-manager-m-w-dec-26-to-march-27-100_saanen",
-    "firstSeenAt": "2026-08-31T17:09:40.027Z"
+    "firstSeenAt": "2026-08-31T17:09:40.027Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistant-store-manager-m-w-dec-26-to-april-27-100-fusalp-saanen": "BE"
+      }
+    }
   },
   {
     "id": "fusalp-126b866dec50",
@@ -91,7 +97,15 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_val-de-bagnes",
-    "firstSeenAt": "2026-09-23T23:44:21.012Z"
+    "firstSeenAt": "2026-09-23T23:44:21.012Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistant-store-manager-m-w-french-english-fusalp-val-de-bagnes": "VS",
+        "assistant-store-manager-m-f-francese-e-inglese-fusalp-val-de-bagnes": "VS",
+        "assistant-store-manager-m-w-d-french-english-fusalp-val-de-bagnes": "VS"
+      }
+    }
   },
   {
     "id": "fusalp-559f5149440a",
@@ -142,7 +156,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fusalp.welcomekit.co/jobs/sales-associate-permanent-80-m-w_zurich",
-    "firstSeenAt": "2026-11-10T09:22:28.413Z"
+    "firstSeenAt": "2026-11-10T09:22:28.413Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sales-associate-permanent-80-m-w-fusalp-zurich": "ZH"
+      },
+      "de": {
+        "sales-associate-permanent-80-m-w-fusalp-zurich": "ZH"
+      },
+      "fr": {
+        "sales-associate-permanent-80-m-w-fusalp-zurich": "ZH"
+      }
+    }
   },
   {
     "id": "fusalp-3744771338a4",
@@ -201,7 +227,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fusalp.welcomekit.co/jobs/store-manager-m-w-permanent-contract-100-1-november-2026_saanen",
-    "firstSeenAt": "2026-09-11T13:39:22.216Z"
+    "firstSeenAt": "2026-09-11T13:39:22.216Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen": "BE",
+        "store-manager-m-f-contratto-permanente-100-1-novembre-2026-fusalp-saanen": "BE",
+        "store-manager-m-w-unbefristeter-vertrag-100-1-november-2026-fusalp-saanen": "BE",
+        "manager-store-h-f-contrat-a-duree-indeterminee-100-1er-novembre-2026-fusalp-saanen": "BE"
+      },
+      "de": {
+        "store-manager-m-w-unbefristeter-vertrag-100-1-november-2026-fusalp-saanen": "BE"
+      },
+      "fr": {
+        "manager-store-h-f-contrat-a-duree-indeterminee-100-1er-novembre-2026-fusalp-saanen": "BE"
+      }
+    }
   },
   {
     "slug": "store-manager-m-f-100-contratto-a-tempo-fisso-opportunita-permanente-fusalp-aubonne",
@@ -245,7 +286,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fusalp.welcomekit.co/jobs/store-manager-m-w-100-fixed-term-contract-permanent-opportunity_aubonne",
-    "firstSeenAt": "2026-09-30T21:14:59.209Z"
+    "firstSeenAt": "2026-09-30T21:14:59.209Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "store-manager-m-w-100-fixed-term-contract-permanent-opportunity-fusalp-aubonne": "VD"
+      }
+    }
   },
   {
     "slug": "sales-associate-m-f-dal-26-al-27-aprile-al-100-fusalp-st-moritz",
@@ -289,7 +336,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_annecy",
-    "firstSeenAt": "2026-09-01T14:16:04.933Z"
+    "firstSeenAt": "2026-09-01T14:16:04.933Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sales-associate-m-w-dec-26-to-april-27-100-fusalp-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "sales-associate-m-f-dal-26-al-27-aprile-all-80-fusalp-zermatt",
@@ -332,7 +385,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-to-april-26-80_zermatt",
-    "firstSeenAt": "2026-08-28T05:23:06.096Z"
+    "firstSeenAt": "2026-08-28T05:23:06.096Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt": "VS"
+      }
+    }
   },
   {
     "slug": "sales-associate-m-w-dec-26-to-march-27-100-fusalp-saanen",
@@ -365,7 +424,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fusalp.welcomekit.co/jobs/ales-associate-m-w-dec-26-to-march-27-100_saanen",
-    "firstSeenAt": "2026-08-28T05:23:03.917Z"
+    "firstSeenAt": "2026-08-28T05:23:03.917Z",
+    "canton": "BE",
+    "previousSlugsByLocale": {
+      "en": [
+        "sales-associate-m-w-dec-26-to-march-27-100-fusalp-saanen"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "sales-associate-m-w-dec-26-to-march-27-100-fusalp-saanen": "BE"
+      }
+    }
   },
   {
     "slug": "sales-associate-m-f-dal-26-al-27-marzo-al-100-fusalp-val-de-bagnes",
@@ -414,7 +484,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-to-april-100_val-de-bagnes",
-    "firstSeenAt": "2026-08-28T05:23:04.982Z"
+    "firstSeenAt": "2026-08-28T05:23:04.982Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sales-associate-m-w-dec-26-to-march-27-100-fusalp-val-de-bagnes": "VS"
+      },
+      "de": {
+        "sales-associate-m-w-dec-26-to-march-27-100-fusalp-val-de-bagnes": "VS"
+      },
+      "fr": {
+        "sales-associate-m-w-dec-26-to-march-27-100-fusalp-val-de-bagnes": "VS"
+      }
+    }
   },
   {
     "slug": "sales-associate-m-f-4-mesi-100-contratto-a-tempo-determinato-fusalp-crans-montana",

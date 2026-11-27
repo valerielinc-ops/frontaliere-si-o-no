@@ -4250,7 +4250,8 @@
       "elektroinstallateur-in-efz-alle-bkw-ch-3",
       "installatore-trice-elettrico-a-in-cfc-alle-bkw-zermatt",
       "installatore-trice-elettrico-a-in-cfc-alle-bkw-munsingen",
-      "elektroinstallateur-in-efz-alle-bkw-ch-48d41837"
+      "elektroinstallateur-in-efz-alle-bkw-ch-48d41837",
+      "elektroinstallateur-in-efz-alle-bkw-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -6480,8 +6481,7 @@
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-fdd14f45"
       ],
       "de": [
-        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-15",
-        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-fdd14f45-4c2b3291"
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-15"
       ]
     },
     "postalCode": "3600",
@@ -16345,17 +16345,20 @@
     "canton": "BE",
     "previousSlugCantonByLocale": {
       "it": {
-        "operations-manager-local-security-officer-bess-alle-bkw-ch": "BE",
-        "gestione-delle-operazioni-responsabile-della-sicurezza-locale-bess-tutti-bkw-bern": "BE",
-        "operations-manager-bess-alle-bkw-ch": "BE"
+        "operations-manager-bess-alle-bkw-ch": "BE",
+        "operations-manager-local-security-officer-bess-alle-bkw-ch-1d071deb": "BE",
+        "gestione-delle-operazioni-responsabile-della-sicurezza-locale-bess-tutti-bkw-bern-01f7b30a": "BE"
       },
       "en": {
-        "operations-manager-local-security-officer-bess-alle-bkw-ch": "BE",
-        "operations-manager-bess-alle-bkw-bern": "BE"
+        "operations-manager-bess-alle-bkw-bern": "BE",
+        "operations-manager-local-security-officer-bess-alle-bkw-ch-1d071deb": "BE"
       },
       "fr": {
-        "operations-manager-local-security-officer-bess-alle-bkw-ch": "BE",
-        "gestionnaire-des-operations-agent-de-securite-local-bess-tous-bkw-bern": "BE"
+        "operations-manager-local-security-officer-bess-alle-bkw-ch-1d071deb": "BE",
+        "gestionnaire-des-operations-agent-de-securite-local-bess-tous-bkw-bern-eb14f942": "BE"
+      },
+      "de": {
+        "operations-manager-local-security-officer-bess-alle-bkw-ch-1d071deb": "BE"
       }
     }
   },
@@ -16664,7 +16667,7 @@
         "facilita-del-servizio-di-riscaldamento-tutti-bkw-bulle": "FR"
       },
       "en": {
-        "heating-service-installer-all-bkw-bulle": "FR"
+        "heating-service-installer-all-bkw-bulle-c69f23f2": "FR"
       }
     }
   },
@@ -16834,16 +16837,27 @@
     "previousSlugsByLocale": {
       "it": [
         "installateur-electricien-cfc-et-electricien-de-montage-cfc-tous-bkw-ch-524008e3",
+        "electrician-installer-efz-and-assembly-electrician-efz-all-bkw-bulle",
+        "elektriker-installateur-efz-und-montageelektriker-efz-alle-bkw-bulle",
         "elettricista-installatore-efz-e-elettricista-di-assemblaggio-efz-tutti-bkw-bulle",
         "installateur-electricien-cfc-et-electricien-de-montage-cfc-tous-bkw-ch"
       ],
       "en": [
+        "elettricista-installatore-efz-e-elettricista-di-assemblaggio-efz-tutti-bkw-bulle",
+        "installateur-electricien-cfc-et-electricien-de-montage-cfc-tous-bkw-ch",
+        "elektriker-installateur-efz-und-montageelektriker-efz-alle-bkw-bulle",
         "electrician-installer-efz-and-assembly-electrician-efz-all-bkw-bulle"
       ],
       "de": [
+        "elettricista-installatore-efz-e-elettricista-di-assemblaggio-efz-tutti-bkw-bulle",
+        "installateur-electricien-cfc-et-electricien-de-montage-cfc-tous-bkw-ch",
+        "electrician-installer-efz-and-assembly-electrician-efz-all-bkw-bulle",
         "elektriker-installateur-efz-und-montageelektriker-efz-alle-bkw-bulle"
       ],
       "fr": [
+        "elettricista-installatore-efz-e-elettricista-di-assemblaggio-efz-tutti-bkw-bulle",
+        "electrician-installer-efz-and-assembly-electrician-efz-all-bkw-bulle",
+        "elektriker-installateur-efz-und-montageelektriker-efz-alle-bkw-bulle",
         "installateur-electricien-cfc-et-electricien-de-montage-cfc-tous-bkw-ch"
       ]
     },
@@ -16858,18 +16872,18 @@
     "canton": "FR",
     "previousSlugCantonByLocale": {
       "it": {
-        "elettricista-installatore-efz-e-elettricista-di-assemblaggio-efz-tutti-bkw-bulle": "FR",
-        "installateur-electricien-cfc-et-electricien-de-montage-cfc-tous-bkw-ch": "FR",
-        "elettricista-installatore-efz-e-elettricista-di-assemblaggio-efz-tutti-bkw-bulle-67ff4b8fa9": "FR"
+        "elettricista-installatore-efz-e-elettricista-di-assemblaggio-efz-tutti-bkw-bulle-67ff4b8fa9": "FR",
+        "elettricista-installatore-efz-e-elettricista-di-assemblaggio-efz-tutti-bkw-bulle-b9e93b68": "FR",
+        "installateur-electricien-cfc-et-electricien-de-montage-cfc-tous-bkw-ch-524008e3": "FR"
       },
       "en": {
-        "electrician-installer-efz-and-assembly-electrician-efz-all-bkw-bulle": "FR"
+        "electrician-installer-efz-and-assembly-electrician-efz-all-bkw-bulle-c191e702": "FR"
       },
       "de": {
-        "elektriker-installateur-efz-und-montageelektriker-efz-alle-bkw-bulle": "FR"
+        "elektriker-installateur-efz-und-montageelektriker-efz-alle-bkw-bulle-31c859b7": "FR"
       },
       "fr": {
-        "installateur-electricien-cfc-et-electricien-de-montage-cfc-tous-bkw-ch": "FR"
+        "installateur-electricien-cfc-et-electricien-de-montage-cfc-tous-bkw-ch-524008e3": "FR"
       }
     }
   },
@@ -19315,7 +19329,8 @@
       "chef-de-projet-chauffage-tous-bkw-kriens-bb274175",
       "chef-de-projet-chauffage-tous-bkw-kriens-07be6c22",
       "chef-de-projet-chauffage-tous-bkw-beringen",
-      "projektleiter-in-heizung-alle-bkw-ch-f68d7cf3"
+      "projektleiter-in-heizung-alle-bkw-ch-f68d7cf3",
+      "projektleiter-in-heizung-alle-bkw-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -19395,8 +19410,7 @@
         "heating-project-manager-all-bkw-kriens-0edfe552-ed72deb5",
         "responsabile-di-progetto-heizung-alle-bkw-kriens-2b7f0c1d-be2d5fc9",
         "heating-project-manager-all-bkw-kriens-103800ba-60c408d1",
-        "responsabile-di-progetto-heizung-alle-bkw-kriens-2d33116e-f9d2bbf4",
-        "projektleiter-in-heizung-alle-bkw-ch-b60c3337"
+        "responsabile-di-progetto-heizung-alle-bkw-kriens-2d33116e-f9d2bbf4"
       ],
       "en": [
         "projektleiter-in-heizung-alle-bkw-ch",
@@ -19771,8 +19785,7 @@
         "projektleiter-in-sanitar-alle-bkw-ch-bf6d2c71",
         "responsabile-di-progetto-impianti-idraulici-tutti-bkw-zurich-f55cb937",
         "project-manager-sanitar-alle-bkw-beringen",
-        "chef-de-projet-sanitar-alle-bkw-beringen",
-        "responsabile-di-progetto-sanitar-alle-bkw-beringen-2b32fa96"
+        "chef-de-projet-sanitar-alle-bkw-beringen"
       ],
       "de": [
         "projektleiter-in-sanitar-alle-bkw-ch-i3zyog-ac106921",
@@ -19787,16 +19800,14 @@
         "responsabile-di-progetto-impianti-idraulici-tutti-bkw-zurich-eddc68b7",
         "sanitary-project-manager-all-genders-bkw-zurich",
         "responsabile-di-progetto-sanitar-alle-bkw-beringen",
-        "chef-de-projet-sanitar-alle-bkw-beringen",
-        "project-manager-sanitar-alle-bkw-beringen-1aa6f79a"
+        "chef-de-projet-sanitar-alle-bkw-beringen"
       ],
       "fr": [
         "projektleiter-in-sanitar-alle-bkw-ch-c45f1622",
         "responsabile-di-progetto-impianti-idraulici-tutti-bkw-zurich-eddc68b7",
         "responsable-de-projet-sanitaire-tous-genres-bkw-zurich",
         "responsabile-di-progetto-sanitar-alle-bkw-beringen",
-        "project-manager-sanitar-alle-bkw-beringen",
-        "chef-de-projet-sanitar-alle-bkw-beringen-079a3492"
+        "project-manager-sanitar-alle-bkw-beringen"
       ]
     },
     "postalCode": "8222",
@@ -20395,7 +20406,8 @@
       "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-31",
       "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-nidau-iwga4m-7fc46bdc",
       "apprenticeship-electrical-installer-in-efz-all-bkw-wangen-an-der-aare",
-      "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-wangen-an-der-aare"
+      "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-wangen-an-der-aare",
+      "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -37423,8 +37435,7 @@
         "installateur-electricien-dans-tous-bkw-utzenstorf-d1125373",
         "installateur-electrique-tous-bkw-zuchwil-d75e3c56",
         "technicien-e-electrique-tous-bkw-ormalingen-6607458f",
-        "electricien-tous-bkw-winterthur-06668d76",
-        "elektroinstallateur-in-alle-bkw-ch-81dde1cb"
+        "electricien-tous-bkw-winterthur-06668d76"
       ]
     },
     "postalCode": "6037",
@@ -37589,7 +37600,9 @@
       "elettricista-in-tutti-bkw-utzenstorf",
       "installatore-trice-elettrico-a-in-alle-bkw-zuchwil",
       "elettroinstallatore-in-tutti-bkw-zuchwil",
-      "elettrotecnico-a-tutti-bkw-ormalingen"
+      "elettrotecnico-a-tutti-bkw-ormalingen",
+      "elektroinstallateur-in-alle-bkw-ch-cfbd909f",
+      "elektroinstallateur-in-alle-bkw-ch-344cd97e"
     ]
   },
   {
@@ -39220,18 +39233,12 @@
     "expiredAt": "2026-10-20T21:15:03.130Z",
     "previousSlugsByLocale": {
       "it": [
-        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-aeb3fb77",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-7e66f9f6"
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-aeb3fb77"
       ],
       "en": [
-        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-aeb3fb77",
-        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3-f3cd6d81"
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-aeb3fb77"
       ],
       "fr": [
-        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-aeb3fb77",
-        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3-f3cd6d81"
-      ],
-      "de": [
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-aeb3fb77"
       ]
     },
@@ -40426,8 +40433,6 @@
     "sector": "Energy / Buildings / Infrastructure (utilities & engineering services)",
     "expiredAt": "2026-10-19T21:18:34.744Z",
     "previousSlugs": [
-      "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-c2748939",
-      "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-5-8951ffda",
       "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-brig-glis-e3ef40cd",
       "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-e086c40e",
       "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-5-7be79a88",
@@ -40957,7 +40962,6 @@
     "sector": "Energy / Buildings / Infrastructure (utilities & engineering services)",
     "expiredAt": "2026-10-19T21:18:34.743Z",
     "previousSlugs": [
-      "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-281a60b2",
       "apprendistato-montage-elektriker-in-cfc-alle-bkw-brig-glis-b6e45c29",
       "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-eebe2b0d",
       "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-3-6d51ba9d",
@@ -48916,8 +48920,7 @@
         "elektroinstallateur-in-efz-alle-bkw-ch-13-22b727b3",
         "installatore-trice-elettrico-a-in-cfc-alle-bkw-solothurn-d4c79c34",
         "electrical-installer-efz-all-bkw-munsingen-672a3c16",
-        "installateur-electricien-cfc-tous-bkw-munsingen-3953c5fd",
-        "elektroinstallateur-in-efz-alle-bkw-ch-66cd5b8b"
+        "installateur-electricien-cfc-tous-bkw-munsingen-3953c5fd"
       ]
     },
     "postalCode": "4402",
@@ -57788,7 +57791,8 @@
         "apprenticeship-as-an-automation-technician-efz-all-bkw-bern-86009d63": "FR"
       },
       "en": {
-        "lehrstelle-automatiker-in-efz-alle-bkw-ch-2-562fce73": "FR"
+        "lehrstelle-automatiker-in-efz-alle-bkw-ch-2-562fce73": "FR",
+        "apprenticeship-as-an-automation-technician-efz-all-bkw-bern-60c046f9": "FR"
       },
       "fr": {
         "lehrstelle-automatiker-in-efz-alle-bkw-ch-2-562fce73": "FR",
@@ -58086,11 +58090,15 @@
       ],
       "fr": [
         "apprentissage-en-tant-que-planificateur-electrique-efz-tous-bkw-utzenstorf",
-        "lehrstelle-als-elektroplaner-in-efz-alle-bkw-ch"
+        "lehrstelle-als-elektroplaner-in-efz-alle-bkw-ch",
+        "apprenticeship-as-electrical-planner-efz-all-bkw-utzenstorf"
       ],
       "en": [
-        "apprenticeship-as-electrical-planner-efz-all-bkw-utzenstorf",
-        "lehrstelle-als-elektroplaner-in-efz-alle-bkw-ch"
+        "lehrstelle-als-elektroplaner-in-efz-alle-bkw-ch",
+        "apprenticeship-as-electrical-planner-efz-all-bkw-utzenstorf"
+      ],
+      "de": [
+        "apprenticeship-as-electrical-planner-efz-all-bkw-utzenstorf"
       ]
     },
     "postalCode": "3427",
@@ -58121,8 +58129,8 @@
         "lehrstelle-als-elektroplaner-in-efz-alle-bkw-ch": "BE"
       },
       "en": {
-        "apprenticeship-as-electrical-planner-efz-all-bkw-utzenstorf": "BE",
-        "lehrstelle-als-elektroplaner-in-efz-alle-bkw-ch": "BE"
+        "lehrstelle-als-elektroplaner-in-efz-alle-bkw-ch": "BE",
+        "apprenticeship-as-electrical-planner-efz-all-bkw-utzenstorf-96ce4604": "BE"
       },
       "fr": {
         "apprentissage-en-tant-que-planificateur-electrique-efz-tous-bkw-utzenstorf": "BE",
@@ -61669,11 +61677,11 @@
         "apprendistato-heizungsinstallateur-in-cfc-alle-bkw-saanen-45371094",
         "apprenticeship-heating-installer-in-efz-all-bkw-saanen",
         "installateur-de-chauffage-d-apprentissage-dans-efz-tous-bkw-saanen",
+        "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-k6cirj",
         "heating-installer-in-efz-all-bkw-luzern",
         "installateur-de-chauffage-dans-efz-tous-bkw-luzern",
         "heating-installer-efz-all-bkw-ostermundigen",
-        "installateur-de-chauffage-efz-tous-bkw-ostermundigen",
-        "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-k6cirj"
+        "installateur-de-chauffage-efz-tous-bkw-ostermundigen"
       ],
       "en": [
         "apprenticeship-heating-installer-in-efz-all-bkw-luzern",
@@ -62316,17 +62324,25 @@
     "previousSlugCantonByLocale": {
       "it": {
         "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-k6cirj": "LU",
-        "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-a24dfd50": "LU"
+        "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-a24dfd50": "LU",
+        "heating-installer-in-efz-all-bkw-luzern-0dfcb001": "LU",
+        "installateur-de-chauffage-dans-efz-tous-bkw-luzern-7043cf9e": "LU",
+        "heating-installer-efz-all-bkw-ostermundigen-446d3ec5": "LU",
+        "installateur-de-chauffage-efz-tous-bkw-ostermundigen-8c62bfc1": "LU"
       },
       "en": {
-        "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-k6cirj": "LU"
+        "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-k6cirj": "LU",
+        "heating-installer-in-efz-all-bkw-luzern-0dfcb001": "LU",
+        "heating-installer-efz-all-bkw-ostermundigen-446d3ec5": "LU"
       },
       "de": {
         "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-k6cirj": "LU",
         "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-a24dfd50": "LU"
       },
       "fr": {
-        "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-k6cirj": "LU"
+        "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-k6cirj": "LU",
+        "installateur-de-chauffage-dans-efz-tous-bkw-luzern-7043cf9e": "LU",
+        "installateur-de-chauffage-efz-tous-bkw-ostermundigen-8c62bfc1": "LU"
       }
     }
   },
@@ -62532,7 +62548,12 @@
       "apprenticeship-electrical-installer-in-efz-all-bkw-wangen-an-der-aare-6b6b4d14",
       "specialiste-en-electricite-installateur-electricien-cfc-tous-bkw-schwarzenburg-6a44ce4e",
       "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-wangen-an-der-aare-90e935d4",
-      "specialiste-dans-l-installation-electrique-electrique-dans-l-efz-tous-bkw-schwarzenburg"
+      "specialiste-dans-l-installation-electrique-electrique-dans-l-efz-tous-bkw-schwarzenburg",
+      "apprenticeship-electrical-installer-in-efz-all-bkw-wangen-an-der-aare",
+      "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-wangen-an-der-aare",
+      "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-iwga4m",
+      "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-30",
+      "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-31"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -63322,8 +63343,7 @@
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-22-c8158875",
         "apprentissage-de-l-electricien-de-montage-dans-efz-tous-bkw-schwarzenburg",
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-xnuo5n",
-        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-12",
-        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-70aa39cb"
+        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-12"
       ],
       "en": [
         "apprenticeship-of-assembly-electrician-in-efz-all-bkw-nidau",
@@ -64708,18 +64728,12 @@
     "expiredAt": "2026-10-12T09:18:12.744Z",
     "previousSlugsByLocale": {
       "it": [
-        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-d36f9a50",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich-9dadadf3"
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-d36f9a50"
       ],
       "en": [
-        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-d36f9a50",
-        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-2-fb19f96d"
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-d36f9a50"
       ],
       "fr": [
-        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-d36f9a50",
-        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-2-fb19f96d"
-      ],
-      "de": [
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-d36f9a50"
       ]
     },
@@ -65739,28 +65753,24 @@
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-jx028j-9c0edcf2",
         "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich-jx028j-0393492b",
         "apprenticeship-electrical-installer-in-efz-all-bkw-zurich",
-        "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-zurich",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich-329a8e47"
+        "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-zurich"
       ],
       "de": [
         "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich-jx028j",
         "apprenticeship-electrical-installer-in-efz-all-bkw-zurich",
-        "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-zurich",
-        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-cbe900f7"
+        "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-zurich"
       ],
       "en": [
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-cbe900f7",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-jx028j",
         "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich-jx028j",
-        "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-zurich",
-        "apprenticeship-electrical-installer-in-efz-all-bkw-zurich-a473d434"
+        "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-zurich"
       ],
       "fr": [
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-cbe900f7",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-jx028j",
         "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich-jx028j",
-        "apprenticeship-electrical-installer-in-efz-all-bkw-zurich",
-        "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-zurich-e1119b5f"
+        "apprenticeship-electrical-installer-in-efz-all-bkw-zurich"
       ]
     },
     "postalCode": "8001",
@@ -67405,26 +67415,22 @@
       "it": [
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-c9c1d1da",
         "apprenticeship-as-an-electrician-efz-all-bkw-thun",
-        "apprentissage-d-electricien-efz-tous-bkw-thun",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-thun-73578191"
+        "apprentissage-d-electricien-efz-tous-bkw-thun"
       ],
       "en": [
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-c9c1d1da",
         "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-thun-73578191",
-        "apprentissage-d-electricien-efz-tous-bkw-thun",
-        "apprenticeship-as-an-electrician-efz-all-bkw-thun-b787e730"
+        "apprentissage-d-electricien-efz-tous-bkw-thun"
       ],
       "de": [
         "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-thun-73578191",
         "apprenticeship-as-an-electrician-efz-all-bkw-thun",
-        "apprentissage-d-electricien-efz-tous-bkw-thun",
-        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-60e641bc"
+        "apprentissage-d-electricien-efz-tous-bkw-thun"
       ],
       "fr": [
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-c9c1d1da",
         "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-thun-73578191",
-        "apprenticeship-as-an-electrician-efz-all-bkw-thun",
-        "apprentissage-d-electricien-efz-tous-bkw-thun-f15b8004"
+        "apprenticeship-as-an-electrician-efz-all-bkw-thun"
       ]
     },
     "postalCode": "3600",
@@ -68083,27 +68089,23 @@
         "apprenticeship-electrical-installer-in-efz-all-bkw-thun-f973c7dd",
         "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-thun-48703733",
         "apprenticeship-electrical-installer-in-efz-all-bkw-thun",
-        "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-thun",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-thun-309b274a"
+        "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-thun"
       ],
       "en": [
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-5ac0c4ff",
         "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-thun-48703733",
-        "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-thun",
-        "apprenticeship-electrical-installer-in-efz-all-bkw-thun-f973c7dd"
+        "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-thun"
       ],
       "fr": [
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-5ac0c4ff",
         "apprenticeship-electrical-installer-in-efz-all-bkw-thun-f973c7dd",
-        "apprenticeship-electrical-installer-in-efz-all-bkw-thun",
-        "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-thun-48703733"
+        "apprenticeship-electrical-installer-in-efz-all-bkw-thun"
       ],
       "de": [
         "apprenticeship-electrical-installer-in-efz-all-bkw-thun-f973c7dd",
         "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-thun-48703733",
         "apprenticeship-electrical-installer-in-efz-all-bkw-thun",
-        "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-thun",
-        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-5ac0c4ff"
+        "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-thun"
       ]
     },
     "postalCode": "3600",
@@ -76375,8 +76377,7 @@
         "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-nidau-iwga4m-f4307054",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-2b808ef0",
         "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-wangen-an-der-aare-1c3eb48d",
-        "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-wangen-an-der-aare-cacd6387",
-        "apprenticeship-electrical-installer-in-efz-all-bkw-wangen-an-der-aare-ce1c0af6"
+        "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-wangen-an-der-aare-cacd6387"
       ],
       "fr": [
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-33-cc583780",
@@ -76385,8 +76386,7 @@
         "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-nidau-iwga4m-f4307054",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-2b808ef0",
         "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-wangen-an-der-aare-1c3eb48d",
-        "apprenticeship-electrical-installer-in-efz-all-bkw-wangen-an-der-aare-ce1c0af6",
-        "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-wangen-an-der-aare-cacd6387"
+        "apprenticeship-electrical-installer-in-efz-all-bkw-wangen-an-der-aare-ce1c0af6"
       ],
       "de": [
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-33-7738cfaf",
@@ -85035,8 +85035,9 @@
       "senior-hr-business-partner-tutti-bkw-bulle",
       "senior-hr-business-partner-all-bkw-bulle",
       "partenaire-principal-des-rh-tous-bkw-bulle-d57e6312-3d12b5b7",
+      "senior-hr-business-partner-alle-bkw-ch-2-89e90e03",
       "partenaire-principal-des-rh-tous-bkw-bulle-d57e6312",
-      "senior-hr-business-partner-alle-bkw-ch-2-89e90e03"
+      "senior-hr-business-partner-alle-bkw-ch-2"
     ]
   },
   {
@@ -85423,7 +85424,6 @@
         "heizungsinstallateur-in-cfc-bkw-st-gallen"
       ],
       "de": [
-        "heizungsinstallateur-in-efz-bkw-ch-4d4d34e1",
         "heizungsinstallateur-in-cfc-bkw-st-gallen",
         "installateur-de-chauffage-efz-bkw-st-gallen"
       ]

@@ -69,7 +69,7 @@ import { isWorkHistoryContext } from './lib/workHistoryContext.js';
 import { isOngoingPeriod, isoDateOf, parseEndpoint } from './lib/cvPeriod.js';
 import { languageCodesIn } from './lib/languageFacts.js';
 import { civilStatusCode, civilStatusOption, civilStatusOptions, isCivilStatusField, salutationFor, salutationGenderFromName } from './lib/personalFacts.js';
-import { asksHeldStatus, isNationalityField, isPermitField, nationalityCodes, nationalityLabelOf, nationalityOf, permitLabel, permitOptionCode, permitStatusOf } from './lib/permitStatus.js';
+import { asksHeldStatus, isNationalityField, isPermitField, nationalityCodes, nationalityLabelOf, nationalityOf, permitLabel, permitOptionCode, permitStatusOf, isCompoundResidenceDisjunction, isResidenceOrPermitCaption } from './lib/permitStatus.js';
 import { phoneCountryCode } from './lib/phoneNormalization.js';
 import { isUnknownAnswer } from './lib/unknownAnswer.js';
 import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestionConstraints.js';
@@ -97,9 +97,11 @@ import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestion
 // questions; a passport stated at upload remains the higher-priority fact, and an unknown nationality stays open.
 // v14 (2026-11-12): passport questions share one fact; verified platform answers plus a foreign permit can
 // establish EU/EFTA, while an explicit candidate blank keeps the passport unknown.
+// v16 (2026-11-27): «Risiedi in Svizzera?» answered from the stated address country, and a residence-or-permit
+// question answered yes only by a held permit (never no from the lack of one): the waits on them are read again.
 // v15 (2026-11-24): deduce birth-year estimate from work experience when education lacks dates (unblocking
 // civil-status deduction), and deduce category B driving licence from own-car evidence or decision.
-export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v15';
+export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v16';
 
 /** The street names a required street field receives when the CV has none (owner list, 2026-11-09). */
 export const PLATFORM_STREETS = Object.freeze([
@@ -522,6 +524,7 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
   const resolvedSalary = baseSalary?.annual || !(uploadedSalaryNum >= 10000 && uploadedSalaryNum <= 1000000)
     ? baseSalary
     : { ...baseSalary, annual: uploadedSalaryNum, monthly: Math.round(uploadedSalaryNum / 12), source: 'candidate_upload' };
+  const drivingLicenceBRejected = hasDrivingLicenceBRejection({ order, profile, cvText, questions, answers });
   return {
     version: PLATFORM_DEFAULTS_VERSION,
     locale: language,
@@ -571,7 +574,10 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
     // The candidate's own answers at CV upload, '' when the order predates them (owner decision 2026-11-10).
     criminalRecord: legalRecordAnswer(uploaded.criminalRecord),
     debtRecord: legalRecordAnswer(uploaded.debtRecord),
-    drivingLicenceB: hasDrivingLicenceBFact({ order, profile, cvText, questions, answers, decisionAnswers }),
+    drivingLicenceBProven: hasDrivingLicenceBFact({ order, profile, cvText, questions, answers, decisionAnswers }),
+    drivingLicenceBRejected,
+    drivingLicenceB: !drivingLicenceBRejected,
+    physicalFitnessRejected: hasPhysicalFitnessRejection({ questions, answers }),
   };
 }
 
@@ -623,6 +629,41 @@ function hasDrivingLicenceBFact({ order = {}, profile = {}, cvText = '', questio
   return false;
 }
 
+const CLAUSE_LICENCE_NEGATION = /\b(?:no|non(?:\s+(?:possied\w*|dispong\w*|deteng\w*|ho|sono\s+in\s+possesso))?|not|do\s+not\s+(?:have|hold|possess)|don\s*t\s+(?:have|hold|possess)|without|lack\s+of|senza|priv[oa]\s+di|mancanza\s+di|nessun[ao]?|kein\w*|nicht(?:\s+(?:vorhanden|im\s+besitz|besitz\w*))?|habe\s+kein\w*|besitze\s+kein\w*|ohne|ne\s+(?:possede|detiens|dispos\w*)\s+pas|pas\s+de|aucun\w*|sans)\b/;
+const SUFFIX_LICENCE_NEGATION = /^\s*(?:di\s+categoria\s+b\s+|cat(?:egori[ae]|egory)?\.?\s*b\s+|kat(?:egorie)?\.?\s*b\s+|classe?\s*b\s+|b\s+)?(?:no|non\s+(?:presente|possedut\w*|disponibil\w*|valida)|none|assente|mancante|nein|nicht\s+vorhanden|non\s+disponible|absent\w*)\b/;
+
+function hasDrivingLicenceBRejection({ order = {}, profile = {}, cvText = '', questions = [], answers = {} } = {}) {
+  if (profile?.drivingLicence === false || order?.candidateFacts?.drivingLicence === false) return true;
+  const structured = fold([profile?.drivingLicence, order?.candidateFacts?.drivingLicence].filter(Boolean).join(' '));
+  if (structured && (
+    /^(?:no|none|nessun[ao]?|kein\w*|aucun\w*|non)\b/.test(structured)
+    || /\b(?:senza\s+patente|non\s+patentat\w*|kein\w*\s+fuhr(?:er)?(?:ausweis|schein)|ohne\s+fuhr(?:er)?(?:ausweis|schein)|sans\s+permis|no\s+driv(?:ing|er'?s?)\s+licen[cs]e)\b/.test(structured)
+  )) {
+    return true;
+  }
+  for (const q of Array.isArray(questions) ? questions : []) {
+    if (!isDrivingLicenceBQuestion(q)) continue;
+    const candidateAns = answers?.[q.id];
+    if (candidateAns === false || (typeof candidateAns === 'string' && NO.test(fold(candidateAns)))) return true;
+  }
+  const sources = [cvText, order?.candidateNotes, profile?.summary].filter((value) => typeof value === 'string' && value.trim());
+  for (const source of sources) {
+    for (const rawClause of source.split(/[\r\n.;,!?()]+/)) {
+      const folded = fold(rawClause);
+      if (!folded) continue;
+      for (const subClause of folded.split(/\b(?:ma|but|aber|mais|e|and|und|et)\b/)) {
+        const fieldRe = new RegExp(DRIVING_LICENCE_B_FIELD.source, 'g');
+        for (const match of subClause.matchAll(fieldRe)) {
+          const prefix = subClause.slice(Math.max(0, match.index - 40), match.index);
+          const suffix = subClause.slice(match.index + match[0].length, match.index + match[0].length + 40);
+          if (CLAUSE_LICENCE_NEGATION.test(prefix) || SUFFIX_LICENCE_NEGATION.test(suffix)) return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
 function isDrivingLicenceBQuestion(question) {
   if (!isBinary(question)) return false;
   const text = label(question);
@@ -631,6 +672,24 @@ function isDrivingLicenceBQuestion(question) {
     return false;
   }
   return DRIVING_LICENCE_CAT_B.test(text) || /\b(?:licenza\s+di\s+condurre|patente(?:\s+di\s+guida)?|fuhrerausweis|fuhrerschein|permis\s+de\s+conduire|driv(?:ing|er'?s?)\s+licen[cs]e)\b/.test(text);
+}
+
+const PHYSICAL_FITNESS_POSITIVE = /\b(?:(?:buon[aeo]?|ottim[aeo]?|san[aeo]?)\s+(?:e\s+robust[aeo]?\s+)?(?:(?:forma|condizion[ei])\s+fisic\w*|costituzion[ei](?:\s+fisic\w*)?)|fisicamente\s+idone\w*|idone\w*\s+fisicamente|idoneita\s+fisica|fisic\w*\s+adatt\w*\s+(?:a|al|alle|ai|allo|agli|per)\b|(?:gute|guter)\s+korperliche\w*\s+(?:verfassung|kondition|fitness|belastbarkeit)|korperlich\w*\s+(?:fit|belastbar|geeignet|leistungsfahig|tauglich)|(?:bonne|excellente)\s+(?:condition|aptitude)\s+physique|physiquement\s+(?:apte|capable|en\s+forme)|aptitude\s+physique|physically\s+(?:fit|able|capable|suited)|good\s+physical\s+(?:fitness|condition))\b/;
+const PHYSICAL_FITNESS_EXCLUSION = /\b(?:certific\w*|attestat\w*|autocertific\w*|dichiarazione\s+medica|allega\w*|upload\w*|caric\w*|copia|copy|kopie|copie|scan\w*|pdf|file|datei\w*|fichier\w*|visita\s+medic\w*|esame\s+medic\w*|accertament\w*|refert\w*|medic\w*|doctor|arzt\w*|medecin|sanitar\w*|psic\w*|psych\w*|mental\w*|moral\w*|condott\w*|casellario|penal\w*|criminal\w*|strafregister\w*|casier|leumund\w*|judiciaire|malatt\w*|krankheit\w*|maladie\w*|illness\w*|disease\w*|infortun\w*|disabil\w*|invalid\w*|handicap\w*|behinder\w*|patolog\w*|allerg\w*|gravidanz\w*|pregnan\w*|schwanger\w*|grossesse|vaccin\w*|inabilita|incapacit\w*|limitazion\w*|limitation\w*|einschrankung\w*|restriction\w*|problemi|problem\w*|difficolt\w*|disturb\w*|schwierigkeit\w*|beschwerden|douleur\w*|impairment\w*|gewicht|weight|peso|poids|altezza|height|taille)\b/;
+
+function isPhysicalFitnessQuestion(question) {
+  if (!isBinary(question)) return false;
+  const text = label(question);
+  return PHYSICAL_FITNESS_POSITIVE.test(text) && !PHYSICAL_FITNESS_EXCLUSION.test(text);
+}
+
+function hasPhysicalFitnessRejection({ questions = [], answers = {} } = {}) {
+  for (const q of Array.isArray(questions) ? questions : []) {
+    if (!isPhysicalFitnessQuestion(q)) continue;
+    const candidateAns = answers?.[q.id];
+    if (candidateAns === false || (typeof candidateAns === 'string' && NO.test(fold(candidateAns)))) return true;
+  }
+  return false;
 }
 
 /** The countries bordering Switzerland: a resident who works in Switzerland is a cross-border commuter. */
@@ -1638,6 +1697,17 @@ export function withCandidateAddress(facts, statements = {}) {
   return { ...facts, address: { ...address, candidateStated: true } };
 }
 
+// «Risiedi in Svizzera?» alone (every caption of the field says only that): where the candidate lives is the
+// address country the CV or the candidate stated, never a guess. A condition («…o in zona di frontiera»), a
+// duration or a second ask makes it another question and stays unanswered.
+const RESIDENCE_IN_SWITZERLAND = /^(?:(?:risiedi|abiti|vivi|sei residente)\s+(?:attualmente\s+)?(?:in|nella)\s+(?:svizzera|confederazione svizzera)|(?:wohnen sie|wohnst du)\s+(?:derzeit\s+|aktuell\s+)?in der schweiz|(?:do you|are you)\s+(?:currently\s+)?(?:live|living|reside|residing|resident)\s+in switzerland|(?:habitez|residez)[- ]vous\s+(?:actuellement\s+)?en suisse)$/;
+function isResidenceInSwitzerlandQuestion(question) {
+  if (!isBinary(question)) return false;
+  const captions = [question?.applicationQuestion, question?.question, question?.label]
+    .filter((value) => typeof value === 'string' && value.trim()).map(fold);
+  return captions.length > 0 && captions.every((caption) => RESIDENCE_IN_SWITZERLAND.test(caption));
+}
+
 function classifyPlatformSubject(question) {
   const text = label(question);
   if (!text) return null;
@@ -1662,6 +1732,7 @@ function classifyPlatformSubject(question) {
   }
   if (isCivilStatusField(text)) return 'civil_status';
   if (isDrivingLicenceBQuestion(question)) return 'driving_licence_b';
+  if (isResidenceInSwitzerlandQuestion(question)) return 'residence_in_switzerland';
   const raw = [question?.applicationQuestion, question?.question, question?.label].filter(Boolean).join(' ');
   const permitOptions = optionsOf(question).filter((option) => permitCodeOf(option)).length;
   if ((isPermitField(raw) && asksHeldStatus(raw)) || permitOptions >= 2) return 'work_permit';
@@ -1699,6 +1770,7 @@ function classifyPlatformSubject(question) {
   if ((id === 'shift_flexibility' || (SHIFT_SCHEDULE.test(text) && SHIFT_WORK_CONTEXT.test(text) && SHIFT_AVAILABLE.test(text)))
     && !SHIFT_NOT_FLEXIBILITY.test(text) && !/\d+\s*%/.test(raw) && isBinary(question)) return 'shift_flexibility';
   if (SUITABILITY.test(text) && APPLIED_FUNCTION.test(text) && !NOT_SUITABILITY.test(text) && isBinary(question)) return 'function_suitability';
+  if (isPhysicalFitnessQuestion(question)) return 'physical_fitness';
   const languages = languageCodesIn(text);
   if (languages.length === 1 && LANGUAGE_LEVEL.test(text)) return `language:${languages[0]}`;
   if (isSwissArmyQuestion(question)) return 'swiss_army_service';
@@ -2234,9 +2306,9 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
     }
     case 'birth_date': value = dateValue(question, known.dateOfBirth, lang); break;
     case 'driving_licence_b':
-      if (known.drivingLicenceB) {
+      if (!known.drivingLicenceBRejected && known.drivingLicenceB !== false) {
         value = yesValue(question, lang);
-        basis = 'deduced';
+        if (known.drivingLicenceBProven) basis = 'deduced';
       }
       break;
     case 'birth_day': value = known.dateOfBirth ? choose(question, String(Number(known.dateOfBirth.slice(8, 10)))) || choose(question, `${Number(known.dateOfBirth.slice(8, 10))}.`) : ''; break;
@@ -2249,8 +2321,16 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
       value = options.length ? civilStatusOption(options, localized) || civilStatusOption(options, civilStatusOptions('en')[index]) : localized;
       break;
     }
+    case 'residence_in_switzerland':
+      // The address country the CV or the candidate stated (explicit, or the directory's for a town and its code).
+      if (address.country) value = address.country === 'CH' ? yesValue(question, lang) : noValue(question, lang);
+      break;
     case 'work_permit': {
       const status = known.permitStatus;
+      // «Risiedi in Svizzera, o sei in possesso di un permesso di lavoro?» is true when either clause holds: a held
+      // permit makes it yes, but without one the candidate may still live in Switzerland: no answer is derived.
+      if (isBinary(question) && isCompoundResidenceDisjunction(question?.applicationQuestion, question?.question, question?.label)) break;
+      if (isBinary(question) && isResidenceOrPermitCaption(question?.applicationQuestion, question?.question, question?.label) && (!status || status === 'none')) break;
       if (!status && (isBinary(question) || !options.length || !known.passport)) break;
       if (options.length && !isBinary(question)) value = (status ? pickOption(question, (option) => permitCodeOf(option) === status) : '')
         || permitOptionFallback(question, status, known.passport);
@@ -2317,6 +2397,9 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
       value = holds ? yesValue(question, lang) : noValue(question, lang);
       break;
     }
+    case 'physical_fitness':
+      if (!known.physicalFitnessRejected) value = yesValue(question, lang);
+      break;
     case 'recording_consent':
     case 'on_call':
     case 'hybrid':

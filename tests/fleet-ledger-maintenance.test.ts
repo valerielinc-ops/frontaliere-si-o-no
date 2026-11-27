@@ -294,7 +294,7 @@ it.each(['explicit', 'explicit-mismatch', 'auto', 'auto-parent-mismatch', 'auto-
     fs.symlinkSync(fileURLToPath(new URL('./prepare-fleet-ledger-projection.mjs', script)), path.join(runner, 'prepare-fleet-ledger-projection.mjs'));
     const runnerScript = path.join(runner, 'attest-fleet-ledger-maintenance.mjs');
     fs.writeFileSync(runnerScript, fs.readFileSync(script, 'utf8')
-      .replace("const ARCHIVE = '1c6010d0791d4e8de3125c4f7637319da2ff70fd';", `const ARCHIVE = '${f.request.archiveSha}';`)
+      .replace("const ARCHIVE_L8 = '1c6010d0791d4e8de3125c4f7637319da2ff70fd';", `const ARCHIVE_L8 = '${f.request.archiveSha}';`)
       .replace('Object.freeze({ files: 152, records: 374 })', 'Object.freeze({ files: 2, records: 2 })'));
     const stagedTool = path.join(runner, 'prepare-fleet-ledger-migration.mjs');
     if (variant === 'auto-parent-mismatch') {

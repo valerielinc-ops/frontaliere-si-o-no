@@ -1,7 +1,7 @@
 {
   "crawlerKey": "benisasa-ch",
-  "assembledAt": "2026-11-26T21:43:20.888Z",
-  "runId": "45898143422",
+  "assembledAt": "2026-11-27T09:54:11.640Z",
+  "runId": "45973680225",
   "jobs": [
     {
       "id": "benisasa-ch-4bcebb0ad8b7",
@@ -34,7 +34,7 @@
       "url": "https://www.benisasa.ch/jobs/pianificatore-elettricista-afc",
       "source": "Benisa SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-26T21:43:07.161Z",
+      "crawledAt": "2026-11-27T09:54:01.953Z",
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -77,9 +77,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T21:43:07.161Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.benisasa.ch/jobs/pianificatore-elettricista-afc"
+      "validThrough": "2027-02-10T09:54:01.953Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "benisasa-ch-d8eb338e295f",
@@ -112,7 +111,7 @@
       "url": "https://www.benisasa.ch/jobs/installatore-elettricista-afc",
       "source": "Benisa SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-26T21:43:07.158Z",
+      "crawledAt": "2026-11-27T09:54:01.952Z",
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -155,9 +154,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T21:43:07.158Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.benisasa.ch/jobs/installatore-elettricista-afc"
+      "validThrough": "2027-02-10T09:54:01.952Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "benisasa-ch-5608d9f669c0",
@@ -190,7 +188,7 @@
       "url": "https://www.benisasa.ch/jobs/capo-progetto-in-installazione-e-sicurezza",
       "source": "Benisa SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-26T21:43:07.153Z",
+      "crawledAt": "2026-11-27T09:54:01.947Z",
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -233,9 +231,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T21:43:07.153Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.benisasa.ch/jobs/capo-progetto-in-installazione-e-sicurezza"
+      "validThrough": "2027-02-10T09:54:01.947Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

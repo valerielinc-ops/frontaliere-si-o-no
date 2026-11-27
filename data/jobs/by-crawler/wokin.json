@@ -1,7 +1,7 @@
 {
   "crawlerKey": "wokin",
-  "assembledAt": "2026-11-26T21:51:28.278Z",
-  "runId": "45897382103",
+  "assembledAt": "2026-11-27T10:01:36.510Z",
+  "runId": "45972781327",
   "jobs": [
     {
       "id": "wokin-service-frauenfeld",
@@ -41,7 +41,7 @@
       "applyUrl": "https://wokin.ch/stellen/",
       "source": "WOKIN Dedicated Parser (official Stellen and employer context)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:51:23.176Z",
+      "crawledAt": "2026-11-27T10:01:31.293Z",
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
@@ -98,7 +98,7 @@
         "checkedAt": "2026-11-09T15:43:22.005Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T21:51:23.176Z",
+      "validThrough": "2027-01-14T10:01:31.293Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://wokin.ch/stellen"
     }

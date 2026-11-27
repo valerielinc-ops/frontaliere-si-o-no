@@ -110597,6 +110597,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-uri-targhe-collaudo-auto': {
+    title: 'Uri: targhe e immatricolazione, intervalli del collaudo',
+    description: 'Uri: costi e requisiti di targhe e immatricolazione vanno verificati alla fonte ufficiale cantonale; per le auto il primo collaudo è dopo cinque anni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, targhe, immatricolazione, intervalli, collaudo',
+    ogTitle: 'Uri: immatricolazione e intervalli del collaudo',
+    ogDescription: 'A Uri, per le auto il primo collaudo è dopo cinque anni dalla prima messa in circolazione; poi, in genere, intervalli di tre e due anni. Tariffe e documenti non sono indicati; i dettagli vanno verificati presso la fonte ufficiale cantonale.',
+    canonicalPath: '/articoli-svizzera/uri-targhe-collaudo-auto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Uri: targhe e immatricolazione, intervalli del collaudo",
+      "description": "Uri: costi e requisiti di targhe e immatricolazione vanno verificati alla fonte ufficiale cantonale; per le auto il primo collaudo è dopo cinque anni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-zurigo-targhe-immatricolazione-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-27T06:40:46+00:00",
+      "dateModified": "2026-11-27T06:40:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/uri-targhe-collaudo-auto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-salario-minimo-svitto-regole': {
+    title: 'Salario minimo in Svitto: assenza federale e regole cantonali',
+    description: 'La Svizzera non ha salario minimo federale; alcuni Cantoni ne hanno uno proprio. Non sono disponibili dati specifici per Svitto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, minimo, svitto, assenza',
+    ogTitle: 'Salario minimo Svitto: assenza federale e regole cantonali',
+    ogDescription: 'La Svizzera non prevede un salario minimo federale, ma alcuni Cantoni hanno una propria disciplina. Non ci sono informazioni documentate su un minimo specifico per il Cantone di Svitto.',
+    canonicalPath: '/articoli-svizzera/salario-minimo-svitto-regole/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario minimo in Svitto: assenza federale e regole cantonali",
+      "description": "La Svizzera non ha salario minimo federale; alcuni Cantoni ne hanno uno proprio. Non sono disponibili dati specifici per Svitto.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-salario-minimo-svitto-regole.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-27T09:47:50+00:00",
+      "dateModified": "2026-11-27T09:47:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salario-minimo-svitto-regole/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-assistenza-sociale-svitto-criterio-bisogno': {
+    title: 'Assistenza sociale Svitto: amministrazione e criterio di bisogno',
+    description: 'L\'assistenza sociale in Svizzera è amministrata da Cantoni e comuni basandosi sul bisogno. Il materiale non dettaglia requisiti specifici per Svitto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assistenza, sociale, svitto, amministrazione',
+    ogTitle: 'Assistenza sociale Svitto: amministrazione e bisogno',
+    ogDescription: 'L\'assistenza sociale è generalmente amministrata dai Cantoni e dai comuni in Svizzera secondo il criterio del bisogno. Il materiale non fornisce requisiti o procedure specifiche per il Cantone di Svitto.',
+    canonicalPath: '/articoli-svizzera/assistenza-sociale-svitto-criterio-bisogno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assistenza sociale Svitto: amministrazione e criterio di bisogno",
+      "description": "L'assistenza sociale in Svizzera è amministrata da Cantoni e comuni basandosi sul bisogno. Il materiale non dettaglia requisiti specifici per Svitto.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-assistenza-sociale-svitto-criterio-bisogno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-27T11:11:34+00:00",
+      "dateModified": "2026-11-27T11:11:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assistenza-sociale-svitto-criterio-bisogno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

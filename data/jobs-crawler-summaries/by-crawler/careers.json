@@ -1,10 +1,10 @@
 {
   "key": "careers",
   "label": "lepatron",
-  "generatedAt": "2026-11-26T21:36:05.388Z",
+  "generatedAt": "2026-11-27T09:24:11.696Z",
   "total": 2,
   "discovered": null,
-  "parsed": 2,
+  "parsed": 1,
   "lastFetchOutcome": null,
   "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 3917,
-  "avgDurationMs": 3917,
+  "durationMs": 3895,
+  "avgDurationMs": 3895,
   "durationHistory": [
-    3917
+    3895
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Anlagenf%C3%BChrerin-mit-Ausbildung-KochK%C3%B6chin-oder-B%C3%A4ckerin%2C-100-BL/1434644333/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:35:53.274Z",
+      "crawledAt": "2026-11-27T09:23:56.591Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "postalCode": "4461",
       "streetAddress": "Böckten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:35:53.274Z",
+      "validThrough": "2026-12-27T09:23:56.591Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -108,6 +108,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T21:35:53.273Z",
       "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://careers.orior.ch/job/b%c3%b6ckten-praktikantin-product-management-&-qmqs%2c-40-100-bl/1447904133",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -117,5 +119,5 @@
       }
     }
   ],
-  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
+  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
 }

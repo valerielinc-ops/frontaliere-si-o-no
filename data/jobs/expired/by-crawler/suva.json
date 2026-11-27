@@ -59,7 +59,17 @@
         "firstSeenAt": "2026-09-09T13:48:26.861Z",
         "title": "Spezialist:in Heilkosten stationär 80 - 100 %"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spezialist-in-heilkosten-stationar-80-100-suva-aarau": "AG",
+        "spezialist-in-heilkosten-stationar-80-100-suva-aarau-aargau-5000-schweiz-solothurn": "AG"
+      },
+      "de": {
+        "spezialist-in-heilkosten-stationar-80-100-suva-aarau-aargau-5000-schweiz-solothurn": "AG"
+      }
+    }
   },
   {
     "id": "suva-d1365e4c0b50",
@@ -153,7 +163,17 @@
         "firstSeenAt": "2026-09-19T22:52:13.762Z",
         "title": "Spécialiste conduite des cas 80 - 100 %"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "specialiste-conduite-des-cas-80-100-suva-delemont": "VD",
+        "specialiste-conduite-des-cas-80-100-suva-delemont-jura-2800-suisse-fribourg-fribourg-1700": "VD"
+      },
+      "fr": {
+        "specialiste-conduite-des-cas-80-100-suva-delemont-jura-2800-suisse-fribourg-fribourg-1700": "VD"
+      }
+    }
   },
   {
     "id": "suva-8c87e8bb5ab3",
@@ -238,7 +258,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/luzern-junior-scrum-master-%28all-genders%29-80-100-lu-6004/1441330833",
-    "firstSeenAt": "2026-11-17T09:25:51.417Z"
+    "firstSeenAt": "2026-11-17T09:25:51.417Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "junior-scrum-master-all-genders-80-100-suva-luzern-luzern-6004-schweiz": "LU"
+      },
+      "fr": {
+        "junior-scrum-master-all-genders-80-100-suva-luzern-luzern-6004-schweiz": "LU"
+      }
+    }
   },
   {
     "id": "suva-62536e815c88",
@@ -303,7 +332,20 @@
         "firstSeenAt": "2026-10-12T09:22:25.290Z",
         "title": "System Engineer Linux (all genders) 80 - 100 %"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "system-engineer-linux-all-genders-80-100-suva-luzern-luzern-6004-schweiz": "LU",
+        "system-engineer-linux-all-genders-80-100-suva-luzern": "LU"
+      },
+      "de": {
+        "system-engineer-linux-all-genders-80-100-suva-luzern": "LU"
+      },
+      "fr": {
+        "system-engineer-linux-all-genders-80-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "id": "suva-370c6b72d694",
@@ -357,7 +399,8 @@
         "firstSeenAt": "2026-09-28T04:56:31.352Z",
         "title": "Stage 52 settimane per l'ottenimento della maturità commerciale"
       }
-    ]
+    ],
+    "canton": "TI"
   },
   {
     "id": "suva-7da3996eb449",
@@ -492,7 +535,20 @@
         "firstSeenAt": "2026-10-05T09:19:45.761Z",
         "title": "Network & VoIP Engineer (all genders) 80 - 100 %"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "network-voip-engineer-all-genders-80-100-suva-luzern-luzern-6004-schweiz": "LU",
+        "network-voip-engineer-all-genders-80-100-suva-luzern": "LU"
+      },
+      "de": {
+        "network-voip-engineer-all-genders-80-100-suva-luzern": "LU"
+      },
+      "fr": {
+        "network-voip-engineer-all-genders-80-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "id": "suva-ce8e19beb18b",
@@ -543,7 +599,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/bern-revisorin-80-100-be-3008/1453264933",
-    "firstSeenAt": "2026-11-02T09:43:24.504Z"
+    "firstSeenAt": "2026-11-02T09:43:24.504Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "revisor-in-80-100-suva-bern-bern-3008-schweiz": "BE"
+      },
+      "en": {
+        "revisor-in-80-100-suva-bern-bern-3008-schweiz": "BE"
+      },
+      "fr": {
+        "revisor-in-80-100-suva-bern-bern-3008-schweiz": "BE"
+      }
+    }
   },
   {
     "id": "suva-f0fe7a62479d",
@@ -605,7 +673,17 @@
         "firstSeenAt": "2026-10-05T09:19:50.200Z",
         "title": "Spezialist:in Public Affairs 80 - 100 %"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spezialist-in-public-affairs-80-100-suva-luzern": "LU",
+        "spezialist-in-public-affairs-80-100-suva-luzern-luzern-6004-schweiz": "LU"
+      },
+      "de": {
+        "spezialist-in-public-affairs-80-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "id": "suva-cc1bfae67da2",
@@ -675,7 +753,24 @@
         "firstSeenAt": "2026-09-19T22:52:02.597Z",
         "title": "Praktikant:in WMS 100 %"
       }
-    ]
+    ],
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-wms-100-freiburg-suva-freiburg": "FR",
+        "praktikant-in-wms-100-suva-freiburg": "FR",
+        "praktikant-in-wms-100-suva-freiburg-fribourg-1700-schweiz": "FR"
+      },
+      "en": {
+        "praktikant-in-wms-100-freiburg-suva-freiburg": "FR"
+      },
+      "de": {
+        "praktikant-in-wms-100-suva-freiburg-fribourg-1700-schweiz": "FR"
+      },
+      "fr": {
+        "praktikant-in-wms-100-freiburg-suva-freiburg": "FR"
+      }
+    }
   },
   {
     "slug": "responsabile-dei-contenuti-aziendali-80-100-suva-luzern-luzern-6004-schweiz",
@@ -722,7 +817,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/luzern-business-content-managerin-80-100-lu-6004/1452033933",
-    "firstSeenAt": "2026-10-28T20:05:13.089Z"
+    "firstSeenAt": "2026-10-28T20:05:13.089Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "business-content-manager-in-80-100-suva-luzern-luzern-6004-schweiz": "LU"
+      },
+      "fr": {
+        "business-content-manager-in-80-100-suva-luzern-luzern-6004-schweiz": "LU"
+      }
+    }
   },
   {
     "slug": "specialista-nella-gestione-dei-casi-80-100-suva-wetzikon-zurich-8620-schweiz",
@@ -766,7 +870,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/wetzikon-spezialistin-fallf%c3%bchrung-80-100-zh-8620/1454336833",
-    "firstSeenAt": "2026-11-09T09:25:51.633Z"
+    "firstSeenAt": "2026-11-09T09:25:51.633Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spezialist-in-fallfuhrung-80-100-suva-wetzikon-zurich-8620-schweiz": "ZH"
+      }
+    }
   },
   {
     "id": "suva-c80f1fad6fc1",
@@ -848,7 +958,29 @@
         "firstSeenAt": "2026-09-19T22:52:04.873Z",
         "title": "Stagiaire MPE 100 %"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stagiaire-mpe-100-fribourg-suva-fribourg": "FR",
+        "stagiaire-mpe-100-suva-fribourg": "FR",
+        "stagiaire-mpe-100-suva-fribourg-fribourg-1700-suisse": "FR",
+        "interno-mpe-100-fribourg-suva-fribourg-8403094b": "FR",
+        "stagiaire-mpe-100-fribourg-suva-fribourg-eb11bece": "FR",
+        "stagiaire-mpe-100-suva-fribourg-7e1b9560": "FR"
+      },
+      "en": {
+        "stagiaire-mpe-100-fribourg-suva-fribourg": "FR",
+        "intern-mpe-100-fribourg-suva-fribourg-1530d850": "FR",
+        "stagiaire-mpe-100-fribourg-suva-fribourg-eb11bece": "FR"
+      },
+      "de": {
+        "intern-mpe-100-freiburg-suva-fribourg-860d7cc0": "FR"
+      },
+      "fr": {
+        "stagiaire-mpe-100-suva-fribourg-fribourg-1700-suisse": "FR",
+        "stagiaire-mpe-100-fribourg-suva-fribourg-eb11bece": "FR"
+      }
+    }
   },
   {
     "id": "suva-3b127aefbd90",
@@ -923,7 +1055,25 @@
         "firstSeenAt": "2026-08-17T10:09:54.463Z",
         "title": "Praktikant:in WMS Customer Service Center 100 %"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-wms-customer-service-center-100-suva-luzern": "LU",
+        "praktikant-in-wms-customer-service-center-100-suva-luzern-luzern-6004-schweiz": "LU",
+        "praktikant-in-wms-servizio-clienti-center-100-suva-luzern-1109d423": "LU",
+        "praktikant-in-wms-customer-service-center-100-suva-luzern-e2029843": "LU"
+      },
+      "en": {
+        "praktikant-in-wms-customer-service-center-100-suva-luzern-e2029843": "LU"
+      },
+      "de": {
+        "praktikant-in-wms-customer-service-center-100-suva-luzern-luzern-6004-schweiz": "LU",
+        "praktikant-in-wms-customer-service-center-100-suva-luzern-e2029843": "LU"
+      },
+      "fr": {
+        "stage-dans-le-centre-de-service-a-la-clientele-wms-100-suva-luzern-6945a02d": "LU"
+      }
+    }
   },
   {
     "slug": "stage-52-settimane-per-l-ottenimento-della-maturita-commerciale-suva-stage-52-settimane-fd2e1d27",
@@ -1247,7 +1397,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/lausanne-directrice-directeur-des-prestations-suisse-occidentale-80-100-vd-1003/1450861733",
-    "firstSeenAt": "2026-10-26T09:16:44.876Z"
+    "firstSeenAt": "2026-10-26T09:16:44.876Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "directrice-directeur-des-prestations-suisse-occidentale-80-100-suva-delemont-jura-2800": "VD"
+      },
+      "en": {
+        "directrice-directeur-des-prestations-suisse-occidentale-80-100-suva-delemont-jura-2800": "VD"
+      },
+      "de": {
+        "directrice-directeur-des-prestations-suisse-occidentale-80-100-suva-delemont-jura-2800": "VD"
+      }
+    }
   },
   {
     "slug": "network-voip-ingegnere-all-genders-80-100-suva-luzern-luzern-6004-schweiz-f4584648",
@@ -1481,7 +1643,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/aarau-case-manager-50-80-ag-5000/1453725233",
-    "firstSeenAt": "2026-11-05T09:17:55.900Z"
+    "firstSeenAt": "2026-11-05T09:17:55.900Z",
+    "canton": "AG",
+    "previousSlugsByLocale": {
+      "en": [
+        "case-manager-50-80-suva-aarau-aargau-5000-schweiz"
+      ],
+      "de": [
+        "case-manager-50-80-suva-aarau-aargau-5000-schweiz"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "case-manager-50-80-suva-aarau-aargau-5000-schweiz": "AG"
+      },
+      "de": {
+        "case-manager-50-80-suva-aarau-aargau-5000-schweiz": "AG"
+      }
+    }
   },
   {
     "slug": "network-voip-ingegnere-all-genders-80-100-suva-luzern-luzern-6004-schweiz-bfd72e9a",
@@ -1738,7 +1917,17 @@
         "firstSeenAt": "2026-08-31T22:32:50.520Z",
         "title": "Apprenti∙e 2027 employé∙e de commerce CFC 100 %"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-geneve": "GE",
+        "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-geneve-geneve-1207-suisse": "GE"
+      },
+      "fr": {
+        "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-geneve-geneve-1207-suisse": "GE"
+      }
+    }
   },
   {
     "slug": "network-voip-ingegnere-all-genders-80-100-suva-luzern-luzern-6004-schweiz-d60ccbd5",
@@ -2139,7 +2328,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/bern-spezialistin-fallf%c3%bchrung-80-100-be-3008/1449868133",
-    "firstSeenAt": "2026-10-22T21:27:37.703Z"
+    "firstSeenAt": "2026-10-22T21:27:37.703Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spezialist-in-fallfuhrung-80-100-suva-bern-bern-3008-schweiz": "BE"
+      },
+      "en": {
+        "spezialist-in-fallfuhrung-80-100-suva-bern-bern-3008-schweiz": "BE"
+      },
+      "fr": {
+        "specialiste-en-gestion-de-cas-80-100-suva-bern-bern-3008-schweiz": "BE",
+        "spezialist-in-fallfuhrung-80-100-suva-bern-bern-3008-schweiz": "BE"
+      }
+    }
   },
   {
     "slug": "stage-52-settimane-per-l-ottenimento-della-maturita-commerciale-suva-stage-52-settimane-f560cd65",
@@ -2423,7 +2625,20 @@
         "firstSeenAt": "2026-10-21T09:19:11.373Z",
         "title": "Stabsexpert:in Geschäftsleitung und Departementsleitung 80 - 100 %"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stabsexpert-in-geschaftsleitung-und-departementsleitung-80-100-suva-luzern-luzern-6004": "LU",
+        "stabsexpert-in-geschaftsleitung-e-departementsleitung-80-100-suva-luzern-6004-schweiz": "LU"
+      },
+      "en": {
+        "stabsexpert-in-geschaftsleitung-und-departementsleitung-80-100-suva-luzern-luzern-6004": "LU"
+      },
+      "fr": {
+        "stabsexpert-in-geschaftsleitung-und-departementsleitung-80-100-suva-luzern-luzern-6004": "LU"
+      }
+    }
   },
   {
     "slug": "network-voip-ingegnere-all-genders-80-100-suva-luzern-luzern-6004-schweiz-5ee331ef",
@@ -3146,7 +3361,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/luzern-agentic-ai-engineer-%28all-genders%29-80-100-lu-6004/1440081533",
-    "firstSeenAt": "2026-10-26T09:16:56.217Z"
+    "firstSeenAt": "2026-10-26T09:16:56.217Z",
+    "canton": "LU",
+    "previousSlugsByLocale": {
+      "en": [
+        "agentic-ai-engineer-all-genders-80-100-suva-luzern-luzern-6004-schweiz"
+      ],
+      "de": [
+        "agentic-ai-engineer-all-genders-80-100-suva-luzern-luzern-6004-schweiz"
+      ],
+      "fr": [
+        "agentic-ai-engineer-all-genders-80-100-suva-luzern-luzern-6004-schweiz"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "agentic-ai-engineer-all-genders-80-100-suva-luzern-luzern-6004-schweiz": "LU"
+      },
+      "de": {
+        "agentic-ai-engineer-all-genders-80-100-suva-luzern-luzern-6004-schweiz": "LU"
+      },
+      "fr": {
+        "agentic-ai-engineer-all-genders-80-100-suva-luzern-luzern-6004-schweiz": "LU"
+      }
+    }
   },
   {
     "slug": "apprendistato-2027-dipendente-commerciale-cfc-100-suva-lausanne",
@@ -3207,7 +3445,17 @@
         "firstSeenAt": "2026-08-31T22:32:49.424Z",
         "title": "Apprenti∙e 2027 employé∙e de commerce CFC 100 %"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-lausanne": "VD",
+        "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-lausanne-vaud-1003-suisse": "VD"
+      },
+      "fr": {
+        "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-lausanne-vaud-1003-suisse": "VD"
+      }
+    }
   },
   {
     "slug": "stage-52-settimane-per-l-ottenimento-della-maturita-commerciale-suva-stage-52-settimane-01dcb0c6",
@@ -3358,7 +3606,20 @@
         "firstSeenAt": "2026-10-05T09:19:44.683Z",
         "title": "EIAM Fullstack Developer (all genders) 80 - 100 %"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "eiam-fullstack-developer-all-genders-80-100-suva-luzern-luzern-6004-schweiz": "LU",
+        "eiam-fullstack-developer-all-genders-80-100-suva-luzern": "LU"
+      },
+      "de": {
+        "eiam-fullstack-developer-all-genders-80-100-suva-luzern": "LU"
+      },
+      "fr": {
+        "eiam-fullstack-developer-all-genders-80-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "network-voip-ingegnere-all-genders-80-100-suva-luzern-luzern-6004-schweiz-8629054b",
@@ -3549,7 +3810,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/del%c3%a9mont-gestionnaire-prestations-de-courte-dur%c3%a9e-80-100-ju-2800/1453250333",
-    "firstSeenAt": "2026-11-02T09:43:23.519Z"
+    "firstSeenAt": "2026-11-02T09:43:23.519Z",
+    "canton": "JU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "gestionnaire-prestations-de-courte-duree-80-100-suva-delemont-jura-2800-suisse-fribourg": "JU",
+        "gestionnaire-prestations-de-courte-duree-80-100-suva-delemont-jura-2800-suisse-fribourg-1700-suisse-geneve-1207-suisse-la-chaux-de-fonds-neuchatel-2300-suisse-lausa": "JU"
+      },
+      "en": {
+        "gestionnaire-prestations-de-courte-duree-80-100-suva-delemont-jura-2800-suisse-fribourg": "JU"
+      },
+      "de": {
+        "gestionnaire-prestations-de-courte-duree-80-100-suva-delemont-jura-2800-suisse-fribourg": "JU"
+      }
+    }
   },
   {
     "slug": "stage-52-settimane-per-l-ottenimento-della-maturita-commerciale-suva-stage-52-settimane-8de35713",
@@ -3631,7 +3905,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/luzern-product-owner-agentic-ai-platform-%28all-genders%29-80-100-lu-6004/1451085233",
-    "firstSeenAt": "2026-10-26T09:16:54.096Z"
+    "firstSeenAt": "2026-10-26T09:16:54.096Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "product-owner-agentic-ai-platform-all-genders-80-100-suva-luzern-luzern-6004-schweiz": "LU"
+      },
+      "fr": {
+        "product-owner-agentic-ai-platform-all-genders-80-100-suva-luzern-luzern-6004-schweiz": "LU"
+      }
+    }
   },
   {
     "slug": "specialista-nella-lotta-contro-l-abuso-di-assicurazione-80-100-suva-argovia",
@@ -3694,7 +3977,18 @@
         "firstSeenAt": "2026-08-11T10:14:20.056Z",
         "title": "Spezialist:in Bekämpfung Versicherungsmissbrauch 80 - 100 %"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spezialist-in-bekampfung-versicherungsmissbrauch-80-100-suva-aarau-basel-bellinzona-bern-chur-delemont-freiburg-genf-la-chaux-de-fonds-lausanne-luzern-root-sion-solothurn-st-gallen": "AG",
+        "spezialist-in-bekampfung-versicherungsmissbrauch-80-100-suva-aarau": "AG",
+        "spezialist-in-bekampfung-versicherungsmissbrauch-80-100-suva-aarau-aargau-5000-schweiz": "AG"
+      },
+      "de": {
+        "spezialist-in-bekampfung-versicherungsmissbrauch-80-100-suva-aarau-aargau-5000-schweiz": "AG"
+      }
+    }
   },
   {
     "slug": "stage-52-settimane-per-l-ottenimento-della-maturita-commerciale-suva-stage-52-settimane-5d965119",
@@ -4068,7 +4362,17 @@
         "firstSeenAt": "2026-10-05T09:19:38.034Z",
         "title": "Syrius Parametrierer:in / Applikationsentwickler:in 80 - 100 %"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "syrius-parametrierer-in-applikationsentwickler-in-80-100-suva-luzern": "LU",
+        "syrius-parametrierer-in-applikationsentwickler-in-80-100-suva-luzern-luzern-6004-schweiz": "LU"
+      },
+      "de": {
+        "syrius-parametrierer-in-applikationsentwickler-in-80-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "interno-mpe-100-suva-lausanne",
@@ -4137,7 +4441,24 @@
         "firstSeenAt": "2026-09-19T22:52:12.793Z",
         "title": "Stagiaire MP 3+1 100 %"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stagiaire-mpe-100-suva-lausanne": "VD",
+        "stagiaire-mp-3-1-100-suva-lausanne": "VD",
+        "stagiaire-mp-3-1-100-suva-lausanne-vaud-1003-suisse": "VD"
+      },
+      "en": {
+        "stagiaire-mpe-100-suva-lausanne": "VD"
+      },
+      "de": {
+        "stagiaire-mpe-100-suva-lausanne": "VD"
+      },
+      "fr": {
+        "stagiaire-mp-3-1-100-suva-lausanne-vaud-1003-suisse": "VD"
+      }
+    }
   },
   {
     "slug": "network-voip-ingegnere-all-genders-80-100-suva-luzern-luzern-6004-schweiz-6063d617",
@@ -5061,7 +5382,23 @@
         "firstSeenAt": "2026-10-12T09:22:26.352Z",
         "title": "Collaboratrice / Collaborateur Backoffice Division juridique 50 - 100 %"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratrice-collaborateur-backoffice-division-juridique-50-100-suva-lucerne": "LU",
+        "collaboratrice-collaborateur-backoffice-division-juridique-50-100-suva-lucerne-luzern-6004": "LU"
+      },
+      "en": {
+        "collaboratrice-collaborateur-backoffice-division-juridique-50-100-suva-lucerne": "LU"
+      },
+      "de": {
+        "collaboratrice-collaborateur-backoffice-division-juridique-50-100-suva-lucerne": "LU"
+      },
+      "fr": {
+        "collaboratrice-collaborateur-backoffice-division-juridique-50-100-suva-lucerne": "LU"
+      }
+    }
   },
   {
     "slug": "impiegato-a-back-office-reparto-legale-50-100-suva-luzern",
@@ -5136,7 +5473,25 @@
         "firstSeenAt": "2026-10-12T09:22:27.399Z",
         "title": "Mitarbeiter:in Backoffice Rechtsabteilung 80 - 100 %"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-backoffice-rechtsabteilung-50-100-suva-luzern": "LU",
+        "collaboratore-trice-backoffice-rechtsabteilung-50-100-suva-luzern": "LU",
+        "mitarbeiter-in-backoffice-rechtsabteilung-80-100-suva-luzern": "LU",
+        "mitarbeiter-in-backoffice-rechtsabteilung-80-100-suva-luzern-luzern-6004-schweiz": "LU"
+      },
+      "en": {
+        "mitarbeiter-in-backoffice-rechtsabteilung-50-100-suva-luzern": "LU"
+      },
+      "de": {
+        "mitarbeiter-in-backoffice-rechtsabteilung-50-100-suva-luzern": "LU"
+      },
+      "fr": {
+        "mitarbeiter-in-backoffice-rechtsabteilung-50-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "network-voip-ingegnere-all-genders-80-100-suva-luzern-luzern-6004-schweiz-ad07cc6e",
@@ -5366,7 +5721,17 @@
         "firstSeenAt": "2026-08-31T22:32:52.710Z",
         "title": "Apprenti∙e 2027 employé∙e de commerce CFC 100 %"
       }
-    ]
+    ],
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-sion": "VS",
+        "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-sion-valais-1950-suisse": "VS"
+      },
+      "fr": {
+        "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-sion-valais-1950-suisse": "VS"
+      }
+    }
   },
   {
     "slug": "network-voip-ingegnere-all-genders-80-100-suva-luzern-luzern-6004-schweiz-41c8cd71",
@@ -5465,7 +5830,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/st_-gallen-fach%c3%a4rztin-facharzt-psychiatrie-%28alle-geschlechter%29-80-100-sg-9000/1371896633",
-    "firstSeenAt": "2026-07-04T12:22:53.909Z"
+    "firstSeenAt": "2026-07-04T12:22:53.909Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau": "SG",
+        "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau-aargau-5000-schweiz": "SG"
+      },
+      "de": {
+        "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau-aargau-5000-schweiz": "SG"
+      }
+    }
   },
   {
     "slug": "stage-52-settimane-per-l-ottenimento-della-maturita-commerciale-suva-stage-52-settimane-9a4da997",
@@ -5559,7 +5934,17 @@
         "firstSeenAt": "2026-08-17T10:09:52.233Z",
         "title": "Praktikant:in WMS HR Nachwuchsentwicklung 100 %"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-wms-hr-nachwuchsentwicklung-100-suva-luzern": "LU",
+        "praktikant-in-wms-hr-nachwuchsentwicklung-100-suva-luzern-luzern-6004-schweiz": "LU"
+      },
+      "de": {
+        "praktikant-in-wms-hr-nachwuchsentwicklung-100-suva-luzern-luzern-6004-schweiz": "LU"
+      }
+    }
   },
   {
     "slug": "network-voip-ingegnere-all-genders-80-100-suva-luzern-luzern-6004-schweiz-ce4b1212",
@@ -5704,7 +6089,17 @@
         "firstSeenAt": "2026-07-20T11:54:52.014Z",
         "title": "Rechtsanwältin / Rechtsanwalt Militärversicherung (alle Geschlechter) 80 - 100 %"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "rechtsanwaltin-rechtsanwalt-militarversicherung-alle-geschlechter-80-100-suva-bern": "BE",
+        "rechtsanwaltin-rechtsanwalt-militarversicherung-alle-geschlechter-80-100-suva-bern-bern": "BE"
+      },
+      "de": {
+        "rechtsanwaltin-rechtsanwalt-militarversicherung-alle-geschlechter-80-100-suva-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "fullstack-sviluppatore-net-sitecore-all-genders-80-100-suva-luzern-luzern-6004-schweiz",
@@ -5767,7 +6162,20 @@
         "firstSeenAt": "2026-10-05T09:19:39.098Z",
         "title": "Fullstack Developer .NET / Sitecore (all genders) 80 - 100 %"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fullstack-developer-net-sitecore-all-genders-80-100-suva-luzern-luzern-6004-schweiz": "LU",
+        "fullstack-developer-net-sitecore-all-genders-80-100-suva-luzern": "LU"
+      },
+      "de": {
+        "fullstack-developer-net-sitecore-all-genders-80-100-suva-luzern": "LU"
+      },
+      "fr": {
+        "fullstack-developer-net-sitecore-all-genders-80-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "network-voip-ingegnere-all-genders-80-100-suva-luzern-luzern-6004-schweiz-937e9ce1",
@@ -5918,7 +6326,23 @@
         "firstSeenAt": "2026-10-19T09:15:47.213Z",
         "title": "Unternehmensentwickler:in 80 - 100 %"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "unternehmensentwickler-in-80-100-suva-luzern": "LU",
+        "unternehmensentwickler-in-80-100-suva-luzern-luzern-6004-schweiz": "LU"
+      },
+      "en": {
+        "unternehmensentwickler-in-80-100-suva-luzern": "LU"
+      },
+      "de": {
+        "unternehmensentwickler-in-80-100-suva-luzern": "LU"
+      },
+      "fr": {
+        "unternehmensentwickler-in-80-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "data-ingegnere-data-mesh-all-genders-80-100-suva-luzern-luzern-6004-schweiz",
@@ -5981,7 +6405,20 @@
         "firstSeenAt": "2026-10-05T09:19:51.241Z",
         "title": "Data Engineer Data Mesh (all genders) 80 - 100%"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "data-engineer-data-mesh-all-genders-80-100-suva-luzern-luzern-6004-schweiz": "LU",
+        "data-engineer-data-mesh-all-genders-80-100-suva-luzern": "LU"
+      },
+      "de": {
+        "data-engineer-data-mesh-all-genders-80-100-suva-luzern": "LU"
+      },
+      "fr": {
+        "data-engineer-data-mesh-all-genders-80-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "impiegato-spese-mediche-ambulatoriali-80-100-suva-wetzikon",
@@ -6160,7 +6597,20 @@
         "firstSeenAt": "2026-10-05T09:19:36.978Z",
         "title": "Produktmanager Developer & Integration Platforms (all genders) 80 - 100 %"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "produktmanager-developer-integration-platforms-all-genders-80-100-suva-luzern-luzern-6004": "LU",
+        "produktmanager-developer-integration-platforms-all-genders-80-100-suva-luzern": "LU"
+      },
+      "de": {
+        "produktmanager-developer-integration-platforms-all-genders-80-100-suva-luzern": "LU"
+      },
+      "fr": {
+        "produktmanager-developer-integration-platforms-all-genders-80-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "specialista-sicurezza-e-protezione-della-salute-60-100-suva-luzern",
@@ -6231,7 +6681,26 @@
         "firstSeenAt": "2026-08-27T00:40:34.552Z",
         "title": "Bauingenieur:in Arbeitssicherheit und Gesundheitsschutz 60 - 100 %"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-60-100-suva-luzern": "LU",
+        "spezialist-in-arbeitssicherheit-e-gesundheitsschutz-60-100-suva-luzern": "LU",
+        "bauingenieur-in-arbeitssicherheit-und-gesundheitsschutz-60-100-suva-luzern": "LU",
+        "bauingenieur-in-arbeitssicherheit-und-gesundheitsschutz-60-100-suva-luzern-luzern-6004": "LU"
+      },
+      "en": {
+        "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-60-100-suva-luzern": "LU"
+      },
+      "de": {
+        "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-60-100-suva-luzern": "LU",
+        "bauingenieur-in-arbeitssicherheit-und-gesundheitsschutz-60-100-suva-luzern-luzern-6004": "LU"
+      },
+      "fr": {
+        "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-60-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "stage-52-settimane-per-l-ottenimento-della-maturita-commerciale-suva-stage-52-settimane-3a816fc3",
@@ -6376,7 +6845,17 @@
         "firstSeenAt": "2026-08-11T10:14:21.287Z",
         "title": "Leiter:in Centermanagement D4 Business Village 80 - 100 %"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leiter-in-centermanagement-d4-business-village-80-100-suva-root": "LU",
+        "leiter-in-centermanagement-d4-business-village-80-100-suva-root-luzern-6039-schweiz": "LU"
+      },
+      "de": {
+        "leiter-in-centermanagement-d4-business-village-80-100-suva-root-luzern-6039-schweiz": "LU"
+      }
+    }
   },
   {
     "slug": "stage-52-settimane-per-l-ottenimento-della-maturita-commerciale-suva-stage-52-settimane-e2e7290e",
@@ -6476,7 +6955,18 @@
         "firstSeenAt": "2026-09-19T22:52:16.774Z",
         "title": "Chef∙fe de team médecine d'assurance 80 - 100 %"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-fe-de-team-medecine-d-assurance-80-100-suva-lausanne": "VD",
+        "chef-fe-de-team-medecine-d-assurance-80-100-suva-lausanne-vaud-1003-suisse": "VD"
+      },
+      "fr": {
+        "chef-fe-de-team-medecine-d-assurance-80-100-suva-lausanne": "VD",
+        "chef-fe-de-team-medecine-d-assurance-80-100-suva-lausanne-vaud-1003-suisse": "VD"
+      }
+    }
   },
   {
     "slug": "network-voip-ingegnere-all-genders-80-100-suva-luzern-luzern-6004-schweiz-c13791c0",
@@ -6588,7 +7078,18 @@
         "firstSeenAt": "2026-09-19T22:52:14.698Z",
         "title": "Teamleiter:in Versicherungsmedizin 80 - 100 %"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiter-in-versicherungsmedizin-80-100-suva-lausanne": "VD",
+        "teamleiter-in-versicherungsmedizin-80-100-suva-lausanne-vaud-1003-schweiz": "VD"
+      },
+      "de": {
+        "teamleiter-in-versicherungsmedizin-80-100-suva-lausanne": "VD",
+        "teamleiter-in-versicherungsmedizin-80-100-suva-lausanne-vaud-1003-schweiz": "VD"
+      }
+    }
   },
   {
     "slug": "stage-52-settimane-per-l-ottenimento-della-maturita-commerciale-suva-stage-52-settimane-ec7b9fb6",
@@ -7509,7 +8010,17 @@
         "firstSeenAt": "2026-10-19T09:16:11.947Z",
         "title": "Analyst:in Asset Management 80 - 100 %"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "analyst-in-asset-management-80-100-suva-luzern-luzern-6004-schweiz": "LU",
+        "analyst-in-asset-management-80-100-suva-luzern": "LU"
+      },
+      "de": {
+        "analyst-in-asset-management-80-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "assicurazione-medicina-team-leader-80-100-suva-geneve-lausanne-75014849",
@@ -7695,6 +8206,9 @@
       "it": [
         "projektassistent-in-baumanagement-60-80-suva-luzern",
         "projektassistent-in-baumanagement-60-80-suva-luzern-luzern-6004-schweiz"
+      ],
+      "en": [
+        "project-assistant-construction-management-60-80-suva-luzern"
       ]
     },
     "postalCode": "6003",
@@ -7715,7 +8229,17 @@
         "firstSeenAt": "2026-09-08T13:40:44.048Z",
         "title": "Projektassistent:in Baumanagement 60 - 80 %"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektassistent-in-baumanagement-60-80-suva-luzern": "LU",
+        "projektassistent-in-baumanagement-60-80-suva-luzern-luzern-6004-schweiz": "LU"
+      },
+      "en": {
+        "project-assistant-construction-management-60-80-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "stage-52-settimane-per-l-ottenimento-della-maturita-commerciale-suva-stage-52-settimane-713df87a",
@@ -7809,7 +8333,17 @@
         "firstSeenAt": "2026-10-05T09:19:48.059Z",
         "title": "Teamleiter:in Heilkosten ambulant 80 - 100 %"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiter-in-heilkosten-ambulant-80-100-suva-luzern": "LU",
+        "teamleiter-in-heilkosten-ambulant-80-100-suva-luzern-luzern-6004-schweiz": "LU"
+      },
+      "de": {
+        "teamleiter-in-heilkosten-ambulant-80-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "assicurazione-medicina-team-leader-80-100-suva-geneve-lausanne-4e6914fc",
@@ -13285,7 +13819,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/luzern-platform-engineer-%28all-genders%29-80-100-lu-6004/1439637533",
-    "firstSeenAt": "2026-10-05T09:19:49.127Z"
+    "firstSeenAt": "2026-10-05T09:19:49.127Z",
+    "canton": "LU",
+    "previousSlugsByLocale": {
+      "en": [
+        "platform-engineer-all-genders-80-100-suva-luzern"
+      ],
+      "de": [
+        "platform-engineer-all-genders-80-100-suva-luzern"
+      ],
+      "fr": [
+        "platform-engineer-all-genders-80-100-suva-luzern"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "platform-engineer-all-genders-80-100-suva-luzern": "LU"
+      },
+      "de": {
+        "platform-engineer-all-genders-80-100-suva-luzern": "LU"
+      },
+      "fr": {
+        "platform-engineer-all-genders-80-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "product-owner-developer-platform-experience-all-genders-80-100-suva-luzern",
@@ -13328,7 +13885,30 @@
         "firstSeenAt": "2026-10-05T09:19:43.628Z",
         "title": "Product Owner Developer Platform & Experience (all genders) 80 - 100 %"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugsByLocale": {
+      "en": [
+        "product-owner-developer-platform-experience-all-genders-80-100-suva-luzern"
+      ],
+      "de": [
+        "product-owner-developer-platform-experience-all-genders-80-100-suva-luzern"
+      ],
+      "fr": [
+        "product-owner-developer-platform-experience-all-genders-80-100-suva-luzern"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "product-owner-developer-platform-experience-all-genders-80-100-suva-luzern": "LU"
+      },
+      "de": {
+        "product-owner-developer-platform-experience-all-genders-80-100-suva-luzern": "LU"
+      },
+      "fr": {
+        "product-owner-developer-platform-experience-all-genders-80-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "scrum-master-tutti-i-sessi-80-100-suva-luzern",
@@ -13372,7 +13952,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/luzern-scrum-master-%28all-genders%29-80-100-lu-6004/1441330833",
-    "firstSeenAt": "2026-10-05T09:19:42.589Z"
+    "firstSeenAt": "2026-10-05T09:19:42.589Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "scrum-master-all-genders-80-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "sap-software-engineer-all-genders-80-100-suva-luzern",
@@ -13403,7 +13989,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/luzern-sap-software-engineer-%28all-genders%29-80-100-lu-6004/1441782933",
-    "firstSeenAt": "2026-10-05T09:19:46.814Z"
+    "firstSeenAt": "2026-10-05T09:19:46.814Z",
+    "canton": "LU",
+    "previousSlugsByLocale": {
+      "en": [
+        "sap-software-engineer-all-genders-80-100-suva-luzern"
+      ],
+      "de": [
+        "sap-software-engineer-all-genders-80-100-suva-luzern"
+      ],
+      "fr": [
+        "sap-software-engineer-all-genders-80-100-suva-luzern"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "sap-software-engineer-all-genders-80-100-suva-luzern": "LU"
+      },
+      "de": {
+        "sap-software-engineer-all-genders-80-100-suva-luzern": "LU"
+      },
+      "fr": {
+        "sap-software-engineer-all-genders-80-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "centre-manager-80-100-suva-delemont",
@@ -13435,7 +14044,8 @@
       "centro-di-competenza-80-100-suva-delemont-la-chaux-de-fonds",
       "gestionnaire-centre-de-competence-80-100-suva-delemont-la-chaux-de-fonds",
       "centre-of-competence-manager-80-100-suva-delemont-la-chaux-de-fonds",
-      "kompetenzzentrum-manager-80-100-suva-delemont-la-chaux-de-fonds"
+      "kompetenzzentrum-manager-80-100-suva-delemont-la-chaux-de-fonds",
+      "centre-manager-80-100-suva-delemont"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -13445,7 +14055,8 @@
       ],
       "en": [
         "centre-of-competence-manager-80-100-suva-delemont-la-chaux-de-fonds",
-        "gestionnaire-centre-de-competence-80-100-suva-delemont"
+        "gestionnaire-centre-de-competence-80-100-suva-delemont",
+        "centre-manager-80-100-suva-delemont"
       ],
       "de": [
         "kompetenzzentrum-manager-80-100-suva-delemont-la-chaux-de-fonds",
@@ -13458,7 +14069,16 @@
     "salaryMax": 126000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.suva.ch/job/del%c3%a9mont-gestionnaire-centre-de-comp%c3%a9tence-80-100-ju-2800/1443901833"
+    "sourceIdentity": "url:https://jobs.suva.ch/job/del%c3%a9mont-gestionnaire-centre-de-comp%c3%a9tence-80-100-ju-2800/1443901833",
+    "canton": "JU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "gestionnaire-centre-de-competence-80-100-suva-delemont": "JU"
+      },
+      "en": {
+        "centre-manager-80-100-suva-delemont": "JU"
+      }
+    }
   },
   {
     "slug": "business-content-manager-in-80-100-suva-luzern",
@@ -13491,7 +14111,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/luzern-business-content-managerin-80-100-lu-6004/1444162333",
-    "firstSeenAt": "2026-10-05T09:19:57.468Z"
+    "firstSeenAt": "2026-10-05T09:19:57.468Z",
+    "canton": "LU",
+    "previousSlugsByLocale": {
+      "en": [
+        "business-content-manager-in-80-100-suva-luzern"
+      ],
+      "de": [
+        "business-content-manager-in-80-100-suva-luzern"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "business-content-manager-in-80-100-suva-luzern": "LU"
+      },
+      "de": {
+        "business-content-manager-in-80-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "specialista-nella-gestione-dei-casi-80-100-suva-basel",
@@ -13535,7 +14172,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/basel-spezialistin-fallf%c3%bchrung-80-100-bs-4052/1441705633",
-    "firstSeenAt": "2026-09-28T21:13:50.613Z"
+    "firstSeenAt": "2026-09-28T21:13:50.613Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spezialist-in-fallfuhrung-80-100-suva-basel": "BS"
+      }
+    }
   },
   {
     "slug": "interno-mpe-100-suva-sion",
@@ -13585,7 +14228,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/sion-stagiaire-mpe-100-vs-1950/1436461733",
-    "firstSeenAt": "2026-09-19T22:51:56.925Z"
+    "firstSeenAt": "2026-09-19T22:51:56.925Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stagiaire-mpe-100-suva-sion": "VS"
+      },
+      "en": {
+        "stagiaire-mpe-100-suva-sion": "VS"
+      },
+      "de": {
+        "stagiaire-mpe-100-suva-sion": "VS"
+      }
+    }
   },
   {
     "slug": "costi-di-assistenza-sanitaria-del-personale-agguato-80-100-suva-st-gallen",
@@ -13635,7 +14290,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/st_-gallen-sachbearbeiterin-heilkosten-ambulant-80-100-sg-9000/1433250833",
-    "firstSeenAt": "2026-09-21T15:59:32.753Z"
+    "firstSeenAt": "2026-09-21T15:59:32.753Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-st-gallen": "SG"
+      },
+      "en": {
+        "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-st-gallen": "SG"
+      },
+      "fr": {
+        "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-st-gallen": "SG"
+      }
+    }
   },
   {
     "slug": "danni-al-centro-di-competenza-80-100-suva-winterthur",
@@ -13679,7 +14346,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/winterthur-sachbearbeiterin-kompetenz-center-schaden-80-100-zh-8400/1437666533",
-    "firstSeenAt": "2026-09-21T15:59:27.998Z"
+    "firstSeenAt": "2026-09-21T15:59:27.998Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-winterthur": "ZH"
+      }
+    }
   },
   {
     "slug": "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-wetzikon",
@@ -13713,7 +14386,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/wetzikon-sachbearbeiterin-kompetenz-center-schaden-80-100-zh-8620/1441299733",
-    "firstSeenAt": "2026-09-28T04:56:30.289Z"
+    "firstSeenAt": "2026-09-28T04:56:30.289Z",
+    "canton": "ZH",
+    "previousSlugsByLocale": {
+      "de": [
+        "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-wetzikon"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "de": {
+        "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-wetzikon": "ZH"
+      }
+    }
   },
   {
     "slug": "settore-assicurazione-militare-capo-80-100-suva-geneve",
@@ -13763,7 +14447,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/gen%c3%a8ve-chef%e2%88%99fe-de-secteur-assurance-militaire-80-100-ge-1207/1426208033",
-    "firstSeenAt": "2026-08-17T10:09:56.496Z"
+    "firstSeenAt": "2026-08-17T10:09:56.496Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-fe-de-secteur-assurance-militaire-80-100-suva-geneve": "GE"
+      },
+      "en": {
+        "chef-fe-de-secteur-assurance-militaire-80-100-suva-geneve": "GE"
+      },
+      "de": {
+        "chef-fe-de-secteur-assurance-militaire-80-100-suva-geneve": "GE"
+      }
+    }
   },
   {
     "slug": "internship-fattori-umani-prevenzione-offre-80-100-temporaneo-suva-luzern",
@@ -13813,7 +14509,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/luzern-praktikantin-human-factors-pr%c3%a4ventionsangebote-80-100-befristet-lu-6004/1435682033",
-    "firstSeenAt": "2026-09-19T22:52:20.801Z"
+    "firstSeenAt": "2026-09-19T22:52:20.801Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-human-factors-praventionsangebote-80-100-befristet-suva-luzern": "LU"
+      },
+      "en": {
+        "praktikant-in-human-factors-praventionsangebote-80-100-befristet-suva-luzern": "LU"
+      },
+      "fr": {
+        "praktikant-in-human-factors-praventionsangebote-80-100-befristet-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "neurologia-specialistica-80-100-suva-winterthur-zurich",
@@ -13863,7 +14571,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/z%c3%bcrich-fach%c3%a4rztin-facharzt-neurologie-80-100-zh-8002/1387059033",
-    "firstSeenAt": "2026-07-04T12:22:33.979Z"
+    "firstSeenAt": "2026-07-04T12:22:33.979Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "facharztin-facharzt-neurologie-80-100-suva-winterthur": "ZH"
+      },
+      "en": {
+        "facharztin-facharzt-neurologie-80-100-suva-winterthur": "ZH"
+      },
+      "fr": {
+        "facharztin-facharzt-neurologie-80-100-suva-winterthur": "ZH"
+      }
+    }
   },
   {
     "slug": "business-analyst-all-genders-80-100-suva-bern",
@@ -13894,7 +14614,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/bern-business-analyst-%28all-genders%29-80-100-be-3008/1440461533",
-    "firstSeenAt": "2026-09-23T23:43:00.256Z"
+    "firstSeenAt": "2026-09-23T23:43:00.256Z",
+    "canton": "BE",
+    "previousSlugsByLocale": {
+      "en": [
+        "business-analyst-all-genders-80-100-suva-bern"
+      ],
+      "de": [
+        "business-analyst-all-genders-80-100-suva-bern"
+      ],
+      "fr": [
+        "business-analyst-all-genders-80-100-suva-bern"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "business-analyst-all-genders-80-100-suva-bern": "BE"
+      },
+      "de": {
+        "business-analyst-all-genders-80-100-suva-bern": "BE"
+      },
+      "fr": {
+        "business-analyst-all-genders-80-100-suva-bern": "BE"
+      }
+    }
   },
   {
     "slug": "praktikant-in-wms-kundenmanagement-e-kommunikation-100-suva-luzern",
@@ -13957,7 +14700,28 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/luzern-praktikantin-wms-kundenmanagement-und-kommunikation-100-lu-6004/1423912633",
-    "firstSeenAt": "2026-08-17T10:09:55.470Z"
+    "firstSeenAt": "2026-08-17T10:09:55.470Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-wms-kundenmanagement-und-kommunikation-100-suva-luzern": "LU",
+        "stage-in-comunicazione-aziendale-wms-100-suva-luzern": "LU",
+        "internship-in-wms-corporate-communication-100-suva-luzern": "LU",
+        "praktikant-in-wms-unternehmenskommunikation-100-suva-luzern": "LU",
+        "stage-dans-le-wms-corporate-communication-100-suva-luzern": "LU"
+      },
+      "en": {
+        "praktikant-in-wms-kundenmanagement-und-kommunikation-100-suva-luzern": "LU",
+        "internship-in-wms-corporate-communication-100-suva-luzern": "LU"
+      },
+      "de": {
+        "praktikant-in-wms-unternehmenskommunikation-100-suva-luzern": "LU"
+      },
+      "fr": {
+        "praktikant-in-wms-kundenmanagement-und-kommunikation-100-suva-luzern": "LU",
+        "stage-dans-le-wms-corporate-communication-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "broker-manager-temporaneo-60-100-suva-luzern",
@@ -14007,7 +14771,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/luzern-brokermanagerin-befristet-60-100-lu-6004/1437128033",
-    "firstSeenAt": "2026-09-19T22:52:24.621Z"
+    "firstSeenAt": "2026-09-19T22:52:24.621Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "brokermanager-in-befristet-60-100-suva-luzern": "LU"
+      },
+      "en": {
+        "brokermanager-in-befristet-60-100-suva-luzern": "LU"
+      },
+      "fr": {
+        "brokermanager-in-befristet-60-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "stage-in-wms-assistenza-clienti-prestazioni-pensione-100-suva-luzern",
@@ -14057,7 +14833,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/luzern-praktikantin-wms-kundenbetreuung-rentenleistungen-100-lu-6004/1425534333",
-    "firstSeenAt": "2026-08-17T10:09:53.318Z"
+    "firstSeenAt": "2026-08-17T10:09:53.318Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-wms-kundenbetreuung-rentenleistungen-100-suva-luzern": "LU"
+      },
+      "en": {
+        "praktikant-in-wms-kundenbetreuung-rentenleistungen-100-suva-luzern": "LU"
+      },
+      "fr": {
+        "praktikant-in-wms-kundenbetreuung-rentenleistungen-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "case-team-leader-80-100-suva-geneve",
@@ -14091,10 +14879,12 @@
         "chef-fe-de-team-pilotage-des-cas-80-100-suva-geneve"
       ],
       "en": [
-        "chef-fe-de-team-pilotage-des-cas-80-100-suva-geneve"
+        "chef-fe-de-team-pilotage-des-cas-80-100-suva-geneve",
+        "case-team-leader-80-100-suva-geneve"
       ],
       "de": [
-        "chef-fe-de-team-pilotage-des-cas-80-100-suva-geneve"
+        "chef-fe-de-team-pilotage-des-cas-80-100-suva-geneve",
+        "case-team-leader-80-100-suva-geneve"
       ]
     },
     "postalCode": "1207",
@@ -14104,7 +14894,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/gen%c3%a8ve-chef%e2%88%99fe-de-team-pilotage-des-cas-80-100-ge-1207/1424788433",
-    "firstSeenAt": "2026-08-10T21:44:30.642Z"
+    "firstSeenAt": "2026-08-10T21:44:30.642Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-fe-de-team-pilotage-des-cas-80-100-suva-geneve": "GE"
+      },
+      "en": {
+        "case-team-leader-80-100-suva-geneve": "GE",
+        "chef-fe-de-team-pilotage-des-cas-80-100-suva-geneve": "GE"
+      },
+      "de": {
+        "case-team-leader-80-100-suva-geneve": "GE",
+        "chef-fe-de-team-pilotage-des-cas-80-100-suva-geneve": "GE"
+      }
+    }
   },
   {
     "slug": "personale-nel-centro-di-competenza-damage-80-100-suva-basel",
@@ -14154,7 +14958,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/basel-sachbearbeiterin-kompetenz-center-schaden-80-100-bs-4052/1434285433",
-    "firstSeenAt": "2026-09-07T15:08:52.972Z"
+    "firstSeenAt": "2026-09-07T15:08:52.972Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-basel": "BS"
+      },
+      "en": {
+        "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-basel": "BS"
+      },
+      "fr": {
+        "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-basel": "BS"
+      }
+    }
   },
   {
     "slug": "ufficiale-di-sicurezza-integrato-80-100-suva-fribourg",
@@ -14204,7 +15020,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/fribourg-sp%c3%a9cialiste-en-s%c3%a9curit%c3%a9-int%c3%a9gr%c3%a9e-80-100-fr-1700/1409237433",
-    "firstSeenAt": "2026-07-04T12:22:37.715Z"
+    "firstSeenAt": "2026-07-04T12:22:37.715Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "specialiste-en-securite-integree-80-100-suva-fribourg": "FR"
+      },
+      "en": {
+        "specialiste-en-securite-integree-80-100-suva-fribourg": "FR"
+      },
+      "de": {
+        "specialiste-en-securite-integree-80-100-suva-fribourg": "FR"
+      }
+    }
   },
   {
     "slug": "auditore-interno-ict-tutti-i-sessi-80-100-suva-luzern",
@@ -14251,7 +15079,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/luzern-internal-auditor-ict-%28all-genders%29-80-100-lu-6004/1429647333",
-    "firstSeenAt": "2026-08-31T17:07:30.264Z"
+    "firstSeenAt": "2026-08-31T17:07:30.264Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "internal-auditor-ict-all-genders-80-100-suva-luzern": "LU"
+      },
+      "fr": {
+        "internal-auditor-ict-all-genders-80-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "vantaggi-specialistici-a-breve-termine-80-100-suva-basel-luzern",
@@ -14303,7 +15140,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/basel-spezialistin-kurzfristgeldleistungen-80-100-bs-4052/1432420333",
-    "firstSeenAt": "2026-09-01T14:16:14.746Z"
+    "firstSeenAt": "2026-09-01T14:16:14.746Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spezialist-in-kurzfristgeldleistungen-80-100-suva-basel": "BS",
+        "specialista-in-prestazioni-a-breve-termine-80-100-suva-basel-luzern": "BS"
+      },
+      "en": {
+        "spezialist-in-kurzfristgeldleistungen-80-100-suva-basel": "BS"
+      },
+      "fr": {
+        "spezialist-in-kurzfristgeldleistungen-80-100-suva-basel": "BS"
+      }
+    }
   },
   {
     "slug": "responsabile-prodotto-prevenzione-di-project-manager-80-100-suva-luzern",
@@ -14355,7 +15205,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/luzern-produktmanagerin-projektleiterin-pr%c3%a4vention-80-100-lu-6004/1407285633",
-    "firstSeenAt": "2026-08-20T09:52:44.412Z"
+    "firstSeenAt": "2026-08-20T09:52:44.412Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "produktmanager-in-projektleiter-in-pravention-80-100-suva-luzern": "LU",
+        "produktmanager-in-responsabile-di-progetto-pravention-80-100-suva-luzern": "LU"
+      },
+      "en": {
+        "produktmanager-in-projektleiter-in-pravention-80-100-suva-luzern": "LU"
+      },
+      "fr": {
+        "produktmanager-in-projektleiter-in-pravention-80-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "specialista-nella-gestione-dei-casi-80-100-suva-bern",
@@ -14405,7 +15268,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/bern-spezialistin-fallf%c3%bchrung-80-100-be-3008/1426861633",
-    "firstSeenAt": "2026-08-17T10:10:03.734Z"
+    "firstSeenAt": "2026-08-17T10:10:03.734Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spezialist-in-fallfuhrung-80-100-suva-bern": "BE"
+      },
+      "en": {
+        "spezialist-in-fallfuhrung-80-100-suva-bern": "BE"
+      },
+      "fr": {
+        "spezialist-in-fallfuhrung-80-100-suva-bern": "BE"
+      }
+    }
   },
   {
     "slug": "opposition-specialist-60-100-suva-lucerne",
@@ -14440,7 +15315,8 @@
         "specialiste-oppositions-60-100-suva-lucerne"
       ],
       "en": [
-        "specialiste-oppositions-60-100-suva-lucerne"
+        "specialiste-oppositions-60-100-suva-lucerne",
+        "opposition-specialist-60-100-suva-lucerne"
       ],
       "de": [
         "specialiste-oppositions-60-100-suva-lucerne"
@@ -14452,7 +15328,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/lucerne-sp%c3%a9cialiste-oppositions-60-100-lu-6004/1426867233",
-    "firstSeenAt": "2026-08-17T10:10:04.766Z"
+    "firstSeenAt": "2026-08-17T10:10:04.766Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "specialiste-oppositions-60-100-suva-lucerne": "LU"
+      },
+      "en": {
+        "opposition-specialist-60-100-suva-lucerne": "LU",
+        "specialiste-oppositions-60-100-suva-lucerne": "LU"
+      },
+      "de": {
+        "specialiste-oppositions-60-100-suva-lucerne": "LU"
+      }
+    }
   },
   {
     "slug": "personale-nel-centro-di-competenza-damage-80-100-suva-bern",
@@ -14502,7 +15391,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/bern-sachbearbeiterin-kompetenz-center-schaden-80-100-be-3008/1434285933",
-    "firstSeenAt": "2026-09-07T15:08:52.032Z"
+    "firstSeenAt": "2026-09-07T15:08:52.032Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-bern": "BE"
+      },
+      "en": {
+        "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-bern": "BE"
+      },
+      "fr": {
+        "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-bern": "BE"
+      }
+    }
   },
   {
     "slug": "personale-nel-servizio-clienti-100-de-fr-suva-luzern",
@@ -14551,7 +15452,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/luzern-sachbearbeiterin-customer-service-center-100-defr-lu-6004/1431399033",
-    "firstSeenAt": "2026-08-31T17:07:26.640Z"
+    "firstSeenAt": "2026-08-31T17:07:26.640Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-customer-service-center-100-de-fr-suva-luzern": "LU",
+        "sachbearbeiter-in-servizio-clienti-center-100-de-fr-suva-luzern": "LU"
+      },
+      "fr": {
+        "sachbearbeiter-in-customer-service-center-100-de-fr-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "sap-basis-engineer-all-genders-80-100-suva-luzern",
@@ -14582,7 +15493,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/luzern-sap-basis-engineer-%28all-genders%29-80-100-lu-6004/1428590033",
-    "firstSeenAt": "2026-08-24T10:06:55.900Z"
+    "firstSeenAt": "2026-08-24T10:06:55.900Z",
+    "canton": "LU",
+    "previousSlugsByLocale": {
+      "en": [
+        "sap-basis-engineer-all-genders-80-100-suva-luzern"
+      ],
+      "de": [
+        "sap-basis-engineer-all-genders-80-100-suva-luzern"
+      ],
+      "fr": [
+        "sap-basis-engineer-all-genders-80-100-suva-luzern"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "sap-basis-engineer-all-genders-80-100-suva-luzern": "LU"
+      },
+      "de": {
+        "sap-basis-engineer-all-genders-80-100-suva-luzern": "LU"
+      },
+      "fr": {
+        "sap-basis-engineer-all-genders-80-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "senior-business-consultant-tutti-i-sessi-80-100-suva-luzern",
@@ -14626,7 +15560,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/luzern-senior-business-consultant-%28alle-geschlechter%29-80-100-lu-6004/1430131133",
-    "firstSeenAt": "2026-08-26T10:00:24.400Z"
+    "firstSeenAt": "2026-08-26T10:00:24.400Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-business-consultant-alle-geschlechter-80-100-suva-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "specialista-in-prestazioni-a-breve-termine-80-100-suva-wetzikon-ziegelbrucke",
@@ -14676,7 +15616,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.suva.ch/job/wetzikon-spezialistin-kurzfristgeldleistungen-80-100-zh-8620/1420760933",
-    "firstSeenAt": "2026-08-10T10:39:52.720Z"
+    "firstSeenAt": "2026-08-10T10:39:52.720Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spezialist-in-kurzfristgeldleistungen-80-100-suva-wetzikon": "ZH"
+      },
+      "en": {
+        "spezialist-in-kurzfristgeldleistungen-80-100-suva-wetzikon": "ZH"
+      },
+      "fr": {
+        "spezialist-in-kurzfristgeldleistungen-80-100-suva-wetzikon": "ZH"
+      }
+    }
   },
   {
     "slug": "assistente-medico-in-60-suva-luzern",

@@ -57,9 +57,14 @@ set -uo pipefail
 # one artifact download must be shared by every section in the same
 # batch instead of one `gh run download` per section. ensure_batch_downloaded()
 # below is the single-download choke point: the first concurrent
-# rehydrate_section() call for a given batch+locale wins an atomic `mkdir`
-# lock and downloads; every other concurrent call for the same batch+locale
-# polls for the "done" marker instead of re-downloading.
+# rehydrate_section() call for a given batch+locale creates the lock file and
+# downloads; every other concurrent call for the same batch+locale polls for
+# the "done" marker instead of re-downloading. The lock is a noclobber
+# redirect (`set -C`: the shell itself opens with O_CREAT|O_EXCL), not
+# `mkdir`: uutils `mkdir` without -p up to 0.8.0 (fix: bf423f388) reports
+# success when the directory appears between its own existence check and
+# mkdir(2), so two workers could both win and one would `rm -rf` the other's
+# download. The subshell keeps noclobber out of the rest of the script.
 # Both network edges in this fallback are bounded and retried once, matching
 # rehydrate-locale-shards.sh: an unavailable/slow artifact or shard repository
 # must reach the existing fail-soft path, not hold all four workers until the
@@ -103,7 +108,7 @@ ensure_batch_downloaded() {
   if [ -f "$done" ]; then
     return 0
   fi
-  if mkdir "$lock" 2>/dev/null; then
+  if (set -C; : > "$lock") 2>/dev/null; then
     local batch_download_ok=1
     for attempt in 1 2; do
       rm -rf "$dl"; mkdir -p "$dl"
