@@ -623,6 +623,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'volg-fenaco': '/images/brands/volg-fenaco.png',
  'vontobel': cLogo('vontobel.com'),
  'vtg': '/images/brands/vtg.png',
+ 'vtmpersonal-ch': 'https://vtmpersonal.ch/wp-content/uploads/2024/01/logo-transparent_kopie-150x150.png',
  'wagerenhof': cLogo('wagerenhof.ch'),
  'walter-zoo-ag-gossau': 'https://walterzoo.ch/typo3conf/ext/walterzoo/Resources/Public/favicons/apple-touch-icon.png',
  'weisse-arena': '/images/brands/weisse-arena.png',
