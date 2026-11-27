@@ -67,9 +67,11 @@ jobs:
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/reconcile-crawler-company-ownership.mjs --expired-sweep --apply
 
+      # Validation only: the sweep above is the writer. The wrapper keeps its
+      # output and discards what assembly rewrites in the tracked expired slices.
       - name: Reassemble dataset
         if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/assemble-jobs-dataset.mjs
+        run: node scripts/ci/assemble-preserving-expired-slices.mjs
 
       - name: Audit expired archive
         if: inputs.dry_run != true && inputs.dry_run != 'true'

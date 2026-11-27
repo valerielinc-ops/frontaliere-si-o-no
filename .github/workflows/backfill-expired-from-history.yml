@@ -282,6 +282,10 @@ jobs:
             git status --porcelain -- data/jobs/by-crawler data/jobs/expired/by-crawler "$progress_path" | grep . >/dev/null
           }
 
+          has_unpersisted_slices() {
+            git status --porcelain -- data/jobs/by-crawler data/jobs/expired/by-crawler | grep . >/dev/null
+          }
+
           checkpoint() {
             checkpoint_final="${1:-0}"
             if [ "$checkpoint_active" -eq 1 ]; then
@@ -316,6 +320,16 @@ jobs:
               # runs, so a failure or timeout resumes the same workset instead
               # of falsely starting a fresh pass.
               echo '🔒 Final backfill gate: assembling derived artifacts and running test:backfill once.'
+              # The final gate is validation only: whatever it rewrites under
+              # data/jobs is discarded below, so every recovered slice must
+              # already be on main through a batch checkpoint.
+              if has_unpersisted_slices; then
+                echo '::error::Final backfill gate reached with unpersisted slices; refusing to discard them.'
+                report_checkpoint_timing 'failed-unpersisted-slices'
+                checkpoint_failed=1
+                checkpoint_active=0
+                return 1
+              fi
               if ! node scripts/assemble-jobs-dataset.mjs; then
                 report_checkpoint_timing 'failed-assemble'
                 checkpoint_failed=1
@@ -328,9 +342,8 @@ jobs:
                 checkpoint_active=0
                 return 1
               fi
-              # Assembly can repair an expired route in-place. Re-run the raw
-              # gate after it so the completion commit covers exactly the tree
-              # that passed the derived-data test.
+              # Assembly rewrites expired slices in place. The raw gate and
+              # the audit below keep judging that assembled tree.
               if ! CRAWLER_KEYS='' node scripts/ci/validate-backfill-checkpoint.mjs; then
                 report_checkpoint_timing 'failed-final-raw-slice-validation'
                 checkpoint_failed=1
@@ -339,6 +352,20 @@ jobs:
               fi
               if ! node scripts/audit-expired-at-parsable.mjs; then
                 report_checkpoint_timing 'failed-final-audit-gate'
+                checkpoint_failed=1
+                checkpoint_active=0
+                return 1
+              fi
+              # Assembly must never reach main from here. Ghost reconciliation
+              # drops an archive record from its tracked slice and moves its
+              # routes into the active record of data/jobs.json, which is
+              # gitignored: committing the slice loses those URLs (1d69ad33b41,
+              # 2026-11-26). Deploy repeats the same repair on its own tree.
+              if ! git restore --source=HEAD --staged --worktree -- data/jobs/by-crawler data/jobs/expired/by-crawler \
+                || ! git clean -fdq -- data/jobs/by-crawler data/jobs/expired/by-crawler \
+                || has_unpersisted_slices; then
+                echo '::error::Unable to discard the slice rewrites of the final gate assembly.'
+                report_checkpoint_timing 'failed-discard-assembly'
                 checkpoint_failed=1
                 checkpoint_active=0
                 return 1
@@ -357,10 +384,14 @@ jobs:
               return 1
             fi
             checkpoint_message='chore(data): checkpoint history backfill slices for resumable recovery'
+            commit_scope='--slice-only'
             if [ "$checkpoint_status" = 'complete' ]; then
               checkpoint_message='chore(data): complete history backfill after final data gate'
+              # The completion commit publishes the durable cursor and nothing
+              # else.
+              commit_scope='--extra-only'
             fi
-            if ! GITHUB_OUTPUT="$checkpoint_output" SKIP_AI_TRANSLATION=1 bash scripts/lib/git-commit-data.sh --slice-only \
+            if ! GITHUB_OUTPUT="$checkpoint_output" SKIP_AI_TRANSLATION=1 bash scripts/lib/git-commit-data.sh "$commit_scope" \
               "$checkpoint_message" \
               "$progress_path"; then
               rm -f "$checkpoint_output"
