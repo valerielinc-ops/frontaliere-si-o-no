@@ -64,19 +64,23 @@ const startupRun = (n: number, over: Record<string, unknown> = {}) => ({
 });
 
 type PrState = 'open' | 'closed' | 'unreadable' | 'none';
-function installGh({ runs, pr = 'none', branchExists = false }: {
-  runs: Array<Record<string, unknown>>; pr?: PrState; branchExists?: boolean;
+function installGh({ runs, failed = [], pr = 'none', branchExists = false }: {
+  runs: Array<Record<string, unknown>>; failed?: Array<Record<string, unknown>>; pr?: PrState; branchExists?: boolean;
 }) {
+  const all = [...runs, ...failed];
   execFileSync.mockImplementation((_cmd: string, args: string[]) => {
     if (args[0] === 'api') {
       const path = String(args[1]);
       if (path.includes('actions/runs?status=startup_failure')) {
         return JSON.stringify({ total_count: runs.length, workflow_runs: runs });
       }
+      if (path.includes('actions/runs?status=failure')) {
+        return JSON.stringify({ total_count: failed.length, workflow_runs: failed });
+      }
       if (path.includes('actions/runs?status=')) return JSON.stringify({ total_count: 0, workflow_runs: [] });
       const wf = /actions\/workflows\/(\d+)/.exec(path);
       if (wf) {
-        const r = runs.find((x) => String(x.workflow_id) === wf[1])!;
+        const r = all.find((x) => String(x.workflow_id) === wf[1])!;
         return JSON.stringify({ name: r.name });
       }
       if (/actions\/runs\/\d+\/jobs/.test(path)) return JSON.stringify({ total_count: 0, jobs: [] });
@@ -158,6 +162,27 @@ describe('(D) stesso commit → una sola issue con l\'elenco dei workflow', () =
     const flat = JSON.stringify(created[0]);
     expect(flat).toContain('25 workflow in startup failure');
     expect(flat).toContain('Crawler Group 25 logic');
+  });
+
+  it('25 run `failure` con zero job, stesso SHA, su main → 1 sola emit (il caso reale #20294-#20319)', async () => {
+    const failed = Array.from({ length: 25 }, (_, i) => startupRun(i + 1, { head_branch: 'main', conclusion: 'failure' }));
+    installGh({ runs: [], failed });
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    await main();
+    const created = callsFor('create');
+    expect(created).toHaveLength(1);
+    expect(titleOf(created[0])).toBe('CI Failure: Crawler Group 01 logic');
+    const flat = JSON.stringify(created[0]);
+    expect(flat).toContain('Workflow failure senza job');
+    expect(flat).toContain('25 workflow in failure senza job');
+    expect(flat).toContain('Crawler Group 25 logic');
+  });
+
+  it('`failure` zero-job su ramo di PR chiusa → nessuna emit', async () => {
+    installGh({ runs: [], failed: [startupRun(1, { conclusion: 'failure' })], pr: 'closed' });
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    await main();
+    expect(callsFor('create')).toHaveLength(0);
   });
 
   it('commit diversi non si fondono', async () => {

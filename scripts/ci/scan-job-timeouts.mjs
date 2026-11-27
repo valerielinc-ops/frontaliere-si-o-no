@@ -1249,6 +1249,8 @@ const branchStateCache = new Map();
  * ramo (25 workflow dello stesso commit = una lettura). Ogni lettura fallita resta `null`.
  */
 function readBranchState(headBranch, ownerLogin) {
+  // `main` non si filtra mai: nessuna chiamata API.
+  if (!headBranch || headBranch === RECURRENCE_GATE_BRANCH) return decideOffMainReport({ headBranch });
   const owner = ownerLogin || REPO.split('/')[0] || '{owner}';
   const key = `${owner}:${headBranch}`;
   if (branchStateCache.has(key)) return branchStateCache.get(key);
@@ -1333,6 +1335,63 @@ export async function main() {
       `[scan-job-timeouts] ${kind} ${run?.id} su «${run?.head_branch}»: ${state.reason} — issue non aperta.`,
     );
     return true;
+  };
+
+  // Run senza job (`startup_failure` o `failure` a zero job) dello stesso commit: una sola causa,
+  // UNA issue. Chiave = head_sha|evento|ramo; senza head_sha ogni run e' un gruppo a se'.
+  const addToCommitGroup = (groups, run, reportRun, jobsData) => {
+    const key = run.head_sha ? `${run.head_sha}|${run.event}|${run.head_branch}` : `run:${run.id}`;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push({ run, reportRun, jobsData });
+  };
+  const emitCommitGroups = async (groups, { heading, intro, kind }) => {
+    for (const members of groups.values()) {
+      members.sort((a, b) => String(a.reportRun.workflow_name).localeCompare(String(b.reportRun.workflow_name))
+        || Number(a.run.id) - Number(b.run.id));
+      const { run, reportRun, jobsData } = members[0];
+      const sameCause = members.length > 1
+        ? [
+          `**Stesso commit (\`${String(run.head_sha).slice(0, 12)}\`), ${members.length} workflow in ${kind}:**`,
+          ...members.map((m) => `- ${m.reportRun.workflow_name}: ${m.run.html_url}`),
+          '',
+          'Una sola causa per tutti: questa issue li raccoglie, non serve una issue per workflow.',
+          '',
+        ]
+        : [];
+      if (members.length > 1) {
+        console.log(
+          `[scan-job-timeouts] ${kind}: ${members.length} workflow sullo stesso commit `
+            + `${String(run.head_sha).slice(0, 12)} → una sola issue («${reportRun.workflow_name}»).`,
+        );
+      }
+      const rawDescription = [
+        heading,
+        '',
+        `**Run:** ${run.html_url}`,
+        `**Conclusione:** \`${run.conclusion}\``,
+        `**Trigger:** ${run.event}`,
+        `**Ref:** ${run.head_branch}`,
+        `**Job restituiti da Actions:** ${jobsData.jobs.length}`,
+        '',
+        ...sameCause,
+        intro,
+        '',
+        '**Prima diagnosi:** controllare il file del workflow e gli eventuali `uses:` '
+          + 'riusabili/ref, YAML e input obbligatori. Una run senza job non contiene '
+          + 'log di un passo da cui ricavare la causa.',
+        '',
+        'Rilevato da `scripts/ci/scan-job-timeouts.mjs` (scan periodico esterno ai job).',
+      ].join('\n');
+      await emit({
+        title: scopedTitle(reportRun),
+        description: redactWorkflowPaths(rawDescription),
+        labels: ['Bug', 'ci-startup-failure'],
+        workflow: reportRun.workflow_name,
+        runUrl: run.html_url,
+        jobCount: 1,
+        occurredAt: run.created_at,
+      });
+    }
   };
 
   // title → issue ref already opened/matched during THIS scan. See the DEDUP note
@@ -1506,62 +1565,19 @@ export async function main() {
     if (offMainSuppressed(run, 'startup_failure')) continue;
     const reportRun = reportableRun(run);
     if (!reportRun) continue;
-    const key = run.head_sha ? `${run.head_sha}|${run.event}|${run.head_branch}` : `run:${run.id}`;
-    if (!startupGroups.has(key)) startupGroups.set(key, []);
-    startupGroups.get(key).push({ run, reportRun, jobsData });
+    addToCommitGroup(startupGroups, run, reportRun, jobsData);
   }
-  for (const members of startupGroups.values()) {
-    members.sort((a, b) => String(a.reportRun.workflow_name).localeCompare(String(b.reportRun.workflow_name))
-      || Number(a.run.id) - Number(b.run.id));
-    const { run, reportRun, jobsData } = members[0];
-    const sameCause = members.length > 1
-      ? [
-        `**Stesso commit (\`${String(run.head_sha).slice(0, 12)}\`), ${members.length} workflow in startup failure:**`,
-        ...members.map((m) => `- ${m.reportRun.workflow_name}: ${m.run.html_url}`),
-        '',
-        'Una sola causa per tutti: questa issue li raccoglie, non serve una issue per workflow.',
-        '',
-      ]
-      : [];
-    if (members.length > 1) {
-      console.log(
-        `[scan-job-timeouts] startup_failure: ${members.length} workflow sullo stesso commit `
-          + `${String(run.head_sha).slice(0, 12)} → una sola issue («${reportRun.workflow_name}»).`,
-      );
-    }
-    const rawDescription = [
-      '## Workflow failure prima della creazione dei job',
-      '',
-      `**Run:** ${run.html_url}`,
-      `**Conclusione:** \`${run.conclusion}\``,
-      `**Trigger:** ${run.event}`,
-      `**Ref:** ${run.head_branch}`,
-      `**Job restituiti da Actions:** ${jobsData.jobs.length}`,
-      '',
-      ...sameCause,
-      'La run è terminata in `startup_failure`: Actions non ha potuto caricare o '
-        + 'avviare il workflow, quindi nessun job (compreso il reporter di errore) '
-        + 'ha avuto la possibilità di eseguire.',
-      '',
-      '**Prima diagnosi:** controllare il file del workflow e gli eventuali `uses:` '
-        + 'riusabili/ref, YAML e input obbligatori. Una run senza job non contiene '
-        + 'log di un passo da cui ricavare la causa.',
-      '',
-      'Rilevato da `scripts/ci/scan-job-timeouts.mjs` (scan periodico esterno ai job).',
-    ].join('\n');
-    await emit({
-      title: scopedTitle(reportRun),
-      description: redactWorkflowPaths(rawDescription),
-      labels: ['Bug', 'ci-startup-failure'],
-      workflow: reportRun.workflow_name,
-      runUrl: run.html_url,
-      jobCount: 1,
-      occurredAt: run.created_at,
-    });
-  }
+  await emitCommitGroups(startupGroups, {
+    heading: '## Workflow failure prima della creazione dei job',
+    intro: 'La run è terminata in `startup_failure`: Actions non ha potuto caricare o '
+      + 'avviare il workflow, quindi nessun job (compreso il reporter di errore) '
+      + 'ha avuto la possibilità di eseguire.',
+    kind: 'startup failure',
+  });
 
   // (C) host-kill and zero-job failure — `failure` with a step frozen
   // `in_progress`, or a completed jobs response containing no jobs at all.
+  const zeroJobGroups = new Map();
   for (const run of failedRuns) {
     const jobsData = jobsForRun(run);
     if (!jobsData) {
@@ -1573,34 +1589,7 @@ export async function main() {
       if (offMainSuppressed(run, 'failure senza job')) continue;
       const reportRun = reportableRun(run);
       if (!reportRun) continue;
-      const rawDescription = [
-        '## Workflow failure senza job',
-        '',
-        `**Run:** ${run.html_url}`,
-        `**Conclusione:** \`${run.conclusion}\``,
-        `**Trigger:** ${run.event}`,
-        `**Ref:** ${run.head_branch}`,
-        '**Job restituiti da Actions:** 0',
-        '',
-        'La run è fallita prima che Actions rendesse disponibile un job. Questo è '
-          + 'un guasto di avvio/configurazione del workflow, non un errore applicativo '
-          + 'raccolto da uno step; il reporter interno non ha quindi potuto girare.',
-        '',
-        '**Prima diagnosi:** controllare il file del workflow e gli eventuali `uses:` '
-          + 'riusabili/ref, YAML e input obbligatori. Una run senza job non contiene '
-          + 'log di un passo da cui ricavare la causa.',
-        '',
-        'Rilevato da `scripts/ci/scan-job-timeouts.mjs` (scan periodico esterno ai job).',
-      ].join('\n');
-      await emit({
-        title: scopedTitle(reportRun),
-        description: redactWorkflowPaths(rawDescription),
-        labels: ['Bug', 'ci-startup-failure'],
-        workflow: reportRun.workflow_name,
-        runUrl: run.html_url,
-        jobCount: 1,
-        occurredAt: run.created_at,
-      });
+      addToCommitGroup(zeroJobGroups, run, reportRun, jobsData);
       continue;
     }
     const kills = jobsData.jobs
@@ -1658,6 +1647,14 @@ export async function main() {
       occurredAt: run.created_at,
     });
   }
+
+  await emitCommitGroups(zeroJobGroups, {
+    heading: '## Workflow failure senza job',
+    intro: 'La run è fallita prima che Actions rendesse disponibile un job. Questo è '
+      + 'un guasto di avvio/configurazione del workflow, non un errore applicativo '
+      + 'raccolto da uno step; il reporter interno non ha quindi potuto girare.',
+    kind: 'failure senza job',
+  });
 
   console.log(
     `[scan-job-timeouts] timeout summary — ${timeoutRuns} timeout su ${cancelledRuns.length} `
