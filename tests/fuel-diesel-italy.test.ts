@@ -404,6 +404,35 @@ describe('Italian station pages — a station leaving the MIMIT cut keeps its UR
     }
   });
 
+  it.each([['first'], ['last']])(
+    'never assigns a row without province to a province-qualified homonym (row listed %s)',
+    (position) => {
+      const row = (province: string | undefined, id: string) => ({
+        municipality: 'Comune Di Prova',
+        province,
+        italy: { stations: [], retiredStations: [{ id, brand: 'Q8', stationName: 'Prova', address: `Via ${id}` }] },
+      });
+      const qualified = [row('VA', 'Alfa'), row('CO', 'Beta')];
+      const unknown = row(undefined, 'Gamma');
+      const municipalities = position === 'first' ? [unknown, ...qualified] : [...qualified, unknown];
+      const paths = Object.keys(generateFuelItalianStationAvailabilityBridges({ dataset: { municipalities } as never }))
+        .filter((pagePath) => pagePath.startsWith('/prezzi-benzina/italia/'));
+      expect(paths.sort()).toEqual([
+        '/prezzi-benzina/italia/comune-di-prova-co/stazioni/q8-via-beta/',
+        '/prezzi-benzina/italia/comune-di-prova/stazioni/q8-via-alfa/',
+      ]);
+    },
+  );
+
+  it('keeps the bridges of a comune that no row qualifies with a province', () => {
+    const municipalities = [{
+      municipality: 'Comune Di Prova',
+      italy: { stations: [], retiredStations: [{ id: '3', brand: 'Q8', stationName: 'Prova', address: 'Via Gamma' }] },
+    }];
+    const paths = Object.keys(generateFuelItalianStationAvailabilityBridges({ dataset: { municipalities } as never }));
+    expect(paths).toContain('/prezzi-benzina/italia/comune-di-prova/stazioni/q8-via-gamma/');
+  });
+
   it('freezes the URLs a snapshot without route memory has, even when prices swap the namesakes', () => {
     const published = refresh(null, [stationA, stationB]);
     const legacy = structuredClone(published);

@@ -3596,7 +3596,8 @@ function isSameItalianComune(
   entry: ItalianCityEntry,
 ): boolean {
   if (row.municipality?.trim().toLowerCase() !== entry.matchKey) return false;
-  return !row.province || !entry.province || row.province.toUpperCase() === entry.province.toUpperCase();
+  // A missing province is unknown, not a wildcard: it would match every homonym.
+  return (row.province ?? '').toUpperCase() === entry.province.toUpperCase();
 }
 
 /** Collect Italian stations per curated city.
@@ -5539,13 +5540,23 @@ function withRetiredOnlyCityEntries(
   const comuneKey = (matchKey: string, province: string) => `${matchKey}|${province.toUpperCase()}`;
   const listed = new Set(entries.map((entry) => comuneKey(entry.matchKey, entry.province)));
   const taken = new Set(entries.map((entry) => entry.slug));
-  for (const row of (dataset.municipalities ?? []) as unknown as Array<
+  const rows = (dataset.municipalities ?? []) as unknown as Array<
     ItalianDatasetRowLite & { italy?: { retiredStations?: ItalianCityStation[] } }
-  >) {
+  >;
+  // Names some entry or retired row places in a province.
+  const qualifiedNames = new Set([
+    ...entries.filter((entry) => entry.province).map((entry) => entry.matchKey),
+    ...rows
+      .filter((row) => row.province && row.italy?.retiredStations?.length)
+      .map((row) => (row.municipality ?? '').trim().toLowerCase()),
+  ]);
+  for (const row of rows) {
     const name = (row.municipality ?? '').trim();
     const matchKey = name.toLowerCase();
     const province = (row.province ?? '').toUpperCase();
     if (!name || listed.has(comuneKey(matchKey, province)) || !row.italy?.retiredStations?.length) continue;
+    // Which homonym it is cannot be told: no route rather than a guessed one.
+    if (!province && qualifiedNames.has(matchKey)) continue;
     const base = slugify(name);
     if (!base) continue;
     // Same disambiguation as `buildItalianCityEntries`.
