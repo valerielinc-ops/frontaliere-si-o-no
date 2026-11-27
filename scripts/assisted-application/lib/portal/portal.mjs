@@ -112,7 +112,7 @@ function passwordResetAccessibleName(control) {
     .find(Boolean) || '';
 }
 
-const PASSWORD_RESET_CONFIRM_RE = /(?:reset|change|update|save|submit|continue|zurücksetzen|zuruecksetzen|speichern|ändern|aendern|modifier|enregistrer|réinitialiser|reinitialiser|salva|aggiorna|reimposta)/i;
+const PASSWORD_RESET_CONFIRM_RE = /(?:reset|change|update|save|submit|continue|confirm|set\s+(?:new\s+)?password|zurücksetzen|zuruecksetzen|speichern|setzen|vergeben|festlegen|absenden|bestätigen|bestaetigen|ändern|aendern|modifier|enregistrer|réinitialiser|reinitialiser|définir|definir|salva|aggiorna|reimposta|imposta)/i;
 const PASSWORD_RESET_REFUSED_RE = /(?:expired|invalid|not valid|cannot be used|could not be reset|abgelaufen|ungültig|nicht gültig|expiré|invalide|scadut[oa]|non valido|rifiutat[oa])/i;
 const ALREADY_APPLIED_RE = /(?:already applied|application already (?:exists|submitted|received)|you have already applied|déjà postulé|déjà candidaté|bereits beworben|bereits eine bewerbung|già candid(?:at[oa]|at[oa])|hai già inviato la candidatura|già presentata la candidatura)/iu;
 const APPLICATION_HISTORY_RE = /(?:my applications|mes candidatures|mes demandes de candidature|meine bewerbungen|le mie candidature|i miei invii)/iu;
@@ -10184,8 +10184,8 @@ function resetPasswordFields(snapshot) {
   const fields = (snapshot?.fields || []).filter((field) => field.inputType === 'password');
   if (fields.length !== 2 || !fields[0].formId || fields.some((field) => String(field.formId) !== String(fields[0].formId))) return null;
   const labels = fields.map((field) => `${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`);
-  const confirmation = labels.findIndex((label) => /(?:confirm|repeat|re-?enter|again|bestätigen|wiederholen|confirmer|ripeti)/i.test(label));
-  const newPassword = labels.findIndex((label) => /(?:new|neue|nouveau|nuova|password|passwort|mot de passe)/i.test(label));
+  const confirmation = labels.findIndex((label) => /(?:confirm|repeat|re-?enter|again|best[äa]tig\w*|wiederhol\w*|erneut|confirmer|ripeti)/i.test(label));
+  const newPassword = labels.findIndex((label) => /(?:new|neue|nouveau|nuova|password|passwort|kennwort|mot de passe)/i.test(label));
   if (confirmation < 0 || newPassword < 0 || confirmation === newPassword) return null;
   return { password: fields[newPassword], confirmation: fields[confirmation], formId: String(fields[0].formId) };
 }
@@ -10338,8 +10338,9 @@ async function recoverAccountPassword({ page, snapshot, ctx, host, account, diag
     });
     return { ...signedIn, accountRecovered: true };
   }
-  const resetContext = /(?:reset|change|update).{0,30}(?:password|passwort)|(?:password|passwort).{0,30}(?:reset|change|update)|mot de passe.{0,30}(?:réinitial|reinitial|chang)|password.{0,30}(?:reimpost|cambi)/i
-    .test(`${pageUrl.pathname} ${resetView.title || ''} ${resetView.heading || ''} ${resetView.text || ''}`);
+  const resetContext = /[?&](?:password_?)?reset_?token=/i.test(pageUrl.search || '')
+    || /(?:reset|change|update|set).{0,30}(?:password|passwort|kennwort)|(?:password|passwort|kennwort).{0,30}(?:reset|change|update|set|setzen|vergeben|festlegen)|neues?\s+(?:passwort|kennwort)|mot de passe.{0,30}(?:réinitial|reinitial|chang|d[ée]finir)|password.{0,30}(?:reimpost|cambi|impost)/i
+      .test(`${pageUrl.pathname} ${pageUrl.search || ''} ${resetView.title || ''} ${resetView.heading || ''} ${resetView.text || ''}`);
   if (pageUrl.protocol !== 'https:' || pageUrl.hostname !== host || !resetContext || !resetFields) {
     return accountHandoff(PASSWORD_RESET_REFUSED_RE.test(resetView.errors?.join(' ') || resetView.text || '')
       ? 'account_recovery_rejected' : 'account_recovery_timeout',
@@ -10362,13 +10363,27 @@ async function recoverAccountPassword({ page, snapshot, ctx, host, account, diag
   const confirm = (resetView.buttons || []).find((button) => String(button.formId || '') === filled.formId
     && PASSWORD_RESET_CONFIRM_RE.test(String(button.text || button.label || '')) && button.disabled !== true);
   if (!confirm || !await clickButton(page, confirm)) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
-  const afterReset = await awaitAuthOutcome(page, 'create', resetView.errors || [], resetView.fields);
+  let afterReset = await awaitAuthOutcome(page, 'create', resetView.errors || [], resetView.fields);
   const resetRejected = PASSWORD_RESET_REFUSED_RE.test([afterReset.text, ...(afterReset.errors || [])].join(' '));
   if (resetRejected) {
     await ctx.accounts.abortRecovery(host, { requestSubmitted: true, reason: 'reset_rejected' });
     return accountHandoff('account_recovery_rejected', 'account_recovery_rejected', 'login');
   }
+  if (authPageKind(afterReset) !== 'sign_in' && !resetPasswordFields(afterReset) && !(afterReset.errors || []).length) {
+    if (await openVerifiedSignInNavigation(page, afterReset)) {
+      afterReset = await awaitAuthView(page, afterReset);
+    }
+    if (authPageKind(afterReset) !== 'sign_in' && resolvedSignInUrl && !signedInApplicationSurface(afterReset)) {
+      await page.goto(resolvedSignInUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      await settle(page);
+      afterReset = await extractFields(page, NAVIGATION);
+    }
+  }
   if (authPageKind(afterReset) !== 'sign_in') {
+    if (!resetPasswordFields(afterReset) && !(afterReset.errors || []).length && signedInApplicationSurface(afterReset)) {
+      if (!await ctx.accounts.completeRecovery(host)) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+      return { snapshot: afterReset, reopen: true, accountRecovered: true };
+    }
     return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
   }
   if (!await ctx.accounts.completeRecovery(host)) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
