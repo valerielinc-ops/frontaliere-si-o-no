@@ -8747,6 +8747,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.rimborso-imposta-secondo-pilastro-svizzero.title': 'Zweite Säule: Quellensteuer-Erstattung für Italienansässige',
     'blog.article.rimborso-imposta-secondo-pilastro-svizzero.excerpt': 'Seit 2024 wurden laut der von Fiscomania veröffentlichten Darstellung Ablehnungen seitens der Schweizer Kantonsbehörden bei Anträgen auf Rückerstattung der auf dem Kapital der zweiten Säule einbehaltenen Quellensteuer gemeldet.',
     'blog.article.rimborso-imposta-secondo-pilastro-svizzero.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.uri-targhe-collaudo-auto.title': 'Uri: Kennzeichen und Zulassung, Prüfintervalle',
+    'blog.article.uri-targhe-collaudo-auto.excerpt': 'Bei Autos findet die erste Prüfung fünf Jahre nach der ersten Inverkehrsetzung statt, danach in der Regel nach drei und zwei Jahren.',
+    'blog.article.uri-targhe-collaudo-auto.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.salario-minimo-svitto-regole.title': 'Mindestlohn in Schwyz: kein eidgenössischer Mindestlohn und kantonale Regelungen',
+    'blog.article.salario-minimo-svitto-regole.excerpt': 'Die Schweiz hat keinen eidgenössischen Mindestlohn, aber einige Kantone haben einen eigenen; für Schwyz ist nichts bestätigt.',
+    'blog.article.salario-minimo-svitto-regole.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.assistenza-sociale-svitto-criterio-bisogno.title': 'Sozialhilfe Schwyz: Verwaltung und Bedürftigkeitskriterium',
+    'blog.article.assistenza-sociale-svitto-criterio-bisogno.excerpt': 'Die Sozialhilfe wird in der Schweiz in der Regel von den Kantonen und Gemeinden nach dem Bedürftigkeitsprinzip verwaltet.',
+    'blog.article.assistenza-sociale-svitto-criterio-bisogno.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

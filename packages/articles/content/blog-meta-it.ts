@@ -13764,6 +13764,14 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-smart-working-limite-fiscale.title': 'Frontalieri smart working: limite fiscale dall\'Italia',
     'blog.article.frontalieri-smart-working-limite-fiscale.excerpt': 'La soglia fiscale del telelavoro dall\'Italia è 25%. Il protocollo è entrato in vigore il 9 febbraio 2026.',
     'blog.article.frontalieri-smart-working-limite-fiscale.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.protocollo-fiscale-lavoro-remoto.title': 'Italia e Svizzera firmano il protocollo sul telelavoro',
+    'blog.article.protocollo-fiscale-lavoro-remoto.excerpt': 'Il Protocollo è stato firmato il 6 giugno 2024. Telelavoro da casa fino al 25% dal 1° gennaio 2024.',
+    'blog.article.protocollo-fiscale-lavoro-remoto.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.bollettino-frontaliere-2026-11-27.title': 'Frontalieri: cambio +58.80 € su 4.000 CHF — 27 novembre 2026',
+    'blog.article.bollettino-frontaliere-2026-11-27.excerpt': 'I numeri di oggi, 27 novembre 2026, per chi attraversa il confine: le ultime attese ai valichi, i comuni con la benzina meno cara, il cambio franco-euro e gli annunci di lavoro attivi sul nostro job board in Svizzera. Dati del nostro monitoraggio quotidiano.',
+    'blog.article.bollettino-frontaliere-2026-11-27.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.bollettino-frontaliere-2026-11-27.seoDescription': 'Bollettino frontalieri 27 novembre 2026: attese ai valichi, prezzi benzina, cambio CHF/EUR e offerte attive di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-11-27.ogDescription': 'I numeri del 27 novembre 2026 per i frontalieri: quanto si aspetta a ogni valico, in quali comuni conviene fare il pieno, quanto vale il franco al cambio rilevato e quanti annunci di lavoro attivi sono presenti sul nostro job board in Svizzera.',
 };
 
 export default blogMetaIt;

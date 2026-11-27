@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1212,
+      "5": 1221,
       "6": 5062
     },
-    "publishedCovers": 7955,
+    "publishedCovers": 7964,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -220136,6 +220136,303 @@
         "provider": "openai-codex",
         "assetId": "article-bakery-bakery-apre-friburgo",
         "imageUrl": "/images/blog/article-bakery-bakery-apre-friburgo.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-assistenza-sociale-svitto-criterio-bisogno": {
+      "cover": "/images/blog/article-assistenza-sociale-svitto-criterio-bisogno.webp",
+      "hash": "211b06328b98656a6a73b151ab39a8c6697cb7996ab21c14222851da7277f1f3",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "assistenza-sociale-svitto-criterio-bisogno",
+          "category": "pratico",
+          "date": "2026-11-27T11:11:32.922Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-assistenza-sociale-svitto-criterio-bisogno.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-27",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-assistenza-sociale-svitto-criterio-bisogno",
+        "imageUrl": "/images/blog/article-assistenza-sociale-svitto-criterio-bisogno.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-baden-energiestadt-gold-sei-volte": {
+      "cover": "/images/blog/article-baden-energiestadt-gold-sei-volte.webp",
+      "hash": "64433a08087efe213fad75b0c55384c6a0203e10162cafba14fcd8829136fe8f",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ag",
+          "id": "baden-energiestadt-gold-sei-volte",
+          "category": "novita",
+          "date": "2026-11-27T06:37:35.148Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-baden-energiestadt-gold-sei-volte.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-27",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-baden-energiestadt-gold-sei-volte",
+        "imageUrl": "/images/blog/article-baden-energiestadt-gold-sei-volte.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-bollettino-frontaliere-2026-11-27": {
+      "cover": "/images/blog/article-bollettino-frontaliere-2026-11-27.webp",
+      "hash": "1f3edd9e96aaa471a31cb6eb20077a9d2cc9c33c6a87cbce7ae7e4da673eac4b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bollettino-frontaliere-2026-11-27",
+          "category": "novita",
+          "date": "2026-11-27T14:51:14.143Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bollettino-frontaliere-2026-11-27.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-27",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-bollettino-frontaliere-2026-11-27",
+        "imageUrl": "/images/blog/article-bollettino-frontaliere-2026-11-27.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-lausanne-luci-foranee": {
+      "cover": "/images/blog/article-lausanne-luci-foranee.webp",
+      "hash": "1e502da56a20b1aaa3e1a46d71113abf15d2a333eba8007973f5764223acebc0",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-vd",
+          "id": "lausanne-luci-foranee",
+          "category": "pratico",
+          "date": "2026-11-27T11:27:58.306Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-lausanne-luci-foranee.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-27",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-lausanne-luci-foranee",
+        "imageUrl": "/images/blog/article-lausanne-luci-foranee.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-neve-grigioni-incidenti": {
+      "cover": "/images/blog/article-neve-grigioni-incidenti.webp",
+      "hash": "bb24d53fe3413087ad68f40b149d2cf018a31072a42e693aebbc13a7be7401f1",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-gr",
+          "id": "neve-grigioni-incidenti",
+          "category": "pratico",
+          "date": "2026-11-27T14:04:13.200Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-neve-grigioni-incidenti.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-27",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-neve-grigioni-incidenti",
+        "imageUrl": "/images/blog/article-neve-grigioni-incidenti.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-protocollo-fiscale-lavoro-remoto": {
+      "cover": "/images/blog/article-protocollo-fiscale-lavoro-remoto.webp",
+      "hash": "3b4a72f2645057b0a4c992274a3811b7d2bbf7a56218370a6d0de0ad26e62ff9",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "protocollo-fiscale-lavoro-remoto",
+          "category": "fiscale",
+          "date": "2026-11-27T07:45:32.925Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-protocollo-fiscale-lavoro-remoto.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-27",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-protocollo-fiscale-lavoro-remoto",
+        "imageUrl": "/images/blog/article-protocollo-fiscale-lavoro-remoto.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-rottura-condotta-route-neuve": {
+      "cover": "/images/blog/article-rottura-condotta-route-neuve.webp",
+      "hash": "6b65517ce317c99f1fdb8c3ffff2c689acbdbbd0f4eb28461621de85d126567b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-fr",
+          "id": "rottura-condotta-route-neuve",
+          "category": "pratico",
+          "date": "2026-11-27T07:50:19.630Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-rottura-condotta-route-neuve.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-27",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-rottura-condotta-route-neuve",
+        "imageUrl": "/images/blog/article-rottura-condotta-route-neuve.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-salario-minimo-svitto-regole": {
+      "cover": "/images/blog/article-salario-minimo-svitto-regole.webp",
+      "hash": "39a0ef74b86056cde4755cedfaaa697e24f6411982a39dd71f0fc3758772305e",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "salario-minimo-svitto-regole",
+          "category": "fiscale",
+          "date": "2026-11-27T09:47:49.947Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-salario-minimo-svitto-regole.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-27",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-salario-minimo-svitto-regole",
+        "imageUrl": "/images/blog/article-salario-minimo-svitto-regole.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-sg-politica-fondiaria-attiva": {
+      "cover": "/images/blog/article-sg-politica-fondiaria-attiva.webp",
+      "hash": "3bd61af28075bb9731941ea6c5ae3a62bf0547282b66c235ae7aca766f6623bb",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sg",
+          "id": "sg-politica-fondiaria-attiva",
+          "category": "novita",
+          "date": "2026-11-27T09:54:25.553Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-sg-politica-fondiaria-attiva.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-27",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-sg-politica-fondiaria-attiva",
+        "imageUrl": "/images/blog/article-sg-politica-fondiaria-attiva.webp",
         "evidence": "generated-engine-record"
       }
     }

@@ -8747,6 +8747,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.rimborso-imposta-secondo-pilastro-svizzero.title': 'Swiss second pillar: withholding tax refund for residents in Italy',
     'blog.article.rimborso-imposta-secondo-pilastro-svizzero.excerpt': 'Since 2024, according to the reconstruction published by Fiscomania, refusals by the Swiss cantonal authorities of requests for a refund of withholding tax withheld on second-pillar capital have been reported.',
     'blog.article.rimborso-imposta-secondo-pilastro-svizzero.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.uri-targhe-collaudo-auto.title': 'Uri: number plates and registration, inspection intervals',
+    'blog.article.uri-targhe-collaudo-auto.excerpt': 'For cars, the first inspection is after five years from the date they are first put into circulation, then generally after three years and two years.',
+    'blog.article.uri-targhe-collaudo-auto.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.salario-minimo-svitto-regole.title': 'Minimum wage in Schwyz: no federal minimum and cantonal rules',
+    'blog.article.salario-minimo-svitto-regole.excerpt': 'Switzerland has no federal minimum wage, but some cantons have their own; nothing is confirmed for Schwyz.',
+    'blog.article.salario-minimo-svitto-regole.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.assistenza-sociale-svitto-criterio-bisogno.title': 'Social assistance in Schwyz: administration and the needs-based criterion',
+    'blog.article.assistenza-sociale-svitto-criterio-bisogno.excerpt': 'Social assistance is generally administered by the cantons and municipalities in Switzerland, based on the criterion of need.',
+    'blog.article.assistenza-sociale-svitto-criterio-bisogno.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;
