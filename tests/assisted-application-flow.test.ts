@@ -73,6 +73,23 @@ describe('draft failures', () => {
       { type: 'submit_failed', error: 'requirement_context_changed' }, { draft: cleanDraft, nowMs: T0 });
     expect(contextRetryExhausted.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['requirement_context_changed'] });
 
+    // A reasoned code: a change that can clear retries (bounded), a deterministic one goes straight to the owner.
+    for (const reason of ['flow_changed', 'draft_changed', 'order_changed', 'execution_superseded', 'prepared_photo_not_persisted']) {
+      const error = `requirement_context_changed:${reason}`;
+      expect(isTransientRunError(error)).toBe(true);
+      expect(transition(submitting, { type: 'submit_failed', error }, { draft: cleanDraft, nowMs: T0 }).effects)
+        .toEqual([{ type: 'dispatch', mode: 'submit', reason: 'transient_retry', attempts: 2 }]);
+      expect(transition({ ...submitting, dispatch: { ...submitting.dispatch, attempts: MAX_RUN_ATTEMPTS } }, { type: 'submit_failed', error }, { draft: cleanDraft, nowMs: T0 }).flow)
+        .toMatchObject({ state: 'owner_takeover', heldBy: [error] });
+    }
+    for (const reason of ['ambiguous_identity', 'order_closed', 'submission_started', 'draft_not_ready', 'flow_not_submitting']) {
+      const error = `requirement_context_changed:${reason}`;
+      expect(isTransientRunError(error)).toBe(false);
+      const direct = transition(submitting, { type: 'submit_failed', error }, { draft: cleanDraft, nowMs: T0 });
+      expect(direct.flow).toMatchObject({ state: 'owner_takeover', heldBy: [error] });
+      expect(direct.effects).toEqual([expect.objectContaining({ type: 'email', kind: 'owner_takeover', reason: error })]);
+    }
+
     const last = transition({ ...submitting, dispatch: { ...submitting.dispatch, attempts: MAX_RUN_ATTEMPTS } }, { type: 'submit_failed', error: 'Timeout 30000ms exceeded' }, { draft: cleanDraft, nowMs: T0 });
     expect(last.flow.state).toBe('owner_takeover');
     expect(last.effects).toEqual([{ type: 'email', kind: 'owner_takeover', reason: 'Timeout 30000ms exceeded', stage: 'submit', attempts: MAX_RUN_ATTEMPTS }]);

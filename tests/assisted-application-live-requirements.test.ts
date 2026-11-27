@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { mergeLivePortalQuestions, persistLivePortalRequirements } from '../scripts/assisted-application/lib/portal/merge-live-requirements.mjs';
+import { mergeLivePortalQuestions, persistLivePortalRequirements, persistLivePortalRequirementsDetailed } from '../scripts/assisted-application/lib/portal/merge-live-requirements.mjs';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 
@@ -191,5 +191,61 @@ describe('current runner updates a previously stored portal question contract', 
 
     expect(await persistLivePortalRequirements({ ...store, round: 1, event })).toBe(false);
     expect(store.read(`${base}/ai_drafts/current`).questions).toEqual([old]);
+  });
+
+  describe('context comparison and reasons', () => {
+    const event = () => ({ type: 'submit_needs_candidate', questions: [live], documents: [] });
+
+    it('accepts fields this run or unrelated writers changed (counters, timestamps, prepared photo, undefined values)', async () => {
+      const store = fixture();
+      const photo = { key: 'photos/prepared.jpg', name: 'photo.jpg' };
+      await store.orderRef.set({ emailOpens: 3, automationUpdatedAt: 999, notificationsSent: ['a'] }, { merge: true });
+      await store.orderRef.collection('automation').doc('flow').set({ updatedAt: 1000, dispatch: { attempts: 2 }, documents: { photo: { files: [photo] } } }, { merge: true });
+      // The in-memory draft of the run may carry undefined properties the stored document never had.
+      store.expected.draft.questions = [{ ...old, extra: undefined } as any];
+      const result = await persistLivePortalRequirementsDetailed({ ...store, round: 1, event: event() });
+      expect(result).toEqual({ ok: true, reason: null });
+      expect(store.read(`${base}/ai_drafts/current`).questions).toEqual([live]);
+    });
+
+    it.each([
+      ['flow_not_submitting', async (s: any) => s.orderRef.collection('automation').doc('flow').set({ round: 2 }, { merge: true })],
+      ['flow_changed', async (s: any) => s.orderRef.collection('automation').doc('flow').set({ answers: { notice: '2 months' } }, { merge: true })],
+      ['flow_changed', async (s: any) => s.orderRef.collection('automation').doc('flow').set({ dispatch: { sourceSha: 'b'.repeat(40) } }, { merge: true })],
+      ['draft_changed', async (s: any) => s.orderRef.collection('ai_drafts').doc('current').set({ approval: { at: 456 } }, { merge: true })],
+      ['draft_changed', async (s: any) => s.orderRef.collection('ai_drafts').doc('current').set({ requiredDocuments: [{ id: 'x', label: 'X' }] }, { merge: true })],
+      ['order_closed', async (s: any) => s.orderRef.set({ paymentStatus: 'refunded' }, { merge: true })],
+      ['order_changed', async (s: any) => s.orderRef.set({ jobUrl: 'https://jobs.example.test/other' }, { merge: true })],
+      ['submission_started', async (s: any) => s.orderRef.collection('ai_drafts').doc('current').set({ sentAttempt: { at: 200 } }, { merge: true })],
+      ['submission_started', async (s: any) => s.orderRef.collection('automation').doc('submission').set({ r1: { state: 'sent', clickedAt: 200 } })],
+    ])('names %s when a real change makes the question obsolete', async (reason, mutate) => {
+      const store = fixture();
+      await mutate(store);
+      const result = await persistLivePortalRequirementsDetailed({ ...store, round: 1, event: event() });
+      expect(result).toEqual({ ok: false, reason });
+    });
+
+    it('names a removed prepared file as a flow change', async () => {
+      const store = fixture();
+      store.expected.flow.documents = { photo: { files: [{ key: 'a' }] } };
+      await store.orderRef.collection('automation').doc('flow').set({ documents: { photo: { files: [{ key: 'b' }] } } }, { merge: true });
+      expect(await persistLivePortalRequirementsDetailed({ ...store, round: 1, event: event() })).toEqual({ ok: false, reason: 'flow_changed' });
+    });
+
+    it('reports ambiguous identity without touching Firestore: a draft question of another source with the same field', async () => {
+      const store = fixture();
+      store.expected.draft.questions = [{ ...old, source: 'cv_match' }];
+      await store.orderRef.collection('ai_drafts').doc('current').set(store.expected.draft);
+      const before = store.read(`${base}/ai_drafts/current`);
+      expect(await persistLivePortalRequirementsDetailed({ ...store, round: 1, event: event() })).toEqual({ ok: false, reason: 'ambiguous_identity' });
+      expect(store.read(`${base}/ai_drafts/current`)).toEqual(before);
+      expect(await persistLivePortalRequirements({ ...store, round: 1, event: event() })).toBe(false);
+    });
+
+    it('reports a superseded execution', async () => {
+      const store = fixture();
+      const result = await persistLivePortalRequirementsDetailed({ ...store, round: 1, event: event(), validateExecutionInTransaction: async () => null });
+      expect(result).toEqual({ ok: false, reason: 'execution_superseded' });
+    });
   });
 });

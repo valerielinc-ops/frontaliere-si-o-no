@@ -75,7 +75,33 @@ export function mergeLivePortalQuestions(existingQuestions = [], incomingQuestio
   return { questions, ids, ambiguous: false };
 }
 
-export async function persistLivePortalRequirements({ db, orderRef, expected, round, event, validateExecutionInTransaction = null }) {
+// Reasons a live requirement cannot be stored. Reported as
+// `requirement_context_changed:<reason>` (functions/src/assistedApplicationFlow.js
+// retries only the ones that can clear by themselves).
+const canon = value => {
+  if (Array.isArray(value)) return value.map(canon);
+  if (value && typeof value === 'object' && [Object.prototype, null].includes(Object.getPrototypeOf(value))) {
+    return Object.fromEntries(Object.entries(value).filter(([, item]) => item !== undefined).map(([key, item]) => [key, canon(item)]));
+  }
+  return value;
+};
+const same = (a, b) => isDeepStrictEqual(canon(a), canon(b));
+const pick = (source, keys) => Object.fromEntries(keys.map(key => [key, source?.[key]]));
+// Only what the live question was read against. Counters, heartbeats, e-mail
+// engagement and whatever this very run wrote (a prepared photo on
+// flow.documents) do not make a discovered question obsolete.
+const ORDER_CONTEXT_KEYS = ['jobUrl', 'cvStorageKey', 'paymentStatus', 'submissionStatus', 'refundStatus', 'withdrawnAt', 'retentionPurgedAt'];
+const FLOW_CONTEXT_KEYS = ['state', 'round', 'executionId', 'answers', 'questionAnswers', 'questionAnswerSnapshots', 'formOverrides', 'portalRecoveryVersion'];
+const flowContext = flow => ({ ...pick(flow, FLOW_CONTEXT_KEYS), dispatch: pick(flow?.dispatch, ['mode', 'round', 'sourceSha']) });
+const DRAFT_CONTEXT_KEYS = ['status', 'round', 'questions', 'requiredDocuments', 'approval', 'job', 'channel'];
+const documentFileKeys = document => (Array.isArray(document?.files) ? document.files : []).map(file => file?.key ?? JSON.stringify(canon(file)));
+// Files may only be added (by this run); a removed or replaced one is a real change.
+const documentsStillPresent = (expected = {}, current = {}) => Object.entries(expected || {}).every(([id, document]) => {
+  const present = new Set(documentFileKeys(current?.[id]));
+  return documentFileKeys(document).every(key => present.has(key));
+});
+
+export async function persistLivePortalRequirementsDetailed({ db, orderRef, expected, round, event, validateExecutionInTransaction = null }) {
   const rawQuestions = Array.isArray(event.questions) ? event.questions : [];
   const details = Array.isArray(event.questionDetails) ? event.questionDetails
     : rawQuestions.filter(question => question && typeof question === 'object' && question.question);
@@ -83,7 +109,7 @@ export async function persistLivePortalRequirements({ db, orderRef, expected, ro
   const rawDocuments = Array.isArray(event.documents) ? event.documents : [];
   const incomingDocuments = rawDocuments.filter(document => document && typeof document === 'object');
   const merged = mergeLivePortalQuestions(expected.draft.questions || [], incoming);
-  if (merged.ambiguous) return false;
+  if (merged.ambiguous) return { ok: false, reason: 'ambiguous_identity' };
   const requiredDocuments = mergeRequiredDocuments(expected.draft.requiredDocuments || [], incomingDocuments);
   const patch = {};
   if (incoming.length) patch.questions = merged.questions;
@@ -91,7 +117,7 @@ export async function persistLivePortalRequirements({ db, orderRef, expected, ro
   const draftRef = orderRef.collection('ai_drafts').doc('current');
   const flowRef = orderRef.collection('automation').doc('flow');
   const submissionRef = orderRef.collection('automation').doc('submission');
-  const accepted = await db.runTransaction(async tx => {
+  const rejected = await db.runTransaction(async tx => {
     const [orderDoc, flowDoc, draftDoc, submissionDoc] = await Promise.all([
       tx.get(orderRef), tx.get(flowRef), tx.get(draftRef), tx.get(submissionRef),
     ]);
@@ -102,26 +128,24 @@ export async function persistLivePortalRequirements({ db, orderRef, expected, ro
     if (validateExecutionInTransaction) {
       const context = await validateExecutionInTransaction(tx);
       if (!context || !isDeepStrictEqual(context.flow, flow)
-        || !context.execution?.id || context.execution.id !== flow?.executionId) return false;
+        || !context.execution?.id || context.execution.id !== flow?.executionId) return 'execution_superseded';
     }
-    const flowForComparison = { ...flow };
-    if (validateExecutionInTransaction) for (const key of ['remoteExecutionRound', 'remoteExecutionAttempts']) {
-      if (Object.hasOwn(expected.flow, key)) flowForComparison[key] = expected.flow[key];
-      else delete flowForComparison[key];
-    }
-    if (!isDeepStrictEqual(order, expected.order) || !isDeepStrictEqual(flowForComparison, expected.flow)
-      || !isDeepStrictEqual(draft, expected.draft) || Number(flow?.round) !== round || flow?.state !== 'submitting'
-      || order?.paymentStatus !== 'paid' || ['pending', 'succeeded', 'refunded'].includes(order?.refundStatus)
+    if (Number(flow?.round) !== round || flow?.state !== 'submitting') return 'flow_not_submitting';
+    if (order?.paymentStatus !== 'paid' || ['pending', 'succeeded', 'refunded'].includes(order?.refundStatus)
       || order?.withdrawnAt || order?.retentionPurgedAt || submission.withdrawnAt
-      || ['sent', 'submitted', 'withdrawn', 'refunded'].includes(order?.submissionStatus)
-      || Number(draft?.round) !== round || draft?.status !== 'ready'
-      || draft?.sent || draft?.sentAttempt || Object.entries(submission).some(([key, value]) => /^r\d+$/.test(key)
-        && (value?.state === 'sent' || isUnconfirmedSubmission(value)
-          || (value?.state === 'sending' && value?.channel === 'email')))) return false;
+      || ['sent', 'submitted', 'withdrawn', 'refunded'].includes(order?.submissionStatus)) return 'order_closed';
+    if (Number(draft?.round) !== round || draft?.status !== 'ready') return 'draft_not_ready';
+    if (draft?.sent || draft?.sentAttempt || Object.entries(submission).some(([key, value]) => /^r\d+$/.test(key)
+      && (value?.state === 'sent' || isUnconfirmedSubmission(value)
+        || (value?.state === 'sending' && value?.channel === 'email')))) return 'submission_started';
+    if (!same(pick(order, ORDER_CONTEXT_KEYS), pick(expected.order, ORDER_CONTEXT_KEYS))) return 'order_changed';
+    if (!same(flowContext(flow), flowContext(expected.flow))
+      || !documentsStillPresent(expected.flow?.documents, flow?.documents)) return 'flow_changed';
+    if (!same(pick(draft, DRAFT_CONTEXT_KEYS), pick(expected.draft, DRAFT_CONTEXT_KEYS))) return 'draft_changed';
     if (Object.keys(patch).length) tx.set(draftRef, patch, { merge: true });
-    return true;
+    return null;
   });
-  if (!accepted) return false;
+  if (rejected) return { ok: false, reason: rejected };
   event.questions = rawQuestions.map(question => {
     const id = typeof question === 'string' ? question : question?.id;
     return merged.ids.get(id) || id;
@@ -135,5 +159,10 @@ export async function persistLivePortalRequirements({ db, orderRef, expected, ro
     return requiredDocuments.find(document => document.id === candidate.id
       || (key && requiredDocumentLabelKey(document.label) === key))?.id || '';
   }).filter(Boolean))];
-  return true;
+  return { ok: true, reason: null };
+}
+
+/** Boolean form kept for callers that do not report a reason. */
+export async function persistLivePortalRequirements(args) {
+  return (await persistLivePortalRequirementsDetailed(args)).ok;
 }
