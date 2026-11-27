@@ -5170,6 +5170,10 @@ const FORM_VOCABULARY = new Set([
   'lavora', 'noi', 'spontanea', 'arbeiten', 'rejoignez', 'nous', 'vous',
   // Italian SuccessFactors section controls and first fields are form chrome,
   // not an employer or role heading.
+  // German SuccessFactors section captions (Stadt Zürich, 2026-11-27: «Meine Bewerbungsunterlagen»,
+  // «Profilinformationen», «Stellenspezifische Informationen»): the tenant's own page words name no
+  // employer; a caption exposed as a heading was read as another employer and ended the run.
+  'bewerbungsunterlagen', 'unterlagen', 'profilinformationen', 'stellenspezifische', 'informationen', 'profil', 'abmelden',
   'opzioni', 'esplodi', 'comprimi', 'tutte', 'sezioni', 'profilo', 'specifiche', 'visualizza', 'salva', 'lingua', 'appellativo',
   'number', 'numero', 'nummer',
   'process', 'prozess', 'processo', 'processus', 'recruiting', 'recruitment', 'applicant', 'candidate', 'kandidat', 'candidato', 'candidat',
@@ -6017,6 +6021,22 @@ export async function postingMainHeading(page) {
   return distinct[0] || '';
 }
 
+/** A «Role (id)» caption of the order's role whose requisition differs from the module route's. */
+function successFactorsCaptionNamesOtherRequisition(captions, job, applyUrl) {
+  let module;
+  try {
+    module = successFactorsModuleIdentity(new URL(String(applyUrl || '')));
+  } catch {
+    return false;
+  }
+  if (!module) return false;
+  return captions.some((caption) => {
+    const match = /\(\s*(\d{1,20})\s*\)\s*$/.exec(String(caption || '').trim());
+    return Boolean(match) && match[1] !== module.requisition
+      && titleMatchesJob(String(caption).replace(/\(\s*\d{1,20}\s*\)\s*$/, ' '), job);
+  });
+}
+
 /** The line names the role and nothing else of substance (no second role or employer around it). */
 // Gender markers a portal adds to a title («m/w/d», «(a)», «-in»): no other role.
 const TITLE_GENDER_MARKERS = new Set(['m', 'w', 'd', 'f', 'x', 'h', 'a', 'e', 'r', 'in', 'innen', 'div', 'divers']);
@@ -6452,6 +6472,10 @@ export function formPostingMatch(formText, job = {}, {
   const umantisHeadingConflict = trustedUmantisApplication
     ? umantisApplicationHeadingConflict(heading, job)
     : null;
+  // On the SuccessFactors module the runner entered, a caption that carries the order's role with ANOTHER
+  // requisition id is another vacancy, whatever the address or the employer words say.
+  if (successFactorsRouteBound && successFactorsCaptionNamesOtherRequisition(
+    [...headingCandidates, ...requisitionSections], job, applyUrl)) return 'mismatch';
   const explicitRoleConflict = roleHeading === 'unknown'
     && rawDirect === 'mismatch'
     && hasExplicitFormRoleHeading(formText, job);
@@ -11764,7 +11788,12 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
     const label = folded(field.label);
     const allText = folded(fieldText(field));
     const operationalField = { ...field, question: allText, applicationQuestion: field.label || allText, options: field.options };
-    const hasOperationalDefault = Boolean(operationalDefaultAnswer(operationalField, { facts: candidate.platformFacts }));
+    // The caption alone is read too: the options appended to `allText` («… dei miei dati sì no») turn a plain notice
+    // acknowledgement shown as a yes/no control into a sentence the closed consent grammar no longer recognises.
+    const captionText = [field?.label, field?.ariaLabel, field?.description, field?.ariaDescription,
+      ...(Array.isArray(field?.labels) ? field.labels : [])].filter(Boolean).join(' ');
+    const hasOperationalDefault = Boolean(operationalDefaultAnswer(operationalField, { facts: candidate.platformFacts }))
+      || Boolean(operationalDefaultAnswer({ ...field, question: captionText, applicationQuestion: field.label || captionText }, { facts: candidate.platformFacts }));
     const role = residenceFieldRole(field.label);
     const candidateAnswer = candidateAnswerForField(candidate, field, {
       includeProfileWorkPermit: !(isPermitField(field.label) && asksHeldStatus(field.label)),
