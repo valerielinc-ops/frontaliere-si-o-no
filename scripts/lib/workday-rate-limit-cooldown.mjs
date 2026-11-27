@@ -10,12 +10,12 @@
  * die with one run; this module is the memory BETWEEN runs.
  *
  * Where the memory lives: in the crawler's own summary slice
- * (`data/jobs-crawler-summaries/by-crawler/<key>.json`), under the
+ * (jobs-crawler-summaries/by-crawler/<key>.json under the data directory), under the
  * `workdayRateLimit` field. That file is already (a) written by every crawler
  * on every run, the exit guard included, (b) committed with the group, (c)
  * present in the next run's checkout and (d) read by the crawler-health
- * monitor. `data/crawler-health.json` is the monitor's derived state (no
- * crawler writes it) and `data/crawler-quarantine.json` is group membership,
+ * monitor. The crawler-health state file is the monitor's derived state (no
+ * crawler writes it) and the crawler-quarantine registry is group membership,
  * so neither can carry a per-run, per-tenant observation.
  *
  * Contract, per tenant:
