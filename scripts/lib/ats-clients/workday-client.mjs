@@ -612,19 +612,26 @@ const DEFAULT_DETAIL_BROWSER_BUDGET = 40;
 const DEFAULT_BROWSER_BACKOFF_MS = 2_500;
 const browserRescueLedgers = new Map();
 // A caller-supplied budget can lower the allowance but never make it unbounded:
-// non-finite, negative or NaN values fall back to the default, and the hard
-// ceiling keeps even a generous override inside the #19723 bound.
+// a non-finite or negative value is a caller bug and is rejected when the
+// context is created, before any browser request; a valid one is capped at a
+// hard ceiling so even a generous override stays inside the #19723 bound.
 const MAX_BROWSER_BUDGET = 100;
 
-function sanitizeBrowserBudget(value, fallback) {
-  const n = Number(value);
-  if (value === null || value === undefined || !Number.isFinite(n) || n < 0) return fallback;
+function sanitizeBrowserBudget(name, value, fallback) {
+  if (value === null || value === undefined) return fallback;
+  const n = typeof value === 'number' ? value : Number.NaN;
+  if (!Number.isFinite(n) || n < 0) {
+    throw new TypeError(`createWorkdayRequestContext: ${name} must be a finite number >= 0 (got ${String(value)})`);
+  }
   return Math.min(Math.floor(n), MAX_BROWSER_BUDGET);
 }
 
 function sanitizeBrowserBackoff(value) {
-  const n = Number(value);
-  return Number.isFinite(n) && n >= 0 ? n : DEFAULT_BROWSER_BACKOFF_MS;
+  if (value === null || value === undefined) return DEFAULT_BROWSER_BACKOFF_MS;
+  if (typeof value !== 'number' || !Number.isFinite(value) || value < 0) {
+    throw new TypeError(`createWorkdayRequestContext: browserBackoffMs must be a finite number >= 0 (got ${String(value)})`);
+  }
+  return value;
 }
 
 // URL-equivalent spellings of one tenant (host case, default port, trailing
@@ -703,13 +710,14 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
     egressStateDir = process.env.WORKDAY_EGRESS_STATE_DIR || defaultWorkdayEgressStateDir(),
     egressMinDelayMs = DEFAULT_EGRESS_MIN_DELAY_MS,
   } = options;
-  const listingBrowserBudget = sanitizeBrowserBudget(options.listingBrowserBudget, DEFAULT_LISTING_BROWSER_BUDGET);
+  const listingBrowserBudget = sanitizeBrowserBudget('listingBrowserBudget', options.listingBrowserBudget, DEFAULT_LISTING_BROWSER_BUDGET);
   const browserBackoffMs = sanitizeBrowserBackoff(options.browserBackoffMs);
   // Detail GETs are where #19723 forbade the browser: a 429 storm there is
   // what the circuit exists to stop. The budgeted rescue below stays inside
   // that bound, but it is on by default only for the built-in browser
   // transport; a caller-supplied transport must opt in explicitly.
   const detailBrowserBudget = sanitizeBrowserBudget(
+    'detailBrowserBudget',
     options.detailBrowserBudget,
     configuredBrowserFallback === undefined ? DEFAULT_DETAIL_BROWSER_BUDGET : 0,
   );

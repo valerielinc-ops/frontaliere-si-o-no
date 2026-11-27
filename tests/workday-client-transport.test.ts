@@ -848,35 +848,12 @@ describe('Workday JSON transport', () => {
       }
     });
 
-    it.each([Infinity, Number.NaN, -1, '9e999'])('never lets the budget %s make the rescue unbounded', async (bad) => {
-      vi.useFakeTimers();
-      vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('', { status: 429 })));
+    it.each([Infinity, Number.NaN, -1, '9e999'])('rejects the non-finite or invalid budget %s before any browser request', (bad) => {
       const browserFallback = vi.fn().mockResolvedValue({ browser: true });
-      // Infinity-like values fall back to the (finite) defaults: details 0 for an
-      // injected transport, listing 25. A request past the budget must reject.
-      const context = rescueContext(browserFallback, { detailBrowserBudget: bad, listingBrowserBudget: bad });
-
-      try {
-        const pending = context.request(detailUrl(1), detailOptions);
-        const rejection = expect(pending).rejects.toBeInstanceOf(WorkdayRateLimitError);
-        await vi.runAllTimersAsync();
-        await rejection;
-        expect(browserFallback).not.toHaveBeenCalled();
-
-        const listing = { method: 'POST', body: '{}', retries: 3, retryBaseMs: 0 };
-        let served = 0;
-        for (let i = 0; i < 60; i += 1) {
-          const req = context.request(`${API_BASE}/jobs`, listing);
-          const settled = req.then(() => { served += 1; }, () => {});
-          await vi.runAllTimersAsync();
-          await settled;
-        }
-        expect(served).toBeLessThanOrEqual(25);
-        expect(browserFallback.mock.calls.length).toBeLessThanOrEqual(25);
-      } finally {
-        await context.close();
-        vi.useRealTimers();
-      }
+      expect(() => rescueContext(browserFallback, { listingBrowserBudget: bad })).toThrow(TypeError);
+      expect(() => rescueContext(browserFallback, { detailBrowserBudget: bad })).toThrow(TypeError);
+      expect(() => rescueContext(browserFallback, { browserBackoffMs: bad })).toThrow(TypeError);
+      expect(browserFallback).not.toHaveBeenCalled();
     });
 
     it('caps an explicit oversized budget at the hard ceiling', async () => {
