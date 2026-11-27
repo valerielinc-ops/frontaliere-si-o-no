@@ -9,7 +9,7 @@
  * with exactly one expired record of that identity and company still archived.
  * Routes without that proof are not in the manifest.
  *
- * For each target this script adds, through `mergeExpiredRouteEvidence`, the
+ * For each target this script adds, through `addExpiredRoutes`, the
  * listed routes that NO record (active or expired) serves today. It does not use
  * `createSameIdentityArchiveIndex().absorb`: that one counts a stem as served
  * when the record holds its deterministic alias, while here the stem URL itself
@@ -30,8 +30,8 @@ import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import {
   assertExpiredSliceSize,
+  addExpiredRoutes,
   localeRouteKeys,
-  mergeExpiredRouteEvidence,
 } from './lib/expired-jobs-archive.mjs';
 import { readExpiredSliceShards } from './lib/expired-slice-store.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -118,15 +118,7 @@ export function recoverCrawlerRows(rows, targets, heldKeys) {
       continue;
     }
     const [record] = matches;
-    const payload = { previousSlugsByLocale: {}, previousSlugCantonByLocale: {} };
-    for (const key of wanted) {
-      const locale = key.slice(0, key.indexOf(':'));
-      const slug = key.slice(locale.length + 1);
-      (payload.previousSlugsByLocale[locale] ||= []).push(slug);
-      const canton = target.cantons?.[locale]?.[slug];
-      if (canton) (payload.previousSlugCantonByLocale[locale] ||= {})[slug] = canton;
-    }
-    mergeExpiredRouteEvidence(record, payload, 'recover-backfill-lost-routes');
+    addExpiredRoutes(record, wanted, { cantons: target.cantons, source: 'recover-backfill-lost-routes' });
     const served = localeRouteKeys(record);
     for (const key of wanted) {
       if (served.has(key)) {
