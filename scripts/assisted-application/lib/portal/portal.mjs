@@ -39,6 +39,7 @@ import { COVER_LETTER_DOCUMENT_CONTEXT_RE, COVER_LETTER_DOCUMENT_TERMS, CV_DOCUM
 import { advancedToFinalReview } from './final-review.mjs';
 export { advancedToFinalReview } from './final-review.mjs';
 import { AGENT_MAX_RUNTIME_MS, AGENT_ROUNDS, advanceLocator, agentNavigationEnabled, clickSubmitButton, completeWithAgent, isPreDispatchLocatorClickFailure, submitLocator } from './agent.mjs';
+import { avatureProtocolMatches, readAvatureSignInRouteInPage, readPortalProtocolInPage } from './protocol.mjs';
 import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, asksExistingPassword, authPageKind, codeField, hasExistingAccountPrompt, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields as extractFieldsRaw, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
@@ -10024,6 +10025,11 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
     if (finalUrl.protocol !== 'https:' || finalUrl.username || finalUrl.password || !sameSite(finalUrl.href, portalHost)) return false;
     return true;
   }
+  // Avature (Deloitte CH `/CHCareers/Register`): the registration page has no sign-in link in its content,
+  // only the site-header «Login» anchor, which the snapshot leaves out as site chrome. Followed only when
+  // the live page attests the Avature portal and one same-origin anchor named «Login» leads to its Login page.
+  if (Array.isArray(currentSnapshot?.fields) && authPageKind(currentSnapshot) === 'create'
+    && await openAvatureSignInNavigation(page, currentSnapshot)) return true;
   // SuccessFactors' job-specific registration view can omit the visible
   // sign-in anchor entirely (SBB's `login_ns=register` page). Reuse only the
   // same-origin career route with its verified job context, changing the
@@ -10047,6 +10053,45 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
     }
   }
   return false;
+}
+
+/** Follow the Avature header «Login» route of a registration page; navigation only, nothing is clicked or submitted. */
+async function openAvatureSignInNavigation(page, snapshot) {
+  const identity = authFormIdentity(snapshot);
+  const frame = identity && page.frames()[identity.frame];
+  let currentUrl;
+  try {
+    currentUrl = new URL(frame?.url?.() || '');
+  } catch {
+    return false;
+  }
+  // Cheap URL pre-filter: `/<Namespace>/Register` over https; the live page must still attest Avature.
+  if (currentUrl.protocol !== 'https:' || currentUrl.username || currentUrl.password
+    || !/^\/[A-Za-z][A-Za-z0-9_-]{0,79}\/Register\/?$/.test(currentUrl.pathname)
+    || typeof frame.evaluate !== 'function') return false;
+  const live = await frame.evaluate(`(${readAvatureSignInRouteInPage.toString()})(${readPortalProtocolInPage.toString()})`)
+    .catch(() => null);
+  const protocol = live?.protocol;
+  if (!protocol || !avatureProtocolMatches(protocol, `${currentUrl.origin}${currentUrl.pathname}`)) return false;
+  const targets = new Set();
+  for (const link of Array.isArray(live.links) ? live.links : []) {
+    if (!isExplicitSignInNavigationLabel(link?.text, link?.title, link?.ariaLabel)) continue;
+    const target = verifiedSignInTarget(link.href, currentUrl.href, currentUrl.hostname);
+    if (!target) continue;
+    const parsed = new URL(target);
+    if (parsed.origin !== protocol.origin || parsed.pathname.replace(/\/$/, '') !== `${protocol.namespace}/Login`) continue;
+    targets.add(parsed.href);
+  }
+  // Two different Login destinations would be a guess between them: fail closed.
+  if (targets.size !== 1) return false;
+  try {
+    await frame.goto([...targets][0], { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    const finalUrl = new URL(frame.url());
+    return finalUrl.protocol === 'https:' && !finalUrl.username && !finalUrl.password
+      && finalUrl.origin === protocol.origin && finalUrl.pathname.replace(/\/$/, '') === `${protocol.namespace}/Login`;
+  } catch {
+    return false;
+  }
 }
 
 /** Open a reset route only from the live email+password form that owns the control. */

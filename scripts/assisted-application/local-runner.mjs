@@ -516,6 +516,65 @@ export async function loadRemoteConfigEnv({ repoRoot = REPO_ROOT, env = process.
   return rcEnv;
 }
 
+// ── Portal stop report ──────────────────────────────────────────────────────
+
+export const SITE_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
+export const PORTAL_REPORT_TIMEOUT_MS = 3 * 60 * 1000;
+const PORTAL_REPORT_MODES = new Set(['submit', 'dry_run']);
+
+/**
+ * The default reporter: scripts/assisted-application/report-portal-stop.mjs, the very script the workflow's
+ * «Open the fix issue for a portal stop» step runs, in a child with the GitHub token this runner already gets
+ * from Remote Config (GITHUB_PAT; no new secret). The child sees only the two candidate-free marker files.
+ * Resolves with the child's exit code; its output goes through the log masker.
+ */
+export function runPortalStopReporter({ stopReportFile, portalPassFile, runUrl, rcEnv = {}, env = process.env,
+  repoRoot = REPO_ROOT, write = () => {}, timeoutMs = PORTAL_REPORT_TIMEOUT_MS, spawnImpl = spawn }) {
+  return new Promise((resolve, reject) => {
+    const childEnv = { ...env, GH_REPO: env.GH_REPO || SITE_REPOSITORY, STOP_REPORT: stopReportFile, PORTAL_PASS: portalPassFile, RUN_URL: runUrl };
+    const token = rcEnv.GITHUB_PAT || env.GITHUB_PAT;
+    if (token) childEnv.GH_TOKEN = token;
+    const child = spawnImpl(process.execPath, [path.join(repoRoot, 'scripts', 'assisted-application', 'report-portal-stop.mjs')],
+      { cwd: repoRoot, env: childEnv, stdio: ['ignore', 'pipe', 'pipe'] });
+    child.stdout?.on('data', (chunk) => write(String(chunk)));
+    child.stderr?.on('data', (chunk) => write(String(chunk)));
+    const timer = setTimeout(() => { try { child.kill('SIGKILL'); } catch { /* gone */ } }, timeoutMs);
+    timer.unref?.();
+    child.once('error', (error) => { clearTimeout(timer); reject(error); });
+    child.once('close', (code) => { clearTimeout(timer); resolve(code); });
+  });
+}
+
+/**
+ * Same outcome as the workflow's step, for a run of this Mac: read the markers the agent left in `runDir`
+ * (called BEFORE the folder is removed, whatever the agent's exit) and open/update the portal-stop issue or close
+ * the recovered ones. A missing file means nothing to report (a killed agent may not have written it: no issue is
+ * invented). Any failure is logged and swallowed, like `continue-on-error`: it never blocks the queue.
+ * The run reference is opaque (runner id and start time): no URL, host name or path of this Mac.
+ */
+export async function reportPortalOutcomeFromRunDir({ runDir, mode, runnerId = 'swiss-runner', startedAt, report = runPortalStopReporter,
+  write = () => {}, rcEnv = {}, env = process.env, repoRoot = REPO_ROOT }) {
+  if (!PORTAL_REPORT_MODES.has(mode)) return { reported: false, reason: 'mode_not_reported' };
+  const stopReportFile = path.join(runDir, 'portal-stop.json');
+  const portalPassFile = path.join(runDir, 'portal-pass.json');
+  const hasStop = fs.existsSync(stopReportFile);
+  const hasPass = fs.existsSync(portalPassFile);
+  if (!hasStop && !hasPass) return { reported: false, reason: 'no_marker' };
+  const runUrl = `swiss-runner:${String(runnerId).replace(/[^A-Za-z0-9_-]/g, '').slice(0, 64) || 'unknown'}@${new Date(Number(startedAt) || Date.now()).toISOString()}`;
+  try {
+    const code = await report({ stopReportFile, portalPassFile, runUrl, rcEnv, env, repoRoot, write });
+    if (code !== undefined && code !== null && code !== 0) {
+      write(`swiss-runner portal report failed exit=${code}\n`);
+      return { reported: false, reason: 'reporter_failed' };
+    }
+    write(`swiss-runner portal report done stop=${hasStop} pass=${hasPass}\n`);
+    return { reported: true, stop: hasStop, pass: hasPass };
+  } catch (error) {
+    write(`swiss-runner portal report failed ${String(error?.code || 'error').slice(0, 60)}\n`);
+    return { reported: false, reason: 'reporter_error' };
+  }
+}
+
 // ── One run ─────────────────────────────────────────────────────────────────
 
 function killGroup(child, signal) {
@@ -528,7 +587,7 @@ function killGroup(child, signal) {
  * run reported as failed (before it starts, the request just goes back to the queue).
  * @returns {Promise<{status:'done'|'failed'|'retry', exitCode:number|null, code:string|null}>}
  */
-export async function runAgentLocally({ db, leased, startedAt, signal = null, env = process.env, repoRoot = REPO_ROOT, write = (text) => process.stdout.write(text), reportFailure = null }) {
+export async function runAgentLocally({ db, leased, startedAt, runnerId = 'swiss-runner', signal = null, env = process.env, repoRoot = REPO_ROOT, write = (text) => process.stdout.write(text), reportFailure = null, reportPortal = runPortalStopReporter }) {
   const masker = createLogMasker(write);
   const runDir = fs.mkdtempSync(path.join(os.tmpdir(), 'swiss-runner-run.'));
   let broker = null;
@@ -570,6 +629,9 @@ export async function runAgentLocally({ db, leased, startedAt, signal = null, en
       child.once('error', () => settle(null));
       child.once('close', (code) => settle(code));
     });
+    masker.flush();
+    // The workflow's «Open the fix issue for a portal stop» step (if: always()): before runDir is removed.
+    await reportPortalOutcomeFromRunDir({ runDir, mode: leased.mode, runnerId, startedAt, report: reportPortal, write: (text) => masker.push(text), rcEnv, env, repoRoot });
     masker.flush();
     write(`swiss-runner agent exit order=${leased.orderId} code=${exit.code ?? 'none'}${exit.timedOut ? ' timeout' : ''}${exit.aborted ? ` stopped:${exit.aborted}` : ''}\n`);
     if (exit.code === 0 && !exit.timedOut && !exit.aborted) return { status: 'done', exitCode: 0, code: null };
@@ -702,7 +764,7 @@ export async function runCycle({ db, runnerId, now = Date.now, fetchImpl = fetch
   timer.unref?.();
   let outcome;
   try {
-    outcome = await runAgent({ db, leased, startedAt, signal: controller.signal });
+    outcome = await runAgent({ db, leased, startedAt, runnerId, signal: controller.signal });
     if (controller.signal.aborted && outcome?.status === 'retry') outcome = { ...outcome, code: 'egress_lost' };
   } catch (error) {
     outcome = { status: 'failed', exitCode: null, code: String(error?.code || 'runner_error').slice(0, 60) };

@@ -51,7 +51,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.tplsa.ch/2/50/candidati?idhr=778",
-    "firstSeenAt": "2026-10-23T09:21:26.983Z"
+    "firstSeenAt": "2026-10-23T09:21:26.983Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "capo-officina-tpl-trasporti-pubblici-luganesi-lugano": "TI"
+      },
+      "en": {
+        "capo-officina-tpl-trasporti-pubblici-luganesi-lugano": "TI"
+      },
+      "de": {
+        "capo-officina-tpl-trasporti-pubblici-luganesi-lugano": "TI"
+      },
+      "fr": {
+        "capo-officina-tpl-trasporti-pubblici-luganesi-lugano": "TI"
+      }
+    }
   },
   {
     "id": "tpl-trasporti-pubblici-luganesi-78f01bda47e0",
@@ -105,7 +120,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.tplsa.ch/2/50/candidati?idhr=777",
-    "firstSeenAt": "2026-10-23T09:21:26.981Z"
+    "firstSeenAt": "2026-10-23T09:21:26.981Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "impiegato-tecnico-amministrativo-tpl-trasporti-pubblici-luganesi-lugano": "TI"
+      },
+      "en": {
+        "impiegato-tecnico-amministrativo-tpl-trasporti-pubblici-luganesi-lugano": "TI"
+      },
+      "de": {
+        "impiegato-tecnico-amministrativo-tpl-trasporti-pubblici-luganesi-lugano": "TI"
+      },
+      "fr": {
+        "impiegato-tecnico-amministrativo-tpl-trasporti-pubblici-luganesi-lugano": "TI"
+      }
+    }
   },
   {
     "slug": "addetto-a-rimessa-tpl-lugano",
@@ -158,6 +188,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.tplsa.ch/2/50/candidati?idhr=769",
-    "firstSeenAt": "2026-09-12T13:03:25.263Z"
+    "firstSeenAt": "2026-09-12T13:03:25.263Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "addetto-a-rimessa-tpl-trasporti-pubblici-luganesi-lugano": "TI"
+      },
+      "en": {
+        "addetto-a-rimessa-tpl-trasporti-pubblici-luganesi-lugano": "TI"
+      },
+      "de": {
+        "addetto-a-rimessa-tpl-trasporti-pubblici-luganesi-lugano": "TI"
+      },
+      "fr": {
+        "addetto-a-rimessa-tpl-trasporti-pubblici-luganesi-lugano": "TI"
+      }
+    }
   }
 ]

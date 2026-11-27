@@ -57,7 +57,8 @@
       "it": {
         "capo-dipartimento-capo-dipartimento-bevande-transgourmet-st-gallen-baff9d3e": "SG",
         "abteilungsleiterin-abteilungsleiter-getranke-transgourmet-st-gallen-3cf71e55": "SG",
-        "capo-dipartimento-capo-dipartimento-bevande-transgourmet-st-gallen-e5d96c8b25": "SG"
+        "capo-dipartimento-capo-dipartimento-bevande-transgourmet-st-gallen-e5d96c8b25": "SG",
+        "abteilungsleiterin-abteilungsleiter-getranke-transgourmet-st-gallen": "SG"
       },
       "en": {
         "head-of-department-head-of-department-drinks-transgourmet-st-gallen-21f447bb": "SG",
@@ -78,7 +79,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/abteilungsleiterin-abteilungsleiter-getraenke/ea8066ac-9148-4cda-8be8-1af93cc853a2",
-    "firstSeenAt": "2026-10-27T21:19:42.541Z"
+    "firstSeenAt": "2026-10-27T21:19:42.541Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/abteilungsleiterin-abteilungsleiter-getraenke/83860e61-8b4e-429c-bbb6-ac2a958a6530",
+        "firstSeenAt": "2026-10-27T21:19:42.541Z",
+        "title": "Abteilungsleiterin / Abteilungsleiter Getränke"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/abteilungsleiterin-abteilungsleiter-getraenke/ea8066ac-9148-4cda-8be8-1af93cc853a2",
+        "firstSeenAt": "2026-10-27T21:19:42.541Z",
+        "title": "Abteilungsleiterin / Abteilungsleiter Getränke"
+      }
+    ]
   },
   {
     "id": "transgourmet-addf8324-365",
@@ -109,20 +122,29 @@
     "sector": "Commercio all'ingrosso alimentare",
     "expiredAt": "2026-11-24T21:16:56.536Z",
     "previousSlugs": [
-      "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon"
+      "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon",
+      "operazioni-aziendali-e-controllo-manager-80-100-transgourmet-dietikon-f02dd4",
+      "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon-7bf13110",
+      "gestionnaire-d-exploitation-et-de-controle-80-100-transgourmet-dietikon"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon"
+        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon",
+        "operazioni-aziendali-e-controllo-manager-80-100-transgourmet-dietikon-f02dd4",
+        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon-7bf13110"
       ],
       "en": [
-        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon"
+        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon",
+        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon-7bf13110"
       ],
       "de": [
-        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon"
+        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon",
+        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon-7bf13110"
       ],
       "fr": [
-        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon"
+        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon",
+        "gestionnaire-d-exploitation-et-de-controle-80-100-transgourmet-dietikon",
+        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon-7bf13110"
       ]
     },
     "postalCode": "8953",
@@ -144,7 +166,28 @@
         "firstSeenAt": "2026-11-13T09:18:19.735Z",
         "title": "Business Operations & Controlling Manager 80-100%"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon": "ZH",
+        "operazioni-aziendali-e-controllo-manager-80-100-transgourmet-dietikon-f02dd4": "ZH",
+        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon-7bf13110": "ZH"
+      },
+      "en": {
+        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon": "ZH",
+        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon-7bf13110": "ZH"
+      },
+      "de": {
+        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon": "ZH",
+        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon-7bf13110": "ZH"
+      },
+      "fr": {
+        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon": "ZH",
+        "gestionnaire-d-exploitation-et-de-controle-80-100-transgourmet-dietikon": "ZH",
+        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon-7bf13110": "ZH"
+      }
+    }
   },
   {
     "id": "transgourmet-8f70d758-982",
@@ -201,7 +244,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-frische/8f70d758-9828-4238-a741-09a1dcf07c0e",
-    "firstSeenAt": "2026-11-18T21:21:57.098Z"
+    "firstSeenAt": "2026-11-18T21:21:57.098Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-mitarbeiter-verkauf-frische-transgourmet-dietikon": "ZH",
+        "mitarbeiterin-addetto-a-alle-vendite-frische-transgourmet-dietikon": "ZH"
+      },
+      "en": {
+        "mitarbeiterin-mitarbeiter-verkauf-frische-transgourmet-dietikon": "ZH"
+      },
+      "fr": {
+        "mitarbeiterin-mitarbeiter-verkauf-frische-transgourmet-dietikon": "ZH"
+      }
+    }
   },
   {
     "id": "transgourmet-a6229d10-934",
@@ -232,12 +288,14 @@
     "sector": "Commercio all'ingrosso alimentare",
     "expiredAt": "2026-11-22T09:21:48.253Z",
     "previousSlugs": [
-      "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-2"
+      "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-2",
+      "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet"
     ],
     "previousSlugsByLocale": {
       "it": [
         "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-2",
-        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-73835aa0"
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-73835aa0",
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet"
       ],
       "en": [
         "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-2",
@@ -246,6 +304,9 @@
       "fr": [
         "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-2",
         "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-73835aa0"
+      ],
+      "de": [
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet"
       ]
     },
     "postalCode": "4133",
@@ -255,7 +316,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food/a6229d10-934c-4393-a625-e04f9130af67",
-    "firstSeenAt": "2026-10-31T09:21:33.119Z"
+    "firstSeenAt": "2026-10-31T09:21:33.119Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-2": "BL",
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet": "BL"
+      },
+      "en": {
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-2": "BL"
+      },
+      "de": {
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet": "BL"
+      },
+      "fr": {
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-2": "BL"
+      }
+    }
   },
   {
     "slug": "collaboratore-collaboratore-non-food-transgourmet-rennaz",
@@ -305,51 +382,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/postes-vacantes/collaboratrice-collaborateur-non-food/820444df-7161-44e5-9c0c-e33bbbe4be78",
-    "firstSeenAt": "2026-11-02T21:24:44.012Z"
-  },
-  {
-    "slug": "operazioni-aziendali-e-controllo-manager-80-100-transgourmet-dietikon-f02dd4",
-    "title": "Business Operations & Controlling Manager 80-100%",
-    "titleByLocale": {
-      "it": "Operazioni aziendali e controllo manager 80- 100%",
-      "en": "Business Operations & Controlling Manager 80-100%",
-      "de": "Business Operations & Controlling Manager 80-100%",
-      "fr": "Gestionnaire d'exploitation et de contrôle 80-100 %"
-    },
-    "company": "Transgourmet",
-    "companyKey": "transgourmet",
-    "location": "Dietikon",
-    "addressLocality": "Dietikon",
-    "descriptionByLocale": {
-      "it": "Casa del Vino SA è la più alta esperienza di consulenza e assortimento nell'affascinante mondo dei vini selezionati. EsclusivitÃ di alto calibro e marchi ben noti di Spagna, Francia, Italia e in tutto il mondo distinguono la nostra gamma di prodotti di qualitÃ .\nCon la cantina Vinattieri SA appartenente al gruppo, gestiamo il nostro stabilimento produttivo di altissima qualità in Ticino, leader in Svizzera. I nostri rapporti personali a lungo termine con i produttori, la nostra logistica, un webshop e la distribuzione svizzera ci permettono di agire rapidamente e in modo flessibile sul mercato. I nostri clienti includono ristoranti, hotel, rivenditori e privati.\nL'azienda appartiene alla Transgourmet Schweiz AG e quindi al Gruppo Transgourmet internazionale.\n\n## Compiti\n• Si cattura il “grande quadro” tra cui una comprensione completa dei processi e introdurre proattivamente e implementare suggerimenti per il miglioramento, tenendo conto delle migliori pratiche\n• Concezione e sviluppo indipendenti di varie relazioni di controllo, tra cui la definizione dei KPI pertinenti, nonché la preparazione mensile e l'ulteriore sviluppo delle relazioni in stretta collaborazione con i team\n• Partecipazione a conti mensili e annuali, nonché preparazione della relazione e del sostegno corrispondenti nel bilancio\n• Prepari presentazioni per la gestione e il consiglio di amministrazione e lavori su vari argomenti strategici\n• Come “super utente” e persona di contatto principale del nostro partner IT, supporta i tuoi colleghi nel trattare con il nostro ERP (VinX) e sviluppare e mantenere costantemente il sistema\n• Pianifica e effettua in modo indipendente inventori in tutte le posizioni\n• Lei sostiene nella preparazione delle varie revisioni (interne ed esterne)\n\n## Requisiti\n• Hai una formazione commerciale di base e diversi anni di esperienza in un lavoro paragonabile e / o uno studio completato tra cui diversi anni di esperienza\n• Hai un'alta affinità per i sistemi IT e le attività finanziarie / di controllo e sono idealmente familiarità con i metodi di lavoro agili\n• Hai un tocco analitico e commerciale\n• Lavori in modo indipendente e sei un partner affidabile per il nostro team\n• La vostra elevata capacità di comunicazione e la gestione sicura di sistemi e dipendenti vi distinguono\n• È richiesta una forte conoscenza del tedesco. Italiano e Inglese sono utili\n• Idealmente, parziale Tu sei la nostra passione per il vino\nCosa offriamo\n\n## Luogo di lavoro\nCasa del Vino\nSilver Road 1\n8953 Dietikon\nDietikone\n80–100%\nPerpetuo\nApertura del lavoro: 01.12.2026\n\n## Specializzazione\nMarketing / Comunicazione / Media\nLuogo di lavoro\nCompiti\nRequisiti",
-      "en": "Casa del Vino SA stands for the highest consulting and assortment expertise in the fascinating world of selected wines. High-calibre exclusivities and well-known brands from Spain, France, Italy and all over the world distinguish our range of quality products.\nWith the Vinattieri SA winery belonging to the group, we manage our own production plant of the highest quality in Ticino, which is a leader in Switzerland. Our long-term personal relationships with producers, our own logistics, a webshop and Switzerland-wide distribution allow us to act quickly and flexibly on the market. Our customers include restaurants, hotels, resellers and private individuals.\nThe company belongs to Transgourmet Schweiz AG and thus to the international Transgourmet Group.\n\n## Tasks\n• You capture the “big picture” including a comprehensive understanding of the processes and proactively introduce and implement suggestions for improvement, taking into account best practice\n• Independent conception and development of various controlling reports including definition of relevant KPIs as well as monthly preparation and further development of the reports in close cooperation with the teams\n• Participation in monthly and annual accounts as well as preparation of the corresponding reporting and support in budgeting\n• You prepare presentations for the management and board of directors and work on various strategic topics\n• As a “super user” and primary contact person of our IT partner, you support your colleagues in dealing with our ERP (VinX) and constantly develop and maintain the system\n• You plan and independently carry out inventories at all locations\n• You support in the preparation of the various revisions (internal and external)\n\n## Requirements\n• You have a basic commercial education and several years of experience in a comparable job and / or a completed study including several years of experience\n• You have a high affinity for IT systems and financial/controlling tasks and are ideally familiar with agile working methods\n• You have an analytical and business flair\n• You work independently and are a reliable partner for our team\n• Your high communication ability and safe handling of systems and employees distinguish you\n• A strong knowledge of German is required. Italian and English are beneficial\n• Ideally, partial You are our passion for wine\nWhat we offer\n\n## Place of work\nCasa del Vino\nSilver Road 1\n8953 Dietikon\ndietikone\n80–100%\nPerpetual\nJob opening: 01.12.2026\n\n## Specialisation\nMarketing / Communication / Media\nPlace of work\nTasks\nRequirements",
-      "de": "Casa del Vino SA steht für höchste Beratungs- und Sortimentskompetenz in der faszinierenden Welt ausgesuchter Weine. Hochkarätige Exklusivitäten und bekannte Marken aus Spanien, Frankreich, Italien sowie aus aller Welt zeichnen unser Qualitätssortiment aus.\nMit dem zur Gruppe gehörenden Weingut Vinattieri SA bewirtschaften wir im Tessin einen eigenen, in der Schweiz führenden Produktionsbetrieb von höchster Qualität. Die langfristigen persönlichen Beziehungen zu Produzenten, die eigene Logistik, ein Webshop und die schweizweite Distribution erlauben es uns, am Markt schnell und flexibel zu handeln. Zu unseren Kunden zählen Restaurants, Hotels, Wiederverkäufer und Private.\nDas Unternehmen gehört zur Transgourmet Schweiz AG und somit zur internationalen Transgourmet-Gruppe.\n\n## Aufgaben\n• Du erfasst das «Gesamtbild» einschliesslich eines umfassenden Verständnisses der Prozesse und bringst proaktiv unter Berücksichtigung von Best Practice Verbesserungsvorschläge ein und setzt diese um\n• Eigenständige Konzeption und Entwicklung verschiedener Controlling-Reports inklusive Definition relevanter KPIs sowie monatliche Erstellung und Weiterentwicklung der Reports in enger Zusammenarbeit mit den Teams\n• Mitwirkung bei Monats- und Jahresabschlüssen sowie Erstellung der entsprechenden Reportings und Unterstützung bei der Budgetierung\n• Du bereitest Präsentationen für Geschäftsleitung und Verwaltungsrat vor und arbeitest an diversen strategischen Themen mit\n• Als «Super-User» und primäre Ansprechperson unseres IT-Partners unterstützt Du Deine Kolleginnen und Kollegen im Umgang mit unserem ERP (VinX) und entwickelst und pflegst das System ständig weiter\n• Du planst und führst selbständig Inventuren an allen Standorten durch\n• Du unterstützt bei der Vorbereitung der verschiedenen Revisionen (intern und extern)\n\n## Anforderungen\n• Du hast eine kaufmännische Grundausbildung und mehrjährige Erfahrung in einer vergleichbaren Tätigkeit und/oder ein abgeschlossenes Studium inkl. mehrjähriger Erfahrung vorzuweisen\n• Du bringst eine hohe Affinität für IT-Systeme und Finanz/Controlling Aufgaben mit und kennst dich idealerweise mit agilen Arbeitsmethoden aus\n• Du hast ein analytisches und betriebswirtschaftliches Flair\n• Du arbeitest selbstständig und bist ein zuverlässiger Partner für unser Team\n• Deine hohe Kommunikationsfähigkeit und der sichere Umgang mit Systemen und Mitarbeitenden zeichnen Dich aus\n• Ausgeprägte Deutschkenntnisse werden vorausgesetzt. Italienisch und Englisch von Vorteil\n• Idealerweise teilst Du unsere Leidenschaft für Wein\nWas wir bieten\n\n## Arbeitsort\nCasa del Vino\nSilbernstrasse 1\n8953 Dietikon\nDietikon\n80–100%\nunbefristet\nStellenantritt: 01.12.2026\n\n## Fachrichtung\nMarketing / Kommunikation / Medien\nArbeitsort\nAufgaben\nAnforderungen",
-      "fr": "Casa del Vino SA représente la plus haute expertise en conseil et assortiment dans le monde fascinant des vins sélectionnés. Des exclusivités de haut calibre et des marques bien connues d'Espagne, de France, d'Italie et du monde entier distinguent notre gamme de produits de qualité.\nAvec la cave Vinattieri SA appartenant au groupe, nous gérons notre propre usine de production de la plus haute qualité au Tessin, leader en Suisse. Nos relations personnelles à long terme avec les producteurs, notre propre logistique, une boutique en ligne et une distribution à l'échelle suisse nous permettent d'agir rapidement et avec souplesse sur le marché. Nos clients incluent restaurants, hôtels, revendeurs et particuliers.\nLa société appartient à Transgourmet Schweiz AG et donc au groupe international Transgourmet.\n\n## Tâches\n• Vous capturez l'image globale, y compris une compréhension complète des processus et introduit et met en œuvre des suggestions d'amélioration proactive, en tenant compte des meilleures pratiques\n• Conception et élaboration indépendantes de divers rapports de contrôle, y compris la définition des ICR pertinents, ainsi que la préparation et l ' élaboration mensuelles des rapports en étroite coopération avec les équipes\n• Participation aux comptes mensuels et annuels ainsi que préparation des rapports correspondants et appui à la budgétisation\n• Vous préparez des présentations pour la direction et le conseil d'administration et travaillez sur divers sujets stratégiques\n• En tant que super utilisateur et premier contact de notre partenaire informatique, vous aidez vos collègues à gérer notre ERP (VinX) et développez et maintenez constamment le système\n• Vous planifiez et réalisez des inventaires indépendants à tous les endroits\n• Vous soutenez dans la préparation des différentes révisions (internes et externes)\n\n## Exigences\n• Vous avez une éducation commerciale de base et plusieurs années d'expérience dans un emploi comparable et / ou une étude complète comprenant plusieurs années d'expérience\n• Vous avez une grande affinité pour les systèmes informatiques et les tâches financières / de contrôle et sont idéalement familiers avec les méthodes de travail agiles\n• Vous avez un style analytique et business\n• Vous travaillez indépendamment et êtes un partenaire fiable pour notre équipe\n• Votre capacité de communication élevée et la manipulation sécuritaire des systèmes et des employés vous distinguent\n• Une bonne connaissance de l'allemand est nécessaire. L'italien et l'anglais sont bénéfiques\n• Idéalement, partielle Vous êtes notre passion pour le vin\nCe que nous offrons\n\n## Lieu de travail\nCasa del Vino\nRoute Argent 1\n8953 Dietikon\ndiététique\n80–100%\nPerpétuelle\nOuverture de l'emploi: 01.12.2026\n\n## Spécialisation\nMarketing / Communication / Médias\nLieu de travail\nTâches\nExigences"
-    },
-    "slugByLocale": {
-      "it": "operazioni-aziendali-e-controllo-manager-80-100-transgourmet-dietikon-f02dd4",
-      "en": "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon-7bf13110",
-      "de": "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon-7bf13110",
-      "fr": "gestionnaire-d-exploitation-et-de-controle-80-100-transgourmet-dietikon"
-    },
-    "sector": "Commercio all'ingrosso alimentare",
-    "expiredAt": "2026-11-18T21:22:06.090Z",
-    "previousSlugsByLocale": {
-      "it": [
-        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon-7bf13110"
-      ],
-      "fr": [
-        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon-7bf13110"
-      ]
-    },
-    "postalCode": "8953",
-    "streetAddress": "Silbernstrasse 1",
-    "salaryMin": 134000,
-    "salaryMax": 180500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/business-operations-controlling-manager/10eb4370-73f7-4dfd-9187-709f50193497",
-    "firstSeenAt": "2026-11-13T09:18:19.735Z"
+    "firstSeenAt": "2026-11-02T21:24:44.012Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratrice-collaborateur-non-food-transgourmet-rennaz": "VD"
+      },
+      "en": {
+        "collaboratrice-collaborateur-non-food-transgourmet-rennaz": "VD"
+      },
+      "de": {
+        "collaboratrice-collaborateur-non-food-transgourmet-rennaz": "VD"
+      }
+    }
   },
   {
     "slug": "responsabile-marketing-contenuti-80-transgourmet-dietikon-fcec070b4c",
@@ -380,10 +425,30 @@
     "expiredAt": "2026-11-18T21:22:06.090Z",
     "previousSlugs": [
       "content-marketing-manager-80-transgourmet-dietikon",
-      "responsabile-marketing-contenuti-80-transgourmet-dietikon"
+      "responsabile-marketing-contenuti-80-transgourmet-dietikon",
+      "responsabile-marketing-contenuti-80-transgourmet-dietikon-6799507ab8",
+      "content-marketing-manager-80-transgourmet-dietikon-0b78f246",
+      "responsabile-marketing-contenuti-80-transgourmet-dietikon-43dfd54c",
+      "gestionnaire-de-marketing-de-contenu-80-transgourmet-dietikon-f218534b"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "content-marketing-manager-80-transgourmet-dietikon",
+        "responsabile-marketing-contenuti-80-transgourmet-dietikon",
+        "responsabile-marketing-contenuti-80-transgourmet-dietikon-6799507ab8",
+        "content-marketing-manager-80-transgourmet-dietikon-0b78f246",
+        "responsabile-marketing-contenuti-80-transgourmet-dietikon-43dfd54c"
+      ],
+      "en": [
+        "content-marketing-manager-80-transgourmet-dietikon-0b78f246",
+        "responsabile-marketing-contenuti-80-transgourmet-dietikon"
+      ],
+      "de": [
+        "content-marketing-manager-80-transgourmet-dietikon-0b78f246",
+        "responsabile-marketing-contenuti-80-transgourmet-dietikon"
+      ],
+      "fr": [
+        "gestionnaire-de-marketing-de-contenu-80-transgourmet-dietikon-f218534b",
         "content-marketing-manager-80-transgourmet-dietikon",
         "responsabile-marketing-contenuti-80-transgourmet-dietikon"
       ]
@@ -407,7 +472,30 @@
         "firstSeenAt": "2026-11-10T09:16:37.422Z",
         "title": "Content Marketing Manager, 80%"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "content-marketing-manager-80-transgourmet-dietikon": "ZH",
+        "responsabile-marketing-contenuti-80-transgourmet-dietikon": "ZH",
+        "responsabile-marketing-contenuti-80-transgourmet-dietikon-6799507ab8": "ZH",
+        "content-marketing-manager-80-transgourmet-dietikon-0b78f246": "ZH",
+        "responsabile-marketing-contenuti-80-transgourmet-dietikon-43dfd54c": "ZH"
+      },
+      "en": {
+        "content-marketing-manager-80-transgourmet-dietikon-0b78f246": "ZH",
+        "responsabile-marketing-contenuti-80-transgourmet-dietikon": "ZH"
+      },
+      "de": {
+        "content-marketing-manager-80-transgourmet-dietikon-0b78f246": "ZH",
+        "responsabile-marketing-contenuti-80-transgourmet-dietikon": "ZH"
+      },
+      "fr": {
+        "gestionnaire-de-marketing-de-contenu-80-transgourmet-dietikon-f218534b": "ZH",
+        "content-marketing-manager-80-transgourmet-dietikon": "ZH",
+        "responsabile-marketing-contenuti-80-transgourmet-dietikon": "ZH"
+      }
+    }
   },
   {
     "slug": "junior-controllerin-controller-transgourmet-moosseedorf",
@@ -440,7 +528,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/junior-controllerin-controller/6e615354-b23d-47fa-95ef-f21b804b0706",
-    "firstSeenAt": "2026-11-05T21:25:36.682Z"
+    "firstSeenAt": "2026-11-05T21:25:36.682Z",
+    "canton": "BE",
+    "previousSlugsByLocale": {
+      "en": [
+        "junior-controllerin-controller-transgourmet-moosseedorf"
+      ],
+      "de": [
+        "junior-controllerin-controller-transgourmet-moosseedorf"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "junior-controllerin-controller-transgourmet-moosseedorf": "BE"
+      },
+      "de": {
+        "junior-controllerin-controller-transgourmet-moosseedorf": "BE"
+      }
+    }
   },
   {
     "slug": "vice-capo-dipartimento-vice-capo-dipartimento-food-transgourmet-wilderswil",
@@ -474,9 +579,14 @@
         "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-83d9a6b9"
       ],
       "en": [
-        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-83d9a6b9"
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-83d9a6b9",
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet"
       ],
       "fr": [
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-83d9a6b9",
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet"
+      ],
+      "de": [
         "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-83d9a6b9"
       ]
     },
@@ -487,7 +597,25 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food/df4d5b15-0e6c-4311-8a6a-b8de87329ca6",
-    "firstSeenAt": "2026-10-31T09:21:33.119Z"
+    "firstSeenAt": "2026-10-31T09:21:33.119Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-83d9a6b9": "BE"
+      },
+      "en": {
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet": "BE"
+      },
+      "de": {
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-83d9a6b9": "BE"
+      },
+      "fr": {
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet": "BE"
+      }
+    },
+    "previousSlugs": [
+      "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet"
+    ]
   },
   {
     "slug": "advisor-client-advisor-transgourmet-meyrin",
@@ -534,7 +662,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/postes-vacantes/conseillere-conseiller-des-clients/a9a122aa-8eea-4a90-9cf2-3b6d8cb5a6b1",
-    "firstSeenAt": "2026-10-14T07:50:05.809Z"
+    "firstSeenAt": "2026-10-14T07:50:05.809Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "conseillere-conseiller-des-clients-transgourmet-meyrin": "GE"
+      },
+      "de": {
+        "conseillere-conseiller-des-clients-transgourmet-meyrin": "GE"
+      }
+    }
   },
   {
     "slug": "chauffeuse-chauffeur-kat-c-1-transgourmet-quartino",
@@ -578,76 +715,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/posti-vacanti/autista-cat-c/991649c2-ac18-48b7-abe3-0832a34833f3",
-    "firstSeenAt": "2026-10-29T21:17:08.038Z"
-  },
-  {
-    "slug": "responsabile-marketing-contenuti-80-transgourmet-dietikon-6799507ab8",
-    "title": "Content Marketing Manager, 80%",
-    "titleByLocale": {
-      "it": "Responsabile marketing contenuti, 80%",
-      "en": "Content Marketing Manager, 80%",
-      "de": "Content Marketing Manager, 80%",
-      "fr": "Gestionnaire de marketing de contenu, 80 %"
-    },
-    "company": "Transgourmet",
-    "companyKey": "transgourmet",
-    "location": "Dietikon",
-    "addressLocality": "Dietikon",
-    "descriptionByLocale": {
-      "it": "Casa del Vino SA è la più alta esperienza di consulenza e assortimento nell'affascinante mondo dei vini selezionati. EsclusivitÃ di alto calibro e marchi ben noti di Spagna, Francia, Italia e in tutto il mondo distinguono la nostra gamma di prodotti di qualitÃ .\nCon la cantina Vinattieri SA, che appartiene al gruppo, gestiamo il nostro stabilimento produttivo di altissima qualità in Ticino, che è leader in Svizzera. I nostri rapporti personali a lungo termine con i produttori, la nostra logistica, un webshop e la distribuzione svizzera ci permettono di agire rapidamente e in modo flessibile sul mercato. I nostri clienti includono ristoranti, hotel, rivenditori e privati.\nLa società appartiene alla Transgourmet Schweiz AG e quindi al Gruppo Transgourmet internazionale.\n\n## Compiti\n• Pianifica, crea e pubblica contenuti per canali online e offline come sito web, newsletter, brochure, riviste e presentazioni.\n• Il supporto dei nostri canali di social media è nelle tue mani – dalla pianificazione dei contenuti alla gestione e al monitoraggio della comunità.\n• Assicurarsi che il nostro marchio e la lingua di comunicazione rimanga coerente in tutte le piattaforme.\n• Testi, immagini e video sono preparati secondo il gruppo target.\n• In stretta collaborazione con i dipartimenti interni, come la commercializzazione e le vendite, nonché con partner esterni come agenzie e fornitori di servizi, coordinate varie misure di comunicazione.\n• Analizzi le attività dei contenuti e dei social media, crei report per il monitoraggio del successo e ne derivi misure di ottimizzazione, che poi implementa.\n• Nel supporto di primo livello, si elaborano le richieste dei clienti attraverso canali digitali come e-mail, social media e chat e inoltrare richieste alle autorità responsabili, se necessario.\n• Anche nel caso di interruzioni di webshop si supporta internamente nel supporto di primo livello.\n• Mantenere e aggiornare il nostro contenuto del sito web, nonché sostenere l'ottimizzazione SEO di pagina sono anche parte dei vostri compiti.\n• Inoltre, si assume compiti organizzativi e amministrativi intorno ai canali di comunicazione supervisionati.\n• Nei nostri eventi si partecipa attivamente.\n\n## Requisiti\n• Formazione completa nel marketing o nella comunicazione\n• Esperienza nella gestione dei contenuti\n• Esperienza nel supporto dei social media\n• Conoscenza approfondita del marketing online, soprattutto nella scrittura di testi ottimizzati SEO\n• Scrittura stilistica in tedesco\n• Godimento nella creazione di contenuti orientati al gruppo target\n• Metodo di lavoro strutturato, affidabile e indipendente\n• Forte comunicazione e competenze di squadra\n• affinità IT e capacità organizzativa\n• Interessi nei canali digitali e nell'interazione con i clienti\n• Passione per il mondo del vino\nCosa offriamo\n\n## Luogo di lavoro\nCasa del Vino\nSilver Road 1\n8953 Dietikon\nSilver Road 1, 8953 Dietikon\n80%\nPerpetuo\nApertura del lavoro: 01.02.2027\n\n## Specializzazione\nMarketing / Comunicazione / Media\nLuogo di lavoro\nCompiti\nRequisiti",
-      "en": "Casa del Vino SA stands for the highest consulting and assortment expertise in the fascinating world of selected wines. High-calibre exclusivities and well-known brands from Spain, France, Italy and all over the world distinguish our range of quality products.\nWith the Vinattieri SA winery, which belongs to the group, we manage our own production plant of the highest quality in Ticino, which is leading in Switzerland. Our long-term personal relationships with producers, our own logistics, a webshop and Switzerland-wide distribution allow us to act quickly and flexibly on the market. Our customers include restaurants, hotels, resellers and private individuals.\nThe company belongs to Transgourmet Schweiz AG and thus to the international Transgourmet Group.\n\n## Tasks\n• You plan, create and publish content for online and offline channels such as website, newsletter, brochures, magazines and presentations.\n• The support of our social media channels is in your hands – from content planning to community management and monitoring.\n• You ensure that our brand and communication language remains consistent across all platforms.\n• Texts, pictures and videos are prepared according to the target group.\n• In close cooperation with internal departments such as marketing and sales as well as external partners such as agencies and service providers, you coordinate various communication measures.\n• You analyze content and social media activities, create reports for success monitoring and derive optimization measures from them, which you then implement.\n• In first-level support, you process customer inquiries via digital channels such as e-mail, social media and chat and forward requests to the responsible authorities if necessary.\n• Also in the case of webshop disruptions you support internally in first-level support.\n• Maintaining and updating our website content as well as supporting on-page SEO optimization are also part of your tasks.\n• In addition, you take on organizational and administrative tasks around the supervised communication channels.\n• At our events you actively participate.\n\n## Requirements\n• Completed training in marketing or communication\n• Experience in content management\n• Experience in supporting social media channels\n• In-depth knowledge in online marketing, especially in writing SEO-optimized texts\n• Stylistic writing in German\n• Enjoyment in the creation of target group-oriented content\n• Structured, reliable and independent working method\n• Strong communication and team skills\n• IT affinity and organizational skill\n• Interest in digital channels and customer interaction\n• Passion for the wine world\nWhat we offer\n\n## Place of work\nCasa del Vino\nSilver Road 1\n8953 Dietikon\nSilver Road 1, 8953 Dietikon\n80%\nPerpetual\nJob opening: 01.02.2027\n\n## Specialisation\nMarketing / Communication / Media\nPlace of work\nTasks\nRequirements",
-      "de": "Casa del Vino SA steht für höchste Beratungs- und Sortimentskompetenz in der faszinierenden Welt ausgesuchter Weine. Hochkarätige Exklusivitäten und bekannte Marken aus Spanien, Frankreich, Italien sowie aus aller Welt zeichnen unser Qualitätssortiment aus.\nMit dem zur Gruppe gehörenden Weingut Vinattieri SA bewirtschaften wir im Tessin einen eigenen, in der Schweiz führenden Produktionsbetrieb von höchster Qualität. Die langfristigen persönlichen Beziehungen zu Produzenten, die eigene Logistik, ein Webshop und die schweizweite Distribution erlauben es uns, am Markt schnell und flexibel zu handeln. Zu unseren Kunden zählen Restaurants, Hotels, Wiederverkäufer und Private.\nDas Unternehmen gehört zur Transgourmet Schweiz AG und somit zur internationalen Transgourmet-Gruppe.\n\n## Aufgaben\n• Du planst, erstellst und publizierst Inhalte für Online- und Offline-Kanäle wie Website, Newsletter, Broschüren, Magazine und Präsentationen.\n• Die Betreuung unserer Social-Media-Kanäle liegt in deinen Händen – von der Contentplanung über das Community Management bis hin zum Monitoring.\n• Dabei stellst du sicher, dass unsere Marken- und Kommunikationssprache über alle Plattformen hinweg konsistent bleibt.\n• Texte, Bilder und Videos bereitest du zielgruppengerecht auf.\n• In enger Zusammenarbeit mit internen Abteilungen wie Marketing und Vertrieb sowie externen Partnern wie Agenturen und Dienstleistern koordinierst du verschiedene Kommunikationsmassnahmen.\n• Du analysierst Content- und Social-Media-Aktivitäten, erstellst Reportings zur Erfolgskontrolle und leitest daraus Optimierungsmassnahmen ab, die du anschliessend umsetzt.\n• Im First-Level-Support bearbeitest du Kundenanfragen über digitale Kanäle wie E-Mail, Social Media und Chat und leitest Anliegen bei Bedarf an die zuständigen Stellen weiter.\n• Auch bei Webshop-Störungen unterstützt du intern im First-Level-Support.\n• Die Pflege und Aktualisierung unserer Website-Inhalte sowie die Unterstützung bei der Onpage-SEO-Optimierung gehören ebenfalls zu deinen Aufgaben.\n• Darüber hinaus übernimmst du organisatorische und administrative Aufgaben rund um die betreuten Kommunikationskanäle.\n• Bei unseren Events packst du tatkräftig mit an.\n\n## Anforderungen\n• Abgeschlossene Ausbildung im Bereich Marketing oder Kommunikation\n• Erfahrung im Content Management\n• Erfahrung in der Betreuung von Social-Media-Kanälen\n• Fundierte Kenntnisse im Online-Marketing, insbesondere im Verfassen von SEO-optimierten Texten\n• Stilsicheres Schreiben in Deutsch\n• Freude an der Erstellung zielgruppengerechter Inhalte\n• Strukturierte, zuverlässige und selbständige Arbeitsweise\n• Ausgeprägte Kommunikations- und Teamfähigkeit\n• IT-Affinität und organisatorisches Geschick\n• Interesse an digitalen Kanälen und Kundeninteraktion\n• Leidenschaft für die Weinwelt\nWas wir bieten\n\n## Arbeitsort\nCasa del Vino\nSilbernstrasse 1\n8953 Dietikon\nSilbernstrasse 1, 8953 Dietikon\n80%\nunbefristet\nStellenantritt: 01.02.2027\n\n## Fachrichtung\nMarketing / Kommunikation / Medien\nArbeitsort\nAufgaben\nAnforderungen",
-      "fr": "Casa del Vino SA représente la plus haute expertise en conseil et assortiment dans le monde fascinant des vins sélectionnés. Des exclusivités de haut calibre et des marques bien connues d'Espagne, de France, d'Italie et du monde entier distinguent notre gamme de produits de qualité.\nAvec la cave Vinattieri SA, qui appartient au groupe, nous gérons notre propre usine de production de la plus haute qualité au Tessin, leader en Suisse. Nos relations personnelles à long terme avec les producteurs, notre propre logistique, une boutique en ligne et une distribution à l'échelle suisse nous permettent d'agir rapidement et avec souplesse sur le marché. Nos clients incluent restaurants, hôtels, revendeurs et particuliers.\nLa société appartient à Transgourmet Schweiz AG et donc au groupe international Transgourmet.\n\n## Tâches\n• Vous planifiez, créez et publiez du contenu pour les canaux en ligne et hors ligne tels que site Web, newsletter, brochures, magazines et présentations.\n• Le soutien de nos canaux de médias sociaux est entre vos mains – de la planification du contenu à la gestion communautaire et au suivi.\n• Vous veillez à ce que notre langage de marque et de communication reste cohérent sur toutes les plateformes.\n• Les textes, images et vidéos sont préparés en fonction du groupe cible.\n• En étroite collaboration avec les services internes tels que le marketing et les ventes ainsi qu'avec des partenaires externes tels que les agences et les prestataires de services, vous coordonnez diverses mesures de communication.\n• Vous analysez le contenu et les activités des médias sociaux, créez des rapports pour la surveillance du succès et tirez des mesures d'optimisation d'eux, que vous implémentez ensuite.\n• Dans l'assistance de premier niveau, vous traitez les demandes des clients par des canaux numériques tels que le courrier électronique, les médias sociaux et le chat et transmettez les demandes aux autorités responsables si nécessaire.\n• Aussi en cas de perturbations de boutique en ligne que vous supportez en interne dans le support de premier niveau.\n• Le maintien et la mise à jour du contenu de notre site Web ainsi que l'optimisation du référencement en page font également partie de vos tâches.\n• En outre, vous assumez des tâches organisationnelles et administratives autour des canaux de communication supervisés.\n• Vous participez activement à nos événements.\n\n## Exigences\n• Formation complète en marketing ou communication\n• Expérience en gestion de contenu\n• Expérience dans le soutien aux médias sociaux\n• Connaissance approfondie du marketing en ligne, en particulier par la rédaction de textes optimisés par le SEO\n• L'écriture styliste en allemand\n• Profitez de la création de contenus axés sur les groupes cibles\n• Méthode de travail structurée, fiable et indépendante\n• Fortes compétences en communication et en équipe\n• affinité informatique et compétence organisationnelle\n• Intérêt pour les canaux numériques et l'interaction client\n• Passion pour le monde du vin\nCe que nous offrons\n\n## Lieu de travail\nCasa del Vino\nRoute Argent 1\n8953 Dietikon\nSilver Road 1, 8953 Dietikon\n80%\nPerpétuelle\nOuverture de l'emploi: 01.02.2027\n\n## Spécialisation\nMarketing / Communication / Médias\nLieu de travail\nTâches\nExigences"
-    },
-    "slugByLocale": {
-      "it": "responsabile-marketing-contenuti-80-transgourmet-dietikon-6799507ab8",
-      "en": "content-marketing-manager-80-transgourmet-dietikon-0b78f246",
-      "de": "content-marketing-manager-80-transgourmet-dietikon-0b78f246",
-      "fr": "gestionnaire-de-marketing-de-contenu-80-transgourmet-dietikon-f218534b"
-    },
-    "sector": "Commercio all'ingrosso alimentare",
-    "expiredAt": "2026-11-13T21:17:58.640Z",
-    "previousSlugsByLocale": {
-      "it": [
-        "content-marketing-manager-80-transgourmet-dietikon-0b78f246",
-        "responsabile-marketing-contenuti-80-transgourmet-dietikon-43dfd54c"
-      ],
-      "fr": [
-        "content-marketing-manager-80-transgourmet-dietikon",
-        "responsabile-marketing-contenuti-80-transgourmet-dietikon"
-      ],
-      "en": [
-        "responsabile-marketing-contenuti-80-transgourmet-dietikon"
-      ],
-      "de": [
-        "responsabile-marketing-contenuti-80-transgourmet-dietikon"
-      ]
-    },
-    "postalCode": "8953",
-    "streetAddress": "Silbernstrasse 1",
-    "salaryMin": 91600,
-    "salaryMax": 162400,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/content-marketing-manager/d97738d5-1bb2-44f0-87b1-cda5756cf14d",
-    "firstSeenAt": "2026-11-10T09:16:37.422Z",
-    "previousSlugs": [
-      "responsabile-marketing-contenuti-80-transgourmet-dietikon-43dfd54c",
-      "content-marketing-manager-80-transgourmet-dietikon",
-      "responsabile-marketing-contenuti-80-transgourmet-dietikon"
-    ],
-    "sourceIdentityHistory": [
-      {
-        "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/content-marketing-manager/25f8b982-a229-4c04-83c6-0c1ecd169c21",
-        "firstSeenAt": "2026-11-10T09:16:37.422Z",
-        "title": "Content Marketing Manager, 80%"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/content-marketing-manager/d97738d5-1bb2-44f0-87b1-cda5756cf14d",
-        "firstSeenAt": "2026-11-10T09:16:37.422Z",
-        "title": "Content Marketing Manager, 80%"
+    "firstSeenAt": "2026-10-29T21:17:08.038Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "autista-cat-c-transgourmet-quartino": "TI"
       }
-    ]
+    }
   },
   {
     "slug": "personale-personale-finanza-transgourmet-moosseedorf",
@@ -709,7 +783,117 @@
         "firstSeenAt": "2026-09-26T13:56:12.849Z",
         "title": "Sachbearbeiterin / Sachbearbeiter Finanzen"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiterin-sachbearbeiter-finanzen-transgourmet-moosseedorf": "BE"
+      },
+      "en": {
+        "sachbearbeiterin-sachbearbeiter-finanzen-transgourmet-moosseedorf": "BE"
+      },
+      "fr": {
+        "sachbearbeiterin-sachbearbeiter-finanzen-transgourmet-moosseedorf": "BE"
+      }
+    }
+  },
+  {
+    "slug": "ordina-pick-up-80-100-transgourmet-winterthur",
+    "title": "Kommissioniererin / Kommissionierer 80-100%",
+    "titleByLocale": {
+      "it": "Ordina pick-up 80-100 %",
+      "en": "Order picker 80-100 %",
+      "de": "Kommissioniererin / Kommissionierer 80-100%",
+      "fr": "Commandeur 80-100 %"
+    },
+    "company": "Transgourmet",
+    "companyKey": "transgourmet",
+    "location": "Winterthur",
+    "addressLocality": "Winterthur",
+    "descriptionByLocale": {
+      "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza specialistica professionale e servizi innovativi.\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di consegna e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\n• Scegli gli ordini dei clienti in tempo, senza errori e di alta qualità, anche nelle sale frigorifere (3-5 °C).\n• Mantenere gli ordini di configurazione e caricare correttamente i contenitori di trasporto.\n• Assegnare gli ordini al tour giusto e posizionarli nello spazio di consegna appropriato.\n• Si attivano forniture quando gli articoli vengono esauriti.\n• Sosteni gli inventari e disfasci correttamente i rifiuti.\n• Lei lavora sistema-gestito e conforme a tutte le linee guida di raccolta ordini, QS e ASIB.\n\n## Requisiti\n• Hai esperienza nella ricevuta e nella raccolta delle merci.\n• Hai un pass valido per carrello elevatore omologato SUVA.\n• Si lavora orientato all'obiettivo, strutturato e con un alto livello di iniziativa.\n• Siete fisicamente resilienti e fatti per le stanze fredde.\n• Conosci i sistemi di gestione del magazzino.\n• Parli bene tedesco e sei affidabile.\nPeriodi operativi\n• Hegi, Stegackerstrasse 22, 8409 Winterthur: Dalle 6:00 fino a non essere più disponibili ordini\n• Grüze, Rudolf-Diesel-Strasse 25, 8404 Winterthur: Dalle 10:00 fino a quando non sono disponibili più ordini\nCosa offriamo\n\n## Luogo di lavoro\nTransgourmet/Prodega\nInverno\n80–100%\nPerpetuo\nApertura del lavoro: 01.09.2026\n\n## Specializzazione\nLogistica / Trasporti\nLuogo di lavoro\nCompiti\nRequisiti",
+      "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional specialist advice and innovative services.\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss delivery and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals and retailers).\n\n## Tasks\n• You pick customer orders on time, error-free and top-quality – even in refrigeration rooms (3–5 °C).\n• You keep setup orders and load the transport containers correctly.\n• You assign orders to the right tour and place them in the appropriate delivery space.\n• You trigger supplies when articles run out.\n• You support with inventories and dispose of waste properly.\n• You work system-managed and comply with all order picking, QS and ASIB guidelines.\n\n## Requirements\n• You have experience in goods receipt and picking.\n• You have a valid SUVA-approved forklift pass.\n• You work goal-oriented, structured and with a high level of initiative.\n• You are physically resilient and made for cold rooms.\n• You are familiar with warehouse management systems.\n• You speak good German and are reliable.\nOperational periods\n• Hegi, Stegackerstrasse 22, 8409 Winterthur: From 6 a.m. until no more orders are available\n• Grüze, Rudolf-Diesel-Strasse 25, 8404 Winterthur: From 10 a.m. until no more orders are available\nWhat we offer\n\n## Place of work\nTransgourmet/Prodega\nWinterthur\n80–100%\nPerpetual\nJob opening: 01.09.2026\n\n## Specialisation\nLogistics / Transportation\nPlace of work\nTasks\nRequirements",
+      "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du kommissionierst Kundenaufträge termingerecht, fehlerfrei und qualitativ top – auch in Kühlräumen (3–5 °C).\n• Du hältst Rüstreihenfolgen ein und belädst die Transportgebinde korrekt.\n• Du ordnest Aufträge der richtigen Tour zu und platzierst sie am passenden Bereitstellungsplatz.\n• Du löst Nachschub aus, wenn Artikel zur Neige gehen.\n• Du unterstützt bei Inventuren und entsorgst Abfall fachgerecht.\n• Du arbeitest systemgeführt und hältst alle Kommissionier-, QS- und ASIB-Richtlinien ein.\n\n## Anforderungen\n• Du hast Erfahrung im Wareneingang und in der Kommissionierung.\n• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.\n• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.\n• Du bist körperlich belastbar und für Kühlräume gemacht.\n• Du kennst dich mit Lagerverwaltungssystemen aus.\n• Du sprichst gut Deutsch und bist zuverlässig.\nEinsatzzeiten\n• Hegi, Stegackerstrasse 22, 8409 Winterthur: Ab 06.00 Uhr bis keine Aufträge mehr vorhanden sind\n• Grüze, Rudolf-Diesel-Strasse 25, 8404 Winterthur: Ab 10.00 Uhr bis keine Aufträge mehr vorhanden sind\nWas wir bieten\n\n## Arbeitsort\nTransgourmet/Prodega\nWinterthur\n80–100%\nunbefristet\nStellenantritt: 01.09.2026\n\n## Fachrichtung\nLogistik / Transport\nArbeitsort\nAufgaben\nAnforderungen",
+      "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels spécialisés et des services innovants.\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. La société est leader dans le commerce de gros suisse de livraison et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons, hôpitaux et détaillants).\n\n## Tâche\n• Vous choisissez les commandes des clients à temps, sans erreur et de qualité supérieure – même dans les salles de réfrigération (3-5 °C).\n• Vous gardez les commandes de configuration et chargez correctement les conteneurs de transport.\n• Vous assignez les commandes à la bonne visite et les placez dans l'espace de livraison approprié.\n• Vous déclenchez des fournitures quand les articles sont épuisés.\n• Vous supportez les stocks et éliminez les déchets correctement.\n• Vous travaillez système géré et se conforme à toutes les commandes, QS et ASIB lignes directrices.\n\n## Exigences\n• Vous avez de l'expérience dans la réception et la cueillette des marchandises.\n• Vous avez une carte de chariot élévateur valide approuvée par le SUVA.\n• Vous travaillez sur des objectifs, structurés et avec un haut niveau d'initiative.\n• Vous êtes physiquement résistant et fait pour les chambres froides.\n• Vous connaissez les systèmes de gestion des entrepôts.\n• Tu parles bien l'allemand et tu es fiable.\nPériodes opérationnelles\n• Hegi, Stegackerstrasse 22, 8409 Winterthur: De 6 heures jusqu'à ce que les commandes ne soient plus disponibles\n• Grüze, Rudolf-Diesel-Strasse 25, 8404 Winterthur: À partir de 10h00 jusqu'à ce que les commandes ne soient plus disponibles\nCe que nous offrons\n\n## Lieu de travail\nTransgourmet/Prodega\nWinterthur\n80–100%\nPerpétuelle\nOuverture de l'emploi: 01.09.2026\n\n## Spécialisation\nLogistique / Transport\nLieu de travail\nTâche\nExigences"
+    },
+    "slugByLocale": {
+      "it": "ordina-pick-up-80-100-transgourmet-winterthur",
+      "en": "order-picker-80-100-transgourmet-winterthur",
+      "de": "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur-db4d8b50",
+      "fr": "commandeur-80-100-transgourmet-winterthur"
+    },
+    "sector": "Commercio all'ingrosso alimentare",
+    "expiredAt": "2026-11-08T09:18:26.647Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur-db4d8b50",
+        "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur-e36fe64e",
+        "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur",
+        "ordina-pick-up-80-100-transgourmet-winterthur-fec58fd7",
+        "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur-b625b1b3"
+      ],
+      "en": [
+        "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur-db4d8b50",
+        "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur",
+        "order-picker-80-100-transgourmet-winterthur-8f87d7b3",
+        "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur-e36fe64e"
+      ],
+      "fr": [
+        "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur-db4d8b50",
+        "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur",
+        "commandeur-80-100-transgourmet-winterthur-0bb8d996",
+        "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur-e36fe64e"
+      ],
+      "de": [
+        "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur-db4d8b50",
+        "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur-e36fe64e",
+        "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur-b625b1b3",
+        "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur"
+      ]
+    },
+    "postalCode": "8400",
+    "streetAddress": "Winterthur",
+    "salaryMin": 73500,
+    "salaryMax": 111500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/kommissioniererin-kommissionierer/0908ec85-4d4c-437f-84e8-207a0a9d1626",
+    "firstSeenAt": "2026-10-08T22:15:36.755Z",
+    "previousSlugs": [
+      "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur",
+      "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur-e36fe64e",
+      "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur-db4d8b50",
+      "ordina-pick-up-80-100-transgourmet-winterthur-fec58fd7",
+      "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur-b625b1b3",
+      "order-picker-80-100-transgourmet-winterthur-8f87d7b3",
+      "commandeur-80-100-transgourmet-winterthur-0bb8d996"
+    ],
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/kommissioniererin-kommissionierer/0908ec85-4d4c-437f-84e8-207a0a9d1626",
+        "firstSeenAt": "2026-10-08T22:15:36.755Z",
+        "title": "Kommissioniererin / Kommissionierer 80-100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/kommissioniererin-kommissionierer/362bf3b5-1c27-423d-8440-89836bacdca9",
+        "firstSeenAt": "2026-10-08T22:15:36.755Z",
+        "title": "Kommissioniererin / Kommissionierer 80-100%"
+      }
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur": "ZH"
+      },
+      "en": {
+        "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur": "ZH"
+      },
+      "de": {
+        "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur": "ZH"
+      },
+      "fr": {
+        "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur": "ZH"
+      }
+    }
   },
   {
     "slug": "capo-aggiunto-capo-aggiunto-di-frutta-e-verdura-transgourmet-latena",
@@ -761,7 +945,108 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/postes-vacantes/cheffe-adjointe-chef-adjoint-de-rayon-fruits-legumes/dfaf14ad-0339-4092-90c2-d8b4d4bfcbf8",
-    "firstSeenAt": "2026-10-08T22:15:36.751Z"
+    "firstSeenAt": "2026-10-08T22:15:36.751Z",
+    "canton": "NE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "cheffe-adjointe-chef-adjoint-de-rayon-fruits-amp-legumes-transgourmet-latena": "NE",
+        "cheffe-adjointe-chef-adjoint-de-rayon-fruits-legumes-transgourmet-latena": "NE"
+      },
+      "en": {
+        "cheffe-adjointe-chef-adjoint-de-rayon-fruits-amp-legumes-transgourmet-latena": "NE"
+      },
+      "de": {
+        "cheffe-adjointe-chef-adjoint-de-rayon-fruits-amp-legumes-transgourmet-latena": "NE"
+      }
+    }
+  },
+  {
+    "slug": "test-ingegnere-transgourmet-moosseedorf",
+    "title": "Test Engineer",
+    "titleByLocale": {
+      "it": "Test Ingegnere",
+      "en": "Test Engineer",
+      "de": "Test Engineer",
+      "fr": "Test Ingénieur"
+    },
+    "company": "Transgourmet",
+    "companyKey": "transgourmet",
+    "location": "Moosseedorf",
+    "addressLocality": "Moosseedorf",
+    "descriptionByLocale": {
+      "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza specialistica professionale e servizi innovativi.\n\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di approvvigionamento e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\nPrendere come ingegnere di prova Si gioca un ruolo centrale nel garantire la massima qualità del prodotto come parte della nostra modernizzazione ERP. Svilupperai e implementerai soluzioni di test automatizzate che migliorano in modo sostenibile la nostra qualità del software e garantiscono i nostri processi aziendali.\n\n• Sei responsabile per lo sviluppo e la manutenzione di suite di test automatizzate per il nostro sistema ERP\n\n• Progetta e implementa test end-to-end, API e prestazioni\n\n• Eseguite test di regressione manuale\n\n• Sei responsabile del monitoraggio continuo e della garanzia della qualità delle nostre applicazioni durante il ciclo di sviluppo\n\n• Identificare e documentare errori software e lavorare a stretto contatto con il team di sviluppo\n\n• Si aiuta attivamente in un team impegnato, interdisciplinare e agile\n\n• Formate attivamente la strategia di prova e sviluppate continuamente i nostri processi di test\n\n• Integrare test automatizzati nelle tubazioni CI/CD\n\n• Crea report di test significativi e metriche di qualità\n\n## Requisiti\n• Hai una certificazione come livello di ISTQB® Certified Tester Foundation (CTFL) o superiore (ad esempio Test Automation Engineer, Technical Test Analyst) e hanno diversi anni di comprovata esperienza professionale nell'automazione dei test\n\n• Porti una conoscenza approfondita in almeno un quadro di test di automazione (ad esempio Selenium, Cypress, Playwright, Robot Framework)\n\n• Hai esperienza con linguaggi di programmazione come Python, Java, JavaScript o C#\n\n• Hai una comprensione dei processi di sviluppo del software e dei metodi agili\n\n• Hai esperienza nel trattare con i sistemi ERP e la conoscenza approfondita dei test API (REST, SOAP) e dei test delle prestazioni e conosci gli strumenti CI/CD come Jenkins e Argo CD.\n\n• Hai esperienza nella gestione delle versioni con Git e Bitbucket e sistemi di monitoraggio dei problemi come Jira\n\n• Convinci attraverso il pensiero analitico e un modo di lavorare strutturato, comunicare chiaramente e godere di lavorare in un team\n\n• Si mostra la propria iniziativa con piacere nell'apprendimento continuo e sono caratterizzati da una consapevolezza di alta qualità e precisione dei dettagli",
+      "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional specialist advice and innovative services.\n\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss supply and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retailers).\n\n## Tasks\nTake over as test engineer You play a central role in ensuring the highest product quality as part of our ERP modernization. You will develop and implement automated test solutions that sustainably improve our software quality and secure our business processes.\n\n• You are responsible for the development and maintenance of automated test suites for our ERP system\n\n• You design and implement end-to-end, API and performance tests\n\n• You perform manual regression tests\n\n• You are responsible for the continuous monitoring and assurance of the quality of our applications throughout the development cycle\n\n• Identify and document software errors and work closely with the development team\n\n• You actively help in a committed, interdisciplinary and agile team\n\n• You actively shape the test strategy and continuously develop our test processes\n\n• Integrate automated tests into CI/CD pipelines\n\n• You create meaningful test reports and quality metrics\n\n## Requirements\n• You have a certification as an ISTQB® Certified Tester Foundation Level (CTFL) or higher (e.g. Test Automation Engineer, Technical Test Analyst) and have several years of proven professional experience in test automation\n\n• You bring in-depth knowledge in at least one test automation framework (e.g. Selenium, Cypress, Playwright, Robot Framework)\n\n• You have experience with programming languages such as Python, Java, JavaScript or C#\n\n• You have an understanding of software development processes and agile methods\n\n• You have experience in dealing with ERP systems as well as in-depth knowledge of API testing (REST, SOAP) and performance testing and are familiar with CI/CD tools such as Jenkins and Argo CD.\n\n• You have experience in version management with Git and Bitbucket and handling issue tracking systems like Jira\n\n• You convince through analytical thinking and a structured way of working, communicate clearly and enjoy working in a team\n\n• You show your own initiative with pleasure in continuous learning and are characterized by a high quality awareness as well as detail accuracy",
+      "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\nAls Test Engineer übernimmst Du eine zentrale Rolle bei der Sicherstellung höchster Produktqualität im Rahmen unserer ERP-Modernisierung. Du entwickelst und implementierst automatisierte Testlösungen, die unsere Software-Qualität nachhaltig verbessern und unsere Geschäftsprozesse absichern.\n• Du bist für die Entwicklung und Pflege automatisierter Testsuiten für unser ERP-System zuständig\n• Du konzipierst und implementierst End-to-End-, API- und Performance-Tests\n• Du führst manuelle Regressionstests durch\n• Du bist für die kontinuierliche Überwachung und Sicherstellung der Qualität unserer Applikationen während des gesamten Entwicklungszyklus verantwortlich\n• Du identifiziert und dokumentierst Softwarefehler und arbeitest eng mit dem Entwicklungsteam zusammen\n• Du hilfst aktiv in einem engagierten, interdisziplinären und agilen Team mit\n• Du gestaltest die Teststrategie aktiv mit und entwickelst unsere Testprozesse kontinuierlich weiter\n• Du integrierst automatisierte Tests in CI/CD-Pipelines\n• Du erstellst aussagekräftige Testberichte und Qualitätsmetriken\n\n## Anforderungen\n• Du verfügst über eine Zertifizierung als ISTQB® Certified Tester Foundation Level (CTFL) oder höher (z.B. Test Automation Engineer, Technical Test Analyst) und hast mehrjährige, nachweisliche Berufserfahrung in der Testautomatisierung\n• Du bringst fundierte Kenntnisse in mindestens einem Test-Automation-Framework (z.B. Selenium, Cypress, Playwright, Robot Framework) mit\n• Du hast Erfahrung mit Programmiersprachen wie Python, Java, JavaScript oder C#\n• Du hast ein Verständnis für Softwareentwicklungsprozesse und agile Methoden\n• Von Vorteil hast du Erfahrung im Umgang mit ERP-Systemen sowie fundierte Kenntnisse in API-Testing (REST, SOAP) und Performance-Testing und bist vertraut mit CI/CD-Tools wie Jenkins und Argo CD\n• Du hast Erfahrung in der Versionsverwaltung mit Git und Bitbucket und im Umgang mit Issue-Tracking-Systemen wie Jira\n• Du überzeugst durch analytisches Denkvermögen und eine strukturierte Arbeitsweise, kommunizierst klar und arbeitest gerne im Team\n• Du zeigst Eigeninitiative mit Freude am kontinuierlichen Lernen und zeichnest dich durch ein hohes Qualitätsbewusstsein sowie Detailgenauigkeit aus\nWas wir bieten\n\n## Arbeitsort\nTransgourmet/Prodega\nLochackerweg 5\n3302 Moosseedorf\nMoosseedorf\n80–100%\nunbefristet\nStellenantritt: per sofort oder nach Vereinbarung\n\n## Fachrichtung\nInformatik\nArbeitsort\nAufgaben\nAnforderungen",
+      "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels spécialisés et des services innovants.\n\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de gros suisse d'approvisionnement et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que détaillants).\n\n## Tâche\nPrendre le relais comme ingénieur d'essai Dans le cadre de notre modernisation ERP, vous jouez un rôle central pour assurer la plus haute qualité des produits. Vous allez développer et mettre en œuvre des solutions de test automatisées qui améliorent durablement la qualité de nos logiciels et sécuriser nos processus d'affaires.\n\n• Vous êtes responsable du développement et de la maintenance des suites de test automatisées pour notre système ERP\n\n• Vous concevez et implémentez des tests de bout en bout, API et performances\n\n• Vous effectuez des tests de régression manuelle\n\n• Vous êtes responsable du suivi continu et de l'assurance de la qualité de nos applications tout au long du cycle de développement\n\n• Identifier et documenter les erreurs logicielles et travailler en étroite collaboration avec l'équipe de développement\n\n• Vous aidez activement dans une équipe engagée, interdisciplinaire et agile\n\n• Vous façonnez activement la stratégie de test et développez continuellement nos processus de test\n\n• Intégrer les essais automatisés dans les pipelines CI/CD\n\n• Vous créez des rapports de test significatifs et des mesures de qualité\n\n## Exigences\n• Vous avez une certification ISTQB® Certified Tester Foundation Level (CTFL) ou plus (p. ex. ingénieur d'automatisation de test, analyste de test technique) et avez plusieurs années d'expérience professionnelle dans l'automatisation de test\n\n• Vous apportez des connaissances approfondies dans au moins un cadre d'automatisation de test (par exemple Sélénium, Cypress, Playwright, Robot Framework)\n\n• Vous avez de l'expérience avec des langages de programmation tels que Python, Java, JavaScript ou C#\n\n• Vous avez une compréhension des processus de développement logiciel et des méthodes agiles\n\n• Vous avez de l'expérience dans le traitement des systèmes ERP ainsi que des connaissances approfondies des tests d'API (REST, SOAP) et des tests de performance et vous connaissez les outils CI/CD tels que Jenkins et Argo CD.\n\n• Vous avez de l'expérience dans la gestion des versions avec Git et Bitbucket et la gestion des systèmes de suivi des problèmes comme Jira\n\n• Vous convainquez par la pensée analytique et une façon structurée de travailler, de communiquer clairement et d'apprécier de travailler en équipe\n\n• Vous montrez votre propre initiative avec plaisir dans l'apprentissage continu et sont caractérisés par une sensibilisation de haute qualité ainsi que la précision des détails"
+    },
+    "slugByLocale": {
+      "it": "test-ingegnere-transgourmet-moosseedorf",
+      "en": "test-engineer-transgourmet-moosseedorf-17901d35",
+      "de": "test-engineer-transgourmet-moosseedorf-17901d35",
+      "fr": "test-ingenieur-transgourmet-moosseedorf"
+    },
+    "sector": "Commercio all'ingrosso alimentare",
+    "expiredAt": "2026-11-07T09:31:23.575Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "test-engineer-transgourmet-moosseedorf-17901d35",
+        "test-ingegnere-transgourmet-moosseedorf-10b275f5",
+        "test-engineer-transgourmet-moosseedorf"
+      ],
+      "en": [
+        "test-engineer-transgourmet-moosseedorf-17901d35",
+        "test-engineer-transgourmet-moosseedorf"
+      ],
+      "de": [
+        "test-engineer-transgourmet-moosseedorf-17901d35",
+        "test-engineer-transgourmet-moosseedorf"
+      ],
+      "fr": [
+        "test-engineer-transgourmet-moosseedorf-17901d35",
+        "test-engineer-transgourmet-moosseedorf"
+      ]
+    },
+    "postalCode": "3302",
+    "streetAddress": "Lochackerweg 5",
+    "salaryMin": 77000,
+    "salaryMax": 116500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/test-engineer/9d46ad75-471d-4ab6-92aa-848e17579b40",
+    "firstSeenAt": "2026-09-07T15:03:07.169Z",
+    "previousSlugs": [
+      "test-engineer-transgourmet-moosseedorf",
+      "test-engineer-transgourmet-moosseedorf-17901d35",
+      "test-ingegnere-transgourmet-moosseedorf-10b275f5"
+    ],
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/test-engineer/078dd594-9f5b-471f-8a8a-590d7f43e513",
+        "firstSeenAt": "2026-09-07T15:03:07.169Z",
+        "title": "Test Engineer"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/test-engineer/9d46ad75-471d-4ab6-92aa-848e17579b40",
+        "firstSeenAt": "2026-09-07T15:03:07.169Z",
+        "title": "Test Engineer"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/test-engineer/bbe8c228-9d30-4c70-b3eb-15b3bd7a7476",
+        "firstSeenAt": "2026-09-07T15:03:07.169Z",
+        "title": "Test Engineer"
+      }
+    ],
+    "previousSlugCantonByLocale": {
+      "en": {
+        "test-engineer-transgourmet-moosseedorf": "BE"
+      },
+      "de": {
+        "test-engineer-transgourmet-moosseedorf": "BE"
+      },
+      "it": {
+        "test-engineer-transgourmet-moosseedorf": "BE"
+      }
+    }
   },
   {
     "slug": "assegno-vendite-dipendenti-limitato-dic-sl-50-100-transgourmet-ruschlikon",
@@ -837,7 +1122,25 @@
         "firstSeenAt": "2026-09-10T23:07:05.965Z",
         "title": "Mitarbeiterin / Mitarbeiter Verkauf Check-out befristet Dez. SL 50-100%"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "vendite-dipendenti-check-out-temporary-dec-sl-50-100-transgourmet-ruschlikon": "ZH",
+        "employee-sales-check-out-temporary-dec-sl-50-100-transgourmet-ruschlikon": "ZH",
+        "depart-temporaire-des-ventes-des-employes-dec-sl-50-100-transgourmet-ruschlikon": "ZH",
+        "mitarbeiterin-addetto-a-alle-vendite-check-out-befristet-dez-sl-50-100-transgourmet-ruschlikon": "ZH",
+        "mitarbeiterin-mitarbeiter-verkauf-check-out-befristet-dez-sl-50-100-transgourmet": "ZH"
+      },
+      "en": {
+        "employee-sales-check-out-temporary-dec-sl-50-100-transgourmet-ruschlikon": "ZH",
+        "mitarbeiterin-sales-associate-check-out-befristet-dez-sl-50-100-transgourmet-ruschlikon": "ZH"
+      },
+      "fr": {
+        "depart-temporaire-des-ventes-des-employes-dec-sl-50-100-transgourmet-ruschlikon": "ZH",
+        "mitarbeiterin-vendeur-se-check-out-befristet-dez-sl-50-100-transgourmet-ruschlikon": "ZH"
+      }
+    }
   },
   {
     "slug": "addetta-addetto-alla-vendita-di-frutta-e-verdura-transgourmet-risch-rotkreuz",
@@ -924,7 +1227,8 @@
         "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz-79f23d4d",
         "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz-f927c9da",
         "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz",
-        "addetta-addetto-alla-vendita-di-frutta-e-verdura-transgourmet-risch-rotkreuz-a668e78c"
+        "addetta-addetto-alla-vendita-di-frutta-e-verdura-transgourmet-risch-rotkreuz-a668e78c",
+        "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz-842f7a45"
       ],
       "en": [
         "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz-7531a035",
@@ -943,7 +1247,8 @@
         "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz-b1721c27",
         "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz-b6842370",
         "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz-79f23d4d",
-        "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz"
+        "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz",
+        "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz-842f7a45"
       ],
       "fr": [
         "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz-7531a035",
@@ -962,7 +1267,8 @@
         "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz-b1721c27",
         "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz-b6842370",
         "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz-79f23d4d",
-        "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz"
+        "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz",
+        "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz-842f7a45"
       ],
       "de": [
         "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz-7531a035",
@@ -1081,7 +1387,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/koechin-koch-kulinarik-team/9dff2c26-9fa1-4c3d-8d2f-22fe7daa66dc",
-    "firstSeenAt": "2026-10-06T09:12:27.792Z"
+    "firstSeenAt": "2026-10-06T09:12:27.792Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kochin-koch-kulinarik-team-transgourmet-moosseedorf": "BE"
+      },
+      "en": {
+        "female-cook-male-cook-culinary-team-transgourmet-moosseedorf": "BE"
+      }
+    }
   },
   {
     "slug": "system-ingegnere-windows-transgourmet-moosseedorf-65a164d1",
@@ -1321,7 +1636,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-molkerei/34fe2937-c684-4723-be61-c3a812eb892f",
-    "firstSeenAt": "2026-10-05T21:26:06.529Z"
+    "firstSeenAt": "2026-10-05T21:26:06.529Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-addetto-a-alle-vendite-molkerei-transgourmet-chur": "GR",
+        "mitarbeiterin-mitarbeiter-verkauf-molkerei-transgourmet-chur": "GR"
+      },
+      "en": {
+        "mitarbeiterin-sales-associate-molkerei-transgourmet-chur": "GR"
+      },
+      "fr": {
+        "mitarbeiterin-vendeur-se-molkerei-transgourmet-chur": "GR"
+      }
+    }
   },
   {
     "slug": "addetta-addetto-alle-vendite-polivalente-transgourmet-chur",
@@ -1375,7 +1703,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-allrounder/11a8a04e-111d-4a20-b6f4-4f65889adca4",
-    "firstSeenAt": "2026-10-05T21:26:06.535Z"
+    "firstSeenAt": "2026-10-05T21:26:06.535Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-addetto-a-alle-vendite-allrounder-transgourmet-chur": "GR",
+        "mitarbeiterin-mitarbeiter-verkauf-allrounder-transgourmet-chur": "GR"
+      },
+      "en": {
+        "mitarbeiterin-sales-associate-allrounder-transgourmet-chur": "GR"
+      },
+      "fr": {
+        "mitarbeiterin-vendeur-se-allrounder-transgourmet-chur": "GR"
+      }
+    }
   },
   {
     "slug": "assistant-categoria-gestione-latticini-prodotti-per-pane-transgourmet-moosseedorf",
@@ -1425,7 +1766,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/assistant-category-management-molkerei-backwaren/33b115b1-7674-4d09-ae77-4577088f7876",
-    "firstSeenAt": "2026-10-15T21:22:34.403Z"
+    "firstSeenAt": "2026-10-15T21:22:34.403Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistant-category-management-molkerei-backwaren-transgourmet-moosseedorf": "BE"
+      },
+      "en": {
+        "assistant-category-management-molkerei-backwaren-transgourmet-moosseedorf": "BE"
+      },
+      "fr": {
+        "assistant-category-management-molkerei-backwaren-transgourmet-moosseedorf": "BE"
+      }
+    }
   },
   {
     "slug": "chauffeuse-chauffeur-kat-c-1-transgourmet-quartino-47cd6e8e",
@@ -1500,7 +1853,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/chauffeuse-chauffeur-kat-c/13c1ccbe-b88d-40a9-9e7e-ee6094313a26",
-    "firstSeenAt": "2026-10-02T21:17:46.287Z"
+    "firstSeenAt": "2026-10-02T21:17:46.287Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chauffeuse-chauffeur-kat-c-transgourmet-belp": "BE"
+      }
+    }
   },
   {
     "slug": "responsabile-di-reparto-amministrazione-hr-transgourmet-kriens",
@@ -1549,7 +1908,104 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/abteilungsleiterin-abteilungsleiter-administration-hr/99a4d6ab-d5e5-4587-ad68-154f2808d3ad",
-    "firstSeenAt": "2026-10-28T20:45:18.654Z"
+    "firstSeenAt": "2026-10-28T20:45:18.654Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "abteilungsleiterin-abteilungsleiter-administration-hr-transgourmet-kriens": "LU"
+      },
+      "en": {
+        "abteilungsleiterin-abteilungsleiter-administration-hr-transgourmet-kriens": "LU"
+      },
+      "fr": {
+        "abteilungsleiterin-abteilungsleiter-administration-hr-transgourmet-kriens": "LU"
+      }
+    }
+  },
+  {
+    "slug": "supporto-ict-supporto-ict-transgourmet-moosseedorf",
+    "title": "ICT-Supporterin / ICT-Supporter",
+    "titleByLocale": {
+      "it": "Supporto ICT / Supporto ICT",
+      "en": "ICT Supporter / ICT Supporter",
+      "de": "ICT-Supporterin / ICT-Supporter",
+      "fr": "Supporteur TIC / Supporteur TIC"
+    },
+    "company": "Transgourmet",
+    "companyKey": "transgourmet",
+    "location": "Moosseedorf",
+    "addressLocality": "Moosseedorf",
+    "descriptionByLocale": {
+      "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza specialistica professionale e servizi innovativi.\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di approvvigionamento e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\n• Supporti gli utenti interni e fornisci supporto IT in varie aree di competenza\n• Analizzi e tratti incidenti e richieste di assistenza nel supporto di primo livello\n• Crea e modifica i biglietti e la documentazione in Atlante Strumenti Jira e Confluence\n• Valutare la priorità dei biglietti ed escalare i temi ai post di supporto del secondo livello se non possono essere risolti direttamente\n• Sei responsabile per la distribuzione e la messa in scena di tutti gli hardware. Oltre ai client Windows, questo include anche stampanti, checkout, vari dispositivi MDE e altro ancora\n• Si assume il supporto sul campo all'interno della sede centrale e in luoghi esterni in tutta la Svizzera\n• Mantenere la gestione degli utenti e le autorizzazioni di accesso\n• Supporti progetti nella realizzazione\n• Siete pronti a prendersi cura di piketting fuori normali ore di lavoro\n\n## Requisiti\n• Hai completato un apprendistato nel settore IT o sei un partecipante laterale con diversi anni di esperienza professionale in IT\n• L'esperienza nel supporto e nella biglietteria IT è un vantaggio\n• Sei un fornitore di servizi con passione, un alto livello di qualità e responsabilità, nonché iniziativa\n• Lavorare indipendentemente è una questione naturalmente per voi,\n• Sei un team capace e resiliente, stai calmo anche in situazioni frenetiche\n• Sei flessibile nelle ore di lavoro per coprire il servizio di piketting e incarichi occasionali al di fuori delle normali ore di lavoro\n• Hai buone capacità di comunicazione e buone maniere\n• Si comunica facilmente in tedesco e italiano, il francese è anche un vantaggio\n• Siete in possesso della patente di guida Kat. B e avete la loro auto\nCosa offriamo\n\n## Luogo di lavoro\nTransgourmet/Prodega\nPercorso perforato 5\n3302 Moosseedorf\nMoosseedorf\n100%\nPerpetuo\nApertura del lavoro: immediatamente o per accordo\n\n## Specializzazione\nScienza informatica\nLuogo di lavoro\nCompiti\nRequisiti",
+      "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional specialist advice and innovative services.\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss supply and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retailers).\n\n## Tasks\n• You support internal users and provide IT support in various areas of expertise\n• You analyze and process incidents and service requests in first level support\n• Create and edit tickets and documentation in Atlassian Tools Jira and Confluence\n• Assess the priority of tickets and escalate themes to 2nd level support posts if they cannot be solved directly\n• You are responsible for deploying and staging all hardware. In addition to Windows clients, this also includes printers, checkouts, various MDE devices and more\n• You take over field support within headquarters and at external locations throughout Switzerland\n• You maintain user management and access permissions\n• You support projects in the realization\n• You are ready to take care of piketting outside normal business hours\n\n## Requirements\n• You have completed an apprenticeship in the IT sector or are a lateral entrant with several years of professional experience in IT\n• Experience in IT support and ticketing is an advantage\n• You are a service provider with passion, a high level of quality and responsibility as well as initiative\n• Working independently is a matter of course for you,\n• You are team capable and resilient, stay calm even in hectic situations\n• You are flexible in working hours in order to cover the piketting service as well as occasional assignments outside the regular working hours\n• You have good communication skills and manners\n• You communicate easily in German and Italian, French is also an advantage\n• You are in possession of driving license Kat. B and have their own car\nWhat we offer\n\n## Place of work\nTransgourmet/Prodega\nPerforated path 5\n3302 Moosseedorf\nMoosseedorf\n100%\nPerpetual\nJob opening: immediately or by agreement\n\n## Specialisation\nComputer science\nPlace of work\nTasks\nRequirements",
+      "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du unterstützt interne Benutzerinnen und Benutzer und erbringst IT-Support in diversen Fachgebieten\n• Du analysierst und bearbeitest Incidents und Service Requests im First Level Support\n• Du erstellst und bearbeitest Tickets und Dokumentationen in den Atlassian Tools Jira und Confluence\n• Du beurteilst die Priorität von Tickets und eskalierst Themen an die Stellen des 2nd Level Supports, wenn sie nicht direkt gelöst werden können\n• Du bist für die Bereitstellung und das Staging der gesamten Hardware verantwortlich. Das beinhaltet neben Windows-Clients auch Drucker, Kassen, verschiedene MDE-Geräte und mehr\n• Du übernimmst den Field-Support innerhalb Zentrale und an den Aussenstandorten in der ganzen Schweiz\n• Du pflegst die Benutzerverwaltung und Zugriffsberechtigungen\n• Du unterstützt Projekte bei der Realisierung\n• Du bist bereit Pikettdienst ausserhalb der normalen Geschäftszeiten zu übernehmen\n\n## Anforderungen\n• Du hast eine abgeschlossene Ausbildung im IT-Bereich oder bist Quereinsteiger/in mit mehrjähriger Berufserfahrung in der IT\n• Erfahrungen im IT-Support und im Ticketing sind von Vorteil\n• Du bist Dienstleister/in aus Leidenschaft, mit hohem Qualitäts- und Verantwortungsbewusstsein sowie Eigeninitiative\n• Selbständiges Arbeiten sind für dich selbstverständlich,\n• Du bist teamfähig und belastbar, bleibst auch in hektischen Situationen ruhig\n• Du bist flexibel in den Arbeitszeiten, um den Pikettdienst sowie gelegentliche Einsätze ausserhalb der Regelarbeitszeit abdecken zu können\n• Du hast gute Kommunikationsfähigkeit und Umgangsformen\n• Du verständigst dich problemlos in Deutsch und Italienisch, Französisch ist zusätzlich von Vorteil\n• Du bist im Besitz von Führerschein Kat. B und hast ein eigenes Auto\nWas wir bieten\n\n## Arbeitsort\nTransgourmet/Prodega\nLochackerweg 5\n3302 Moosseedorf\nMoosseedorf\n100%\nunbefristet\nStellenantritt: per sofort oder nach Vereinbarung\n\n## Fachrichtung\nInformatik\nArbeitsort\nAufgaben\nAnforderungen",
+      "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels spécialisés et des services innovants.\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de gros suisse d'approvisionnement et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que détaillants).\n\n## Tâche\n• Vous aidez les utilisateurs internes et apportez un soutien informatique dans divers domaines d'expertise\n• Vous analysez et traitez les incidents et les demandes de service dans le soutien de premier niveau\n• Créer et modifier des tickets et de la documentation dans les outils Atlassian Jira et Confluence\n• Évaluer la priorité des tickets et faire passer les thèmes à des postes d ' appui de deuxième classe s ' ils ne peuvent être résolus directement\n• Vous êtes responsable du déploiement et de la mise en place de tout le matériel. En plus des clients Windows, cela comprend également les imprimantes, les commandes, divers appareils MDE et plus\n• Vous prenez en charge l'appui sur le terrain au siège et à des endroits extérieurs partout en Suisse\n• Vous maintenez la gestion des utilisateurs et les autorisations d'accès\n• Vous soutenez des projets dans la réalisation\n• Vous êtes prêt à prendre soin du brochet en dehors des heures normales de bureau\n\n## Exigences\n• Vous avez terminé un apprentissage dans le secteur de l'informatique ou êtes un participant latéral avec plusieurs années d'expérience professionnelle en informatique\n• L'expérience du support informatique et de la billetterie est un avantage\n• Vous êtes un fournisseur de services avec passion, un haut niveau de qualité et de responsabilité ainsi que l'initiative\n• Travailler indépendamment, c'est bien sûr pour vous.\n• Vous êtes une équipe capable et résistante, restez calme même dans des situations agitées\n• Vous êtes flexible dans les heures de travail afin de couvrir le service de piquetage ainsi que des affectations occasionnelles en dehors des heures normales de travail\n• Vous avez de bonnes compétences en communication et de bonnes manières\n• Vous communiquez facilement en allemand et en italien, le français est aussi un avantage\n• Vous êtes en possession du permis de conduire Kat. B et avez leur propre voiture\nCe que nous offrons\n\n## Lieu de travail\nTransgourmet/Prodega\nVoie perforée 5\n3302 Mooseedorf\nMousseedorf\n100%\nPerpétuelle\nOuverture d'emploi: immédiatement ou par accord\n\n## Spécialisation\nInformatique\nLieu de travail\nTâche\nExigences"
+    },
+    "slugByLocale": {
+      "it": "supporto-ict-supporto-ict-transgourmet-moosseedorf",
+      "en": "ict-supporterin-ict-supporter-transgourmet-moosseedorf-489ebe47",
+      "de": "ict-supporterin-ict-supporter-transgourmet-moosseedorf-489ebe47",
+      "fr": "supporteur-tic-supporteur-tic-transgourmet-moosseedorf"
+    },
+    "sector": "Commercio all'ingrosso alimentare",
+    "expiredAt": "2026-10-30T09:36:18.332Z",
+    "previousSlugs": [
+      "ict-supporterin-ict-supporter-transgourmet-moosseedorf-489ebe47",
+      "ict-supporterin-ict-supporter-transgourmet-moosseedorf-43832885",
+      "ict-supporterin-ict-supporter-transgourmet-moosseedorf",
+      "supporto-ict-supporto-ict-transgourmet-moosseedorf-6f69cf71",
+      "ict-supporterin-ict-supporter-transgourmet-moosseedorf-0e62b8c3",
+      "supporteur-tic-supporteur-tic-transgourmet-moosseedorf-b5261396"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "ict-supporterin-ict-supporter-transgourmet-moosseedorf-489ebe47",
+        "ict-supporterin-ict-supporter-transgourmet-moosseedorf-43832885",
+        "ict-supporterin-ict-supporter-transgourmet-moosseedorf",
+        "supporto-ict-supporto-ict-transgourmet-moosseedorf-6f69cf71",
+        "ict-supporterin-ict-supporter-transgourmet-moosseedorf-0e62b8c3"
+      ],
+      "fr": [
+        "supporteur-tic-supporteur-tic-transgourmet-moosseedorf-b5261396"
+      ],
+      "en": [
+        "ict-supporterin-ict-supporter-transgourmet-moosseedorf"
+      ],
+      "de": [
+        "ict-supporterin-ict-supporter-transgourmet-moosseedorf"
+      ]
+    },
+    "postalCode": "3302",
+    "streetAddress": "Lochackerweg 5",
+    "salaryMin": 68500,
+    "salaryMax": 104000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/ict-supporterin-ict-supporter/635af6b6-7627-4bf6-aa18-39ee5f1c4e56",
+    "firstSeenAt": "2026-09-30T21:12:15.742Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/ict-supporterin-ict-supporter/635af6b6-7627-4bf6-aa18-39ee5f1c4e56",
+        "firstSeenAt": "2026-09-30T21:12:15.742Z",
+        "title": "ICT-Supporterin / ICT-Supporter"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/ict-supporterin-ict-supporter/801620a8-5844-4e4b-881b-139cbf55c1aa",
+        "firstSeenAt": "2026-11-02T09:20:13.609Z",
+        "title": "ICT-Supporterin / ICT-Supporter"
+      }
+    ],
+    "previousSlugCantonByLocale": {
+      "en": {
+        "ict-supporterin-ict-supporter-transgourmet-moosseedorf": "BE"
+      },
+      "de": {
+        "ict-supporterin-ict-supporter-transgourmet-moosseedorf": "BE"
+      },
+      "it": {
+        "ict-supporterin-ict-supporter-transgourmet-moosseedorf": "BE"
+      }
+    }
   },
   {
     "slug": "autista-cat-c-transgourmet-gals",
@@ -1684,7 +2140,8 @@
         "chauffeuse-chauffeur-cat-c-transgourmet-gals-e0dcec9e",
         "chauffeuse-chauffeur-cat-c-transgourmet-gals-09679e65",
         "chauffeuse-chauffeur-cat-c-transgourmet-gals-35fb306c",
-        "chauffeuse-chauffeur-cat-c-transgourmet-gals"
+        "chauffeuse-chauffeur-cat-c-transgourmet-gals",
+        "driver-cat-c-transgourmet-gals"
       ],
       "de": [
         "chauffeuse-chauffeur-cat-c-transgourmet-gals-bfbb7188",
@@ -1727,7 +2184,20 @@
         "firstSeenAt": "2026-08-31T17:00:41.625Z",
         "title": "Chauffeuse/Chauffeur cat. C"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chauffeuse-chauffeur-cat-c-transgourmet-gals": "BE"
+      },
+      "en": {
+        "chauffeuse-chauffeur-cat-c-transgourmet-gals": "BE",
+        "driver-cat-c-transgourmet-gals": "BE"
+      },
+      "de": {
+        "fahrerin-fahrer-kat-c-transgourmet-gals": "BE"
+      }
+    }
   },
   {
     "slug": "addetta-addetto-alla-vendita-di-bevande-e-tabacco-transgourmet-reinach",
@@ -2297,7 +2767,23 @@
         "firstSeenAt": "2026-09-28T21:13:48.468Z",
         "title": "Mitarbeiterin / Mitarbeiter Verkauf Getränke und Tabak"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-mitarbeiter-verkauf-getranke-und-tabak-transgourmet-reinach": "BL",
+        "mitarbeiterin-addetto-a-alle-vendite-getranke-e-tabak-transgourmet-reinach": "BL"
+      },
+      "en": {
+        "mitarbeiterin-sales-associate-getranke-und-tabak-transgourmet-reinach": "BL"
+      },
+      "de": {
+        "mitarbeiterin-mitarbeiter-verkauf-getranke-und-tabak-transgourmet-reinach": "BL"
+      },
+      "fr": {
+        "mitarbeiterin-vendeur-se-getranke-und-tabak-transgourmet-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "addetta-addetto-alla-vendita-di-frutta-verdura-transgourmet-heimberg",
@@ -2351,7 +2837,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-fruechte-gemuese/45235893-abf5-45b2-ae53-4c77d255e953",
-    "firstSeenAt": "2026-09-28T21:13:48.473Z"
+    "firstSeenAt": "2026-09-28T21:13:48.473Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-mitarbeiter-verkauf-fruchte-amp-gemuse-transgourmet-heimberg": "BE",
+        "mitarbeiterin-addetto-a-alle-vendite-fruchte-gemuse-transgourmet-heimberg": "BE"
+      },
+      "en": {
+        "mitarbeiterin-sales-associate-fruchte-gemuse-transgourmet-heimberg": "BE"
+      },
+      "fr": {
+        "mitarbeiterin-vendeur-se-fruchte-gemuse-transgourmet-heimberg": "BE"
+      }
+    }
   },
   {
     "slug": "capo-reparto-frutta-e-verdura-transgourmet-heimberg",
@@ -2395,7 +2894,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/abteilungsleiterin-abteilungsleiter-fruechte-gemuese/1beb0c96-1912-4b6f-a184-185a3d7ea318",
-    "firstSeenAt": "2026-09-28T21:13:48.475Z"
+    "firstSeenAt": "2026-09-28T21:13:48.475Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "abteilungsleiterin-abteilungsleiter-fruchte-amp-gemuse-transgourmet-heimberg": "BE"
+      }
+    }
   },
   {
     "slug": "addetta-addetto-alle-vendite-di-prodotti-freschi-winterthur-80-100-transgourmet-winterthur",
@@ -2449,7 +2954,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-winterthur/0a3823fc-ac23-408a-8890-604562a5f822",
-    "firstSeenAt": "2026-09-26T13:56:12.856Z"
+    "firstSeenAt": "2026-09-26T13:56:12.856Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-winterthur-80-100-transgourmet": "ZH",
+        "mitarbeiterin-addetto-a-alle-vendite-frischeprodukte-winterthur-80-100-transgourmet-winterthur": "ZH"
+      },
+      "en": {
+        "mitarbeiterin-sales-associate-frischeprodukte-winterthur-80-100-transgourmet-winterthur": "ZH"
+      },
+      "fr": {
+        "mitarbeiterin-vendeur-se-frischeprodukte-winterthur-80-100-transgourmet-winterthur": "ZH"
+      }
+    }
   },
   {
     "slug": "market-manager-market-manager-transgourmet-kriens",
@@ -2482,6 +3000,9 @@
     "previousSlugsByLocale": {
       "it": [
         "marktleiterin-marktleiter-transgourmet-kriens"
+      ],
+      "en": [
+        "market-manager-market-manager-transgourmet-kriens"
       ]
     },
     "postalCode": "6010",
@@ -2491,7 +3012,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/marktleiterin-marktleiter/97758c87-454e-406b-949c-859fd5f03951",
-    "firstSeenAt": "2026-09-26T13:56:12.854Z"
+    "firstSeenAt": "2026-09-26T13:56:12.854Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "marktleiterin-marktleiter-transgourmet-kriens": "LU"
+      },
+      "en": {
+        "market-manager-market-manager-transgourmet-kriens": "LU"
+      }
+    }
   },
   {
     "slug": "caporeparto-caporeparto-frutta-e-verdura-transgourmet-dietikon",
@@ -2537,7 +3067,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/abteilungsleiterin-abteilungsleiter-fruechte-und-gemuese/8aee16ae-3885-40ea-92ce-0201c4189dbd",
-    "firstSeenAt": "2026-09-26T13:56:12.855Z"
+    "firstSeenAt": "2026-09-26T13:56:12.855Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "abteilungsleiterin-abteilungsleiter-fruchte-e-gemuse-transgourmet-dietikon": "ZH",
+        "abteilungsleiterin-abteilungsleiter-fruchte-und-gemuse-transgourmet-dietikon": "ZH"
+      }
+    }
   },
   {
     "slug": "collaboratore-collaboratore-preparazione-degli-ordini-transgourmet-gals",
@@ -2581,7 +3118,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/postes-vacantes/collaboratrice-collaborateur-preparation-des-commandes/9e7074a3-1bc2-4e7a-82cc-9e488869cf2b",
-    "firstSeenAt": "2026-09-23T23:40:47.372Z"
+    "firstSeenAt": "2026-09-23T23:40:47.372Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratrice-collaborateur-preparation-des-commandes-transgourmet-gals": "BE"
+      }
+    }
   },
   {
     "slug": "gestione-applicazioni-gestione-applicazioni-transgourmet-moosseedorf",
@@ -2625,7 +3168,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/applikationsmanagerin-applikationsmanager/d1313c4a-2efa-4638-b7ca-c0e7a9be25c7",
-    "firstSeenAt": "2026-09-30T21:12:15.746Z"
+    "firstSeenAt": "2026-09-30T21:12:15.746Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "applikationsmanagerin-applikationsmanager-transgourmet-moosseedorf": "BE"
+      }
+    }
   },
   {
     "slug": "dipendente-delle-vendite-di-butcher-transgourmet-dietikon-4a8830a1",
@@ -2655,11 +3204,52 @@
     "sector": "Commercio all'ingrosso alimentare",
     "expiredAt": "2026-10-20T21:16:31.381Z",
     "previousSlugs": [
-      "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon-2f139a60"
+      "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon-2f139a60",
+      "dipendenti-dipendenti-vendite-macelleria-transgourmet-dietikon",
+      "dipendenti-dipendenti-vendite-macelleria-transgourmet-dietikon-3ac5f8",
+      "dipendenti-dipendenti-vendite-macelleria-transgourmet-dietikon-d7640c",
+      "employee-employee-sales-butchery-transgourmet-dietikon-d7640c",
+      "boucherie-des-ventes-des-employes-transgourmet-dietikon-d7640c",
+      "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon-2",
+      "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dietikon-p1c87b",
+      "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dietikon",
+      "employee-employee-sales-butchery-transgourmet-dietikon",
+      "employee-employee-sales-butchery-transgourmet-dietikon-3ac5f8",
+      "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon",
+      "mitarbeiterin-vendeur-se-metzgerei-transgourmet-dietikon",
+      "boucherie-des-ventes-des-employes-transgourmet-dietikon",
+      "boucherie-des-ventes-des-employes-transgourmet-dietikon-3ac5f8",
+      "employe-commercial-chez-butcher-transgourmet-dietikon"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon-2f139a60"
+        "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon-2f139a60",
+        "dipendenti-dipendenti-vendite-macelleria-transgourmet-dietikon",
+        "dipendenti-dipendenti-vendite-macelleria-transgourmet-dietikon-3ac5f8",
+        "dipendenti-dipendenti-vendite-macelleria-transgourmet-dietikon-d7640c",
+        "employee-employee-sales-butchery-transgourmet-dietikon-d7640c",
+        "boucherie-des-ventes-des-employes-transgourmet-dietikon-d7640c",
+        "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon-2",
+        "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dietikon-p1c87b",
+        "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dietikon",
+        "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon"
+      ],
+      "en": [
+        "employee-employee-sales-butchery-transgourmet-dietikon",
+        "employee-employee-sales-butchery-transgourmet-dietikon-3ac5f8",
+        "employee-employee-sales-butchery-transgourmet-dietikon-d7640c",
+        "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon"
+      ],
+      "fr": [
+        "mitarbeiterin-vendeur-se-metzgerei-transgourmet-dietikon",
+        "boucherie-des-ventes-des-employes-transgourmet-dietikon",
+        "boucherie-des-ventes-des-employes-transgourmet-dietikon-3ac5f8",
+        "boucherie-des-ventes-des-employes-transgourmet-dietikon-d7640c",
+        "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon",
+        "employe-commercial-chez-butcher-transgourmet-dietikon"
+      ],
+      "de": [
+        "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon"
       ]
     },
     "postalCode": "8953",
@@ -2669,7 +3259,41 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-metzgerei/5f73fa4b-199e-4b19-8577-2cc4b6d92c16",
-    "firstSeenAt": "2026-09-19T22:51:36.867Z"
+    "firstSeenAt": "2026-09-03T23:15:00.355Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-metzgerei/481eb24d-a01e-4abd-ba4b-9d403d580b9f",
+        "firstSeenAt": "2026-09-03T23:15:00.355Z",
+        "title": "Mitarbeiterin / Mitarbeiter Verkauf Metzgerei"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-metzgerei/5f73fa4b-199e-4b19-8577-2cc4b6d92c16",
+        "firstSeenAt": "2026-09-03T23:15:00.355Z",
+        "title": "Mitarbeiterin / Mitarbeiter Verkauf Metzgerei"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-metzgerei/b962132c-6746-491c-b5c2-951f85d7c460",
+        "firstSeenAt": "2026-09-19T22:51:36.867Z",
+        "title": "Mitarbeiterin / Mitarbeiter Verkauf Metzgerei"
+      }
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipendenti-dipendenti-vendite-macelleria-transgourmet-dietikon": "ZH",
+        "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon": "ZH"
+      },
+      "en": {
+        "employee-employee-sales-butchery-transgourmet-dietikon": "ZH"
+      },
+      "de": {
+        "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon": "ZH"
+      },
+      "fr": {
+        "employe-commercial-chez-butcher-transgourmet-dietikon": "ZH",
+        "mitarbeiterin-vendeur-se-metzgerei-transgourmet-dietikon": "ZH",
+        "boucherie-des-ventes-des-employes-transgourmet-dietikon": "ZH"
+      }
+    }
   },
   {
     "slug": "mitarbeiterin-addetto-a-alle-vendite-markt-transgourmet-gamsen",
@@ -2721,7 +3345,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-markt/57aaf462-20f3-4c1f-8b7c-cff06ebbe1c8",
-    "firstSeenAt": "2026-07-16T11:07:22.804Z"
+    "firstSeenAt": "2026-07-16T11:07:22.804Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "addetta-addetto-alle-vendite-nel-reparto-mercato-transgourmet-gamsen": "VS",
+        "sales-assistant-in-market-department-transgourmet-gamsen": "VS",
+        "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-gamsen": "VS"
+      },
+      "fr": {
+        "employee-employe-de-vente-en-marche-transgourmet-gamsen": "VS"
+      }
+    }
   },
   {
     "slug": "personale-personale-finanza-transgourmet-moosseedorf-83393e54",
@@ -2812,7 +3447,30 @@
         "firstSeenAt": "2026-09-18T23:14:32.097Z",
         "title": "Chauffeuse / Chauffeur Kat. C"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugsByLocale": {
+      "en": [
+        "chauffeuse-chauffeur-kat-c-winterthur-80-100-transgourmet-winterthur"
+      ],
+      "de": [
+        "chauffeuse-chauffeur-kat-c-winterthur-80-100-transgourmet-winterthur"
+      ],
+      "fr": [
+        "chauffeuse-chauffeur-kat-c-winterthur-80-100-transgourmet-winterthur"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "chauffeuse-chauffeur-kat-c-winterthur-80-100-transgourmet-winterthur": "ZH"
+      },
+      "de": {
+        "chauffeuse-chauffeur-kat-c-winterthur-80-100-transgourmet-winterthur": "ZH"
+      },
+      "fr": {
+        "chauffeuse-chauffeur-kat-c-winterthur-80-100-transgourmet-winterthur": "ZH"
+      }
+    }
   },
   {
     "slug": "ordina-picker-ordine-picker-congelatore-magazzino-1-transgourmet-neuendorf",
@@ -2876,7 +3534,20 @@
         "firstSeenAt": "2026-09-18T23:14:32.103Z",
         "title": "Kommissioniererin / Kommissionierer Tiefkühllager"
       }
-    ]
+    ],
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kommissioniererin-kommissionierer-tiefkuhllager-1-transgourmet-neuendorf": "SO",
+        "kommissioniererin-kommissionierer-tiefkuhllager-transgourmet-neuendorf": "SO"
+      },
+      "en": {
+        "kommissioniererin-kommissionierer-tiefkuhllager-1-transgourmet-neuendorf": "SO"
+      },
+      "fr": {
+        "kommissioniererin-kommissionierer-tiefkuhllager-1-transgourmet-neuendorf": "SO"
+      }
+    }
   },
   {
     "slug": "ordina-picker-ordine-picker-transgourmet-neuendorf",
@@ -2923,7 +3594,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/kommissioniererin-kommissionierer/b0225d96-a123-4332-ae31-6e55aa0873c9",
-    "firstSeenAt": "2026-09-18T23:14:32.106Z"
+    "firstSeenAt": "2026-09-18T23:14:32.106Z",
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kommissioniererin-kommissionierer-transgourmet-neuendorf": "SO"
+      },
+      "fr": {
+        "kommissioniererin-kommissionierer-transgourmet-neuendorf": "SO"
+      }
+    }
   },
   {
     "slug": "collaboratore-competitore-food-transgourmet-givisiez",
@@ -2967,7 +3647,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/postes-vacantes/collaboratrice-collaborateur-vente-food/affa2b12-d540-4dd8-83e8-41f6e7bb096c",
-    "firstSeenAt": "2026-10-07T21:17:57.857Z"
+    "firstSeenAt": "2026-10-07T21:17:57.857Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratrice-collaborateur-vente-food-transgourmet-givisiez": "FR"
+      }
+    }
   },
   {
     "slug": "collaboratore-sale-collaboratore-bevande-tabacco-transgourmet-rennaz",
@@ -3013,7 +3699,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/postes-vacantes/collaboratrice-collaborateur-vente-boissons-tabac/1d1d59b9-c16e-41dd-bc76-f7a0bc6068e2",
-    "firstSeenAt": "2026-10-07T21:17:57.853Z"
+    "firstSeenAt": "2026-10-07T21:17:57.853Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratrice-collaborateur-vente-boissons-amp-tabac-transgourmet-rennaz": "VD",
+        "collaboratrice-collaborateur-vente-boissons-tabac-transgourmet-rennaz": "VD"
+      }
+    }
   },
   {
     "slug": "categoria-manager-categoria-manager-near-non-food-transgourmet-moosseedorf",
@@ -3057,7 +3750,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/category-manager-category-managerin-near-non-food/28599679-9ca9-4b22-a082-c3a11b5452db",
-    "firstSeenAt": "2026-09-11T23:05:56.030Z"
+    "firstSeenAt": "2026-09-11T23:05:56.030Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "category-manager-category-managerin-near-non-food-transgourmet-moosseedorf": "BE"
+      }
+    }
   },
   {
     "slug": "chauffeuse-chauffeur-kat-c-1-transgourmet-chur",
@@ -3096,14 +3795,17 @@
       ],
       "en": [
         "chauffeuse-chauffeur-cat-c-bern-20-transgourmet-bern",
-        "chauffeuse-chauffeur-kat-c-bern-20-transgourmet-bern"
+        "chauffeuse-chauffeur-kat-c-bern-20-transgourmet-bern",
+        "chauffeuse-chauffeur-kat-c-1-transgourmet-chur"
       ],
       "de": [
-        "chauffeuse-chauffeur-kat-c-bern-20-transgourmet-bern"
+        "chauffeuse-chauffeur-kat-c-bern-20-transgourmet-bern",
+        "chauffeuse-chauffeur-kat-c-1-transgourmet-chur"
       ],
       "fr": [
         "chauffeuse-chauffeur-cat-c-berne-20-transgourmet-bern",
-        "chauffeuse-chauffeur-kat-c-bern-20-transgourmet-bern"
+        "chauffeuse-chauffeur-kat-c-bern-20-transgourmet-bern",
+        "chauffeuse-chauffeur-kat-c-1-transgourmet-chur"
       ]
     },
     "postalCode": "7000",
@@ -3125,7 +3827,28 @@
         "firstSeenAt": "2026-09-17T03:50:11.396Z",
         "title": "Chauffeuse / Chauffeur Kat. C, Bern, 20%"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chauffeuse-chauffeur-cat-c-berna-20-transgourmet-bern": "GR",
+        "chauffeuse-chauffeur-cat-c-bern-20-transgourmet-bern": "GR",
+        "chauffeuse-chauffeur-kat-c-bern-20-transgourmet-bern": "GR",
+        "chauffeuse-chauffeur-cat-c-berne-20-transgourmet-bern": "GR"
+      },
+      "en": {
+        "chauffeuse-chauffeur-kat-c-1-transgourmet-chur": "GR",
+        "chauffeuse-chauffeur-cat-c-bern-20-transgourmet-bern": "GR"
+      },
+      "de": {
+        "chauffeuse-chauffeur-kat-c-1-transgourmet-chur": "GR",
+        "chauffeuse-chauffeur-kat-c-bern-20-transgourmet-bern": "GR"
+      },
+      "fr": {
+        "chauffeuse-chauffeur-kat-c-1-transgourmet-chur": "GR",
+        "chauffeuse-chauffeur-cat-c-berne-20-transgourmet-bern": "GR"
+      }
+    }
   },
   {
     "slug": "system-engineer-windows-transgourmet-moosseedorf",
@@ -3171,6 +3894,40 @@
         "firstSeenAt": "2026-09-07T15:03:07.167Z",
         "title": "System Engineer Windows"
       }
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "system-ingegnere-windows-transgourmet-moosseedorf"
+      ],
+      "en": [
+        "system-engineer-windows-transgourmet-moosseedorf"
+      ],
+      "de": [
+        "system-engineer-windows-transgourmet-moosseedorf"
+      ],
+      "fr": [
+        "system-ingenieur-windows-transgourmet-moosseedorf"
+      ]
+    },
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "system-ingegnere-windows-transgourmet-moosseedorf": "BE",
+        "system-engineer-windows-transgourmet-moosseedorf": "BE"
+      },
+      "en": {
+        "system-engineer-windows-transgourmet-moosseedorf": "BE"
+      },
+      "de": {
+        "system-engineer-windows-transgourmet-moosseedorf": "BE"
+      },
+      "fr": {
+        "system-ingenieur-windows-transgourmet-moosseedorf": "BE"
+      }
+    },
+    "previousSlugs": [
+      "system-ingegnere-windows-transgourmet-moosseedorf",
+      "system-ingenieur-windows-transgourmet-moosseedorf"
     ]
   },
   {
@@ -3205,7 +3962,41 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/system-engineer-windows/d0cfbf93-928e-4ff0-846e-5405faa899da",
-    "firstSeenAt": "2026-10-06T21:13:39.110Z"
+    "firstSeenAt": "2026-10-06T21:13:39.110Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "system-ingegnere-windows-transgourmet-schlieren"
+      ],
+      "en": [
+        "system-engineer-windows-transgourmet-schlieren"
+      ],
+      "de": [
+        "system-engineer-windows-transgourmet-schlieren"
+      ],
+      "fr": [
+        "system-ingenieur-windows-transgourmet-schlieren"
+      ]
+    },
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "system-ingegnere-windows-transgourmet-schlieren": "ZH",
+        "system-engineer-windows-transgourmet-schlieren": "ZH"
+      },
+      "en": {
+        "system-engineer-windows-transgourmet-schlieren": "ZH"
+      },
+      "de": {
+        "system-engineer-windows-transgourmet-schlieren": "ZH"
+      },
+      "fr": {
+        "system-ingenieur-windows-transgourmet-schlieren": "ZH"
+      }
+    },
+    "previousSlugs": [
+      "system-ingegnere-windows-transgourmet-schlieren",
+      "system-ingenieur-windows-transgourmet-schlieren"
+    ]
   },
   {
     "slug": "dipendenti-dipendenti-vendita-di-bevande-transgourmet-dubendorf",
@@ -3287,7 +4078,37 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-getraenke/5974852a-cd24-4126-aab6-fb6593194577",
-    "firstSeenAt": "2026-09-08T13:36:15.855Z"
+    "firstSeenAt": "2026-09-08T13:36:15.855Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-mitarbeiter-verkauf-getranke-transgourmet-dubendorf": "ZH",
+        "mitarbeiterin-addetto-a-alle-vendite-getranke-transgourmet-dubendorf": "ZH",
+        "dipendenti-dipendenti-vendite-bevande-80-100-transgourmet-winterthur": "ZH",
+        "employee-employee-sales-drinks-80-100-transgourmet-winterthur": "ZH",
+        "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur": "ZH",
+        "boissons-de-vente-pour-employes-80-100-transgourmet-winterthur": "ZH",
+        "mitarbeiterin-addetto-a-alle-vendite-getranke-80-100-transgourmet-winterthur": "ZH",
+        "mitarbeiterin-sales-associate-getranke-80-100-transgourmet-winterthur": "ZH",
+        "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur": "ZH"
+      },
+      "en": {
+        "mitarbeiterin-mitarbeiter-verkauf-getranke-transgourmet-dubendorf": "ZH",
+        "mitarbeiterin-sales-associate-getranke-transgourmet-dubendorf": "ZH",
+        "employee-employee-sales-drinks-80-100-transgourmet-winterthur": "ZH"
+      },
+      "de": {
+        "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur": "ZH",
+        "mitarbeiterin-addetto-a-alle-vendite-getranke-80-100-transgourmet-winterthur": "ZH",
+        "mitarbeiterin-sales-associate-getranke-80-100-transgourmet-winterthur": "ZH",
+        "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur": "ZH"
+      },
+      "fr": {
+        "mitarbeiterin-mitarbeiter-verkauf-getranke-transgourmet-dubendorf": "ZH",
+        "mitarbeiterin-vendeur-se-getranke-transgourmet-dubendorf": "ZH",
+        "boissons-de-vente-pour-employes-80-100-transgourmet-winterthur": "ZH"
+      }
+    }
   },
   {
     "slug": "vendite-dipendenti-dipendenti-machery-transgourmet-basel",
@@ -3342,7 +4163,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-metzgerei/6f6017ea-b0fb-46c5-8197-a91364d76670",
-    "firstSeenAt": "2026-09-07T15:03:07.186Z"
+    "firstSeenAt": "2026-09-07T15:03:07.186Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-basel": "BS",
+        "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-basel": "BS"
+      },
+      "en": {
+        "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-basel": "BS",
+        "mitarbeiterin-sales-associate-metzgerei-transgourmet-basel": "BS"
+      },
+      "fr": {
+        "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-basel": "BS",
+        "mitarbeiterin-vendeur-se-metzgerei-transgourmet-basel": "BS"
+      }
+    }
   },
   {
     "slug": "dipendenti-dipendenti-vendite-frutta-e-verdura-100-transgourmet-risch-rotkreuz",
@@ -3394,7 +4230,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-fruechte-und-gemuese/23f87baf-258e-48c3-96bb-a1a8d08aa127",
-    "firstSeenAt": "2026-09-19T22:51:36.862Z"
+    "firstSeenAt": "2026-09-19T22:51:36.862Z",
+    "canton": "ZG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-100-transgourmet-risch-rotkreuz": "ZG",
+        "mitarbeiterin-addetto-a-alle-vendite-fruchte-e-gemuse-100-transgourmet-risch-rotkreuz": "ZG"
+      },
+      "en": {
+        "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-100-transgourmet-risch-rotkreuz": "ZG"
+      },
+      "fr": {
+        "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-100-transgourmet-risch-rotkreuz": "ZG"
+      }
+    }
   },
   {
     "slug": "system-ingegnere-windows-transgourmet-moosseedorf-78s52q",
@@ -3531,7 +4380,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-markt/b5e2f911-4e94-4ec3-b9e9-e1a39622ca5a",
-    "firstSeenAt": "2026-09-02T23:09:02.199Z"
+    "firstSeenAt": "2026-09-02T23:09:02.199Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-pratteln": "BL",
+        "mitarbeiterin-addetto-a-alle-vendite-markt-transgourmet-pratteln": "BL"
+      },
+      "en": {
+        "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-pratteln": "BL",
+        "mitarbeiterin-sales-associate-markt-transgourmet-pratteln": "BL"
+      },
+      "fr": {
+        "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-pratteln": "BL",
+        "mitarbeiterin-vendeur-se-markt-transgourmet-pratteln": "BL"
+      }
+    }
   },
   {
     "slug": "checkout-check-in-check-out-dei-dipendenti-transgourmet-pratteln",
@@ -3636,7 +4500,52 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-kasse-check-in-check-out/ee4631a4-c0ad-4bb1-a36b-0773c2c12766",
-    "firstSeenAt": "2026-09-01T23:07:16.808Z"
+    "firstSeenAt": "2026-09-01T23:07:16.808Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-mitarbeiter-verkauf-kasse-check-in-check-out-transgourmet-pratteln": "BL",
+        "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-moosseedorf": "BL",
+        "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-moosseedorf": "BL",
+        "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-moosseedorf": "BL",
+        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-moosseedorf": "BL",
+        "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-wilderswil": "BL",
+        "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-wilderswil": "BL",
+        "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-wilderswil": "BL",
+        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-wilderswil": "BL",
+        "mitarbeiterin-addetto-a-alle-vendite-kasse-check-in-check-out-transgourmet-pratteln": "BL",
+        "dipendenti-dipendenti-vendita-cassa-e-check-in-transgourmet-langenthal": "BL",
+        "employee-employee-sale-cash-register-and-check-in-transgourmet-langenthal": "BL",
+        "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-langenthal": "BL",
+        "employe-employe-caisse-enregistreuse-et-enregistrement-des-ventes-transgourmet-langenthal": "BL",
+        "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-langenthal": "BL",
+        "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-langenthal": "BL",
+        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-langenthal": "BL"
+      },
+      "en": {
+        "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-moosseedorf": "BL",
+        "mitarbeiterin-mitarbeiter-verkauf-kasse-check-in-check-out-transgourmet-pratteln": "BL",
+        "mitarbeiterin-sales-associate-kasse-check-in-check-out-transgourmet-pratteln": "BL",
+        "employee-employee-sale-cash-register-and-check-in-transgourmet-langenthal": "BL"
+      },
+      "de": {
+        "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-moosseedorf": "BL",
+        "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-wilderswil": "BL",
+        "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-wilderswil": "BL",
+        "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-wilderswil": "BL",
+        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-wilderswil": "BL",
+        "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-langenthal": "BL",
+        "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-langenthal": "BL",
+        "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-langenthal": "BL",
+        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-langenthal": "BL"
+      },
+      "fr": {
+        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-moosseedorf": "BL",
+        "mitarbeiterin-mitarbeiter-verkauf-kasse-check-in-check-out-transgourmet-pratteln": "BL",
+        "mitarbeiterin-vendeur-se-kasse-check-in-check-out-transgourmet-pratteln": "BL",
+        "employe-employe-caisse-enregistreuse-et-enregistrement-des-ventes-transgourmet-langenthal": "BL"
+      }
+    }
   },
   {
     "slug": "dipendenti-dipendenti-vendite-accettazione-di-beni-non-food-transgourmet-bellach",
@@ -3692,7 +4601,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-warenannahme-non-food/91d38dc5-9277-446b-a01e-bf962a167f2b",
-    "firstSeenAt": "2026-09-02T13:33:58.238Z"
+    "firstSeenAt": "2026-09-02T13:33:58.238Z",
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach": "SO",
+        "mitarbeiterin-addetto-a-alle-vendite-warenannahme-non-food-transgourmet-bellach": "SO"
+      },
+      "en": {
+        "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach": "SO",
+        "mitarbeiterin-sales-associate-warenannahme-non-food-transgourmet-bellach": "SO"
+      },
+      "fr": {
+        "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach": "SO",
+        "mitarbeiterin-vendeur-se-warenannahme-non-food-transgourmet-bellach": "SO"
+      }
+    }
   },
   {
     "slug": "navetta-spedizioniere-spedizioniere-transgourmet-brunegg",
@@ -3742,7 +4666,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/shuttle-disponentin-disponent/abb6b65b-d4b9-49f2-88e4-50b4da096c2a",
-    "firstSeenAt": "2026-09-11T13:35:20.667Z"
+    "firstSeenAt": "2026-09-11T13:35:20.667Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "shuttle-disponentin-disponent-transgourmet-brunegg": "AG"
+      },
+      "en": {
+        "shuttle-disponentin-disponent-transgourmet-brunegg": "AG"
+      },
+      "fr": {
+        "shuttle-disponentin-disponent-transgourmet-brunegg": "AG"
+      }
+    }
   },
   {
     "slug": "vice-capo-dipartimento-vice-capo-dipartimento-frutta-e-verdura-100-transgourmet-biel",
@@ -3797,7 +4733,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-fruechte-gemuese/15b9b911-88cf-4772-987a-1e855b33ebab",
-    "firstSeenAt": "2026-09-08T23:20:24.075Z"
+    "firstSeenAt": "2026-09-08T23:20:24.075Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-fruchte-amp-gemuse": "BE",
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-fruchte-gemuse-100-transgourmet-biel": "BE"
+      },
+      "en": {
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-fruchte-gemuse-100-transgourmet-biel": "BE"
+      },
+      "de": {
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-fruchte-gemuse-100-transgourmet-biel": "BE"
+      },
+      "fr": {
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-fruchte-gemuse-100-transgourmet-biel": "BE"
+      }
+    }
   },
   {
     "slug": "market-manager-market-manager-100-transgourmet-kriens",
@@ -3832,7 +4784,8 @@
         "marktleiterin-marktleiter-100-transgourmet-kriens"
       ],
       "en": [
-        "marktleiterin-marktleiter-100-transgourmet-kriens"
+        "marktleiterin-marktleiter-100-transgourmet-kriens",
+        "market-manager-market-manager-100-transgourmet-kriens"
       ],
       "fr": [
         "marktleiterin-marktleiter-100-transgourmet-kriens"
@@ -3845,7 +4798,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/marktleiterin-marktleiter/51da45b4-40d6-44f6-9f61-0a47b4c05151",
-    "firstSeenAt": "2026-09-02T13:33:58.233Z"
+    "firstSeenAt": "2026-09-02T13:33:58.233Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "marktleiterin-marktleiter-100-transgourmet-kriens": "LU"
+      },
+      "en": {
+        "market-manager-market-manager-100-transgourmet-kriens": "LU",
+        "marktleiterin-marktleiter-100-transgourmet-kriens": "LU"
+      },
+      "fr": {
+        "marktleiterin-marktleiter-100-transgourmet-kriens": "LU"
+      }
+    }
   },
   {
     "slug": "dipendenti-dipendenti-vendite-macelleria-transgourmet-dubendorf",
@@ -3901,7 +4867,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-metzgerei/73085cfb-bc22-4bf1-9f75-fd98a58d755d",
-    "firstSeenAt": "2026-08-25T09:48:13.718Z"
+    "firstSeenAt": "2026-08-25T09:48:13.718Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dubendorf": "ZH",
+        "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dubendorf": "ZH"
+      },
+      "en": {
+        "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dubendorf": "ZH",
+        "mitarbeiterin-sales-associate-metzgerei-transgourmet-dubendorf": "ZH"
+      },
+      "fr": {
+        "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dubendorf": "ZH",
+        "mitarbeiterin-vendeur-se-metzgerei-transgourmet-dubendorf": "ZH"
+      }
+    }
   },
   {
     "slug": "capo-dipartimento-aggiunto-capo-dipartimento-aggiunto-transgourmet-langenthal",
@@ -3951,7 +4932,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-metzgerei/6273057e-7cd7-4fa6-8afc-a5eef39038b4",
-    "firstSeenAt": "2026-08-24T21:34:20.872Z"
+    "firstSeenAt": "2026-08-24T21:34:20.872Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-metzgerei": "BE"
+      },
+      "en": {
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-metzgerei": "BE"
+      },
+      "fr": {
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-metzgerei": "BE"
+      }
+    }
   },
   {
     "slug": "dipendenti-dipendenti-vendite-check-out-25-transgourmet-dietikon",
@@ -4007,7 +5000,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-check-out/de3aa871-b803-47bd-adf9-f2b320cc5104",
-    "firstSeenAt": "2026-08-24T21:34:20.867Z"
+    "firstSeenAt": "2026-08-24T21:34:20.867Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-mitarbeiter-verkauf-check-out-25-transgourmet-dietikon": "ZH",
+        "mitarbeiterin-addetto-a-alle-vendite-check-out-25-transgourmet-dietikon": "ZH"
+      },
+      "en": {
+        "mitarbeiterin-mitarbeiter-verkauf-check-out-25-transgourmet-dietikon": "ZH",
+        "mitarbeiterin-sales-associate-check-out-25-transgourmet-dietikon": "ZH"
+      },
+      "fr": {
+        "mitarbeiterin-mitarbeiter-verkauf-check-out-25-transgourmet-dietikon": "ZH",
+        "mitarbeiterin-vendeur-se-check-out-25-transgourmet-dietikon": "ZH"
+      }
+    }
   },
   {
     "slug": "fornitura-dei-dipendenti-winterthur-80-100-transgourmet-winterthur",
@@ -4104,6 +5112,60 @@
     },
     "salaryMin": 73500,
     "salaryMax": 111500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "dipendenti-dipendenti-vendite-bevande-80-100-transgourmet-winterthur",
+    "title": "Mitarbeiterin / Mitarbeiter Verkauf Getränke 80 - 100 %",
+    "titleByLocale": {
+      "it": "Dipendenti / Dipendenti vendite Bevande 80 - 100%",
+      "en": "Employee / Employee Sales Drinks 80 - 100%",
+      "de": "Mitarbeiterin / Mitarbeiter Verkauf Getränke 80 - 100 %",
+      "fr": "Boissons de vente pour employés 80 - 100%"
+    },
+    "company": "Transgourmet",
+    "companyKey": "transgourmet",
+    "location": "Winterthur",
+    "addressLocality": "Winterthur",
+    "descriptionByLocale": {
+      "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza professionale e servizi innovativi.\n\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di consegna e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\n• Si crea un ambiente in cui i nostri clienti trovano la loro strada intorno bene e come fare acquisti e comunicare con esperti a livello degli occhi\n\n• Garantisci il rispetto delle linee guida QS e ASIB interne e legali\n\n• Oltre a garantire la freschezza e la presentazione delle merci, sei responsabile di una corretta etichettatura\n\n• Garantisci la costante disponibilità dei nostri prodotti e effettua regolarmente inventari\n\n• Prendere reclami professionalmente e trasmetterli di conseguenza\n\n• Al check-out si esegue la scansione della merce\n\n## Requisiti\n• Hai completato la formazione nel settore alimentare (cook, panettiere, commercio al dettaglio, macellaio)\n\n• Ti piace offrire ai nostri clienti una grande esperienza di shopping\n\n• Si distingue il vostro metodo di lavoro altamente affidabile ed efficiente\n\n• Sei una personalità di team-capable che è entusiasta di nuove sfide\n\n• Si comunica perfettamente in tedesco\n\n• Vantaggiosamente, avete già completato il camion e/o la formazione del carrello (standard SUVA)",
+      "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional advice and innovative services.\n\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss delivery and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retailers).\n\n## Tasks\n• You create an environment in which our customers find their way around well and like to shop and communicate with experts at eye level\n\n• You ensure compliance with the internal and legal QS and ASIB guidelines\n\n• In addition to ensuring the freshness and presentation of goods, you are responsible for a correct labeling\n\n• You ensure the constant availability of our products and regularly carry out inventories\n\n• You take complaints professionally and forward them accordingly\n\n• At the check-out you scan the goods\n\n## Requirements\n• You have completed training in the food industry (cook, baker, retail trade, butcher)\n\n• You enjoy offering our customers a great shopping experience\n\n• You distinguish your highly reliable and efficient work method\n\n• You are a team-capable personality who is enthusiastic about new challenges\n\n• You communicate perfectly in German\n\n• Advantageously, you have already completed the truck and/or drawbar training (SUVA standard)",
+      "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du schaffst ein Umfeld, in dem sich unsere Kund/-innen gut zurechtfinden und gerne einkaufen und auf Augenhöhe mit Fachpersonen kommunizieren\n\n• Du sorgst für die Einhaltung der vorgegebenen internen und gesetzlichen QS- und ASIB Richtlinien\n\n• Nebst der Sicherstellung der Frische und Warenpräsentation, bist du verantwortlich für eine korrekten Beschriftung\n\n• Du gewährleistest die ständige Verfügbarkeit unserer Produkte und führst regelmässig Inventaraufnahmen durch\n\n• Du nimmst Reklamationen professionell entgegen und leitest diese entsprechend weiter\n\n• Am Check-out scannst du die Ware\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Ausbildung in der Lebensmittelbranche (Koch, Bäcker, Detailhandel, Metzger)\n\n• Du hast Freude daran, unseren Kund/-innen ein tolles Einkaufserlebnis zu bieten\n\n• Dich zeichnet deine äusserst zuverlässige und effiziente Arbeitsweise aus\n\n• Du bist eine teamfähige Persönlichkeit, die sich für neue Herausforderungen begeistert\n\n• Du kommunizierst einwandfrei in Deutsch\n\n• Von Vorteil hast du bereits die Stapler- und/oder Deichselgerätausbildung (SUVA-Norm) absolviert",
+      "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels et des services innovants.\n\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. La société est leader dans le commerce de gros suisse de livraison et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que les détaillants).\n\n## Tâches\n• Vous créez un environnement dans lequel nos clients trouvent leur chemin et aiment acheter et communiquer avec des experts au niveau des yeux\n\n• Vous veillez au respect des lignes directrices internes et légales QS et ASIB\n\n• En plus d'assurer la fraîcheur et la présentation des marchandises, vous êtes responsable d'un étiquetage correct\n\n• Vous assurez la disponibilité constante de nos produits et effectuez régulièrement des inventaires\n\n• Vous prenez les plaintes professionnellement et les transmettez en conséquence\n\n• Au check-out, vous balayez les marchandises\n\n## Exigences\n• Vous avez suivi une formation dans l'industrie alimentaire (cuisson, boulanger, commerce de détail, boucher)\n\n• Vous aimez offrir à nos clients une grande expérience d'achat\n\n• Vous distinguez votre méthode de travail hautement fiable et efficace\n\n• Vous êtes une personnalité capable d'équipe qui est enthousiaste face aux nouveaux défis\n\n• Vous communiquez parfaitement en allemand\n\n• Avantageux, vous avez déjà terminé la formation de camion et/ou de timon (standard SUVA)"
+    },
+    "slugByLocale": {
+      "it": "dipendenti-dipendenti-vendite-bevande-80-100-transgourmet-winterthur",
+      "en": "employee-employee-sales-drinks-80-100-transgourmet-winterthur",
+      "de": "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur",
+      "fr": "boissons-de-vente-pour-employes-80-100-transgourmet-winterthur"
+    },
+    "sector": "Commercio all'ingrosso alimentare",
+    "expiredAt": "2026-09-18T21:41:41.207Z",
+    "previousSlugs": [
+      "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur",
+      "mitarbeiterin-addetto-a-alle-vendite-getranke-80-100-transgourmet-winterthur",
+      "mitarbeiterin-sales-associate-getranke-80-100-transgourmet-winterthur",
+      "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur",
+        "mitarbeiterin-addetto-a-alle-vendite-getranke-80-100-transgourmet-winterthur"
+      ],
+      "en": [
+        "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur",
+        "mitarbeiterin-sales-associate-getranke-80-100-transgourmet-winterthur"
+      ],
+      "fr": [
+        "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur",
+        "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur"
+      ]
+    },
+    "postalCode": "8409",
+    "streetAddress": "Stegackerstrasse 22",
+    "salaryMin": 83000,
+    "salaryMax": 127500,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },
@@ -4268,6 +5330,60 @@
     "streetAddress": "Lochackerweg 5",
     "salaryMin": 94500,
     "salaryMax": 143000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "dipendenti-dipendenti-vendita-cassa-e-check-in-transgourmet-langenthal",
+    "title": "Mitarbeiterin / Mitarbeiter Verkauf Kasse und Check-in",
+    "titleByLocale": {
+      "it": "Dipendenti / Dipendenti Vendita cassa e check-in",
+      "en": "Employee / Employee Sale cash register and check-in",
+      "de": "Mitarbeiterin / Mitarbeiter Verkauf Kasse und Check-in",
+      "fr": "Employé / Employé Caisse enregistreuse et enregistrement des ventes"
+    },
+    "company": "Transgourmet",
+    "companyKey": "transgourmet",
+    "location": "Langenthal",
+    "addressLocality": "Langenthal",
+    "descriptionByLocale": {
+      "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza professionale e servizi innovativi.\n\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di consegna e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\n• Raccogli i dati dei clienti, crei carte giornaliere e aggiorni la base clienti\n\n• Accetti beni vuoti e ritorni e ingressi di controllo\n\n• Gestisci il centro telefonico e le aree di informazione e prospettiva\n\n• Gestisci la raccolta del debito in modo efficiente e rendi corretta la dichiarazione di cassa\n\n• Accetti i nostri clienti cordiali e fornisci una prima impressione professionale\n\n• Si occupa di attività aggiuntive intorno alla reception e servizio dove è necessario\n\n## Requisiti\n• Formazione completa nel commercio al dettaglio o nell'industria alimentare (ad es. cucina, panettiere:in, macellaio:in)\n\n• Si lavora in modo affidabile, efficiente e hanno un aspetto ben tenuto\n\n• Sei adatto per affrontare MS Office\n\n• Si avvicina alle persone apertamente e godere del contatto con il cliente\n\n• Sei resiliente e rimani amichevole anche nei momenti frenetici\n\n• Si parla fluente tedesco e godere di lavorare in una squadra",
+      "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional advice and innovative services.\n\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss delivery and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retailers).\n\n## Tasks\n• You collect customer data, create daily cards and update the customer base\n\n• You accept empty goods and returns and control entrances\n\n• You manage the telephone center as well as information and prospect areas\n\n• You handle the debt collection efficiently and make the cash statement correct\n\n• You welcome our customers friendly and provide a professional first impression\n\n• You take on additional tasks around reception and service where you need\n\n## Requirements\n• Completed training in the retail trade or in the food industry (e.g. cook, baker:in, butcher:in)\n\n• You work reliably, efficiently and have a well-kept appearance\n\n• You are fit to deal with MS Office\n\n• You approach people openly and enjoy customer contact\n\n• You are resilient and stay friendly even in hectic moments\n\n• You speak fluent German and enjoy working in a team",
+      "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du erfasst Kundendaten, erstellst Tageskarten und aktualisierst den Kundenstamm\n\n• Du nimmst Leergut und Retouren entgegen und kontrollierst Eintritte\n\n• Du betreust die Telefonzentrale sowie Info- und Prospektbereiche\n\n• Du wickelst das Inkasso effizient ab und machst die Kassenabrechnung korrekt\n\n• Du begrüsst unsere Kundschaft freundlich und sorgst für einen professionellen ersten Eindruck\n\n• Du übernimmst Zusatzaufgaben rund um Empfang und Service, wo's dich braucht\n\n## Anforderungen\n• Abgeschlossene Ausbildung im Detailhandel oder in der Lebensmittelbranche (z. B. Koch, Bäcker:in, Metzger:in)\n\n• Du arbeitest zuverlässig, effizient und hast ein gepflegtes Auftreten\n\n• Du bist fit im Umgang mit MS Office\n\n• Du gehst offen auf Menschen zu und hast Freude am Kundenkontakt\n\n• Du bist belastbar und bleibst auch in hektischen Momenten freundlich\n\n• Du sprichst fliessend Deutsch und arbeitest gerne im Team",
+      "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels et des services innovants.\n\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. La société est leader dans le commerce de gros suisse de livraison et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que les détaillants).\n\n## Tâches\n• Vous collectez des données client, créez des cartes quotidiennes et mettez à jour la base client\n\n• Vous acceptez les marchandises vides et les retours et contrôlez les entrées\n\n• Vous gérez le centre téléphonique ainsi que les zones d'information et de prospection\n\n• Vous traitez le recouvrement de la dette efficacement et faites le relevé de trésorerie correct\n\n• Vous accueillez nos clients amical et fournir une première impression professionnelle\n\n• Vous assumez des tâches supplémentaires autour de la réception et du service où vous avez besoin\n\n## Exigences\n• Formation complète dans le commerce de détail ou dans l'industrie alimentaire (p. ex. cuisinier, boulanger:in, boucher:in)\n\n• Vous travaillez de manière fiable, efficace et avez une apparence bien entretenue\n\n• Vous êtes apte à traiter avec MS Office\n\n• Vous approchez les gens ouvertement et profitez du contact client\n\n• Vous êtes résilient et restez amical même dans des moments agités\n\n• Vous parlez couramment allemand et aimez travailler en équipe"
+    },
+    "slugByLocale": {
+      "it": "dipendenti-dipendenti-vendita-cassa-e-check-in-transgourmet-langenthal",
+      "en": "employee-employee-sale-cash-register-and-check-in-transgourmet-langenthal",
+      "de": "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-langenthal",
+      "fr": "employe-employe-caisse-enregistreuse-et-enregistrement-des-ventes-transgourmet-langenthal"
+    },
+    "sector": "Commercio all'ingrosso alimentare",
+    "expiredAt": "2026-09-16T22:28:41.569Z",
+    "previousSlugs": [
+      "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-langenthal",
+      "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-langenthal",
+      "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-langenthal",
+      "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-langenthal"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-langenthal",
+        "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-langenthal"
+      ],
+      "en": [
+        "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-langenthal",
+        "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-langenthal"
+      ],
+      "fr": [
+        "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-langenthal",
+        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-langenthal"
+      ]
+    },
+    "postalCode": "4900",
+    "streetAddress": "Gaswerkstrasse 78",
+    "salaryMin": 77500,
+    "salaryMax": 118500,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },
@@ -5757,7 +6873,10 @@
     "postalCode": "3627",
     "streetAddress": "Stockhornstrasse 19",
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugsByLocale": {
+      "it": []
+    }
   },
   {
     "slug": "mitarbeiterin-addetto-a-alle-vendite-check-out-biel-40-transgourmet-biel",
