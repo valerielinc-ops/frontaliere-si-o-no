@@ -1463,8 +1463,8 @@
     "previousSlugs": [
       "verkaufer-in-baustoffe-hornbach-luzern-littau-5510522d",
       "verkaufer-in-baustoffe-hornbach-luzern",
-      "verkaufer-in-baustoffe-hornbach-luzern-littau",
-      "vendeur-dans-les-materiaux-de-construction-hornbach-luzern-littau"
+      "vendeur-dans-les-materiaux-de-construction-hornbach-luzern-littau",
+      "verkaufer-in-baustoffe-hornbach-luzern-littau"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1476,7 +1476,11 @@
         "verkaufer-in-baustoffe-hornbach-luzern-littau"
       ],
       "fr": [
-        "vendeur-dans-les-materiaux-de-construction-hornbach-luzern-littau"
+        "vendeur-dans-les-materiaux-de-construction-hornbach-luzern-littau",
+        "verkaufer-in-baustoffe-hornbach-luzern-littau"
+      ],
+      "en": [
+        "verkaufer-in-baustoffe-hornbach-luzern-littau"
       ]
     },
     "postalCode": "6003",
@@ -1490,8 +1494,8 @@
     "canton": "LU",
     "previousSlugCantonByLocale": {
       "it": {
-        "verkaufer-in-baustoffe-hornbach-luzern-littau": "LU",
-        "verkaufer-in-baustoffe-hornbach-luzern": "LU"
+        "verkaufer-in-baustoffe-hornbach-luzern": "LU",
+        "verkaufer-in-baustoffe-hornbach-luzern-littau-5510522d": "LU"
       },
       "de": {
         "verkaufer-in-baustoffe-hornbach-luzern-littau": "LU"
@@ -2279,12 +2283,14 @@
       "vendor-colours-hornbach-luzern-littau-ba167a2f",
       "verkaufer-in-farben-hornbach-luzern-littau-37f64d6e",
       "couleurs-des-fournisseurs-hornbach-luzern-littau-b7e3bbde",
+      "verkaufer-in-baustoffe-hornbach-luzern-littau-d9a77c1a",
+      "vendeur-dans-les-materiaux-de-construction-hornbach-luzern-littau-f8b567a1",
       "verkaufer-in-farben-hornbach-luzern-littau",
       "colore-del-venditore-hornbach-luzern-littau",
       "vendor-colours-hornbach-luzern-littau",
       "couleurs-des-fournisseurs-hornbach-luzern-littau",
-      "verkaufer-in-baustoffe-hornbach-luzern-littau-d9a77c1a",
-      "vendeur-dans-les-materiaux-de-construction-hornbach-luzern-littau-f8b567a1"
+      "vendeur-dans-les-materiaux-de-construction-hornbach-luzern-littau",
+      "verkaufer-in-baustoffe-hornbach-luzern-littau-ed7711ca"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2315,9 +2321,9 @@
         "verkaufer-in-farben-hornbach-luzern-littau",
         "colore-del-venditore-hornbach-luzern-littau",
         "couleurs-des-fournisseurs-hornbach-luzern-littau",
-        "vendor-colours-hornbach-luzern-littau",
-        "verkaufer-in-baustoffe-hornbach-luzern-littau",
-        "vendeur-dans-les-materiaux-de-construction-hornbach-luzern-littau"
+        "verkaufer-in-baustoffe-hornbach-luzern-littau-ed7711ca",
+        "vendeur-dans-les-materiaux-de-construction-hornbach-luzern-littau",
+        "vendor-colours-hornbach-luzern-littau"
       ],
       "de": [
         "verkaufer-in-bodenbelage-dekoration-hornbach-luzern-littau",
@@ -2326,8 +2332,8 @@
         "colore-del-venditore-hornbach-luzern-littau",
         "vendor-colours-hornbach-luzern-littau",
         "couleurs-des-fournisseurs-hornbach-luzern-littau",
-        "verkaufer-in-farben-hornbach-luzern-littau",
-        "vendeur-dans-les-materiaux-de-construction-hornbach-luzern-littau"
+        "vendeur-dans-les-materiaux-de-construction-hornbach-luzern-littau",
+        "verkaufer-in-farben-hornbach-luzern-littau"
       ],
       "fr": [
         "vendeur-en-plancher-decoration-hornbach-luzern-littau",
@@ -2337,8 +2343,8 @@
         "verkaufer-in-farben-hornbach-luzern-littau",
         "colore-del-venditore-hornbach-luzern-littau",
         "vendor-colours-hornbach-luzern-littau",
-        "couleurs-des-fournisseurs-hornbach-luzern-littau",
-        "verkaufer-in-baustoffe-hornbach-luzern-littau"
+        "verkaufer-in-baustoffe-hornbach-luzern-littau-ed7711ca",
+        "couleurs-des-fournisseurs-hornbach-luzern-littau"
       ]
     },
     "postalCode": "6014",
