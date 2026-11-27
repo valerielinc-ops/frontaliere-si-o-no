@@ -121,7 +121,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/morges-stage-universitaire-12-mois-pme-morges/1457500833",
-    "firstSeenAt": "2026-11-16T21:23:39.575Z"
+    "firstSeenAt": "2026-11-16T21:23:39.575Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stage-universitaire-12-mois-pme-morges-bcv-morges": "VD"
+      },
+      "en": {
+        "stage-universitaire-12-mois-pme-morges-bcv-morges": "VD"
+      },
+      "de": {
+        "stage-universitaire-12-mois-pme-morges-bcv-morges": "VD"
+      },
+      "fr": {
+        "stage-universitaire-12-mois-pme-morges-banque-cantonale-vaudoise-morges": "VD"
+      }
+    }
   },
   {
     "id": "bcv-dd8e0e2591dc",
@@ -172,7 +187,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-apprenties-ou-apprentis-de-commerce-banque-ao%c3%bbt-2027/1426475433",
-    "firstSeenAt": "2026-08-14T10:18:37.596Z"
+    "firstSeenAt": "2026-08-14T10:18:37.596Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "apprenties-ou-apprentis-de-commerce-banque-aout-2027-bcv-lausanne": "VD"
+      },
+      "en": {
+        "apprenties-ou-apprentis-de-commerce-banque-aout-2027-bcv-lausanne": "VD"
+      },
+      "de": {
+        "apprenties-ou-apprentis-de-commerce-banque-aout-2027-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "id": "bcv-9a2b3150a3b6",
@@ -223,7 +250,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-responsable-de-projet-digital/1455970833",
-    "firstSeenAt": "2026-11-10T21:28:08.282Z"
+    "firstSeenAt": "2026-11-10T21:28:08.282Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsable-de-projet-digital-bcv-lausanne": "VD"
+      },
+      "en": {
+        "responsable-de-projet-digital-bcv-lausanne": "VD"
+      },
+      "de": {
+        "responsable-de-projet-digital-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "id": "bcv-52288c26195e",
@@ -276,7 +315,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-assistante-ou-assistant-gestionnaire-de-support-trafic-des-paiements-cdd-3-mois/1456084733",
-    "firstSeenAt": "2026-11-10T21:28:09.646Z"
+    "firstSeenAt": "2026-11-10T21:28:09.646Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistante-ou-assistant-gestionnaire-de-support-trafic-des-paiements-cdd-3-mois-bcv": "VD",
+        "assistante-ou-assistant-gestionnaire-de-support-trafic-des-paiements-cdd-3-mois-banque-cantonale-vaudoise-lausanne": "VD"
+      },
+      "en": {
+        "assistante-ou-assistant-gestionnaire-de-support-trafic-des-paiements-cdd-3-mois-bcv": "VD"
+      },
+      "de": {
+        "assistante-ou-assistant-gestionnaire-de-support-trafic-des-paiements-cdd-3-mois-bcv": "VD"
+      }
+    }
   },
   {
     "id": "bcv-c9e31df39b0d",
@@ -337,7 +389,91 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-gestionnaire-support-conformit%c3%a9/1426085933",
-    "firstSeenAt": "2026-08-13T22:10:44.623Z"
+    "firstSeenAt": "2026-08-13T22:10:44.623Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv": "VD",
+        "conseillere-ou-conseiller-a-distance-orientation-compliance-bcv-lausanne": "VD",
+        "gestionnaire-support-conformite-bcv-lausanne": "VD"
+      },
+      "en": {
+        "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv": "VD"
+      },
+      "de": {
+        "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv": "VD"
+      },
+      "fr": {
+        "conseillere-ou-conseiller-a-distance-orientation-compliance-bcv-lausanne": "VD",
+        "gestionnaire-support-conformite-bcv-lausanne": "VD",
+        "gestionnaire-support-conformite-banque-cantonale-vaudoise-lausanne": "VD"
+      }
+    }
+  },
+  {
+    "id": "bcv-0bc8403b69a7",
+    "slug": "formazione-universitaria-12-mesi-servizio-it-banque-cantonale-vaudoise-lausanne",
+    "title": "Stagiaire universitaire 12 mois : Service IT (orientation IA)",
+    "titleByLocale": {
+      "it": "Formazione universitaria 12 mesi: Servizio IT",
+      "en": "University trainee 12 months : Service IT",
+      "de": "Universitätspraktikant 12 Monate : Service IT",
+      "fr": "Stagiaire universitaire 12 mois : Service IT (orientation IA)"
+    },
+    "company": "Banque Cantonale Vaudoise",
+    "companyKey": "bcv",
+    "location": "Lausanne",
+    "addressLocality": "Lausanne",
+    "descriptionByLocale": {
+      "it": "E se la tua storia professionale iniziasse al BCV? La formazione è al centro delle priorità della prima banca universale nel cantone di Vaud. Giovane laureato, titolare di un Bachelor o Master, vieni e immergersi nel mondo bancario per scoprire le molte professioni presenti al BCV, acquisire esperienza e sviluppare nuove competenze. Iniziare la sua carriera al BCV sta avendo tutte le carte in mano per costruire il suo futuro professionale per la nostra divisione servizi, stiamo cercando:\n\nAllenatore universitario che progetta un co-pilota intelligente per la diagnosi e la risoluzione di incidenti. Le nostre aree di attività\n• Gestione e affidabilità delle infrastrutture: mantenimento dell'elevata disponibilità di applicazioni e sistemi bancari interconnessi.\n• Risoluzione degli incidenti accelerata: analisi e diagnosi rapide per identificare l'origine dei guasti e determinare le azioni correttive.\n• Trasversamento dei dati intelligenti: centralizzazione e analisi di più fonti (incidente di battito, documentazione tecnica, basi di conoscenza, metriche, registri ed eventi).\n• Innovazione di AI e AIOps: Integrazione di AI Generativo, Machine Learning e Analisi dei Dati per automatizzare il rilevamento dei guasti e la correlazione degli eventi per assistere i team IT. Missioni e progetti\n• progettazione e prototipo di un co-pilota intelligente per aiutare i team IT a indagare e risolvere incidenti;\n• exploit e cross-reference diverse fonti di dati quali incidenti storici, documentazione tecnica, basi di conoscenza e, se disponibili, log e metriche applicabili;\n• Esplorare e combinare diversi approcci all'IA e all'analisi dei dati: LLM, RAG, ricerca semantica, Machine Learning, analisi delle serie temporali o rilevamento delle anomalie;\n• sperimentare metodi per identificare situazioni simili, rilevare correlazioni, fare ipotesi sulle cause di un incidente e proporre modi di risolverli;\n• confrontare gli approcci sviluppati con le soluzioni AIOps esistenti, comprese quelle della piattaforma ServiceNow, per identificare punti di forza, limitazioni e opportunità di miglioramento;\n• definire un approccio di valutazione e misurare la rilevanza, l'affidabilità e il valore operativo di diversi approcci sui casi di utilizzo IT reali. Il tuo profilo\n• Master in informatica e intelligenza artificiale,\n• buone conoscenze di programmazione, tra cui Python/Java, Machine Learning e/o IA generative,\n• interesse a testare le nuove tecnologie e la loro applicazione a specifici problemi IT,\n• spirito analitico, soluzioni di orientamento, capacità di lavorare indipendentemente,\n• mastery perfetto di francese, livello inglese B1,\n• residente in Svizzera.\n\nSe questa posizione è per voi, applicare ora e partecipare al promettente futuro del BCV. Scriviamo insieme tre storie, quella della tua carriera, quella della tua banca, quella della nostra regione.",
+      "en": "What if your professional history starts at the BCV? Training is at the heart of the priorities of the first universal bank in the canton of Vaud. Young university graduate, holder of a Bachelor or Master's degree, come and immerse yourself in the banking world to discover the many professions present at the BCV, gain experience and develop new skills. Starting his career at the BCV is having all the cards in hand to build his professional future For our Services Division, we are looking for:\n\nUniversity trainee who will design an intelligent co-pilot for the diagnosis and resolution of incidents. Our areas of activity\n• Infrastructure management and reliability: maintaining the high availability of interconnected banking applications and systems.\n• Accelerated incident resolution: rapid analysis and diagnosis to identify the origin of faults and determine corrective actions.\n• Intelligent data cross-over: centralization and analysis of multiple sources (past incidents, technical documentation, knowledge bases, metrics, logs and events).\n• Innovation by AI and AIOps: Integration of Generative AI, Machine Learning and Data Analysis to automate fault detection and event correlation to assist IT teams. Missions and project\n• design and prototype an intelligent co-pilot to assist IT teams in investigating and resolving incidents;\n• exploit and cross-reference different data sources such as historical incidents, technical documentation, knowledge bases and, where available, applicable log and metrics;\n• Exploring and combining different approaches to AI and data analysis: LLM, RAG, semantic research, Machine Learning, time series analysis or detection of anomalies;\n• experimenting with methods to identify similar situations, detect correlations, make assumptions about the causes of an incident and propose ways of resolving them;\n• compare the approaches developed with existing AIOps solutions, including those of the ServiceNow platform, to identify strengths, limitations and opportunities for improvement;\n• define an evaluation approach and measure the relevance, reliability and operational value of different approaches on actual IT use cases. Your profile\n• Master in computer science and artificial intelligence,\n• good programming knowledge, including Python/Java, Machine Learning and/or IA generative,\n• interest in testing new technologies and their application to specific IT issues,\n• analytical spirit, orientation solutions, ability to work independently,\n• Perfect mastery of French, English level B1,\n• resident in Switzerland.\n\nIf this position is for you, apply now and participate in the promising future of the BCV. Let's write together three stories, that of your career, that of your bank, that of our region.",
+      "de": "Was ist, wenn Ihre berufliche Geschichte bei der BCV beginnt? Die Ausbildung steht im Mittelpunkt der Prioritäten der ersten Universalbank im Kanton Waadt. Junge Hochschulabsolvent, Inhaber eines Bachelor- oder Master-Abschlusses, kommen und tauchen Sie ein in die Bankenwelt, um die vielen Berufe an der BCV zu entdecken, Erfahrungen zu sammeln und neue Fähigkeiten zu entwickeln. Beginn seiner Karriere bei der BCV ist mit allen Karten in der Hand, um seine berufliche Zukunft für unsere Services Division zu bauen, suchen wir:\n\nUniversitätsauszubildender, der einen intelligenten Co-Piloten für die Diagnose und Lösung von Vorfällen entwerfen wird. Unsere Tätigkeitsbereiche\n• Infrastrukturmanagement und -zuverlässigkeit: Aufrechterhaltung der hohen Verfügbarkeit vernetzter Bankanwendungen und -systeme.\n• Beschleunigte Vorfallsauflösung: schnelle Analyse und Diagnose, um den Ursprung von Fehlern zu identifizieren und Korrekturmaßnahmen zu bestimmen.\n• Intelligenter Daten-Crossover: Zentralisierung und Analyse mehrerer Quellen (vergangene Vorfälle, technische Dokumentation, Wissensdatenbanken, Metriken, Protokolle und Ereignisse).\n• Innovation durch KI und AIOps: Integration von Generativer KI, Machine Learning und Datenanalyse zur Automatisierung der Fehlererkennung und Ereigniskorrelation zur Unterstützung von IT-Teams. Missionen und Projekte\n• Entwurf und Prototyp eines intelligenten Co-Piloten zur Unterstützung von IT-Teams bei der Untersuchung und Lösung von Vorfällen;\n• verschiedene Datenquellen wie historische Vorfälle, technische Dokumentation, Wissensdatenbanken und, soweit verfügbar, anwendbare Protokolle und Metriken zu nutzen und miteinander zu verknüpfen;\n• Erforschung und Kombination verschiedener Ansätze zur KI- und Datenanalyse: LLM, RAG, semantische Forschung, Machine Learning, Zeitreihenanalyse oder Erkennung von Anomalien;\n• Experimentieren mit Methoden, um ähnliche Situationen zu identifizieren, Korrelationen zu erkennen, Annahmen über die Ursachen eines Vorfalls zu treffen und Lösungsansätze vorzuschlagen;\n• Vergleichen Sie die entwickelten Ansätze mit bestehenden AIOps-Lösungen, einschließlich derer der ServiceNow-Plattform, um Stärken, Grenzen und Verbesserungsmöglichkeiten zu ermitteln;\n• Festlegung eines Bewertungsansatzes und Messung der Relevanz, der Zuverlässigkeit und des operativen Werts verschiedener Ansätze für tatsächliche IT-Anwendungsfälle. Dein Profil\n• Master in Informatik und künstlicher Intelligenz,\n• gute Programmierkenntnisse, einschließlich Python/Java, Machine Learning und/oder IA generative,\n• Interesse an der Erprobung neuer Technologien und ihrer Anwendung auf spezifische IT-Themen,\n• analytischer Geist, Orientierungslösungen, Fähigkeit, unabhängig zu arbeiten,\n• Perfekte Beherrschung von Französisch, Englisch Niveau B1,\n• Wohnsitz in der Schweiz.\n\nWenn diese Position für Sie ist, bewerben Sie sich jetzt und nehmen Sie an der vielversprechenden Zukunft der BCV teil. Lassen Sie uns zusammen drei Geschichten schreiben, die Ihrer Karriere, die Ihrer Bank, die unserer Region.",
+      "fr": "Et si votre histoire professionnelle commençait à la BCV ? La formation est au cœur des priorités de la première banque universelle du canton de Vaud. Jeune diplômé(e) universitaire, titulaire d’un Bachelor ou d’un Master, venez vous immerger dans le monde bancaire pour y découvrir les nombreux métiers présents à la BCV, gagner de l’expérience et développer de nouvelles compétences. Commencer sa carrière à la BCV, c’est avoir toutes les cartes en main pour construire son avenir professionnel Pour notre division des Services, nous recherchons un ou une :\n\nStagiaire universitaire qui aura comme projet de concevoir un copilote intelligent pour le diagnostic et la résolution des incidents. Nos domaines d'activités\n• Gestion et fiabilisation des infrastructures : maintien de la haute disponibilité des applications et systèmes interconnectés du secteur bancaire.\n• Résolution accélérée des incidents : analyse et diagnostic rapides pour identifier l'origine des pannes et déterminer les actions correctives.\n• Croisement intelligent des données : centralisation et analyse de multiples sources (incidents passés, documentation technique, bases de connaissances, métriques, logs et événements).\n• Innovation par l'IA et les AIOps : intégration de l'IA générative, du Machine Learning et de l'analyse de données pour automatiser la détection d'anomalies et la corrélation d'événements afin d'assister les équipes IT. Missions et projet\n• concevoir et prototyper un copilote intelligent pour assister les équipes IT dans l’investigation et la résolution des incidents ;\n• exploiter et croiser différentes sources de données telles que les incidents historiques, la documentation technique, les bases de connaissances et, lorsque disponibles, les logs et métriques applicatives ;\n• explorer et combiner différentes approches d’IA et d’analyse de données : LLM, RAG, recherche sémantique, Machine Learning, analyse de séries temporelles ou détection d’anomalies ;\n• expérimenter des méthodes permettant d’identifier des situations similaires, détecter des corrélations, formuler des hypothèses sur les causes d’un incident et proposer des pistes de résolution ;\n• comparer les approches développées aux solutions AIOps existantes, notamment celles de la plateforme ServiceNow, afin d’en identifier les forces, les limites et les possibilités d’amélioration ;\n• définir une démarche d’évaluation et mesurer la pertinence, la fiabilité et la valeur opérationnelle des différentes approches sur des cas d’usage IT réels. Votre profil\n• Master HES, universitaire ou EPF dans un domaine lié à l’informatique et l’intelligence artificielle,\n• bonnes connaissances en programmation, notamment Python/Java , et en Machine Learning et/ou IA générative ,\n• intérêt pour l’expérimentation de nouvelles technologies et leur application à des problématiques IT concrètes,\n• esprit analytique, orientation solutions, capacité à travailler de manière autonome,\n• parfaite maîtrise du français, anglais niveau B1,\n• résident en Suisse.\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région."
+    },
+    "slugByLocale": {
+      "it": "formazione-universitaria-12-mesi-servizio-it-banque-cantonale-vaudoise-lausanne",
+      "en": "university-trainee-12-months-service-it-banque-cantonale-vaudoise-lausanne",
+      "de": "universitatspraktikant-12-monate-service-it-banque-cantonale-vaudoise-lausanne",
+      "fr": "stagiaire-universitaire-12-mois-service-it-bcv-lausanne"
+    },
+    "sector": "Banca / Finanza",
+    "expiredAt": "2026-11-21T21:28:58.415Z",
+    "previousSlugs": [
+      "stagiaire-universitaire-12-mois-service-it-bcv-lausanne",
+      "stagiaire-universitaire-12-mois-service-it-orientation-ia-bcv-lausanne"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "stagiaire-universitaire-12-mois-service-it-bcv-lausanne",
+        "stagiaire-universitaire-12-mois-service-it-orientation-ia-bcv-lausanne"
+      ],
+      "en": [
+        "stagiaire-universitaire-12-mois-service-it-bcv-lausanne"
+      ],
+      "de": [
+        "stagiaire-universitaire-12-mois-service-it-bcv-lausanne"
+      ]
+    },
+    "postalCode": "1003",
+    "streetAddress": "Place Saint-François 14",
+    "salaryMin": 57000,
+    "salaryMax": 97000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-stagiaire-universitaire-12-mois-service-it/1444644833",
+    "firstSeenAt": "2026-10-06T09:19:49.076Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-stagiaire-universitaire-12-mois-service-it-%28orientation-ia%29/1444644833",
+        "firstSeenAt": "2026-10-06T09:19:49.076Z",
+        "title": "Stagiaire universitaire 12 mois : Service IT (orientation IA)"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-stagiaire-universitaire-12-mois-service-it/1444644833",
+        "firstSeenAt": "2026-10-06T09:19:49.076Z",
+        "title": "Stagiaire universitaire 12 mois : Service IT (orientation IA)"
+      }
+    ]
   },
   {
     "id": "bcv-3f531eb2b597",
@@ -394,7 +530,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-responsable-du-secteur-conseil-private-banking-&-advisory/1265629801",
-    "firstSeenAt": "2026-07-04T10:16:15.798Z"
+    "firstSeenAt": "2026-07-04T10:16:15.798Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsable-du-secteur-conseil-private-banking-advisory-bcv-lausanne": "VD"
+      },
+      "en": {
+        "responsable-du-secteur-conseil-private-banking-advisory-banque-cantonale-vaudoise-lausanne": "VD",
+        "sector-manager-private-banking-advisory-banque-cantonale-vaudoise-lausanne": "VD"
+      },
+      "de": {
+        "responsable-du-secteur-conseil-private-banking-advisory-bcv-lausanne": "VD",
+        "sektormanager-private-banking-advisory-banque-cantonale-vaudoise-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "risorse-umane-business-partner-80-banque-cantonale-vaudoise-lausanne",
@@ -444,7 +593,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-hr-business-partner-80/1452005733",
-    "firstSeenAt": "2026-10-28T09:15:14.000Z"
+    "firstSeenAt": "2026-10-28T09:15:14.000Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hr-business-partner-80-bcv-lausanne": "VD"
+      },
+      "en": {
+        "hr-business-partner-80-bcv-lausanne": "VD"
+      },
+      "de": {
+        "hr-business-partner-80-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "manager-roa-banque-cantonale-vaudoise-lausanne-eac064e2",
@@ -1152,7 +1313,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-responsable-de-projets%2c-planification-et-%c3%a9tudes-pour-le-d%c3%a9partement-m%c3%a9dias-et-communication/1445988133",
-    "firstSeenAt": "2026-10-09T21:16:04.813Z"
+    "firstSeenAt": "2026-10-09T21:16:04.813Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsable-de-projets-planification-et-etudes-pour-le-departement-medias-et-communication": "VD"
+      },
+      "en": {
+        "responsable-de-projets-planification-et-etudes-pour-le-departement-medias-et-communication": "VD"
+      },
+      "de": {
+        "responsable-de-projets-planification-et-etudes-pour-le-departement-medias-et-communication": "VD"
+      }
+    }
   },
   {
     "slug": "allenamenti-di-stucco-o-di-maturazione-marzo-2027-banque-cantonale-vaudoise-lausanne",
@@ -1202,7 +1375,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/stagiaires-maturantes-ou-maturants-mars-2027/1431013433",
-    "firstSeenAt": "2026-08-31T17:11:50.457Z"
+    "firstSeenAt": "2026-08-31T17:11:50.457Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stagiaires-maturantes-ou-maturants-mars-2027-bcv-lausanne": "VD"
+      },
+      "en": {
+        "stagiaires-maturantes-ou-maturants-mars-2027-bcv-lausanne": "VD"
+      },
+      "de": {
+        "stagiaires-maturantes-ou-maturants-mars-2027-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "ict-cyber-risk-management-expert-banque-cantonale-vaudoise-lausanne-915412ce",
@@ -1298,7 +1483,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-chief-credit-officer-cheffe-ou-chef-de-division/1445095733",
-    "firstSeenAt": "2026-10-07T09:21:25.865Z"
+    "firstSeenAt": "2026-10-07T09:21:25.865Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chief-credit-officer-cheffe-ou-chef-de-division-bcv-lausanne": "VD",
+        "chief-credit-officer-cheffe-ou-chef-de-division-banque-cantonale-vaudoise-lausanne": "VD"
+      },
+      "de": {
+        "chief-credit-officer-cheffe-ou-chef-de-division-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "ict-cyber-risk-management-expert-banque-cantonale-vaudoise-lausanne-504c612a",
@@ -1397,7 +1592,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-analyste-d%c3%a9veloppeur-it-trading/1390833833",
-    "firstSeenAt": "2026-07-04T10:16:19.315Z"
+    "firstSeenAt": "2026-07-04T10:16:19.315Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "analyste-developpeur-it-trading-ingenieur-financier-bcv-lausanne": "VD",
+        "analyste-developpeur-it-trading-bcv-lausanne": "VD"
+      },
+      "en": {
+        "analyste-developpeur-it-trading-ingenieur-financier-bcv-lausanne": "VD"
+      },
+      "de": {
+        "analyste-developpeur-it-trading-ingenieur-financier-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "capo-della-consulenza-private-banking-advisory-banque-cantonale-vaudoise-lausanne-93bb69dc",
@@ -3042,7 +3250,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-conseiller-ou-conseill%c3%a8re-en-recrutement-sp%c3%a9cialis%c3%a9-80/1446605833",
-    "firstSeenAt": "2026-10-14T09:22:08.765Z"
+    "firstSeenAt": "2026-10-14T09:22:08.765Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "conseiller-ou-conseillere-en-recrutement-specialise-80-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "fx-vendite-banque-cantonale-vaudoise-lausanne-3e47e8c6",
@@ -3147,7 +3361,71 @@
       "fx-verkaufe-banque-cantonale-vaudoise-lausanne-8398cba8-1096f89e",
       "fx-sales-banque-cantonale-vaudoise-lausanne-ad80851a-3362d5a3",
       "corporate-sales-rates-fx-bcv-lausanne-ab5b5c96",
-      "fx-sales-banque-cantonale-vaudoise-lausanne-ad80851a"
+      "fx-sales-banque-cantonale-vaudoise-lausanne-ad80851a",
+      "fx-sales-bcv-lausanne-549c1ada",
+      "corporate-sales-rates-fx-bcv-lausanne-ba2a5d56",
+      "fx-sales-bcv-lausanne-2a914c3a",
+      "fx-sales-bcv-lausanne-7f750a57",
+      "corporate-sales-rates-fx-bcv-lausanne-96a5a800",
+      "corporate-sales-rates-fx-bcv-lausanne-7391dc31",
+      "fx-vendite-banque-cantonale-vaudoise-lausanne-3b041c90",
+      "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b",
+      "corporate-sales-rates-fx-bcv-lausanne-5432f328",
+      "corporate-sales-rates-fx-bcv-lausanne-3ac27c4b",
+      "corporate-sales-rates-fx-bcv-lausanne-2e89d334",
+      "fx-sales-bcv-lausanne-4cf8ad8f",
+      "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-7eb374f9",
+      "fx-verkaufe-banque-cantonale-vaudoise-lausanne-ecbe00ac",
+      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-e7f376f6",
+      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1d8dfaf2",
+      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-15f883d4",
+      "corporate-sales-rates-fx-bcv-lausanne-cfd9359e",
+      "fx-sales-bcv-lausanne-c12b61d9",
+      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-f0ac99a6",
+      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1418d024",
+      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6101104a",
+      "fx-vendite-banque-cantonale-vaudoise-lausanne-a1d0c6e6",
+      "fx-sales-bcv-lausanne-79caa28d",
+      "fx-verkaufe-banque-cantonale-vaudoise-lausanne-379a31fc",
+      "fx-verkaufe-banque-cantonale-vaudoise-lausanne-f97ec70c",
+      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5f197698",
+      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a7f9db44",
+      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-92761ab0",
+      "fx-verkaufe-banque-cantonale-vaudoise-lausanne-995c297a",
+      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-26817b38",
+      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a38e4f64",
+      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6515bb5e",
+      "fx-verkaufe-banque-cantonale-vaudoise-lausanne-7f74ba87",
+      "fx-verkaufe-banque-cantonale-vaudoise-lausanne-14e5889f",
+      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5e94e5c7",
+      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-edf8c8b5",
+      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-9160985f",
+      "fx-sales-bcv-lausanne-54a8116f",
+      "fx-vendite-banque-cantonale-vaudoise-lausanne-962fba3e",
+      "fx-vendite-banque-cantonale-vaudoise-lausanne-73075d21",
+      "fx-vendite-banque-cantonale-vaudoise-lausanne-84eef1e3",
+      "fx-vendite-banque-cantonale-vaudoise-lausanne-7b8fc0ba",
+      "fx-vendite-banque-cantonale-vaudoise-lausanne-1f6c575e",
+      "fx-sales-banque-cantonale-vaudoise-lausanne-f5647a08",
+      "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-c2542c88",
+      "fx-sales-banque-cantonale-vaudoise-lausanne-ad60a64e",
+      "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-e170ab7e",
+      "fx-sales-banque-cantonale-vaudoise-lausanne-4f614e14",
+      "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-0262e577",
+      "fx-sales-banque-cantonale-vaudoise-lausanne-d6c4031e",
+      "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-e9de3752",
+      "fx-sales-banque-cantonale-vaudoise-lausanne-34c4375b",
+      "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-f73b50e8",
+      "fx-sales-banque-cantonale-vaudoise-lausanne-95e2e868",
+      "fx-sales-banque-cantonale-vaudoise-lausanne-03da203b",
+      "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-6173e6cd",
+      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-948a2297",
+      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1df0bb3b",
+      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-c1b9e71b",
+      "fx-verkaufe-banque-cantonale-vaudoise-lausanne-2d01c27b",
+      "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-f39f9f8e",
+      "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-f11a00a6",
+      "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-1f99c16a"
     ],
     "previousSlugsByLocale": {
       "fr": [
@@ -3173,7 +3451,46 @@
         "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-ed4f6f86-7ea0daca",
         "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-c6b27877-4e488812",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-f952169b-1d24f578",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-8398cba8-1096f89e"
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-8398cba8-1096f89e",
+        "fx-sales-bcv-lausanne-549c1ada",
+        "corporate-sales-rates-fx-bcv-lausanne-ba2a5d56",
+        "fx-sales-bcv-lausanne-2a914c3a",
+        "fx-sales-bcv-lausanne-7f750a57",
+        "corporate-sales-rates-fx-bcv-lausanne-96a5a800",
+        "corporate-sales-rates-fx-bcv-lausanne-7391dc31",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-3b041c90",
+        "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b",
+        "corporate-sales-rates-fx-bcv-lausanne-5432f328",
+        "corporate-sales-rates-fx-bcv-lausanne-3ac27c4b",
+        "corporate-sales-rates-fx-bcv-lausanne-2e89d334",
+        "fx-sales-bcv-lausanne-4cf8ad8f",
+        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-7eb374f9",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-ecbe00ac",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-e7f376f6",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1d8dfaf2",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-15f883d4",
+        "corporate-sales-rates-fx-bcv-lausanne-cfd9359e",
+        "fx-sales-bcv-lausanne-c12b61d9",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-f0ac99a6",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1418d024",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6101104a",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-a1d0c6e6",
+        "fx-sales-bcv-lausanne-79caa28d",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-379a31fc",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-f97ec70c",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5f197698",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a7f9db44",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-92761ab0",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-995c297a",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-26817b38",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a38e4f64",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6515bb5e",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-7f74ba87",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-14e5889f",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5e94e5c7",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-edf8c8b5",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-9160985f",
+        "fx-sales-bcv-lausanne-54a8116f"
       ],
       "it": [
         "fx-vendite-banque-cantonale-vaudoise-lausanne-c34cf9e9",
@@ -3205,7 +3522,50 @@
         "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-ed4f6f86-7ea0daca",
         "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-c6b27877-4e488812",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-f952169b-1d24f578",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-8398cba8-1096f89e"
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-8398cba8-1096f89e",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-962fba3e",
+        "corporate-sales-rates-fx-bcv-lausanne-96a5a800",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-73075d21",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-84eef1e3",
+        "fx-sales-bcv-lausanne-2a914c3a",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-7b8fc0ba",
+        "fx-sales-bcv-lausanne-7f750a57",
+        "corporate-sales-rates-fx-bcv-lausanne-ba2a5d56",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-1f6c575e",
+        "corporate-sales-rates-fx-bcv-lausanne-7391dc31",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-3b041c90",
+        "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b",
+        "corporate-sales-rates-fx-bcv-lausanne-5432f328",
+        "corporate-sales-rates-fx-bcv-lausanne-3ac27c4b",
+        "corporate-sales-rates-fx-bcv-lausanne-2e89d334",
+        "fx-sales-bcv-lausanne-4cf8ad8f",
+        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-7eb374f9",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-ecbe00ac",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-e7f376f6",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1d8dfaf2",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-15f883d4",
+        "corporate-sales-rates-fx-bcv-lausanne-cfd9359e",
+        "fx-sales-bcv-lausanne-c12b61d9",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-f0ac99a6",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1418d024",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6101104a",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-a1d0c6e6",
+        "fx-sales-bcv-lausanne-79caa28d",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-379a31fc",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-f97ec70c",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5f197698",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a7f9db44",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-92761ab0",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-995c297a",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-26817b38",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a38e4f64",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6515bb5e",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-7f74ba87",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-14e5889f",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5e94e5c7",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-edf8c8b5",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-9160985f",
+        "fx-sales-bcv-lausanne-54a8116f"
       ],
       "en": [
         "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-7f244d3b",
@@ -3235,7 +3595,54 @@
         "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-ed4f6f86-7ea0daca",
         "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-c6b27877-4e488812",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-f952169b-1d24f578",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-8398cba8-1096f89e"
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-8398cba8-1096f89e",
+        "fx-sales-banque-cantonale-vaudoise-lausanne-f5647a08",
+        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-c2542c88",
+        "fx-sales-banque-cantonale-vaudoise-lausanne-ad60a64e",
+        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-e170ab7e",
+        "fx-sales-banque-cantonale-vaudoise-lausanne-4f614e14",
+        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-0262e577",
+        "fx-sales-banque-cantonale-vaudoise-lausanne-d6c4031e",
+        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-e9de3752",
+        "fx-sales-banque-cantonale-vaudoise-lausanne-34c4375b",
+        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-f73b50e8",
+        "fx-sales-banque-cantonale-vaudoise-lausanne-95e2e868",
+        "fx-sales-banque-cantonale-vaudoise-lausanne-03da203b",
+        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-6173e6cd",
+        "corporate-sales-rates-fx-bcv-lausanne-7391dc31",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-3b041c90",
+        "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b",
+        "corporate-sales-rates-fx-bcv-lausanne-5432f328",
+        "corporate-sales-rates-fx-bcv-lausanne-3ac27c4b",
+        "corporate-sales-rates-fx-bcv-lausanne-2e89d334",
+        "fx-sales-bcv-lausanne-4cf8ad8f",
+        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-7eb374f9",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-ecbe00ac",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-e7f376f6",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1d8dfaf2",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-15f883d4",
+        "corporate-sales-rates-fx-bcv-lausanne-cfd9359e",
+        "fx-sales-bcv-lausanne-c12b61d9",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-f0ac99a6",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1418d024",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6101104a",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-a1d0c6e6",
+        "fx-sales-bcv-lausanne-79caa28d",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-379a31fc",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-f97ec70c",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5f197698",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a7f9db44",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-92761ab0",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-995c297a",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-26817b38",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a38e4f64",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6515bb5e",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-7f74ba87",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-14e5889f",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5e94e5c7",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-edf8c8b5",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-9160985f",
+        "fx-sales-bcv-lausanne-54a8116f"
       ],
       "de": [
         "fx-sales-bcv-lausanne-a49f645f",
@@ -3266,7 +3673,50 @@
         "fx-vendite-banque-cantonale-vaudoise-lausanne-374593a3-34176aea",
         "corporate-sales-rates-fx-bcv-lausanne-989a5626-9aec135b",
         "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-f13b460c-3fbf74c3",
-        "fx-sales-banque-cantonale-vaudoise-lausanne-ad80851a"
+        "fx-sales-banque-cantonale-vaudoise-lausanne-ad80851a",
+        "fx-sales-bcv-lausanne-2a914c3a",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-948a2297",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1df0bb3b",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-c1b9e71b",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-2d01c27b",
+        "fx-sales-bcv-lausanne-7f750a57",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-f39f9f8e",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-f11a00a6",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-1f99c16a",
+        "corporate-sales-rates-fx-bcv-lausanne-7391dc31",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-3b041c90",
+        "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b",
+        "corporate-sales-rates-fx-bcv-lausanne-5432f328",
+        "corporate-sales-rates-fx-bcv-lausanne-3ac27c4b",
+        "corporate-sales-rates-fx-bcv-lausanne-2e89d334",
+        "fx-sales-bcv-lausanne-4cf8ad8f",
+        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-7eb374f9",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-ecbe00ac",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-e7f376f6",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1d8dfaf2",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-15f883d4",
+        "corporate-sales-rates-fx-bcv-lausanne-cfd9359e",
+        "fx-sales-bcv-lausanne-c12b61d9",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-f0ac99a6",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1418d024",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6101104a",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-a1d0c6e6",
+        "fx-sales-bcv-lausanne-79caa28d",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-379a31fc",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-f97ec70c",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5f197698",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a7f9db44",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-92761ab0",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-995c297a",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-26817b38",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a38e4f64",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6515bb5e",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-7f74ba87",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-14e5889f",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5e94e5c7",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-edf8c8b5",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-9160985f",
+        "fx-sales-bcv-lausanne-54a8116f"
       ]
     },
     "postalCode": "1003",
@@ -3276,7 +3726,189 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-corporate-sales-rates-&-fx/1277101301",
-    "firstSeenAt": "2026-07-04T10:16:12.392Z"
+    "firstSeenAt": "2026-07-04T10:16:12.392Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-962fba3e": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-96a5a800": "VD",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-73075d21": "VD",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-84eef1e3": "VD",
+        "fx-sales-bcv-lausanne-2a914c3a": "VD",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-7b8fc0ba": "VD",
+        "fx-sales-bcv-lausanne-7f750a57": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-ba2a5d56": "VD",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-1f6c575e": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-7391dc31": "VD",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-3b041c90": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-5432f328": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-3ac27c4b": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-2e89d334": "VD",
+        "fx-sales-bcv-lausanne-4cf8ad8f": "VD",
+        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-7eb374f9": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-ecbe00ac": "VD",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-e7f376f6": "VD",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1d8dfaf2": "VD",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-15f883d4": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-cfd9359e": "VD",
+        "fx-sales-bcv-lausanne-c12b61d9": "VD",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-f0ac99a6": "VD",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1418d024": "VD",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6101104a": "VD",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-a1d0c6e6": "VD",
+        "fx-sales-bcv-lausanne-79caa28d": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-379a31fc": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-f97ec70c": "VD",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5f197698": "VD",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a7f9db44": "VD",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-92761ab0": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-995c297a": "VD",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-26817b38": "VD",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a38e4f64": "VD",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6515bb5e": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-7f74ba87": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-14e5889f": "VD",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5e94e5c7": "VD",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-edf8c8b5": "VD",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-9160985f": "VD",
+        "fx-sales-bcv-lausanne-54a8116f": "VD"
+      },
+      "en": {
+        "fx-sales-banque-cantonale-vaudoise-lausanne-f5647a08": "VD",
+        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-c2542c88": "VD",
+        "fx-sales-banque-cantonale-vaudoise-lausanne-ad60a64e": "VD",
+        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-e170ab7e": "VD",
+        "fx-sales-banque-cantonale-vaudoise-lausanne-4f614e14": "VD",
+        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-0262e577": "VD",
+        "fx-sales-banque-cantonale-vaudoise-lausanne-d6c4031e": "VD",
+        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-e9de3752": "VD",
+        "fx-sales-banque-cantonale-vaudoise-lausanne-34c4375b": "VD",
+        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-f73b50e8": "VD",
+        "fx-sales-banque-cantonale-vaudoise-lausanne-95e2e868": "VD",
+        "fx-sales-banque-cantonale-vaudoise-lausanne-03da203b": "VD",
+        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-6173e6cd": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-7391dc31": "VD",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-3b041c90": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-5432f328": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-3ac27c4b": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-2e89d334": "VD",
+        "fx-sales-bcv-lausanne-4cf8ad8f": "VD",
+        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-7eb374f9": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-ecbe00ac": "VD",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-e7f376f6": "VD",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1d8dfaf2": "VD",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-15f883d4": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-cfd9359e": "VD",
+        "fx-sales-bcv-lausanne-c12b61d9": "VD",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-f0ac99a6": "VD",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1418d024": "VD",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6101104a": "VD",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-a1d0c6e6": "VD",
+        "fx-sales-bcv-lausanne-79caa28d": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-379a31fc": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-f97ec70c": "VD",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5f197698": "VD",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a7f9db44": "VD",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-92761ab0": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-995c297a": "VD",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-26817b38": "VD",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a38e4f64": "VD",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6515bb5e": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-7f74ba87": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-14e5889f": "VD",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5e94e5c7": "VD",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-edf8c8b5": "VD",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-9160985f": "VD",
+        "fx-sales-bcv-lausanne-54a8116f": "VD"
+      },
+      "de": {
+        "fx-sales-bcv-lausanne-2a914c3a": "VD",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-948a2297": "VD",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1df0bb3b": "VD",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-c1b9e71b": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-2d01c27b": "VD",
+        "fx-sales-bcv-lausanne-7f750a57": "VD",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-f39f9f8e": "VD",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-f11a00a6": "VD",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-1f99c16a": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-7391dc31": "VD",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-3b041c90": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-5432f328": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-3ac27c4b": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-2e89d334": "VD",
+        "fx-sales-bcv-lausanne-4cf8ad8f": "VD",
+        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-7eb374f9": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-ecbe00ac": "VD",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-e7f376f6": "VD",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1d8dfaf2": "VD",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-15f883d4": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-cfd9359e": "VD",
+        "fx-sales-bcv-lausanne-c12b61d9": "VD",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-f0ac99a6": "VD",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1418d024": "VD",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6101104a": "VD",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-a1d0c6e6": "VD",
+        "fx-sales-bcv-lausanne-79caa28d": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-379a31fc": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-f97ec70c": "VD",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5f197698": "VD",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a7f9db44": "VD",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-92761ab0": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-995c297a": "VD",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-26817b38": "VD",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a38e4f64": "VD",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6515bb5e": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-7f74ba87": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-14e5889f": "VD",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5e94e5c7": "VD",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-edf8c8b5": "VD",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-9160985f": "VD",
+        "fx-sales-bcv-lausanne-54a8116f": "VD"
+      },
+      "fr": {
+        "fx-sales-bcv-lausanne-549c1ada": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-ba2a5d56": "VD",
+        "fx-sales-bcv-lausanne-2a914c3a": "VD",
+        "fx-sales-bcv-lausanne-7f750a57": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-96a5a800": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-7391dc31": "VD",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-3b041c90": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-d6d53e1b": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-5432f328": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-3ac27c4b": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-2e89d334": "VD",
+        "fx-sales-bcv-lausanne-4cf8ad8f": "VD",
+        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-7eb374f9": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-ecbe00ac": "VD",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-e7f376f6": "VD",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1d8dfaf2": "VD",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-15f883d4": "VD",
+        "corporate-sales-rates-fx-bcv-lausanne-cfd9359e": "VD",
+        "fx-sales-bcv-lausanne-c12b61d9": "VD",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-f0ac99a6": "VD",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-1418d024": "VD",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6101104a": "VD",
+        "fx-vendite-banque-cantonale-vaudoise-lausanne-a1d0c6e6": "VD",
+        "fx-sales-bcv-lausanne-79caa28d": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-379a31fc": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-f97ec70c": "VD",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5f197698": "VD",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a7f9db44": "VD",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-92761ab0": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-995c297a": "VD",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-26817b38": "VD",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-a38e4f64": "VD",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-6515bb5e": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-7f74ba87": "VD",
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne-14e5889f": "VD",
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-5e94e5c7": "VD",
+        "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-edf8c8b5": "VD",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-9160985f": "VD",
+        "fx-sales-bcv-lausanne-54a8116f": "VD"
+      }
+    }
   },
   {
     "slug": "capo-della-consulenza-private-banking-advisory-banque-cantonale-vaudoise-lausanne-e8a7db88-f57266a9",
@@ -4069,7 +4701,14 @@
         "assistante-ou-assistant-rh-80-contrat-d-un-an-bcv-lausanne"
       ],
       "it": [
-        "assistante-ou-assistant-rh-80-contrat-d-un-an-bcv-lausanne"
+        "assistante-ou-assistant-rh-80-contrat-d-un-an-bcv-lausanne",
+        "assistante-ou-assistant-rh-80-cdd-d-un-an-bcv-lausanne"
+      ],
+      "en": [
+        "assistante-ou-assistant-rh-80-cdd-d-un-an-bcv-lausanne"
+      ],
+      "de": [
+        "assistante-ou-assistant-rh-80-cdd-d-un-an-bcv-lausanne"
       ]
     },
     "postalCode": "1003",
@@ -4091,7 +4730,23 @@
         "firstSeenAt": "2026-09-10T23:11:14.485Z",
         "title": "Assistante ou Assistant RH - 80% (Contrat d'un an)"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistante-ou-assistant-rh-80-contrat-d-un-an-bcv-lausanne": "VD",
+        "assistante-ou-assistant-rh-80-cdd-d-un-an-bcv-lausanne": "VD"
+      },
+      "fr": {
+        "assistante-ou-assistant-rh-80-contrat-d-un-an-bcv-lausanne": "VD"
+      },
+      "en": {
+        "assistante-ou-assistant-rh-80-cdd-d-un-an-bcv-lausanne": "VD"
+      },
+      "de": {
+        "assistante-ou-assistant-rh-80-cdd-d-un-an-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "capo-della-consulenza-private-banking-advisory-banque-cantonale-vaudoise-lausanne-2f9cb888-1d5e0427",
@@ -6410,7 +7065,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-stage-de-master-%2880%29-marketing/1452227633",
-    "firstSeenAt": "2026-10-28T20:03:20.735Z"
+    "firstSeenAt": "2026-10-28T20:03:20.735Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stage-de-master-80-bcv-lausanne": "VD",
+        "stage-de-master-80-marketing-bcv-lausanne": "VD"
+      },
+      "en": {
+        "stage-de-master-80-bcv-lausanne": "VD"
+      },
+      "de": {
+        "stage-de-master-80-banque-cantonale-vaudoise-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "capo-della-consulenza-private-banking-advisory-banque-cantonale-vaudoise-lausanne-948c451c",
@@ -6681,7 +7349,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-stage-ehl-2027/1450701633",
-    "firstSeenAt": "2026-10-23T21:27:06.795Z"
+    "firstSeenAt": "2026-10-23T21:27:06.795Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stage-ehl-2027-bcv-lausanne": "VD",
+        "stage-ehl-2027-banque-cantonale-vaudoise-lausanne": "VD"
+      },
+      "en": {
+        "stage-ehl-2027-bcv-lausanne": "VD"
+      },
+      "de": {
+        "stage-ehl-2027-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "fx-vendite-banque-cantonale-vaudoise-lausanne-b166a25f",
@@ -7060,7 +7741,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/verwaltungssachbearbeiterin-bvg/1281964401",
-    "firstSeenAt": "2026-07-04T10:16:32.930Z"
+    "firstSeenAt": "2026-07-04T10:16:32.930Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "verwaltungssachbearbeiter-in-bvg-bcv-lausanne": "VD",
+        "verwaltungssachbearbeiter-in-bvg-banque-cantonale-vaudoise-lausanne": "VD"
+      },
+      "en": {
+        "verwaltungssachbearbeiter-in-bvg-banque-cantonale-vaudoise-lausanne": "VD"
+      },
+      "fr": {
+        "verwaltungssachbearbeiter-in-bvg-banque-cantonale-vaudoise-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "responsabile-delle-applicazioni-bancarie-operazioni-di-mercato-banque-cantonale-vaudoise-lausanne",
@@ -7114,7 +7808,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-responsable-d'applications-bancaires-domaine-op%c3%a9rations-de-march%c3%a9/1408671433",
-    "firstSeenAt": "2026-07-04T10:16:04.866Z"
+    "firstSeenAt": "2026-07-04T10:16:04.866Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsable-d-applications-bancaires-domaine-operations-de-marche-bcv-lausanne": "VD"
+      },
+      "en": {
+        "responsable-d-applications-bancaires-domaine-operations-de-marche-bcv-lausanne": "VD",
+        "bank-application-manager-market-operations-area-banque-cantonale-vaudoise-lausanne": "VD"
+      },
+      "de": {
+        "bank-application-manager-marktoperationsbereich-banque-cantonale-vaudoise-lausanne": "VD",
+        "responsable-d-applications-bancaires-domaine-operations-de-marche-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "capo-della-consulenza-private-banking-advisory-banque-cantonale-vaudoise-lausanne-88238a2b",
@@ -7761,7 +8469,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-sp%c3%a9cialiste-marketing-digital/1447443733",
-    "firstSeenAt": "2026-10-15T09:17:11.664Z"
+    "firstSeenAt": "2026-10-15T09:17:11.664Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "specialiste-marketing-digital-bcv-lausanne": "VD"
+      },
+      "en": {
+        "specialiste-marketing-digital-bcv-lausanne": "VD"
+      },
+      "de": {
+        "specialiste-marketing-digital-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "capo-della-consulenza-private-banking-advisory-banque-cantonale-vaudoise-lausanne-374e6383",
@@ -8851,7 +9571,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-it-business-analyst-domaine-op%c3%a9rations-de-march%c3%a9/1374027533",
-    "firstSeenAt": "2026-07-04T10:16:26.214Z"
+    "firstSeenAt": "2026-07-04T10:16:26.214Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "it-business-analyst-domaine-operations-de-marche-bcv-lausanne": "VD"
+      },
+      "en": {
+        "it-business-analyst-domaine-operations-de-marche-banque-cantonale-vaudoise-lausanne": "VD",
+        "it-business-analyst-market-operations-area-banque-cantonale-vaudoise-lausanne": "VD"
+      },
+      "de": {
+        "it-business-analyst-marktoperationsgebiet-banque-cantonale-vaudoise-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "responsabile-delle-applicazioni-bancarie-operazioni-di-mercato-banque-cantonale-vaudoise-lausanne-dec95c0b",
@@ -8951,7 +9684,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-gestionnaire-avoirs-sans-nouvelles/1433973833",
-    "firstSeenAt": "2026-09-04T13:29:18.649Z"
+    "firstSeenAt": "2026-09-04T13:29:18.649Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "gestionnaire-avoirs-sans-nouvelles-bcv-lausanne": "VD",
+        "gestionnaire-avoirs-sans-nouvelles-banque-cantonale-vaudoise-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "hr-assistant-80-un-anno-cdd-banque-cantonale-vaudoise-lausanne-30f7357c",
@@ -10410,7 +11150,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-analyse-d%c3%a9veloppeur-ca-gen-cobol/1414462733",
-    "firstSeenAt": "2026-07-13T22:48:02.555Z"
+    "firstSeenAt": "2026-07-13T22:48:02.555Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "analyse-developpeur-ca-gen-cobol-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "capo-della-consulenza-private-banking-advisory-banque-cantonale-vaudoise-lausanne-881f2cec",
@@ -10852,7 +11598,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/morges-conseill%c3%a8re-ou-conseiller-private-banking-key-clients-&-entrepreneurs-morges/1429188533",
-    "firstSeenAt": "2026-08-24T22:15:02.330Z"
+    "firstSeenAt": "2026-08-24T22:15:02.330Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "conseillere-ou-conseiller-private-banking-key-clients-bcv-morges": "VD",
+        "conseillere-ou-conseiller-private-banking-key-clients-entrepreneurs-morges-bcv-morges": "VD"
+      }
+    }
   },
   {
     "slug": "fx-vendite-banque-cantonale-vaudoise-lausanne-98b47f98",
@@ -12324,7 +13077,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-stagiaire-universitaire-12-mois-responsabilit%c3%a9-sociale-d'entreprise/1444645333",
-    "firstSeenAt": "2026-10-06T09:19:50.075Z"
+    "firstSeenAt": "2026-10-06T09:19:50.075Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stagiaire-universitaire-12-mois-responsabilite-sociale-d-entreprise-bcv-lausanne": "VD"
+      },
+      "en": {
+        "stagiaire-universitaire-12-mois-responsabilite-sociale-d-entreprise-bcv-lausanne": "VD"
+      },
+      "de": {
+        "stagiaire-universitaire-12-mois-responsabilite-sociale-d-entreprise-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "fx-vendite-banque-cantonale-vaudoise-lausanne-73cd0a9c",
@@ -12540,7 +13305,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-conseill%c3%a8re-ou-conseiller-private-banking-lausanne/1436963233",
-    "firstSeenAt": "2026-09-19T22:52:17.469Z"
+    "firstSeenAt": "2026-09-19T22:52:17.469Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "conseillere-ou-conseiller-private-banking-lausanne-bcv-lausanne": "VD",
+        "banking-advisor-lausanne-region-banque-cantonale-vaudoise-lausanne": "VD"
+      },
+      "en": {
+        "conseillere-ou-conseiller-private-banking-lausanne-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "consulente-privato-bancario-clienti-chiave-banque-cantonale-vaudoise-morges-fc985b31",
@@ -12635,7 +13410,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-sp%c3%a9cialiste-controlling-et-reportings-cr%c3%a9dits/1445501233",
-    "firstSeenAt": "2026-10-08T09:19:08.034Z"
+    "firstSeenAt": "2026-10-08T09:19:08.034Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "specialiste-controlling-et-reportings-credits-bcv-lausanne": "VD"
+      },
+      "en": {
+        "specialiste-controlling-et-reportings-credits-bcv-lausanne": "VD"
+      },
+      "de": {
+        "specialiste-controlling-et-reportings-credits-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "formazione-universitaria-12-mesi-cybersecurity-banque-cantonale-vaudoise-lausanne",
@@ -12685,7 +13472,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-stagiaire-universitaire-12-mois-cybers%c3%a9curit%c3%a9/1445248333",
-    "firstSeenAt": "2026-10-07T21:24:32.768Z"
+    "firstSeenAt": "2026-10-07T21:24:32.768Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stagiaire-universitaire-12-mois-cybersecurite-bcv-lausanne": "VD"
+      },
+      "en": {
+        "stagiaire-universitaire-12-mois-cybersecurite-bcv-lausanne": "VD"
+      },
+      "de": {
+        "stagiaire-universitaire-12-mois-cybersecurite-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "fx-vendite-banque-cantonale-vaudoise-lausanne-eda4673c",
@@ -12798,7 +13597,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-responsable-projet-etat-major-finance-&-risques/1434450333",
-    "firstSeenAt": "2026-09-07T15:09:40.644Z"
+    "firstSeenAt": "2026-09-07T15:09:40.644Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "specialiste-gestion-et-projets-reglementaires-gpr-1290-bcv-lausanne": "VD",
+        "responsable-projet-etat-major-finance-risques-bcv-lausanne": "VD"
+      },
+      "en": {
+        "specialiste-gestion-et-projets-reglementaires-gpr-1290-bcv-lausanne": "VD"
+      },
+      "de": {
+        "specialiste-gestion-et-projets-reglementaires-gpr-1290-bcv-lausanne": "VD"
+      },
+      "fr": {
+        "responsable-projet-etat-major-finance-risques-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "responsabile-delle-applicazioni-bancarie-operazioni-di-mercato-banque-cantonale-vaudoise-lausanne-81490085",
@@ -13006,7 +13821,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-conseill%c3%a8re-successorale-ou-conseiller-successoral-r%c3%a9gion-lausanne/1411874433",
-    "firstSeenAt": "2026-09-02T13:36:26.503Z"
+    "firstSeenAt": "2026-09-02T13:36:26.503Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "conseillere-successorale-ou-conseiller-successoral-region-lausanne-bcv-lausanne": "VD",
+        "bankberater-region-lausanne-banque-cantonale-vaudoise-lausanne": "VD"
+      },
+      "fr": {
+        "conseillere-successorale-ou-conseiller-successoral-region-lausanne-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "consulente-bancario-regione-chablais-banque-cantonale-vaudoise-aigle",
@@ -13055,7 +13880,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/aigle-conseill%c3%a8re-ou-conseiller-bancaire-r%c3%a9gion-chablais/1446742433",
-    "firstSeenAt": "2026-10-14T09:22:17.812Z"
+    "firstSeenAt": "2026-10-14T09:22:17.812Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "conseillere-ou-conseiller-bancaire-region-chablais-bcv-aigle": "VD"
+      },
+      "en": {
+        "conseillere-ou-conseiller-bancaire-region-chablais-bcv-aigle": "VD"
+      },
+      "de": {
+        "conseillere-ou-conseiller-bancaire-region-chablais-bcv-aigle": "VD"
+      }
+    }
   },
   {
     "slug": "consulente-privato-bancario-clienti-chiave-banque-cantonale-vaudoise-morges-26d8a70e",
@@ -13440,7 +14277,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-conseiller-%c3%a0-distance-niveau-1-579/1447087233",
-    "firstSeenAt": "2026-10-14T09:22:17.032Z"
+    "firstSeenAt": "2026-10-14T09:22:17.032Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "conseiller-a-distance-niveau-1-579-bcv-lausanne": "VD"
+      },
+      "en": {
+        "conseiller-a-distance-niveau-1-579-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "direttore-di-filiale-villars-banque-cantonale-vaudoise-aigle",
@@ -13491,7 +14337,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/aigle-responsable-d'agence-villars/1070859301",
-    "firstSeenAt": "2026-07-04T10:16:29.583Z"
+    "firstSeenAt": "2026-07-04T10:16:29.583Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsable-d-agence-villars-bcv-aigle": "VD"
+      },
+      "en": {
+        "responsable-d-agence-villars-bcv-aigle": "VD",
+        "agency-manager-villars-banque-cantonale-vaudoise-aigle": "VD"
+      },
+      "de": {
+        "responsable-d-agence-villars-bcv-aigle": "VD"
+      }
+    }
   },
   {
     "slug": "consulente-remoto-banque-cantonale-vaudoise-lausanne",
@@ -13538,7 +14397,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-conseill%c3%a8re-ou-conseiller-%c3%a0-distance/1435367333",
-    "firstSeenAt": "2026-09-09T13:49:10.864Z"
+    "firstSeenAt": "2026-09-09T13:49:10.864Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "conseillere-ou-conseiller-a-distance-bcv-lausanne": "VD"
+      },
+      "en": {
+        "conseillere-ou-conseiller-a-distance-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "assistante-ou-assistant-trade-finanza-banque-cantonale-vaudoise-lausanne",
@@ -13589,7 +14457,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-assistante-ou-assistant-trade-finance/1443342333",
-    "firstSeenAt": "2026-10-01T21:17:39.295Z"
+    "firstSeenAt": "2026-10-01T21:17:39.295Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistante-ou-assistant-trade-finance-bcv-lausanne": "VD"
+      },
+      "en": {
+        "assistant-or-assistant-trade-finance-banque-cantonale-vaudoise-lausanne": "VD"
+      },
+      "de": {
+        "assistante-ou-assistant-trade-finance-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "collaborazione-o-collaborazione-in-management-control-cdd-di-6-mesi-banque-cantonale-vaudoise-lausanne",
@@ -13639,7 +14519,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-collaboratrice-ou-collaborateur-au-contr%c3%b4le-de-gestion-cdd-de-6-mois/1433821333",
-    "firstSeenAt": "2026-09-04T13:29:17.859Z"
+    "firstSeenAt": "2026-09-04T13:29:17.859Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratrice-ou-collaborateur-au-controle-de-gestion-cdd-de-6-mois-bcv-lausanne": "VD"
+      },
+      "en": {
+        "collaboratrice-ou-collaborateur-au-controle-de-gestion-cdd-de-6-mois-bcv-lausanne": "VD"
+      },
+      "de": {
+        "collaboratrice-ou-collaborateur-au-controle-de-gestion-cdd-de-6-mois-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "consulente-pmi-regione-gros-de-vaud-banque-cantonale-vaudoise-echallens",
@@ -13681,7 +14573,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/echallens-conseiller-ou-conseill%c3%a8re-pme-expert%28e%29-r%c3%a9gion-gros-de-vaud/1421186233",
-    "firstSeenAt": "2026-07-31T11:55:51.805Z"
+    "firstSeenAt": "2026-07-31T11:55:51.805Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "conseiller-ou-conseillere-pme-expert-e-region-gros-de-vaud-bcv-echallens": "VD"
+      }
+    }
   },
   {
     "slug": "amministratore-delegato-oracle-goldengate-dataops-banque-cantonale-vaudoise-lausanne",
@@ -13755,7 +14653,24 @@
         "firstSeenAt": "2026-07-04T10:16:32.127Z",
         "title": "Administratrice ou Administrateur junior-e Oracle Goldengate & DataOps"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "administrateur-rice-junior-e-oracle-goldengate-dataops-bcv-lausanne": "VD",
+        "administrateur-rice-junior-e-oracle-goldengate-dataops-banque-cantonale-vaudoise-lausanne": "VD",
+        "administratrice-ou-administrateur-junior-e-oracle-goldengate-dataops-bcv-lausanne": "VD"
+      },
+      "en": {
+        "administrateur-rice-junior-e-oracle-goldengate-dataops-bcv-lausanne": "VD"
+      },
+      "de": {
+        "administrateur-rice-junior-e-oracle-goldengate-dataops-bcv-lausanne": "VD"
+      },
+      "fr": {
+        "administratrice-ou-administrateur-junior-e-oracle-goldengate-dataops-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "junior-oracle-amministratore-postgresql-banque-cantonale-vaudoise-lausanne",
@@ -13812,7 +14727,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-administratrice-ou-administrateur-junior-e-oracle-&-postgresql/1397306633",
-    "firstSeenAt": "2026-07-04T10:16:31.327Z"
+    "firstSeenAt": "2026-07-04T10:16:31.327Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "administrateur-rice-junior-e-oracle-postgresql-bcv-lausanne": "VD",
+        "administratrice-ou-administrateur-junior-e-oracle-postgresql-bcv-lausanne": "VD"
+      },
+      "en": {
+        "administrateur-rice-junior-e-oracle-postgresql-bcv-lausanne": "VD",
+        "junior-president-oracle-postgresql-banque-cantonale-vaudoise-lausanne": "VD"
+      },
+      "de": {
+        "administrateur-rice-junior-e-oracle-postgresql-bcv-lausanne": "VD"
+      },
+      "fr": {
+        "administratrice-ou-administrateur-junior-e-oracle-postgresql-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "fondo-immobiliare-e-esperto-di-mercato-dei-fondi-banque-cantonale-vaudoise-lausanne",
@@ -14262,7 +15194,16 @@
         "firstSeenAt": "2026-07-06T22:26:40.996Z",
         "title": "Expert(e) marché des fonds et fonds immobilier"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "expert-e-marche-des-fonds-et-fonds-immobilier-bcv-lausanne": "VD"
+      },
+      "de": {
+        "expert-e-marche-des-fonds-et-fonds-immobilier-banque-cantonale-vaudoise-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "gestore-di-investimenti-quantitativi-banque-cantonale-vaudoise-lausanne",
@@ -14364,7 +15305,16 @@
         "firstSeenAt": "2026-07-04T10:16:16.757Z",
         "title": "Quantitative investment manager"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "quantitative-investment-manager-bcv-lausanne": "VD"
+      },
+      "de": {
+        "quantitative-investment-manager-banque-cantonale-vaudoise-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "ict-cyber-auditor-responsabile-settore-banque-cantonale-vaudoise-lausanne",
@@ -14444,7 +15394,29 @@
         "firstSeenAt": "2026-07-04T10:16:08.240Z",
         "title": "Auditrice ou Auditeur responsable TIC & cyber - cheffe ou chef de secteur"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "auditrice-ou-auditeur-responsable-tic-cyber-cheffe-ou-chef-de-secteur-bcv-lausanne": "VD",
+        "revisore-responsabile-capo-del-settore-banque-cantonale-vaudoise-lausanne": "VD",
+        "auditor-responsible-head-or-head-of-sector-banque-cantonale-vaudoise-lausanne": "VD",
+        "verantwortlicher-prufer-leiter-oder-leiter-des-sektors-banque-cantonale-vaudoise-lausanne": "VD",
+        "auditrice-ou-auditeur-responsable-cheffe-ou-chef-de-secteur-bcv-lausanne": "VD",
+        "responsible-auditor-head-or-head-of-sector-banque-cantonale-vaudoise-lausanne": "VD"
+      },
+      "en": {
+        "auditrice-ou-auditeur-responsable-tic-cyber-cheffe-ou-chef-de-secteur-bcv-lausanne": "VD",
+        "auditor-responsible-head-or-head-of-sector-banque-cantonale-vaudoise-lausanne": "VD"
+      },
+      "de": {
+        "auditrice-ou-auditeur-responsable-tic-cyber-cheffe-ou-chef-de-secteur-bcv-lausanne": "VD",
+        "verantwortlicher-prufer-leiter-oder-leiter-des-sektors-banque-cantonale-vaudoise-lausanne": "VD"
+      },
+      "fr": {
+        "auditrice-ou-auditeur-responsable-cheffe-ou-chef-de-secteur-bcv-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "valutazione-immobiliare-banque-cantonale-vaudoise-lausanne-69fb7308",
@@ -14712,6 +15684,53 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-gestionnaire-trade-finance-%28hf%29/1426200133",
     "firstSeenAt": "2026-08-13T22:10:45.410Z"
+  },
+  {
+    "slug": "sviluppatore-analista-java-stack-completo-e-senior-front-end-it-distribution-marketing-banque-cantonale-vaudoise",
+    "title": "Analyste développeur Java full stack et front-end senior - IT Distribution Marketing",
+    "titleByLocale": {
+      "it": "Analista sviluppatore Java full stack e front-end senior - IT Distribution Marketing",
+      "en": "Developer Analyst Java full stack and senior front-end - IT Distribution Marketing",
+      "de": "Entwickler Analyst Java Full Stack und Senior Front-End - IT Distribution Marketing",
+      "fr": "Analyste développeur Java full stack et front-end senior - IT Distribution Marketing"
+    },
+    "company": "Banque Cantonale Vaudoise",
+    "companyKey": "bcv",
+    "location": "Lausanne",
+    "addressLocality": "Lausanne",
+    "descriptionByLocale": {
+      "it": "E se la tua storia professionale continua al BCV? Unisciti alla prima banca universale nel cantone di Vaud, una delle banche più forti del mondo, e ai suoi 2.000 collaboratori. Prendere parte al successo di un'istituzione valutato AA da Standard & Poors dal 2011 e contribuire alla crescita del tessuto economico Vaud così come per l'attrattiva e la vitalità della nostra regione. Per i nostri Dipartimenti IT, stiamo cercando uno o più:\n\nSviluppatore Analista Java stack completo e senior front-end – IT Distribuzione Marketing Le tue attività principali:\n• Progettare l'architettura delle applicazioni e arbitrariare le scelte tecniche (taglio, API, sicurezza, coerenza generale).\n• Sviluppare stack completo: servizi e API REST in Java / Spring Boot, interfacce angolari, integrazione anteriore / posteriore.\n• Qualità pilota: recensioni di codice, TDD, buone pratiche, salari di qualità, riduzione del debito tecnico.\n• Industrializzare la consegna: pipeline CI/CD, containerizzazione e distribuzioni su più ambienti.\n• Tecnicamente coaching il team: mentoring, onboarding, animazione di rituali tecnici, sviluppo self-help.\n• Produzione sicura: produzione, supervisione, gestione degli incidenti e prevenzione.\n• Dialogo con l'industria e le parti interessate (Product Owner, team partner) per tradurre le esigenze in soluzioni tecniche. Il tuo profilo:\n• 7 anni o più esperienza nello sviluppo Java, tra cui una prima esperienza di lead tecnico o referente.\n• Controllo solido di Java e l'ecosistema di Spring Boot (REST API, sicurezza, persistenza).\n• Buon controllo dello sviluppo frontale angolare e moderno (TypeScript, RxJS, componenti riutilizzabili).\n• Esperienza concreta delle tubazioni CI/CD (idealmente GitLab) e Docker.\n• OpenShift / Kubernetes e Advanced DevOps (Infrastructure as Code, Observability).\n• Aisance su database relazionali e ottimizzazione SQL.\n• Agile / Scrum pratica, recensioni di codice e buone pratiche di qualità.\n• Capacità dimostrata di mentore, mentore e potenziare gli sviluppatori.\n\nSe questa posizione è per voi, applicare ora e partecipare al promettente futuro del BCV. Scriviamo insieme tre storie, una della tua carriera, una della tua banca, una della nostra regione.",
+      "en": "What if your professional history continues at the BCV? Join the first universal bank in the canton of Vaud, one of the strongest banks in the world, and its 2,000 collaborators. Take part in the success of an institution rated AA by Standard & Poors since 2011 and contribute to the growth of the Vaud economic fabric as well as to the attractiveness and vitality of our region. For our IT Departments, we are looking for one or more:\n\nAdvertisement Developer Analyst Java full stack and senior front-end – IT Distribution Marketing Your main tasks:\n• Design the application architecture and arbitrate technical choices (cutting, API, security, overall consistency).\n• Develop full stack: services and REST API in Java / Spring Boot, Angular interfaces, front/back integration.\n• Piloting quality: code reviews, TDD, good practices, quality wages, technical debt reduction.\n• Industrialize delivery: CI/CD pipelines, containerization and deployments on multiple environments.\n• Technically coaching the team: mentoring, onboarding, animation of technical rituals, self-help development.\n• Secure production: production, supervision, incident management and prevention.\n• Dialogue with industry and stakeholders (Product Owner, partner teams) to translate needs into technical solutions. Your profile:\n• 7 years or more experience in Java development, including a first experience of technical lead or referent.\n• Solid control of Java and the Spring Boot ecosystem (REST API, security, persistence).\n• Good control of Angular and modern front development (TypeScript, RxJS, reusable components).\n• Concrete experience of CI/CD (ideally GitLab) and Docker pipelines.\n• OpenShift / Kubernetes and Advanced DevOps (Infrastructure as Code, Observability).\n• Aisance on relational databases and SQL optimization.\n• Agile / Scrum practice, code reviews and good quality practices.\n• Demonstrated ability to mentor, mentor and empower developers.\n\nIf this position is for you, apply now and participate in the promising future of the BCV. Let us write together three stories, one of your career, one of your bank, one of our region.",
+      "de": "Was ist, wenn Ihre berufliche Geschichte an der BCV fortgesetzt wird? Schließen Sie sich der ersten Universalbank im Kanton Waadt, einer der stärksten Banken der Welt, und ihren 2.000 Mitarbeitern an. Beteiligen Sie sich am Erfolg einer von Standard & Poors seit 2011 mit AA bewerteten Institution und tragen Sie zum Wachstum des Waadt-Wirtschaftsgefüges sowie zur Attraktivität und Vitalität unserer Region bei. Für unsere IT-Abteilungen suchen wir eine oder mehrere:\n\nAdvertisement Developer Analyst Java Full Stack und Senior Front-End – IT Distribution Marketing Ihre Hauptaufgaben:\n• Entwerfen Sie die Anwendungsarchitektur und entscheiden Sie über technische Entscheidungen (Ausschnitt, API, Sicherheit, Gesamtkonsistenz).\n• Entwickeln Sie Full Stack: Services und REST API in Java / Spring Boot, Angular Interfaces, Front / Back Integration.\n• Pilotqualität: Code Reviews, TDD, Good Practices, Qualitätslöhne, technischer Schuldenabbau.\n• Industrielle Lieferung: CI/CD-Pipelines, Containerisierung und Bereitstellungen in mehreren Umgebungen.\n• Technisches Coaching des Teams: Mentoring, Onboarding, Animation technischer Rituale, Selbsthilfeentwicklung.\n• Sichere Produktion: Produktion, Überwachung, Incident Management und Prävention.\n• Dialog mit Industrie und Stakeholdern (Product Owner, Partnerteams), um Bedürfnisse in technische Lösungen umzusetzen. Ihr Profil:\n• 7 Jahre oder mehr Erfahrung in der Java-Entwicklung, einschließlich einer ersten Erfahrung als technischer Leiter oder Referent.\n• Solide Kontrolle über Java und das Spring Boot Ökosystem (REST API, Sicherheit, Persistenz).\n• Gute Kontrolle der eckigen und modernen Frontentwicklung (TypeScript, RxJS, wiederverwendbare Komponenten).\n• Konkrete Erfahrungen mit CI/CD (idealerweise GitLab) und Docker Pipelines.\n• OpenShift / Kubernetes und Advanced DevOps (Infrastruktur als Code, Beobachtbarkeit).\n• Aisance für relationale Datenbanken und SQL-Optimierung.\n• Agile / Scrum Practice, Code Reviews und gute Qualitätspraktiken.\n• Demonstrierte Fähigkeit, Entwickler zu betreuen, zu betreuen und zu stärken.\n\nWenn diese Position für Sie ist, bewerben Sie sich jetzt und nehmen Sie an der vielversprechenden Zukunft der BCV teil. Lassen Sie uns zusammen drei Geschichten schreiben, eine Ihrer Karriere, eine Ihrer Bank, eine unserer Region.",
+      "fr": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelques 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour nos Départements IT , nous recherchons une ou un :\n\nAnnonce Analyste développeur Java full stack et front-end senior – IT Distribution Marketing Vos missions principales:\n• Concevoir l'architecture des applications et arbitrer les choix techniques (découpage, API, sécurité, cohérence d'ensemble).\n• Développer en full stack : services et API REST en Java / Spring Boot, interfaces en Angular, intégration front/back.\n• Piloter la qualité : revues de code, TDD, bonnes pratiques, quality gates, réduction de la dette technique.\n• Industrialiser la livraison : pipelines CI/CD, conteneurisation et déploiements sur environnements multiples.\n• Encadrer techniquement l'équipe : mentoring, onboarding, animation des rituels techniques, montée en autonomie des développeurs.\n• Sécuriser la production : mises en production, supervision, gestion et prévention des incidents.\n• Dialoguer avec le métier et les parties prenantes (Product Owner, équipes partenaires) pour traduire les besoins en solutions techniques. Votre profil:\n• 7 ans ou plus d'expérience en développement Java, dont une première expérience de lead technique ou de référent(e).\n• Solide maîtrise de Java et de l'écosystème Spring Boot (API REST, sécurité, persistance).\n• Bonne maîtrise d'Angular et du développement front moderne (TypeScript, RxJS, composants réutilisables).\n• Expérience concrète des pipelines CI/CD (idéalement GitLab) et de Docker.\n• OpenShift / Kubernetes et culture DevOps avancée (Infrastructure as Code, observabilité).\n• Aisance sur les bases de données relationnelles et l'optimisation SQL.\n• Pratique de l'Agile / Scrum, des revues de code et des bonnes pratiques de qualité.\n• Capacité démontrée à encadrer, mentorer et faire monter en compétence des développeurs.\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région."
+    },
+    "slugByLocale": {
+      "it": "sviluppatore-analista-java-stack-completo-e-senior-front-end-it-distribution-marketing-banque-cantonale-vaudoise",
+      "en": "analyste-developpeur-java-full-stack-et-front-end-senior-it-distribution-marketing-banque-cantonale-vaudoise-lausanne",
+      "de": "entwickler-analyst-java-full-stack-und-senior-front-end-it-distribution-marketing-banque-cantonale-vaudoise-lausanne",
+      "fr": "analyste-developpeur-java-full-stack-et-front-end-senior-it-distribution-marketing-bcv"
+    },
+    "sector": "Banca / Finanza",
+    "expiredAt": "2026-09-09T13:49:11.240Z",
+    "previousSlugs": [
+      "analyste-developpeur-java-full-stack-et-front-end-senior-it-distribution-marketing-bcv"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "analyste-developpeur-java-full-stack-et-front-end-senior-it-distribution-marketing-bcv"
+      ],
+      "de": [
+        "analyste-developpeur-java-full-stack-et-front-end-senior-it-distribution-marketing-bcv"
+      ]
+    },
+    "postalCode": "1003",
+    "streetAddress": "Place Saint-François 14",
+    "salaryMin": 97500,
+    "salaryMax": 148000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-analyste-d%c3%a9veloppeur-java-full-stack-et-front-end-senior-it-distribution-marketing/1414629533",
+    "firstSeenAt": "2026-07-14T11:43:33.144Z"
   },
   {
     "slug": "responsabile-del-supporto-al-credito-capo-dipartimento-banque-cantonale-vaudoise-lausanne",
