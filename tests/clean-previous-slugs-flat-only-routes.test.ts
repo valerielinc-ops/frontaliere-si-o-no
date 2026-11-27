@@ -160,4 +160,22 @@ describe('flat-only previous slug that is one locale active slug', () => {
       expect(localeRouteKeys(owner)).toContain(`${locale}:${foreign}`);
     }
   });
+
+  it('gives an expired owner the Italian route that its master alone does not serve', () => {
+    const url = 'https://jobs.example.com/posting/expired-owner';
+    const master = `rotta-del-proprietario-scaduto-${stableSlugHash({ url })}`;
+    const owner = job({
+      id: 'acme-3',
+      url,
+      slug: master,
+      slugByLocale: { it: 'titolo-italiano-diverso', de: 'anderer-titel' },
+      expiredAt: new Date().toISOString(),
+    });
+    const claimant = job({ previousSlugsByLocale: { it: [master] } });
+
+    decontaminateEntries([{ filePath: null, slice: { jobs: [claimant, owner] } }], { apply: false });
+
+    expect(localeRouteKeys(claimant)).not.toContain(`it:${master}`);
+    expect(localeRouteKeys(owner)).toContain(`it:${master}`);
+  });
 });
