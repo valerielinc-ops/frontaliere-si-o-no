@@ -606,6 +606,9 @@ function newRateLimitState(apiBase) {
     lastRateLimitUrl: apiBase,
     queue: Promise.resolve(),
     observedRateLimits: new WeakSet(),
+    // The browser stack is tried at most once per tenant for a rate-limited
+    // listing; see rescueListingThroughBrowser.
+    listingBrowserRescueSpent: false,
   };
 }
 
@@ -721,6 +724,46 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
   const request = (url, requestOptions = {}) => {
     if (closed) return Promise.reject(new Error('Workday request context is already closed'));
 
+    // The listing is the first request of a tenant: when the direct stack is
+    // rate limited there, every detail would be lost with it, and the whole
+    // crawl aborts before publishing. The same-origin browser stack (other TLS
+    // fingerprint and cookies, the transport that recovered these listings
+    // until the circuit was bounded) gets ONE attempt per tenant. Details never
+    // use it: a 429 storm there is what the circuit exists to stop.
+    const rescueListingThroughBrowser = async (terminalError) => {
+      const method = String(requestOptions.method || 'GET').toUpperCase();
+      if (method !== 'POST' || !browserFallback || rateLimitState.listingBrowserRescueSpent) {
+        throw terminalError;
+      }
+      rateLimitState.listingBrowserRescueSpent = true;
+      try {
+        await waitForRateLimit();
+        const browserRequest = () => browserFallback({
+          url,
+          method,
+          body: requestOptions.body,
+          userAgent: requestOptions.userAgent || DEFAULT_USER_AGENT,
+          timeoutMs: requestOptions.timeoutMs || DEFAULT_TIMEOUT_MS,
+        });
+        const data = await (egressStateDir
+          ? withRunnerWorkdayEgress(browserRequest, {
+              stateDir: egressStateDir,
+              minDelayMs: egressMinDelayMs,
+              fallbackCooldownMs,
+              retryAfterCapMs,
+            })
+          : browserRequest());
+        rateLimitState.consecutiveRateLimits = 0;
+        rateLimitState.blockedUntil = 0;
+        console.warn(`⚠️ Workday listing recovered through the browser transport after direct HTTP 429: ${url}`);
+        return data;
+      } catch (browserErr) {
+        console.warn(`⚠️ Workday browser transport could not recover the rate-limited listing ${url}: ${browserErr?.message || browserErr}`);
+        observeRateLimit(browserErr);
+        throw terminalError;
+      }
+    };
+
     const run = async () => {
       try {
         const data = await fetchJsonWithRetry(url, {
@@ -741,8 +784,8 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
       } catch (err) {
         // Browser fallback errors are outside fetchWithRetry's hook. Preserve a
         // terminal 429 there too, so the next detail remains behind Retry-After.
-        if (err instanceof WorkdayRateLimitError) throw err;
-        if (observeRateLimit(err)) throw rateLimitError(url, err);
+        if (err instanceof WorkdayRateLimitError) return rescueListingThroughBrowser(err);
+        if (observeRateLimit(err)) return rescueListingThroughBrowser(rateLimitError(url, err));
         rateLimitState.consecutiveRateLimits = 0;
         throw err;
       }
