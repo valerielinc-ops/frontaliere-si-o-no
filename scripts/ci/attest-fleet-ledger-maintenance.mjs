@@ -8,8 +8,19 @@ import { gzipSync } from 'node:zlib';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { projectRecord } from './prepare-fleet-ledger-projection.mjs';
 
-const ARCHIVE = '1c6010d0791d4e8de3125c4f7637319da2ff70fd';
-const COUNTS = Object.freeze({ files: 152, records: 374 });
+const ARCHIVE_L8 = '1c6010d0791d4e8de3125c4f7637319da2ff70fd';
+const SCOPES = Object.freeze({
+  l8: Object.freeze({
+    archiveSha: ARCHIVE_L8,
+    counts: Object.freeze({ files: 152, records: 374 }),
+    allowAutoPin: true,
+  }),
+  // Pin the L9 redaction to the archived current tip and its measured rows.
+  'l9-mrr': Object.freeze({
+    counts: Object.freeze({ files: 2, records: 146 }),
+    allowAutoPin: false,
+  }),
+});
 const REMOTE = 'https://github.com/valerielinc-ops/frontaliere-si-o-no.git';
 const REF = 'refs/heads/ledger/loop-fleet';
 const PIN = 'refs/remotes/origin/ledger/loop-fleet';
@@ -225,14 +236,14 @@ if IFS= read -r extra || [ -n "$extra" ]; then exit 1; fi
   }
 }
 
-function receipt(root, expected, candidate) {
+function receipt(root, expected, candidate, archive, counts) {
   const file = path.join(root, 'stage/receipt.json');
   const stat = fs.lstatSync(file);
   requireThat(stat.isFile() && stat.size <= 1024 && (stat.mode & 0o7777) === 0o600);
   const data = JSON.parse(fs.readFileSync(file, 'utf8'));
-  requireThat(Object.keys(data).length === 6 && data.archiveSha === ARCHIVE && data.expectedSha === expected
+  requireThat(Object.keys(data).length === 6 && data.archiveSha === archive && data.expectedSha === expected
     && typeof data.candidateSha === 'string' && SHA.test(data.candidateSha)
-    && data.files === COUNTS.files && data.records === COUNTS.records
+    && data.files === counts.files && data.records === counts.records
     && Number.isSafeInteger(data.indexEntries) && data.indexEntries >= data.records);
   if (candidate !== undefined && data.candidateSha !== candidate) throw CANDIDATE_MISMATCH;
   return data.candidateSha;
@@ -259,21 +270,26 @@ function run() {
     requireThat(operation === 'prepare' || operation === 'app' || operation === 'fallback');
     const {
       AUTO_PIN: autoPinInput = 'false', ORDINALS: ordinals,
+      PROJECTION_SCOPE: projectionScope = 'l8',
       ATTESTATION_SHA256: attestationSha256, READ_TOKEN: readToken,
     } = process.env;
     let { EXPECTED_SHA: expected = '', CANDIDATE_SHA: candidate = '' } = process.env;
+    const scope = Object.hasOwn(SCOPES, projectionScope) ? SCOPES[projectionScope] : undefined;
     const autoPin = operation === 'prepare' && autoPinInput === 'true';
     requireThat(process.versions.node.split('.')[0] === '22' && readToken);
+    requireThat(scope && (!autoPin || scope.allowAutoPin));
     requireThat(operation !== 'prepare' || autoPinInput === 'true' || autoPinInput === 'false');
     requireThat(autoPin ? !expected && !candidate
       : SHA.test(expected) && SHA.test(candidate) && expected !== candidate);
+    const counts = scope.counts;
+    const archive = scope.archiveSha ?? expected;
     stage = 'root';
     privateDirectory(root);
     const source = fs.realpathSync.native(process.cwd());
     if (operation === 'prepare') {
       stage = 'arguments';
       requireThat(DIGEST.test(attestationSha256));
-      parseOrdinals(ordinals, COUNTS.files);
+      parseOrdinals(ordinals, counts.files);
       stage = 'tip-fetch';
       git(source, ['fetch', '--no-tags', '--no-recurse-submodules', '--depth=1', '--filter=blob:limit=1g',
         REMOTE, REF + ':' + PIN], { remote: REMOTE, token: readToken });
@@ -286,16 +302,18 @@ function run() {
       requireThat(SHA.test(tipSha) && tip === tipSha + '\n' && tipSha !== '0'.repeat(40));
       assertCommit(source, tipSha);
       expected = tipSha;
-      stage = 'archive-fetch';
-      git(source, ['fetch', '--no-tags', '--no-recurse-submodules', '--depth=1', '--filter=blob:limit=1g',
-        REMOTE, ARCHIVE], { remote: REMOTE, token: readToken });
+      if (archive !== tipSha) {
+        stage = 'archive-fetch';
+        git(source, ['fetch', '--no-tags', '--no-recurse-submodules', '--depth=1', '--filter=blob:limit=1g',
+          REMOTE, archive], { remote: REMOTE, token: readToken });
+      }
       const inventory = path.join(root, 'inventory.json');
       const staging = path.join(root, 'stage');
       stage = 'inventory';
-      attest({ repo: source, archiveSha: ARCHIVE, ordinals, attestationSha256, output: inventory }, COUNTS);
+      attest({ repo: source, archiveSha: archive, ordinals, attestationSha256, output: inventory }, counts);
       stage = 'candidate';
       const tool = fileURLToPath(new URL('./prepare-fleet-ledger-migration.mjs', import.meta.url));
-      const result = spawnSync(process.execPath, [tool, '--repo', source, '--archive-sha', ARCHIVE,
+      const result = spawnSync(process.execPath, [tool, '--repo', source, '--archive-sha', archive,
         '--expected-sha', expected, '--inventory', inventory, '--output', staging], {
         env: gitEnv, timeout: 300_000, killSignal: 'SIGKILL',
         stdio: ['ignore', 'ignore', 'pipe'], maxBuffer: 1024, encoding: 'utf8',
@@ -309,7 +327,7 @@ function run() {
     }
 
     stage = 'receipt';
-    candidate = receipt(root, expected, autoPin ? undefined : candidate);
+    candidate = receipt(root, expected, autoPin ? undefined : candidate, archive, counts);
     let result = 'verified';
     if (operation === 'prepare') {
       assertCandidateParent(path.join(root, 'stage/candidate'), expected, candidate);
@@ -327,8 +345,8 @@ function run() {
 
     stage = 'summary';
     if (result !== 'fallback') {
-      const summary = result + ' archive=' + ARCHIVE + ' parent=' + expected
-        + ' candidate=' + candidate + ' files=' + COUNTS.files + ' records=' + COUNTS.records;
+      const summary = result + ' archive=' + archive + ' parent=' + expected
+        + ' candidate=' + candidate + ' files=' + counts.files + ' records=' + counts.records;
       fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, summary + '\n');
     }
     if (operation === 'prepare') {

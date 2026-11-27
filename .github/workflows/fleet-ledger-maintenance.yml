@@ -11,6 +11,14 @@ on:
         description: Verified candidate commit
         required: false
         type: string
+      projection_scope:
+        description: Projection to verify and publish
+        required: true
+        type: choice
+        options:
+          - l8
+          - l9-mrr
+        default: l8
       auto_pin:
         description: Verify a candidate prepared from the ledger tip fetched by this run
         type: boolean
@@ -78,6 +86,7 @@ jobs:
         id: prepare
         env:
           AUTO_PIN: ${{ inputs.auto_pin }}
+          PROJECTION_SCOPE: ${{ inputs.projection_scope }}
           EXPECTED_SHA: ${{ inputs.expected_sha }}
           CANDIDATE_SHA: ${{ inputs.candidate_sha }}
           ORDINALS: ${{ inputs.ordinals }}
@@ -95,6 +104,7 @@ jobs:
         if: ${{ success() && !inputs.dry_run }}
         env:
           ROOT: ${{ steps.prepare.outputs.root }}
+          PROJECTION_SCOPE: ${{ inputs.projection_scope }}
           EXPECTED_SHA: ${{ steps.prepare.outputs.expected_sha }}
           CANDIDATE_SHA: ${{ steps.prepare.outputs.candidate_sha }}
           APP_ID: ${{ secrets.APP_ID }}
@@ -117,6 +127,7 @@ jobs:
         if: ${{ success() && !inputs.dry_run && steps.app.outputs.result == 'fallback' }}
         env:
           ROOT: ${{ steps.prepare.outputs.root }}
+          PROJECTION_SCOPE: ${{ inputs.projection_scope }}
           EXPECTED_SHA: ${{ steps.prepare.outputs.expected_sha }}
           CANDIDATE_SHA: ${{ steps.prepare.outputs.candidate_sha }}
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
