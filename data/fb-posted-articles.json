@@ -2,30 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "spaccio-droga-busto-18mila-euro",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/spaccio-droga-busto-18mila-euro/",
-      "ts": "2026-05-07T14:28:35.064Z",
-      "seed": true
-    },
-    {
-      "id": "incendio-auto-a2-camorino",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/incendio-auto-a2-camorino/",
-      "ts": "2026-05-07T14:38:03.953Z",
-      "seed": true
-    },
-    {
-      "id": "cultura-pari-opportunita-ticino-2024",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/cultura-pari-opportunita-ticino-2024/",
-      "ts": "2026-05-07T14:51:07.254Z",
-      "seed": true
-    },
-    {
-      "id": "confisca-patrimoni-mafiosi-svizzera-2026",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/confisca-patrimoni-mafiosi-svizzera-2026/",
-      "ts": "2026-05-07T15:01:16.720Z",
-      "seed": true
-    },
-    {
       "id": "ia-svizzera-uso-frontalieri-2026",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/ia-svizzera-uso-frontalieri-2026/",
       "ts": "2026-05-07T15:13:19.557Z",
@@ -6462,6 +6438,74 @@
       "copyAngleIntent": "both",
       "copyHook": "Redditi esteri: un passaggio pratico da verificare nella guida.",
       "copyCta": "Leggi l'approfondimento."
+    },
+    {
+      "id": "bollettino-frontaliere-2026-11-27",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/bollettino-frontaliere-2026-11-27/",
+      "ts": "2026-11-27T20:04:36.775Z",
+      "fbPostId": "951226518080080_122132593821272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "f0d80b4606e89a89",
+      "copyTemplateId": "fb-article-question",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Mobilità oltreconfine: una domanda precisa per leggere meglio la guida.",
+      "copyCta": "Consulta la guida."
+    },
+    {
+      "id": "assistenza-sociale-svitto-criterio-bisogno",
+      "url": "https://frontaliereticino.ch/articoli-svizzera/assistenza-sociale-svitto-criterio-bisogno/",
+      "ts": "2026-11-27T20:04:45.662Z",
+      "fbPostId": "951226518080080_122132593851272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "f0d80b4606e89a89",
+      "copyTemplateId": "fb-article-context",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "contesto-chiaro",
+      "copyPillarId": "vita-oltreconfine",
+      "copyAngleIntent": "searchable",
+      "copyHook": "Lavoro da remoto oltreconfine: il contesto da inquadrare prima di scegliere.",
+      "copyCta": "Approfondisci il tema."
+    },
+    {
+      "id": "salario-minimo-svitto-regole",
+      "url": "https://frontaliereticino.ch/articoli-svizzera/salario-minimo-svitto-regole/",
+      "ts": "2026-11-27T20:04:53.077Z",
+      "fbPostId": "951226518080080_122132593875272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "f0d80b4606e89a89",
+      "copyTemplateId": "fb-article-question",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Mobilità oltreconfine: una domanda precisa per leggere meglio la guida.",
+      "copyCta": "Consulta la guida."
+    },
+    {
+      "id": "protocollo-fiscale-lavoro-remoto",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/protocollo-fiscale-lavoro-remoto/",
+      "ts": "2026-11-27T20:05:02.169Z",
+      "fbPostId": "951226518080080_122132593959272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "f0d80b4606e89a89",
+      "copyTemplateId": "fb-article-question",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Mobilità oltreconfine: una domanda precisa per leggere meglio la guida.",
+      "copyCta": "Consulta la guida."
     }
   ]
 }
