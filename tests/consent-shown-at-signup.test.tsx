@@ -1627,6 +1627,25 @@ describe('the channel list the formula points at cannot under-report what we sen
     }
   });
 
+  it('a slot dispatched outside GitHub is the slot the dispatcher carries and the cadence states it', () => {
+    // `externalSlotUtc` exists for slots Cloud Scheduler dispatches (the workflow
+    // has no cron for them). Pin it to the dispatcher's own constant, and make
+    // the sentence name it in every locale, so it can promise neither more nor less.
+    const external = COMMUNICATION_CHANNELS.filter((c) => c.externalSlotUtc);
+    expect(external.map((c) => c.id)).toEqual(['job-alerts']);
+    const schedule = read('functions/src/jobAlertSchedule.js');
+    const primary = /JOB_ALERT_PRIMARY_SLOT_UTC\s*=\s*'(\d{2}:\d{2})'/.exec(schedule)?.[1];
+    for (const c of external) {
+      expect(c.externalSlotUtc, `${c.id}: externalSlotUtc vs functions/src/jobAlertSchedule.js`).toBe(primary);
+      for (const locale of CONSENT_LOCALES) {
+        expect(c.cadence[locale], `${c.id}/${locale} must name ${c.externalSlotUtc} UTC`).toContain(
+          `${c.externalSlotUtc} UTC`,
+        );
+        expect(c.cadence[locale], `${c.id}/${locale} must not keep the retired 00:33 slot`).not.toContain('00:33');
+      }
+    }
+  });
+
   it('declares, for every channel, whether it actually ships', () => {
     for (const c of COMMUNICATION_CHANNELS) {
       expect(['live', 'suspended'], `${c.id}.status`).toContain(c.status);
@@ -1904,6 +1923,8 @@ describe('the page the formula points at cannot change without saying so (#5765)
     '2026-10-01.1': '6b80754fa587c1fb',
     // #11236 — the sitemap entry without a build-time <lastmod>.
     '2026-10-04.1': '3fbfaa874cf97511',
+    // 2026-11-27 — the job-alerts cadence sentence (05:00 UTC + 12:07 UTC safety pass).
+    '2026-11-27.1': '843ea1418bd18a89',
   };
 
   it('matches the current page against the fingerprint of the current version', () => {

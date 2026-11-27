@@ -54,7 +54,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/koechin-koch-im-stundenlohn/ft6ay0tp0lvitfsfmjmccsgobolfhzvjhl7eaubzkdj1osa7lrfrcwbp5wqsqofn",
-    "firstSeenAt": "2026-11-06T21:30:06.415Z"
+    "firstSeenAt": "2026-11-06T21:30:06.415Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kochin-koch-40-60-im-stundenlohn-gossau-sg-sg-walter-zoo-ag-gossau-ch": "SG",
+        "cuocere-40-60-in-salari-orali-walter-zoo-ag-gossau-gossau-sg": "SG"
+      },
+      "en": {
+        "kochin-koch-40-60-im-stundenlohn-gossau-sg-sg-walter-zoo-ag-gossau-ch": "SG",
+        "cook-40-60-in-hourly-wages-walter-zoo-ag-gossau-gossau-sg": "SG"
+      },
+      "fr": {
+        "kochin-koch-40-60-im-stundenlohn-gossau-sg-sg-walter-zoo-ag-gossau-ch": "SG",
+        "cuisson-40-60-en-salaires-horaires-walter-zoo-ag-gossau-gossau-sg": "SG"
+      }
+    }
   },
   {
     "slug": "tirocinante-per-la-tutela-delle-specie-e-l-educazione-ambientale-100-walter-zoo-ag-gossau-gossau-sg-sg",
@@ -106,6 +121,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/praktikant-in-artenschutz-und-umweltbildung/w05mfrjvrqa2sp5p65u3xytohx3k7lzcj24lzul6djmij6fkv4vqm8iltprql1my",
-    "firstSeenAt": "2026-10-26T21:23:06.286Z"
+    "firstSeenAt": "2026-10-26T21:23:06.286Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-artenschutz-und-umweltbildung-100-gossau-sg-sg-walter-zoo-ag-gossau-ch": "SG",
+        "praktikant-in-artenschutz-e-umweltbildung-100-walter-zoo-ag-gossau-sg": "SG"
+      },
+      "en": {
+        "praktikant-in-artenschutz-und-umweltbildung-100-gossau-sg-sg-walter-zoo-ag-gossau-ch": "SG"
+      },
+      "fr": {
+        "praktikant-in-artenschutz-und-umweltbildung-100-gossau-sg-sg-walter-zoo-ag-gossau-ch": "SG"
+      }
+    }
   }
 ]

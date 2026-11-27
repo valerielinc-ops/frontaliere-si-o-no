@@ -22,7 +22,7 @@ const SUPPORTED_KINDS = new Set([
   'crawler-health',
   'pharmacy-google-usage-reservation',
 ]);
-const HEALTH_STATUSES = new Set(['healthy', 'stale', 'broken', 'warming_up', 'unknown']);
+const HEALTH_STATUSES = new Set(['healthy', 'stale', 'broken', 'warming_up', 'rate-limited-cooldown', 'unknown']);
 const HEALTH_REQUIRED_FIELDS = [
   'lastSuccessfulRunAt',
   'lastNonZeroJobs',

@@ -28,7 +28,7 @@ import { portalAccountStore } from './lib/portal/account.mjs';
 import { portalKnowledgeStore } from './lib/portal/knowledge.mjs';
 import { candidateValues, portalPassRecord, redactStopReport } from './lib/portal/stop-report.mjs';
 import { dedupePortalQuestions, portalQuestionKey, readPortalRequirements } from './lib/portal/portal.mjs';
-import { persistLivePortalRequirements } from './lib/portal/merge-live-requirements.mjs';
+import { persistLivePortalRequirementsDetailed } from './lib/portal/merge-live-requirements.mjs';
 import { scheduleFollowups } from '../../functions/src/assistedApplicationFollowup.js';
 import { portalNeedsPlanner, submitApplication } from './lib/submit.mjs';
 import { submissionGuard } from '../../functions/src/assistedApplicationSubmissionGuard.js';
@@ -303,9 +303,10 @@ async function main() {
     // consumes this event. A superseded run cannot replace the current draft.
     if (!dryRun && event.type === 'submit_needs_candidate'
       && (Array.isArray(event.questions) || Array.isArray(event.documents))) {
-      if (!await persistLivePortalRequirements({ db, orderRef, expected: { order, flow: flowSnapshot.data() || {}, draft: submitDraft }, round, event })) {
-        summary(`mode=${mode} round=${round} skipped: requirement context changed`);
-        await report({ type: 'submit_failed', error: 'requirement_context_changed' });
+      const persisted = await persistLivePortalRequirementsDetailed({ db, orderRef, expected: { order, flow: flowSnapshot.data() || {}, draft: submitDraft }, round, event });
+      if (!persisted.ok) {
+        summary(`mode=${mode} round=${round} skipped: requirement context changed (${persisted.reason})`);
+        await report({ type: 'submit_failed', error: `requirement_context_changed:${persisted.reason}` });
         return;
       }
       const details = questionDetailsForEvent(event.questionDetails, portalQuestionKey);

@@ -433,10 +433,10 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
     expect(await recordOwnerSubmission({ db: store.db, orderId: ORDER, adminEmail: 'owner@example.com', runEffect, nowMs: T0 })).toEqual({ ok: true, state: 'submitted' });
     expect(store.read(`${PATH}/automation/flow`)).toMatchObject({ state: 'submitted', submittedVia: 'owner' });
     expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r1: { state: 'sent', channel: 'owner' } });
-    await seed({ ...takenOver, state: 'submitting' });
+    await seed({ ...takenOver, state: 'candidate_review' });
     await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('submission').set({ r1: { state: 'sending' } });
     expect(await recordOwnerSubmission({ db: store.db, orderId: ORDER, adminEmail: 'owner@example.com', runEffect, nowMs: T0 })).toEqual({ ok: false, ignored: 'not_taken_over' });
-    expect(store.read(`${PATH}/automation/flow`)).toMatchObject({ state: 'submitting' });
+    expect(store.read(`${PATH}/automation/flow`)).toMatchObject({ state: 'candidate_review' });
     expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r1: { state: 'sending' } });
   });
 
@@ -471,13 +471,13 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
 });
 
 describe('owner_submitted', () => {
-  it('closes an order the robot stopped on, never one still running', () => {
+  it('closes an order the robot stopped on or still holds, never one waiting for the candidate', () => {
     for (const state of ['owner_takeover', 'candidate_handoff']) {
       const step = transition({ state, round: 1, heldBy: ['portal_refused'], deadlineAt: null, reminderAt: T0 }, { type: 'owner_submitted' }, { draft, nowMs: T0 });
       expect(step.flow).toMatchObject({ state: 'submitted', heldBy: [], reminderAt: null });
       expect(step.effects).toEqual([{ type: 'mark_submitted', by: 'owner' }]);
     }
-    expect(transition({ state: 'submitting', round: 1 }, { type: 'owner_submitted' }, { draft, nowMs: T0 }).ignored).toBe('not_taken_over');
+    expect(transition({ state: 'candidate_review', round: 1 }, { type: 'owner_submitted' }, { draft, nowMs: T0 }).ignored).toBe('not_taken_over');
     expect(transition({ state: 'submitted', round: 1 }, { type: 'owner_submitted' }, { draft, nowMs: T0 }).ignored).toBeTruthy();
   });
 });

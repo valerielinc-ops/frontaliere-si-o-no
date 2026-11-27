@@ -128,6 +128,21 @@ const CANDIDATE_COPY = {
       // Owner decision 2026-11-11: Terms 6.5 after start apply to assisted or concierge mandate v3.
       termsAfterStart: 'Per i Termini (punto 6.5), una volta avviata la preparazione della candidatura l’importo non è rimborsabile, anche quando l’annuncio viene chiuso o ritirato dal datore di lavoro.',
     },
+    // Owner decision 2026-11-27 (assistedApplicationCandidateWaitExpiry.js): 30 days without the documents or
+    // answers only the candidate can give close the order; refunded only where the accepted Terms promise it.
+    expired: {
+      subject: 'La candidatura per {job} è stata chiusa: mancavano le tue informazioni',
+      hero: 'Candidatura chiusa per mancanza di informazioni',
+      preheader: 'Sono passati 30 giorni senza i documenti o le risposte richiesti.',
+      lead: 'sono passati 30 giorni senza i documenti o le risposte che solo tu potevi fornire per la candidatura a {job} presso {company}. Per questo l’abbiamo chiusa e non è stata inviata al datore di lavoro: la trovi archiviata tra le tue candidature, con lo stato «Ritirata».',
+      terms: 'Per i Termini (punto 6.5), una volta avviata la preparazione della candidatura, e quando restano senza risposta i documenti o le informazioni richiesti, l’importo non è rimborsato.',
+    },
+    expiredRefunded: {
+      subject: 'La candidatura per {job} è stata chiusa: ti abbiamo rimborsato',
+      hero: 'Candidatura chiusa e rimborsata',
+      preheader: 'Il rimborso è già partito.',
+      lead: 'sono passati 30 giorni senza i documenti o le risposte che solo tu potevi fornire per la candidatura a {job} presso {company}. L’abbiamo chiusa senza inviarla al datore di lavoro e, come previsto dal mandato che hai accettato, ti abbiamo rimborsato {price}: lo vedrai sulla carta nei prossimi giorni.',
+    },
     closed: {
       subject: 'L’annuncio {job} è stato chiuso: ti abbiamo rimborsato',
       hero: 'Annuncio chiuso prima dell’invio',
@@ -208,6 +223,19 @@ const CANDIDATE_COPY = {
       lead: '{company} hat die Stelle {job} zurückgezogen. Die Bewerbung kann nicht mehr versendet werden und wurde deshalb zurückgezogen: Du findest sie archiviert bei deinen Bewerbungen, mit dem Status «Zurückgezogen».',
       terms: 'Gemäss den Nutzungsbedingungen (Ziffer 6.5) wird der Betrag nicht erstattet, wenn die Stelle zurückgezogen wird, während die Bewerbung auf Unterlagen oder Antworten wartet, die nur du geben kannst.',
       termsAfterStart: 'Gemäss den Nutzungsbedingungen (Ziffer 6.5) ist der Betrag nicht erstattungsfähig, sobald die Vorbereitung der Bewerbung begonnen hat, auch wenn das Unternehmen die Stelle schliesst oder zurückzieht.',
+    },
+    expired: {
+      subject: 'Die Bewerbung für {job} wurde geschlossen: deine Angaben fehlten',
+      hero: 'Bewerbung wegen fehlender Angaben geschlossen',
+      preheader: 'Seit 30 Tagen fehlen die verlangten Unterlagen oder Antworten.',
+      lead: 'seit 30 Tagen fehlen die Unterlagen oder Antworten, die nur du für die Bewerbung auf {job} bei {company} liefern konntest. Deshalb haben wir sie geschlossen; sie wurde nicht an den Arbeitgeber gesendet. Du findest sie archiviert bei deinen Bewerbungen, mit dem Status «Zurückgezogen».',
+      terms: 'Gemäss den Nutzungsbedingungen (Ziffer 6.5) ist der Betrag nicht erstattungsfähig, sobald die Vorbereitung der Bewerbung begonnen hat und die verlangten Unterlagen oder Angaben ausbleiben.',
+    },
+    expiredRefunded: {
+      subject: 'Die Bewerbung für {job} wurde geschlossen: Rückerstattung veranlasst',
+      hero: 'Bewerbung geschlossen und erstattet',
+      preheader: 'Die Rückerstattung ist bereits unterwegs.',
+      lead: 'seit 30 Tagen fehlen die Unterlagen oder Antworten, die nur du für die Bewerbung auf {job} bei {company} liefern konntest. Wir haben sie geschlossen, ohne sie an den Arbeitgeber zu senden, und dir gemäss dem von dir akzeptierten Mandat {price} erstattet: Du siehst den Betrag in den nächsten Tagen auf deiner Karte.',
     },
     closed: {
       subject: 'Das Inserat {job} wurde geschlossen: Rückerstattung veranlasst',
@@ -290,6 +318,19 @@ const CANDIDATE_COPY = {
       terms: 'Selon les Conditions (point 6.5), lorsque l’annonce est retirée pendant que la candidature attend des documents ou des réponses que vous seul pouvez fournir, le montant n’est pas remboursé.',
       termsAfterStart: 'Selon les Conditions (point 6.5), une fois la préparation de la candidature commencée, le montant n’est pas remboursable, même lorsque l’employeur ferme ou retire l’annonce.',
     },
+    expired: {
+      subject: 'La candidature pour {job} a été clôturée : vos informations manquaient',
+      hero: 'Candidature clôturée faute d’informations',
+      preheader: 'Cela fait 30 jours que les documents ou réponses demandés manquent.',
+      lead: 'cela fait 30 jours que manquent les documents ou les réponses que vous seul pouviez fournir pour la candidature à {job} chez {company}. Nous l’avons donc clôturée et elle n’a pas été envoyée à l’employeur : vous la trouvez archivée parmi vos candidatures, avec le statut « Retirée ».',
+      terms: 'Selon les Conditions (point 6.5), une fois la préparation de la candidature commencée, le montant n’est pas remboursable lorsque les documents ou informations demandés restent sans réponse.',
+    },
+    expiredRefunded: {
+      subject: 'La candidature pour {job} a été clôturée : vous êtes remboursé',
+      hero: 'Candidature clôturée et remboursée',
+      preheader: 'Le remboursement est déjà en cours.',
+      lead: 'cela fait 30 jours que manquent les documents ou les réponses que vous seul pouviez fournir pour la candidature à {job} chez {company}. Nous l’avons clôturée sans l’envoyer à l’employeur et, comme le prévoit le mandat que vous avez accepté, nous vous avons remboursé {price} : vous le verrez sur votre carte dans les prochains jours.',
+    },
     closed: {
       subject: 'L’annonce {job} a été fermée : vous êtes remboursé',
       hero: 'Annonce fermée avant l’envoi',
@@ -370,6 +411,19 @@ const CANDIDATE_COPY = {
       lead: '{company} withdrew the {job} position. The application can no longer be sent and has therefore been withdrawn: you will find it archived among your applications, with the status “Withdrawn”.',
       terms: 'Under the Terms (section 6.5), when the job listing is withdrawn while the application is waiting for documents or answers only you can provide, the amount is not refunded.',
       termsAfterStart: 'Under the Terms (section 6.5), once the preparation of the application has started the amount is non-refundable, including when the employer closes or withdraws the job listing.',
+    },
+    expired: {
+      subject: 'The application for {job} was closed: your information was missing',
+      hero: 'Application closed for missing information',
+      preheader: 'The requested documents or answers have been missing for 30 days.',
+      lead: 'for 30 days the documents or answers only you could provide for your application to {job} at {company} have been missing. We have therefore closed it and it was not sent to the employer: you will find it archived among your applications, with the status “Withdrawn”.',
+      terms: 'Under the Terms (section 6.5), once the preparation of the application has started the amount is non-refundable when the requested documents or information remain unanswered.',
+    },
+    expiredRefunded: {
+      subject: 'The application for {job} was closed: you have been refunded',
+      hero: 'Application closed and refunded',
+      preheader: 'The refund is already on its way.',
+      lead: 'for 30 days the documents or answers only you could provide for your application to {job} at {company} have been missing. We closed it without sending it to the employer and, as the mandate you accepted provides, refunded your {price}; you will see it on your card in the next few days.',
     },
     closed: {
       subject: 'The {job} ad was closed: you have been refunded',
@@ -686,7 +740,7 @@ export function describeTakeover({ reason, stage, attempts, portalAutoRetryAt })
 /**
  * @param {string} kind candidate_review | candidate_reminder | candidate_handoff |
  *   candidate_handoff_reminder | candidate_action_needed | candidate_questions_reminder | candidate_posting_closed |
- *   candidate_posting_withdrawn |
+ *   candidate_posting_withdrawn | candidate_requirements_expired | candidate_requirements_expired_refunded |
  *   candidate_followup_review (vars.followupText, vars.days)
  * @param {{locale:string, name:string, job:string, company:string, jobUrl:string, reviewUrl:string,
  *   deadlineAt?:number, held?:boolean, fit?:'low'|'partial'|'far'|null, fitVia?:'answers'|'edit'|null,
@@ -710,6 +764,8 @@ export function buildCandidateAutomationEmail(kind, vars) {
     candidate_questions_reminder: copy.questionsReminder,
     candidate_posting_closed: copy.closed,
     candidate_posting_withdrawn: copy.withdrawn,
+    candidate_requirements_expired: copy.expired,
+    candidate_requirements_expired_refunded: copy.expiredRefunded,
     candidate_followup_review: copy.followup,
   }[kind];
   const section = sectionBase && vars.postalSubmission === true && POSTAL_COPY[locale]?.[kind]
@@ -729,7 +785,8 @@ export function buildCandidateAutomationEmail(kind, vars) {
   const html = [brandParagraph(esc(greeting)), brandParagraph(esc(fill(section.lead, values)))];
   const text = [greeting, fill(section.lead, values)];
   // A closed or withdrawn posting has nothing left to open: no job card, no link to the application page.
-  const postingGone = kind === 'candidate_posting_closed' || kind === 'candidate_posting_withdrawn';
+  const postingGone = kind === 'candidate_posting_closed' || kind === 'candidate_posting_withdrawn'
+    || kind === 'candidate_requirements_expired' || kind === 'candidate_requirements_expired_refunded';
   if (vars.job && !postingGone) {
     html.push(brandJobCard({ title: values.job, company: values.company, url: vars.jobUrl || '', linkLabel: copy.jobLink }));
   }
@@ -757,6 +814,10 @@ export function buildCandidateAutomationEmail(kind, vars) {
     const terms = (vars.noRefundAfterStartConsent ?? vars.refundEndsAtStart) ? section.termsAfterStart : section.terms;
     html.push(brandFinePrint(esc(terms)));
     text.push(terms);
+  } else if (kind === 'candidate_requirements_expired') {
+    // Refunded only where the accepted Terms promise it: this one is the e-mail of an order that is not.
+    html.push(brandFinePrint(esc(section.terms)));
+    text.push(section.terms);
   } else if (!postingGone) {
     html.push(brandButton(vars.reviewUrl, kind === 'candidate_reminder' ? copy.reviewCta : copy.openCta));
     text.push(`${kind === 'candidate_reminder' ? copy.reviewCta : copy.openCta}: ${vars.reviewUrl}`);

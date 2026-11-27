@@ -38,6 +38,7 @@ import { COVER_LETTER_DOCUMENT_CONTEXT_RE, COVER_LETTER_DOCUMENT_TERMS, CV_DOCUM
 import { advancedToFinalReview } from './final-review.mjs';
 export { advancedToFinalReview } from './final-review.mjs';
 import { AGENT_MAX_RUNTIME_MS, AGENT_ROUNDS, advanceLocator, agentNavigationEnabled, clickSubmitButton, completeWithAgent, isPreDispatchLocatorClickFailure, submitLocator } from './agent.mjs';
+import { avatureProtocolMatches, readAvatureSignInRouteInPage, readPortalProtocolInPage } from './protocol.mjs';
 import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, asksExistingPassword, authPageKind, codeField, hasExistingAccountPrompt, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields as extractFieldsRaw, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
@@ -1037,6 +1038,38 @@ function isSuccessFactorsPostingEntry({ applyUrl, postingUrl, postingRouteProof 
       });
   } catch {
     return false;
+  }
+}
+
+/** Reopening the proven module route is bounded: a portal that keeps landing elsewhere is a stop, not a loop. */
+export const SUCCESS_FACTORS_ENTRY_REOPEN_LIMIT = 2;
+
+/**
+ * Where a SuccessFactors session that landed beside the application goes back
+ * to. After a sign-in or an account verification the tenant can serve its
+ * profile shell at `/portalcareer` («Retour à la liste des postes», «Mon profil
+ * de candidature», no field) instead of the requisition's form. The only target
+ * is the order's own module route, and only when the resolver proved that route
+ * for this exact posting (isSuccessFactorsPostingEntry); the page is no evidence
+ * of anything, so it is merely required to be a SuccessFactors career surface
+ * with no application form and no account control, away from that route. The
+ * binding is then judged on the reopened page like any other. Without the proof
+ * (a title, a tenant, a first result) there is no target and the stop stays.
+ */
+export function successFactorsEntryReopenTarget({ pageUrl = '', applyUrl = '', postingUrl = '', postingRouteProof = null, snapshot = {}, reopened = 0 } = {}) {
+  if (!(reopened < SUCCESS_FACTORS_ENTRY_REOPEN_LIMIT)) return '';
+  try {
+    if (!isSuccessFactorsPostingEntry({ applyUrl, postingUrl, postingRouteProof })) return '';
+    const apply = new URL(String(applyUrl));
+    if (!isSuccessFactorsModuleRoute(apply) || !isSuccessFactorsCareerPath(pageUrl)) return '';
+    if (sameSuccessFactorsModuleAddress(pageUrl, apply.href)) return '';
+    if (hasApplicationForm(snapshot) || authPageKind(snapshot) !== 'none' || snapshot?.passwordVisible === true
+      || codeField(snapshot)) return '';
+    if ((snapshot?.fields || []).some((field) => !field.chrome && !field.disabled
+      && !['hidden', 'submit', 'button', 'reset', 'image'].includes(String(field.inputType || '').toLowerCase()))) return '';
+    return apply.href;
+  } catch {
+    return '';
   }
 }
 
@@ -7849,23 +7882,25 @@ async function waitForVerificationOutcome(page) {
   // (`/career`, then `/portalcareer`) and draws the application form in its
   // UI5 shell (2026-11-10): a read can fail between them, and a page with
   // nothing to act on is still drawing, not an unconfirmed verification.
+  // Proof the landing is a SuccessFactors tenant route (host + career path), judged on the live address.
+  const outcomeProof = () => ({ successFactorsLanding: isSuccessFactorsCareerPath(page.url()) });
   const read = () => extractFields(page).catch(() => null);
   const actionable = (view) => Boolean(view?.fields?.length) || (view?.buttons || []).some((button) => !button.disabled);
   const unsettled = (view, result) => !view || result === 'pending' || verificationIsPending(view)
     || (result === 'unconfirmed' && !actionable(view));
   let after = await read();
-  let outcome = after ? verificationOutcome(after) : 'pending';
+  let outcome = after ? verificationOutcome(after, outcomeProof()) : 'pending';
   const deadline = Date.now() + OUTCOME_TIMEOUT_MS;
   while (unsettled(after, outcome) && Date.now() < deadline) {
     await page.waitForTimeout(Math.min(1000, deadline - Date.now()));
     after = await read();
-    outcome = after ? verificationOutcome(after) : 'pending';
+    outcome = after ? verificationOutcome(after, outcomeProof()) : 'pending';
   }
   // The same non-throwing read: a page still unreadable at the deadline is a
   // pending outcome, answered by a bounded handoff, never an uncaught rejection.
   after ||= await read();
   if (!after) return { after: null, outcome: 'pending' };
-  return { after, outcome: outcome === 'pending' && !verificationIsPending(after) ? verificationOutcome(after) : outcome };
+  return { after, outcome: outcome === 'pending' && !verificationIsPending(after) ? verificationOutcome(after, outcomeProof()) : outcome };
 }
 
 /**
@@ -10023,6 +10058,11 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
     if (finalUrl.protocol !== 'https:' || finalUrl.username || finalUrl.password || !sameSite(finalUrl.href, portalHost)) return false;
     return true;
   }
+  // Avature (Deloitte CH `/CHCareers/Register`): the registration page has no sign-in link in its content,
+  // only the site-header «Login» anchor, which the snapshot leaves out as site chrome. Followed only when
+  // the live page attests the Avature portal and one same-origin anchor named «Login» leads to its Login page.
+  if (Array.isArray(currentSnapshot?.fields) && authPageKind(currentSnapshot) === 'create'
+    && await openAvatureSignInNavigation(page, currentSnapshot)) return true;
   // SuccessFactors' job-specific registration view can omit the visible
   // sign-in anchor entirely (SBB's `login_ns=register` page). Reuse only the
   // same-origin career route with its verified job context, changing the
@@ -10046,6 +10086,45 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
     }
   }
   return false;
+}
+
+/** Follow the Avature header «Login» route of a registration page; navigation only, nothing is clicked or submitted. */
+async function openAvatureSignInNavigation(page, snapshot) {
+  const identity = authFormIdentity(snapshot);
+  const frame = identity && page.frames()[identity.frame];
+  let currentUrl;
+  try {
+    currentUrl = new URL(frame?.url?.() || '');
+  } catch {
+    return false;
+  }
+  // Cheap URL pre-filter: `/<Namespace>/Register` over https; the live page must still attest Avature.
+  if (currentUrl.protocol !== 'https:' || currentUrl.username || currentUrl.password
+    || !/^\/[A-Za-z][A-Za-z0-9_-]{0,79}\/Register\/?$/.test(currentUrl.pathname)
+    || typeof frame.evaluate !== 'function') return false;
+  const live = await frame.evaluate(`(${readAvatureSignInRouteInPage.toString()})(${readPortalProtocolInPage.toString()})`)
+    .catch(() => null);
+  const protocol = live?.protocol;
+  if (!protocol || !avatureProtocolMatches(protocol, `${currentUrl.origin}${currentUrl.pathname}`)) return false;
+  const targets = new Set();
+  for (const link of Array.isArray(live.links) ? live.links : []) {
+    if (!isExplicitSignInNavigationLabel(link?.text, link?.title, link?.ariaLabel)) continue;
+    const target = verifiedSignInTarget(link.href, currentUrl.href, currentUrl.hostname);
+    if (!target) continue;
+    const parsed = new URL(target);
+    if (parsed.origin !== protocol.origin || parsed.pathname.replace(/\/$/, '') !== `${protocol.namespace}/Login`) continue;
+    targets.add(parsed.href);
+  }
+  // Two different Login destinations would be a guess between them: fail closed.
+  if (targets.size !== 1) return false;
+  try {
+    await frame.goto([...targets][0], { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    const finalUrl = new URL(frame.url());
+    return finalUrl.protocol === 'https:' && !finalUrl.username && !finalUrl.password
+      && finalUrl.origin === protocol.origin && finalUrl.pathname.replace(/\/$/, '') === `${protocol.namespace}/Login`;
+  } catch {
+    return false;
+  }
 }
 
 /** Open a reset route only from the live email+password form that owns the control. */
@@ -13482,6 +13561,7 @@ export async function submitViaPortal(ctx) {
     const agentDeadline = Date.now() + AGENT_MAX_RUNTIME_MS;
     const autonomousNavigation = agentNavigationEnabled();
     let finalPostingRecoveryUsed = false;
+    let successFactorsEntryReopens = 0;
     const agentTried = new Set();
     const runAgent = async (current, hint, { secrets = [], reservedButtons = [] } = {}) => {
       const key = `${pageSignature(page, current)}|${hint}`;
@@ -13865,6 +13945,22 @@ export async function submitViaPortal(ctx) {
           : diversionHint ? 'application_stage_unknown'
           : currentStage.kind === 'posting_mismatch' ? 'posting_mismatch' : 'application_stage_unknown');
         startupNavigationHint = '';
+        // A SuccessFactors session beside the application (profile shell) goes back to the
+        // route proven for this posting, with a short growing pause, before any agent is asked.
+        const sfEntry = successFactorsEntryReopenTarget({
+          pageUrl: page.url(), applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl,
+          postingRouteProof: ctx.postingRouteProof, snapshot, reopened: successFactorsEntryReopens,
+        });
+        if (sfEntry) {
+          successFactorsEntryReopens += 1;
+          evidence.steps.at(-1).successFactorsEntryReopen = successFactorsEntryReopens;
+          await page.waitForTimeout(2_000 * successFactorsEntryReopens);
+          await page.goto(sfEntry, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+          await settle(page);
+          snapshot = await awaitFields(page, await extractFields(page));
+          step -= 1;
+          continue;
+        }
         if (!autonomousNavigation) return await handoff(navigationHint === 'posting_mismatch' ? 'posting_mismatch' : 'application_stage_unknown');
         const recovery = await runNavigationRecovery(snapshot, navigationHint);
         if (recovery.result) return recovery.result;

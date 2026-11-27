@@ -52,7 +52,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/vaxcyte/jobs/5418817008?gh_jid=5418817008",
-    "firstSeenAt": "2026-09-11T23:06:18.703Z"
+    "firstSeenAt": "2026-09-11T23:06:18.703Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-bioprocess-engineer-ii-msat-proteins-vaxcyte-ch": "VS",
+        "staff-bioprocess-engineer-msat-proteins-vaxcyte-ch": "VS"
+      },
+      "en": {
+        "staff-bioprocess-engineer-msat-proteins-vaxcyte-ch": "VS"
+      },
+      "de": {
+        "senior-bioprocess-engineer-ii-msat-proteins-vaxcyte-ch": "VS"
+      },
+      "fr": {
+        "senior-bioprocess-engineer-ii-msat-proteins-vaxcyte-ch": "VS"
+      }
+    }
   },
   {
     "slug": "senior-manager-manufacturing-systems-operations-readiness-contrattore-vaxcyte-visp",
@@ -99,7 +115,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
-    "firstSeenAt": "2026-06-30T23:25:58.849Z"
+    "firstSeenAt": "2026-06-30T23:25:58.849Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-manager-manufacturing-systems-operations-readiness-contractor-vaxcyte-ch": "VS"
+      },
+      "de": {
+        "senior-manager-manufacturing-systems-operations-readiness-contractor-vaxcyte-ch": "VS"
+      }
+    }
   },
   {
     "slug": "associate-direttore-qc-global-analytics-vaxcyte-visp",
@@ -148,7 +173,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/vaxcyte/jobs/5352094008?gh_jid=5352094008",
-    "firstSeenAt": "2026-10-19T21:15:11.762Z"
+    "firstSeenAt": "2026-10-19T21:15:11.762Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "associate-director-qc-global-analytics-vaxcyte-ch": "VS"
+      },
+      "de": {
+        "associate-director-qc-global-analytics-vaxcyte-ch": "VS"
+      },
+      "fr": {
+        "associate-director-qc-global-analytics-vaxcyte-ch": "VS"
+      }
+    }
   },
   {
     "slug": "senior-manager-assicurazione-qualita-vaxcyte-visp",
@@ -197,7 +234,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
-    "firstSeenAt": "2026-06-22T23:49:52.547Z"
+    "firstSeenAt": "2026-06-22T23:49:52.547Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-manager-quality-assurance-vaxcyte-ch": "VS"
+      },
+      "de": {
+        "senior-manager-quality-assurance-vaxcyte-ch": "VS"
+      },
+      "fr": {
+        "senior-manager-quality-assurance-vaxcyte-ch": "VS"
+      }
+    }
   },
   {
     "slug": "staff-ingegnere-drug-substance-msat-vaxcyte-visp",
@@ -246,7 +295,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
-    "firstSeenAt": "2026-06-25T23:32:47.249Z"
+    "firstSeenAt": "2026-06-25T23:32:47.249Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "staff-engineer-drug-substance-msat-vaxcyte-ch": "VS"
+      },
+      "de": {
+        "staff-engineer-drug-substance-msat-vaxcyte-ch": "VS"
+      },
+      "fr": {
+        "staff-engineer-drug-substance-msat-vaxcyte-ch": "VS"
+      }
+    }
   },
   {
     "slug": "senior-project-manager-cmc-vaxcyte-ch",
