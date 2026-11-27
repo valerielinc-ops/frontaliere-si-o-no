@@ -10508,6 +10508,40 @@ export function signInEmailValue(field, email) {
     : trimmed;
 }
 
+/** Fill, verify and submit the login form once for one candidate identifier string. */
+async function submitSignInForm({ page, snapshot, account, targetEmail, preserveFullValue = false, diagnostics = null }) {
+  // Typed, then read again: a form the portal draws anew meanwhile (Workday, when what it loads for the
+  // page arrives late) has lost what was typed and its button is another element. It is typed once more,
+  // and the button pressed is the one of the reading made right before the click.
+  let form = snapshot;
+  let typed = false;
+  for (let attempt = 0; attempt < 2 && !typed; attempt += 1) {
+    const { email, password } = loginFields(form);
+    if (!email || !password) return { handoff: accountHandoff('account', 'login_unobserved', 'login') };
+    const expected = String(targetEmail || '').trim().toLowerCase();
+    // An e-mail already in the field (the agentic fallback typed it where a pasted value does
+    // not stay) is left alone: filling it again would undo it.
+    const emailKept = String(email.value || '').trim().toLowerCase() === expected;
+    await applyActions(page, form.fields, [
+      ...(emailKept ? [] : [{ fieldId: email.id, action: 'fill', value: targetEmail, ...(preserveFullValue ? { preserveFullValue: true } : {}) }]),
+      { fieldId: password.id, action: 'fill', value: account.password },
+    ], {});
+    await page.waitForTimeout(AUTH_TYPED_WAIT_MS);
+    form = await extractFields(page, NAVIGATION);
+    const now = loginFields(form);
+    typed = String(now.email?.value || '').trim().toLowerCase() === expected
+      && await passwordControlMatches(page, now.password, account.password);
+  }
+  if (!typed) return { handoff: { ...accountHandoff('account', 'login_unobserved', 'login'), authStop: 'sign_in_typing_unconfirmed' } };
+  const shown = form.errors || [];
+  diagnostics?.beforeClick('account');
+  const pressed = await clickFirst(page, form, [SIGN_IN_RE, SUBMIT_RE, NEXT_RE]);
+  if (!pressed) return { handoff: accountHandoff('account', 'no_sign_in_button', 'login') };
+  const after = await awaitAuthOutcome(page, 'sign_in', shown, form.fields);
+  diagnostics?.afterClick();
+  return { after, pressed };
+}
+
 /**
  * One login page (account.mjs): sign in with the order's account, or create
  * it on the alias, or verify it. Returns the next page, a handoff reason,
@@ -10592,37 +10626,33 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   }
 
   if (kind === 'sign_in') {
-    // Typed, then read again: a form the portal draws anew meanwhile (Workday, when what it loads for the
-    // page arrives late) has lost what was typed and its button is another element. It is typed once more,
-    // and the button pressed is the one of the reading made right before the click.
-    let form = snapshot;
-    let typed = false;
     typedSecrets?.add(account.password);
-    for (let attempt = 0; attempt < 2 && !typed; attempt += 1) {
-      const { email, password } = loginFields(form);
-      if (!email || !password) return accountHandoff('account', 'login_unobserved', 'login');
-      const targetEmail = signInEmailValue(email, account.email);
-      // An e-mail already in the field (the agentic fallback typed it where a pasted value does
-      // not stay) is left alone: filling it again would undo it.
-      const emailKept = String(email.value || '').trim().toLowerCase() === targetEmail.toLowerCase();
-      await applyActions(page, form.fields, [
-        ...(emailKept ? [] : [{ fieldId: email.id, action: 'fill', value: targetEmail }]),
-        { fieldId: password.id, action: 'fill', value: account.password },
-      ], {});
-      await page.waitForTimeout(AUTH_TYPED_WAIT_MS);
-      form = await extractFields(page, NAVIGATION);
-      const now = loginFields(form);
-      const expectedEmail = signInEmailValue(now.email || email, account.email).toLowerCase();
-      typed = String(now.email?.value || '').trim().toLowerCase() === expectedEmail
-        && await passwordControlMatches(page, now.password, account.password);
+    const fullEmail = String(account.email || '').trim();
+    const initialEmail = loginFields(snapshot).email;
+    const truncatedEmail = initialEmail ? signInEmailValue(initialEmail, fullEmail) : fullEmail;
+    let attemptResult = await submitSignInForm({
+      page,
+      snapshot,
+      account,
+      targetEmail: fullEmail,
+      preserveFullValue: true,
+      diagnostics,
+    });
+    if ((attemptResult.handoff?.authStop === 'sign_in_typing_unconfirmed'
+      || (!attemptResult.handoff && authPageKind(attemptResult.after) === 'sign_in'))
+      && truncatedEmail !== fullEmail) {
+      const fallbackSource = attemptResult.handoff ? await extractFields(page, NAVIGATION) : attemptResult.after;
+      attemptResult = await submitSignInForm({
+        page,
+        snapshot: fallbackSource,
+        account,
+        targetEmail: truncatedEmail,
+        preserveFullValue: false,
+        diagnostics,
+      });
     }
-    if (!typed) return { ...accountHandoff('account', 'login_unobserved', 'login'), authStop: 'sign_in_typing_unconfirmed' };
-    const shown = form.errors || [];
-    diagnostics?.beforeClick('account');
-    const pressed = await clickFirst(page, form, [SIGN_IN_RE, SUBMIT_RE, NEXT_RE]);
-    if (!pressed) return accountHandoff('account', 'no_sign_in_button', 'login');
-    const after = await awaitAuthOutcome(page, 'sign_in', shown, form.fields);
-    diagnostics?.afterClick();
+    if (attemptResult.handoff) return attemptResult.handoff;
+    const { after, pressed } = attemptResult;
     const postSignInVerificationText = accountResponseText(after);
     const hasActivationPrompt = isAccountVerificationResponse(after)
       || (hasResendVerificationControl(after) && (!codeField(after) || VERIFY_PAGE_RE.test(postSignInVerificationText)));
