@@ -125,6 +125,7 @@ import { dirname, join, resolve } from 'node:path';
 
 import { resolveMergeBase, formatUnresolvableMergeBaseVerdict } from './lib/resolve-merge-base.mjs';
 import { isProcessAlive } from '../lib/single-flight-lock.mjs';
+import { generatedConflictPlan } from './generated-files-registry.mjs';
 import {
   astMatchLabels,
   collectAstFacts,
@@ -182,9 +183,21 @@ const EXCLUDE_PATHSPECS = [
   ':(exclude)node_modules/**',
 ];
 
+/**
+ * Un artefatto GENERATO (registro `generated-files-registry.mjs`: i
+ * `crawler-group-*.yml`, i `*-logic.yml`, `.github/corpus-workflows/*`,
+ * `contract.json`, ...) non e' codice scritto a mano: le sue righe diff non
+ * generano pattern (ogni rigenerazione porta centinaia di slug come «token») e
+ * non e' mai un sibling mancante, perche' lo rigenera il suo generatore. Il
+ * sorgente del generatore resta codice normale. Il registro e' la fonte unica:
+ * nessuna lista duplicata qui.
+ */
+export const isGeneratedArtifact = (f) => generatedConflictPlan([f]).eligible;
+
 const isCodeFile = (f) =>
   CODE_DIRS.some((d) => f === d || f.startsWith(d + '/')) &&
-  !/(^|\/)(data|public|reports|_newsletter_variants|dist|node_modules)\//.test(f);
+  !/(^|\/)(data|public|reports|_newsletter_variants|dist|node_modules)\//.test(f) &&
+  !isGeneratedArtifact(f);
 
 // Token troppo comuni per essere segnale di "classe" condivisa: built-in JS/DOM,
 // idiomi onnipresenti, env globali. Un match qui non distingue un file gemello.

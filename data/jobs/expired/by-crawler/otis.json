@@ -715,15 +715,18 @@
     "expiredAt": "2026-10-08T09:51:43.071Z",
     "previousSlugs": [
       "sales-manager-neukundengewinnung-im-aussendienst-m-w-d-otis-dietlikon",
-      "sales-specialist-neukundengewinnung-im-aussendienst-m-w-d-otis-dietlikon"
+      "sales-specialist-neukundengewinnung-im-aussendienst-m-w-d-otis-dietlikon",
+      "sales-specialist-kundenruckgewinnung-m-w-d-otis-wallisellen"
     ],
     "previousSlugsByLocale": {
       "de": [
-        "sales-manager-neukundengewinnung-im-aussendienst-m-w-d-otis-dietlikon"
+        "sales-manager-neukundengewinnung-im-aussendienst-m-w-d-otis-dietlikon",
+        "sales-specialist-kundenruckgewinnung-m-w-d-otis-wallisellen"
       ],
       "it": [
         "sales-manager-neukundengewinnung-im-aussendienst-m-w-d-otis-dietlikon",
-        "sales-specialist-neukundengewinnung-im-aussendienst-m-w-d-otis-dietlikon"
+        "sales-specialist-neukundengewinnung-im-aussendienst-m-w-d-otis-dietlikon",
+        "sales-specialist-kundenruckgewinnung-m-w-d-otis-wallisellen"
       ],
       "en": [
         "sales-manager-neukundengewinnung-im-aussendienst-m-w-d-otis-dietlikon"
@@ -747,7 +750,15 @@
         "firstSeenAt": "2026-09-24T00:08:03.100Z",
         "title": "Sales Specialist Neukundengewinnung im Aussendienst (m/w/d)"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sales-specialist-kundenruckgewinnung-m-w-d-otis-wallisellen": "ZH"
+      },
+      "de": {
+        "sales-specialist-kundenruckgewinnung-m-w-d-otis-wallisellen": "ZH"
+      }
+    }
   },
   {
     "slug": "tecnico-di-servizio-m-f-d-otis-sa-reinach-289ae0",
