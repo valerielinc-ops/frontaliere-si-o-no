@@ -1,7 +1,7 @@
 {
   "crawlerKey": "postauto",
-  "assembledAt": "2026-11-27T10:02:56.028Z",
-  "runId": "45973528507",
+  "assembledAt": "2026-11-27T21:47:10.039Z",
+  "runId": "46070136903",
   "jobs": [
     {
       "id": "postauto-96f8a42aad22",
@@ -34,7 +34,7 @@
       "url": "https://job.post.ch/default/job/Conductrice-Conducteur-CarPostal/75253-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T10:02:19.047Z",
+      "crawledAt": "2026-11-27T21:46:43.642Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "streetAddress": "Sierre",
@@ -86,8 +86,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://job.post.ch/default/job/conductrice-conducteur-carpostal/75253-fr_fr"
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-a5b0be4bb5ea",
@@ -120,7 +119,7 @@
       "url": "https://job.post.ch/default/job/Conseillerconseill%C3%A8re-%C3%A0-la-client%C3%A8le-Transports-publics%2C-Sion/75303-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T10:02:17.879Z",
+      "crawledAt": "2026-11-27T21:46:42.697Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "streetAddress": "Sion",
@@ -172,8 +171,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://job.post.ch/default/job/conseillerconseill%c3%a8re-%c3%a0-la-client%c3%a8le-transports-publics%2c-sion/75303-fr_fr"
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-d95f40df02dd",
@@ -206,7 +204,7 @@
       "url": "https://job.post.ch/default/job/Auxiliaire-ConductriceConducteur-CarPostal-Transport-scolaire%2C-Aubonne/75188-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T10:02:11.693Z",
+      "crawledAt": "2026-11-27T21:46:40.917Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
@@ -260,8 +258,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://job.post.ch/default/job/auxiliaire-conductriceconducteur-carpostal-transport-scolaire%2c-aubonne/75188-fr_fr"
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-c9dfc5cd0bb6",
@@ -294,7 +291,7 @@
       "url": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/75104-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T10:02:10.412Z",
+      "crawledAt": "2026-11-27T21:46:39.995Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "streetAddress": "Sarnen",
@@ -348,8 +345,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://job.post.ch/default/job/quereinsteigerin-als-postauto-fahrerin/75104-de_de"
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-b7094063a992",
@@ -382,7 +378,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/75144-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T10:02:09.250Z",
+      "crawledAt": "2026-11-27T21:46:39.053Z",
       "addressLocality": "Heiden",
       "addressRegion": "AR",
       "streetAddress": "Heiden",
@@ -434,8 +430,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://job.post.ch/default/job/postauto-fahrerin/75144-de_de"
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-9e66d50ec27c",
@@ -468,7 +463,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/75118-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T10:02:08.123Z",
+      "crawledAt": "2026-11-27T21:46:38.112Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "streetAddress": "Bad Ragaz",
@@ -520,8 +515,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://job.post.ch/default/job/postauto-fahrerin/75118-de_de"
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-ea34851b616b",
@@ -554,7 +548,7 @@
       "url": "https://job.post.ch/default/job/Fachspezialistin-Kundenservice-Inkasso/75246-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T10:02:06.960Z",
+      "crawledAt": "2026-11-27T21:46:37.209Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
@@ -620,8 +614,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://job.post.ch/default/job/fachspezialistin-kundenservice-inkasso/75246-de_de"
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-7960c793677f",
@@ -654,7 +647,7 @@
       "url": "https://job.post.ch/default/job/Teamleiterin-Fahrpersonal/75248-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T10:02:05.594Z",
+      "crawledAt": "2026-11-27T21:46:36.216Z",
       "addressLocality": "Freienbach",
       "addressRegion": "SZ",
       "streetAddress": "Freienbach",
@@ -706,8 +699,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://job.post.ch/default/job/teamleiterin-fahrpersonal/75248-de_de"
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-3fd5df3f5448",
@@ -740,7 +732,7 @@
       "url": "https://job.post.ch/default/job/Fachspezialistin-Umsetzung-Branchenstandards-Kundeninformation/75272-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T10:02:04.438Z",
+      "crawledAt": "2026-11-27T21:46:35.315Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Wankdorfallee 4",
@@ -792,8 +784,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://job.post.ch/default/job/fachspezialistin-umsetzung-branchenstandards-kundeninformation/75272-de_de"
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-802eb2f68ba8",
@@ -826,7 +817,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/75305-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T10:02:03.296Z",
+      "crawledAt": "2026-11-27T21:46:34.314Z",
       "addressLocality": "Hausen am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Hausen am Albis",
@@ -878,8 +869,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://job.post.ch/default/job/postauto-fahrerin/75305-de_de"
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-64ad2ecb9d0c",
@@ -912,7 +902,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/75309-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T10:02:02.139Z",
+      "crawledAt": "2026-11-27T21:46:33.405Z",
       "addressLocality": "Balsthal",
       "addressRegion": "SO",
       "streetAddress": "Balsthal",
@@ -964,8 +954,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://job.post.ch/default/job/postauto-fahrerin/75309-de_de"
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-549b399af46c",
@@ -998,7 +987,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/75337-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T10:02:00.988Z",
+      "crawledAt": "2026-11-27T21:46:32.400Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Wankdorfallee 4",
@@ -1050,8 +1039,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://job.post.ch/default/job/ticketkontrolleurin-und-kundenberatung/75337-de_de"
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-237dea3fddf0",
@@ -1084,7 +1072,7 @@
       "url": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/75338-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T10:01:59.847Z",
+      "crawledAt": "2026-11-27T21:46:31.448Z",
       "addressLocality": "Reichenburg",
       "addressRegion": "SZ",
       "streetAddress": "Reichenburg",
@@ -1136,8 +1124,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://job.post.ch/default/job/quereinsteigerin-als-postauto-fahrerin/75338-de_de"
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-19178501d0b9",
@@ -1170,7 +1157,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/75339-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T10:01:58.687Z",
+      "crawledAt": "2026-11-27T21:46:30.526Z",
       "addressLocality": "Reichenburg",
       "addressRegion": "SZ",
       "streetAddress": "Reichenburg",
@@ -1220,8 +1207,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://job.post.ch/default/job/postauto-fahrerin/75339-de_de"
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-6e94ab29d880",
@@ -1254,7 +1240,7 @@
       "url": "https://job.post.ch/default/job/Mitarbeiterin-Kundenservice-%C3%B6ffentlicher-Verkehr/75304-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T10:01:56.368Z",
+      "crawledAt": "2026-11-27T21:46:28.897Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Wankdorfallee 4",
@@ -1308,8 +1294,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://job.post.ch/default/job/mitarbeiterin-kundenservice-%c3%b6ffentlicher-verkehr/75304-de_de"
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-e386d1060831",
@@ -1342,7 +1327,7 @@
       "url": "https://job.post.ch/default/job/Mitarbeiterin-Kundenservice-%C3%B6ffentlicher-Verkehr/75344-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T10:01:55.228Z",
+      "crawledAt": "2026-11-27T21:46:27.925Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Wankdorfallee 4",
@@ -1390,8 +1375,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://job.post.ch/default/job/mitarbeiterin-kundenservice-%c3%b6ffentlicher-verkehr/75344-de_de"
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-17bc607eec90",
@@ -1424,7 +1408,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/75357-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T10:01:54.177Z",
+      "crawledAt": "2026-11-27T21:46:27.112Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "streetAddress": "Sarnen",
@@ -1474,8 +1458,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://job.post.ch/default/job/postauto-chauffeurin/75357-de_de"
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-e96c5afd4743",
@@ -1562,7 +1545,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://job.post.ch/default/job/sicherheitsspezialistin-%c3%96ffentlicher-verkehr/75095-de_de",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "key": "ecam",
   "label": "Ente Case Anziani Mendrisiotto (ECAM)",
-  "generatedAt": "2026-11-27T09:55:15.866Z",
+  "generatedAt": "2026-11-27T21:45:03.287Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 47119,
-  "avgDurationMs": 47119,
+  "durationMs": 33518,
+  "avgDurationMs": 33518,
   "durationHistory": [
-    47119
+    33518
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.ecam.swiss/wp-content/uploads/2026/01/Concorso-generale-sito-ECAM-2026.pdf",
       "source": "ECAM Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-27T09:54:13.247Z",
+      "crawledAt": "2026-11-27T21:44:19.915Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
       "url": "https://www.ecam.swiss/wp-content/uploads/2026/11/2026_Concorso-Capostruttura-S.-Lucia-100_.pdf",
       "source": "ECAM Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-27T09:54:12.895Z",
+      "crawledAt": "2026-11-27T21:44:19.637Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -117,5 +117,5 @@
       }
     }
   ],
-  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
+  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
 }

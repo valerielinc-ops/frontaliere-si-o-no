@@ -1,5 +1,276 @@
 [
   {
+    "id": "posta-svizzera-centro-regionale-ca794acfc3b3",
+    "slug": "devops-ingegnere-ai-first-development-swiss-post-bellinzona",
+    "title": "DevOps Engineer AI-First Development",
+    "titleByLocale": {
+      "it": "DevOps Ingegnere AI-First Development",
+      "en": "DevOps Engineer AI-First Development",
+      "de": "DevOps Ingenieur AI-First Development",
+      "fr": "DevOps Ingénieur AI-First Development"
+    },
+    "company": "Swiss Post",
+    "companyKey": "posta-svizzera-centro-regionale",
+    "location": "Bellinzona, Bern, Lausanne, Neuchâtel",
+    "canton": "NE",
+    "addressLocality": "Bellinzona, Bern, Lausanne, Neuchâtel",
+    "descriptionByLocale": {
+      "it": "Vuoi costruire una piattaforma AWS greenfield con agenti AI che fanno gran parte dell'implementazione? Sei entusiasta di impostare la direzione tecnica, rivedere l'output generato dall'IA criticamente e prendere la proprietà di ciò che va dal vivo? Ogni giorno, Swiss Post scambia migliaia di file con partner, clienti e sistemi interni, e stiamo spostando questa spina dorsale a AWS. Con voi stiamo costruendo la nuova piattaforma in modo diverso: un ingegnere, che lavora con agenti dell'IA dal primo giorno. Sei tra i primi a Swiss Post a lavorare in questo modo, e quello che imparerai plasma come altre squadre costruiscono software.\n\nCome fare la differenza\n\n- Progettare e implementare la nostra piattaforma di trasferimento di file basata su cloud fin fine su AWS Transfer Family, tra cui SFTP, FTPS e AS2.\n\n- Inoltre, si costruiscono i componenti di supporto con Infrastructure come Code utilizzando servizi Terraform o CDK e AWS come Lambda, Step Functions, S3, SQS, EventBridge e DynamoDB.\n\n- Si automatizza il partner di bordo, gestione utente e chiave, nonché le nostre tubazioni CI/CD.\n\n- Allo stesso tempo, si costruisce la sicurezza e la conformità alla piattaforma attraverso IAM, crittografia, politiche di sicurezza, auditing e registrazione.\n\n- Si assicurano operazioni affidabili attraverso il monitoraggio, l'avviso e la risoluzione dei problemi strutturata e prendere la proprietà quando le cose vanno male (su chiamata).\n\n- Inoltre, si utilizza AI tooling per generare codice, test e documentazione, rivedere criticamente i risultati e decidere cosa è pronto per andare in diretta.\n\n- Condividi i tuoi insegnamenti con il team, aiuta a modellare come usiamo AI in ingegneria e lavoriamo a stretto contatto con gli specialisti del Product Owner e della piattaforma sull'architettura e la roadmap.\n\nCosa hai da offrire\n\n- Hai esperienza AWS pratica, idealmente con AWS Transfer Family o servizi di trasferimento file comparabili come SFTP, FTPS o AS2.\n\n- Inoltre, hai competenze solide in Python, TypeScript o Java e esperienza con Infrastructure come Code e CI/CD.\n\n- Hai una solida base in temi infrastrutturali come networking, sicurezza e Linux e puoi identificare sistematicamente le cause radice quando le cose vanno male.\n\n- Inoltre, avete esperienza pratica utilizzando assistenti AI nella codifica quotidiana e può valutare criticamente quando fidarsi, sfidare o migliorare la loro produzione.\n\n- Si prende la proprietà di ciò che si costruisce, vedere le cose attraverso al completamento e sono curiosi di conoscere argomenti come prodotti MFT, architetture orientate agli eventi e Kafka.\n\n- Hai un buon comando parlato e scritto di inglese e conoscenza di un'altra lingua nazionale è un plus.\n\nNon c'è bisogno di spuntare ogni scatola. Se avete una forte fondazione cloud e siete curiosi del resto, saremo molto felici di sentirvi. Valiamo il potenziale, la curiosità e la volontà di imparare. Aiutaci a trasformare la nostra azienda nel “Swiss Post di domani”!",
+      "en": "Do you want to build a greenfield AWS platform with AI agents doing much of the implementation? Are you excited about setting the technical direction, reviewing AI-generated output critically and taking ownership of what goes live? Every day, Swiss Post exchanges thousands of files with partners, customers and internal systems, and we're moving this backbone to AWS. With you we're building the new platform differently: one engineer, working with AI agents from day one. You're among the first at Swiss Post to work this way, and what you learn will shape how other teams build software.\n\nHow you make a difference\n\n- You design and implement our cloud-based file transfer platform end to end on AWS Transfer Family, including SFTP, FTPS and AS2.\n\n- In addition, you build the supporting components with Infrastructure as Code using Terraform or CDK and AWS services such as Lambda, Step Functions, S3, SQS, EventBridge and DynamoDB.\n\n- You automate partner onboarding, user and key management as well as our CI/CD pipelines.\n\n- At the same time, you build security and compliance into the platform through IAM, encryption, security policies, auditing and logging.\n\n- You ensure reliable operations through monitoring, alerting and structured troubleshooting and take ownership when things go wrong (on call).\n\n- Furthermore, you use AI tooling to generate code, tests and documentation, critically review the results and decide what is ready to go live.\n\n- You share your learnings with the team, help shape how we use AI in engineering and work closely with the Product Owner and platform specialists on architecture and the roadmap.\n\nWhat you have to offer\n\n- You have hands-on AWS experience, ideally with AWS Transfer Family or comparable file transfer services such as SFTP, FTPS or AS2.\n\n- In addition, you have solid skills in Python, TypeScript or Java and experience with Infrastructure as Code and CI/CD.\n\n- You have a strong foundation in infrastructure topics such as networking, security and Linux and can systematically identify root causes when things go wrong.\n\n- Furthermore, you have hands-on experience using AI assistants in your day-to-day coding and can critically assess when to trust, challenge or improve their output.\n\n- You take ownership of what you build, see things through to completion and are curious to learn about topics such as MFT products, event-driven architectures and Kafka.\n\n- You have a very good spoken and written command of English and Knowledge of another national language is a plus.\n\nYou don't need to tick every box. If you have a strong cloud foundation and are curious about the rest, we'd be very happy to hear from you. We value potential, curiosity and the willingness to learn. Help us turn our company into the “Swiss Post of tomorrow”!",
+      "de": "Möchten Sie eine Greenfield-AWS-Plattform mit KI-Agenten aufbauen, die einen Großteil der Implementierung übernehmen? Freuen Sie sich darauf, die technische Richtung festzulegen, KI-generierte Ergebnisse kritisch zu überprüfen und das, was live geht, zu übernehmen? Jeden Tag tauscht die Post Tausende von Dateien mit Partnern, Kunden und internen Systemen aus, und wir verlagern dieses Rückgrat zu AWS. Mit Ihnen bauen wir die neue Plattform anders auf: Ein Ingenieur, der vom ersten Tag an mit KI-Agenten arbeitet. Sie gehören zu den Ersten bei der Schweizerischen Post, die auf diese Weise arbeiten, und was Sie lernen, wird die Art und Weise beeinflussen, wie andere Teams Software erstellen.\n\nWie Sie einen Unterschied machen\n\n- Sie entwerfen und implementieren unsere cloudbasierte Dateiübertragungsplattform Ende an Ende auf AWS Transfer Family, einschließlich SFTP, FTPS und AS2.\n\n- Darüber hinaus erstellen Sie die unterstützenden Komponenten mit Infrastructure as Code mit Terraform oder CDK und AWS Services wie Lambda, Step Functions, S3, SQS, EventBridge und DynamoDB.\n\n- Sie automatisieren Partner-Onboarding, Benutzer- und Schlüsselmanagement sowie unsere CI/CD-Pipelines.\n\n- Gleichzeitig bauen Sie Sicherheit und Compliance durch IAM, Verschlüsselung, Sicherheitsrichtlinien, Auditierung und Protokollierung in die Plattform ein.\n\n- Sie gewährleisten einen zuverlässigen Betrieb durch Überwachung, Alarmierung und strukturierte Fehlerbehebung und übernehmen Verantwortung, wenn etwas schief geht (auf Abruf).\n\n- Darüber hinaus verwenden Sie KI-Tools, um Code, Tests und Dokumentation zu generieren, die Ergebnisse kritisch zu überprüfen und zu entscheiden, was bereit ist, live zu gehen.\n\n- Sie teilen Ihre Erkenntnisse mit dem Team, gestalten mit, wie wir KI im Engineering einsetzen, und arbeiten eng mit dem Product Owner und Plattformspezialisten in Bezug auf Architektur und Roadmap zusammen.\n\nWas Sie zu bieten haben\n\n- Sie haben praktische AWS-Erfahrung, idealerweise mit AWS Transfer Family oder vergleichbaren Dateiübertragungsdiensten wie SFTP, FTPS oder AS2.\n\n- Darüber hinaus verfügen Sie über solide Kenntnisse in Python, TypeScript oder Java und Erfahrung mit Infrastructure as Code und CI/CD.\n\n- Sie haben eine starke Grundlage in Infrastrukturthemen wie Vernetzung, Sicherheit und Linux und können systematisch Ursachen identifizieren, wenn etwas schief geht.\n\n- Darüber hinaus haben Sie praktische Erfahrung mit KI-Assistenten in Ihrer täglichen Codierung und können kritisch beurteilen, wann Sie ihren Ergebnissen vertrauen, sie herausfordern oder verbessern müssen.\n\n- Sie übernehmen das, was Sie bauen, sehen die Dinge bis zur Fertigstellung und sind neugierig auf Themen wie MFT-Produkte, ereignisgesteuerte Architekturen und Kafka.\n\n- Sie haben eine sehr gute gesprochene und schriftliche Beherrschung von Englisch und Kenntnisse einer anderen Landessprache ist ein Plus.\n\nSie müssen nicht jede Box ankreuzen. Wenn Sie eine starke Cloud-Basis haben und neugierig auf den Rest sind, würden wir uns sehr freuen, von Ihnen zu hören. Wir schätzen Potenzial, Neugierde und Lernbereitschaft. Helfen Sie uns, unser Unternehmen zur „Schweizer Post von morgen zu machen!",
+      "fr": "Voulez-vous construire une plate-forme AWS greenfield avec des agents d'IA faisant une grande partie de l'implémentation? Êtes-vous excité par l'orientation technique, l'examen critique de la production d'IA et la prise en charge de ce qui se passe? Chaque jour, Swiss Post échange des milliers de fichiers avec des partenaires, des clients et des systèmes internes, et nous transférons cette colonne vertébrale vers AWS. Avec vous, nous construisons la nouvelle plateforme différemment : un ingénieur, travaillant avec des agents de l'IA dès le premier jour. Vous êtes parmi les premiers à travailler de cette façon à Swiss Post, et ce que vous apprenez façonnera comment d'autres équipes construisent des logiciels.\n\nComment faire une différence\n\n- Vous concevez et implémentez notre plate-forme de transfert de fichiers basée sur le cloud de bout en bout sur AWS Transfer Family, y compris SFTP, FTPS et AS2.\n\n- De plus, vous construisez les composants de support avec Infrastructure comme code en utilisant les services Terraform ou CDK et AWS tels que Lambda, Step Functions, S3, SQS, EventBridge et DynamoDB.\n\n- Vous automatisez les partenaires à bord, la gestion des utilisateurs et des clés ainsi que nos pipelines CI/CD.\n\n- En même temps, vous créez la sécurité et la conformité dans la plate-forme par l'intermédiaire de l'IAM, le cryptage, les politiques de sécurité, l'audit et l'enregistrement.\n\n- Vous assurez la fiabilité des opérations par la surveillance, l'alerte et le dépannage structuré et prenez possession lorsque les choses tournent mal (sur appel).\n\n- De plus, vous utilisez l'outil AI pour générer du code, des tests et de la documentation, examiner les résultats de façon critique et décider ce qui est prêt à aller en direct.\n\n- Vous partagez vos apprentissages avec l'équipe, aidez à façonner l'utilisation de l'IA en ingénierie et travaillez en étroite collaboration avec les spécialistes de l'architecture et de la feuille de route.\n\nCe que vous avez à offrir\n\n- Vous avez l'expérience pratique d'AWS, idéalement avec AWS Transfer Family ou des services de transfert de fichiers comparables tels que SFTP, FTPS ou AS2.\n\n- En outre, vous avez de solides compétences en Python, TypeScript ou Java et l'expérience avec Infrastructure comme Code et CI/CD.\n\n- Vous avez une base solide dans des sujets d'infrastructure tels que le réseautage, la sécurité et Linux et pouvez identifier systématiquement les causes profondes lorsque les choses tournent mal.\n\n- De plus, vous avez une expérience pratique de l'utilisation d'assistants d'IA dans votre codage quotidien et pouvez évaluer de façon critique quand faire confiance, défier ou améliorer leur production.\n\n- Vous prenez en main ce que vous construisez, voyez les choses jusqu'à leur achèvement et êtes curieux d'en apprendre davantage sur des sujets tels que les produits MFT, les architectures animées par des événements et Kafka.\n\n- Vous avez une très bonne maîtrise orale et écrite de l'anglais et la connaissance d'une autre langue nationale est un plus.\n\nTu n'as pas besoin de cocher toutes les boîtes. Si vous avez une forte fondation nuageuse et êtes curieux du reste, nous serions très heureux d'entendre de vous. Nous apprécions le potentiel, la curiosité et la volonté d'apprendre. Aidez-nous à transformer notre entreprise en un message suisse de demain !"
+    },
+    "slugByLocale": {
+      "it": "devops-ingegnere-ai-first-development-swiss-post-bellinzona",
+      "en": "devops-engineer-ai-first-development-post",
+      "de": "devops-ingenieur-ai-first-development-swiss-post-bellinzona",
+      "fr": "devops-ingenieur-ai-first-development-swiss-post-bellinzona"
+    },
+    "sector": "Servizi Postali",
+    "expiredAt": "2026-11-27T21:55:58.114Z",
+    "previousSlugs": [
+      "devops-engineer-ai-first-development-post"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "devops-engineer-ai-first-development-post"
+      ],
+      "de": [
+        "devops-engineer-ai-first-development-post"
+      ],
+      "fr": [
+        "devops-engineer-ai-first-development-post"
+      ]
+    },
+    "postalCode": "2000",
+    "streetAddress": "Bellinzona, Bern, Lausanne, Neuchâtel",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://job.post.ch/default/job/devops-engineer-ai-first-development/75123-en_us",
+    "firstSeenAt": "2026-11-05T21:59:44.228Z"
+  },
+  {
+    "id": "posta-svizzera-centro-regionale-1c16bc77bff5",
+    "slug": "devops-ingegnere-integration-platform-swiss-post-bellinzona",
+    "title": "DevOps Engineer Integration Platform",
+    "titleByLocale": {
+      "it": "DevOps Ingegnere Integration Platform",
+      "en": "DevOps Engineer Integration Platform",
+      "de": "DevOps Ingenieur Integration Platform",
+      "fr": "DevOps Ingénieur Integration Platform"
+    },
+    "company": "Swiss Post",
+    "companyKey": "posta-svizzera-centro-regionale",
+    "location": "Bellinzona, Bern, Lausanne, Neuchâtel",
+    "canton": "NE",
+    "addressLocality": "Bellinzona, Bern, Lausanne, Neuchâtel",
+    "descriptionByLocale": {
+      "it": "Ti piace arrivare in fondo alle cose, se si tratta di un record DNS, di un baccello mancante o di un certificato scaduto? Vuoi costruire ed eseguire una piattaforma che innumerevoli applicazioni Post svizzere dipendono ogni giorno? La nostra piattaforma di integrazione collega Svizzera Sistemi postali in streaming, gestione API, trasferimento file e IoT. Con te, garantiamo che la nostra piattaforma funzioni in modo affidabile, sicuro e su una solida base cloud.\n\nCome fare la differenza\n\n- Costruisci, corri e migliora continuamente i nostri carichi di lavoro su AWS e Kubernetes (EKS), e sai cosa fare quando qualcosa fallisce.\n\n- Inoltre, progetta e automatizza la nostra infrastruttura come codice con moduli puliti e modifiche sicure e tracciabili.\n\n- Si completano le modifiche tramite GitOps, rendendo le implementazioni riproducibili e trasparenti.\n\n- Lungo il percorso, si indagano problemi finiscono per finire attraverso reti, piattaforme e applicazioni, assicurandosi che impariamo da ogni incidente.\n\n- Tenere la nostra piattaforma osservabile e stabile con metriche significative, dashboard e avvisi.\n\n- Inoltre, si lavora a stretto contatto con i nostri team di piattaforma e applicazioni, aiutandoli a muoversi più velocemente e ottenere il massimo dalla nostra piattaforma di integrazione.\n\nCosa hai da offrire\n\n- Hai una solida esperienza nell'esecuzione di carichi di lavoro su Kubernetes, idealmente EKS, tra cui networking, ingresso, RBAC e gestione delle risorse.\n\n- Inoltre, si porta l'esperienza AWS pratica con design VPC, connettività privata (PrivateLink), IAM con meno privilegi e identità di carico di lavoro (IRSA o EKS Pod Identity), così come KMS, Route 53 e bilanciatori di carico.\n\n- Hai forti basi infrastrutturali, tra cui Linux, DNS, TLS/mTLS e bilanciamento del carico, e risolvere i problemi sistematicamente da fine a fine.\n\n- Inoltre, avete esperienza con Infrastructure come Code, come Terraform o OpenTofu, e GitOps utilizzando Argo CD o Flux con Helm e/o Kustomize.\n\n- Hai esperienza con Prometheus, Grafana e allerta, sono disposti a partecipare a follow-up on-call e incidente, e idealmente portare competenze di automazione in Go, Python o Bash.\n\n- Hai un buon comando parlato e scritto di inglese e conoscenza di un'altra lingua nazionale è un plus.\n\nNon è necessario spuntare ogni scatola. Se portate una solida base infrastrutturale e siete curiosi di Kafka, gestione API, GCP, Azure, FinOps, piattaforme di dati o collegare strumenti e agenti AI ai sistemi interni, vorremmo sentire da voi. Ci preoccupiamo di più su come si pensa e come si impara che su un perfetto gioco di parole chiave.\n\nAiutaci a trasformare la nostra azienda in “Swiss Post of Tomorrow”!",
+      "en": "Do you enjoy getting to the bottom of things, whether it’s a DNS record, a failing pod or an expired certificate? Do you want to build and run a platform that countless Swiss Post applications depend on every day? Our Integration Platform connects Swiss Post systems across streaming, API management, file transfer and IoT. With you, we ensure that our platform runs reliably, securely and on a solid cloud foundation.\n\nHow you make a difference\n\n- You build, run and continuously improve our workloads on AWS and Kubernetes (EKS), and you know what to do when something fails.\n\n- In addition, you design and automate our infrastructure as code with clean modules and safe, traceable changes.\n\n- You roll out changes via GitOps, making deployments reproducible and transparent.\n\n- Along the way, you investigate issues end to end across networks, platforms and applications, making sure we learn from every incident.\n\n- You keep our platform observable and stable with meaningful metrics, dashboards and alerts.\n\n- Furthermore, you work closely with our platform and application teams, helping them move faster and get the most out of our Integration Platform.\n\nWhat you have to offer\n\n- You have solid experience running workloads on Kubernetes, ideally EKS, including networking, ingress, RBAC and resource management.\n\n- In addition, you bring hands-on AWS experience with VPC design, private connectivity (PrivateLink), IAM with least privilege and workload identity (IRSA or EKS Pod Identity), as well as KMS, Route 53 and load balancers.\n\n- You have strong infrastructure fundamentals, including Linux, DNS, TLS/mTLS and load balancing, and you troubleshoot issues systematically from end to end.\n\n- Furthermore, you have experience with Infrastructure as Code, such as Terraform or OpenTofu, and GitOps using Argo CD or Flux with Helm and/or Kustomize.\n\n- You have experience with Prometheus, Grafana and alerting, are willing to take part in on-call and incident follow-up, and ideally bring automation skills in Go, Python or Bash.\n\n- You have a very good spoken and written command of English and Knowledge of another national language is a plus.\n\nYou don’t need to tick every box. If you bring a strong infrastructure foundation and are curious about Kafka, API management, GCP, Azure, FinOps, data platforms or connecting AI tools and agents to internal systems, we’d like to hear from you. We care more about how you think and how you learn than about a perfect keyword match. Help us transform our company into the “Swiss Post of tomorrow”!",
+      "de": "Genießen Sie es, den Dingen auf den Grund zu gehen, sei es ein DNS-Eintrag, ein fehlerhafter Pod oder ein abgelaufenes Zertifikat? Möchten Sie eine Plattform aufbauen und betreiben, auf die unzählige Schweizer Post-Anwendungen täglich angewiesen sind? Unsere Integrationsplattform verbindet Schweizer Post-Systeme über Streaming, API-Management, Dateiübertragung und IoT. Mit Ihnen stellen wir sicher, dass unsere Plattform zuverlässig, sicher und auf einer soliden Cloud-Basis läuft.\n\nWie Sie einen Unterschied machen\n\n- Sie erstellen, betreiben und verbessern unsere Workloads kontinuierlich auf AWS und Kubernetes (EKS) und wissen, was zu tun ist, wenn etwas ausfällt.\n\n- Darüber hinaus entwerfen und automatisieren Sie unsere Infrastruktur als Code mit sauberen Modulen und sicheren, nachvollziehbaren Änderungen.\n\n- Sie rollen Änderungen über GitOps aus und machen Bereitstellungen reproduzierbar und transparent.\n\n- Unterwegs untersuchen Sie Probleme Ende an Ende in Netzwerken, Plattformen und Anwendungen und stellen sicher, dass wir aus jedem Vorfall lernen.\n\n- Sie halten unsere Plattform beobachtbar und stabil mit aussagekräftigen Metriken, Dashboards und Warnungen.\n\n- Darüber hinaus arbeiten Sie eng mit unseren Plattform- und Anwendungsteams zusammen und helfen ihnen, sich schneller zu bewegen und das Beste aus unserer Integrationsplattform herauszuholen.\n\nWas Sie zu bieten haben\n\n- Sie haben fundierte Erfahrung mit der Ausführung von Workloads auf Kubernetes, idealerweise EKS, einschließlich Networking, Ingress, RBAC und Ressourcenmanagement.\n\n- Darüber hinaus bringen Sie praktische AWS-Erfahrung mit VPC-Design, privater Konnektivität (PrivateLink), IAM mit der geringsten Berechtigung und Workload-Identität (IRSA oder EKS Pod Identity) sowie KMS, Route 53 und Load Balancern mit.\n\n- Sie haben starke Infrastrukturgrundlagen, einschließlich Linux, DNS, TLS/mTLS und Load Balancing, und Sie beheben Probleme systematisch von Ende zu Ende.\n\n- Darüber hinaus haben Sie Erfahrung mit Infrastructure as Code, wie Terraform oder OpenTofu, und GitOps mit Argo CD oder Flux mit Helm und / oder Kustomize.\n\n- Sie haben Erfahrung mit Prometheus, Grafana und Alarmierung, sind bereit, an der Nachverfolgung von Bereitschaftsdiensten und Vorfällen teilzunehmen und bringen im Idealfall Automatisierungskenntnisse in Go, Python oder Bash mit.\n\n- Sie haben eine sehr gute gesprochene und schriftliche Beherrschung von Englisch und Kenntnisse einer anderen Landessprache ist ein Plus.\n\nSie müssen nicht jede Box ankreuzen. Wenn Sie eine starke Infrastrukturbasis mitbringen und neugierig auf Kafka, API-Management, GCP, Azure, FinOps, Datenplattformen oder die Verbindung von KI-Tools und -Agenten mit internen Systemen sind, würden wir gerne von Ihnen hören. Wir kümmern uns mehr darum, wie sie denken und wie sie lernen, als um eine perfekte keyword-übereinstimmung.\n\nHelfen Sie uns, unser Unternehmen in die „Schweizer Post von morgen zu verwandeln!",
+      "fr": "Aimez-vous arriver au fond des choses, qu'il s'agisse d'un enregistrement DNS, d'un pod défaillant ou d'un certificat expiré? Voulez-vous construire et exécuter une plate-forme dont dépendent chaque jour d'innombrables applications Swiss Post ? Notre plateforme d'intégration relie Swiss Systèmes de poste en streaming, gestion des API, transfert de fichiers et IoT. Avec vous, nous veillons à ce que notre plateforme fonctionne de manière fiable, sécurisée et sur une base cloud solide.\n\nComment faire une différence\n\n- Vous construisez, exécutez et améliorez continuellement nos charges de travail sur AWS et Kubernetes (EKS), et vous savez quoi faire lorsque quelque chose échoue.\n\n- De plus, vous concevez et automatisez notre infrastructure comme code avec des modules propres et des changements sûrs et traçables.\n\n- Vous lancez des changements via GitOps, rendant les déploiements reproductibles et transparents.\n\n- En cours de route, vous enquêtez sur des questions qui se terminent par des réseaux, des plateformes et des applications, en vous assurant que nous apprenons de chaque incident.\n\n- Vous gardez notre plateforme observable et stable avec des mesures significatives, des tableaux de bord et des alertes.\n\n- En outre, vous travaillez en étroite collaboration avec nos équipes de plateformes et d'applications, les aidant à avancer plus rapidement et à tirer le meilleur parti de notre plateforme d'intégration.\n\nCe que vous avez à offrir\n\n- Vous avez une solide expérience de la gestion des charges de travail sur Kubernetes, idéalement EKS, y compris le réseautage, l'entrée, RBAC et la gestion des ressources.\n\n- En outre, vous apportez une expérience pratique AWS avec la conception VPC, la connectivité privée (PrivateLink), IAM avec le moins de privilèges et l'identité de charge de travail (IRSA ou EKS Pod Identity), ainsi que KMS, Route 53 et balanceurs de charge.\n\n- Vous avez de solides fondamentaux d'infrastructure, y compris Linux, DNS, TLS/mTLS et l'équilibrage de charge, et vous dépannez systématiquement les problèmes de bout en bout.\n\n- De plus, vous avez de l'expérience avec les infrastructures comme le code, comme Terraform ou OpenTofu, et GitOps en utilisant Argo CD ou Flux avec Helm et/ou Kustomize.\n\n- Vous avez de l'expérience avec Prométhée, Grafana et alerte, vous êtes prêt à participer au suivi sur appel et incident, et idéalement apporter des compétences d'automatisation dans Go, Python ou Bash.\n\n- Vous avez une très bonne maîtrise orale et écrite de l'anglais et la connaissance d'une autre langue nationale est un plus.\n\nVous n'avez pas besoin de cocher chaque case. Si vous apportez une solide base d'infrastructure et sont curieux au sujet de Kafka, gestion des API, GCP, Azure, FinOps, plates-formes de données ou connecter des outils et des agents d'IA aux systèmes internes, nous aimerions entendre de vous. Nous nous intéressons davantage à votre façon de penser et à votre façon d'apprendre qu'à une correspondance parfaite.\n\nAidez-nous à transformer notre entreprise en un message suisse de demain !"
+    },
+    "slugByLocale": {
+      "it": "devops-ingegnere-integration-platform-swiss-post-bellinzona",
+      "en": "devops-engineer-integration-platform-post",
+      "de": "devops-ingenieur-integration-platform-swiss-post-bellinzona",
+      "fr": "devops-ingenieur-integration-platform-swiss-post-bellinzona"
+    },
+    "sector": "Servizi Postali",
+    "expiredAt": "2026-11-27T21:55:58.114Z",
+    "previousSlugs": [
+      "devops-engineer-integration-platform-post"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "devops-engineer-integration-platform-post"
+      ],
+      "de": [
+        "devops-engineer-integration-platform-post"
+      ],
+      "fr": [
+        "devops-engineer-integration-platform-post"
+      ]
+    },
+    "postalCode": "2000",
+    "streetAddress": "Bellinzona, Bern, Lausanne, Neuchâtel",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://job.post.ch/default/job/devops-engineer-integration-platform/75122-en_us",
+    "firstSeenAt": "2026-11-05T21:59:42.643Z"
+  },
+  {
+    "id": "posta-svizzera-centro-regionale-e6203be808e4",
+    "slug": "software-ingegnere-agentic-ai-agent-platform-die-schweizerische-post-bellinzona",
+    "title": "Software Engineer Agentic AI (Agent Platform)",
+    "titleByLocale": {
+      "it": "Software Ingegnere Agentic AI (Agent Platform)",
+      "en": "Software Engineer Agentic AI (Agent Platform)",
+      "de": "Software Engineer Agentic AI (Agent Platform)",
+      "fr": "Software Ingénieur Agentic AI (Agent Platform)"
+    },
+    "company": "Die Schweizerische Post",
+    "companyKey": "posta-svizzera-centro-regionale",
+    "location": "Bellinzona, Bern, Lausanne, Neuchâtel",
+    "canton": "NE",
+    "addressLocality": "Bellinzona, Bern, Lausanne, Neuchâtel",
+    "descriptionByLocale": {
+      "it": "Pensi agli agenti dell'AI in termini di identità, autorizzazioni e telemetria piuttosto che demo? Vuoi costruire la piattaforma che consente agli sviluppatori di Post svizzeri di lavorare con agenti AI in modo sicuro, tracciabile e a un prezzo ragionevole? Allora potresti essere la persona giusta per noi. Swiss Post IT sta cambiando il modo in cui si sviluppa il software: gli agenti dell'AI assumono una parte crescente del lavoro mentre le persone impostano gli obiettivi, controllano i risultati e controllano i processi. Insieme a voi, costruiamo una piattaforma di livello enterprise per gli agenti dell'AI e la scaleremo da squadre pilota alla nostra organizzazione DevOps.\n\nPuoi farlo.\n\n- Costruisci la piattaforma su cui gestiscono i nostri agenti AI, dall'ambiente runtime agente e dai gateway AI e MCP all'identità e alla gestione degli accessi per persone e agenti. Dove Post ha già blocchi di costruzione adatti, li si integra invece di sviluppare soluzioni parallele.\n\n- Inoltre, implementa le linee guida, le linee guida e le regole di governance in codice e le applica in modo centralizzato – dalla protezione dei dati ai diritti di accesso degli agenti.\n\n- Hai impostato controlli sui costi, quote e avvisi in modo che l'uso rimanga trasparente e i budget sono rispettati.\n\n- Inoltre, definisci e automatizza metriche, linee di base e telemetria, così possiamo mostrare quali cambiamenti quando gli agenti forniscono, non solo quanto spesso vengono utilizzati.\n\n- Fornite modelli di lingua di grandi dimensioni provati e collegate la piattaforma ai nostri strumenti SDLC esistenti.\n\n- Inoltre, si assicura che la piattaforma funziona in modo affidabile e verificabile, in modo che possiamo capire quale agente ha fatto cosa per il cui nome.\n\nLo porti con te.\n\n- Hai diversi anni di esperienza pratica nello sviluppo di software o piattaforma, ad esempio con Go, Python, Java o TypeScript, e hai una solida esperienza con Infrastructure come Code e CI/CD pipelines come GitHub Actions.\n\n- Hai anche esperienza con API, identità e gestione degli accessi (OAuth/OIDC) e piattaforme container o cloud come Kubernetes o AWS.\n\n- Hai una forte comprensione della sicurezza per le piattaforme che eseguono agenti AI, tra cui gestione segreta, autorizzazioni, accesso alla rete, controlli di input e output e privacy.\n\n- Inoltre, si capisce come gli agenti AI lavorano tecnicamente – dal modello API alle chiamate degli strumenti a MCP – e quindi conoscere quali requisiti una piattaforma corrispondente deve soddisfare.\n\n- Hai esperienza nell'uso pragmatico di strumenti GenAI nello sviluppo di software pratico. La conoscenza in aree come gateway AI e MCP, firewall rapidi, policy come Code, FinOps, OpenTelemetry, Backstage e metriche DORA sono vantaggiose, ma può anche essere acquisita da noi.\n\n- Hai ottime capacità di inglese orale e scritta. La conoscenza di una lingua nazionale è un vantaggio.\n\nNon è necessario soddisfare ogni singolo criterio. Se hai costruito e gestito piattaforme su cui gli altri si affidano e sono davvero interessati agli agenti di AI, ci piacerebbe sentire da voi. E 'più importante per noi come si pensa e come si impara che per il vostro profilo di abbinare perfettamente con tutte le parole chiave nella descrizione del lavoro.",
+      "en": "Do you think of AI agents in terms of identities, permissions and telemetry rather than demos? Do you want to build the platform that enables Swiss Post developers to work with AI agents safely, traceably and at a reasonable price? Then you might just be the right person for us. Swiss Post IT is changing the way software is developed: AI agents take on a growing part of the work while people set the goals, check the results and control the processes. Together with you, we build an enterprise-grade platform for AI agents and scale it from pilot teams to our DevOps organization.\n\nYou can do that.\n\n- You build the platform on which our AI agents run, from the agent runtime environment and AI and MCP gateways to identity and access management for people and agents. Where Post already has suitable building blocks, you integrate them instead of developing parallel solutions.\n\n- In addition, you implement guidelines, guidelines and governance rules in code and enforce them centrally – from data protection to agents’ access rights.\n\n- You set up cost controls, quotas and alerts so that use remains transparent and budgets are adhered to.\n\n- You also define and automate metrics, baselines and telemetry, so we can show what changes when agents deliver, not just how often they are used.\n\n- You provide proven Large Language Models and connect the platform to our existing SDLC tools.\n\n- In addition, you ensure that the platform works reliably and verifiably, so that we can understand which agent has done what on whose behalf.\n\nYou bring that with you\n\n- You have several years of practical experience in software or platform development, for example with Go, Python, Java or TypeScript, and have solid experience with Infrastructure as Code and CI/CD pipelines such as GitHub Actions.\n\n- You also have experience with APIs, identity and access management (OAuth/OIDC) and container or cloud platforms such as Kubernetes or AWS.\n\n- You have a strong understanding of security for platforms running AI agents, including secret management, permissions, network access, input and output controls, and privacy.\n\n- In addition, you understand how AI agents work technically – from model APIs to tool calls to MCP – and therefore know what requirements a corresponding platform must meet.\n\n- You have experience in the pragmatic use of GenAI tools in practical software development. Knowledge in areas such as AI and MCP gateways, prompt firewalls, Policy as Code, FinOps, OpenTelemetry, Backstage and DORA metrics are beneficial, but can also be acquired from us.\n\n- You have very good oral and written English skills. Knowledge of a national language is an advantage.\n\nYou don’t have to meet every single criterion. If you’ve built and operated platforms that others rely on and are really interested in AI agents, we’d love to hear from you. It is more important to us how you think and how you learn than for your profile to match perfectly with all keywords in the job description.",
+      "de": "Denkst du bei KI-Agenten eher an Identitäten, Berechtigungen und Telemetrie als an Demos? Möchtest du die Plattform bauen, die es den Entwickler:innen der Schweizerischen Post ermöglicht, sicher, nachvollziehbar und zu einem vertretbaren Preis mit KI-Agenten zu arbeiten? Dann bist du vielleicht genau die richtige Person für uns. Die IT der Schweizerischen Post AG verändert die Art und Weise, wie Software entwickelt wird: KI-Agenten übernehmen einen wachsenden Teil der Arbeit, während die Menschen die Ziele vorgeben, die Ergebnisse überprüfen und die Prozesse steuern. Gemeinsam mit dir bauen wir eine unternehmenstaugliche Plattform für KI-Agenten auf und skalieren sie aus Pilotteams auf unsere DevOps-Organisation.\n\nDas kannst du bewirken\n\n- Du erstellst die Plattform, auf der unsere KI-Agenten laufen, von der Agenten-Laufzeitumgebung sowie KI- und MCP-Gateways bis hin zur Identitäts- und Zugriffsverwaltung für Menschen und Agenten. Wo die Post bereits über geeignete Bausteine verfügt, integrierst du diese, statt parallele Lösungen zu entwickeln.\n\n- Darüber hinaus setzt du Leitplanken, Richtlinien und Governance-Regeln in Code um und setzt sie zentral durch – vom Datenschutz bis hin zu den Zugriffsrechten der Agenten.\n\n- Du richtest Kostenkontrollen, Kontingente und Alerts ein, damit die Nutzung transparent bleibt und Budgets eingehalten werden.\n\n- Zudem definierst und automatisierst du Metriken, Baselines und Telemetrie, sodass wir aufzeigen können, was sich bei der Lieferung durch die Agenten ändert, und nicht nur, wie oft sie verwendet werden.\n\n- Du stellst bewährte Large Language Models bereit und bindest die Plattform an unsere bestehenden SDLC-Tools an.\n\n- Zudem sorgst du dafür, dass die Plattform zuverlässig und überprüfbar arbeitet, damit wir nachvollziehen können, welcher Agent was in wessen Auftrag getan hat.\n\nDas bringst du mit\n\n- Du verfügst über mehrjährige praktische Erfahrung in der Software- oder Plattformentwicklung, beispielsweise mit Go, Python, Java oder TypeScript, und bringst solide Erfahrung mit Infrastructure as Code sowie CI/CD-Pipelines wie GitHub Actions mit.\n\n- Zudem hast du Erfahrung mit APIs, Identitäts- und Zugriffsmanagement (OAuth/OIDC) sowie Container- oder Cloud-Plattformen wie Kubernetes oder AWS.\n\n- Du verfügst über ein ausgeprägtes Sicherheitsverständnis für Plattformen, auf denen KI-Agenten laufen, einschliesslich Geheimnisverwaltung, Berechtigungen, Netzwerkzugriffe, Ein- und Ausgabekontrollen und Datenschutz.\n\n- Darüber hinaus verstehst du, wie KI-Agenten technisch funktionieren – von Modell-APIs über Tool-Aufrufe bis hin zu MCP – und weisst daher, welche Anforderungen eine entsprechende Plattform erfüllen muss.\n\n- Du hast Erfahrung im pragmatischen Einsatz von GenAI-Tools in der praktischen Softwareentwicklung. Kenntnisse in Bereichen wie KI- und MCP-Gateways, Prompt-Firewalls, Policy as Code, FinOps, OpenTelemetry, Backstage und DORA-Metriken sind von Vorteil, können aber auch bei uns erworben werden.\n\n- Du verfügst über sehr gute mündliche und schriftliche Englischkenntnisse. Kenntnisse einer Landessprache sind von Vorteil.\n\nDu musst nicht jedes einzelne Kriterium erfüllen. Wenn du Plattformen gebaut und betrieben hast, auf die sich andere verlassen, und dich wirklich für KI-Agenten interessierst, würden wir uns freuen, von dir hören. Uns ist wichtiger, wie du denkst und wie du lernst, als dass dein Profil perfekt mit sämtlichen Stichworten in der Stellenbeschreibung übereinstimmt.",
+      "fr": "Pensez-vous aux agents de l'IA en termes d'identités, de permissions et de télémétrie plutôt que de démos ? Voulez-vous construire la plateforme qui permet aux développeurs de Swiss Post de travailler avec des agents d'IA en toute sécurité, de manière traçable et à un prix raisonnable ? Alors tu pourrais être la bonne personne pour nous. Swiss Post IT modifie la façon dont le logiciel est développé : les agents d'IA prennent une part croissante du travail alors que les gens fixent les objectifs, vérifient les résultats et contrôlent les processus. Avec vous, nous construisons une plateforme de qualité entreprise pour les agents d'IA et l'élargissons des équipes pilotes à notre organisation DevOps.\n\nTu peux le faire.\n\n- Vous construisez la plateforme sur laquelle nos agents d'IA fonctionnent, depuis l'environnement d'exécution des agents et les passerelles d'IA et MCP jusqu'à la gestion de l'identité et de l'accès pour les personnes et les agents. Lorsque Post a déjà des éléments de construction appropriés, vous les intégrez au lieu de développer des solutions parallèles.\n\n- En outre, vous mettez en œuvre des lignes directrices, des lignes directrices et des règles de gouvernance en code et les appliquez au niveau central – de la protection des données aux droits d'accès des agents.\n\n- Vous avez mis en place des contrôles des coûts, des quotas et des alertes afin que l'utilisation reste transparente et que les budgets soient respectés.\n\n- Vous définissez et automatisez également les mesures, les lignes de base et la télémétrie, de sorte que nous pouvons montrer les changements lorsque les agents fournissent, et pas seulement la fréquence à laquelle ils sont utilisés.\n\n- Vous fournissez des modèles de grande langue éprouvés et connectez la plateforme à nos outils SDLC existants.\n\n- En outre, vous assurez que la plateforme fonctionne de manière fiable et vérifiable, afin que nous puissions comprendre quel agent a fait ce qui pour le compte de qui.\n\nApporte ça avec toi.\n\n- Vous avez plusieurs années d'expérience pratique dans le développement de logiciels ou de plates-formes, par exemple avec Go, Python, Java ou TypeScript, et avez une solide expérience avec Infrastructure comme les pipelines Code et CI/CD comme GitHub Actions.\n\n- Vous avez également de l'expérience avec les API, l'identité et la gestion d'accès (OAuth/OIDC) et les plateformes de conteneur ou de cloud comme Kubernetes ou AWS.\n\n- Vous avez une bonne compréhension de la sécurité pour les plateformes exploitant des agents d'IA, y compris la gestion secrète, les autorisations, l'accès au réseau, les contrôles d'entrée et de sortie, et la confidentialité.\n\n- De plus, vous comprenez comment les agents d'IA fonctionnent techniquement – des API modèles aux appels d'outils au MCP – et savez donc quelles exigences une plateforme correspondante doit satisfaire.\n\n- Vous avez de l'expérience dans l'utilisation pragmatique des outils GenAI dans le développement de logiciels pratiques. Les connaissances dans des domaines tels que les passerelles AI et MCP, les pare-feu rapides, la politique comme Code, FinOps, OpenTelemetry, Backstage et les mesures DORA sont bénéfiques, mais peuvent également être acquises de nous.\n\n- Vous avez de très bonnes compétences en anglais oral et écrit. La connaissance d'une langue nationale est un avantage.\n\nVous n'avez pas à répondre à chaque critère. Si vous avez construit et exploité des plates-formes sur lesquelles les autres comptent et sont vraiment intéressés par les agents d'IA, nous aimerions entendre de vous. Il est plus important pour nous comment vous pensez et comment vous apprenez que pour votre profil de correspondre parfaitement à tous les mots clés dans la description de travail."
+    },
+    "slugByLocale": {
+      "it": "software-ingegnere-agentic-ai-agent-platform-die-schweizerische-post-bellinzona",
+      "en": "software-engineer-agentic-ai-agent-platform-post",
+      "de": "software-engineer-agentic-ai-agent-platform-post",
+      "fr": "software-ingenieur-agentic-ai-agent-platform-die-schweizerische-post-bellinzona"
+    },
+    "sector": "Servizi Postali",
+    "expiredAt": "2026-11-27T21:55:58.114Z",
+    "previousSlugs": [
+      "software-engineer-agentic-ai-agent-platform-post"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "software-engineer-agentic-ai-agent-platform-post"
+      ],
+      "fr": [
+        "software-engineer-agentic-ai-agent-platform-post"
+      ]
+    },
+    "postalCode": "2000",
+    "streetAddress": "Bellinzona, Bern, Lausanne, Neuchâtel",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://job.post.ch/default/job/software-engineer-agentic-ai-%28agent-platform%29/75173-de_de",
+    "firstSeenAt": "2026-11-11T21:40:08.429Z"
+  },
+  {
+    "id": "posta-svizzera-centro-regionale-b3215463782b",
+    "slug": "software-ingegnere-agentic-ai-coding-agent-harness-die-schweizerische-post-bellinzona",
+    "title": "Software Engineer Agentic AI (Coding Agent Harness)",
+    "titleByLocale": {
+      "it": "Software Ingegnere Agentic AI (Coding Agent Harness)",
+      "en": "Software Engineer Agentic AI (Coding Agent Harness)",
+      "de": "Software Engineer Agentic AI (Coding Agent Harness)",
+      "fr": "Software Ingénieur Agentic AI (Coding Agent Harness)"
+    },
+    "company": "Die Schweizerische Post",
+    "companyKey": "posta-svizzera-centro-regionale",
+    "location": "Bern, Bellinzona, Lausanne, Neuchâtel",
+    "canton": "BE",
+    "addressLocality": "Bern",
+    "descriptionByLocale": {
+      "it": "Hai già speso più tempo con suggerimenti, competenze e valutazioni che con il codice della caldaia? Vuoi progettare l'agente di codifica con cui gli sviluppatori del Post lavorano quotidianamente e influenzano ciò che sanno, cosa possono fare e come migliorano? Allora potresti essere la persona giusta per noi. Swiss Post IT sta cambiando il modo in cui si sviluppa il software: gli agenti dell'AI assumono una parte crescente del lavoro mentre le persone impostano gli obiettivi, controllano i risultati e controllano i processi. I nostri sviluppatori lavorano già con agenti di codifica oggi. Con voi, lo trasformiamo in un agente di codifica del Post, su cui una società può contare.\n\nPuoi farlo.\n\n- Specificare, creare, testare e fornire il nostro agente di codifica, che è preconfigurato con competenze, modelli di prompt, regole e plug-in.\n\n- Inoltre, si mantiene la configurazione di base e la nostra libreria di competenze in modo che i team possano ottenere una versione su cui poter contare: controllati, versioneti e facilmente annullati.\n\n- Scriverai competenze, suggerimenti e valutazioni del flusso di lavoro agente in modo che ogni volta che fai un cambiamento, è chiaro se effettivamente migliora l'agente o semplicemente cambia.\n\n- Allo stesso tempo, si integrano meccanismi di sicurezza direttamente negli agenti, come permessi, sandboxing e ganci, in modo che il modo sicuro è anche il modo più semplice.\n\n- Collegate i nostri sistemi interni tramite MCP e valutate nuovi modelli linguistici di grandi dimensioni basati sui compiti reali dei nostri sviluppatori: all'interno.\n\n- Potrai anche lavorare con le squadre pilota e il numero crescente di ingegneri che utilizzano l'agente su base giornaliera e tradurre le intuizioni acquisite in migliori competenze e standard.\n\nLo porti con te.\n\n- Hai diversi anni di esperienza pratica nello sviluppo del software, ad esempio con Python, TypeScript, Go o Java, tra cui API e pipeline CI/CD come GitHub Actions.\n\n- Inoltre, avrete esperienza pratica nella costruzione di soluzioni con grandi modelli di lingua (LLM) e agenti di codifica che vanno oltre il semplice uso di chat, ad esempio sotto forma di competenze, suggerimenti, strumenti, server MCP o flussi di lavoro di agente che sono effettivamente utilizzati in modo produttivo.\n\n- Avrai esperienza utilizzando strumenti GenAI pragmaticamente nello sviluppo software del mondo reale, con una chiara comprensione di dove aggiungono valore e dove il giudizio umano continua ad essere necessario.\n\n- Hai anche un forte senso di sicurezza per gli agenti, tra cui gestione segreta, dipendenze, autorizzazioni, controlli di input e output e privacy.\n\n- Hai ottime capacità di inglese orale e scritta. La conoscenza di una lingua nazionale è un vantaggio.\n\nNon è necessario soddisfare ogni singolo criterio. Se avete una forte fondazione tecnica e avete già sviluppato qualcosa di concreto con gli agenti dell'AI, ci piacerebbe sentire da voi. E 'più importante per noi come si pensa e come si impara che per il vostro profilo di abbinare perfettamente con tutte le parole chiave nella descrizione del lavoro. Aiutaci a rendere la nostra azienda il “post di domani”!",
+      "en": "Do you already spend more time with prompts, skills and evaluations than with boilerplate code? Do you want to design the coding agent that the developers of the Post work with on a daily basis and influence what they know, what they are allowed to do and how they get better? Then you might just be the right person for us. Swiss Post IT is changing the way software is developed: AI agents take on a growing part of the work while people set the goals, check the results and control the processes. Our developers already work with coding agents today. With you, we turn it into a coding agent of the Post, on which a company can rely.\n\nYou can do that.\n\n- You specify, create, test and provide our coding agent, which is pre-configured with skills, prompt templates, rules and plug-ins.\n\n- In addition, you maintain the basic configuration and our skill library so that teams can get a version they can rely on: checked, versioned and easily undone.\n\n- You’ll write skills, prompts, and agent workflow evaluations so that every time you make a change, it’s clear whether it actually improves the agent or just changes it.\n\n- At the same time, you integrate security mechanisms directly into the agents, such as permissions, sandboxing and hooks, so that the safe way is also the easiest way.\n\n- You connect our internal systems via MCP and evaluate new large language models based on the actual tasks of our developers: inside.\n\n- You will also work with the pilot teams and the growing number of engineers who use the agent on a daily basis and translate the insights gained into better skills and standards.\n\nYou bring that with you\n\n- You have several years of practical experience in software development, for example with Python, TypeScript, Go or Java, including APIs and CI/CD pipelines such as GitHub Actions.\n\n- In addition, you will have practical experience in building solutions with large language models (LLMs) and coding agents that go beyond the mere use of chat, for example in the form of skills, prompts, tools, MCP servers or agent workflows that are actually used productively.\n\n- You’ll have experience using GenAI tools pragmatically in real-world software development, with a clear understanding of where they add value and where human judgment continues to be needed.\n\n- You also have a strong sense of security for agents, including secret management, dependencies, permissions, input and output controls, and privacy.\n\n- You have very good oral and written English skills. Knowledge of a national language is an advantage.\n\nYou don’t have to meet every single criterion. If you have a strong technical foundation and have already developed something concrete with AI agents, we would love to hear from you. It is more important to us how you think and how you learn than for your profile to match perfectly with all keywords in the job description. Help us to make our company the “post of tomorrow”!",
+      "de": "Verbringst du bereits mehr Zeit mit Prompts, Skills und Evaluationen als mit Boilerplate-Code? Möchtest du den Coding Agent gestalten, mit dem die Entwickler:innen der Post täglich arbeiten, und beeinflussen, was er weiss, was er tun darf und wie er besser wird? Dann bist du vielleicht genau die richtige Person für uns. Die IT der Schweizerischen Post AG verändert die Art und Weise, wie Software entwickelt wird: KI-Agenten übernehmen einen wachsenden Teil der Arbeit, während die Menschen die Ziele vorgeben, die Ergebnisse überprüfen und die Prozesse steuern. Unsere Entwickler:innen arbeiten bereits heute mit Coding Agents. Mit dir machen wir daraus einen Coding Agent der Post, auf den sich ein Unternehmen verlassen kann.\n\nDas kannst du bewirken\n\n- Du spezifizierst, erstellst, testest und stellst unseren Coding Agent bereit, der mit Skills, Prompt-Vorlagen, Regeln und Plug-ins vorkonfiguriert ist.\n\n- Zusätzlich pflegst du die Basiskonfiguration und unsere Skill-Bibliothek, damit die Teams eine Version erhalten, auf die sie sich verlassen können: geprüft, versioniert und leicht rückgängig zu machen.\n\n- Du schreibst Evaluierungen für Skills, Prompts und Agenten-Workflows, damit bei jeder Änderung ersichtlich ist, ob sie den Agenten tatsächlich verbessert oder ihn lediglich verändert.\n\n- Gleichzeitig integrierst du Sicherheitsmechanismen direkt in den Agenten, beispielsweise Berechtigungen, Sandboxing und Hooks, damit der sichere Weg auch der einfachste Weg ist.\n\n- Du bindest unsere internen Systeme über MCP an und evaluierst neue Large Language Models anhand der tatsächlichen Aufgaben unserer Entwickler:innen.\n\n- Zudem arbeitest du mit den Pilotteams und der wachsenden Anzahl von Engineers zusammen, die den Agenten täglich nutzen, und setzt die gewonnenen Erkenntnisse in bessere Skills und Standards um.\n\nDas bringst du mit\n\n- Du verfügst über mehrjährige praktische Erfahrung in der Softwareentwicklung, beispielsweise mit Python, TypeScript, Go oder Java, inkl. APIs und CI/CD-Pipelines wie GitHub Actions.\n\n- Zudem bringst du praktische Erfahrung im Aufbau von Lösungen mit Large Language Models (LLMs) und Coding Agents mit, die über den reinen Chat-Einsatz hinausgehen, beispielsweise in Form von Skills, Prompts, Tools, MCP-Servern oder Agenten-Workflows, die tatsächlich produktiv genutzt werden.\n\n- Du hast Erfahrung darin, GenAI-Tools pragmatisch in der realen Softwareentwicklung einzusetzen, und verfügst über ein klares Verständnis dafür, wo sie einen Mehrwert schaffen und wo weiterhin menschliches Urteilsvermögen gefragt ist.\n\n- Ausserdem verfügst du über ein ausgeprägtes Sicherheitsverständnis für Agenten, einschliesslich Geheimnisverwaltung, Abhängigkeiten, Berechtigungen, Ein- und Ausgabekontrollen sowie Datenschutz.\n\n- Du verfügst über sehr gute mündliche und schriftliche Englischkenntnisse. Kenntnisse einer Landessprache sind von Vorteil.\n\nDu musst nicht jedes einzelne Kriterium erfüllen. Wenn du ein starkes technisches Fundament mitbringst und bereits etwas Konkretes mit KI-Agenten entwickelt hast, würden wir uns freuen, von dir zu hören. Uns ist wichtiger, wie du denkst und wie du lernst, als dass dein Profil perfekt mit sämtlichen Stichworten in der Stellenbeschreibung übereinstimmt. Hilf uns dabei, unser Unternehmen zur «Post von morgen» zu machen!",
+      "fr": "Passez-vous déjà plus de temps avec des invitations, des compétences et des évaluations qu'avec le code de plaque de chaudière? Voulez-vous concevoir l'agent de codage avec lequel les développeurs du Post travaillent quotidiennement et influencer ce qu'ils savent, ce qu'ils sont autorisés à faire et comment ils s'améliorent? Alors tu pourrais être la bonne personne pour nous. Swiss Post IT modifie la façon dont le logiciel est développé : les agents d'IA prennent une part croissante du travail alors que les gens fixent les objectifs, vérifient les résultats et contrôlent les processus. Nos développeurs travaillent déjà avec des agents de codage aujourd'hui. Avec vous, nous la transformons en agent de codage du Post, sur lequel une entreprise peut compter.\n\nTu peux le faire.\n\n- Vous spécifiez, créez, testez et fournissez notre agent de codage, qui est préconfiguré avec des compétences, des modèles rapides, des règles et des plug-ins.\n\n- En outre, vous maintenez la configuration de base et notre bibliothèque de compétences afin que les équipes puissent obtenir une version sur laquelle elles peuvent compter : cochée, versionnée et facilement désamorcée.\n\n- Vous allez écrire des compétences, des invites et des évaluations de flux de travail d'agent de sorte que chaque fois que vous faites un changement, il est clair si elle améliore réellement l'agent ou simplement le modifie.\n\n- En même temps, vous intégrez les mécanismes de sécurité directement dans les agents, tels que les permissions, le bac à sable et les crochets, de sorte que le moyen de sécurité est également le moyen le plus facile.\n\n- Vous connectez nos systèmes internes via MCP et évaluez de nouveaux grands modèles linguistiques basés sur les tâches réelles de nos développeurs : à l'intérieur.\n\n- Vous travaillerez également avec les équipes pilotes et le nombre croissant d'ingénieurs qui utilisent l'agent quotidiennement et traduisent les connaissances acquises en de meilleures compétences et normes.\n\nApporte ça avec toi.\n\n- Vous avez plusieurs années d'expérience pratique dans le développement de logiciels, par exemple avec Python, TypeScript, Go ou Java, y compris les API et les pipelines CI/CD tels que GitHub Actions.\n\n- En outre, vous aurez une expérience pratique dans la construction de solutions avec de grands modèles de langage (LLM) et des agents de codage qui vont au-delà de la simple utilisation du chat, par exemple sous la forme de compétences, d'invites, d'outils, de serveurs MCP ou de workflows d'agents qui sont effectivement utilisés de manière productive.\n\n- Vous aurez l'expérience d'utiliser les outils GenAI de façon pragmatique dans le développement réel de logiciels, avec une compréhension claire de l'endroit où ils ajoutent de la valeur et où le jugement humain continue d'être nécessaire.\n\n- Vous avez également un fort sentiment de sécurité pour les agents, y compris la gestion secrète, les dépendances, les permissions, les contrôles d'entrée et de sortie, et la confidentialité.\n\n- Vous avez de très bonnes compétences en anglais oral et écrit. La connaissance d'une langue nationale est un avantage.\n\nVous n'avez pas à répondre à chaque critère. Si vous avez une solide base technique et avez déjà développé quelque chose de concret avec des agents d'IA, nous aimerions avoir de vos nouvelles. Il est plus important pour nous comment vous pensez et comment vous apprenez que pour votre profil de correspondre parfaitement à tous les mots clés dans la description de travail. Aidez-nous à faire de notre entreprise le post de demain !"
+    },
+    "slugByLocale": {
+      "it": "software-ingegnere-agentic-ai-coding-agent-harness-die-schweizerische-post-bellinzona",
+      "en": "software-engineer-agentic-ai-coding-agent-harness-post",
+      "de": "software-engineer-agentic-ai-coding-agent-harness-post",
+      "fr": "software-ingenieur-agentic-ai-coding-agent-harness-die-schweizerische-post-bellinzona"
+    },
+    "sector": "Servizi Postali",
+    "expiredAt": "2026-11-27T21:55:58.114Z",
+    "previousSlugs": [
+      "software-engineer-agentic-ai-coding-agent-harness-post"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "software-engineer-agentic-ai-coding-agent-harness-post"
+      ],
+      "fr": [
+        "software-engineer-agentic-ai-coding-agent-harness-post"
+      ]
+    },
+    "postalCode": "3004",
+    "streetAddress": "Bellinzona, Bern, Lausanne, Neuchâtel",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://job.post.ch/default/job/software-engineer-agentic-ai-%28coding-agent-harness%29/75172-de_de",
+    "firstSeenAt": "2026-11-11T21:40:11.330Z"
+  },
+  {
+    "slug": "responsable-de-projets-constructions-et-securite-post",
+    "title": "Responsable de projets constructions et sécurité",
+    "titleByLocale": {
+      "fr": "Responsable de projets constructions et sécurité"
+    },
+    "company": "La Poste Suisse",
+    "companyKey": "posta-svizzera-centro-regionale",
+    "location": "télétravail, Renens VD",
+    "canton": "VD",
+    "addressLocality": "télétravail",
+    "descriptionByLocale": {
+      "fr": "Tu souhaites piloter des projets variés et contribuer à l’évolution des infrastructures immobilières de la Poste ? De la transformation de surfaces à la modernisation des installations techniques et de sécurité, en passant par le développement de solutions énergétiques durables, nos projets offrent des défis stimulants. Tu apprécies les responsabilités, la diversité des projets et la collaboration avec de nombreux partenaires ? Alors rejoins notre équipe et mets ton expertise au service de projets concrets et variés !\n\nFais la différence\n\n- Tu assures de manière autonome la conduite de projets de construction, de transformation et d’installations techniques, de leur planification jusqu’à leur réalisation et leur mise en service.\n\n- Tu pilotes des projets diversifiés, qu’il s’agisse de petites constructions, de transformations et d’aménagements de surfaces, d’installations techniques et de sécurité ou encore de projets liés à l’électromobilité et au photovoltaïque.\n\n- Tu organises les appels d’offres, analyses les propositions et conduis les négociations avec les entreprises, dans le respect des directives internes.\n\n- Tu coordonnes les différents intervenants, notamment les maîtres d’ouvrage, les mandataires, les entreprises et les autorités, et veilles au bon déroulement des projets, y compris les démarches d’autorisation.\n\n- Tu conseilles et accompagnes nos clients internes dans la définition de leurs besoins et la recherche de solutions techniques adaptées.\n\n- Tu assures le suivi des coûts, des délais et de la qualité, organises les réceptions des travaux et veilles à la correction des éventuels défauts.\n\n- Tu garantis un suivi administratif et financier rigoureux de tes projets, notamment à travers le reporting, les décomptes et le contrôle de la facturation.\n\nCe que tu apportes\n\n- Tu disposes d’une formation technique ou dans le domaine de la construction, idéalement complétée par une formation supérieure ou continue en technique du bâtiment, en construction ou en gestion de projets.\n\n- Tu bénéficies d’une expérience confirmée dans la gestion de projets de construction, de transformation ou d’installations techniques du bâtiment.\n\n- Tu travailles de manière autonome et structurée, sais définir les priorités et gardes une bonne vue d’ensemble, même lorsque plusieurs projets avancent simultanément.\n\n- Tu possèdes un bon sens de l’organisation, une communication efficace et une approche orientée solutions. Tu sais fédérer les différents intervenants autour d’objectifs communs.\n\n- Tu maîtrises le français, à l’oral comme à l’écrit, et disposes de bonnes connaissances orales en allemand.\n\n- Tu utilises aisément les outils Microsoft 365. Des connaissances d’AutoCAD constituent un atout.\n\n- Tu possèdes un permis de conduire de catégorie B et es disposé à effectuer des déplacements professionnels."
+    },
+    "slugByLocale": {
+      "fr": "responsable-de-projets-constructions-et-securite-post"
+    },
+    "sector": "Servizi Postali",
+    "expiredAt": "2026-11-27T21:55:50.797Z",
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://job.post.ch/default/job/responsable-de-projets-constructions-et-s%c3%a9curit%c3%a9/75251-fr_fr"
+  },
+  {
+    "slug": "it-programm-lead-strategische-initiativen-post",
+    "title": "IT Programm Lead Strategische Initiativen",
+    "titleByLocale": {
+      "de": "IT Programm Lead Strategische Initiativen"
+    },
+    "company": "Die Schweizerische Post",
+    "companyKey": "posta-svizzera-centro-regionale",
+    "location": "Bellinzona, Bern, Lausanne, Neuchâtel",
+    "canton": "TI",
+    "addressLocality": "Bellinzona",
+    "descriptionByLocale": {
+      "de": "Du willst strategische Ideen in konkrete Lösungen verwandeln und die Zukunft unserer Postfilialen und Self-Service-Angebote mitgestalten? Begeistert es dich Business und IT zusammenzubringen und anspruchsvolle Initiativen voranzubringen? Mit dir entwickeln wir innovative und nachhaltige Lösungen für die Postfilialen und Self-Service Angebote der Zukunft.\n\nDas kannst du bewirken\n\n- Du gestaltest die physischen Zugangspunkte der Zukunft mit und treibst gemeinsam im Team die Digitalisierung, die Neugestaltung des Retail-Coresystems und innovative Selbstbedienungslösungen voran.\n\n- Dabei leitest du strategisch wichtige IT-Initiativen und Programme und verbindest die Anforderungen des Business mit den Möglichkeiten der IT.\n\n- In einem businessnahen Cluster rund um unsere Postfilialen und Self-Service-Angebote begleitest du Projekte und betreust Services – von der ersten Anforderung bis zur Einführung.\n\n- Du erkennst Zusammenhänge, behältst Abhängigkeiten im Blick und bringst deine Erfahrung gezielt ein, um nachhaltige IT-Lösungen voranzutreiben.\n\n- Du übernimmst Verantwortung für Pilotprojekte, evaluierst innovative Ideen und nutzt deine breite Projekterfahrung, um neue Lösungsansätze voranzubringen.\n\n- Gemeinsam mit Business, Architektur und Umsetzungsteams übersetzt du strategische und fachliche Zielbilder in konkrete Vorhaben.\n\nDas bringst du mit\n\n- Du verfügst über eine höhere betriebswirtschaftliche oder technische Ausbildung, idealerweise ergänzt durch eine Weiterbildung in Informatik oder Wirtschaftsinformatik.\n\n- Zudem bringst du mehrjährige Berufserfahrung sowie Erfahrung im IT-Projekt- und Programmmanagement mit und setzt agile Methoden erfolgreich ein.\n\n- Du verbindest fundiertes ICT-Wissen mit betriebswirtschaftlichem Verständnis und übersetzt strategische sowie fachliche Zielbilder in eine konsistente Business-Architektur.\n\n- Darüber hinaus erfasst du neue Sachverhalte schnell, arbeitest selbständig, zielorientiert und gewissenhaft und setzt dich für einen stabilen und zuverlässigen Betrieb der IT-Services ein\n\n- Du überzeugst mit deinem adressatengerechten, positiven und konstruktiven Auftreten und übernimmst auch in einer komplexen IT-Landschaft Verantwortung für mehrere IT-Services.\n\n- Du kommunizierst mündlich und schriftlich gut in einer ersten Landessprache und verfügst über gute Kenntnisse in einer zweiten Landessprache sowie in Englisch."
+    },
+    "slugByLocale": {
+      "de": "it-programm-lead-strategische-initiativen-post"
+    },
+    "sector": "IT",
+    "expiredAt": "2026-11-27T21:55:50.796Z",
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://job.post.ch/default/job/it-programm-lead-strategische-initiativen/75318-de_de"
+  },
+  {
+    "slug": "stv-teamleader-in-betriebstechnik-post",
+    "title": "Stv. Teamleader:in Betriebstechnik",
+    "titleByLocale": {
+      "de": "Stv. Teamleader:in Betriebstechnik"
+    },
+    "company": "Die Schweizerische Post",
+    "companyKey": "posta-svizzera-centro-regionale",
+    "location": "Pratteln",
+    "canton": "BL",
+    "addressLocality": "Pratteln",
+    "descriptionByLocale": {
+      "de": "Interessierst du dich für moderne Produktionsanlagen und technische Prozesse? Möchtest du Führungserfahrung sammeln und gleichzeitig aktiv im Betrieb mitarbeiten? Du sicherst den zuverlässigen Betrieb unserer Produktionsanlagen im Regionalen Paketzentrum Pratteln und entwickelst gleichzeitig unser Team weiter. Mit dir verbinden wir technisches Know-how mit Freude an Führung und einer hohen Einsatzbereitschaft im Tagesgeschäft.\n\nDas kannst du bewirken\n\n- Du führst gemeinsam mit dem Teamleader ein Team von rund fünf Mitarbeitenden, entwickelst dieses weiter und stellst eine offene Kommunikation sowie eine gute Zusammenarbeit im Team sicher.\n\n- Zudem sorgst du für eine hohe Verfügbarkeit und Betriebssicherheit unserer technischen Anlagen und übernimmst Verantwortung bei Wartungs-, Instandsetzungs- und Störungsarbeiten.\n\n- Du planst und koordinierst Wartungs- und Instandhaltungsarbeiten, führst Inspektionen durch und überprüfst die Anlagen auf Funktionsfähigkeit und Sollzustand.\n\n- Darüber hinaus bringst du bei Optimierungen, Umbauten und Inbetriebnahmen dein technisches Wissen ein, erkennst Schwachstellen und entwickelst nachhaltige Verbesserungsvorschläge.\n\n- Du arbeitest aktiv im Tagesgeschäft mit.\n\n- Zusätzlich bist du bereit, Einsätze im 2-Schicht-Betrieb- und Ablösungsdienst zu übernehmen.\n\nDas bringst du mit\n\n- Du verfügst über Grundkenntnisse und eine Affinität im Bereich Mechanik, Elektrik oder in einem vergleichbaren handwerklich-technischen Beruf.\n\n- Zudem bringst du idealerweise Erfahrung in der Instandhaltung technischer Anlagen und Einrichtungen sowie in der Störungsbehebung mit.\n\n- Du willst Führungsaufgaben übernehmen und hast Freude daran, Mitarbeitende zu begleiten, zu fördern und gemeinsam mit ihnen das Team weiterzuentwickeln.\n\n- Darüber hinaus zeichnen dich technisches Verständnis, Eigeninitiative und eine exakte sowie qualitätsbewusste Arbeitsweise aus.\n\n- Du behältst auch in anspruchsvollen Situationen den Überblick, handelst lösungsorientiert und überzeugst mit Teamgeist, Flexibilität und Belastbarkeit. Zudem verfügst du über gute IT-Anwenderkenntnisse, insbesondere in M365; Kenntnisse in SAP sind von Vorteil.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und bist bereit, Schicht- und Ablösungsdienste innerhalb der Organisationseinheit zu übernehmen."
+    },
+    "slugByLocale": {
+      "de": "stv-teamleader-in-betriebstechnik-post"
+    },
+    "sector": "Servizi Postali",
+    "expiredAt": "2026-11-27T21:55:50.796Z",
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://job.post.ch/default/job/stv_-teamleaderin-betriebstechnik/75390-de_de"
+  },
+  {
     "slug": "zusteller-in-briefe-und-pakete-post",
     "title": "Zusteller:in Briefe und Pakete",
     "titleByLocale": {
@@ -1345,7 +1616,33 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.post.ch/default/job/mitarbeiterin-logistik/75354-de_de",
-    "firstSeenAt": "2026-11-26T10:00:31.794Z"
+    "firstSeenAt": "2026-11-26T10:00:31.794Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "addetto-a-alla-logistica-die-schweizerische-post-chur"
+      ],
+      "en": [
+        "mitarbeiter-in-logistik-die-schweizerische-post-chur"
+      ],
+      "fr": [
+        "mitarbeiter-in-logistik-die-schweizerische-post-chur"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "addetto-a-alla-logistica-die-schweizerische-post-chur": "GR"
+      },
+      "en": {
+        "mitarbeiter-in-logistik-die-schweizerische-post-chur": "GR"
+      },
+      "fr": {
+        "mitarbeiter-in-logistik-die-schweizerische-post-chur": "GR"
+      }
+    },
+    "previousSlugs": [
+      "addetto-a-alla-logistica-die-schweizerische-post-chur",
+      "mitarbeiter-in-logistik-die-schweizerische-post-chur"
+    ]
   },
   {
     "slug": "lehre-als-kaufmann-frau-efz-way-up-dienstleistung-und-administration-post",
@@ -2131,6 +2428,76 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74929-de_de",
     "firstSeenAt": "2026-09-07T23:38:38.608Z"
+  },
+  {
+    "id": "posta-svizzera-centro-regionale-34bc8a8e4ae5",
+    "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-gummenen-e0d1ada8",
+    "title": "Zusteller:in Briefe und Pakete",
+    "titleByLocale": {
+      "it": "Corriere di lettere e pacchi",
+      "en": "CourierLetters and Parcels",
+      "de": "Zusteller:in Briefe und Pakete",
+      "fr": "Distributeur :dans les lettres et les colis"
+    },
+    "company": "Die Schweizerische Post",
+    "companyKey": "posta-svizzera-centro-regionale",
+    "location": "Gümmenen",
+    "canton": "BE",
+    "addressLocality": "Gümmenen",
+    "descriptionByLocale": {
+      "it": "Ti piace alzarti presto e cercare un'attività fisicamente impegnativa? Allora si adatta perfettamente a noi! I sogni arrivano in tempo con te!\n\nAnche le viscere laterali: gli internatori sono i benvenuti con noi!\n\nPuoi farlo.\n\n- Al mattino presto (circa 6:00) si caricano i veicoli di consegna insieme al vostro team e preparare il vostro tour di consegna.\n\n- Attraverso il vostro lavoro, modellate il paesaggio urbano della regione Seeland e incarnate i valori di affidabilità e qualità.\n\n- Siete responsabili della consegna puntuale e impeccabile dei pacchi e delle lettere nella vostra zona.\n\n- Nel tuo tour, rispondi alle domande dei nostri clienti e contribuisci alla soddisfazione del cliente.\n\n- Lavori regolarmente il sabato, con i servizi suddivisi in team.\n\nLo porti con te.\n\n- Con la vostra forma fisica, è possibile caricare e sollevare pacchetti fino a 30 kg regolarmente.\n\n- Ti piace essere sulla strada, avere la patente di guida della categoria B e idealmente A1 - o sono pronti a recuperare prima di iniziare il tuo lavoro.\n\n- Apprezzi il lavoro nella squadra, ma ti piace anche viaggiare in modo indipendente e sentirsi a proprio agio con grandi veicoli nel traffico stradale.\n\n- Sei affidabile e veloce.\n\n- Buone competenze tedesche orali e un uso esperto di dispositivi digitali completano il vostro profilo.",
+      "en": "Do you like getting up early and looking for a physically challenging activity? Then you fit perfectly with us! Dreams arrive on time with you!\n\nAlso lateral entrants: insiders are welcome with us!\n\nYou can do that.\n\n- Early in the morning (about 6 a.m.) you load the delivery vehicles together with your team and prepare your delivery tour.\n\n- Through your work, you shape the streetscape of the Seeland region and embody the values of reliability and quality.\n\n- You are responsible for the punctual and impeccable delivery of the parcels and letters in your area.\n\n- On your tour, you answer questions from our customers and contribute to customer satisfaction.\n\n- You work regularly on Saturdays, with the services divided into the team.\n\nYou bring that with you\n\n- With your physical fitness, you can easily load and lift packages up to 30 kg on a regular basis.\n\n- You like to be on the road, have the driving license of category B and ideally A1 - or are ready to catch up before starting your job.\n\n- You appreciate the work in the team but you also like to travel independently and feel comfortable with large vehicles in road traffic.\n\n- You are reliable and work fast.\n\n- Good oral German skills as well as an experienced use of digital devices round off your profile.",
+      "de": "Stehst du gerne früh auf und suchst eine körperlich herausfordernde Tätigkeit? Dann passt du perfekt zu uns! Mit dir kommen Träume pünktlich an!\n\nAuch Quereinsteiger:innen sind bei uns herzlich willkommen!\n\nDas kannst du bewirken\n\n- Frühmorgens (ca. 06.00 Uhr) belädst du gemeinsam mit deinem Team die Zustellfahrzeuge und bereitest deine Zustelltour vor.\n\n- Durch deine Arbeit prägst du das Strassenbild der Region Seeland und verkörperst die Werte Zuverlässigkeit und Qualität.\n\n- Du bist für die pünktliche und einwandfreie Zustellung der Pakete- und Briefe in deinem Gebiet verantwortlich.\n\n- Auf deiner Tour beantwortest du Fragen unserer Kund:innen und trägst zur Kundenzufriedenheit bei.\n\n- Du arbeitest regelmässig an Samstagen, wobei die Dienste im Team aufgeteilt werden.\n\nDas bringst du mit\n\n- Mit deiner körperlichen Fitness verlädst und hebst du problemlos regelmässig Pakete bis 30 kg.\n\n- Du bist gerne unterwegs, besitzt den Führerausweis der Kategorie B und idealerweise A1 - oder bist bereit diesen vor Stellenantritt nachzuholen.\n\n- Du schätzt die Arbeit im Team bist aber auch gerne selbstständig unterwegs und fühlst dich mit grossen Fahrzeugen im Strassenverkehr wohl.\n\n- Du bist zuverlässig und arbeitest speditiv.\n\n- Gute mündliche Deutschkenntnisse sowie ein versierter Umgang mit digitalen Geräten runden dein Profil ab.",
+      "fr": "Vous aimez vous lever tôt et chercher une activité physique difficile? Alors vous vous mariez parfaitement avec nous ! Les rêves arrivent à temps avec vous!\n\nAussi les entrants latéraux: les initiés sont les bienvenus avec nous!\n\nTu peux le faire.\n\n- Tôt le matin (environ 6 heures) vous chargez les véhicules de livraison avec votre équipe et préparez votre visite de livraison.\n\n- Grâce à votre travail, vous façonnez le paysage de rue de la région de Seeland et incarnez les valeurs de fiabilité et de qualité.\n\n- Vous êtes responsable de la livraison ponctuelle et impeccable des colis et des lettres dans votre région.\n\n- Lors de votre visite, vous répondez aux questions de nos clients et contribuez à leur satisfaction.\n\n- Vous travaillez régulièrement le samedi, avec les services divisés en l'équipe.\n\nApporte ça avec toi.\n\n- Avec votre forme physique, vous pouvez facilement charger et soulever des paquets jusqu'à 30 kg sur une base régulière.\n\n- Vous aimez être sur la route, avoir le permis de conduire de catégorie B et idéalement A1 - ou sont prêts à rattraper avant de commencer votre travail.\n\n- Vous appréciez le travail de l'équipe mais vous aimez aussi voyager de façon indépendante et vous sentir à l'aise avec les grands véhicules dans la circulation routière.\n\n- Vous êtes fiable et travaillez vite.\n\n- De bonnes compétences orales allemandes ainsi qu'une utilisation expérimentée des appareils numériques complètent votre profil."
+    },
+    "slugByLocale": {
+      "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-gummenen-e0d1ada8",
+      "en": "courierletters-and-parcels-die-schweizerische-post-gummenen-33430249",
+      "de": "zusteller-in-briefe-und-pakete-post-0aa909a5",
+      "fr": "distributeur-dans-les-lettres-et-les-colis-die-schweizerische-post-gummenen-833bdbfc"
+    },
+    "sector": "Servizi Postali",
+    "expiredAt": "2026-11-25T21:51:10.946Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "zusteller-in-briefe-und-pakete-post-2-d9c43256"
+      ],
+      "en": [
+        "zusteller-in-briefe-und-pakete-post-2-d9c43256"
+      ],
+      "fr": [
+        "zusteller-in-briefe-und-pakete-post-2-d9c43256"
+      ],
+      "de": [
+        "zusteller-in-briefe-und-pakete-post-2-d9c43256"
+      ]
+    },
+    "postalCode": "3205",
+    "streetAddress": "Gümmenen",
+    "salaryMin": 68500,
+    "salaryMax": 104000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74929-de_de",
+    "firstSeenAt": "2026-09-07T23:38:38.608Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "zusteller-in-briefe-und-pakete-post-2-d9c43256": "BE",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-gummenen-e0d1ada8": "BE"
+      },
+      "en": {
+        "zusteller-in-briefe-und-pakete-post-2-d9c43256": "BE",
+        "courierletters-and-parcels-die-schweizerische-post-gummenen-33430249": "BE"
+      },
+      "de": {
+        "zusteller-in-briefe-und-pakete-post-0aa909a5": "BE",
+        "zusteller-in-briefe-und-pakete-post-2-d9c43256": "BE"
+      },
+      "fr": {
+        "zusteller-in-briefe-und-pakete-post-2-d9c43256": "BE",
+        "distributeur-dans-les-lettres-et-les-colis-die-schweizerische-post-gummenen-833bdbfc": "BE"
+      }
+    }
   },
   {
     "id": "posta-svizzera-centro-regionale-78ff70db68b1",
@@ -3049,6 +3416,610 @@
     "firstSeenAt": "2026-09-07T23:38:38.608Z"
   },
   {
+    "id": "posta-svizzera-centro-regionale-d30b12b523e1",
+    "slug": "addetto-a-al-recapito-di-lettere-e-pacchi-die-schweizerische-post-sarnen-495342e8",
+    "title": "Zusteller:in Briefe und Pakete",
+    "titleByLocale": {
+      "it": "Addetto/a al recapito di lettere e pacchi",
+      "en": "Letter and Parcel Delivery Worker",
+      "de": "Zusteller:in Briefe und Pakete",
+      "fr": "Distributeur·rice de lettres et colis"
+    },
+    "company": "Die Schweizerische Post",
+    "companyKey": "posta-svizzera-centro-regionale",
+    "location": "Sarnen",
+    "canton": "OW",
+    "addressLocality": "Sarnen",
+    "descriptionByLocale": {
+      "it": "Ti piace alzarti presto e cercare un'attività fisicamente impegnativa? Allora si adatta perfettamente a noi! Con il vostro senso di orientamento, superate ogni sfida nel traffico stradale.\n\nAnche le viscere laterali: gli internatori sono i benvenuti con noi!\n\nPuoi farlo.\n\n- Al mattino presto (circa 6:00) si caricano i veicoli di consegna insieme al vostro team e preparare il vostro tour di consegna.\n\n- Attraverso il vostro lavoro, modellate il paesaggio urbano della regione e incarnate i valori di affidabilità e qualità.\n\n- Siete responsabili della consegna puntuale e impeccabile dei pacchi e delle lettere nella vostra zona.\n\n- Nel tuo tour, rispondi alle domande dei nostri clienti e contribuisci alla soddisfazione del cliente.\n\n- Lavori regolarmente il sabato, con i servizi suddivisi in team.\n\nLo porti con te.\n\n- Con la vostra forma fisica, è possibile caricare e sollevare pacchetti fino a 30 kg regolarmente.\n\n- Ti piace essere sulla strada, avere la patente di guida della categoria B e idealmente A1 - o sono pronti a recuperare prima di iniziare il tuo lavoro.\n\n- Apprezzi il lavoro nella squadra, ma ti piace anche viaggiare in modo indipendente e sentirsi a proprio agio con grandi veicoli nel traffico stradale.\n\n- Sei affidabile e veloce.\n\n- Buone competenze tedesche orali e un uso esperto di dispositivi digitali completano il vostro profilo.",
+      "en": "Do you like getting up early and looking for a physically challenging activity? Then you fit perfectly with us! With your sense of orientation, you overcome every challenge in road traffic.\n\nAlso lateral entrants: insiders are welcome with us!\n\nYou can do that.\n\n- Early in the morning (about 6 a.m.) you load the delivery vehicles together with your team and prepare your delivery tour.\n\n- Through your work, you shape the streetscape of the region and embody the values of reliability and quality.\n\n- You are responsible for the punctual and impeccable delivery of the parcels and letters in your area.\n\n- On your tour, you answer questions from our customers and contribute to customer satisfaction.\n\n- You work regularly on Saturdays, with the services divided into the team.\n\nYou bring that with you\n\n- With your physical fitness, you can easily load and lift packages up to 30 kg on a regular basis.\n\n- You like to be on the road, have the driving license of category B and ideally A1 - or are ready to catch up before starting your job.\n\n- You appreciate the work in the team but you also like to travel independently and feel comfortable with large vehicles in road traffic.\n\n- You are reliable and work fast.\n\n- Good oral German skills as well as an experienced use of digital devices round off your profile.",
+      "de": "Stehst du gerne früh auf und suchst eine körperlich herausfordernde Tätigkeit? Dann passt du perfekt zu uns! Mit deinem Sinn für Orientierung bewältigst du jede Herausforderung im Strassenverkehr.\n\nAuch Quereinsteiger:innen sind bei uns herzlich willkommen!\n\nDas kannst du bewirken\n\n- Frühmorgens (ca. 06.00 Uhr) belädst du gemeinsam mit deinem Team die Zustellfahrzeuge und bereitest deine Zustelltour vor.\n\n- Durch deine Arbeit prägst du das Strassenbild der Region und verkörperst die Werte Zuverlässigkeit und Qualität.\n\n- Du bist für die pünktliche und einwandfreie Zustellung der Pakete- und Briefe in deinem Gebiet verantwortlich.\n\n- Auf deiner Tour beantwortest du Fragen unserer Kund:innen und trägst zur Kundenzufriedenheit bei.\n\n- Du arbeitest regelmässig an Samstagen, wobei die Dienste im Team aufgeteilt werden.\n\nDas bringst du mit\n\n- Mit deiner körperlichen Fitness verlädst und hebst du problemlos regelmässig Pakete bis 30 kg.\n\n- Du bist gerne unterwegs, besitzt den Führerausweis der Kategorie B und idealerweise A1 - oder bist bereit diesen vor Stellenantritt nachzuholen.\n\n- Du schätzt die Arbeit im Team bist aber auch gerne selbstständig unterwegs und fühlst dich mit grossen Fahrzeugen im Strassenverkehr wohl.\n\n- Du bist zuverlässig und arbeitest speditiv.\n\n- Gute mündliche Deutschkenntnisse sowie ein versierter Umgang mit digitalen Geräten runden dein Profil ab.",
+      "fr": "Vous aimez vous lever tôt et chercher une activité physique difficile? Alors vous vous mariez parfaitement avec nous ! Avec votre sens de l'orientation, vous surmontez tous les défis de la circulation routière.\n\nAussi les entrants latéraux: les initiés sont les bienvenus avec nous!\n\nTu peux le faire.\n\n- Tôt le matin (environ 6 heures) vous chargez les véhicules de livraison avec votre équipe et préparez votre visite de livraison.\n\n- Grâce à votre travail, vous façonnez le paysage urbain de la région et incarnez les valeurs de fiabilité et de qualité.\n\n- Vous êtes responsable de la livraison ponctuelle et impeccable des colis et des lettres dans votre région.\n\n- Lors de votre visite, vous répondez aux questions de nos clients et contribuez à leur satisfaction.\n\n- Vous travaillez régulièrement le samedi, avec les services divisés en l'équipe.\n\nApporte ça avec toi.\n\n- Avec votre forme physique, vous pouvez facilement charger et soulever des paquets jusqu'à 30 kg sur une base régulière.\n\n- Vous aimez être sur la route, avoir le permis de conduire de catégorie B et idéalement A1 - ou sont prêts à rattraper avant de commencer votre travail.\n\n- Vous appréciez le travail de l'équipe mais vous aimez aussi voyager de façon indépendante et vous sentir à l'aise avec les grands véhicules dans la circulation routière.\n\n- Vous êtes fiable et travaillez vite.\n\n- De bonnes compétences orales allemandes ainsi qu'une utilisation expérimentée des appareils numériques complètent votre profil."
+    },
+    "slugByLocale": {
+      "it": "addetto-a-al-recapito-di-lettere-e-pacchi-die-schweizerische-post-sarnen-495342e8",
+      "en": "letter-and-parcel-delivery-worker-die-schweizerische-post-sarnen-1df85a01",
+      "de": "zusteller-in-briefe-und-pakete-post-5a670be6",
+      "fr": "distributeur-rice-de-lettres-et-colis-die-schweizerische-post-sarnen-e9b8a77a"
+    },
+    "sector": "Servizi Postali",
+    "expiredAt": "2026-11-24T21:47:30.389Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "zusteller-in-briefe-und-pakete-post-5a670be6",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sarnen-6cfb298b",
+        "lettere-di-consegna-e-pacchetti-die-schweizerische-post-sarnen-596d9997",
+        "zusteller-in-briefe-und-pakete-post-26928bd3",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sarnen-26766e1a"
+      ],
+      "en": [
+        "zusteller-in-briefe-und-pakete-post-5a670be6",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sarnen",
+        "delivery-in-letters-and-packages-die-schweizerische-post-sarnen-fc1878ad",
+        "zusteller-in-briefe-und-pakete-post-26928bd3"
+      ],
+      "fr": [
+        "zusteller-in-briefe-und-pakete-post-5a670be6",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sarnen",
+        "livraison-en-lettres-et-en-colis-die-schweizerische-post-sarnen-feac9b74",
+        "zusteller-in-briefe-und-pakete-post-26928bd3"
+      ],
+      "de": [
+        "zusteller-in-briefe-und-pakete-post-5a670be6",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sarnen",
+        "zusteller-in-briefe-und-pakete-post-26928bd3"
+      ]
+    },
+    "postalCode": "6060",
+    "streetAddress": "Sarnen",
+    "salaryMin": 69500,
+    "salaryMax": 106000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75137-de_de",
+    "firstSeenAt": "2026-09-07T23:38:38.608Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "zusteller-in-briefe-und-pakete-post-5a670be6": "OW",
+        "addetto-a-al-recapito-di-lettere-e-pacchi-die-schweizerische-post-sarnen-495342e8": "OW",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sarnen-6cfb298b": "OW"
+      },
+      "en": {
+        "zusteller-in-briefe-und-pakete-post-5a670be6": "OW",
+        "letter-and-parcel-delivery-worker-die-schweizerische-post-sarnen-1df85a01": "OW"
+      },
+      "de": {
+        "zusteller-in-briefe-und-pakete-post-5a670be6": "OW"
+      },
+      "fr": {
+        "zusteller-in-briefe-und-pakete-post-5a670be6": "OW",
+        "distributeur-rice-de-lettres-et-colis-die-schweizerische-post-sarnen-e9b8a77a": "OW"
+      }
+    },
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/73703-de_de",
+        "firstSeenAt": "2026-07-28T11:33:26.735Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74118-de_de",
+        "firstSeenAt": "2026-08-18T09:53:33.507Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74126-de_de",
+        "firstSeenAt": "2026-08-24T10:19:32.642Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74364-de_de",
+        "firstSeenAt": "2026-08-18T09:53:33.507Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74367-de_de",
+        "firstSeenAt": "2026-08-18T09:53:33.507Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74368-de_de",
+        "firstSeenAt": "2026-09-02T23:18:12.098Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74400-de_de",
+        "firstSeenAt": "2026-08-31T17:19:19.415Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74401-de_de",
+        "firstSeenAt": "2026-09-02T13:44:27.422Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74402-de_de",
+        "firstSeenAt": "2026-09-01T09:23:41.452Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74433-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74457-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74503-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74527-de_de",
+        "firstSeenAt": "2026-08-18T09:53:33.507Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74554-de_de",
+        "firstSeenAt": "2026-08-19T10:28:22.771Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74555-de_de",
+        "firstSeenAt": "2026-08-18T22:05:09.833Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74568-de_de",
+        "firstSeenAt": "2026-08-19T21:43:55.956Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74569-de_de",
+        "firstSeenAt": "2026-08-20T09:59:43.632Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74584-de_de",
+        "firstSeenAt": "2026-08-25T21:45:31.521Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74590-de_de",
+        "firstSeenAt": "2026-08-25T09:58:39.130Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74593-de_de",
+        "firstSeenAt": "2026-08-24T10:19:32.642Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74611-de_de",
+        "firstSeenAt": "2026-09-02T13:44:27.422Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74612-de_de",
+        "firstSeenAt": "2026-08-26T10:12:04.446Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74615-de_de",
+        "firstSeenAt": "2026-09-04T23:03:21.709Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74620-de_de",
+        "firstSeenAt": "2026-08-27T20:05:14.310Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74624-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74629-de_de",
+        "firstSeenAt": "2026-08-31T17:19:19.415Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74632-de_de",
+        "firstSeenAt": "2026-09-01T23:20:24.540Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74646-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74647-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74648-de_de",
+        "firstSeenAt": "2026-09-01T07:29:45.453Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74649-de_de",
+        "firstSeenAt": "2026-09-01T00:41:46.317Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74665-de_de",
+        "firstSeenAt": "2026-09-03T23:23:55.714Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74666-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74673-de_de",
+        "firstSeenAt": "2026-09-01T14:21:32.831Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74688-de_de",
+        "firstSeenAt": "2026-09-02T23:18:12.098Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74710-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74713-de_de",
+        "firstSeenAt": "2026-09-08T13:47:51.005Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74715-de_de",
+        "firstSeenAt": "2026-09-03T13:42:44.898Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74723-de_de",
+        "firstSeenAt": "2026-07-28T11:33:26.735Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74742-de_de",
+        "firstSeenAt": "2026-09-07T23:38:38.608Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74755-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74768-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74781-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74799-de_de",
+        "firstSeenAt": "2026-09-24T00:13:31.805Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74808-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74826-de_de",
+        "firstSeenAt": "2026-09-23T13:57:56.331Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74830-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74833-de_de",
+        "firstSeenAt": "2026-09-23T12:05:10.032Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74851-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74867-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74885-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74918-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74919-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74927-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74928-de_de",
+        "firstSeenAt": "2026-09-07T23:38:38.608Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74929-de_de",
+        "firstSeenAt": "2026-09-07T23:38:38.608Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74941-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74956-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74958-de_de",
+        "firstSeenAt": "2026-09-07T23:38:38.608Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74965-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74974-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74987-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75000-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75038-de_de",
+        "firstSeenAt": "2026-09-02T13:44:27.422Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75074-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75080-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75082-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75114-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75130-de_de",
+        "firstSeenAt": "2026-09-07T23:38:38.608Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75132-de_de",
+        "firstSeenAt": "2026-09-07T23:38:38.608Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75133-de_de",
+        "firstSeenAt": "2026-09-07T23:38:38.608Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75137-de_de",
+        "firstSeenAt": "2026-09-07T23:38:38.608Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75138-de_de",
+        "firstSeenAt": "2026-09-07T23:38:38.608Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75152-de_de",
+        "firstSeenAt": "2026-09-07T23:38:38.608Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75153-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75155-de_de",
+        "firstSeenAt": "2026-09-07T23:38:38.608Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75156-de_de",
+        "firstSeenAt": "2026-09-07T23:38:38.608Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75164-de_de",
+        "firstSeenAt": "2026-09-07T23:38:38.608Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75167-de_de",
+        "firstSeenAt": "2026-09-07T23:38:38.608Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75185-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75198-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75204-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75205-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75213-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75222-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75236-de_de",
+        "firstSeenAt": "2026-09-02T13:44:27.422Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75242-de_de",
+        "firstSeenAt": "2026-09-02T13:44:27.422Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75243-de_de",
+        "firstSeenAt": "2026-09-02T13:44:27.422Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75244-de_de",
+        "firstSeenAt": "2026-09-02T13:44:27.422Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75245-de_de",
+        "firstSeenAt": "2026-09-02T13:44:27.422Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75254-de_de",
+        "firstSeenAt": "2026-09-02T13:44:27.422Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75261-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75281-de_de",
+        "firstSeenAt": "2026-09-23T12:05:10.032Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75286-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75299-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75300-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75324-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75325-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75326-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75328-de_de",
+        "firstSeenAt": "2026-09-07T23:38:38.608Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75332-de_de",
+        "firstSeenAt": "2026-08-28T05:29:51.419Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75345-de_de",
+        "firstSeenAt": "2026-09-07T23:38:38.608Z",
+        "title": "Zusteller:in Briefe und Pakete"
+      }
+    ],
+    "previousSlugs": [
+      "zusteller-in-briefe-und-pakete-post-5a670be6",
+      "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sarnen-6cfb298b",
+      "lettere-di-consegna-e-pacchetti-die-schweizerische-post-sarnen-596d9997",
+      "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sarnen",
+      "zusteller-in-briefe-und-pakete-post-26928bd3",
+      "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sarnen-26766e1a",
+      "delivery-in-letters-and-packages-die-schweizerische-post-sarnen-fc1878ad",
+      "livraison-en-lettres-et-en-colis-die-schweizerische-post-sarnen-feac9b74"
+    ]
+  },
+  {
     "id": "posta-svizzera-centro-regionale-dac5c2fb038a",
     "slug": "addetto-a-al-recapito-di-lettere-e-pacchi-die-schweizerische-post-sirnach",
     "title": "Zusteller:in Briefe und Pakete",
@@ -3103,6 +4074,80 @@
     "firstSeenAt": "2026-09-07T23:38:38.608Z"
   },
   {
+    "id": "posta-svizzera-centro-regionale-dac5c2fb038a",
+    "slug": "addetto-a-al-recapito-di-lettere-e-pacchi-die-schweizerische-post-sirnach-e05b683f",
+    "title": "Zusteller:in Briefe und Pakete",
+    "titleByLocale": {
+      "it": "Addetto/a al recapito di lettere e pacchi",
+      "en": "Letter and Parcel Delivery Worker",
+      "de": "Zusteller:in Briefe und Pakete",
+      "fr": "Facteur·rice de lettres et de colis"
+    },
+    "company": "Die Schweizerische Post",
+    "companyKey": "posta-svizzera-centro-regionale",
+    "location": "Sirnach",
+    "canton": "TG",
+    "addressLocality": "Sirnach",
+    "descriptionByLocale": {
+      "it": "Ti piace alzarti presto e cercare un'attività fisicamente impegnativa? Allora ci si adatta perfettamente! Con te, i sogni arrivano incolti e in tempo.\n\nAnche le viscere laterali: gli internatori sono i benvenuti con noi!\n\nPuoi farlo.\n\n- Al mattino presto (circa 6:00) si caricano i veicoli di consegna insieme al vostro team e preparare il vostro tour di consegna.\n\n- Attraverso il vostro lavoro formate il paesaggio urbano della regione di Sirnach e incarnate i valori di affidabilità e qualità.\n\n- Siete responsabili della consegna puntuale e impeccabile dei pacchi e delle lettere nella vostra zona.\n\n- Nel tuo tour, rispondi alle domande dei nostri clienti e contribuisci alla soddisfazione del cliente.\n\n- Lavori regolarmente il sabato, con i servizi suddivisi in team.\n\nLo porti con te.\n\n- Con la vostra forma fisica, è possibile caricare e sollevare pacchetti fino a 30 kg regolarmente.\n\n- Ti piace viaggiare e avere la patente di guida delle categorie B e A1.\n\n- Apprezzi il lavoro nella squadra, ma ti piace anche viaggiare in modo indipendente e sentirsi a proprio agio con grandi veicoli nel traffico stradale.\n\n- Sei affidabile e veloce.\n\n- Buone competenze tedesche orali e un uso esperto di dispositivi digitali completano il vostro profilo.",
+      "en": "Do you like getting up early and looking for a physically challenging activity? Then you fit us perfectly! With you, dreams arrive unharmed and on time.\n\nAlso lateral entrants: insiders are welcome with us!\n\nYou can do that.\n\n- Early in the morning (about 6 a.m.) you load the delivery vehicles together with your team and prepare your delivery tour.\n\n- Through your work you shape the streetscape of the Sirnach region and embody the values of reliability and quality.\n\n- You are responsible for the punctual and impeccable delivery of the parcels and letters in your area.\n\n- On your tour, you answer questions from our customers and contribute to customer satisfaction.\n\n- You work regularly on Saturdays, with the services divided into the team.\n\nYou bring that with you\n\n- With your physical fitness, you can easily load and lift packages up to 30 kg on a regular basis.\n\n- You like to travel and have the driving license of categories B and A1.\n\n- You appreciate the work in the team but you also like to travel independently and feel comfortable with large vehicles in road traffic.\n\n- You are reliable and work fast.\n\n- Good oral German skills as well as an experienced use of digital devices round off your profile.",
+      "de": "Stehst du gerne früh auf und suchst eine körperlich herausfordernde Tätigkeit? Dann passt du perfekt zu uns! Mit dir kommen Träume unversehrt und pünktlich an.\n\nAuch Quereinsteiger:innen sind bei uns herzlich willkommen!\n\nDas kannst du bewirken\n\n- Frühmorgens (ca. 06.00 Uhr) belädst du gemeinsam mit deinem Team die Zustellfahrzeuge und bereitest deine Zustelltour vor.\n\n- Durch deine Arbeit prägst du das Strassenbild der Region Sirnach und verkörperst die Werte Zuverlässigkeit und Qualität.\n\n- Du bist für die pünktliche und einwandfreie Zustellung der Pakete- und Briefe in deinem Gebiet verantwortlich.\n\n- Auf deiner Tour beantwortest du Fragen unserer Kund:innen und trägst zur Kundenzufriedenheit bei.\n\n- Du arbeitest regelmässig an Samstagen, wobei die Dienste im Team aufgeteilt werden.\n\nDas bringst du mit\n\n- Mit deiner körperlichen Fitness verlädst und hebst du problemlos regelmässig Pakete bis 30 kg.\n\n- Du bist gerne unterwegs und besitzt den Führerausweis der Kategorien B und A1.\n\n- Du schätzt die Arbeit im Team bist aber auch gerne selbstständig unterwegs und fühlst dich mit grossen Fahrzeugen im Strassenverkehr wohl.\n\n- Du bist zuverlässig und arbeitest speditiv.\n\n- Gute mündliche Deutschkenntnisse sowie ein versierter Umgang mit digitalen Geräten runden dein Profil ab.",
+      "fr": "Vous aimez vous lever tôt et chercher une activité difficile physiquement? Alors tu nous corresponds parfaitement ! Avec toi, les rêves arrivent à l'heure.\n\nAussi les entrants latéraux: les initiés sont les bienvenus avec nous!\n\nTu peux le faire.\n\n- Tôt le matin (environ 6 heures) vous chargez les véhicules de livraison avec votre équipe et préparez votre visite de livraison.\n\n- Grâce à votre travail, vous façonnez le paysage de rue de la région de Sirnach et incarnez les valeurs de fiabilité et de qualité.\n\n- Vous êtes responsable de la livraison ponctuelle et impeccable des colis et des lettres dans votre région.\n\n- Lors de votre visite, vous répondez aux questions de nos clients et contribuez à leur satisfaction.\n\n- Vous travaillez régulièrement le samedi, les services étant divisés en équipe.\n\nApporte ça avec toi.\n\n- Avec votre forme physique, vous pouvez facilement charger et soulever des paquets jusqu'à 30 kg sur une base régulière.\n\n- Vous aimez voyager et avez le permis de conduire des catégories B et A1.\n\n- Vous appréciez le travail de l'équipe mais vous aimez aussi voyager de manière indépendante et vous sentir à l'aise avec les grands véhicules dans la circulation routière.\n\n- Vous êtes fiable et travaillez vite.\n\n- De bonnes compétences orales allemandes ainsi qu'une utilisation expérimentée des appareils numériques complètent votre profil."
+    },
+    "slugByLocale": {
+      "it": "addetto-a-al-recapito-di-lettere-e-pacchi-die-schweizerische-post-sirnach-e05b683f",
+      "en": "letter-and-parcel-delivery-worker-die-schweizerische-post-sirnach-74430467",
+      "de": "zusteller-in-briefe-und-pakete-post-e66e5df3",
+      "fr": "facteur-rice-de-lettres-et-de-colis-die-schweizerische-post-sirnach-2e9c788e"
+    },
+    "sector": "Servizi Postali",
+    "expiredAt": "2026-11-23T21:53:24.973Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "zusteller-in-briefe-und-pakete-post-e66e5df3",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sirnach-2db091a8"
+      ],
+      "en": [
+        "zusteller-in-briefe-und-pakete-post-231681b7",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sirnach"
+      ],
+      "fr": [
+        "zusteller-in-briefe-und-pakete-post-231681b7",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sirnach"
+      ],
+      "de": [
+        "zusteller-in-briefe-und-pakete-post-e66e5df3",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sirnach"
+      ]
+    },
+    "postalCode": "8370",
+    "streetAddress": "Sirnach",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75130-de_de",
+    "firstSeenAt": "2026-09-07T23:38:38.608Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "zusteller-in-briefe-und-pakete-post-e66e5df3": "TG",
+        "addetto-a-al-recapito-di-lettere-e-pacchi-die-schweizerische-post-sirnach-e05b683f": "TG",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sirnach-2db091a8": "TG"
+      },
+      "en": {
+        "zusteller-in-briefe-und-pakete-post-231681b7": "TG",
+        "letter-and-parcel-delivery-worker-die-schweizerische-post-sirnach-74430467": "TG"
+      },
+      "de": {
+        "zusteller-in-briefe-und-pakete-post-e66e5df3": "TG"
+      },
+      "fr": {
+        "zusteller-in-briefe-und-pakete-post-231681b7": "TG",
+        "facteur-rice-de-lettres-et-de-colis-die-schweizerische-post-sirnach-2e9c788e": "TG"
+      }
+    }
+  },
+  {
     "id": "posta-svizzera-centro-regionale-c01f6cdd3238",
     "slug": "addetto-a-alla-consegna-di-lettere-e-pacchi-die-schweizerische-post-butschwil-wattwil",
     "title": "Zusteller:in Briefe und Pakete",
@@ -3155,6 +4200,81 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75138-de_de",
     "firstSeenAt": "2026-09-07T23:38:38.608Z"
+  },
+  {
+    "id": "posta-svizzera-centro-regionale-c01f6cdd3238",
+    "slug": "addetto-a-alla-consegna-di-lettere-e-pacchi-die-schweizerische-post-butschwil-wattwil-a6ba5d5d",
+    "title": "Zusteller:in Briefe und Pakete",
+    "titleByLocale": {
+      "it": "Addetto/a alla consegna di lettere e pacchi",
+      "en": "Letter and parcel delivery worker",
+      "de": "Zusteller:in Briefe und Pakete",
+      "fr": "Distributeur·rice de lettres et de colis"
+    },
+    "company": "Die Schweizerische Post",
+    "companyKey": "posta-svizzera-centro-regionale",
+    "location": "Bütschwil, Wattwil",
+    "canton": "SG",
+    "addressLocality": "Bütschwil",
+    "descriptionByLocale": {
+      "it": "Sei una persona del mattino e ti piace lavorare fuori? Allora avete esattamente ragione con noi, perché con il vostro fitness fisico si consegna pacchetti e lettere rapidamente e in tempo.\n\nAnche le viscere laterali: gli internatori sono i benvenuti con noi!\n\nPuoi farlo.\n\n- Al mattino presto (circa 6:00) si caricano i veicoli di consegna insieme al vostro team e preparare il vostro tour di consegna.\n\n- Attraverso il vostro lavoro, modellate il paesaggio urbano di Bütschwil o Wattwil e incarnate i valori di affidabilità e qualità.\n\n- Siete responsabili della consegna puntuale e impeccabile dei pacchi e delle lettere nella vostra zona.\n\n- Nel tuo tour, rispondi alle domande dei nostri clienti e contribuisci alla soddisfazione del cliente.\n\n- Lavori regolarmente il sabato, con i servizi suddivisi in team.\n\nLo porti con te.\n\n- Con la vostra forma fisica, è possibile caricare e sollevare pacchetti fino a 30 kg regolarmente.\n\n- Ti piace essere sulla strada, avere la patente di guida della categoria B e idealmente A1 - o sono pronti a recuperare prima di iniziare il tuo lavoro.\n\n- Apprezzi il lavoro nella squadra, ma ti piace anche viaggiare in modo indipendente e sentirsi a proprio agio con grandi veicoli nel traffico stradale.\n\n- Sei affidabile e veloce.\n\n- Buone competenze tedesche orali e un uso esperto di dispositivi digitali completano il vostro profilo.",
+      "en": "Are you a morning person and do you like working outside? Then you are exactly right with us, because with your physical fitness you deliver packages and letters quickly and on time.\n\nAlso lateral entrants: insiders are welcome with us!\n\nYou can do that.\n\n- Early in the morning (about 6 a.m.) you load the delivery vehicles together with your team and prepare your delivery tour.\n\n- Through your work, you shape the streetscape of Bütschwil or Wattwil and embody the values of reliability and quality.\n\n- You are responsible for the punctual and impeccable delivery of the parcels and letters in your area.\n\n- On your tour, you answer questions from our customers and contribute to customer satisfaction.\n\n- You work regularly on Saturdays, with the services divided into the team.\n\nYou bring that with you\n\n- With your physical fitness, you can easily load and lift packages up to 30 kg on a regular basis.\n\n- You like to be on the road, have the driving license of category B and ideally A1 - or are ready to catch up before starting your job.\n\n- You appreciate the work in the team but you also like to travel independently and feel comfortable with large vehicles in road traffic.\n\n- You are reliable and work fast.\n\n- Good oral German skills as well as an experienced use of digital devices round off your profile.",
+      "de": "Bist du ein Morgenmensch und arbeitest gerne draussen? Dann bist du bei uns genau richtig, denn mit deiner körperlichen Fitness stellst du Pakete und Briefe speditiv und pünktlich zu.\n\nAuch Quereinsteiger:innen sind bei uns herzlich willkommen!\n\nDas kannst du bewirken\n\n- Frühmorgens (ca. 06.00 Uhr) belädst du gemeinsam mit deinem Team die Zustellfahrzeuge und bereitest deine Zustelltour vor.\n\n- Durch deine Arbeit prägst du das Strassenbild von Bütschwil oder Wattwil und verkörperst die Werte Zuverlässigkeit und Qualität.\n\n- Du bist für die pünktliche und einwandfreie Zustellung der Pakete- und Briefe in deinem Gebiet verantwortlich.\n\n- Auf deiner Tour beantwortest du Fragen unserer Kund:innen und trägst zur Kundenzufriedenheit bei.\n\n- Du arbeitest regelmässig an Samstagen, wobei die Dienste im Team aufgeteilt werden.\n\nDas bringst du mit\n\n- Mit deiner körperlichen Fitness verlädst und hebst du problemlos regelmässig Pakete bis 30 kg.\n\n- Du bist gerne unterwegs, besitzt den Führerausweis der Kategorie B und idealerweise A1 - oder bist bereit diesen vor Stellenantritt nachzuholen.\n\n- Du schätzt die Arbeit im Team bist aber auch gerne selbstständig unterwegs und fühlst dich mit grossen Fahrzeugen im Strassenverkehr wohl.\n\n- Du bist zuverlässig und arbeitest speditiv.\n\n- Gute mündliche Deutschkenntnisse sowie ein versierter Umgang mit digitalen Geräten runden dein Profil ab.",
+      "fr": "Vous aimez travailler dehors ? Ensuite, vous avez exactement raison avec nous, car avec votre condition physique vous livrez des paquets et des lettres rapidement et à temps.\n\nAussi les entrants latéraux: les initiés sont les bienvenus avec nous!\n\nTu peux le faire.\n\n- Tôt le matin (environ 6 heures) vous chargez les véhicules de livraison avec votre équipe et préparez votre visite de livraison.\n\n- Grâce à votre travail, vous façonnez le paysage de rue de Bütschwil ou Wattwil et incarnez les valeurs de fiabilité et de qualité.\n\n- Vous êtes responsable de la livraison ponctuelle et impeccable des colis et des lettres dans votre région.\n\n- Lors de votre visite, vous répondez aux questions de nos clients et contribuez à leur satisfaction.\n\n- Vous travaillez régulièrement le samedi, avec les services divisés en l'équipe.\n\nApporte ça avec toi.\n\n- Avec votre forme physique, vous pouvez facilement charger et soulever des paquets jusqu'à 30 kg sur une base régulière.\n\n- Vous aimez être sur la route, avoir le permis de conduire de catégorie B et idéalement A1 - ou sont prêts à rattraper avant de commencer votre travail.\n\n- Vous appréciez le travail de l'équipe mais vous aimez aussi voyager de façon indépendante et vous sentir à l'aise avec les grands véhicules dans la circulation routière.\n\n- Vous êtes fiable et travaillez vite.\n\n- De bonnes compétences orales allemandes ainsi qu'une utilisation expérimentée des appareils numériques complètent votre profil."
+    },
+    "slugByLocale": {
+      "it": "addetto-a-alla-consegna-di-lettere-e-pacchi-die-schweizerische-post-butschwil-wattwil-a6ba5d5d",
+      "en": "letter-and-parcel-delivery-worker-die-schweizerische-post-butschwil-wattwil-4b1b5ee3",
+      "de": "zusteller-in-briefe-und-pakete-post-ef2835d0",
+      "fr": "distributeur-rice-de-lettres-et-de-colis-die-schweizerische-post-butschwil-wattwil-11813dff"
+    },
+    "sector": "Servizi Postali",
+    "expiredAt": "2026-11-23T21:53:19.882Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "zusteller-in-briefe-und-pakete-post-3-4ee0bd3e",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-butschwil-4700e81a"
+      ],
+      "en": [
+        "zusteller-in-briefe-und-pakete-post-3-4ee0bd3e",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-butschwil"
+      ],
+      "fr": [
+        "zusteller-in-briefe-und-pakete-post-3-4ee0bd3e",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-butschwil"
+      ],
+      "de": [
+        "zusteller-in-briefe-und-pakete-post-3-4ee0bd3e",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-butschwil"
+      ]
+    },
+    "postalCode": "9606",
+    "streetAddress": "Bütschwil",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75138-de_de",
+    "firstSeenAt": "2026-09-07T23:38:38.608Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "zusteller-in-briefe-und-pakete-post-3-4ee0bd3e": "SG",
+        "addetto-a-alla-consegna-di-lettere-e-pacchi-die-schweizerische-post-butschwil-wattwil-a6ba5d5d": "SG",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-butschwil-4700e81a": "SG"
+      },
+      "en": {
+        "zusteller-in-briefe-und-pakete-post-3-4ee0bd3e": "SG",
+        "letter-and-parcel-delivery-worker-die-schweizerische-post-butschwil-wattwil-4b1b5ee3": "SG"
+      },
+      "de": {
+        "zusteller-in-briefe-und-pakete-post-ef2835d0": "SG",
+        "zusteller-in-briefe-und-pakete-post-3-4ee0bd3e": "SG"
+      },
+      "fr": {
+        "zusteller-in-briefe-und-pakete-post-3-4ee0bd3e": "SG",
+        "distributeur-rice-de-lettres-et-de-colis-die-schweizerische-post-butschwil-wattwil-11813dff": "SG"
+      }
+    }
   },
   {
     "id": "posta-svizzera-centro-regionale-5b50958b4f40",
@@ -5859,6 +6979,95 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75074-de_de",
     "firstSeenAt": "2026-08-28T05:29:51.419Z"
+  },
+  {
+    "id": "posta-svizzera-centro-regionale-d207a8c2333c",
+    "slug": "addetto-a-alla-consegna-di-lettere-e-pacchi-die-schweizerische-post-baar-hunenberg-f06cd63c",
+    "title": "Zusteller:in Briefe und Pakete",
+    "titleByLocale": {
+      "it": "Addetto/a alla consegna di lettere e pacchi",
+      "en": "Mail and Parcel Delivery Driver",
+      "de": "Zusteller:in Briefe und Pakete",
+      "fr": "Agent/e de distribution de lettres et de colis"
+    },
+    "company": "Die Schweizerische Post",
+    "companyKey": "posta-svizzera-centro-regionale",
+    "location": "Baar, Hünenberg",
+    "canton": "ZG",
+    "addressLocality": "Baar",
+    "descriptionByLocale": {
+      "it": "Ti piace alzarti presto e cercare un'attività fisicamente impegnativa? Allora ci si adatta perfettamente! Con te portiamo un po' più giallo sulla strada.\n\nPuoi farlo.\n\n- Al mattino presto (circa 6:00) si caricano i veicoli di consegna insieme al vostro team e preparare il vostro tour di consegna.\n\n- Attraverso il vostro lavoro, modellate il paesaggio urbano di Baar o Hünenberg e incarnate i valori di affidabilità e qualità.\n\n- Siete responsabili della consegna puntuale e impeccabile dei pacchi e delle lettere nella vostra zona.\n\n- Nel tuo tour, rispondi alle domande dei nostri clienti e contribuisci alla soddisfazione del cliente.\n\n- Lavori regolarmente il sabato, con i servizi suddivisi in team.\n\nLo porti con te.\n\n- Con la vostra forma fisica, è possibile caricare e sollevare pacchetti fino a 30 kg regolarmente.\n\n- Ti piace essere in strada, avere la patente di categoria B e idealmente A1 - o sono pronti a recuperare prima di iniziare il tuo lavoro.\n\n- Apprezzi il lavoro nella squadra, ma ti piace anche viaggiare in modo indipendente e sentirsi a proprio agio con grandi veicoli nel traffico stradale.\n\n- Sei affidabile e veloce.\n\n- Buone competenze tedesche orali e un uso esperto di dispositivi digitali completano il vostro profilo.",
+      "en": "Do you like getting up early and looking for a physically challenging activity? Then you fit us perfectly! With you we bring a little more yellow on the road.\n\nYou can do that.\n\n- Early in the morning (about 6 a.m.) you load the delivery vehicles together with your team and prepare your delivery tour.\n\n- Through your work, you shape the streetscape of Baar or Hünenberg and embody the values of reliability and quality.\n\n- You are responsible for the punctual and impeccable delivery of the parcels and letters in your area.\n\n- On your tour, you answer questions from our customers and contribute to customer satisfaction.\n\n- You work regularly on Saturdays, with the services divided into the team.\n\nYou bring that with you\n\n- With your physical fitness, you can easily load and lift packages up to 30 kg on a regular basis.\n\n- You like to be on the road, have the category B driver's license and ideally A1 - or are ready to catch up before starting your job.\n\n- You appreciate the work in the team but you also like to travel independently and feel comfortable with large vehicles in road traffic.\n\n- You are reliable and work fast.\n\n- Good oral German skills as well as an experienced use of digital devices round off your profile.",
+      "de": "Stehst du gerne früh auf und suchst eine körperlich herausfordernde Tätigkeit? Dann passt du perfekt zu uns! Mit dir bringen wir ein bisschen mehr Gelb auf die Strasse.\n\nDas kannst du bewirken\n\n- Frühmorgens (ca. 06.00 Uhr) belädst du gemeinsam mit deinem Team die Zustellfahrzeuge und bereitest deine Zustelltour vor.\n\n- Durch deine Arbeit prägst du das Strassenbild von Baar oder Hünenberg und verkörperst die Werte Zuverlässigkeit und Qualität.\n\n- Du bist für die pünktliche und einwandfreie Zustellung der Pakete- und Briefe in deinem Gebiet verantwortlich.\n\n- Auf deiner Tour beantwortest du Fragen unserer Kund:innen und trägst zur Kundenzufriedenheit bei.\n\n- Du arbeitest regelmässig an Samstagen, wobei die Dienste im Team aufgeteilt werden.\n\nDas bringst du mit\n\n- Mit deiner körperlichen Fitness verlädst und hebst du problemlos regelmässig Pakete bis 30 kg.\n\n- Du bist gerne unterwegs, besitzt den Führerausweis der Kategorie B und idealerweise A1 - oder bist bereit diesen vor Stellenantritt nachzuholen.\n\n- Du schätzt die Arbeit im Team bist aber auch gerne selbstständig unterwegs und fühlst dich mit grossen Fahrzeugen im Strassenverkehr wohl.\n\n- Du bist zuverlässig und arbeitest speditiv.\n\n- Gute mündliche Deutschkenntnisse sowie ein versierter Umgang mit digitalen Geräten runden dein Profil ab.",
+      "fr": "Vous aimez vous lever tôt et chercher une activité difficile physiquement? Alors tu nous corresponds parfaitement ! Avec toi, on amène un peu plus de jaune sur la route.\n\nTu peux le faire.\n\n- Tôt le matin (environ 6 heures) vous chargez les véhicules de livraison avec votre équipe et préparez votre visite de livraison.\n\n- Grâce à votre travail, vous façonnez le paysage de rue de Baar ou Hünenberg et incarnez les valeurs de fiabilité et de qualité.\n\n- Vous êtes responsable de la livraison ponctuelle et impeccable des colis et des lettres dans votre région.\n\n- Lors de votre visite, vous répondez aux questions de nos clients et contribuez à leur satisfaction.\n\n- Vous travaillez régulièrement le samedi, les services étant divisés en équipe.\n\nApporte ça avec toi.\n\n- Avec votre forme physique, vous pouvez facilement charger et soulever des paquets jusqu'à 30 kg sur une base régulière.\n\n- Vous aimez être sur la route, avoir le permis de conduire de catégorie B et idéalement A1 - ou sont prêts à rattraper avant de commencer votre travail.\n\n- Vous appréciez le travail de l'équipe mais vous aimez aussi voyager de manière indépendante et vous sentir à l'aise avec les grands véhicules dans la circulation routière.\n\n- Vous êtes fiable et travaillez vite.\n\n- De bonnes compétences orales allemandes ainsi qu'une utilisation expérimentée des appareils numériques complètent votre profil."
+    },
+    "slugByLocale": {
+      "it": "addetto-a-alla-consegna-di-lettere-e-pacchi-die-schweizerische-post-baar-hunenberg-f06cd63c",
+      "en": "mail-and-parcel-delivery-driver-die-schweizerische-post-baar-hunenberg-321bbeb7",
+      "de": "zusteller-in-briefe-und-pakete-post-c705fddc",
+      "fr": "agent-e-de-distribution-de-lettres-et-de-colis-die-schweizerische-post-baar-hunenberg-d0c37f1d"
+    },
+    "sector": "Servizi Postali",
+    "expiredAt": "2026-11-19T21:51:39.301Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "zusteller-in-briefe-und-pakete-post-c705fddc",
+        "addetta-addetto-al-recapito-di-lettere-e-pacchi-die-schweizerische-post-baar-hunenberg-223f6ad8",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-baar-hunenberg-edcb6d96",
+        "letter-and-parcel-delivery-worker-die-schweizerische-post-baar-hunenberg",
+        "facteur-rice-de-lettres-et-de-colis-die-schweizerische-post-baar-hunenberg"
+      ],
+      "en": [
+        "letter-and-parcel-delivery-worker-die-schweizerische-post-baar-hunenberg-05ad86e8",
+        "zusteller-in-briefe-und-pakete-post-e6366c55",
+        "addetta-addetto-al-recapito-di-lettere-e-pacchi-die-schweizerische-post-baar-hunenberg",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-baar-hunenberg",
+        "facteur-rice-de-lettres-et-de-colis-die-schweizerische-post-baar-hunenberg"
+      ],
+      "fr": [
+        "facteur-rice-de-lettres-et-de-colis-die-schweizerische-post-baar-hunenberg-7ef4a1c2",
+        "zusteller-in-briefe-und-pakete-post-e6366c55",
+        "addetta-addetto-al-recapito-di-lettere-e-pacchi-die-schweizerische-post-baar-hunenberg",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-baar-hunenberg",
+        "letter-and-parcel-delivery-worker-die-schweizerische-post-baar-hunenberg"
+      ],
+      "de": [
+        "zusteller-in-briefe-und-pakete-post-c705fddc",
+        "addetta-addetto-al-recapito-di-lettere-e-pacchi-die-schweizerische-post-baar-hunenberg",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-baar-hunenberg",
+        "letter-and-parcel-delivery-worker-die-schweizerische-post-baar-hunenberg",
+        "facteur-rice-de-lettres-et-de-colis-die-schweizerische-post-baar-hunenberg"
+      ]
+    },
+    "postalCode": "6340",
+    "streetAddress": "Baar, Hünenberg",
+    "salaryMin": 69500,
+    "salaryMax": 106000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75074-de_de",
+    "firstSeenAt": "2026-08-28T05:29:51.419Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "zusteller-in-briefe-und-pakete-post-c705fddc": "ZG",
+        "addetto-a-alla-consegna-di-lettere-e-pacchi-die-schweizerische-post-baar-hunenberg-f06cd63c": "ZG",
+        "addetta-addetto-al-recapito-di-lettere-e-pacchi-die-schweizerische-post-baar-hunenberg-223f6ad8": "ZG",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-baar-hunenberg-edcb6d96": "ZG"
+      },
+      "en": {
+        "zusteller-in-briefe-und-pakete-post-e6366c55": "ZG",
+        "mail-and-parcel-delivery-driver-die-schweizerische-post-baar-hunenberg-321bbeb7": "ZG",
+        "letter-and-parcel-delivery-worker-die-schweizerische-post-baar-hunenberg-05ad86e8": "ZG"
+      },
+      "de": {
+        "zusteller-in-briefe-und-pakete-post-c705fddc": "ZG"
+      },
+      "fr": {
+        "zusteller-in-briefe-und-pakete-post-e6366c55": "ZG",
+        "agent-e-de-distribution-de-lettres-et-de-colis-die-schweizerische-post-baar-hunenberg-d0c37f1d": "ZG",
+        "facteur-rice-de-lettres-et-de-colis-die-schweizerische-post-baar-hunenberg-7ef4a1c2": "ZG"
+      }
+    }
   },
   {
     "id": "posta-svizzera-centro-regionale-d4f661f21eb5",
@@ -27890,573 +29099,6 @@
         "zusteller-in-briefe-und-pakete-post-6eff9a2c": "BE"
       }
     }
-  },
-  {
-    "slug": "lettere-di-consegna-e-pacchetti-die-schweizerische-post-sarnen-596d9997",
-    "title": "Zusteller:in Briefe und Pakete",
-    "titleByLocale": {
-      "it": "Zusteller:in lettere e pacchi",
-      "en": "Delivery letters and packages",
-      "de": "Zusteller:in Briefe und Pakete",
-      "fr": "Lettres de livraison et colis"
-    },
-    "company": "Die Schweizerische Post",
-    "companyKey": "posta-svizzera-centro-regionale",
-    "location": "Sarnen",
-    "addressLocality": "Sarnen",
-    "descriptionByLocale": {
-      "it": "Stehst du gerne früh auf und suchst eine körperlich herausfordernde Tätigkeit? Dann passt du perfekt zu uns! Mit deinem Sinn für Orientierung bewältigst du jede Herausforderung im Strassenverkehr.\n\nAuch Quereinsteiger:innen sind bei uns herzlich willkommen!\n\nDas kannst du bewirken\n\n- Frühmorgens (ca. 06.00 Uhr) belädst du gemeinsam mit deinem Team die Zustellfahrzeuge und bereitest deine Zustelltour vor.\n\n- Durch deine Arbeit prägst du das Strassenbild der Region und verkörperst die Werte Zuverlässigkeit und Qualität.\n\n- Du bist für die pünktliche und einwandfreie Zustellung der Pakete- und Briefe in deinem Gebiet verantwortlich.\n\n- Auf deiner Tour beantwortest du Fragen unserer Kund:innen und trägst zur Kundenzufriedenheit bei.\n\n- Du arbeitest regelmässig an Samstagen, wobei die Dienste im Team aufgeteilt werden.\n\nDas bringst du mit\n\n- Mit deiner körperlichen Fitness verlädst und hebst du problemlos regelmässig Pakete bis 30 kg.\n\n- Du bist gerne unterwegs, besitzt den Führerausweis der Kategorie B und idealerweise A1 - oder bist bereit diesen vor Stellenantritt nachzuholen.\n\n- Du schätzt die Arbeit im Team bist aber auch gerne selbstständig unterwegs und fühlst dich mit grossen Fahrzeugen im Strassenverkehr wohl.\n\n- Du bist zuverlässig und arbeitest speditiv.\n\n- Gute mündliche Deutschkenntnisse sowie ein versierter Umgang mit digitalen Geräten runden dein Profil ab.",
-      "en": "Do you like getting up early and looking for a physically challenging activity? Then you fit perfectly with us! With your sense of orientation, you overcome every challenge in road traffic.\n\nAlso lateral entrants: insiders are welcome with us!\n\nYou can do that.\n\n- Early in the morning (about 6 a.m.) you load the delivery vehicles together with your team and prepare your delivery tour.\n\n- Through your work, you shape the streetscape of the region and embody the values of reliability and quality.\n\n- You are responsible for the punctual and impeccable delivery of parcels and letters in your area.\n\n- On your tour, you answer questions from our customers and contribute to customer satisfaction.\n\n- You work regularly on Saturdays, with the services divided into the team.\n\nYou bring that with you\n\n- With your physical fitness, you can easily load and lift packages up to 30 kg on a regular basis.\n\n- You like to be on the road, have the driving license of category B and ideally A1 - or are ready to catch up before starting your job.\n\n- You appreciate the work in the team but you also like to travel independently and feel comfortable with large vehicles in road traffic.\n\n- You are reliable and work fast.\n\n- Good oral German skills as well as an experienced use of digital devices round off your profile.",
-      "de": "Stehst du gerne früh auf und suchst eine körperlich herausfordernde Tätigkeit? Dann passt du perfekt zu uns! Mit deinem Sinn für Orientierung bewältigst du jede Herausforderung im Strassenverkehr.\n\nAuch Quereinsteiger:innen sind bei uns herzlich willkommen!\n\nDas kannst du bewirken\n\n- Frühmorgens (ca. 06.00 Uhr) belädst du gemeinsam mit deinem Team die Zustellfahrzeuge und bereitest deine Zustelltour vor.\n\n- Durch deine Arbeit prägst du das Strassenbild der Region und verkörperst die Werte Zuverlässigkeit und Qualität.\n\n- Du bist für die pünktliche und einwandfreie Zustellung der Pakete- und Briefe in deinem Gebiet verantwortlich.\n\n- Auf deiner Tour beantwortest du Fragen unserer Kund:innen und trägst zur Kundenzufriedenheit bei.\n\n- Du arbeitest regelmässig an Samstagen, wobei die Dienste im Team aufgeteilt werden.\n\nDas bringst du mit\n\n- Mit deiner körperlichen Fitness verlädst und hebst du problemlos regelmässig Pakete bis 30 kg.\n\n- Du bist gerne unterwegs, besitzt den Führerausweis der Kategorie B und idealerweise A1 - oder bist bereit diesen vor Stellenantritt nachzuholen.\n\n- Du schätzt die Arbeit im Team bist aber auch gerne selbstständig unterwegs und fühlst dich mit grossen Fahrzeugen im Strassenverkehr wohl.\n\n- Du bist zuverlässig und arbeitest speditiv.\n\n- Gute mündliche Deutschkenntnisse sowie ein versierter Umgang mit digitalen Geräten runden dein Profil ab.",
-      "fr": "Vous aimez vous lever tôt et chercher une activité physique difficile? Alors vous vous mariez parfaitement avec nous ! Avec votre sens de l'orientation, vous surmontez tous les défis de la circulation routière.\n\nAussi les entrants latéraux: les initiés sont les bienvenus avec nous!\n\nTu peux le faire.\n\n- Tôt le matin (environ 6 heures) vous chargez les véhicules de livraison avec votre équipe et préparez votre visite de livraison.\n\n- Grâce à votre travail, vous façonnez le paysage urbain de la région et incarnez les valeurs de fiabilité et de qualité.\n\n- Vous êtes responsable de la livraison ponctuelle et impeccable des colis et des lettres dans votre région.\n\n- Lors de votre visite, vous répondez aux questions de nos clients et contribuez à leur satisfaction.\n\n- Vous travaillez régulièrement le samedi, avec les services divisés en l'équipe.\n\nApporte ça avec toi.\n\n- Avec votre forme physique, vous pouvez facilement charger et soulever des paquets jusqu'à 30 kg sur une base régulière.\n\n- Vous aimez être sur la route, avoir le permis de conduire de catégorie B et idéalement A1 - ou sont prêts à rattraper avant de commencer votre travail.\n\n- Vous appréciez le travail de l'équipe mais vous aimez aussi voyager de façon indépendante et vous sentir à l'aise avec les grands véhicules dans la circulation routière.\n\n- Vous êtes fiable et travaillez vite.\n\n- De bonnes compétences orales allemandes ainsi qu'une utilisation expérimentée des appareils numériques complètent votre profil."
-    },
-    "slugByLocale": {
-      "it": "lettere-di-consegna-e-pacchetti-die-schweizerische-post-sarnen-596d9997",
-      "en": "delivery-in-letters-and-packages-die-schweizerische-post-sarnen-fc1878ad",
-      "de": "zusteller-in-briefe-und-pakete-post-26928bd3",
-      "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-sarnen-feac9b74"
-    },
-    "sector": "Servizi Postali",
-    "expiredAt": "2026-09-07",
-    "previousSlugsByLocale": {
-      "it": [
-        "zusteller-in-briefe-und-pakete-post-26928bd3",
-        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sarnen-26766e1a"
-      ],
-      "en": [
-        "zusteller-in-briefe-und-pakete-post-26928bd3",
-        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sarnen"
-      ],
-      "fr": [
-        "zusteller-in-briefe-und-pakete-post-26928bd3",
-        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sarnen"
-      ],
-      "de": [
-        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sarnen"
-      ]
-    },
-    "salaryMin": 69500,
-    "salaryMax": 106000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74723-de_de",
-    "firstSeenAt": "2026-07-28T11:33:26.735Z",
-    "sourceIdentityHistory": [
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/73703-de_de",
-        "firstSeenAt": "2026-07-28T11:33:26.735Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74118-de_de",
-        "firstSeenAt": "2026-08-18T09:53:33.507Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74126-de_de",
-        "firstSeenAt": "2026-08-24T10:19:32.642Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74364-de_de",
-        "firstSeenAt": "2026-08-18T09:53:33.507Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74367-de_de",
-        "firstSeenAt": "2026-08-18T09:53:33.507Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74368-de_de",
-        "firstSeenAt": "2026-09-02T23:18:12.098Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74400-de_de",
-        "firstSeenAt": "2026-08-31T17:19:19.415Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74401-de_de",
-        "firstSeenAt": "2026-09-02T13:44:27.422Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74402-de_de",
-        "firstSeenAt": "2026-09-01T09:23:41.452Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74433-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74457-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74503-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74527-de_de",
-        "firstSeenAt": "2026-08-18T09:53:33.507Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74554-de_de",
-        "firstSeenAt": "2026-08-19T10:28:22.771Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74555-de_de",
-        "firstSeenAt": "2026-08-18T22:05:09.833Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74568-de_de",
-        "firstSeenAt": "2026-08-19T21:43:55.956Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74569-de_de",
-        "firstSeenAt": "2026-08-20T09:59:43.632Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74584-de_de",
-        "firstSeenAt": "2026-08-25T21:45:31.521Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74590-de_de",
-        "firstSeenAt": "2026-08-25T09:58:39.130Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74593-de_de",
-        "firstSeenAt": "2026-08-24T10:19:32.642Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74611-de_de",
-        "firstSeenAt": "2026-09-02T13:44:27.422Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74612-de_de",
-        "firstSeenAt": "2026-08-26T10:12:04.446Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74615-de_de",
-        "firstSeenAt": "2026-09-04T23:03:21.709Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74620-de_de",
-        "firstSeenAt": "2026-08-27T20:05:14.310Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74624-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74629-de_de",
-        "firstSeenAt": "2026-08-31T17:19:19.415Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74632-de_de",
-        "firstSeenAt": "2026-09-01T23:20:24.540Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74646-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74647-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74648-de_de",
-        "firstSeenAt": "2026-09-01T07:29:45.453Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74649-de_de",
-        "firstSeenAt": "2026-09-01T00:41:46.317Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74665-de_de",
-        "firstSeenAt": "2026-09-03T23:23:55.714Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74666-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74673-de_de",
-        "firstSeenAt": "2026-09-01T14:21:32.831Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74688-de_de",
-        "firstSeenAt": "2026-09-02T23:18:12.098Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74710-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74713-de_de",
-        "firstSeenAt": "2026-09-08T13:47:51.005Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74715-de_de",
-        "firstSeenAt": "2026-09-03T13:42:44.898Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74723-de_de",
-        "firstSeenAt": "2026-07-28T11:33:26.735Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74742-de_de",
-        "firstSeenAt": "2026-09-07T23:38:38.608Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74755-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74768-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74781-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74799-de_de",
-        "firstSeenAt": "2026-09-24T00:13:31.805Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74808-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74826-de_de",
-        "firstSeenAt": "2026-09-23T13:57:56.331Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74830-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74833-de_de",
-        "firstSeenAt": "2026-09-23T12:05:10.032Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74851-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74867-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74885-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74918-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74919-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74927-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74928-de_de",
-        "firstSeenAt": "2026-09-07T23:38:38.608Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74929-de_de",
-        "firstSeenAt": "2026-09-07T23:38:38.608Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74941-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74956-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74958-de_de",
-        "firstSeenAt": "2026-09-07T23:38:38.608Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74965-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74974-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/74987-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75000-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75038-de_de",
-        "firstSeenAt": "2026-09-02T13:44:27.422Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75074-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75080-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75082-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75114-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75130-de_de",
-        "firstSeenAt": "2026-09-07T23:38:38.608Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75132-de_de",
-        "firstSeenAt": "2026-09-07T23:38:38.608Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75133-de_de",
-        "firstSeenAt": "2026-09-07T23:38:38.608Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75137-de_de",
-        "firstSeenAt": "2026-09-07T23:38:38.608Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75138-de_de",
-        "firstSeenAt": "2026-09-07T23:38:38.608Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75152-de_de",
-        "firstSeenAt": "2026-09-07T23:38:38.608Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75153-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75155-de_de",
-        "firstSeenAt": "2026-09-07T23:38:38.608Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75156-de_de",
-        "firstSeenAt": "2026-09-07T23:38:38.608Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75164-de_de",
-        "firstSeenAt": "2026-09-07T23:38:38.608Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75167-de_de",
-        "firstSeenAt": "2026-09-07T23:38:38.608Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75185-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75198-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75204-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75205-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75213-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75222-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75236-de_de",
-        "firstSeenAt": "2026-09-02T13:44:27.422Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75242-de_de",
-        "firstSeenAt": "2026-09-02T13:44:27.422Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75243-de_de",
-        "firstSeenAt": "2026-09-02T13:44:27.422Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75244-de_de",
-        "firstSeenAt": "2026-09-02T13:44:27.422Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75245-de_de",
-        "firstSeenAt": "2026-09-02T13:44:27.422Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75254-de_de",
-        "firstSeenAt": "2026-09-02T13:44:27.422Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75261-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75281-de_de",
-        "firstSeenAt": "2026-09-23T12:05:10.032Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75286-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75299-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75300-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75324-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75325-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75326-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75328-de_de",
-        "firstSeenAt": "2026-09-07T23:38:38.608Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75332-de_de",
-        "firstSeenAt": "2026-08-28T05:29:51.419Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      },
-      {
-        "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75345-de_de",
-        "firstSeenAt": "2026-09-07T23:38:38.608Z",
-        "title": "Zusteller:in Briefe und Pakete"
-      }
-    ],
-    "previousSlugs": [
-      "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sarnen-26766e1a",
-      "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sarnen"
-    ]
   },
   {
     "slug": "lettere-di-consegna-e-pacchetti-die-schweizerische-post-sarnen-a2aef07f",
