@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   buildFirebaseDeployArgs,
@@ -18,6 +19,13 @@ const TRANSIENT_FAILURE = [
 ].join('\n');
 
 describe('deploy-cloud-functions-with-retry', () => {
+  it('accepts the real functions/index.js exports (a non-trigger export would fail the deploy)', () => {
+    const names = parseFunctionNames(readFileSync('functions/index.js', 'utf8'));
+
+    expect(names).toContain('jobsSourceRelay');
+    expect(names).not.toContain('SOURCE_RELAY_INVOKER_SERVICE_ACCOUNT');
+  });
+
   it('discovers every top-level trigger export and refuses unsupported exports', () => {
     expect(FUNCTION_NAMES).toContain('jobsSourceRelay');
     expect(FUNCTION_NAMES).toContain('purgeExpiredApplicationConciergeMetaAttribution');
