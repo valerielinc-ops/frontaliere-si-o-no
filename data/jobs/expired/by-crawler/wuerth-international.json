@@ -32,7 +32,8 @@
         "hauswart-a-wuerth-international-chur"
       ],
       "en": [
-        "hauswart-a-wuerth-international-chur"
+        "hauswart-a-wuerth-international-chur",
+        "housekeeper-a-wurth-international-chur"
       ],
       "fr": [
         "hauswart-a-wuerth-international-chur"
@@ -45,7 +46,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.wurth-international.com/wurth-international-group/karriere/job-portal/job-details_17600.php",
-    "firstSeenAt": "2026-09-19T22:58:28.029Z"
+    "firstSeenAt": "2026-09-19T22:58:28.029Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hauswart-a-wuerth-international-chur": "GR"
+      },
+      "en": {
+        "housekeeper-a-wurth-international-chur": "GR",
+        "hauswart-a-wuerth-international-chur": "GR"
+      },
+      "fr": {
+        "hauswart-a-wuerth-international-chur": "GR"
+      }
+    }
   },
   {
     "slug": "responsabile-contabilita-a-80-100-wurth-international-chur",

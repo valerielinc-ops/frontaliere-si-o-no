@@ -73,6 +73,23 @@ describe('draft failures', () => {
       { type: 'submit_failed', error: 'requirement_context_changed' }, { draft: cleanDraft, nowMs: T0 });
     expect(contextRetryExhausted.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['requirement_context_changed'] });
 
+    // A reasoned code: a change that can clear retries (bounded), a deterministic one goes straight to the owner.
+    for (const reason of ['flow_changed', 'draft_changed', 'order_changed', 'execution_superseded', 'prepared_photo_not_persisted']) {
+      const error = `requirement_context_changed:${reason}`;
+      expect(isTransientRunError(error)).toBe(true);
+      expect(transition(submitting, { type: 'submit_failed', error }, { draft: cleanDraft, nowMs: T0 }).effects)
+        .toEqual([{ type: 'dispatch', mode: 'submit', reason: 'transient_retry', attempts: 2 }]);
+      expect(transition({ ...submitting, dispatch: { ...submitting.dispatch, attempts: MAX_RUN_ATTEMPTS } }, { type: 'submit_failed', error }, { draft: cleanDraft, nowMs: T0 }).flow)
+        .toMatchObject({ state: 'owner_takeover', heldBy: [error] });
+    }
+    for (const reason of ['ambiguous_identity', 'order_closed', 'submission_started', 'draft_not_ready', 'flow_not_submitting']) {
+      const error = `requirement_context_changed:${reason}`;
+      expect(isTransientRunError(error)).toBe(false);
+      const direct = transition(submitting, { type: 'submit_failed', error }, { draft: cleanDraft, nowMs: T0 });
+      expect(direct.flow).toMatchObject({ state: 'owner_takeover', heldBy: [error] });
+      expect(direct.effects).toEqual([expect.objectContaining({ type: 'email', kind: 'owner_takeover', reason: error })]);
+    }
+
     const last = transition({ ...submitting, dispatch: { ...submitting.dispatch, attempts: MAX_RUN_ATTEMPTS } }, { type: 'submit_failed', error: 'Timeout 30000ms exceeded' }, { draft: cleanDraft, nowMs: T0 });
     expect(last.flow.state).toBe('owner_takeover');
     expect(last.effects).toEqual([{ type: 'email', kind: 'owner_takeover', reason: 'Timeout 30000ms exceeded', stage: 'submit', attempts: MAX_RUN_ATTEMPTS }]);
@@ -406,9 +423,10 @@ describe('approval flow', () => {
 
     step = transition(step.flow, { type: 'tick' }, { draft, answers, nowMs: T0 + HELD_OWNER_NOTICE_AFTER_MS });
     expect(step.effects).toEqual([{ type: 'email', kind: 'owner_candidate_silent', since: T0, days: 5, nudges: 2 }]);
-    // The order keeps waiting for the answers, with no clock left: Valerie decides.
-    expect(step.flow).toMatchObject({ state: 'candidate_review', heldBy: ['question:rate'], heldNudges: 3, reminderAt: null, deadlineAt: null });
-    expect(transition(step.flow, { type: 'tick' }, { draft, answers, nowMs: T0 + 30 * 24 * 60 * 60_000 }).ignored).toBe('nothing_due');
+    // The order keeps waiting for the answers; from here on a weekly reminder (owner decision 2026-11-27).
+    const day = 24 * 60 * 60_000;
+    expect(step.flow).toMatchObject({ state: 'candidate_review', heldBy: ['question:rate'], heldNudges: 3, reminderAt: T0 + 12 * day, deadlineAt: null });
+    expect(transition(step.flow, { type: 'tick' }, { draft, answers, nowMs: T0 + 12 * day - 1 }).ignored).toBe('nothing_due');
 
     // The last answer ends the wait and starts the 12 h clock, with its own reminder.
     const answeredAt = T0 + 6 * 24 * 60 * 60_000;

@@ -391,7 +391,7 @@ export async function submitApplication(ctx) {
         round: Number(draft.round) || 1,
         sourceCvKey: preparedPhoto.sourceCvKey,
       });
-      if (persisted !== true) return { type: 'submit_failed', error: 'requirement_context_changed' };
+      if (persisted !== true) return { type: 'submit_failed', error: 'requirement_context_changed:prepared_photo_not_persisted' };
     }
   }
   const edited = candidateWithEdits({ order, draft, flow: submitFlow });

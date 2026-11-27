@@ -49,6 +49,7 @@ import {
   nativeClosureOf,
   sendMayHaveLeft,
 } from './assistedApplicationEmployerWithdrawal.js';
+import { candidateWaitExpiryOrderPatch, closedByCandidateWaitExpiry } from './assistedApplicationCandidateWaitExpiry.js';
 import { readConciergeSlot, releaseConciergeSlot } from './assistedApplicationWithdrawal.js';
 import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
@@ -482,6 +483,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
   // An event that may close the application for the employer's withdrawal reads the send record in the same
   // transaction: an application that may have reached the employer is never withdrawn.
   const closureEvent = event.type === 'posting_closed' || event.type === 'posting_closure_recorded'
+    || event.type === 'candidate_stale_archive'
     || (event.type === 'tick' && Boolean(event.postingClosure));
   // The owner's and the clock's retries read it too: a send that may have left is never sent again on a guess.
   const retryEvent = event.type === 'owner_retry_submit' || event.type === 'portal_auto_retry';
@@ -660,7 +662,9 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     // its proof, and the submission fence closes in the same write, as a candidate's own withdrawal closes it
     // (a portal run still filling the form can no longer click, nor an e-mail leave).
     const employerWithdrawal = closedByEmployerWithdrawal(flow, persistedFlow);
-    if (employerWithdrawal) transaction.set(submissionRefFor(db, orderId), { withdrawnAt: persistedFlow.withdrawnAt }, { merge: true });
+    // The wait for the candidate ran out (assistedApplicationCandidateWaitExpiry.js): closed the same way, fence included.
+    const waitExpired = closedByCandidateWaitExpiry(flow, persistedFlow);
+    if (employerWithdrawal || waitExpired) transaction.set(submissionRefFor(db, orderId), { withdrawnAt: persistedFlow.withdrawnAt }, { merge: true });
     // Owner decision 2026-11-11 («si per il concierge lo libera»): a concierge child the employer's withdrawal
     // closed gives its position back to the service, once, never when the application may have left.
     const slotBlocker = employerWithdrawal && conciergeSlot ? employerWithdrawalSlotBlocker({
@@ -674,6 +678,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       ...mirrorFields(persistedFlow),
       ...(receiptResult?.orderPatch || {}),
       ...(employerWithdrawal ? employerWithdrawalOrderPatch(persistedFlow, nowMs) : {}),
+      ...(waitExpired ? candidateWaitExpiryOrderPatch(persistedFlow, nowMs) : {}),
       ...(conciergeSlotReleased ? { conciergeSlotReleasedAt: nowMs } : {}),
     }, { merge: true });
     transaction.set(orderRef.collection(ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION).doc(), buildAssistedApplicationEvent('automation_transition', {
@@ -682,7 +687,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       fromState: flow.state || null,
       toState: persistedFlow.state,
       round: persistedFlow.round,
-      ...(employerWithdrawal ? { withdrawalReason: persistedFlow.withdrawnReason, withdrawalEvidence: persistedFlow.withdrawalEvidence } : {}),
+      ...(employerWithdrawal || waitExpired ? { withdrawalReason: persistedFlow.withdrawnReason, withdrawalEvidence: persistedFlow.withdrawalEvidence } : {}),
       ...(slotBlocker !== null ? { conciergeSlotReleased, ...(slotBlocker ? { conciergeSlotKept: slotBlocker } : {}) } : {}),
       ...(accountFailure ? { accountFailure } : {}),
       ...(candidateRequestTelemetryOf(event.candidateRequestTelemetry)
@@ -1029,9 +1034,9 @@ function orderTimestampMs(value) {
 }
 
 /**
- * Archive paid orders stuck waiting on the candidate for more than 30 days
- * (missing answers/documents on an active wait, or missing CV before the flow
- * ever started). Clears automatically if the candidate replies or uploads.
+ * Close paid orders waiting on the candidate's answers or documents for 30 days
+ * (owner decision 2026-11-27: withdrawn, candidate e-mailed, refund per the Terms they accepted), and archive
+ * those missing the CV before the flow ever started. A reply before the 30 days resumes the flow as ever.
  */
 export async function sweepStaleCandidateOrders({ db, runEffect, nowMs = Date.now() } = {}) {
   const [waitingSnap, cvMissingSnap] = await Promise.all([
@@ -1051,7 +1056,7 @@ export async function sweepStaleCandidateOrders({ db, runEffect, nowMs = Date.no
 
   for (const doc of waitingSnap.docs || []) {
     try {
-      if (doc.data()?.candidateStaleArchivedAt) continue;
+      // Orders marked by the earlier archive-only rule are closed here too (owner decision 2026-11-27).
       const result = await applyAutomationEvent({
         db,
         orderId: doc.id,
