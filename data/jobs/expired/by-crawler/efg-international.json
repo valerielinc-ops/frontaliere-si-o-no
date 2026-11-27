@@ -48,7 +48,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6046",
-    "firstSeenAt": "2026-05-10T21:30:00.892Z"
+    "firstSeenAt": "2026-05-10T21:30:00.892Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-private-markets-product-specialist-efg-zurich": "ZH"
+      },
+      "de": {
+        "senior-private-markets-product-specialist-efg-zurich": "ZH"
+      },
+      "fr": {
+        "senior-private-markets-product-specialist-efg-zurich": "ZH",
+        "specialiste-principal-des-produits-des-marches-prives-efg-international-ag-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "cash-reconciliation-specialista-efg-international-ag-geneve",
@@ -124,7 +137,28 @@
         "firstSeenAt": "2026-05-10T21:30:00.887Z",
         "title": "Cash Reconciliation Specialist"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "cash-reconciliation-specialist-efg-geneve": "GE",
+        "back-office-cash-reconciliation-specialista-efg-international-ag-geneve": "GE",
+        "back-office-cash-reconciliation-specialist-efg-geneve": "GE",
+        "back-office-cash-reconciliation-spezialist-efg-international-ag-geneve": "GE",
+        "back-office-cash-reconciliation-specialiste-efg-international-ag-geneve": "GE"
+      },
+      "en": {
+        "back-office-cash-reconciliation-specialist-efg-geneve": "GE"
+      },
+      "de": {
+        "cash-reconciliation-specialist-efg-geneve": "GE",
+        "back-office-cash-reconciliation-spezialist-efg-international-ag-geneve": "GE"
+      },
+      "fr": {
+        "cash-reconciliation-specialist-efg-geneve": "GE",
+        "back-office-cash-reconciliation-specialiste-efg-international-ag-geneve": "GE"
+      }
+    }
   },
   {
     "slug": "responsabile-pubblicita-media-e-marketing-strategico-efg-international-ag-zurich",
@@ -173,7 +207,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6142",
-    "firstSeenAt": "2026-07-10T10:26:15.028Z"
+    "firstSeenAt": "2026-07-10T10:26:15.028Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "advertising-media-and-strategic-marketing-manager-efg-zurich": "ZH"
+      },
+      "de": {
+        "advertising-media-and-strategic-marketing-manager-efg-zurich": "ZH"
+      },
+      "fr": {
+        "advertising-media-and-strategic-marketing-manager-efg-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve-7bd458ad",
@@ -285,7 +331,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6040",
-    "firstSeenAt": "2026-05-10T21:30:00.890Z"
+    "firstSeenAt": "2026-05-10T21:30:00.890Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "network-proxy-support-team-lead-efg-geneve": "GE",
+        "network-proxy-support-capo-team-efg-international-ag-geneve": "GE"
+      },
+      "de": {
+        "network-proxy-support-team-lead-efg-geneve": "GE"
+      },
+      "fr": {
+        "network-proxy-support-team-lead-efg-geneve": "GE"
+      }
+    }
   },
   {
     "slug": "senior-compliance-officer-onboarding-recensioni-periodiche-efg-international-ag-geneve",
@@ -356,7 +415,22 @@
         "firstSeenAt": "2026-05-10T21:30:00.879Z",
         "title": "Senior Compliance Officer Onboarding & Periodic Reviews"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve": "GE",
+        "cis-specialista-onboarding-periodic-reviews-compliance-officer-efg-international-ag-geneve": "GE",
+        "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve": "GE",
+        "cis-specialist-onboarding-recensioni-periodiche-compliance-officer-efg-international-ag-geneve": "GE"
+      },
+      "de": {
+        "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve": "GE"
+      },
+      "fr": {
+        "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve": "GE"
+      }
+    }
   },
   {
     "slug": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
@@ -389,7 +463,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6384",
-    "firstSeenAt": "2026-07-20T22:01:00.554Z"
+    "firstSeenAt": "2026-07-20T22:01:00.554Z",
+    "canton": "ZH",
+    "previousSlugsByLocale": {
+      "en": [
+        "business-risk-manager-pb-coo-brm-temp-efg-zurich"
+      ],
+      "de": [
+        "business-risk-manager-pb-coo-brm-temp-efg-zurich"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "business-risk-manager-pb-coo-brm-temp-efg-zurich": "ZH"
+      },
+      "de": {
+        "business-risk-manager-pb-coo-brm-temp-efg-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "ricevitore-efg-international-ag-zurich",
@@ -439,7 +530,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6327",
-    "firstSeenAt": "2026-07-21T11:19:19.247Z"
+    "firstSeenAt": "2026-07-21T11:19:19.247Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "receptionist-efg-zurich": "ZH"
+      },
+      "de": {
+        "receptionist-efg-zurich": "ZH"
+      },
+      "fr": {
+        "receptionist-efg-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
@@ -558,7 +661,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6210",
-    "firstSeenAt": "2026-06-03T13:26:59.347Z"
+    "firstSeenAt": "2026-06-03T13:26:59.347Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "general-services-employee-efg-geneve": "GE",
+        "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve": "GE"
+      },
+      "de": {
+        "general-services-employee-efg-geneve": "GE",
+        "general-services-employee-efg-international-ag-geneve": "GE"
+      },
+      "fr": {
+        "general-services-employee-efg-geneve": "GE"
+      }
+    }
   },
   {
     "slug": "learning-development-specialista-efg-international-ag-lugano-n932z9",
@@ -640,7 +757,65 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6163",
-    "firstSeenAt": "2026-04-13T10:28:21.959Z"
+    "firstSeenAt": "2026-04-13T10:28:21.959Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "learning-development-specialista-efg-international-ag-lugano": "TI",
+        "learning-development-spezialist-efg-international-ag-lugano-n932z9": "TI",
+        "learning-development-specialiste-efg-international-ag-lugano-n932z9": "TI",
+        "specialista-learning-development-efg-international-ag-lugano": "TI",
+        "specialista-in-apprendimento-e-sviluppo-efg-international-ag-lugano": "TI",
+        "specialista-in-learning-development-efg-international-ag-lugano": "TI",
+        "specialista-in-sviluppo-e-formazione-efg-international-ag-lugano": "TI",
+        "specialista-sviluppo-e-formazione-efg-international-ag-lugano": "TI",
+        "lern-und-entwicklungs-spezialist-efg-international-ag-lugano": "TI",
+        "specialista-per-lo-sviluppo-e-l-apprendimento-efg-international-ag-lugano": "TI",
+        "specialiste-des-paies-internationales-efg-international-ag-lugano": "TI",
+        "specialiste-developpement-et-apprentissage-efg-international-ag-lugano": "TI",
+        "specialiste-en-apprentissage-et-developpement-efg-international-ag-lugano": "TI",
+        "spezialist-fur-lernen-und-entwicklung-efg-international-ag-lugano": "TI",
+        "spezialist-fur-learning-development-efg-international-ag-lugano": "TI",
+        "specialiste-en-apprentissage-developpement-efg-international-ag-lugano": "TI"
+      },
+      "en": {
+        "learning-development-spezialist-efg-international-ag-lugano-n932z9": "TI",
+        "learning-development-specialiste-efg-international-ag-lugano-n932z9": "TI",
+        "learning-development-specialist-efg-international-ag-lugano": "TI",
+        "lern-und-entwicklungs-spezialist-efg-international-ag-lugano": "TI",
+        "specialista-per-lo-sviluppo-e-l-apprendimento-efg-international-ag-lugano": "TI",
+        "specialiste-des-paies-internationales-efg-international-ag-lugano": "TI",
+        "specialiste-developpement-et-apprentissage-efg-international-ag-lugano": "TI",
+        "specialiste-en-apprentissage-et-developpement-efg-international-ag-lugano": "TI",
+        "spezialist-fur-lernen-und-entwicklung-efg-international-ag-lugano": "TI",
+        "spezialist-fur-learning-development-efg-international-ag-lugano": "TI",
+        "specialiste-en-apprentissage-developpement-efg-international-ag-lugano": "TI"
+      },
+      "de": {
+        "learning-development-specialiste-efg-international-ag-lugano-n932z9": "TI",
+        "spezialist-fur-weiterbildung-und-personalentwicklung-efg-international-ag-lugano": "TI",
+        "lern-und-entwicklungs-spezialist-efg-international-ag-lugano": "TI",
+        "specialista-per-lo-sviluppo-e-l-apprendimento-efg-international-ag-lugano": "TI",
+        "specialiste-des-paies-internationales-efg-international-ag-lugano": "TI",
+        "specialiste-developpement-et-apprentissage-efg-international-ag-lugano": "TI",
+        "specialiste-en-apprentissage-et-developpement-efg-international-ag-lugano": "TI",
+        "spezialist-fur-lernen-und-entwicklung-efg-international-ag-lugano": "TI",
+        "spezialist-fur-learning-development-efg-international-ag-lugano": "TI",
+        "specialiste-en-apprentissage-developpement-efg-international-ag-lugano": "TI"
+      },
+      "fr": {
+        "learning-development-spezialist-efg-international-ag-lugano-n932z9": "TI",
+        "specialiste-du-developpement-et-de-la-formation-efg-international-ag-lugano": "TI",
+        "lern-und-entwicklungs-spezialist-efg-international-ag-lugano": "TI",
+        "specialista-per-lo-sviluppo-e-l-apprendimento-efg-international-ag-lugano": "TI",
+        "specialiste-des-paies-internationales-efg-international-ag-lugano": "TI",
+        "specialiste-developpement-et-apprentissage-efg-international-ag-lugano": "TI",
+        "specialiste-en-apprentissage-et-developpement-efg-international-ag-lugano": "TI",
+        "spezialist-fur-lernen-und-entwicklung-efg-international-ag-lugano": "TI",
+        "spezialist-fur-learning-development-efg-international-ag-lugano": "TI",
+        "specialiste-en-apprentissage-developpement-efg-international-ag-lugano": "TI"
+      }
+    }
   },
   {
     "slug": "data-ingegnere-efg-international-ag-geneve",
@@ -686,7 +861,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/5892",
-    "firstSeenAt": "2026-06-24T11:14:17.928Z"
+    "firstSeenAt": "2026-06-24T11:14:17.928Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "data-engineer-efg-geneve": "GE"
+      },
+      "de": {
+        "data-engineer-efg-geneve": "GE"
+      }
+    }
   },
   {
     "slug": "client-support-officer-efg-st-moritz",
@@ -773,7 +957,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6385",
-    "firstSeenAt": "2026-08-04T22:14:55.681Z"
+    "firstSeenAt": "2026-08-04T22:14:55.681Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "business-risk-manager-pb-coo-brm-efg-lugano": "TI"
+      }
+    }
   },
   {
     "slug": "gruppo-controllore-finanziario-efg-international-ag-geneve",
@@ -819,7 +1009,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/4543",
-    "firstSeenAt": "2026-05-10T21:30:00.881Z"
+    "firstSeenAt": "2026-05-10T21:30:00.881Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "group-financial-controller-efg-geneve": "GE"
+      },
+      "de": {
+        "group-financial-controller-efg-geneve": "GE"
+      }
+    }
   },
   {
     "slug": "switchboard-operator-efg-international-ag-lugano",
@@ -868,10 +1067,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/5984",
-    "firstSeenAt": "2026-07-10T10:26:15.024Z"
+    "firstSeenAt": "2026-07-10T10:26:15.024Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "switchboard-operator-efg-lugano": "TI",
+        "switchboard-operator-efg-international-ag-lugano": "TI"
+      },
+      "de": {
+        "switchboard-operator-efg-lugano": "TI",
+        "schaltstelle-operator-efg-international-ag-lugano": "TI"
+      }
+    }
   },
   {
-    "slug": "pb-support-specialista-americas-geneva-efg-international-ag-geneve-3a5bb092",
+    "slug": "pb-support-specialista-americas-geneva-efg-international-ag-geneve",
     "title": "PB Support Specialist Americas Geneva",
     "titleByLocale": {
       "en": "PB Support Specialist Americas Geneva",
@@ -890,33 +1100,42 @@
       "fr": "Description de l'emploi\n\nLe rôle est de relier les besoins des entreprises aux normes réglementaires et d'assurer la bonne exécution des processus réglementaires, de conformité et opérationnels des activités dans la région des Amériques.\n\nPrincipales responsabilités\n- Responsable de la production du domaine de travail PB Support au sein de la discipline, en mettant l'accent sur la mise en œuvre et l'exécution des stratégies et en assurant l'alignement sur les normes suisses et les attentes réglementaires\n- Aider les agents de relations avec la clientèle à cerner, gérer et atténuer les risques découlant des activités courantes, en appliquant une expertise professionnelle avancée et une réflexion conceptuelle à des cas complexes\n- Faire preuve de diligence raisonnable en ce qui concerne les relations avec les clients potentiels et existants, en assurant une approche cohérente et en appliquant des cadres, des processus et des routines conformes aux attentes réglementaires en temps opportun et de manière qualitative\n- Approuver les transferts de fonds et de valeurs mobilières, l'octroi de crédits, les dérogations et les opérations touchant la sensibilité aux sanctions, dans le cadre des pouvoirs délégués, en veillant à ce que les décisions reflètent les normes et spécifications applicables à l'entreprise\n- Distribuer les connaissances du marché et les pratiques exemplaires entre les agents des relations avec la clientèle, les agents des services à la clientèle et les gestionnaires de comptes, en définissant et en intégrant la norme autour de laquelle les autres fonctionneront\n- Veiller à ce que les activités de suivi relatives au cycle de vie des clients soient menées à bien en temps voulu et à ce qu ' elles soient remises en état;\n- Approuver les nouveaux comptes des clients et des initiateurs d'entreprises, superviser le cycle de vie des CJK et les examens périodiques dans le cadre des pouvoirs délégués par HoPB, s'assurer que les normes de surveillance et de conformité sont respectées grâce à une expertise professionnelle approfondie\n- Agir en tant que partenaire principal clé du Front Office et des fonctions de contrôle et en tant que lien clé entre FLOD et SLOD, assurer des voies de communication et d'escalade cohérentes, et établir des réseaux avec des contacts clés à plusieurs niveaux et équipes internes et externes\n- Examiner les ouvertures de comptes, les modifications du CIP et les examens périodiques pour les équipes locales de BSP de la région, tout en fournissant des conseils pour mieux comprendre les exigences et les normes de contrôle. Grâce à un soutien continu et au partage des pratiques exemplaires, fournir des conseils à un plus grand nombre de membres subalternes de l'équipe et aider à développer la capacité d'effectuer ces examens de façon indépendante.\n\nCompétences et expérience\n- Diriger les projets de taille moyenne et les missions de l ' UAB pour améliorer les normes de contrôle\n- Fournir des conseils et des séances de présentation aux équipes de la Direction générale sur les risques, les obligations en matière de contrôle et les attentes en matière de réglementation, en donnant souvent des conseils sur des questions complexes liées au domaine de compétence\n- Effectuer des évaluations des risques, des contrôles et des examens thématiques assignés par la haute direction (gestionnaire de ligne, HOPB & RBH), appliquer le jugement et l'innovation là où les questions peuvent être mal définies\n- Préparer et présenter des cas à risque élevé et délicats au nom de HoPB au comité CAC\n- Résoudre les problèmes de vérification en coordonnant avec les intervenants la mise en oeuvre des mesures correctives, en rendant compte de l'exécution des plans d'assainissement touchant le Ministère et l'unité opérationnelle\n- Aider l ' équipe locale du Bureau à améliorer ses processus opérationnels, en donnant des orientations sur les exigences en matière de contrôle, l ' amélioration des flux de travail et les mesures d ' atténuation des risques, y compris en élaborant des solutions et des cadres dans une perspective à long terme, pour assurer l ' alignement sur les normes suisses\n\nNos valeurs\n- Responsabilité : Prise en charge des tâches et des défis, ainsi que recherche d'amélioration continue\n- Hands-on : être proactif pour obtenir rapidement des résultats de haute qualité\n- Passionnée : être engagée et s'efforcer d'excellence\n- Déterminé par la solution : Se concentrer sur les résultats des clients et traiter les clients avec équité avec un état d'esprit conscient des risques\n- Objectif partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
     },
     "slugByLocale": {
-      "it": "pb-support-specialista-americas-geneva-efg-international-ag-geneve-3a5bb092",
-      "en": "pb-support-specialist-americas-geneva-efg-geneve-5bba38da",
-      "de": "pb-support-spezialist-americas-geneva-efg-international-ag-geneve-47381d06",
-      "fr": "pb-support-specialiste-americas-geneva-efg-international-ag-geneve-e59969fb"
+      "it": "pb-support-specialista-americas-geneva-efg-international-ag-geneve",
+      "en": "pb-support-specialist-americas-geneva-efg-geneve",
+      "de": "pb-support-spezialist-americas-geneva-efg-international-ag-geneve",
+      "fr": "pb-support-specialiste-americas-geneva-efg-international-ag-geneve"
     },
     "sector": "",
     "expiredAt": "2026-08-24T09:59:25.353Z",
     "previousSlugs": [
+      "pb-support-specialist-americas-geneva-efg-geneve",
+      "pb-specialist-americas-ginevra-efg-international-ag-geneve",
+      "pb-support-specialista-americas-geneva-efg-international-ag-geneve-3a5bb092",
       "pb-support-specialist-americas-geneva-efg-geneve-5bba38da",
       "pb-specialist-americas-ginevra-efg-international-ag-geneve-77a8d1b7",
-      "pb-support-specialist-americas-geneva-efg-geneve",
-      "pb-specialist-americas-ginevra-efg-international-ag-geneve"
+      "pb-support-spezialist-americas-geneva-efg-international-ag-geneve-47381d06",
+      "pb-support-specialiste-americas-geneva-efg-international-ag-geneve-e59969fb"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "pb-support-specialist-americas-geneva-efg-geneve",
+        "pb-specialist-americas-ginevra-efg-international-ag-geneve",
+        "pb-support-specialista-americas-geneva-efg-international-ag-geneve-3a5bb092",
         "pb-support-specialist-americas-geneva-efg-geneve-5bba38da",
         "pb-specialist-americas-ginevra-efg-international-ag-geneve-77a8d1b7"
       ],
       "de": [
         "pb-support-specialist-americas-geneva-efg-geneve",
+        "pb-support-spezialist-americas-geneva-efg-international-ag-geneve-47381d06",
         "pb-specialist-americas-ginevra-efg-international-ag-geneve"
       ],
       "fr": [
         "pb-support-specialist-americas-geneva-efg-geneve",
+        "pb-support-specialiste-americas-geneva-efg-international-ag-geneve-e59969fb",
         "pb-specialist-americas-ginevra-efg-international-ag-geneve"
       ],
       "en": [
+        "pb-support-specialist-americas-geneva-efg-geneve-5bba38da",
         "pb-specialist-americas-ginevra-efg-international-ag-geneve"
       ]
     },
@@ -1267,7 +1486,42 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6137",
-    "firstSeenAt": "2026-04-13T10:28:21.957Z"
+    "firstSeenAt": "2026-04-13T10:28:21.957Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "international-payroll-specialista-efg-international-ag-lugano": "TI",
+        "international-payroll-specialiste-efg-international-ag-lugano-n9331q": "TI",
+        "internationaler-gehaltsabrechnungsspezialist-efg-international-ag-lugano": "TI",
+        "specialiste-en-paie-internationale-efg-international-ag-lugano": "TI",
+        "specialiste-de-la-paie-internationale-efg-international-ag-lugano": "TI",
+        "esg-verwaltungsassistent-in-efg-international-ag-lugano": "TI",
+        "specialista-paga-internazionale-efg-international-ag-lugano": "TI",
+        "specialista-payroll-internazionale-efg-international-ag-lugano": "TI",
+        "specialista-delle-paga-internazionale-efg-international-ag-lugano": "TI",
+        "specialista-internazionale-di-payroll-efg-international-ag-lugano": "TI",
+        "internationaler-lohnspezialist-efg-international-ag-lugano": "TI",
+        "internationaler-payroll-spezialist-efg-international-ag-lugano": "TI",
+        "international-payroll-spezialist-efg-international-ag-lugano": "TI",
+        "internationaler-gehaltsabrechnungs-spezialist-efg-international-ag-lugano": "TI",
+        "esg-administrative-assistent-efg-international-ag-lugano": "TI",
+        "specialista-internazionale-della-retribuzione-efg-international-ag-lugano": "TI"
+      },
+      "en": {
+        "international-payroll-specialiste-efg-international-ag-lugano-n9331q": "TI",
+        "international-payroll-specialist-efg-lugano": "TI",
+        "international-payroll-specialist-efg-international-ag-lugano": "TI",
+        "esg-administrative-assistant-efg-international-ag-lugano": "TI",
+        "administrative-assistant-efg-international-ag-lugano": "TI"
+      },
+      "de": {
+        "international-payroll-specialiste-efg-international-ag-lugano-n9331q": "TI",
+        "leiter-pensionskasse-efg-international-ag-lugano": "TI"
+      },
+      "fr": {
+        "specialiste-international-de-la-paie-efg-international-ag-lugano": "TI"
+      }
+    }
   },
   {
     "slug": "finanza-data-analytics-power-bi-internship-efg-international-ag-geneve",
@@ -1393,7 +1647,56 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/5969",
-    "firstSeenAt": "2026-04-13T21:36:50.620Z"
+    "firstSeenAt": "2026-04-13T21:36:50.620Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "it-trading-treasury-solutions-specialista-efg-international-ag-lugano": "TI",
+        "it-trading-treasury-solutions-spezialist-efg-international-ag-lugano-n93k12": "TI",
+        "it-trading-treasury-solutions-specialiste-efg-international-ag-lugano-n93k12": "TI",
+        "specialista-soluzioni-it-trading-e-tesoreria-efg-international-ag-lugano": "TI",
+        "specialista-in-soluzioni-it-per-trading-e-tesoreria-efg-international-ag-lugano": "TI",
+        "specialista-in-soluzioni-per-il-trading-e-la-tesoreria-it-efg-international-ag-lugano": "TI",
+        "specialista-in-soluzioni-it-di-trading-e-tesoreria-efg-international-ag-lugano": "TI",
+        "specialista-soluzioni-it-trading-treasury-efg-international-ag-lugano": "TI",
+        "specialiste-des-solutions-informatiques-de-trading-et-de-tresorerie-efg-international-ag-l": "TI",
+        "specialiste-des-solutions-it-pour-le-trading-et-la-tresorerie-efg-international-ag-lugano": "TI",
+        "it-trading-treasury-solutions-spezialist-efg-international-ag-lugano": "TI",
+        "it-trading-treasury-solutions-specialist-efg-international-ag-lugano": "TI",
+        "specialiste-solutions-it-trading-et-tresorerie-efg-international-ag-lugano": "TI"
+      },
+      "en": {
+        "it-trading-treasury-solutions-spezialist-efg-international-ag-lugano-n93k12": "TI",
+        "it-trading-treasury-solutions-specialiste-efg-international-ag-lugano-n93k12": "TI",
+        "it-trading-treasury-solutions-specialist-efg-international-lugano-ticino-switzerland": "TI",
+        "specialista-soluzioni-it-trading-treasury-efg-international-ag-lugano": "TI",
+        "specialiste-des-solutions-informatiques-de-trading-et-de-tresorerie-efg-international-ag-l": "TI",
+        "specialiste-des-solutions-it-pour-le-trading-et-la-tresorerie-efg-international-ag-lugano": "TI",
+        "it-trading-treasury-solutions-spezialist-efg-international-ag-lugano": "TI",
+        "it-trading-treasury-solutions-specialist-efg-international-ag-lugano": "TI",
+        "specialiste-solutions-it-trading-et-tresorerie-efg-international-ag-lugano": "TI"
+      },
+      "de": {
+        "it-trading-treasury-solutions-specialiste-efg-international-ag-lugano-n93k12": "TI",
+        "spezialist-fur-it-handels-und-treasury-losungen-efg-international-ag-lugano": "TI",
+        "specialista-soluzioni-it-trading-treasury-efg-international-ag-lugano": "TI",
+        "specialiste-des-solutions-informatiques-de-trading-et-de-tresorerie-efg-international-ag-l": "TI",
+        "specialiste-des-solutions-it-pour-le-trading-et-la-tresorerie-efg-international-ag-lugano": "TI",
+        "it-trading-treasury-solutions-spezialist-efg-international-ag-lugano": "TI",
+        "it-trading-treasury-solutions-specialist-efg-international-ag-lugano": "TI",
+        "specialiste-solutions-it-trading-et-tresorerie-efg-international-ag-lugano": "TI"
+      },
+      "fr": {
+        "it-trading-treasury-solutions-spezialist-efg-international-ag-lugano-n93k12": "TI",
+        "specialiste-des-solutions-informatiques-de-trading-et-de-tresorerie-efg-international-ag-lugano": "TI",
+        "specialista-soluzioni-it-trading-treasury-efg-international-ag-lugano": "TI",
+        "specialiste-des-solutions-informatiques-de-trading-et-de-tresorerie-efg-international-ag-l": "TI",
+        "specialiste-des-solutions-it-pour-le-trading-et-la-tresorerie-efg-international-ag-lugano": "TI",
+        "it-trading-treasury-solutions-spezialist-efg-international-ag-lugano": "TI",
+        "it-trading-treasury-solutions-specialist-efg-international-ag-lugano": "TI",
+        "specialiste-solutions-it-trading-et-tresorerie-efg-international-ag-lugano": "TI"
+      }
+    }
   },
   {
     "slug": "responsabile-senior-della-trasformazione-strategica-efg-international-ag-geneve",
@@ -1550,7 +1853,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6266",
-    "firstSeenAt": "2026-05-18T12:15:53.907Z"
+    "firstSeenAt": "2026-05-18T12:15:53.907Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "investment-risk-specialist-efg-zurich": "ZH",
+        "specialista-del-rischio-di-investimento-efg-international-ag-zurich": "ZH"
+      },
+      "de": {
+        "investment-risk-specialist-efg-zurich": "ZH"
+      },
+      "fr": {
+        "investment-risk-specialist-efg-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "risk-analista-efg-international-ag-lugano",
