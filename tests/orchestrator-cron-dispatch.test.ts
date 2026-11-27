@@ -12,6 +12,17 @@ import {
   isOrchestratorSlot,
   schedulerRunMarker,
 } from '../functions/src/orchestratorCronDispatch.js';
+import {
+  JOB_ALERT_PRIMARY_CLOUD_SCHEDULE,
+  JOB_ALERT_PRIMARY_SLOT_ID,
+  JOB_ALERT_PRIMARY_SLOT_UTC,
+  JOB_ALERT_TRIGGER_SOURCE,
+  JOB_ALERT_WORKFLOW,
+  dispatchJobAlerts,
+  isJobAlertPrimarySlot,
+  jobAlertSchedulerRunMarker,
+  schedulerRunMarker as jobAlertRunMarker,
+} from '../functions/src/jobAlertCronDispatch.js';
 import { DEFAULT_SCHEDULE_SLOTS, SCHEDULER_RUN_MARKER_PREFIX } from '../scripts/ci/orchestrator-heartbeat.mjs';
 import { normalizeOrchestratorSlot } from '../functions/src/lib/orchestratorSlot.js';
 
@@ -47,7 +58,7 @@ function memoryClaimStore() {
  * run-name rule; `loseResponse` makes it accept the dispatch and then fail
  * the request, the case a Cloud Scheduler retry must not replay.
  */
-function fakeGithub({ loseResponse = false } = {}) {
+function fakeGithub({ loseResponse = false, workflowTitle = 'Orchestrate Job Crawlers' } = {}) {
   const runs: Array<{ id: number; display_title: string }> = [];
   let posts = 0;
   const fetchImpl = vi.fn(async (url: string, init: RequestInit) => {
@@ -58,8 +69,8 @@ function fakeGithub({ loseResponse = false } = {}) {
       runs.push({
         id: 1000 + posts,
         display_title: marked
-          ? `Orchestrate Job Crawlers [cloud-scheduler ${body.inputs.scheduled_slot}]`
-          : 'Orchestrate Job Crawlers',
+          ? `${workflowTitle} [cloud-scheduler ${body.inputs.scheduled_slot}]`
+          : workflowTitle,
       });
       if (loseResponse && posts === 1) throw new TypeError('fetch failed');
       return new Response(null, { status: 204 });
@@ -229,5 +240,151 @@ describe('crawler orchestrator Cloud Scheduler dispatch', () => {
     // A retry must arrive after the lease of the attempt it replaces.
     const backoff = Number(functionsIndex.match(/dispatchCrawlerOrchestrator[\s\S]*?minBackoffSeconds: (\d+)/)?.[1]);
     expect(backoff * 1000).toBeGreaterThan(CLAIM_LEASE_MS);
+  });
+});
+
+describe('job-alert primary Cloud Scheduler dispatch', () => {
+  it('keeps the primary time in one exported constant and derives its cron', () => {
+    expect(JOB_ALERT_PRIMARY_SLOT_UTC).toBe('05:00');
+    expect(JOB_ALERT_PRIMARY_CLOUD_SCHEDULE).toBe('0 5 * * *');
+    expect(JOB_ALERT_PRIMARY_SLOT_ID).toBe('job-alert-primary');
+    expect(isJobAlertPrimarySlot('2026-11-27T05:00:12Z')).toBe(true);
+    expect(isJobAlertPrimarySlot('2026-11-27T05:01:00Z')).toBe(false);
+    expect(isJobAlertPrimarySlot('2026-11-27T12:07:00Z')).toBe(false);
+  });
+
+  it('registers the job-alert dispatcher beside the crawler with a longer retry backoff than its lease', () => {
+    const functionsIndex = readFileSync(`${root}/functions/index.js`, 'utf8');
+    expect(functionsIndex).toContain('export const dispatchJobAlerts = onSchedule(');
+    expect(functionsIndex).toContain('schedule: JOB_ALERT_PRIMARY_CLOUD_SCHEDULE,');
+    expect(functionsIndex).toContain("timeZone: 'UTC'");
+    const backoff = Number(functionsIndex.match(/dispatchJobAlerts = onSchedule[\s\S]*?minBackoffSeconds: (\d+)/)?.[1]);
+    expect(backoff * 1000).toBeGreaterThan(CLAIM_LEASE_MS);
+  });
+
+  it('dispatches main with dry_run=false, the Cloud Scheduler source and the ISO slot', async () => {
+    const github = fakeGithub({ workflowTitle: 'Send Job Alert Emails' });
+    const claimStore = memoryClaimStore();
+    const result = await dispatchJobAlerts({
+      scheduledAt: '2026-11-27T05:00:03Z',
+      fetchImpl: github.fetchImpl,
+      getRepoConfigImpl: repoConfig,
+      claimStore,
+    });
+
+    expect(result).toMatchObject({ dispatched: true, scheduledAt: '2026-11-27T05:00:00.000Z', status: 204 });
+    expect(github.fetchImpl).toHaveBeenCalledWith(
+      `https://api.github.com/repos/owner/repo/actions/workflows/${JOB_ALERT_WORKFLOW}/dispatches`,
+      expect.objectContaining({
+        method: 'POST',
+        body: JSON.stringify({
+          ref: 'main',
+          inputs: {
+            dry_run: 'false',
+            trigger_source: JOB_ALERT_TRIGGER_SOURCE,
+            scheduled_slot: '2026-11-27T05:00:00.000Z',
+          },
+        }),
+      }),
+    );
+    expect(github.runs[0].display_title).toContain(jobAlertSchedulerRunMarker('2026-11-27T05:00:00.000Z'));
+    expect(jobAlertRunMarker('2026-11-27T05:00:00.000Z'))
+      .toBe(jobAlertSchedulerRunMarker('2026-11-27T05:00:00.000Z'));
+  });
+
+  it('refuses a force run outside the slot before reading claims or credentials', async () => {
+    const fetchImpl = vi.fn();
+    const getRepoConfigImpl = vi.fn();
+    const claimStore = { acquire: vi.fn(), markDispatched: vi.fn() };
+    const result = await dispatchJobAlerts({
+      scheduledAt: '2026-11-27T05:01:00Z',
+      fetchImpl,
+      getRepoConfigImpl,
+      claimStore,
+    });
+    expect(result).toMatchObject({ dispatched: false, reason: 'not_job_alert_primary_slot' });
+    expect(claimStore.acquire).not.toHaveBeenCalled();
+    expect(getRepoConfigImpl).not.toHaveBeenCalled();
+    expect(fetchImpl).not.toHaveBeenCalled();
+  });
+
+  it('honours in-flight and dispatched claims without another POST', async () => {
+    const claimStore = memoryClaimStore();
+    const key = `${JOB_ALERT_WORKFLOW}_2026-11-27T05:00:00.000Z`;
+    claimStore.docs.set(key, { status: 'pending', leaseUntilMs: Date.now() + CLAIM_LEASE_MS, attempts: 1 });
+    const github = fakeGithub({ workflowTitle: 'Send Job Alert Emails' });
+    expect(await dispatchJobAlerts({
+      scheduledAt: '2026-11-27T05:00:00Z',
+      fetchImpl: github.fetchImpl,
+      getRepoConfigImpl: repoConfig,
+      claimStore,
+    })).toMatchObject({ dispatched: false, reason: 'in_flight' });
+    expect(github.posts()).toBe(0);
+
+    claimStore.docs.set(key, { status: 'dispatched', leaseUntilMs: 0, attempts: 1 });
+    expect(await dispatchJobAlerts({
+      scheduledAt: '2026-11-27T05:00:00Z',
+      fetchImpl: github.fetchImpl,
+      getRepoConfigImpl: repoConfig,
+      claimStore,
+    })).toMatchObject({ dispatched: false, reason: 'duplicate' });
+    expect(github.posts()).toBe(0);
+  });
+
+  it('reacquires an expired claim but does not duplicate a marked run', async () => {
+    const github = fakeGithub({ loseResponse: true, workflowTitle: 'Send Job Alert Emails' });
+    const claimStore = memoryClaimStore();
+    const t0 = Date.parse('2026-11-27T05:00:01Z');
+    const call = (nowMs: number) => dispatchJobAlerts({
+      scheduledAt: '2026-11-27T05:00:00Z',
+      fetchImpl: github.fetchImpl,
+      getRepoConfigImpl: repoConfig,
+      claimStore,
+      now: () => nowMs,
+    });
+
+    await expect(call(t0)).rejects.toThrow('fetch failed');
+    await expect(call(t0 + 60_000)).resolves.toMatchObject({ dispatched: false, reason: 'duplicate', runId: 1001 });
+    expect(github.posts()).toBe(1);
+    expect(await call(t0 + 120_000)).toMatchObject({ dispatched: false, reason: 'duplicate' });
+  });
+
+  it('reacquires an expired claim and dispatches when no marked run exists', async () => {
+    const claimStore = memoryClaimStore();
+    const t0 = Date.parse('2026-11-27T05:00:01Z');
+    await expect(dispatchJobAlerts({
+      scheduledAt: '2026-11-27T05:00:00Z',
+      fetchImpl: async () => new Response('boom', { status: 502 }),
+      getRepoConfigImpl: repoConfig,
+      claimStore,
+      now: () => t0,
+    })).rejects.toThrow('job_alert_dispatch_failed:502:boom');
+
+    const github = fakeGithub({ workflowTitle: 'Send Job Alert Emails' });
+    const retry = await dispatchJobAlerts({
+      scheduledAt: '2026-11-27T05:00:00Z',
+      fetchImpl: github.fetchImpl,
+      getRepoConfigImpl: repoConfig,
+      claimStore,
+      now: () => t0 + 60_000,
+    });
+    expect(retry).toMatchObject({ dispatched: true });
+    expect(github.posts()).toBe(1);
+  });
+
+  it('keeps the crawler adapter on the shared dispatcher contract', async () => {
+    const github = fakeGithub();
+    const claimStore = memoryClaimStore();
+    const result = await dispatchOrchestrator({
+      scheduledAt: '2026-11-27T09:00:00Z',
+      fetchImpl: github.fetchImpl,
+      getRepoConfigImpl: repoConfig,
+      claimStore,
+    });
+    expect(result).toMatchObject({ dispatched: true, scheduledAt: '2026-11-27T09:00:00.000Z' });
+    expect(JSON.parse(String(github.fetchImpl.mock.calls[0][1]?.body))).toEqual({
+      ref: 'main',
+      inputs: { trigger_source: ORCHESTRATOR_TRIGGER_SOURCE, scheduled_slot: '2026-11-27T09:00:00.000Z' },
+    });
   });
 });

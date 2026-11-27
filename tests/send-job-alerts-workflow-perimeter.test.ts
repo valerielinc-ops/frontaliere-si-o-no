@@ -33,6 +33,7 @@ const WORKFLOW = path.join(ROOT, '.github/workflows/send-job-alerts.yml');
 const doc: any = YAML.parse(fs.readFileSync(WORKFLOW, 'utf8'), { logLevel: 'silent' });
 const job = doc.jobs['send-alerts'];
 const steps: any[] = job.steps;
+const workflowText = fs.readFileSync(WORKFLOW, 'utf8');
 
 /** Gli entry point che il workflow esegue, e quelli che il sender carica con `import()` pigro. */
 const ENTRY_POINTS = [
@@ -96,6 +97,44 @@ const stripped = (rel: string) => {
 };
 const SLOW = 120_000;
 const checkoutStep = steps.find((step) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'));
+
+describe('Cloud Scheduler primary slot and newsletter handoff', () => {
+  it('removes the delayed primary cron but keeps the 12:07 UTC safety slot', () => {
+    expect(doc.on.schedule).toEqual([{ cron: '7 12 * * *' }]);
+    expect(JSON.stringify(doc.on.schedule)).not.toContain('33 0 * * *');
+    expect(job.if).toBe("github.event.schedule != '7 12 * * *' || vars.JOB_ALERT_SECOND_SLOT_ARMED == 'true'");
+  });
+
+  it('declares Cloud Scheduler inputs and marks only its non-dry-run dispatches', () => {
+    expect(doc['run-name']).toContain("inputs.trigger_source == 'cloud-scheduler'");
+    expect(doc['run-name']).toContain('inputs.dry_run != true');
+    expect(doc['run-name']).toContain("inputs.dry_run != 'true'");
+    expect(doc['run-name']).toContain('[cloud-scheduler {0}]');
+    expect(doc.on.workflow_dispatch.inputs.trigger_source).toMatchObject({ default: 'manual', type: 'string', required: false });
+    expect(doc.on.workflow_dispatch.inputs.scheduled_slot).toMatchObject({ default: '', type: 'string', required: false });
+    expect(doc.on.workflow_dispatch.inputs.dry_run).toMatchObject({ default: true, type: 'boolean', required: false });
+
+    const create = steps.find((step) => step?.name === 'Create primary newsletter handoff marker');
+    const upload = steps.find((step) => step?.name === 'Upload primary newsletter handoff');
+    const createRun = String(create?.run ?? '');
+    expect(createRun).not.toContain('${{ inputs.');
+    expect(create?.env).toMatchObject({
+      TRIGGER_SOURCE: '${{ inputs.trigger_source }}',
+      SCHEDULED_SLOT: '${{ inputs.scheduled_slot }}',
+      DRY_RUN: '${{ inputs.dry_run }}',
+    });
+    for (const markerStep of [create, upload]) {
+      expect(String(markerStep?.if)).toContain("github.event_name == 'workflow_dispatch'");
+      expect(String(markerStep?.if)).toContain("inputs.trigger_source == 'cloud-scheduler'");
+      expect(String(markerStep?.if)).toContain('inputs.dry_run != true');
+      expect(String(markerStep?.if)).toContain("inputs.dry_run != 'true'");
+    }
+    expect(workflowText).toContain('schema_version: 2');
+    expect(workflowText).toContain('schedule: "job-alert-primary"');
+    expect(workflowText).toContain('source_event: "workflow_dispatch"');
+    expect(workflowText).toContain("dry_run: $dry_run");
+  });
+});
 
 describe('checkout', () => {
   it('e pieno e senza un profilo sparse non generato (decisione misurata, documentata nel workflow)', () => {

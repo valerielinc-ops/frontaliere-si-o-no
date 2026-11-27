@@ -28,9 +28,23 @@ const step = (job: Job, name: string) => {
 const uses = (job: Job) => job.steps.map((candidate) => String(candidate.uses ?? ''));
 
 describe('newsletter workflow handoff contract', () => {
-  it('does not run for failed, manual, or non-scheduled source completions', () => {
-    expect(gateJob.if).toContain("github.event.workflow_run.event == 'schedule'");
+  it('admits only successful workflow_dispatch source runs for handoff validation', () => {
+    expect(gateJob.if).toContain("github.event.workflow_run.event == 'workflow_dispatch'");
+    expect(gateJob.if).not.toContain("github.event.workflow_run.event == 'schedule'");
     expect(gateJob.if).toContain("github.event.workflow_run.conclusion == 'success'");
+  });
+
+  it('accepts only the versioned primary Cloud Scheduler handoff marker', () => {
+    const verify = step(gateJob, 'Verify newsletter trigger');
+    const run = String(verify.run);
+    expect(run).toContain('.schema_version == 2');
+    expect(run).toContain('.schedule == "job-alert-primary"');
+    expect(run).toContain('.source_event == "workflow_dispatch"');
+    expect(run).toContain('.trigger_source == "cloud-scheduler"');
+    expect(run).toContain('.dry_run == "false"');
+    expect(run).toContain('$source_event == "workflow_dispatch"');
+    expect(run).toContain('SOURCE_DISPLAY_TITLE');
+    expect(run).not.toContain('33 0 * * *');
   });
 
   it('probes artifacts before downloading an optional handoff', () => {
