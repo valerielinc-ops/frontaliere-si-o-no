@@ -236,3 +236,63 @@ describe('committed manifest', () => {
     }
   });
 });
+
+describe('a target that only has an active record', () => {
+  const live = (bucket: string[]) => record('cuoco-acme', OWNER, {
+    expiredAt: undefined,
+    previousSlugsByLocale: { it: bucket },
+    previousSlugCantonByLocale: undefined,
+  });
+  const active = target({ it: ['cuoco-acme-perso'] }, { state: 'active' });
+
+  it('appends to the locale bucket with its canton', () => {
+    const rows = [live(['uno'])];
+    const result = recoverCrawlerRows(rows, [active], new Set(keys(rows)));
+
+    expect(result.rows[0].previousSlugsByLocale).toEqual({ it: ['uno', 'cuoco-acme-perso'] });
+    expect(result.rows[0].previousSlugCantonByLocale.it['cuoco-acme-perso']).toBe('TI');
+    expect(result.rows[0].previousSlugs).toBeUndefined();
+  });
+
+  it('never evicts an older route from a bucket at the cap', () => {
+    const rows = [live(Array.from({ length: 20 }, (_, index) => `vecchio-${index}`))];
+    const result = recoverCrawlerRows(rows, [active], new Set(keys(rows)));
+
+    expect(result.rows).toEqual(rows);
+    expect(result.skipped).toEqual([{ key: 'it:cuoco-acme-perso', reason: 'cap-full' }]);
+  });
+
+  it('writes the active slice, keeps its envelope and is idempotent', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'recover-routes-active-'));
+    dirs.push(root);
+    const expiredDir = path.join(root, 'data', 'jobs', 'expired', 'by-crawler');
+    const file = path.join(root, 'data', 'jobs', 'by-crawler', 'acme.json');
+    fs.mkdirSync(expiredDir, { recursive: true });
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    const rows = [live(['uno'])];
+    fs.writeFileSync(file, `${JSON.stringify({ crawlerKey: 'acme', updatedAt: 'x', jobs: rows }, null, 2)}\n`);
+    const manifest = { targets: [active] };
+
+    expect(runRecovery({ manifest, expiredDir, heldKeys: new Set(keys(rows)), write: true }).added).toHaveLength(1);
+    const written = JSON.parse(fs.readFileSync(file, 'utf8'));
+    expect({ ...written, jobs: [] }).toEqual({ crawlerKey: 'acme', updatedAt: 'x', jobs: [] });
+    expect(keys(written.jobs)).toContain('it:cuoco-acme-perso');
+    expect(runRecovery({ manifest, expiredDir, heldKeys: new Set(keys(written.jobs)), write: true }).added).toEqual([]);
+  });
+});
+
+describe('committed residual manifest', () => {
+  it('assigns each route to one target proven by a posting token', () => {
+    const read = (file: string) => JSON.parse(fs.readFileSync(file, 'utf8')).targets as any[];
+    const residual = read(path.join(path.dirname(DEFAULT_MANIFEST_PATH), 'residual-lost-routes-20261127.json'));
+    const routes = residual.flatMap((entry) => Object.entries(entry.routes)
+      .flatMap(([locale, slugs]) => (slugs as string[]).map((slug) => `${locale}:${slug}`)));
+
+    expect(routes.length).toBeGreaterThan(0);
+    expect(new Set(routes).size).toBe(routes.length);
+    for (const entry of residual) {
+      expect(entry.proof.postingTokens.length).toBeGreaterThan(0);
+      expect(entry.slug && entry.companyKey && entry.crawlerKey && entry.sourceIdentity).toBeTruthy();
+    }
+  });
+});
