@@ -29,7 +29,8 @@
     "sector": "Altro",
     "expiredAt": "2026-11-27T09:33:59.902Z",
     "previousSlugs": [
-      "automobil-mechatroniker-in-efz-schwerpunkt-porsche-100-thalwil-zh-servicekuhn-ch-ch"
+      "automobil-mechatroniker-in-efz-schwerpunkt-porsche-100-thalwil-zh-servicekuhn-ch-ch",
+      "automobil-mechatroniker-in-efz-schwerpunkt-porsche-100-thalwil-zh-servicekuhn-ch-ch-7f2df086"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -48,7 +49,8 @@
     },
     "previousSlugCantonByLocale": {
       "it": {
-        "automobil-mechatroniker-in-efz-schwerpunkt-porsche-100-thalwil-zh-servicekuhn-ch-ch-7f2df086": "ZH"
+        "automobil-mechatroniker-in-efz-schwerpunkt-porsche-100-thalwil-zh-servicekuhn-ch-ch-7f2df086": "ZH",
+        "automobil-mechatroniker-in-efz-schwerpunkt-porsche-100-thalwil-zh-servicekuhn-ch-ch": "ZH"
       },
       "en": {
         "automobil-mechatroniker-in-efz-schwerpunkt-porsche-100-thalwil-zh-servicekuhn-ch-ch": "ZH"
@@ -67,6 +69,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://servicekuhn.ch/jobs",
-    "firstSeenAt": "2026-10-23T21:26:57.459Z"
+    "firstSeenAt": "2026-10-23T21:26:57.459Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://servicekuhn.ch/jobs",
+        "firstSeenAt": "2026-10-23T21:26:57.459Z",
+        "title": "Automobil-Mechatroniker/in EFZ, Schwerpunkt Porsche (100 %)"
+      },
+      {
+        "sourceIdentity": "url:https://servicekuhn.ch/jobs/automobil-mechatroniker",
+        "firstSeenAt": "2026-10-23T21:26:57.459Z",
+        "title": "Automobil-Mechatroniker/in EFZ, Schwerpunkt Porsche (100 %)"
+      }
+    ]
   }
 ]
