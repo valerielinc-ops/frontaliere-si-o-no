@@ -202,11 +202,13 @@
     "previousSlugCantonByLocale": {
       "it": {
         "ricercatore-post-dottorato-idorsia-pharmaceuticals-basel": "BL",
-        "postdoctoral-researcher-idorsia-allschwil": "BL"
+        "postdoctoral-researcher-idorsia-allschwil": "BL",
+        "postdoctoral-researcher-idorsia-allschwil-p9xlfo": "BL"
       },
       "en": {
         "postdoctoral-researcher-idorsia-pharmaceuticals-basel": "BL",
-        "postdoctoral-researcher-idorsia-allschwil": "BL"
+        "postdoctoral-researcher-idorsia-allschwil": "BL",
+        "postdoctoral-researcher-idorsia-allschwil-p9xlfo": "BL"
       },
       "de": {
         "postdoktorand-idorsia-pharmaceuticals-basel": "BL"
@@ -214,7 +216,8 @@
       "fr": {
         "chercheur-postdoctoral-idorsia-pharmaceuticals-basel": "BL"
       }
-    }
+    },
+    "canton": "BL"
   },
   {
     "slug": "direttore-medical-chat-m-f-d-idorsia-pharmaceuticals-allschwil",
@@ -264,7 +267,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.idorsia.com/job/allschwil-director-medical-chat-%28mfd%29-bl/1455022033",
-    "firstSeenAt": "2026-11-06T09:41:59.060Z"
+    "firstSeenAt": "2026-11-06T09:41:59.060Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "director-medical-chat-m-f-d-idorsia-allschwil": "BL"
+      },
+      "de": {
+        "director-medical-chat-m-f-d-idorsia-allschwil": "BL"
+      },
+      "fr": {
+        "director-medical-chat-m-f-d-idorsia-allschwil": "BL"
+      }
+    }
   },
   {
     "slug": "direttore-associato-responsabile-del-progetto-tecnico-idorsia-pharmaceuticals-basel",
@@ -324,7 +339,26 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.idorsia.com/job/basel-associate-director%2c-technical-project-leader-drug-substance/1411931933",
-    "firstSeenAt": "2026-07-07T12:14:48.545Z"
+    "firstSeenAt": "2026-07-07T12:14:48.545Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "direttore-associato-progetto-tecnico-leader-drug-product-idorsia-pharmaceuticals-basel": "BS",
+        "associate-director-technical-project-leader-drug-product-idorsia-basel": "BS",
+        "associate-director-technischer-projektleiter-drug-product-idorsia-pharmaceuticals-basel": "BS",
+        "directeur-associe-chef-de-projet-technique-produit-pharmaceutique-idorsia-pharmaceuticals-basel": "BS",
+        "associate-director-technical-project-leader-drug-substance-idorsia-basel": "BS"
+      },
+      "en": {
+        "associate-director-technical-project-leader-drug-product-idorsia-basel": "BS"
+      },
+      "de": {
+        "associate-director-technischer-projektleiter-drug-product-idorsia-pharmaceuticals-basel": "BS"
+      },
+      "fr": {
+        "directeur-associe-chef-de-projet-technique-produit-pharmaceutique-idorsia-pharmaceuticals-basel": "BS"
+      }
+    }
   },
   {
     "slug": "piombo-di-sviluppo-clinico-idorsia-pharmaceuticals-allschwil",
@@ -375,7 +409,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.idorsia.com/job/allschwil%2c-basel-area-clinical-development-lead-bl/1418151633",
-    "firstSeenAt": "2026-07-23T11:23:04.251Z"
+    "firstSeenAt": "2026-07-23T11:23:04.251Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "clinical-development-lead-idorsia-allschwil": "BL",
+        "clinical-development-lead-idorsia-allschwil-basel-area": "BL"
+      },
+      "de": {
+        "clinical-development-lead-idorsia-allschwil": "BL"
+      },
+      "fr": {
+        "clinical-development-lead-idorsia-allschwil": "BL"
+      }
+    }
   },
   {
     "slug": "senior-scientific-associate-laboratori-di-produzione-tecnica-idorsia-pharmaceuticals-allschwil-1f8cbeaf",
@@ -531,7 +578,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.idorsia.com/job/allschwil%2c-basel-area-senior-scientific-associate/1424270033",
-    "firstSeenAt": "2026-08-07T21:47:26.221Z"
+    "firstSeenAt": "2026-08-07T21:47:26.221Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-scientific-associate-idorsia-allschwil": "BL"
+      }
+    }
   },
   {
     "slug": "business-analista-drug-safety-systems-idorsia-pharmaceuticals-allschwil",
@@ -582,7 +635,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.idorsia.com/job/allschwil%2c-basel-area-business-analyst-drug-safety-systems-bl/1427342233",
-    "firstSeenAt": "2026-08-18T10:15:12.355Z"
+    "firstSeenAt": "2026-08-18T10:15:12.355Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "business-analyst-drug-safety-systems-idorsia-allschwil": "BL",
+        "business-analyst-drug-safety-systems-idorsia-allschwil-basel-area": "BL"
+      },
+      "en": {
+        "business-analyst-drug-safety-systems-idorsia-allschwil-basel-area": "BL"
+      },
+      "fr": {
+        "business-analyst-drug-safety-systems-idorsia-allschwil": "BL"
+      }
+    }
   },
   {
     "slug": "risorse-umane-services-specialista-idorsia-pharmaceuticals-basel",
