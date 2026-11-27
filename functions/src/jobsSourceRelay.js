@@ -130,6 +130,66 @@ function sendJson(res, status, error, extraHeaders = {}) {
 // caller can tell a relayed Workday 404/429 from the relay's own errors.
 const UPSTREAM_MARKER = { 'X-Relay-Source': 'upstream' };
 
+// Auth rejections carry a stable code plus NON-sensitive observed values
+// (iss/aud/repository/kid/timestamps), never the token or its signature.
+function authError(message, observed) {
+  const error = new Error(message);
+  error.observed = observed;
+  return error;
+}
+
+function safeClaim(value) {
+  if (typeof value === 'string') return value.slice(0, 120);
+  if (typeof value === 'number' && Number.isFinite(value)) return value;
+  if (Array.isArray(value)) return value.slice(0, 5).map((item) => String(item).slice(0, 120));
+  return typeof value;
+}
+
+const AUTH_REJECTION_CODES = new Map([
+  ['missing_authorization', 'missing_authorization'],
+  ['missing_bearer_token', 'bad_scheme'],
+  ['invalid_jwt_shape', 'bad_shape'],
+  ['invalid_jwt_header', 'bad_header'],
+  ['invalid_jwt_payload', 'bad_payload'],
+  ['invalid_jwt_issuer', 'bad_iss'],
+  ['invalid_jwt_audience', 'bad_aud'],
+  ['invalid_jwt_repository', 'bad_repository'],
+  ['invalid_repository', 'bad_repository'],
+  ['expired_jwt', 'expired'],
+  ['not_yet_valid_jwt', 'not_yet_valid'],
+  ['invalid_verifier_clock', 'bad_clock'],
+  ['unknown_jwt_key', 'kid_unknown'],
+  ['invalid_jwt_signature', 'bad_signature'],
+]);
+
+function classifyAuthRejection(error) {
+  const message = String(error?.message || '');
+  if (AUTH_REJECTION_CODES.has(message)) return AUTH_REJECTION_CODES.get(message);
+  if (message.startsWith('github_oidc_jwks_')) return 'jwks_fetch_failed';
+  if (error?.name === 'AbortError' || /fetch failed|abort|timeout|ENOTFOUND|ECONN|ETIMEDOUT/iu.test(message)) {
+    return 'jwks_fetch_failed';
+  }
+  return 'auth_unknown';
+}
+
+function logAuthRejection({ req, error, authorization, target }) {
+  const names = Object.keys(req?.headers && typeof req.headers === 'object' ? req.headers : {});
+  console.warn(JSON.stringify({
+    severity: 'WARNING',
+    message: 'jobsSourceRelayAuthRejected',
+    reason: classifyAuthRejection(error),
+    detail: String(error?.message || '').slice(0, 120),
+    cause: error?.cause?.code ? String(error.cause.code).slice(0, 60) : undefined,
+    authorizationPresent: authorization.length > 0,
+    authorizationScheme: authorization ? authorization.split(/\s+/u)[0].slice(0, 16).toLowerCase() : null,
+    serverlessAuthorizationPresent: Boolean(getRequestHeader(req, 'x-serverless-authorization')),
+    headerNames: names.map((name) => name.toLowerCase()).sort().slice(0, 40),
+    host: target.host,
+    path: target.path,
+    ...(error?.observed || {}),
+  }));
+}
+
 function allowedAudience(aud) {
   return aud === GITHUB_OIDC_AUDIENCE
     || (Array.isArray(aud) && aud.length === 1 && aud[0] === GITHUB_OIDC_AUDIENCE);
@@ -181,21 +241,32 @@ async function fetchGithubJwks(fetchImpl, forceRefresh = false) {
  * and RSA algorithm used by the second-step workflows. No shared secret is
  * kept in Firebase or passed through a crawler environment.
  */
-export async function verifyGithubOidcToken(token, { fetchImpl = globalThis.fetch, now = Date.now() } = {}) {
+export async function verifyGithubOidcToken(token, { fetchImpl = globalThis.fetch, now = Date.now } = {}) {
   const parts = String(token || '').split('.');
   if (parts.length !== 3) throw new Error('invalid_jwt_shape');
 
   const header = decodeJsonPart(parts[0], 'header');
   const claims = decodeJsonPart(parts[1], 'payload');
   if (header.alg !== 'RS256' || typeof header.kid !== 'string') throw new Error('invalid_jwt_header');
-  if (claims.iss !== GITHUB_OIDC_ISSUER) throw new Error('invalid_jwt_issuer');
-  if (!allowedAudience(claims.aud)) throw new Error('invalid_jwt_audience');
-  if (!ALLOWED_REPOSITORIES.has(claims.repository)) throw new Error('invalid_jwt_repository');
+  if (claims.iss !== GITHUB_OIDC_ISSUER) {
+    throw authError('invalid_jwt_issuer', { iss: safeClaim(claims.iss) });
+  }
+  if (!allowedAudience(claims.aud)) throw authError('invalid_jwt_audience', { aud: safeClaim(claims.aud) });
+  if (!ALLOWED_REPOSITORIES.has(claims.repository)) {
+    throw authError('invalid_jwt_repository', {
+      repository: safeClaim(claims.repository),
+      jobWorkflowRef: safeClaim(claims.job_workflow_ref),
+    });
+  }
 
   const nowSeconds = Math.floor(Number(now()) / 1000);
   if (!Number.isFinite(nowSeconds)) throw new Error('invalid_verifier_clock');
-  if (typeof claims.exp !== 'number' || claims.exp < nowSeconds - 60) throw new Error('expired_jwt');
-  if (typeof claims.nbf === 'number' && claims.nbf > nowSeconds + 60) throw new Error('not_yet_valid_jwt');
+  if (typeof claims.exp !== 'number' || claims.exp < nowSeconds - 60) {
+    throw authError('expired_jwt', { exp: safeClaim(claims.exp), nowSeconds });
+  }
+  if (typeof claims.nbf === 'number' && claims.nbf > nowSeconds + 60) {
+    throw authError('not_yet_valid_jwt', { nbf: claims.nbf, nowSeconds });
+  }
 
   let keys = await fetchGithubJwks(fetchImpl);
   let publicKey = keys.get(header.kid);
@@ -203,7 +274,7 @@ export async function verifyGithubOidcToken(token, { fetchImpl = globalThis.fetc
     keys = await fetchGithubJwks(fetchImpl, true);
     publicKey = keys.get(header.kid);
   }
-  if (!publicKey) throw new Error('unknown_jwt_key');
+  if (!publicKey) throw authError('unknown_jwt_key', { kid: safeClaim(header.kid), jwksKeyCount: keys.size });
 
   const valid = verifySignature(
     'RSA-SHA256',
@@ -512,11 +583,14 @@ export function createJobsSourceRelayHandler({
     let claims;
 
     try {
+      if (!authorization) throw new Error('missing_authorization');
       if (!tokenMatch) throw new Error('missing_bearer_token');
       claims = await verifyToken(tokenMatch[1]);
       if (!claims || !ALLOWED_REPOSITORIES.has(claims.repository)) throw new Error('invalid_repository');
-    } catch {
-      logRelayRequest({ ...describeTarget(requestQueryValue(req, 'url')), status: 401, caller: 'unauthenticated' });
+    } catch (error) {
+      const target = describeTarget(requestQueryValue(req, 'url'));
+      logAuthRejection({ req, error, authorization, target });
+      logRelayRequest({ ...target, status: 401, caller: 'unauthenticated' });
       return sendJson(res, 401, 'unauthorized');
     }
 

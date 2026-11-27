@@ -292,6 +292,95 @@ describe('jobsSourceRelay', () => {
   });
 });
 
+describe('source relay auth rejection diagnostics', () => {
+  const jwt = (claims: Record<string, unknown>, header: Record<string, unknown> = { alg: 'RS256', kid: 'kid-x' }) => {
+    const enc = (value: unknown) => Buffer.from(JSON.stringify(value)).toString('base64url');
+    return `${enc(header)}.${enc(claims)}.c2ln`;
+  };
+  const future = Math.floor(Date.now() / 1000) + 600;
+  const good = {
+    iss: 'https://token.actions.githubusercontent.com',
+    aud: 'frontaliere-jobs-source-relay',
+    repository: 'nanakokyobashi-rgb/frontaliere-articles',
+    exp: future,
+  };
+
+  async function reject(authorization: string, fetchImpl: any = vi.fn(), extraHeaders: Record<string, string> = {}) {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      const handler = createJobsSourceRelayHandler({ fetchImpl });
+      const req: any = request(CHUR_URL, { authorization });
+      req.headers = { ...(req.headers || {}), ...(authorization ? { authorization } : {}), ...extraHeaders };
+      const res = responseRecorder();
+      await handler(req, res);
+      expect(res.statusCode).toBe(401);
+      const line = warn.mock.calls.map((call) => String(call[0])).find((text) => text.includes('jobsSourceRelayAuthRejected'));
+      expect(line).toBeTruthy();
+      return { entry: JSON.parse(line as string), raw: line as string };
+    } finally {
+      warn.mockRestore();
+    }
+  }
+
+  it('logs missing_authorization with the header presence flags', async () => {
+    const { entry } = await reject('', vi.fn(), { 'x-serverless-authorization': 'Bearer g' });
+    expect(entry).toMatchObject({
+      reason: 'missing_authorization',
+      authorizationPresent: false,
+      serverlessAuthorizationPresent: true,
+    });
+    expect(entry.headerNames).toContain('x-serverless-authorization');
+  });
+
+  it('verifies a correctly signed token with the default clock (regression: now=Date.now() was a number)', async () => {
+    const { generateKeyPairSync, sign } = await import('node:crypto');
+    const { publicKey, privateKey } = generateKeyPairSync('rsa', { modulusLength: 2048 });
+    const jwk = { ...publicKey.export({ format: 'jwk' }), kid: 'kid-valid' };
+    const fetchImpl = vi.fn(async () => ({ ok: true, status: 200, json: async () => ({ keys: [jwk] }) }));
+    const enc = (value: unknown) => Buffer.from(JSON.stringify(value)).toString('base64url');
+    const signingInput = `${enc({ alg: 'RS256', kid: 'kid-valid' })}.${enc(good)}`;
+    const signature = sign('RSA-SHA256', Buffer.from(signingInput), privateKey).toString('base64url');
+    await expect(verifyGithubOidcToken(`${signingInput}.${signature}`, { fetchImpl }))
+      .resolves.toMatchObject({ repository: 'nanakokyobashi-rgb/frontaliere-articles' });
+  });
+
+  it('logs bad_scheme, bad_iss, bad_aud and bad_repository with non-sensitive observed values', async () => {
+    expect((await reject('Basic abc')).entry).toMatchObject({ reason: 'bad_scheme', authorizationScheme: 'basic' });
+    const iss = await reject(`Bearer ${jwt({ ...good, iss: 'https://evil.example' })}`);
+    expect(iss.entry).toMatchObject({ reason: 'bad_iss', iss: 'https://evil.example', authorizationPresent: true });
+    const aud = await reject(`Bearer ${jwt({ ...good, aud: 'other-audience' })}`);
+    expect(aud.entry).toMatchObject({ reason: 'bad_aud', aud: 'other-audience' });
+    const repo = await reject(`Bearer ${jwt({ ...good, repository: 'someone/else', job_workflow_ref: 'someone/else/.github/workflows/x.yml@refs/heads/main' })}`);
+    expect(repo.entry).toMatchObject({ reason: 'bad_repository', repository: 'someone/else' });
+    expect(repo.entry.jobWorkflowRef).toContain('x.yml');
+  });
+
+  it('logs expired and never the token or signature', async () => {
+    const token = jwt({ ...good, exp: 1_000 });
+    const { entry, raw } = await reject(`Bearer ${token}`);
+    expect(entry).toMatchObject({ reason: 'expired', exp: 1000 });
+    expect(raw).not.toContain(token);
+    expect(raw).not.toContain(token.split('.')[2] + '"');
+  });
+
+  it('logs jwks_fetch_failed when the JWKS cannot be downloaded', async () => {
+    const fetchImpl = vi.fn(async () => { throw new TypeError('fetch failed'); });
+    const { entry } = await reject(`Bearer ${jwt(good, { alg: 'RS256', kid: 'kid-jwks-fail' })}`, fetchImpl);
+    expect(entry.reason).toBe('jwks_fetch_failed');
+  });
+
+  it('logs kid_unknown with the kid and key count, and bad_signature through a known key', async () => {
+    const { generateKeyPairSync } = await import('node:crypto');
+    const { publicKey } = generateKeyPairSync('rsa', { modulusLength: 2048 });
+    const jwk = { ...publicKey.export({ format: 'jwk' }), kid: 'kid-known' };
+    const fetchImpl = vi.fn(async () => ({ ok: true, status: 200, json: async () => ({ keys: [jwk] }) }));
+    const unknown = await reject(`Bearer ${jwt(good, { alg: 'RS256', kid: 'kid-unknown-1' })}`, fetchImpl);
+    expect(unknown.entry).toMatchObject({ reason: 'kid_unknown', kid: 'kid-unknown-1', jwksKeyCount: 1 });
+    const badSig = await reject(`Bearer ${jwt(good, { alg: 'RS256', kid: 'kid-known' })}`, fetchImpl);
+    expect(badSig.entry.reason).toBe('bad_signature');
+  });
+});
+
 describe('source relay crawler client', () => {
   it('stays disabled when JOBS_SOURCE_RELAY_URL is unset', async () => {
     const fetchImpl = vi.fn();
