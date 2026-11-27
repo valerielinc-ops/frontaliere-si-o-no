@@ -848,6 +848,57 @@ describe('Workday JSON transport', () => {
       }
     });
 
+    it.each([Infinity, Number.NaN, -1, '9e999'])('never lets the budget %s make the rescue unbounded', async (bad) => {
+      vi.useFakeTimers();
+      vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('', { status: 429 })));
+      const browserFallback = vi.fn().mockResolvedValue({ browser: true });
+      // Infinity-like values fall back to the (finite) defaults: details 0 for an
+      // injected transport, listing 25. A request past the budget must reject.
+      const context = rescueContext(browserFallback, { detailBrowserBudget: bad, listingBrowserBudget: bad });
+
+      try {
+        const pending = context.request(detailUrl(1), detailOptions);
+        const rejection = expect(pending).rejects.toBeInstanceOf(WorkdayRateLimitError);
+        await vi.runAllTimersAsync();
+        await rejection;
+        expect(browserFallback).not.toHaveBeenCalled();
+
+        const listing = { method: 'POST', body: '{}', retries: 3, retryBaseMs: 0 };
+        let served = 0;
+        for (let i = 0; i < 60; i += 1) {
+          const req = context.request(`${API_BASE}/jobs`, listing);
+          const settled = req.then(() => { served += 1; }, () => {});
+          await vi.runAllTimersAsync();
+          await settled;
+        }
+        expect(served).toBeLessThanOrEqual(25);
+        expect(browserFallback.mock.calls.length).toBeLessThanOrEqual(25);
+      } finally {
+        await context.close();
+        vi.useRealTimers();
+      }
+    });
+
+    it('caps an explicit oversized budget at the hard ceiling', async () => {
+      vi.useFakeTimers();
+      vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('', { status: 429 })));
+      const browserFallback = vi.fn().mockResolvedValue({ total: 0, jobPostings: [] });
+      const context = rescueContext(browserFallback, { listingBrowserBudget: 1_000_000 });
+
+      try {
+        const listing = { method: 'POST', body: '{}', retries: 3, retryBaseMs: 0 };
+        for (let i = 0; i < 130; i += 1) {
+          const req = context.request(`${API_BASE}/jobs`, listing).catch(() => {});
+          await vi.runAllTimersAsync();
+          await req;
+        }
+        expect(browserFallback.mock.calls.length).toBe(100);
+      } finally {
+        await context.close();
+        vi.useRealTimers();
+      }
+    });
+
     it('uses the built-in browser transport for details by default, but not a caller-supplied one', async () => {
       vi.useFakeTimers();
       vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('', { status: 429 })));

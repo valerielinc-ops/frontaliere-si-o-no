@@ -611,6 +611,21 @@ const DEFAULT_LISTING_BROWSER_BUDGET = 25;
 const DEFAULT_DETAIL_BROWSER_BUDGET = 40;
 const DEFAULT_BROWSER_BACKOFF_MS = 2_500;
 const browserRescueLedgers = new Map();
+// A caller-supplied budget can lower the allowance but never make it unbounded:
+// non-finite, negative or NaN values fall back to the default, and the hard
+// ceiling keeps even a generous override inside the #19723 bound.
+const MAX_BROWSER_BUDGET = 100;
+
+function sanitizeBrowserBudget(value, fallback) {
+  const n = Number(value);
+  if (value === null || value === undefined || !Number.isFinite(n) || n < 0) return fallback;
+  return Math.min(Math.floor(n), MAX_BROWSER_BUDGET);
+}
+
+function sanitizeBrowserBackoff(value) {
+  const n = Number(value);
+  return Number.isFinite(n) && n >= 0 ? n : DEFAULT_BROWSER_BACKOFF_MS;
+}
 
 // URL-equivalent spellings of one tenant (host case, default port, trailing
 // slash, fragment) must share one budget ledger and one implicit 429 state.
@@ -687,15 +702,17 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
     rateLimitCircuitThreshold = DEFAULT_RATE_LIMIT_CIRCUIT_THRESHOLD,
     egressStateDir = process.env.WORKDAY_EGRESS_STATE_DIR || defaultWorkdayEgressStateDir(),
     egressMinDelayMs = DEFAULT_EGRESS_MIN_DELAY_MS,
-    listingBrowserBudget = DEFAULT_LISTING_BROWSER_BUDGET,
-    browserBackoffMs = DEFAULT_BROWSER_BACKOFF_MS,
   } = options;
+  const listingBrowserBudget = sanitizeBrowserBudget(options.listingBrowserBudget, DEFAULT_LISTING_BROWSER_BUDGET);
+  const browserBackoffMs = sanitizeBrowserBackoff(options.browserBackoffMs);
   // Detail GETs are where #19723 forbade the browser: a 429 storm there is
   // what the circuit exists to stop. The budgeted rescue below stays inside
   // that bound, but it is on by default only for the built-in browser
   // transport; a caller-supplied transport must opt in explicitly.
-  const detailBrowserBudget = options.detailBrowserBudget
-    ?? (configuredBrowserFallback === undefined ? DEFAULT_DETAIL_BROWSER_BUDGET : 0);
+  const detailBrowserBudget = sanitizeBrowserBudget(
+    options.detailBrowserBudget,
+    configuredBrowserFallback === undefined ? DEFAULT_DETAIL_BROWSER_BUDGET : 0,
+  );
   const ledger = browserRescueLedger(apiBase);
   let browserSession = null;
   let closed = false;
@@ -780,7 +797,7 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
     const rescueThroughBrowser = async (terminalError) => {
       const method = String(requestOptions.method || 'GET').toUpperCase();
       const kind = method === 'POST' ? 'listing' : 'detail';
-      const budget = Math.max(0, Number(kind === 'listing' ? listingBrowserBudget : detailBrowserBudget) || 0);
+      const budget = kind === 'listing' ? listingBrowserBudget : detailBrowserBudget;
       // Only a circuit opened by repeated 429s qualifies: a single terminal 429
       // (retry budget 0, or a short Retry-After) keeps its typed error and never
       // launches a browser.
@@ -804,7 +821,7 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
       ledger[kind] += 1;
       try {
         await waitForRateLimit();
-        const backoffWait = ledger.lastRequestAt + Math.max(0, Number(browserBackoffMs) || 0) - Date.now();
+        const backoffWait = ledger.lastRequestAt + browserBackoffMs - Date.now();
         if (backoffWait > 0) await new Promise((resolve) => setTimeout(resolve, backoffWait));
         const browserRequest = () => browserFallback({
           url,
