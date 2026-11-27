@@ -1,7 +1,7 @@
 {
   "crawlerKey": "csl-immobilien-ag",
-  "assembledAt": "2026-11-26T21:41:27.313Z",
-  "runId": "45898143422",
+  "assembledAt": "2026-11-27T09:53:29.171Z",
+  "runId": "45973680225",
   "jobs": [
     {
       "id": "csl-immobilien-ag-bd764aaf76dc",
@@ -34,7 +34,7 @@
       "url": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/90894baf-5ec6-cf55-6b6d-d1ff32afbbe3?jp=ABACUS",
       "source": "CSL Immobilien AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:41:14.609Z",
+      "crawledAt": "2026-11-27T09:53:19.786Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,9 +83,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:41:14.609Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/90894baf-5ec6-cf55-6b6d-d1ff32afbbe3?jp=abacus"
+      "validThrough": "2027-02-18T09:53:19.786Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "csl-immobilien-ag-9e5ee263ca24",
@@ -118,7 +117,7 @@
       "url": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/60f30749-e92e-f98c-fab8-ecf4fbf29579?jp=ABACUS",
       "source": "CSL Immobilien AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:41:14.608Z",
+      "crawledAt": "2026-11-27T09:53:19.786Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -169,9 +168,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:41:14.608Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/60f30749-e92e-f98c-fab8-ecf4fbf29579?jp=abacus"
+      "validThrough": "2027-02-07T09:53:19.786Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "csl-immobilien-ag-357439cd0cff",
@@ -204,7 +202,7 @@
       "url": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/7fdb40d6-c3ba-5548-b8ad-e55232c8a90b?jp=ABACUS",
       "source": "CSL Immobilien AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:41:14.607Z",
+      "crawledAt": "2026-11-27T09:53:19.780Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -259,9 +257,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:41:14.607Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/7fdb40d6-c3ba-5548-b8ad-e55232c8a90b?jp=abacus"
+      "validThrough": "2027-01-26T09:53:19.780Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

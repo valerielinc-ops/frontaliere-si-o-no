@@ -1,7 +1,7 @@
 {
   "crawlerKey": "richnerstutz-ch",
-  "assembledAt": "2026-11-26T21:45:12.638Z",
-  "runId": "45898143422",
+  "assembledAt": "2026-11-27T09:54:38.215Z",
+  "runId": "45973680225",
   "jobs": [
     {
       "id": "richnerstutz-ch-6bc36da98d81",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "montatore-trice-richnerstutz-ag-5612-villmergen",
         "en": "fitter-richnerstutz-ag-5612-villmergen",
-        "de": "monteur-in-5612-villmergen-richnerstutz-ch-ch",
+        "de": "monteur-in-richnerstutz-ag-villmergen",
         "fr": "monteur-trice-richnerstutz-ag-villmergen"
       },
       "company": "Richnerstutz AG",
@@ -34,7 +34,7 @@
       "url": "https://richnerstutz.ch/jobs/monteur",
       "source": "Richnerstutz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:45:06.891Z",
+      "crawledAt": "2026-11-27T09:53:51.097Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -54,8 +54,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "monteur-in-5612-villmergen-richnerstutz-ch-ch",
-        "monteur-in-richnerstutz-ag-villmergen"
+        "monteur-in-5612-villmergen-richnerstutz-ch-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -65,7 +64,7 @@
           "monteur-in-5612-villmergen-richnerstutz-ch-ch"
         ],
         "de": [
-          "monteur-in-richnerstutz-ag-villmergen"
+          "monteur-in-5612-villmergen-richnerstutz-ch-ch"
         ],
         "fr": [
           "monteur-in-5612-villmergen-richnerstutz-ch-ch"
@@ -101,9 +100,105 @@
       },
       "streetAddress": "Nordstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-06T21:45:06.891Z",
+      "validThrough": "2027-02-06T09:53:51.097Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "richnerstutz-ch-da5fee7ae206",
+      "slug": "schnupperlehren-richnerstutz-ag-villmergen",
+      "slugByLocale": {
+        "de": "schnupperlehren-richnerstutz-ag-villmergen",
+        "it": "schnupperlehren-richnerstutz-ag-villmergen",
+        "en": "schnupperlehren-richnerstutz-ag-villmergen",
+        "fr": "schnupperlehren-richnerstutz-ag-villmergen"
+      },
+      "company": "Richnerstutz AG",
+      "companyKey": "richnerstutz-ch",
+      "companyDomain": "richnerstutz.ch",
+      "title": "Schnupperlehren",
+      "titleByLocale": {
+        "de": "Schnupperlehren",
+        "it": "Schnupperlehren",
+        "en": "Schnupperlehren",
+        "fr": "Schnupperlehren"
+      },
+      "description": "Richnerstutz\n• Schnupperlehren\n• Starte deine berufliche Laufbahn in einem kreativen und abwechslungsreichen Umfeld.\n• Nachwuchsförderung\n• Richnerstutz bildet seit Jahren Nachwuchs als Gestalter*in Werbetechnik aus.\n• Bist du eine motivierte und unkomplizierte Persönlichkeit, die Freude hat, sich aktiv einzubringen und interessiert ist, einen Tag lang Richnerstutz-Luft zu schnuppern?\n• Wir bieten dir einen interessanten Einblick in unser Unternehmen und unseren Alltag.\n• Unser kollegiales Arbeitsumfeld und die zahlreichen Abteilungen im hochmodernen Neubau werden dich bestimmt ebenfalls begeistern.\n• Weitere Informationen\n• Für zusätzliche Informationen steht dir Corina Palladino, Stv. Abteilungsleiterin Werbetechnik gerne zur Verfügung. Direktwahl: 056 616 67 94\n• Schnuppern von Frühling bis Sommer möglich (Herbst/Winter findet Lehrstellenauswahl statt)\n• Bitte beachten: Die Lehrstelle 2027 ist bereits vergeben.\n• Wir freuen uns über deine Bewerbung für eine Schnupperlehre\n• Möchtest erleben, wie und was man als Gestalter*in Werbetechnik arbeitet? Dann freuen wir uns auf deine Kontaktaufnahme per E-Mail.\n• Jetzt bewerben",
+      "descriptionByLocale": {
+        "de": "Richnerstutz\n• Schnupperlehren\n• Starte deine berufliche Laufbahn in einem kreativen und abwechslungsreichen Umfeld.\n• Nachwuchsförderung\n• Richnerstutz bildet seit Jahren Nachwuchs als Gestalter*in Werbetechnik aus.\n• Bist du eine motivierte und unkomplizierte Persönlichkeit, die Freude hat, sich aktiv einzubringen und interessiert ist, einen Tag lang Richnerstutz-Luft zu schnuppern?\n• Wir bieten dir einen interessanten Einblick in unser Unternehmen und unseren Alltag.\n• Unser kollegiales Arbeitsumfeld und die zahlreichen Abteilungen im hochmodernen Neubau werden dich bestimmt ebenfalls begeistern.\n• Weitere Informationen\n• Für zusätzliche Informationen steht dir Corina Palladino, Stv. Abteilungsleiterin Werbetechnik gerne zur Verfügung. Direktwahl: 056 616 67 94\n• Schnuppern von Frühling bis Sommer möglich (Herbst/Winter findet Lehrstellenauswahl statt)\n• Bitte beachten: Die Lehrstelle 2027 ist bereits vergeben.\n• Wir freuen uns über deine Bewerbung für eine Schnupperlehre\n• Möchtest erleben, wie und was man als Gestalter*in Werbetechnik arbeitet? Dann freuen wir uns auf deine Kontaktaufnahme per E-Mail.\n• Jetzt bewerben",
+        "it": "Richnerstutz\n• Schnupperlehren\n• Starte deine berufliche Laufbahn in einem kreativen und abwechslungsreichen Umfeld.\n• Nachwuchsförderung\n• Richnerstutz bildet seit Jahren Nachwuchs als Gestalter*in Werbetechnik aus.\n• Bist du eine motivierte und unkomplizierte Persönlichkeit, die Freude hat, sich aktiv einzubringen und interessiert ist, einen Tag lang Richnerstutz-Luft zu schnuppern?\n• Wir bieten dir einen interessanten Einblick in unser Unternehmen und unseren Alltag.\n• Unser kollegiales Arbeitsumfeld und die zahlreichen Abteilungen im hochmodernen Neubau werden dich bestimmt ebenfalls begeistern.\n• Weitere Informationen\n• Für zusätzliche Informationen steht dir Corina Palladino, Stv. Abteilungsleiterin Werbetechnik gerne zur Verfügung. Direktwahl: 056 616 67 94\n• Schnuppern von Frühling bis Sommer möglich (Herbst/Winter findet Lehrstellenauswahl statt)\n• Bitte beachten: Die Lehrstelle 2027 ist bereits vergeben.\n• Wir freuen uns über deine Bewerbung für eine Schnupperlehre\n• Möchtest erleben, wie und was man als Gestalter*in Werbetechnik arbeitet? Dann freuen wir uns auf deine Kontaktaufnahme per E-Mail.\n• Jetzt bewerben",
+        "en": "Richnerstutz\n• Schnupperlehren\n• Starte deine berufliche Laufbahn in einem kreativen und abwechslungsreichen Umfeld.\n• Nachwuchsförderung\n• Richnerstutz bildet seit Jahren Nachwuchs als Gestalter*in Werbetechnik aus.\n• Bist du eine motivierte und unkomplizierte Persönlichkeit, die Freude hat, sich aktiv einzubringen und interessiert ist, einen Tag lang Richnerstutz-Luft zu schnuppern?\n• Wir bieten dir einen interessanten Einblick in unser Unternehmen und unseren Alltag.\n• Unser kollegiales Arbeitsumfeld und die zahlreichen Abteilungen im hochmodernen Neubau werden dich bestimmt ebenfalls begeistern.\n• Weitere Informationen\n• Für zusätzliche Informationen steht dir Corina Palladino, Stv. Abteilungsleiterin Werbetechnik gerne zur Verfügung. Direktwahl: 056 616 67 94\n• Schnuppern von Frühling bis Sommer möglich (Herbst/Winter findet Lehrstellenauswahl statt)\n• Bitte beachten: Die Lehrstelle 2027 ist bereits vergeben.\n• Wir freuen uns über deine Bewerbung für eine Schnupperlehre\n• Möchtest erleben, wie und was man als Gestalter*in Werbetechnik arbeitet? Dann freuen wir uns auf deine Kontaktaufnahme per E-Mail.\n• Jetzt bewerben",
+        "fr": "Richnerstutz\n• Schnupperlehren\n• Starte deine berufliche Laufbahn in einem kreativen und abwechslungsreichen Umfeld.\n• Nachwuchsförderung\n• Richnerstutz bildet seit Jahren Nachwuchs als Gestalter*in Werbetechnik aus.\n• Bist du eine motivierte und unkomplizierte Persönlichkeit, die Freude hat, sich aktiv einzubringen und interessiert ist, einen Tag lang Richnerstutz-Luft zu schnuppern?\n• Wir bieten dir einen interessanten Einblick in unser Unternehmen und unseren Alltag.\n• Unser kollegiales Arbeitsumfeld und die zahlreichen Abteilungen im hochmodernen Neubau werden dich bestimmt ebenfalls begeistern.\n• Weitere Informationen\n• Für zusätzliche Informationen steht dir Corina Palladino, Stv. Abteilungsleiterin Werbetechnik gerne zur Verfügung. Direktwahl: 056 616 67 94\n• Schnuppern von Frühling bis Sommer möglich (Herbst/Winter findet Lehrstellenauswahl statt)\n• Bitte beachten: Die Lehrstelle 2027 ist bereits vergeben.\n• Wir freuen uns über deine Bewerbung für eine Schnupperlehre\n• Möchtest erleben, wie und was man als Gestalter*in Werbetechnik arbeitet? Dann freuen wir uns auf deine Kontaktaufnahme per E-Mail.\n• Jetzt bewerben"
+      },
+      "location": "5612 Villmergen",
+      "canton": "AG",
+      "url": "https://richnerstutz.ch/jobs/schnupperlehre-richnerstutz",
+      "source": "Richnerstutz AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-27T09:53:51.097Z",
+      "addressLocality": "Villmergen",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5612",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://richnerstutz.ch/jobs/schnupperlehre-richnerstutz",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "schnupperlehren-5612-villmergen-richnerstutz-ch-ch"
+        ],
+        "de": [
+          "schnupperlehren-5612-villmergen-richnerstutz-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schnupperlehren-5612-villmergen-richnerstutz-ch-ch"
+      ],
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Richnerstutz AG",
+        "streetAddress": "Nordstrasse 7",
+        "postalCode": "5612",
+        "registeredName": "richnerstutz ag",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "5612",
+        "addressLocality": "Villmergen",
+        "addressRegion": "AG",
+        "checkedAt": "2026-11-09T15:44:15.926Z"
+      },
+      "streetAddress": "Nordstrasse 7",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-25T09:53:51.097Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://richnerstutz.ch/jobs/monteur"
+      "firstSeenAt": "2026-11-27T09:53:51.097Z"
     },
     {
       "id": "richnerstutz-ch-863f9c69d469",
@@ -136,7 +231,7 @@
       "url": "https://richnerstutz.ch/jobs/fachplanerin-raumgestaltung",
       "source": "Richnerstutz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:45:06.890Z",
+      "crawledAt": "2026-11-27T09:53:51.096Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -199,9 +294,8 @@
       },
       "streetAddress": "Nordstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-06T21:45:06.890Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://richnerstutz.ch/jobs/fachplanerin-raumgestaltung"
+      "validThrough": "2027-02-06T09:53:51.096Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "richnerstutz-ch-cc76593df391",
@@ -234,7 +328,7 @@
       "url": "https://richnerstutz.ch/jobs/projektleiterin-werbetechnik",
       "source": "Richnerstutz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:45:06.889Z",
+      "crawledAt": "2026-11-27T09:53:51.087Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -299,9 +393,8 @@
       },
       "streetAddress": "Nordstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-06T21:45:06.889Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://richnerstutz.ch/jobs/projektleiterin-werbetechnik"
+      "validThrough": "2027-02-06T09:53:51.087Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "richnerstutz-ch-ec336351d869",
@@ -334,7 +427,7 @@
       "url": "https://richnerstutz.ch/jobs/mitarbeiterin-produktionsplanung-vid",
       "source": "Richnerstutz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:45:06.888Z",
+      "crawledAt": "2026-11-27T09:53:51.086Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -399,9 +492,8 @@
       },
       "streetAddress": "Nordstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-06T21:45:06.888Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://richnerstutz.ch/jobs/mitarbeiterin-produktionsplanung-vid"
+      "validThrough": "2027-02-06T09:53:51.086Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "richnerstutz-ch-7cf1763ba3f9",
@@ -434,7 +526,7 @@
       "url": "https://richnerstutz.ch/jobs/led-montagetechnikerin",
       "source": "Richnerstutz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:45:06.886Z",
+      "crawledAt": "2026-11-27T09:53:51.084Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -497,9 +589,8 @@
       },
       "streetAddress": "Nordstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-14T21:45:06.886Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://richnerstutz.ch/jobs/led-montagetechnikerin"
+      "validThrough": "2027-02-15T09:53:51.084Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

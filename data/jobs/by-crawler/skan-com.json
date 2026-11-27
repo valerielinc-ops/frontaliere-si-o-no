@@ -1,7 +1,7 @@
 {
   "crawlerKey": "skan-com",
-  "assembledAt": "2026-11-26T21:42:23.497Z",
-  "runId": "45898143422",
+  "assembledAt": "2026-11-27T09:56:01.088Z",
+  "runId": "45973680225",
   "jobs": [
     {
       "id": "skan-com-4cef516fb7dd",
@@ -34,7 +34,7 @@
       "url": "https://jobs.skan.com/job/allschwil-team-lead-ict-engineering-&-operations/1361640957",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:42:10.223Z",
+      "crawledAt": "2026-11-27T09:55:18.049Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -94,9 +94,8 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-07T21:42:10.223Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.skan.com/job/allschwil-team-lead-ict-engineering-&-operations/1361640957"
+      "validThrough": "2027-02-07T09:55:18.049Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "skan-com-fc863d08c94f",
@@ -129,7 +128,7 @@
       "url": "https://jobs.skan.com/job/allschwil-senior-ict-system-engineer-technical-project-lead-%28mwd%29/1370336957",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:42:10.220Z",
+      "crawledAt": "2026-11-27T09:55:18.048Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -195,9 +194,8 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-07T21:42:10.220Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.skan.com/job/allschwil-senior-ict-system-engineer-technical-project-lead-%28mwd%29/1370336957"
+      "validThrough": "2027-02-07T09:55:18.048Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "skan-com-27dd8ef1a842",
@@ -230,7 +228,7 @@
       "url": "https://jobs.skan.com/job/allschwil-customer-service-specialist%2c-fixed-term%2c-9-month-contract/1366874757",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:42:10.218Z",
+      "crawledAt": "2026-11-27T09:55:18.047Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -293,9 +291,8 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-18T21:42:10.218Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.skan.com/job/allschwil-customer-service-specialist%2c-fixed-term%2c-9-month-contract/1366874757"
+      "validThrough": "2027-02-18T09:55:18.047Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "skan-com-365940e05744",
@@ -328,7 +325,7 @@
       "url": "https://jobs.skan.com/job/allschwil-field-engineer/1374656857",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:42:10.217Z",
+      "crawledAt": "2026-11-27T09:55:18.046Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -394,9 +391,8 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-23T21:42:10.217Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.skan.com/job/allschwil-field-engineer/1374656857"
+      "validThrough": "2027-02-23T09:55:18.046Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "skan-com-2d500f53dbaa",
@@ -429,7 +425,7 @@
       "url": "https://jobs.skan.com/job/allschwil-apprenticeship-in-2027-automation-engineer-efz/1365455957",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:42:10.210Z",
+      "crawledAt": "2026-11-27T09:55:18.045Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -495,111 +491,8 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-07T21:42:10.210Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.skan.com/job/allschwil-apprenticeship-in-2027-automation-engineer-efz/1365455957"
-    },
-    {
-      "id": "skan-com-bc9fdde0911d",
-      "slug": "ict-globale-skan-ag-allschwil",
-      "slugByLocale": {
-        "it": "ict-globale-skan-ag-allschwil",
-        "en": "head-global-ict-allschwil-skan-ch",
-        "de": "leiter-global-ict-skan-ag-allschwil",
-        "fr": "responsable-mondial-des-tic-skan-ag-allschwil"
-      },
-      "company": "SKAN AG",
-      "companyKey": "skan-com",
-      "companyDomain": "jobs.skan.com",
-      "title": "Head Global ICT",
-      "titleByLocale": {
-        "it": "ICT globale",
-        "en": "Head Global ICT",
-        "de": "Leiter Global ICT",
-        "fr": "Responsable mondial des TIC"
-      },
-      "description": "Founded in 1968, SKAN is a pioneer in cleanroom equipment and the development of isolators for the pharmaceutical industry. Innovative products, tailor-made solutions and an effective service organization have made SKAN a market leader and a key partner to industry and research laboratories.\nOverview\nShape the technological future of the SKAN Group.\nSKAN is a pioneer in aseptic and aseptic-toxic manufacturing processes for the (bio)pharmaceutical industry and a global market and technology leader in process-critical isolator systems used to fill medications in compliance with the strictest sterility standards.\nOur portfolio is complemented by process support, software, services, and single-use systems for pharmaceutical and biotech companies, contract manufacturing organizations (CMOs), and research laboratories worldwide.\nFounded in 1968, SKAN has grown to approximately 1,700 employees. Around half of our workforce is based at our headquarters in Allschwil, in the Basel Life Sciences Hub, with the remainder working at our subsidiaries in Switzerland, Germany, Belgium, France, Slovenia, Croatia, Japan, the United States, and Brazil.\nOur international growth, including through acquisitions, presents a unique opportunity: Building on a solid ICT foundation, you will play a pivotal role in shaping the technological future of a globally operating corporate group. To lead this journey, we are looking for an entrepreneurial-minded leader with strong technological expertise, strategic vision, and a passion for inspiring people to embrace change.\nAs Head of Global ICT, you will lead our global ICT organization of approximately 35 employees and transform it from a high-performing service provider into a proactive strategic business partner. Reporting directly to the Group CFO, you will personally present strategic ICT initiatives to the Executive Management Team and take significant ownership of technology, architecture, and investment decisions.\nYou will connect cutting-edge technology with tangible business value – from business applications and secure, future-ready data and ICT platforms to the integration of acquired companies. Working closely with business functions and the Group AI Transformation Lead, you will establish the foundation for impactful digitalization, automation, and the responsible use of artificial intelligence.\nResponsibilities\n- Lead Global ICT Strategy: Develop a clear technology and ICT roadmap, set priorities, and deliver transformation initiatives with measurable business value.\n- Drive Business Performance: Work closely with process owners and business functions to understand their needs and translate them into scalable, cost-effective solutions.\n- Modernize Applications and Architecture: Harmonize and further develop SAP, Salesforce, and engineering and CAD/PLM systems; shape enterprise, cloud/hybrid, and integration architectures.\n- Enable Data and AI: Own the group-wide data strategy and advance secure, scalable enterprise AI platforms in collaboration with the Group AI Transformation Lead.\n- Integrate Acquisitions: Incorporate acquired companies into a robust, unified ICT environment while balancing local requirements with global standards.\n- Anticipate Technological Developments: Monitor emerging technologies and evaluate them based on business value, security, cost-effectiveness, and scalability.\n- Ensure Security and Reliability: Safeguard cybersecurity, data privacy, governance, and business continuity across global ICT services.\n- Develop People and the Organization: Empower teams and leaders, actively drive change, and oversee the ICT portfolio, budgets, partners, and service quality.\nHardskills\n- You have several years of proven leadership experience as a Head of IT, CIO, or in a comparable ICT leadership role with international responsibilities. You have a demonstrated track record of translating transformation initiatives into tangible results.\n- You hold a university degree in computer science, business information systems, or a related field and have excellent German and English language skills.\n- You have strong, up-to-date knowledge of enterprise architecture, cloud and hybrid environments, integration, data platforms, and cybersecurity. You do not need to be a hands-on specialist in every area, but you must be able to challenge experts on technical matters and critically assess architectural decisions.\n- You have experience managing complex ERP and CRM environments, ideally including PLM/CAD systems. Data strategy, analytics, AI, and automation are concrete areas in which you are eager to drive progress – not just buzzwords. Experience with M&A integrations is a plus.\n- You understand governance, financial management, and the operation of business-critical systems. Experience in regulated or validated environments (e.g., GMP) is a valuable asset.\nSoftskills\n- You have an entrepreneurial mindset and confidently communicate business value, risks, investments, and priorities to the Executive Management Team.\n- You are a clear, inspiring, and decisive leader who develops talent and builds strong, trusted relationships across the business.\n- You are solution-oriented and highly effective at turning plans into action.\n- You demonstrate a confident professional presence and excellent communication skills.\n- You have a hands-on mentality and a strong sense of ownership and accountability.\nWe offer you\n- A key leadership position with a direct reporting line to the Group CFO and the opportunity to represent strategic ICT topics at the Executive Management Team level.\n- The freedom and responsibility to shape the technological, organizational, and cultural development of a global ICT organization.\n- An experienced team of approximately 35 employees, a solid foundation, and a strong partner in the Group AI Transformation Lead.\n- An internationally growing company with meaningful products that support the pharmaceutical industry.\n- A workplace at our headquarters in Allschwil, near Basel, six weeks of paid vacation, and the option to purchase additional vacation days.\nAdditional information\nWe look forward to receiving your complete application documents (CV, diplomas and employment references) via our career page.\nFor this position, we are focusing on direct applications and are not working with external agencies. Any dossiers submitted by agencies will not be processed.\nFor questions please contact Viviane Braxton.",
-      "descriptionByLocale": {
-        "it": "Fondata nel 1968, SKAN è un pioniere nelle attrezzature per cleanroom e nello sviluppo di isolatori per l'industria farmaceutica. I prodotti innovativi, soluzioni su misura e un'efficace organizzazione di servizi hanno reso SKAN un leader di mercato e un partner chiave per i laboratori di industria e ricerca.\nPanoramica\nFormare il futuro tecnologico del Gruppo SKAN.\nSKAN è un pioniere nei processi di produzione asettico e asettico-tossico per l'industria farmaceutica (bio) e un leader globale del mercato e della tecnologia nei sistemi di isolatore critico-processo utilizzati per riempire i farmaci in conformità con i più rigorosi standard di sterilità.\nIl nostro portafoglio è completato da supporto di processo, software, servizi e sistemi di uso singolo per le aziende farmaceutiche e biotecnologiche, organizzazioni di produzione di contratti (CMO), e laboratori di ricerca in tutto il mondo.\nFondata nel 1968, SKAN è cresciuta a circa 1.700 dipendenti. Circa la metà della nostra forza lavoro ha sede nella nostra sede di Allschwil, nel Basel Life Sciences Hub, con il resto del lavoro presso le nostre filiali in Svizzera, Germania, Belgio, Francia, Slovenia, Croazia, Giappone, Stati Uniti e Brasile.\nLa nostra crescita internazionale, anche attraverso le acquisizioni, presenta un'opportunità unica: Basato su una solida base ICT, si svolgerà un ruolo fondamentale nella modellazione del futuro tecnologico di un gruppo aziendale globale. Per guidare questo viaggio, siamo alla ricerca di un leader dal punto di vista imprenditoriale con una forte competenza tecnologica, una visione strategica e una passione per le persone che aspirano ad abbracciare il cambiamento.\nIn qualità di capo dell'ICT globale, guiderai la nostra organizzazione ICT globale di circa 35 dipendenti e la trasformerai da un fornitore di servizi ad alto rendimento in un partner commerciale strategico proattivo. Segnalandosi direttamente al Gruppo CFO, presenterete personalmente iniziative strategiche ICT al Team Executive Management e prenderete una significativa proprietà di tecnologia, architettura e decisioni di investimento.\nSi collegherà la tecnologia all'avanguardia con valore commerciale tangibile – dalle applicazioni aziendali e dai dati sicuri e pronti per il futuro e piattaforme ICT all'integrazione delle aziende acquisite. Lavorando a stretto contatto con le funzioni aziendali e il Gruppo AI Transformation Lead, si istituirà la base per la digitalizzazione, l'automazione e l'uso responsabile dell'intelligenza artificiale.\nresponsabilità\n- ICT globale di piombo Strategia: Sviluppare una chiara tecnologia e una roadmap ICT, impostare le priorità e fornire iniziative di trasformazione con un valore aziendale misurabile.\n- Drive Business Performance: Lavorare a stretto contatto con i proprietari di processi e le funzioni aziendali per comprendere le loro esigenze e tradurli in soluzioni scalabili e convenienti.\n- Modernizzare Applicazioni e Architettura: Armonizzare e sviluppare ulteriormente i sistemi SAP, Salesforce e engineering e CAD/PLM; modellare le architetture, cloud/hybrid e integrazione.\n- Abilita dati e AI: Possedere la strategia di dati a livello di gruppo e avanzare piattaforme AI aziendali sicure e scalabili in collaborazione con il Gruppo AI Transformation Lead.\n- Integrate Acquisizioni: Incorporate acquisisce le aziende in un ambiente ICT robusto e unificato, bilanciando i requisiti locali con gli standard globali.\n- Sviluppo Tecnologico Anticipato: Monitorare le tecnologie emergenti e valutarle in base al valore aziendale, alla sicurezza, all'efficacia dei costi e alla scalabilità.\n- Assicurare sicurezza e affidabilità: salvaguardare la sicurezza informatica, la privacy dei dati, la governance e la continuità aziendale nei servizi ICT globali.\n- Sviluppare persone e l'Organizzazione: potenziare team e leader, guidare attivamente il cambiamento e supervisionare il portafoglio ICT, budget, partner e qualità dei servizi.\nHardskills\n- Hai diversi anni di comprovata esperienza di leadership come capo di IT, CIO, o in un ruolo di leadership ICT comparabile con responsabilità internazionali. Hai una traccia dimostrata di tradurre iniziative di trasformazione in risultati tangibili.\n- Hai una laurea in informatica, sistemi di informazione aziendale, o un campo correlato e hai eccellenti competenze in lingua tedesca e inglese.\n- Hai una conoscenza forte e aggiornata dell'architettura aziendale, degli ambienti cloud e ibridi, dell'integrazione, delle piattaforme di dati e della sicurezza informatica. Non è necessario essere uno specialista pratico in ogni settore, ma è necessario essere in grado di sfidare gli esperti su questioni tecniche e valutare criticamente le decisioni architettoniche.\n- Hai esperienza nella gestione di ambienti ERP e CRM complessi, compresi idealmente i sistemi PLM/CAD. La strategia dei dati, l'analisi, l'intelligenza artificiale e l'automazione sono aree concrete in cui si desidera guidare il progresso – non solo parole chiave. L'esperienza con le integrazioni M&A è un vantaggio.\n- Capisci la governance, la gestione finanziaria e il funzionamento dei sistemi business-critical. L'esperienza in ambienti regolamentati o convalidati (ad esempio GMP) è un bene prezioso.\nMorbide competenze\n- Hai una mentalità imprenditoriale e comunica con fiducia valore aziendale, rischi, investimenti e priorità al team di gestione esecutivo.\n- Sei un leader chiaro, ispiratore e decisivo che sviluppa talento e costruisce relazioni forti e affidabili in tutto il business.\n- Siete orientati alla soluzione e altamente efficaci nel trasformare i piani in azione.\n- Si dimostra una presenza professionale sicura e eccellenti capacità di comunicazione.\n- Hai una mentalità pratica e un forte senso di proprietà e responsabilità.\nVi offriamo\n- Una posizione di leadership chiave con una linea di reporting diretta al CFO di Gruppo e l'opportunità di rappresentare argomenti strategici ICT a livello del Team Executive Management.\n- La libertà e la responsabilità di plasmare lo sviluppo tecnologico, organizzativo e culturale di un'organizzazione ICT globale.\n- Un team esperto di circa 35 dipendenti, una solida base e un forte partner nel Gruppo AI Transformation Lead.\n- Un'azienda a livello internazionale con prodotti significativi che supportano l'industria farmaceutica.\n- Un posto di lavoro presso la nostra sede a Allschwil, vicino a Basilea, sei settimane di vacanza a pagamento, e la possibilità di acquistare giorni di vacanza aggiuntivi.\nUlteriori informazioni\nNon vediamo l'ora di ricevere i vostri documenti applicativi completi (CV, diplomi e riferimenti di lavoro) attraverso la nostra pagina di carriera.\nPer questa posizione, ci concentriamo sulle applicazioni dirette e non stiamo lavorando con le agenzie esterne. Eventuali dossier presentati dalle agenzie non saranno trattati.\nPer domande si prega di contattare Viviane Braxton.",
-        "en": "Founded in 1968, SKAN is a pioneer in cleanroom equipment and the development of isolators for the pharmaceutical industry. Innovative products, tailor-made solutions and an effective service organization have made SKAN a market leader and a key partner to industry and research laboratories.\nOverview\nShape the technological future of the SKAN Group.\nSKAN is a pioneer in aseptic and aseptic-toxic manufacturing processes for the (bio)pharmaceutical industry and a global market and technology leader in process-critical isolator systems used to fill medications in compliance with the strictest sterility standards.\nOur portfolio is complemented by process support, software, services, and single-use systems for pharmaceutical and biotech companies, contract manufacturing organizations (CMOs), and research laboratories worldwide.\nFounded in 1968, SKAN has grown to approximately 1,700 employees. Around half of our workforce is based at our headquarters in Allschwil, in the Basel Life Sciences Hub, with the remainder working at our subsidiaries in Switzerland, Germany, Belgium, France, Slovenia, Croatia, Japan, the United States, and Brazil.\nOur international growth, including through acquisitions, presents a unique opportunity: Building on a solid ICT foundation, you will play a pivotal role in shaping the technological future of a globally operating corporate group. To lead this journey, we are looking for an entrepreneurial-minded leader with strong technological expertise, strategic vision, and a passion for inspiring people to embrace change.\nAs Head of Global ICT, you will lead our global ICT organization of approximately 35 employees and transform it from a high-performing service provider into a proactive strategic business partner. Reporting directly to the Group CFO, you will personally present strategic ICT initiatives to the Executive Management Team and take significant ownership of technology, architecture, and investment decisions.\nYou will connect cutting-edge technology with tangible business value – from business applications and secure, future-ready data and ICT platforms to the integration of acquired companies. Working closely with business functions and the Group AI Transformation Lead, you will establish the foundation for impactful digitalization, automation, and the responsible use of artificial intelligence.\nResponsibilities\n- Lead Global ICT Strategy: Develop a clear technology and ICT roadmap, set priorities, and deliver transformation initiatives with measurable business value.\n- Drive Business Performance: Work closely with process owners and business functions to understand their needs and translate them into scalable, cost-effective solutions.\n- Modernize Applications and Architecture: Harmonize and further develop SAP, Salesforce, and engineering and CAD/PLM systems; shape enterprise, cloud/hybrid, and integration architectures.\n- Enable Data and AI: Own the group-wide data strategy and advance secure, scalable enterprise AI platforms in collaboration with the Group AI Transformation Lead.\n- Integrate Acquisitions: Incorporate acquired companies into a robust, unified ICT environment while balancing local requirements with global standards.\n- Anticipate Technological Developments: Monitor emerging technologies and evaluate them based on business value, security, cost-effectiveness, and scalability.\n- Ensure Security and Reliability: Safeguard cybersecurity, data privacy, governance, and business continuity across global ICT services.\n- Develop People and the Organization: Empower teams and leaders, actively drive change, and oversee the ICT portfolio, budgets, partners, and service quality.\nHardskills\n- You have several years of proven leadership experience as a Head of IT, CIO, or in a comparable ICT leadership role with international responsibilities. You have a demonstrated track record of translating transformation initiatives into tangible results.\n- You hold a university degree in computer science, business information systems, or a related field and have excellent German and English language skills.\n- You have strong, up-to-date knowledge of enterprise architecture, cloud and hybrid environments, integration, data platforms, and cybersecurity. You do not need to be a hands-on specialist in every area, but you must be able to challenge experts on technical matters and critically assess architectural decisions.\n- You have experience managing complex ERP and CRM environments, ideally including PLM/CAD systems. Data strategy, analytics, AI, and automation are concrete areas in which you are eager to drive progress – not just buzzwords. Experience with M&A integrations is a plus.\n- You understand governance, financial management, and the operation of business-critical systems. Experience in regulated or validated environments (e.g., GMP) is a valuable asset.\nSoftskills\n- You have an entrepreneurial mindset and confidently communicate business value, risks, investments, and priorities to the Executive Management Team.\n- You are a clear, inspiring, and decisive leader who develops talent and builds strong, trusted relationships across the business.\n- You are solution-oriented and highly effective at turning plans into action.\n- You demonstrate a confident professional presence and excellent communication skills.\n- You have a hands-on mentality and a strong sense of ownership and accountability.\nWe offer you\n- A key leadership position with a direct reporting line to the Group CFO and the opportunity to represent strategic ICT topics at the Executive Management Team level.\n- The freedom and responsibility to shape the technological, organizational, and cultural development of a global ICT organization.\n- An experienced team of approximately 35 employees, a solid foundation, and a strong partner in the Group AI Transformation Lead.\n- An internationally growing company with meaningful products that support the pharmaceutical industry.\n- A workplace at our headquarters in Allschwil, near Basel, six weeks of paid vacation, and the option to purchase additional vacation days.\nAdditional information\nWe look forward to receiving your complete application documents (CV, diplomas and employment references) via our career page.\nFor this position, we are focusing on direct applications and are not working with external agencies. Any dossiers submitted by agencies will not be processed.\nFor questions please contact Viviane Braxton.",
-        "de": "SKAN wurde 1968 gegründet und ist ein Pionier in der Reinraumausstattung und der Entwicklung von Isolatoren für die Pharmaindustrie. Innovative Produkte, maßgeschneiderte Lösungen und eine effektive Serviceorganisation haben SKAN zum Marktführer und wichtigen Partner für Industrie und Forschungslabore gemacht.\nÜbersicht\nGestalten Sie die technologische Zukunft der SKAN Group.\nSKAN ist ein Pionier in aseptischen und aseptisch-toxischen Herstellungsprozessen für die (bio)pharmazeutische Industrie und ein globaler Markt- und Technologieführer in prozesskritischen Isolatorsystemen zur Abfüllung von Medikamenten nach strengsten Sterilitätsstandards.\nUnser Portfolio wird durch Prozessunterstützung, Software, Dienstleistungen und Einwegsysteme für Pharma- und Biotech-Unternehmen, Auftragsfertigungsorganisationen (CMOs) und Forschungslabors weltweit ergänzt.\nGegründet 1968, ist SKAN auf rund 1.700 Mitarbeiter gewachsen. Rund die Hälfte unserer Belegschaft ist in unserem Hauptsitz in Allschwil, im Basel Life Sciences Hub, ansässig, der Rest ist in unseren Tochtergesellschaften in der Schweiz, Deutschland, Belgien, Frankreich, Slowenien, Kroatien, Japan, den Vereinigten Staaten und Brasilien tätig.\nUnser internationales Wachstum, auch durch Akquisitionen, bietet eine einzigartige Chance: Aufbauend auf einer soliden ICT-Basis spielen Sie eine zentrale Rolle bei der Gestaltung der technologischen Zukunft einer global agierenden Unternehmensgruppe. Um diese Reise anzuführen, suchen wir eine unternehmerisch denkende Führungskraft mit starkem technologischem Know-how, strategischer Vision und einer Leidenschaft dafür, Menschen zu inspirieren, Veränderungen anzunehmen.\nAls Head of Global ICT leiten Sie unsere globale ICT-Organisation mit rund 35 Mitarbeitern und verwandeln sie von einem leistungsstarken Dienstleister in einen proaktiven strategischen Geschäftspartner. Wenn Sie direkt an den CFO der Gruppe berichten, stellen Sie dem Executive Management Team strategische ICT-Initiativen persönlich vor und übernehmen maßgebliche Verantwortung für Technologie-, Architektur- und Investitionsentscheidungen.\nSie verbinden Spitzentechnologie mit greifbarem Business Value – von Geschäftsanwendungen über sichere, zukunftsfähige Daten und ICT-Plattformen bis hin zur Integration erworbener Unternehmen. In enger Zusammenarbeit mit Geschäftsfunktionen und dem Group AI Transformation Lead schaffen Sie die Grundlage für eine wirkungsvolle Digitalisierung, Automatisierung und den verantwortungsvollen Umgang mit künstlicher Intelligenz.\nZuständigkeiten\n- Führende globale IKT Strategie: Entwicklung einer klaren Technologie- und IKT-Roadmap, Festlegung von Prioritäten und Bereitstellung von Transformationsinitiativen mit messbarem Geschäftswert.\n- Drive Business Performance: Arbeiten Sie eng mit Prozessverantwortlichen und Geschäftsfunktionen zusammen, um ihre Bedürfnisse zu verstehen und sie in skalierbare, kostengünstige Lösungen umzusetzen.\n- Modernisierung von Anwendungen und Architektur: Harmonisierung und Weiterentwicklung von SAP-, Salesforce-, Engineering- und CAD/PLM-Systemen; Gestaltung von Unternehmens-, Cloud-/Hybrid- und Integrationsarchitekturen.\n- Daten und KI aktivieren: Besitzen Sie die konzernweite Datenstrategie und entwickeln Sie sichere, skalierbare Enterprise AI-Plattformen in Zusammenarbeit mit dem Group AI Transformation Lead.\n- Integration von Akquisitionen: Integrieren Sie erworbene Unternehmen in eine robuste, einheitliche ICT-Umgebung und balancieren Sie lokale Anforderungen mit globalen Standards.\n- Technologische Entwicklungen antizipieren: Überwachen Sie aufkommende Technologien und bewerten Sie sie basierend auf Geschäftswert, Sicherheit, Kosteneffizienz und Skalierbarkeit.\n- Gewährleistung von Sicherheit und Zuverlässigkeit: Schützen Sie Cybersicherheit, Datenschutz, Governance und Geschäftskontinuität in globalen ICT-Diensten.\n- Menschen und die Organisation entwickeln: Teams und Führungskräfte stärken, Veränderungen aktiv vorantreiben und das ICT-Portfolio, die Budgets, die Partner und die Servicequalität überwachen.\nHardskills\n- Sie verfügen über mehrere Jahre nachgewiesene Führungserfahrung als Head of IT, CIO oder in einer vergleichbaren ICT-Führungsrolle mit internationaler Verantwortung. Sie haben eine nachgewiesene Erfolgsbilanz bei der Umsetzung von Transformationsinitiativen in greifbare Ergebnisse.\n- Sie haben einen Hochschulabschluss in Informatik, Wirtschaftsinformationssystemen oder einem verwandten Fachgebiet und verfügen über hervorragende Deutsch- und Englischkenntnisse.\n- Sie verfügen über fundiertes, aktuelles Wissen über Unternehmensarchitektur, Cloud- und Hybridumgebungen, Integration, Datenplattformen und Cybersicherheit. Sie müssen nicht in jedem Bereich ein praxisnaher Spezialist sein, aber Sie müssen Experten in technischen Fragen herausfordern und architektonische Entscheidungen kritisch beurteilen können.\n- Sie haben Erfahrung in der Verwaltung komplexer ERP- und CRM-Umgebungen, idealerweise einschließlich PLM/CAD-Systemen. Datenstrategie, Analytik, KI und Automatisierung sind konkrete Bereiche, in denen Sie den Fortschritt vorantreiben möchten – nicht nur Buzzwords. Erfahrung mit M&A-Integrationen ist ein Plus.\n- Sie verstehen Governance, Finanzmanagement und den Betrieb geschäftskritischer Systeme. Erfahrung in regulierten oder validierten Umgebungen (z. B. GMP) ist ein wertvolles Gut.\nSoftskills\n- Sie haben eine unternehmerische Denkweise und kommunizieren dem Executive Management Team selbstbewusst Geschäftswert, Risiken, Investitionen und Prioritäten.\n- Sie sind eine klare, inspirierende und entscheidende Führungskraft, die Talente entwickelt und starke, vertrauenswürdige Beziehungen im gesamten Unternehmen aufbaut.\n- Sie sind lösungsorientiert und sehr effektiv darin, Pläne in die Tat umzusetzen.\n- Sie zeigen eine selbstbewusste professionelle Präsenz und hervorragende Kommunikationsfähigkeiten.\n- Sie haben eine praktische Mentalität und ein starkes Gefühl von Besitz und Rechenschaftspflicht.\nWir bieten Ihnen\n- Eine wichtige Führungsposition mit direkter Berichterstattung an den Group CFO und der Möglichkeit, strategische ICT-Themen auf der Ebene des Executive Management Teams zu vertreten.\n- Die Freiheit und Verantwortung, die technologische, organisatorische und kulturelle Entwicklung einer globalen ICT-Organisation zu gestalten.\n- Ein erfahrenes Team von rund 35 Mitarbeitern, ein solides Fundament und ein starker Partner im Group AI Transformation Lead.\n- Ein international wachsendes Unternehmen mit sinnvollen Produkten, die die Pharmaindustrie unterstützen.\n- Ein Arbeitsplatz in unserem Hauptsitz in Allschwil bei Basel, sechs Wochen bezahlter Urlaub und die Option, zusätzliche Urlaubstage zu kaufen.\nZusätzliche Angaben\nWir freuen uns auf Ihre vollständigen Bewerbungsunterlagen (Lebenslauf, Diplome und Arbeitsbezüge) über unsere Karriereseite.\nFür diese Position konzentrieren wir uns auf direkte Anwendungen und arbeiten nicht mit externen Agenturen zusammen. Von Agenturen eingereichte Dossiers werden nicht bearbeitet.\nBei Fragen kontaktieren Sie bitte Viviane Braxton.",
-        "fr": "Fondé en 1968, SKAN est un pionnier dans les équipements propres et le développement d'isoleurs pour l'industrie pharmaceutique. Des produits innovants, des solutions sur mesure et une organisation de services efficace ont fait de SKAN un leader du marché et un partenaire clé de l'industrie et des laboratoires de recherche.\nAperçu général\nFormer l'avenir technologique du groupe SKAN.\nSKAN est un pionnier dans les processus de fabrication aseptiques et aseptiques toxiques pour l'industrie (bio)pharmaceutique et un leader mondial du marché et de la technologie dans les systèmes d'isolants critiques pour les processus utilisés pour remplir les médicaments conformément aux normes de stérilité les plus strictes.\nNotre portefeuille est complété par un soutien aux processus, des logiciels, des services et des systèmes à usage unique pour les entreprises pharmaceutiques et de biotechnologie, les organisations de fabrication sous contrat (OCM) et les laboratoires de recherche du monde entier.\nFondée en 1968, SKAN compte environ 1 700 employés. Près de la moitié de notre effectif est basée à notre siège social à Allschwil, dans le centre des sciences de la vie de Bâle, le reste travaillant dans nos filiales en Suisse, Allemagne, Belgique, France, Slovénie, Croatie, Japon, États-Unis et Brésil.\nNotre croissance internationale, y compris par le biais d'acquisitions, offre une opportunité unique : S'appuyant sur une base solide en matière de TIC, vous jouerez un rôle central dans la formation de l'avenir technologique d'un groupe d'entreprises opérant à l'échelle mondiale. Pour mener ce voyage, nous cherchons un chef d'entreprise doté d'une solide expertise technologique, d'une vision stratégique et d'une passion pour inspirer les gens à accepter le changement.\nEn tant que responsable des TIC à l'échelle mondiale, vous dirigerez notre organisation mondiale des TIC d'environ 35 employés et la transformerez d'un fournisseur de services performant en un partenaire commercial stratégique proactif. Relevant directement du CFO du Groupe, vous présenterez personnellement des initiatives stratégiques en matière de TIC à l'équipe de direction et prendrez une part importante aux décisions en matière de technologie, d'architecture et d'investissement.\nVous connecterez une technologie de pointe à une valeur commerciale tangible – des applications commerciales et des plateformes de données et TIC sécurisées et prêtes à l'avenir à l'intégration des entreprises acquises. En travaillant en étroite collaboration avec les fonctions opérationnelles et le responsable de la transformation de l'IA, vous établirez les bases d'une numérisation impactée, de l'automatisation et de l'utilisation responsable de l'intelligence artificielle.\nResponsabilités\n- Leader mondial des TIC Stratégie : Élaborer une feuille de route claire en matière de technologie et de TIC, établir des priorités et réaliser des initiatives de transformation ayant une valeur opérationnelle mesurable.\n- Diriger la performance de l'entreprise : Travailler en étroite collaboration avec les propriétaires de processus et les fonctions de l'entreprise pour comprendre leurs besoins et les traduire en solutions évolutives et rentables.\n- Moderniser les applications et l'architecture : harmoniser et développer les systèmes SAP, Salesforce et ingénierie et CAO/PLM; façonner les architectures d'entreprise, de cloud/hybride et d'intégration.\n- Activer les données et l'IA : Posséder la stratégie de données à l'échelle du groupe et faire progresser les plateformes d'IA sécurisées et évolutives en collaboration avec le responsable de la transformation de l'IA du groupe.\n- Intégrer les acquisitions : Intégrer les entreprises acquises dans un environnement TIC solide et unifié tout en conciliant les exigences locales avec les normes mondiales.\n- Anticiper les développements technologiques : Surveiller les technologies émergentes et les évaluer en fonction de la valeur opérationnelle, de la sécurité, de la rentabilité et de l'évolutivité.\n- Assurer la sécurité et la fiabilité : protéger la cybersécurité, la confidentialité des données, la gouvernance et la continuité des activités dans les services TIC mondiaux.\n- Développer le personnel et l'organisation : renforcer les équipes et les dirigeants, stimuler activement le changement et superviser le portefeuille des TIC, les budgets, les partenaires et la qualité des services.\nCompétences techniques\n- Vous avez plusieurs années d'expérience de leadership prouvé en tant que chef de la TI, DPI, ou dans un rôle de leadership comparable des TIC avec des responsabilités internationales. Vous avez une expérience démontrée de la traduction des initiatives de transformation en résultats tangibles.\n- Vous êtes titulaire d'un diplôme universitaire en informatique, systèmes d'information commerciale, ou un domaine connexe et avez d'excellentes compétences en allemand et en anglais.\n- Vous avez une connaissance solide et à jour de l'architecture d'entreprise, des environnements cloud et hybrides, de l'intégration, des plateformes de données et de la cybersécurité. Vous n'avez pas besoin d'être un spécialiste pratique dans tous les domaines, mais vous devez être en mesure de défier des experts sur les questions techniques et d'évaluer critiquement les décisions architecturales.\n- Vous avez l'expérience de gérer des environnements ERP et CRM complexes, y compris idéalement les systèmes PLM/CAD. La stratégie de données, l'analyse, l'intelligence artificielle et l'automatisation sont des domaines concrets dans lesquels vous êtes impatients de conduire des progrès – pas seulement des mots à la mode. L'expérience des intégrations de M et A est un plus.\n- Vous comprenez la gouvernance, la gestion financière et le fonctionnement des systèmes critiques. L'expérience dans les environnements réglementés ou validés (p. ex. les BPF) est un atout précieux.\nCompétences diverses\n- Vous avez un esprit d'entreprise et communiquez avec confiance la valeur opérationnelle, les risques, les investissements et les priorités à l'équipe de direction.\n- Vous êtes un leader clair, inspirant et décisif qui développe des talents et construit des relations solides et fiables dans l'ensemble de l'entreprise.\n- Vous êtes orienté vers la solution et très efficace pour transformer les plans en actions.\n- Vous démontrez une présence professionnelle confiante et d'excellentes compétences en communication.\n- Vous avez une mentalité pratique et un fort sentiment d'appropriation et de responsabilité.\nNous vous offrons\n- Un poste de direction clé avec un lien hiérarchique direct avec le DPF du Groupe et la possibilité de représenter des sujets stratégiques TIC au niveau de l'équipe de gestion exécutive.\n- La liberté et la responsabilité de façonner le développement technologique, organisationnel et culturel d'une organisation mondiale des TIC.\n- Une équipe expérimentée composée d'environ 35 employés, d'une base solide et d'un partenaire solide au sein du Groupe responsable de la transformation de l'IA.\n- Une entreprise en croissance internationale avec des produits significatifs qui soutiennent l'industrie pharmaceutique.\n- Un lieu de travail à notre siège social à Allschwil, près de Bâle, six semaines de vacances payées, et l'option d'acheter des jours de vacances supplémentaires.\nInformations complémentaires\nNous sommes impatients de recevoir vos documents de candidature complets (CV, diplômes et références professionnelles) via notre page carrière.\nPour cette position, nous nous concentrons sur les applications directes et ne travaillons pas avec des organismes externes. Les dossiers présentés par les agences ne seront pas traités.\nPour toute question, veuillez contacter Viviane Braxton."
-      },
-      "location": "Allschwil",
-      "canton": "BL",
-      "url": "https://jobs.skan.com/job/allschwil-head-global-ict/1378371857",
-      "source": "SKAN AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:44:51.211Z",
-      "addressLocality": "Allschwil",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4123",
-      "streetAddress": "Kreuzstrasse 5",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.skan.com/job/allschwil-head-global-ict/1378371857",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "head-global-ict-allschwil-skan-com-ch"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "head-global-ict-allschwil-skan-com-ch"
-        ],
-        "fr": [
-          "head-global-ict-allschwil-skan-com-ch"
-        ],
-        "en": [
-          "head-global-ict-allschwil-skan-com-ch"
-        ],
-        "it": [
-          "head-global-ict-allschwil-skan-com-ch"
-        ]
-      },
-      "firstSeenAt": "2026-11-24T21:45:37.488Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
-          "unitText": "YEAR"
-        }
-      },
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "SKAN AG",
-        "streetAddress": "Kreuzstrasse 5",
-        "postalCode": "4123",
-        "registeredName": "Skan AG",
-        "matchType": "exact",
-        "streetAddressSource": "zefix-registry",
-        "jobPostalCode": "4123",
-        "addressLocality": "Allschwil",
-        "addressRegion": "BL",
-        "checkedAt": "2026-11-09T15:43:20.118Z"
-      },
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-23T21:44:51.211Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "sourceIdentity": "url:https://jobs.skan.com/job/allschwil-head-global-ict/1378371857"
+      "validThrough": "2027-02-07T09:55:18.045Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
