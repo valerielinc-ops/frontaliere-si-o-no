@@ -1278,6 +1278,30 @@ describe('behaviour: the ledger path end to end (stubbed R2, no network)', () =>
     expect(r.ledger).toEqual(expect.objectContaining({ version: 1, keys: {} }));
   });
 
+  it('the janitor dry-run runs beside the handshakes and its log is joined on success and on a failed handshake', () => {
+    const published = { STUB_LEDGER: 'absent', STUB_ASSETS_LOG: COPIED_A, CF_API_TOKEN: 'test-token', STUB_PURGE_STATUS: '0' };
+    const ok = runPublish('janitor-overlap-ok', published);
+    expect(ok.code).toBe(0);
+    expect(ok.stdout.match(/\[r2-janitor\] scan:/g)).toHaveLength(1);
+    expect(ok.stdout.indexOf('[r2-janitor] scan:')).toBeGreaterThan(ok.stdout.indexOf('✅ synced CDN payload to R2'));
+
+    // A failed handshake keeps failing closed, and the step still waits for the
+    // scan, so no background child outlives it.
+    const failed = runPublish('janitor-overlap-handshake-fails', { ...published, STUB_HANDSHAKE_STATUS: '1' });
+    expect(failed.code).toBe(1);
+    expect(failed.stdout).toMatch(/job-canon publication handshake failed/);
+    expect(failed.stdout.match(/\[r2-janitor\] scan:/g)).toHaveLength(1);
+    expect(completionMarkerPuts(failed.calls)).toHaveLength(0);
+    expect(failed.remoteMarkers['cdn-build-id.txt']).toBeUndefined();
+
+    const prep = read('scripts/lib/deploy-it-pages-prep.sh');
+    expect(prep.indexOf('_janitor_cdn_r2 "$stage" "dry-run" > "$_janitor_log" 2>&1 &'))
+      .toBeGreaterThan(-1);
+    expect(prep.indexOf('_janitor_cdn_r2 "$stage" "dry-run" > "$_janitor_log" 2>&1 &'))
+      .toBeLessThan(prep.indexOf('scripts/ci/job-canon-publish-handshake.mjs" \\\n    --map-dir="$stage/job-canon"'));
+    expect(prep).not.toContain('"apply" > "$_janitor_log"');
+  });
+
   it('a later prefix failing: the asset purge gate withholds the marker', () => {
     const r = runPublish('later-prefix-fails', {
       STUB_LEDGER: 'hang',
