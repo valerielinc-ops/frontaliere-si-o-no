@@ -48,6 +48,12 @@ import { KNOWN_CANTON_CODES } from '../job-location-display.mjs';
 import { truncateSlugAtWordBoundary } from '../slug-truncate.mjs';
 import { withSingleFlightLockAsync } from '../single-flight-lock.mjs';
 import { fetchSourceViaRelay } from '../source-relay-fetch.mjs';
+import {
+  WORKDAY_COOLDOWN_CAP_MS,
+  checkWorkdayCooldown,
+  noteWorkdayRateLimited,
+  noteWorkdayRequestSucceeded,
+} from '../workday-rate-limit-cooldown.mjs';
 
 /* ── Errors ────────────────────────────────────────────────────────────── */
 
@@ -114,6 +120,24 @@ export class WorkdayRateLimitError extends WorkdayApiError {
     // policy. Preserve that fact so crawler boundaries can soft-exit with a
     // health summary instead of treating the typed 429 as an uncaught crash.
     this.retryExhausted = Boolean(metadata?.retryExhausted || metadata?.circuitOpen);
+  }
+}
+
+/**
+ * A tenant still inside its cross-run cooldown (#20279): thrown BEFORE any
+ * request, so the tenant is not contacted. It is a WorkdayRateLimitError so
+ * every existing crawler boundary soft-exits with the previous slice live.
+ */
+export class WorkdayRateLimitCooldownError extends WorkdayRateLimitError {
+  /**
+   * @param {string} url
+   * @param {{ tenant: string, consecutiveRuns: number, nextAttemptAfter: string }} cooldown
+   */
+  constructor(url, cooldown) {
+    super(url, { consecutiveFailures: cooldown.consecutiveRuns, retryAfterMs: 0, circuitOpen: true, retryExhausted: true });
+    this.name = 'WorkdayRateLimitCooldownError';
+    this.message = `Workday tenant ${cooldown.tenant} is in rate-limit cooldown until ${cooldown.nextAttemptAfter} (${cooldown.consecutiveRuns} consecutive rate-limited run(s)); no request sent for ${url}`;
+    this.cooldown = cooldown;
   }
 }
 
@@ -708,6 +732,7 @@ function newRateLimitState(apiBase) {
     blockedUntil: 0,
     consecutiveRateLimits: 0,
     lastRateLimitUrl: apiBase,
+    retryAfterHintMs: null,
     queue: Promise.resolve(),
     observedRateLimits: new WeakSet(),
     // True once the source relay answered a request after the direct circuit
@@ -769,6 +794,7 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
   const relayWallBudgetMs = sanitizeRelayDuration('relayWallBudgetMs', options.relayWallBudgetMs, DEFAULT_RELAY_WALL_BUDGET_MS, MAX_RELAY_WALL_BUDGET_MS);
   // Injectable clock and sleep for the relay budget and backoff (tests).
   const relayNow = typeof options.relayNow === 'function' ? options.relayNow : Date.now;
+  const cooldownNow = typeof options.cooldownNow === 'function' ? options.cooldownNow : Date.now;
   const relaySleep = typeof options.relaySleep === 'function'
     ? options.relaySleep
     : (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -801,6 +827,13 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
       ? Math.max(0, Number(fallbackCooldownMs) || 0)
       : retryAfterMs;
     rateLimitState.blockedUntil = Math.max(rateLimitState.blockedUntil, Date.now() + cooldownMs);
+    // The in-run wait is capped at two minutes; the cross-run cooldown honours
+    // the vendor's full Retry-After (itself capped at 24 h).
+    const rawHint = parseRetryAfterMs(
+      err?.retryAfter ?? err?.response?.headers?.get?.('retry-after'),
+      { capMs: WORKDAY_COOLDOWN_CAP_MS },
+    );
+    if (rawHint !== null) rateLimitState.retryAfterHintMs = Math.max(rateLimitState.retryAfterHintMs ?? 0, rawHint);
     rateLimitState.lastRateLimitUrl = err?.url || rateLimitState.lastRateLimitUrl;
     if (!err || typeof err !== 'object' || !rateLimitState.observedRateLimits.has(err)) {
       rateLimitState.consecutiveRateLimits += 1;
@@ -853,6 +886,14 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
 
   const request = (url, requestOptions = {}) => {
     if (closed) return Promise.reject(new Error('Workday request context is already closed'));
+
+    // Cross-run cooldown (#20279): a tenant that closed previous runs in 429 is
+    // not contacted again before its `nextAttemptAfter`.
+    const cooldown = checkWorkdayCooldown(tenantKey(apiBase), cooldownNow());
+    if (cooldown) {
+      console.warn(`⚠️ Workday ${tenantKey(apiBase)} skipped: rate-limit cooldown until ${cooldown.nextAttemptAfter}`);
+      return Promise.reject(new WorkdayRateLimitCooldownError(url, cooldown));
+    }
 
     // The direct stack is rate limited for this tenant (circuit open), so the
     // rest of the crawl is lost with it. The relay leaves from another egress
@@ -1001,7 +1042,18 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
       }
     };
 
-    const pending = rateLimitState.queue.then(run, run);
+    const pending = rateLimitState.queue.then(run, run).then(
+      (data) => {
+        noteWorkdayRequestSucceeded(tenantKey(apiBase));
+        return data;
+      },
+      (err) => {
+        if (err instanceof WorkdayRateLimitError && !(err instanceof WorkdayRateLimitCooldownError)) {
+          noteWorkdayRateLimited(tenantKey(apiBase), { retryAfterMs: rateLimitState.retryAfterHintMs ?? null });
+        }
+        throw err;
+      },
+    );
     rateLimitState.queue = pending.catch(() => {});
     return pending;
   };
@@ -1052,6 +1104,7 @@ export async function fetchWorkdayJsonWithRetry(apiBase, url, options = {}) {
     relayWallBudgetMs,
     relayNow,
     relaySleep,
+    cooldownNow,
     ...requestOptions
   } = options;
   const requestContext = createWorkdayRequestContext(apiBase, {
@@ -1069,6 +1122,7 @@ export async function fetchWorkdayJsonWithRetry(apiBase, url, options = {}) {
     relayWallBudgetMs,
     relayNow,
     relaySleep,
+    cooldownNow,
     rateLimitState: implicitRateLimitState(apiBase),
   });
 
