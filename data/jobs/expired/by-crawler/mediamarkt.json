@@ -2888,7 +2888,44 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.mediamarktsaturn.com/job-invite/100407?locale=de_ch",
-    "firstSeenAt": "2026-10-12T21:39:54.894Z"
+    "firstSeenAt": "2026-10-12T21:39:54.894Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "venerdi-nero-aiuto-60-100-2-mesi-mediamarkt-biel-brugg"
+      ],
+      "en": [
+        "black-friday-help-60-100-2-months-mediamarkt-biel-brugg",
+        "black-friday-aushilfe-60-100-2-monate-mediamarkt-biel-brugg-ch"
+      ],
+      "de": [
+        "black-friday-aushilfe-60-100-2-monate-mediamarkt-biel-brugg-ch"
+      ],
+      "fr": [
+        "aide-du-vendredi-noir-60-100-2-mois-mediamarkt-biel-brugg",
+        "black-friday-aushilfe-60-100-2-monate-mediamarkt-biel-brugg-ch"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "venerdi-nero-aiuto-60-100-2-mesi-mediamarkt-biel-brugg": "BE"
+      },
+      "en": {
+        "black-friday-help-60-100-2-months-mediamarkt-biel-brugg": "BE",
+        "black-friday-aushilfe-60-100-2-monate-mediamarkt-biel-brugg-ch": "BE"
+      },
+      "de": {
+        "black-friday-aushilfe-60-100-2-monate-mediamarkt-biel-brugg-ch": "BE"
+      },
+      "fr": {
+        "aide-du-vendredi-noir-60-100-2-mois-mediamarkt-biel-brugg": "BE",
+        "black-friday-aushilfe-60-100-2-monate-mediamarkt-biel-brugg-ch": "BE"
+      }
+    },
+    "previousSlugs": [
+      "venerdi-nero-aiuto-60-100-2-mesi-mediamarkt-biel-brugg",
+      "black-friday-help-60-100-2-months-mediamarkt-biel-brugg",
+      "aide-du-vendredi-noir-60-100-2-mois-mediamarkt-biel-brugg"
+    ]
   },
   {
     "slug": "addetto-a-alle-vendite-100-mediamarkt-zurich",
