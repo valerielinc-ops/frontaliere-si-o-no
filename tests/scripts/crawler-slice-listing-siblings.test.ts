@@ -13,7 +13,7 @@ const consumers = [
   ['scripts/mine-all-job-slugs.mjs', 'listSliceFileNames(dir)'],
   ['scripts/lib/prospector/sources/known-crawlers.mjs', 'listSliceFileNames(sliceDir)'],
   ['scripts/migrate-collapsed-job-ids.mjs', 'listSliceFileNames(dir)'],
-  ['scripts/reconcile-job-slugs.mjs', 'listSliceFileNames(DATA_EXPIRED_SLICES_DIR)'],
+  ['scripts/reconcile-job-slugs.mjs', 'listSliceFileNames(expiredDir)'],
   ['scripts/seed-url-first-seen-precise.mjs', 'listSliceFileNames(dir)'],
   ['scripts/sync-gsc-orphans.mjs', 'listSliceFileNames(crawlerDir)'],
   ['scripts/sync-gsc-orphans.mjs', 'listSliceFileNames(expiredCrawlerDir)'],

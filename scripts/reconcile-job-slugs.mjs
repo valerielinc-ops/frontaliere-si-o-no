@@ -48,6 +48,7 @@ import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { mergePreviousSlugsCapped } from './lib/slug-history-journal.mjs';
 import { localeMapKey } from './lib/locale-map-diff.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import { localeRouteKeys } from './lib/expired-jobs-archive.mjs';
 import {
   buildGhostExpiredProofIndex,
   findGhostExpiredReconciliationMatch,
@@ -1338,30 +1339,79 @@ function updateCrawlerSlices(updatedJobs) {
 // ─── Expired Per-Crawler Slice Updater ───────────────────────────────────────
 
 /**
+ * Routes of the removal candidates that would be served by no tracked record
+ * once every candidate is gone: neither an active slice on disk nor an expired
+ * record that stays. The ownership proof matches one route against the
+ * in-memory data/jobs.json, which is gitignored and holds aliases that never
+ * reach a slice (per-locale cap, no slice record to copy them to).
+ * Candidates do not vouch for each other. An unreadable file serves nothing.
+ */
+function findUnservedRoutes(activeDir, expiredDir, isCandidate) {
+  const unserved = new Set();
+  const expiredFiles = listSliceFileNames(expiredDir);
+  const rowsOf = (dir, file) => {
+    const slice = readJson(path.join(dir, file), []);
+    const rows = Array.isArray(slice) ? slice : slice?.jobs;
+    return Array.isArray(rows) ? rows : [];
+  };
+  for (const file of expiredFiles) {
+    for (const entry of rowsOf(expiredDir, file)) {
+      if (!isCandidate(entry)) continue;
+      for (const route of localeRouteKeys(entry)) unserved.add(route);
+    }
+  }
+  const markServed = (dir, files, serves) => {
+    for (const file of files) {
+      if (unserved.size === 0) return;
+      for (const row of rowsOf(dir, file)) {
+        if (!serves(row)) continue;
+        for (const route of localeRouteKeys(row)) unserved.delete(route);
+      }
+    }
+  };
+  markServed(activeDir, listSliceFileNames(activeDir), Boolean);
+  markServed(expiredDir, expiredFiles, (entry) => entry && !isCandidate(entry));
+  return unserved;
+}
+
+/**
  * Remove reconciled entries from expired per-crawler slice files.
  * Without this, reconciled expired jobs reappear on next assembleExpiredJobs().
+ * A record goes only if tracked data keeps serving all of its routes, so call
+ * this after the active slices have been written.
  * @param {Set<string>} reconciledIds - IDs of expired entries that were reconciled
  * @param {object[]} activeJobs - Active jobs used to prove the removal owner
  */
-function updateExpiredCrawlerSlices(reconciledIds, activeJobs) {
+export function updateExpiredCrawlerSlices(reconciledIds, activeJobs, {
+  activeDir = DATA_SLICES_DIR,
+  expiredDir = DATA_EXPIRED_SLICES_DIR,
+} = {}) {
   if (!reconciledIds?.size) return;
 
-  const files = listSliceFileNames(DATA_EXPIRED_SLICES_DIR);
+  const files = listSliceFileNames(expiredDir);
   const activeIndex = buildGhostExpiredProofIndex(activeJobs);
   let totalRemoved = 0;
+  let totalKept = 0;
+  const idOf = (ej) => ej.slug || ej.id || localeMapKey(ej.slugByLocale);
+  const proofOf = (ej) => (ej && reconciledIds.has(idOf(ej))
+    ? findGhostExpiredReconciliationMatch(ej, activeIndex)
+    : null);
+  const unserved = findUnservedRoutes(activeDir, expiredDir, (ej) => Boolean(proofOf(ej)));
 
   for (const file of files) {
-    const slicePath = path.join(DATA_EXPIRED_SLICES_DIR, file);
+    const slicePath = path.join(expiredDir, file);
     const previousRaw = fs.readFileSync(slicePath, 'utf8');
     const entries = readJson(slicePath, []);
     if (!Array.isArray(entries) || entries.length === 0) continue;
 
     const proofEntries = [];
     const filtered = entries.filter((ej) => {
-      const id = ej.slug || ej.id || localeMapKey(ej.slugByLocale);
-      if (!reconciledIds.has(id)) return true;
-      const proof = findGhostExpiredReconciliationMatch(ej, activeIndex);
+      const proof = proofOf(ej);
       if (!proof) return true;
+      if ([...localeRouteKeys(ej)].some((route) => unserved.has(route))) {
+        totalKept++;
+        return true;
+      }
       proofEntries.push({ expired: ej, ...proof });
       return false;
     });
@@ -1395,6 +1445,9 @@ function updateExpiredCrawlerSlices(reconciledIds, activeJobs) {
 
   if (totalRemoved > 0) {
     console.log(`🗑️  Removed ${totalRemoved} reconciled entries from expired slices`);
+  }
+  if (totalKept > 0) {
+    console.log(`🛟 Kept ${totalKept} reconciled expired entries: tracked data would stop serving their routes`);
   }
 }
 
