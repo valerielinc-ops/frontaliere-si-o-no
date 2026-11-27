@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-27T18:36:52.419Z",
+  "generatedAt": "2026-11-27T19:34:09.275Z",
   "model": "gpt-6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -23022,6 +23022,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-25T18:39:53.887Z"
     },
+    "ge-agenda:sophro-leman::fa214afd1fd9da9718abd1fdd333d37e8f8c2730282da227a5018c86905e0a25": {
+      "id": "ge-agenda:sophro-leman",
+      "sourceDescriptionHash": "fa214afd1fd9da9718abd1fdd333d37e8f8c2730282da227a5018c86905e0a25",
+      "description": "Il laboratorio è dedicato alla sofrologia e a pratiche di rilassamento dinamico. Si svolge a Ginevra.",
+      "descriptionByLocale": {
+        "it": "Il laboratorio è dedicato alla sofrologia e a pratiche di rilassamento dinamico. Si svolge a Ginevra.",
+        "en": "This workshop focuses on sophrology and dynamic relaxation practices. It takes place in Geneva.",
+        "de": "Der Workshop widmet sich der Sophrologie und dynamischen Entspannungsübungen. Er findet in Genf statt.",
+        "fr": "Cet atelier est consacré à la sophrologie et à des pratiques de relaxation dynamique. Il se déroule à Genève."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T19:20:47.577Z"
+    },
     "ge-agenda:sopranow-gentle::87d2a16c79860833135fe071cf2f83084e2858758b6d0e5bca4d26968d84551e": {
       "id": "ge-agenda:sopranow-gentle",
       "sourceDescriptionHash": "87d2a16c79860833135fe071cf2f83084e2858758b6d0e5bca4d26968d84551e",
@@ -27655,6 +27669,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T08:18:08.916Z"
+    },
+    "guidle:A2Wamxv::6545713e5dc7f953e3b087a134781838e973ef36a995f1a8e623868a6784aabf": {
+      "id": "guidle:A2Wamxv",
+      "sourceDescriptionHash": "6545713e5dc7f953e3b087a134781838e973ef36a995f1a8e623868a6784aabf",
+      "description": "La sessione online presenta percorsi SVF in leadership, management e coordinamento di team. La partecipazione è gratuita e si possono rivolgere domande agli esperti.",
+      "descriptionByLocale": {
+        "it": "La sessione online presenta percorsi SVF in leadership, management e coordinamento di team. La partecipazione è gratuita e si possono rivolgere domande agli esperti.",
+        "en": "The online briefing outlines SVF courses in leadership, management and team leadership. Attendance is free, and participants can put questions to the specialists.",
+        "de": "Das Online-Treffen gibt einen Überblick über SVF-Lehrgänge für Leadership, Management und Teamleitung. Die Teilnahme ist gebührenfrei, und die Fachleute stehen für Fragen zur Verfügung.",
+        "fr": "La séance en ligne présente des formations SVF en leadership, en management et en encadrement d’équipe. La participation est gratuite et les spécialistes peuvent répondre aux questions."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T19:24:23.754Z"
     },
     "guidle:A2wU1ZU::baa0801f15de289dc722850222677f8a917aeb6cc7d16e3214a0db0a8a55d117": {
       "id": "guidle:A2wU1ZU",
@@ -34880,6 +34908,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-26T05:32:48.738Z"
     },
+    "guidle:AAxRuXr::638ba6389c32097d142610914cd0e9b316492007d766146e3822dde61948bb7d": {
+      "id": "guidle:AAxRuXr",
+      "sourceDescriptionHash": "638ba6389c32097d142610914cd0e9b316492007d766146e3822dde61948bb7d",
+      "description": "Il corso offre un’introduzione alle funzioni essenziali di iPhone e iPad. Tra gli argomenti figurano la connessione a Internet, la gestione dei contatti e delle app, e l’uso di foto, video, calendario, note e musica.",
+      "descriptionByLocale": {
+        "it": "Il corso offre un’introduzione alle funzioni essenziali di iPhone e iPad. Tra gli argomenti figurano la connessione a Internet, la gestione dei contatti e delle app, e l’uso di foto, video, calendario, note e musica.",
+        "en": "The course introduces essential functions of iPhone and iPad devices. Topics include connecting to the internet, managing contacts and apps, and using photos, videos, calendars, notes, and music.",
+        "de": "Der Kurs vermittelt grundlegende Kenntnisse zur Bedienung eines iPhone oder iPad. Behandelt werden unter anderem Internetverbindungen, Kontakte und Apps sowie die Nutzung von Fotos, Videos, Kalender, Notizen und Musik.",
+        "fr": "Le cours présente les fonctions essentielles de l’iPhone et de l’iPad. Il aborde notamment la connexion à Internet, la gestion des contacts et des applications, ainsi que l’utilisation des photos, des vidéos, du calendrier, des notes et de la musique."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T19:23:48.391Z"
+    },
     "guidle:AAy48hD::c89b6e2606f87263145da8e00fb5d598df0488248d8a40cbc2ee516121127c47": {
       "id": "guidle:AAy48hD",
       "sourceDescriptionHash": "c89b6e2606f87263145da8e00fb5d598df0488248d8a40cbc2ee516121127c47",
@@ -36587,6 +36629,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T12:20:47.689Z"
+    },
+    "guidle:AbYCFuf::da4f276ed2096a8ba51c3538f984cb2dbaf127d852b45d5d0eae27aa0d6f09b9": {
+      "id": "guidle:AbYCFuf",
+      "sourceDescriptionHash": "da4f276ed2096a8ba51c3538f984cb2dbaf127d852b45d5d0eae27aa0d6f09b9",
+      "description": "L’incontro informativo presenta un percorso di formazione professionale nell’ambito della leadership. Illustra i contenuti, i possibili benefici e i requisiti di partecipazione, lasciando spazio alle domande; la partecipazione è gratuita.",
+      "descriptionByLocale": {
+        "it": "L’incontro informativo presenta un percorso di formazione professionale nell’ambito della leadership. Illustra i contenuti, i possibili benefici e i requisiti di partecipazione, lasciando spazio alle domande; la partecipazione è gratuita.",
+        "en": "The information session introduces a professional development course focused on leadership. It covers the programme’s subject matter, potential benefits and participation requirements, with time for questions; attendance is free.",
+        "de": "Der Informationsanlass stellt einen beruflichen Weiterbildungskurs im Führungsbereich vor. Behandelt werden Kursinhalte, mögliche Vorteile und Teilnahmevoraussetzungen; Fragen können ebenfalls eingebracht werden, und die Teilnahme ist kostenlos.",
+        "fr": "La séance d’information présente une formation professionnelle consacrée au leadership. Elle aborde le contenu du programme, les bénéfices possibles et les conditions de participation, tout en permettant aux personnes présentes de poser leurs questions; la participation est gratuite."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T19:25:11.422Z"
     },
     "guidle:ABye4bU::3d959e28f6b1b7b616abc68e04e90cdd88f572ea83fe3f728b29add378a93113": {
       "id": "guidle:ABye4bU",
@@ -41179,6 +41235,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T16:14:52.613Z"
+    },
+    "guidle:Aehunnw::3485a3a94cce1ee845426ab394796fa4babdbd2b205406f98bea27c38945d799": {
+      "id": "guidle:Aehunnw",
+      "sourceDescriptionHash": "3485a3a94cce1ee845426ab394796fa4babdbd2b205406f98bea27c38945d799",
+      "description": "L’incontro propone una conferenza di Nicolas Donzé, biologo e tossicologo dell’Ospedale del Vallese, sui meccanismi della dipendenza e sui processi di ricompensa cerebrale. Il tema si collega alla Via Francigena, presentata come itinerario storico di pellegrinaggio verso Roma, e APACH è associata all’iniziativa.",
+      "descriptionByLocale": {
+        "it": "L’incontro propone una conferenza di Nicolas Donzé, biologo e tossicologo dell’Ospedale del Vallese, sui meccanismi della dipendenza e sui processi di ricompensa cerebrale. Il tema si collega alla Via Francigena, presentata come itinerario storico di pellegrinaggio verso Roma, e APACH è associata all’iniziativa.",
+        "en": "Biologist and toxicologist Nicolas Donzé will speak about addiction and the brain’s reward processes. The subject is also linked to the Via Francigena, described as a historic pilgrimage route toward Rome, and APACH is associated with the event.",
+        "de": "Der Vortrag von Nicolas Donzé, Biologe und Toxikologe, behandelt Sucht und Vorgänge im Belohnungssystem des Gehirns. Zudem wird die Via Francigena als historischer Pilgerweg nach Rom thematisch einbezogen; APACH ist mit der Veranstaltung verbunden.",
+        "fr": "Nicolas Donzé, biologiste et toxicologue, donnera une conférence sur l’addiction et les mécanismes de récompense du cerveau. La Via Francigena est également évoquée comme itinéraire de pèlerinage ancien vers Rome, et APACH est associé à l’événement."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T19:20:32.262Z"
     },
     "guidle:AehxWKh::9849f950727e9a0c14ffd55b02f88f25e1891df558806bbe81feaf52550a6aff": {
       "id": "guidle:AehxWKh",
@@ -47172,6 +47242,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T14:15:00.134Z"
     },
+    "guidle:Ai5xZEh::0e3c4013f8daeebbd5d1cfa8562a7b3bbb493c177f0e4c7c048ace11938f08c9": {
+      "id": "guidle:Ai5xZEh",
+      "sourceDescriptionHash": "0e3c4013f8daeebbd5d1cfa8562a7b3bbb493c177f0e4c7c048ace11938f08c9",
+      "description": "L’iniziativa combina un percorso in treno attraverso le Centovalli con una cena a base di fondue a Camedo. Si può scegliere tra una proposta con degustazione di vini guidata da Vini Hefti e una formula senza degustazione.",
+      "descriptionByLocale": {
+        "it": "L’iniziativa combina un percorso in treno attraverso le Centovalli con una cena a base di fondue a Camedo. Si può scegliere tra una proposta con degustazione di vini guidata da Vini Hefti e una formula senza degustazione.",
+        "en": "The programme pairs a rail trip through the Centovalli with a fondue meal in Camedo. A choice is offered between a format with a wine tasting hosted by Vini Hefti and another without this component.",
+        "de": "Die Veranstaltung verbindet eine Zugfahrt durch die Centovalli mit einem Fondueessen in Camedo. Zur Wahl stehen ein Angebot mit einer von Vini Hefti angeleiteten Weindegustation und eine Variante ohne diesen Teil.",
+        "fr": "L’événement associe un trajet en train dans les Centovalli à un repas de fondue à Camedo. Le programme propose au choix une dégustation de vin accompagnée par Vini Hefti ou une option sans cette activité."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T19:21:01.379Z"
+    },
     "guidle:Ai7FfYe::ae437e637b2cc7e66b2b2a79d56d6340dc949886e9f16fe9bcb66b08de8b93e7": {
       "id": "guidle:Ai7FfYe",
       "sourceDescriptionHash": "ae437e637b2cc7e66b2b2a79d56d6340dc949886e9f16fe9bcb66b08de8b93e7",
@@ -48599,6 +48683,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-14T11:33:38.017Z"
+    },
+    "guidle:AjkWCfP::82981f3c37ec1085f6c963316f9a43265ba1d1d22cbf087e42e2d2b8715cb24e": {
+      "id": "guidle:AjkWCfP",
+      "sourceDescriptionHash": "82981f3c37ec1085f6c963316f9a43265ba1d1d22cbf087e42e2d2b8715cb24e",
+      "description": "A Schaffhausen, l’incontro presenta un percorso MBSR che applica la consapevolezza alla gestione dello stress. La descrizione riguarda i temi del corso, le condizioni di partecipazione e le domande sulla formazione.",
+      "descriptionByLocale": {
+        "it": "A Schaffhausen, l’incontro presenta un percorso MBSR che applica la consapevolezza alla gestione dello stress. La descrizione riguarda i temi del corso, le condizioni di partecipazione e le domande sulla formazione.",
+        "en": "This information session in Schaffhausen introduces an MBSR course focused on managing stress through mindfulness. It covers the course topics and participation requirements, with an opportunity to ask questions about the training.",
+        "de": "Der Informationsanlass in Schaffhausen stellt ein MBSR-Angebot zur Stressbewältigung mit Achtsamkeit vor. Behandelt werden die Kursthemen, die Teilnahmebedingungen und Fragen zur Weiterbildung.",
+        "fr": "À Schaffhouse, cette séance d’information présente une formation MBSR axée sur la gestion du stress par la pleine conscience. Elle aborde les thèmes du cours, les conditions de participation et les questions relatives à la formation."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T19:29:05.646Z"
     },
     "guidle:AJLDq6f::258d48083652502d2da8294c441e97daf5a0daf14c3f8fb4be99cb2e2cab89bf": {
       "id": "guidle:AJLDq6f",
@@ -205727,8 +205825,8 @@
       "id": "ge-agenda:herbiers-lacustres-secrets-plantes-leman",
       "sourceDescriptionHash": "084e0b6b475207378147282ee203dece129cdae5ba8a4d8303848dc2e8eb43e4",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:40:26.187Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T19:24:48.133Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -205808,8 +205906,8 @@
       "id": "ge-agenda:laurent-nicolet-rideau",
       "sourceDescriptionHash": "b57acd322b3f434fd1bb502b00b3460fa6fe495d6a3ed248eb53a905c6f1514a",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:20:15.029Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T19:20:34.207Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -205961,17 +206059,17 @@
       "id": "ge-agenda:repas-entre-seniors-5",
       "sourceDescriptionHash": "7189e4cf93759e0575027899af3c02f959c8861f547528bbdd70e0ae2d02ea0e",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:33:08.789Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T19:25:14.525Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "ge-agenda:repetition-publique-ballet-junior-geneve::fd45ac37de97d6c194ce128b93e76a41617833617e809a5a5b1d8791bcbeb7fb": {
       "id": "ge-agenda:repetition-publique-ballet-junior-geneve",
       "sourceDescriptionHash": "fd45ac37de97d6c194ce128b93e76a41617833617e809a5a5b1d8791bcbeb7fb",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:25:33.437Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T19:22:23.854Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -206015,8 +206113,8 @@
       "id": "ge-agenda:seances-plenieres-conseil-municipal-consacrees-vote-budget",
       "sourceDescriptionHash": "3ffcb3dd6157038bf9f404915ddb44f2dd676ca0e36688b8fdf7021416a01c61",
       "code": "promotional-language",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:28:49.444Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T19:27:35.326Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -206053,15 +206151,6 @@
       "code": "new-number",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-17T11:31:20.431Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "ge-agenda:sophro-leman::fa214afd1fd9da9718abd1fdd333d37e8f8c2730282da227a5018c86905e0a25": {
-      "id": "ge-agenda:sophro-leman",
-      "sourceDescriptionHash": "fa214afd1fd9da9718abd1fdd333d37e8f8c2730282da227a5018c86905e0a25",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:22:20.782Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -206251,15 +206340,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-21T17:22:17.821Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:A2Wamxv::6545713e5dc7f953e3b087a134781838e973ef36a995f1a8e623868a6784aabf": {
-      "id": "guidle:A2Wamxv",
-      "sourceDescriptionHash": "6545713e5dc7f953e3b087a134781838e973ef36a995f1a8e623868a6784aabf",
-      "code": "new-date-or-price",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:32:18.991Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -206605,15 +206685,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AAxRuXr::638ba6389c32097d142610914cd0e9b316492007d766146e3822dde61948bb7d": {
-      "id": "guidle:AAxRuXr",
-      "sourceDescriptionHash": "638ba6389c32097d142610914cd0e9b316492007d766146e3822dde61948bb7d",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:44:33.109Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:AB6Hbyy::5613aa0646477634348dd75a7b2e0ffdda35fc5685ecfa7f6bc098520774b2c6": {
       "id": "guidle:AB6Hbyy",
       "sourceDescriptionHash": "5613aa0646477634348dd75a7b2e0ffdda35fc5685ecfa7f6bc098520774b2c6",
@@ -206654,8 +206725,8 @@
       "id": "guidle:ABTD4nS",
       "sourceDescriptionHash": "76a6957273284dcc876923e2971fcd0b42b114617fd781e5f2f1a4f0be9cf498",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:24:40.427Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T19:21:29.651Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -206674,15 +206745,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-16T05:22:07.685Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AbYCFuf::da4f276ed2096a8ba51c3538f984cb2dbaf127d852b45d5d0eae27aa0d6f09b9": {
-      "id": "guidle:AbYCFuf",
-      "sourceDescriptionHash": "da4f276ed2096a8ba51c3538f984cb2dbaf127d852b45d5d0eae27aa0d6f09b9",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:41:26.299Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -206807,8 +206869,8 @@
       "id": "guidle:AdBFp1y",
       "sourceDescriptionHash": "2612eee6b526264cb014b6240a9175769c442db55a53e0a1b2a7ce70d8b92559",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:43:26.325Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T19:29:59.971Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -206842,9 +206904,9 @@
     "guidle:ADr24Dk::e0ca48088596ee38a27d5addd5d4eea4d342005d7e63f7acd786a0a76f162399": {
       "id": "guidle:ADr24Dk",
       "sourceDescriptionHash": "e0ca48088596ee38a27d5addd5d4eea4d342005d7e63f7acd786a0a76f162399",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:32:50.740Z",
+      "code": "sentence-count",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T19:28:14.388Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -206935,15 +206997,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-21T17:24:22.276Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:Aehunnw::3485a3a94cce1ee845426ab394796fa4babdbd2b205406f98bea27c38945d799": {
-      "id": "guidle:Aehunnw",
-      "sourceDescriptionHash": "3485a3a94cce1ee845426ab394796fa4babdbd2b205406f98bea27c38945d799",
-      "code": "source-ngram-8",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:23:54.708Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -207176,8 +207229,8 @@
       "id": "guidle:Ah7trkY",
       "sourceDescriptionHash": "0d027120342d06ce166bacb28b7c33fb7bb2a7950bd64f0ad2ce70d444b51673",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:28:03.444Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T19:26:09.973Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -207271,15 +207324,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:Ai5xZEh::0e3c4013f8daeebbd5d1cfa8562a7b3bbb493c177f0e4c7c048ace11938f08c9": {
-      "id": "guidle:Ai5xZEh",
-      "sourceDescriptionHash": "0e3c4013f8daeebbd5d1cfa8562a7b3bbb493c177f0e4c7c048ace11938f08c9",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:23:01.333Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:AigmxcP::b821d028adc42512f35fde7c19882c5e7de6618922ffc5e0e97601059ddd732c": {
       "id": "guidle:AigmxcP",
       "sourceDescriptionHash": "b821d028adc42512f35fde7c19882c5e7de6618922ffc5e0e97601059ddd732c",
@@ -207367,15 +207411,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-10T13:38:00.945Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AjkWCfP::82981f3c37ec1085f6c963316f9a43265ba1d1d22cbf087e42e2d2b8715cb24e": {
-      "id": "guidle:AjkWCfP",
-      "sourceDescriptionHash": "82981f3c37ec1085f6c963316f9a43265ba1d1d22cbf087e42e2d2b8715cb24e",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:47:26.331Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -207797,8 +207832,8 @@
       "id": "guidle:ANifY4i",
       "sourceDescriptionHash": "141fd680448e14d9c2a4a3040e29c2cff045c2f659153b8e32980a567d2a6c27",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:37:39.216Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T19:24:13.052Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -207914,8 +207949,8 @@
       "id": "guidle:APjiTwA",
       "sourceDescriptionHash": "b309eb30a2822271a044e78e5b437f98d2641eaaa7e4cf0af10d88897ce6afab",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:39:33.690Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T19:28:58.304Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -208112,8 +208147,8 @@
       "id": "guidle:ArjhKAr",
       "sourceDescriptionHash": "7cb6e323964ea594a755d2d8b603e8273c454ac7c4d0502d6bcfde9744fdc669",
       "code": "new-date-or-price",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:28:04.590Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T19:19:42.333Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -208193,8 +208228,8 @@
       "id": "guidle:As2Qdkw",
       "sourceDescriptionHash": "c841a8d9c38eb96fe5ee14f84d84cd2003b1a83eb834a7c1ce04fe60975e5278",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:28:22.718Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T19:20:34.671Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -208219,9 +208254,9 @@
     "guidle:ASGM3Bi::10b79f4f3a045dc0ff39041011bbad843d7ed14d5b5014b08f2a94039dee993b": {
       "id": "guidle:ASGM3Bi",
       "sourceDescriptionHash": "10b79f4f3a045dc0ff39041011bbad843d7ed14d5b5014b08f2a94039dee993b",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:35:38.272Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T19:29:51.973Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -208283,8 +208318,8 @@
       "id": "guidle:AsRBdG8",
       "sourceDescriptionHash": "fa520eeb0e18a5adaf9e9afb3064a29eccd19ef815bece54fee0dd6c796608ed",
       "code": "new-date-or-price",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:27:23.822Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T19:19:25.700Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -208715,8 +208750,8 @@
       "id": "guidle:AwdZNQi",
       "sourceDescriptionHash": "1decc857478ad357b500d0950ba18d8eedca50f804084caa772dceaf4e9e47ac",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:38:26.759Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T19:25:04.267Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -209129,8 +209164,8 @@
       "id": "lu-stadt-agenda:7694125",
       "sourceDescriptionHash": "a4ab323c5cae39e242333889135f8cd2702640684a8b1a48191a69a22c17cce6",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:20:09.056Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T19:21:59.898Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -209138,8 +209173,8 @@
       "id": "lu-stadt-agenda:7694314",
       "sourceDescriptionHash": "b6133a698317df676e7b25bd0ae9f00cf9a7aef222171fe5566253d8165837f0",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:19:56.757Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T19:23:17.430Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -211019,8 +211054,8 @@
       "id": "myswitzerland:721012c499084ff9ab8588ff412ef55b",
       "sourceDescriptionHash": "187489b78c3959239ea15c7a188ed183c86d4111b6ed9e95c4c57c5b28a2fe0d",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T17:35:18.081Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T19:18:41.744Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
