@@ -79,7 +79,7 @@ export function accountResponseText(snapshot = {}) {
     .join('. ');
 }
 
-const EXISTING_ACCOUNT_ERROR_RE = /(?:\b(?:account|e-?mail(?: address)?|emailadresse|adresse e-?mail|courriel|benutzer|konto|bewerbungskonto|compte|indirizzo e-?mail)\b[^.!?\n]{0,60}(?:already exists|already registered|already in use|already used|already taken|is already registered|is already in use|is already used|exists already|existiert bereits|bereits registriert|bereits verwendet|bereits benutzt|esiste già|già registrat[oa]|già utilizzat[oa]|già in uso|existe déjà|déjà inscrit|déjà enregistr[ée]e?|déjà utilisé[ee]?|déjà en usage)(?=$|[^\p{L}\p{N}])|(?:^|[^\p{L}\p{N}])(?:already exists|already registered|already in use|already used|already taken|existiert bereits|bereits registriert|bereits verwendet|esiste già|existe déjà|déjà inscrit|déjà enregistr[ée]e?|déjà utilisé[ee]?)[^.!?\n]{0,60}\b(?:account|e-?mail|emailadresse|adresse|courriel|benutzer|konto|bewerbungskonto|compte|indirizzo)\b|(?:^|[^\p{L}\p{N}])(?:il\s+)?existe\s+d[ée]j[àa]\s+un\s+(?:autre\s+)?(?:compte|profil)(?=$|[^\p{L}\p{N}]))/iu;
+const EXISTING_ACCOUNT_ERROR_RE = /(?:\b(?:account|e-?mail(?: address)?|emailadresse|adresse e-?mail|courriel|benutzer|login|konto|bewerbungskonto|compte|indirizzo e-?mail)\b[^.!?\n]{0,60}(?:already exists|already registered|already in use|already used|already taken|is already registered|is already in use|is already used|exists already|existiert bereits|bereits registriert|bereits verwendet|bereits benutzt|bereits(?: im system)? vorhanden|esiste già|già registrat[oa]|già utilizzat[oa]|già in uso|existe déjà|déjà inscrit|déjà enregistr[ée]e?|déjà utilisé[ee]?|déjà en usage)(?=$|[^\p{L}\p{N}])|(?:^|[^\p{L}\p{N}])(?:already exists|already registered|already in use|already used|already taken|existiert bereits|bereits registriert|bereits verwendet|bereits(?: im system)? vorhanden|esiste già|existe déjà|déjà inscrit|déjà enregistr[ée]e?|déjà utilisé[ee]?)[^.!?\n]{0,60}\b(?:account|e-?mail|emailadresse|adresse|courriel|benutzer|login|konto|bewerbungskonto|compte|indirizzo)\b|(?:^|[^\p{L}\p{N}])(?:il\s+)?existe\s+d[ée]j[àa]\s+un\s+(?:autre\s+)?(?:compte|profil)(?=$|[^\p{L}\p{N}]))/iu;
 const EXISTING_ACCOUNT_RE = new RegExp(String.raw`(?:${EXISTING_ACCOUNT_ERROR_RE.source}|\b(?:already have an? (?:application )?account|an? (?:application )?account already exists|account with (?:this|that) (?:e-?mail|address) already exists|already registered|this (?:e-?mail|address) is already in use)\b|\b(?:sie haben bereits ein(?:en)? (?:bewerbungs?)?konto|es gibt bereits ein(?:en)? (?:bewerbungs?)?konto|bereits ein konto vorhanden)\b|\b(?:vous avez déjà un compte|un compte existe déjà|vous êtes déjà inscrit)\b|\b(?:hai già un account|esiste già un account|sei già registrato)\b)`, 'iu');
 const EXISTING_ACCOUNT_NAV_QUESTION_RE = /(?:\balready have an? (?:application )?account|\balready registered|\bbereits registriert|\bsie haben bereits ein(?:en)? (?:bewerbungs?)?konto|\bvous avez déjà un compte|\bvous êtes déjà inscrit|\bhai già un account|\bsei già registrato)\s*\?/iu;
 const REGISTRATION_SIGN_IN_QUESTION_RE = /\bsei già registrat(?:o(?:\/a)?|a) come utente\s*\?/giu;
@@ -201,7 +201,8 @@ export function verificationIsPending(after) {
  * SuccessFactors registration is neither a sign-in nor a create form.
  */
 export function authPageKind(snapshot) {
-  const passwords = snapshot.fields.filter((field) => field.inputType === 'password' && !isCodeField(field, snapshot.fields)).length;
+  const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : [];
+  const passwords = fields.filter((field) => field.inputType === 'password' && !isCodeField(field, fields)).length;
   if (passwords >= 2) return 'create';
   if (passwords === 1) return 'sign_in';
   return 'none';
@@ -593,16 +594,19 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
       return result;
     },
     /** Make the reset credential the pending account credential after the portal accepts it. */
-    async completeRecovery(host) {
+    async completeRecovery(host, { password = '' } = {}) {
       const entryKey = hostKey(host);
+      const overridePassword = typeof password === 'string' && !/[\r\n]/.test(password) ? password : '';
+      if (overridePassword) mask(overridePassword);
       let result = false;
       await db.runTransaction(async (transaction) => {
         const accounts = (await transaction.get(ref)).data() || {};
         const current = accounts[entryKey];
-        if (!current || current.status !== 'recovering' || !current.passwordEnc) return;
+        if (!current || current.status !== 'recovering' || (!current.passwordEnc && !overridePassword)) return;
         transaction.set(ref, {
           [entryKey]: {
             ...current,
+            ...(overridePassword ? { passwordEnc: encryptJson({ password: overridePassword }, key) } : {}),
             status: 'pending',
             verifiedAt: null,
             recoveryCompletedAt: nowMs(),
@@ -614,7 +618,7 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
       });
       return result;
     },
-    /** Only the authenticated inbound claimant for this exact reset request can supply a link. */
+    /** Only the authenticated inbound claimant for this exact reset request can supply a link or temp password. */
     async waitForPasswordReset({ host, sinceMs, timeoutMs = PASSWORD_RESET_TIMEOUT_MS }) {
       const normalizedHost = String(host || '').toLowerCase();
       const since = Number(sinceMs);
@@ -631,15 +635,27 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
           const receivedAt = Number(message.receivedAt);
           if (!Number.isFinite(receivedAt) || receivedAt <= since) continue;
           let url = '';
+          let temporaryPassword = '';
           try {
-            url = decryptJson(message.passwordResetLinkEnc, key)?.url || '';
+            const payload = decryptJson(message.passwordResetLinkEnc, key);
+            url = payload?.url || '';
+            if (typeof payload?.temporaryPassword === 'string' && !/[\r\n]/.test(payload.temporaryPassword)) {
+              temporaryPassword = payload.temporaryPassword;
+            }
           } catch {
             url = '';
+            temporaryPassword = '';
           }
           url = exactPortalVerificationUrl(url, normalizedHost);
-          if (!url) continue;
-          mask(url);
-          return { url, messageId: doc.id, receivedAt };
+          if (!url && !temporaryPassword) continue;
+          if (url) mask(url);
+          if (temporaryPassword) mask(temporaryPassword);
+          return {
+            ...(url ? { url } : {}),
+            ...(temporaryPassword ? { temporaryPassword } : {}),
+            messageId: doc.id,
+            receivedAt,
+          };
         }
         await sleep(VERIFICATION_POLL_MS);
       }

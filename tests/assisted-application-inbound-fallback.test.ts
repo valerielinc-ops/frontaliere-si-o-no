@@ -1021,4 +1021,74 @@ describe('verification tokens stay in the native sender text', () => {
     });
     expect(sendCascade).not.toHaveBeenCalled();
   });
+
+  it('captures an authenticated temporary password reset email for an active recovering portal account', async () => {
+    const host = 'recruitingapp-2800.umantis.com';
+    const { store, alias } = await setup('de', host);
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts').set({
+      recruitingapp_2800_umantis_com: {
+        host,
+        email: alias.address,
+        status: 'recovering',
+        verifiedAt: null,
+        passwordEnc: { v: 1, alg: 'aes-256-gcm', iv: 'x', tag: 'y', data: 'z' },
+        recoveryRequestedAt: 900,
+        recoveryRequestId: 'req-umantis-1',
+      },
+    });
+    const raw = plainMail({
+      subject: 'Neues Passwort',
+      text: 'Ihr Passwort wurde zurückgesetzt.\nIhr neues Passwort lautet: TempReset99!\nMit freundlichen Grüssen',
+      headers: ['Authentication-Results: mx.cloudflare.net; dkim=pass header.d=employer.example'],
+    });
+    const { inbox, sendCascade } = await deliverWithoutModel({ store, alias, raw });
+    expect(inbox).toMatchObject({
+      passwordResetHost: host,
+      passwordResetRequestId: 'req-umantis-1',
+      forwarded: { status: 'skipped', reason: 'portal_password_reset' },
+    });
+    expect(inbox.passwordResetLinkEnc).toBeTruthy();
+    expect(JSON.stringify(inbox)).not.toContain('TempReset99!');
+    expect(sendCascade).not.toHaveBeenCalled();
+
+    const { decryptJson, runKeyFrom } = await import('../scripts/assisted-application/lib/secure-run.mjs');
+    expect(decryptJson(inbox.passwordResetLinkEnc, runKeyFrom(RUN_KEY))).toEqual({ temporaryPassword: 'TempReset99!' });
+  });
+
+  it('does not bind a temporary password across unrelated multi-label public suffixes like co.uk when multiple accounts recover', async () => {
+    const { store, alias } = await setup('en');
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts').set({
+      uk_host: {
+        host: 'careers.example.co.uk',
+        email: alias.address,
+        status: 'recovering',
+        verifiedAt: null,
+        passwordEnc: { v: 1, alg: 'aes-256-gcm', iv: 'x', tag: 'y', data: 'z' },
+        recoveryRequestedAt: 900,
+        recoveryRequestId: 'req-uk',
+      },
+      com_host: {
+        host: 'jobs.example.com',
+        email: alias.address,
+        status: 'recovering',
+        verifiedAt: null,
+        passwordEnc: { v: 1, alg: 'aes-256-gcm', iv: 'x', tag: 'y', data: 'z' },
+        recoveryRequestedAt: 900,
+        recoveryRequestId: 'req-com',
+      },
+    });
+    const raw = Buffer.from([
+      'From: Reset <reset@mailer.other.co.uk>',
+      `Subject: =?utf-8?B?${Buffer.from('Neues Passwort', 'utf8').toString('base64')}?=`,
+      'Authentication-Results: mx.cloudflare.net; dkim=pass header.d=mailer.other.co.uk',
+      'Content-Type: text/plain; charset=utf-8',
+      'Content-Transfer-Encoding: base64',
+      '',
+      Buffer.from('Ihr Passwort wurde zurückgesetzt.\nNeues Passwort: Abc123!', 'utf8').toString('base64'),
+      '',
+    ].join('\r\n'), 'latin1');
+    const { inbox } = await deliverWithoutModel({ store, alias, raw });
+    expect(inbox.passwordResetHost).toBeUndefined();
+    expect(inbox.passwordResetLinkEnc).toBeUndefined();
+  });
 });

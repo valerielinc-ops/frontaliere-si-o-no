@@ -96,8 +96,8 @@ export const WAVE1_CHANNELS = new Set([
 const MAX_AUTH_STEPS = AGENT_ROUNDS;
 const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
 const FORGOT_PASSWORD_RE = /(?:forgot(?:ten)?\s+(?:your\s+)?password|password\s+forgotten|passwort\s+vergessen|kennwort\s+vergessen|mot de passe\s+oublié|mot de passe\s+oublie|oubli[ée]\s+(?:(?:votre|le|mon)\s+)?mot de passe|password\s+dimenticat[oa]|hai dimenticato la password|password dimenticata)/i;
-const PASSWORD_RESET_REQUEST_RE = /^(?:send(?:\s+(?:a\s+)?(?:reset\s+)?(?:link|instructions))?|reset\s+password|request\s+(?:a\s+)?password\s+reset|continue|submit|passwort\s+zurücksetzen|kennwort\s+zurücksetzen|réinitialiser(?: le mot de passe)?|reinitialiser(?: le mot de passe)?|envoyer(?:\s+(?:les\s+instructions|(?:un\s+|le\s+)?lien))?|continuer|soumettre|valider|invia|continua|reimposta password)$/i;
-const PASSWORD_RESET_REQUEST_CONTEXT_RE = /(?:reset|forgot(?:ten)?|request).{0,30}(?:password|passcode)|(?:password|passcode).{0,30}(?:reset|forgot(?:ten)?|request)|(?:passwort|kennwort).{0,30}(?:vergessen|zurücksetzen)|(?:vergessen|zurücksetzen).{0,30}(?:passwort|kennwort)|mot de passe.{0,30}(?:oubli|réinitial|reinitial)|(?:oubli|réinitial|reinitial).{0,30}mot de passe|password.{0,30}(?:dimenticat|reimpost)|(?:dimenticat|reimpost).{0,30}password/i;
+const PASSWORD_RESET_REQUEST_RE = /^(?:send(?:\s+(?:a\s+)?(?:reset\s+)?(?:link|instructions)|(?:\s+a)?\s+new\s+password)|reset\s+password|request\s+(?:a\s+)?password\s+reset|continue|submit|passwort\s+zurücksetzen|kennwort\s+zurücksetzen|(?:neues?\s+)?(?:passwort|kennwort)\s+senden|réinitialiser(?: le mot de passe)?|reinitialiser(?: le mot de passe)?|envoyer(?:\s+(?:les\s+instructions|(?:un\s+|le\s+)?lien|(?:un\s+)?nouveau\s+mot\s+de\s+passe))?|continuer|soumettre|valider|invia(?:\s+nuova\s+password)?|continua|reimposta password)$/i;
+const PASSWORD_RESET_REQUEST_CONTEXT_RE = /(?:reset|forgot(?:ten)?|request).{0,30}(?:password|passcode)|(?:password|passcode).{0,30}(?:reset|forgot(?:ten)?|request)|(?:passwort|kennwort).{0,30}(?:vergessen|zurück(?:zu)?setz\p{L}*)|(?:vergessen|zurück(?:zu)?setz\p{L}*).{0,30}(?:passwort|kennwort)|neues?\s+(?:passwort|kennwort)|mot de passe.{0,30}(?:oubli|réinitial|reinitial)|(?:oubli|réinitial|reinitial).{0,30}mot de passe|password.{0,30}(?:dimenticat|reimpost)|(?:dimenticat|reimpost).{0,30}password/iu;
 function normalizePasswordResetText(value) {
   return String(value || '').normalize('NFKC').replace(/\p{Cf}/gu, '').replace(/\s+/gu, ' ').trim();
 }
@@ -1947,7 +1947,8 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = [], cur
   for (const item of Array.isArray(previousAnswers) ? previousAnswers : []) {
     const question = String(item?.question || '').trim();
     const answer = String(item?.answer ?? '').trim();
-    if (!question || !answer) continue;
+    if (!question || !answer || ['✓', '✗'].includes(answer)
+      || /^\[(?:CV|lettera di presentazione|documento:\s*[^\]]+)\]$/i.test(answer)) continue;
     const prior = { answerId: String(item?.answerId || '').trim() || undefined, question, context: String(item?.context || ''), section: String(item?.section || ''), autocomplete: String(item?.autocomplete || ''), ...addressMetadata(item), answer, source: String(item?.source || 'answers') };
     const key = keyFor(prior);
     if (currentKeys.has(key)) continue;
@@ -10061,6 +10062,8 @@ export async function openVerifiedPasswordResetNavigation(page, snapshot) {
           autocomplete: input.getAttribute('autocomplete') || '',
         })),
         formHasPassword: inputs.some((input) => input.type === 'password'),
+        inChrome: Boolean(element.closest('header, nav, footer, [role="banner"], [role="contentinfo"]'))
+          && !element.closest('main, [role="main"], form, [role="form"], dialog, [role="dialog"], [aria-modal="true"]'),
       };
     }).catch(() => null);
     const label = [live?.text, live?.ariaLabel, live?.title, live?.labelledBy].join(' ');
@@ -10086,7 +10089,15 @@ export async function openVerifiedPasswordResetNavigation(page, snapshot) {
       && (candidate.dataAutomationId === 'forgotPasswordLink'
         || live.dataAutomationId === 'forgotPasswordLink'
         || FORGOT_PASSWORD_RE.test(label));
-    if (!sameFormReset && !workdayPageReset) continue;
+    const signInAnchorReset = !candidate.formId
+      && !live.formId
+      && live.tagName === 'A'
+      && Boolean(live.href)
+      && candidate.chrome !== true
+      && live.inChrome !== true
+      && Boolean(pageLogin.email && pageLogin.password)
+      && FORGOT_PASSWORD_RE.test(label);
+    if (!sameFormReset && !workdayPageReset && !signInAnchorReset) continue;
     if (liveButton) {
       if (candidate.dataAutomationId !== 'forgotPasswordLink'
         && live.dataAutomationId !== 'forgotPasswordLink' && !FORGOT_PASSWORD_RE.test(label)) continue;
@@ -10109,7 +10120,8 @@ export async function openVerifiedPasswordResetNavigation(page, snapshot) {
 
 function passwordResetEmailField(snapshot) {
   const candidates = (snapshot?.fields || []).filter((field) => field.inputType === 'email'
-    || /(?:e-?mail|mailadresse)/i.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`));
+    || /(?:e-?mail|mailadresse|benutzername|username|login(?:name)?|nutzername|identifiant)/i
+      .test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`));
   return candidates.length === 1 ? candidates[0] : null;
 }
 
@@ -10220,6 +10232,7 @@ async function recoverAccountPassword({ page, snapshot, ctx, host, account, diag
   recoveryAttempts.add(host);
   let requestAt = Number(account?.recoveryRequestedAt) || 0;
   let resetMessage = null;
+  let resolvedSignInUrl = authPageKind(snapshot) === 'sign_in' ? page.url() : '';
   const existingRequestActive = account?.status === 'recovering' && requestAt > 0
     && Date.now() - requestAt < 15 * 60 * 1000 && Boolean(account.password);
   if (existingRequestActive) {
@@ -10231,6 +10244,7 @@ async function recoverAccountPassword({ page, snapshot, ctx, host, account, diag
       }
       snapshot = await awaitAuthView(page, snapshot);
     }
+    if (authPageKind(snapshot) === 'sign_in') resolvedSignInUrl = page.url();
     const cookies = await resolveCookieConsent(page, snapshot).catch(() => null);
     if (cookies?.snapshot) snapshot = cookies.snapshot;
     if (authPageKind(snapshot) !== 'sign_in' || !await openVerifiedPasswordResetNavigation(page, snapshot)) {
@@ -10276,14 +10290,54 @@ async function recoverAccountPassword({ page, snapshot, ctx, host, account, diag
     resetMessage = await ctx.accounts.waitForPasswordReset({ host, sinceMs: requestAt });
   }
   const resetUrl = exactHttpsPortalHostUrl(resetMessage?.url, host);
-  if (!resetUrl) {
+  const temporaryPassword = typeof resetMessage?.temporaryPassword === 'string'
+    ? resetMessage.temporaryPassword : '';
+  if (!resetUrl && !temporaryPassword) {
     return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
   }
-  await page.goto(resetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
-  await settle(page);
-  let resetView = await extractFields(page, NAVIGATION);
+  let resetView = null;
+  if (resetUrl) {
+    await page.goto(resetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    await settle(page);
+    resetView = await extractFields(page, NAVIGATION);
+  }
   const pageUrl = new URL(page.url());
-  const resetFields = resetPasswordFields(resetView);
+  const resetFields = resetView ? resetPasswordFields(resetView) : null;
+  if (temporaryPassword && !resetFields) {
+    if (pageUrl.protocol !== 'https:' || pageUrl.hostname.toLowerCase() !== host.toLowerCase()
+      || !resetView || authPageKind(resetView) !== 'sign_in') {
+      if (!resolvedSignInUrl && authPageKind(snapshot) === 'create' && await openVerifiedSignInNavigation(page, snapshot)) {
+        const signInSnapshot = await awaitAuthView(page, snapshot);
+        if (authPageKind(signInSnapshot) === 'sign_in') {
+          resolvedSignInUrl = page.url();
+          resetView = signInSnapshot;
+        }
+      } else if (resolvedSignInUrl) {
+        await page.goto(resolvedSignInUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+        await settle(page);
+        resetView = await extractFields(page, NAVIGATION);
+      }
+    }
+    if (!resetView || authPageKind(resetView) !== 'sign_in') {
+      const refused = PASSWORD_RESET_REFUSED_RE.test(resetView?.errors?.join(' ') || resetView?.text || '');
+      return accountHandoff(refused ? 'account_recovery_rejected' : 'account_recovery_timeout',
+        refused ? 'account_recovery_rejected' : 'account_recovery_timeout', 'login');
+    }
+    typedSecrets?.add(temporaryPassword);
+    if (!await ctx.accounts.completeRecovery(host, { password: temporaryPassword })) {
+      return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+    }
+    const signedIn = await handleAuth({
+      page,
+      snapshot: resetView,
+      ctx,
+      diagnostics,
+      typedSecrets,
+      registrationRestarts,
+      recoveryAttempts,
+    });
+    return { ...signedIn, accountRecovered: true };
+  }
   const resetContext = /(?:reset|change|update).{0,30}(?:password|passwort)|(?:password|passwort).{0,30}(?:reset|change|update)|mot de passe.{0,30}(?:réinitial|reinitial|chang)|password.{0,30}(?:reimpost|cambi)/i
     .test(`${pageUrl.pathname} ${resetView.title || ''} ${resetView.heading || ''} ${resetView.text || ''}`);
   if (pageUrl.protocol !== 'https:' || pageUrl.hostname !== host || !resetContext || !resetFields) {
@@ -13891,6 +13945,15 @@ export async function submitViaPortal(ctx) {
         });
       }
       let ownAccount = currentStage.kind !== 'account' && ownAccountForm(snapshot, channelType);
+      const switchExistingOwnAccountToSignIn = async (current) => {
+        if (!ownAccount || !ctx.accounts || (ctx.dryRun && !ctx.allowAccountCreationInDryRun)
+          || !hasExistingAccountPrompt(current)) return null;
+        if (await openVerifiedSignInNavigation(page, current)) {
+          const signInView = await awaitAuthView(page, current);
+          if (authPageKind(signInView) === 'sign_in') return { switched: true, snapshot: signInView };
+        }
+        return { switched: false };
+      };
       if (ownAccount && !ctx.accounts) return await handoff('account', { accountFailure: accountFailure('unknown', 'application') });
       if (snapshot.passwordVisible && !ownAccount) {
         if (!ctx.accounts) return await handoff('account', { accountFailure: accountFailure('unknown', 'login') });
@@ -14461,6 +14524,16 @@ export async function submitViaPortal(ctx) {
           }
         }
       }
+      const existingOwnSwitch = await switchExistingOwnAccountToSignIn(after);
+      if (existingOwnSwitch?.switched) {
+        pageEpoch += 1;
+        snapshot = existingOwnSwitch.snapshot;
+        step -= 1;
+        continue;
+      }
+      if (existingOwnSwitch && !existingOwnSwitch.switched) {
+        return await handoff('account', { accountFailure: accountFailure('no_sign_in_button', 'registration') });
+      }
       if (after.captcha) return await handoff('captcha');
       // A usual name, or one this portal taught a confirmed submission (level 2).
       const known = await knownFor(page.url());
@@ -14617,6 +14690,16 @@ export async function submitViaPortal(ctx) {
           return pageSignature(page, current) === before || (sameMarker && sameLabels);
         });
         await refreshApplicationEntryAfterTransition(transitionSourceUrl, snapshot);
+        const existingPostNextSwitch = await switchExistingOwnAccountToSignIn(snapshot);
+        if (existingPostNextSwitch?.switched) {
+          pageEpoch += 1;
+          snapshot = existingPostNextSwitch.snapshot;
+          step -= 1;
+          continue;
+        }
+        if (existingPostNextSwitch && !existingPostNextSwitch.switched) {
+          return await handoff('account', { accountFailure: accountFailure('no_sign_in_button', 'registration') });
+        }
         const movedToNextPage = pageSignature(page, snapshot) !== before;
         if (movedToNextPage) pageEpoch += 1;
         // Still the same page: the form refused a value. A correction by the

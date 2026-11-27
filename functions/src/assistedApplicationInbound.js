@@ -34,7 +34,7 @@ import { createHash, randomUUID, timingSafeEqual } from 'node:crypto';
 import { ASSISTED_EMAIL_PROVIDERS } from './assistedApplicationEmployerMail.js';
 import { ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION, ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
-import { currentPendingPortalAccount, currentRecoveringPortalAccount, exactPortalVerificationUrl, MAX_PORTAL_VERIFICATION_URL, pendingAccountForCode, portalAccountForNotice } from './assistedApplicationPortalSites.js';
+import { currentPendingPortalAccount, currentRecoveringPortalAccount, exactPortalVerificationUrl, MAX_PORTAL_VERIFICATION_URL, pendingAccountForCode, portalAccountForNotice, recoveringPortalAccountForReset } from './assistedApplicationPortalSites.js';
 import { orderIdForAlias } from './assistedApplicationAlias.js';
 import { applyAutomationEvent, AUTOMATION_SUBCOLLECTION, confirmSubmissionByEmployer, FLOW_DOC_ID } from './assistedApplicationAutomation.js';
 import { isUnconfirmedSubmission, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
@@ -1165,21 +1165,59 @@ async function verificationAccountHost(orderRef, classification, sender, { authe
   return account ? String(account.host).toLowerCase() : '';
 }
 
-async function passwordResetAccount(orderRef, { authenticated, asksPasswordReset, sourceText, receivedAt } = {}) {
-  if (!authenticated || !asksPasswordReset) return null;
-  const link = soleSecureLink(String(sourceText || ''));
-  if (!link) return null;
-  let host = '';
-  try {
-    host = new URL(link).hostname.toLowerCase();
-  } catch {
-    return null;
+const TEMPORARY_RESET_PASSWORD_RE = /(?<![\p{L}\p{N}])(?:(?:neues?|tempor[äa]res?|einmaliges?)\s+(?:passwort|kennwort)|(?:passwort|kennwort)|(?:new|temporary|generated)\s+password|nouveau\s+mot\s+de\s+passe|mot\s+de\s+passe\s+temporaire|nuova\s+password|password\s+temporanea)(?:\s+(?:lautet|is|ist|est|è))?\s*[:=]\s*["'«»„“]?([^\s<>"'«»„“]{6,64})["'«»„“]?/giu;
+
+function extractTemporaryResetPassword(text) {
+  const source = normalizedMail(decodeHtmlEntities(String(text || '')));
+  TEMPORARY_RESET_PASSWORD_RE.lastIndex = 0;
+  let match;
+  while ((match = TEMPORARY_RESET_PASSWORD_RE.exec(source)) !== null) {
+    const token = String(match[1] || '');
+    if (token.length < 6 || /^https?:\/\//i.test(token) || /^[^\p{L}\p{N}]+$/u.test(token)) continue;
+    return token;
   }
-  const account = currentRecoveringPortalAccount(await portalAccountsForOrder(orderRef), host);
+  return '';
+}
+
+async function passwordResetAccount(orderRef, { authenticated, asksPasswordReset, sourceText, sender = '', receivedAt } = {}) {
+  if (!authenticated) return null;
+  const text = String(sourceText || '');
+  const normalized = normalizedMail(decodeHtmlEntities(text));
+  const link = soleSecureLink(text);
+  const temporaryPassword = extractTemporaryResetPassword(text);
+  const resetContext = Boolean(asksPasswordReset)
+    || (Boolean(temporaryPassword) && (PASSWORD_CHANGED_RE.test(normalized) || PASSWORD_RESET_REQUEST_RE.test(normalized)));
+  if (!resetContext || (!link && !temporaryPassword)) return null;
+  const accounts = await portalAccountsForOrder(orderRef);
   const received = Number(receivedAt);
-  if (!account || !Number.isFinite(received) || received <= Number(account.recoveryRequestedAt)
-    || !exactPortalVerificationUrl(link, account.host)) return null;
-  return { host: account.host.toLowerCase(), requestId: String(account.recoveryRequestId), url: link };
+  if (!Number.isFinite(received)) return null;
+  if (link) {
+    let host = '';
+    try {
+      host = new URL(link).hostname.toLowerCase();
+    } catch {
+      host = '';
+    }
+    const account = host ? currentRecoveringPortalAccount(accounts, host) : null;
+    if (account && received > Number(account.recoveryRequestedAt) && exactPortalVerificationUrl(link, account.host)) {
+      return {
+        host: account.host.toLowerCase(),
+        requestId: String(account.recoveryRequestId),
+        url: link,
+        ...(temporaryPassword ? { temporaryPassword } : {}),
+      };
+    }
+    if (!temporaryPassword) return null;
+  }
+  const urls = [...new Set(text.match(/\bhttps:\/\/[^\x00-\x20<>"']+/gi) || [])];
+  const senderHost = /^[^@\s]+@([^@\s]+)$/i.exec(String(sender || '').trim())?.[1]?.toLowerCase() || '';
+  const account = recoveringPortalAccountForReset(accounts, { urls, senderHost, receivedAt: received });
+  if (!account) return null;
+  return {
+    host: account.host.toLowerCase(),
+    requestId: String(account.recoveryRequestId),
+    temporaryPassword,
+  };
 }
 
 /**
@@ -1614,6 +1652,7 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
       authenticated,
       asksPasswordReset: rules.asksPasswordReset,
       sourceText: rules.sourceText,
+      sender,
       receivedAt: claimed.receivedAt,
     });
     const consumedByRunner = Boolean(portalVerificationHost || passwordReset);
@@ -1776,7 +1815,10 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         ...(passwordReset ? {
           passwordResetHost: passwordReset.host,
           passwordResetRequestId: passwordReset.requestId,
-          passwordResetLinkEnc: encryptJson({ url: passwordReset.url }, runKeyFrom(runKey)),
+          passwordResetLinkEnc: encryptJson({
+            ...(passwordReset.url ? { url: passwordReset.url } : {}),
+            ...(passwordReset.temporaryPassword ? { temporaryPassword: passwordReset.temporaryPassword } : {}),
+          }, runKeyFrom(runKey)),
         } : {}),
         ...(portalAccountNoticeHost ? { portalAccountNoticeHost, portalAccountNotice } : {}),
         ...(applicationReceipt ? { automaticApplicationReceipt: true } : {}),

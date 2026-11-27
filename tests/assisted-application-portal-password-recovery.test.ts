@@ -365,4 +365,157 @@ describe('bounded Workday password-reset request surface', () => {
     expect(result.status).toBe('dismissed');
     expect(clicked).toEqual(['f2']);
   });
+
+  it('recognizes Umantis Benutzername password reset surface and signs in with an emailed temporary password', async () => {
+    const umantisHost = 'recruitingapp-2800.umantis.com';
+    const umantisLoginUrl = `https://${umantisHost}/Vacancies/6604/Application/Login/1`;
+    const umantisForgotUrl = `https://${umantisHost}/Password/PWForgotten`;
+    const umantisAppUrl = `https://${umantisHost}/Vacancies/6604/Application/New/1`;
+    const umantisSurface = passwordResetRequestSurface({
+      url: umantisForgotUrl,
+      title: 'Neues Passwort | eRecruiting Kanton St.Gallen',
+      heading: 'Neues Passwort',
+      text: 'Bitte geben Sie Ihren Loginnamen ein. Durch einen Klick auf Senden wird Ihr Passwort zurückgesetzt und Sie erhalten in Kürze eine E-Mail mit dem neuen Passwort.',
+      fields: [
+        { id: 'f1', kind: 'text', inputType: 'text', label: 'Benutzername', name: 'form_data1', formId: 'pw-form', value: '' },
+      ],
+      buttons: [
+        { id: 'b1', text: 'Neues Passwort senden', formId: 'pw-form', disabled: false },
+      ],
+      links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false,
+    } as any);
+    expect(umantisSurface).toMatchObject({
+      email: { id: 'f1', label: 'Benutzername' },
+      request: { id: 'b1', text: 'Neues Passwort senden' },
+    });
+
+    const events: string[] = [];
+    let currentUrl = umantisLoginUrl;
+    const loginSnap = (err = '') => ({
+      url: currentUrl,
+      title: 'Login | eRecruiting Kanton St.Gallen',
+      heading: 'Login',
+      text: `Ich bin bereits Benutzer ${err}`.trim(),
+      fields: [
+        { id: 'user', kind: 'text', inputType: 'text', label: 'Benutzername', frame: 0, formId: 'login-form', value: '' },
+        { id: 'pass', kind: 'text', inputType: 'password', label: 'Passwort', frame: 0, formId: 'login-form', value: '' },
+      ],
+      buttons: [
+        { id: 'login-btn', frame: 0, formId: 'login-form', text: 'Login', disabled: false },
+      ],
+      links: [
+        { id: 'forgot-link', frame: 0, text: 'Ich habe mein Passwort vergessen', href: umantisForgotUrl },
+      ],
+      dialogs: [], errors: err ? [err] : [], captcha: false, passwordVisible: true,
+    });
+    const forgotSnap = () => ({
+      url: umantisForgotUrl,
+      title: 'Neues Passwort | eRecruiting Kanton St.Gallen',
+      heading: 'Neues Passwort',
+      text: 'Bitte geben Sie Ihren Loginnamen ein. Ihr Passwort wird zurückgesetzt.',
+      fields: [
+        { id: 'reset-user', kind: 'text', inputType: 'text', label: 'Benutzername', frame: 0, formId: 'pw-form', value: '' },
+      ],
+      buttons: [
+        { id: 'reset-submit', frame: 0, formId: 'pw-form', text: 'Neues Passwort senden', disabled: false },
+      ],
+      links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false,
+    });
+    const signedInSnap = () => ({
+      url: umantisAppUrl,
+      title: 'Bewerbung',
+      text: 'Willkommen',
+      fields: [{ id: 'q1', kind: 'text', inputType: 'text', label: 'Erfahrung', frame: 0 }],
+      buttons: [{ id: 'next', frame: 0, text: 'Weiter', disabled: false }],
+      links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false,
+    });
+
+    recoveryState.snapshot = loginSnap();
+    let storedPassword = 'Stale-Password-1!';
+    let status = 'pending';
+    const { extractFields } = await import('../scripts/assisted-application/lib/portal/fields.mjs');
+    const { applyActions } = await import('../scripts/assisted-application/lib/portal/fill.mjs');
+    vi.mocked(extractFields).mockImplementation(async () => recoveryState.snapshot);
+    vi.mocked(applyActions).mockImplementation(async (_page: any, _fields: any[], actions: any[]) => {
+      for (const action of actions) {
+        const target = recoveryState.snapshot.fields.find((f: any) => f.id === action.fieldId);
+        if (target && action.action === 'fill') target.value = action.value;
+        events.push(`fill:${action.fieldId}:${target?.inputType === 'password' ? (action.value === 'Temp-Synthetic-9!' ? 'temp' : 'stale') : 'user'}`);
+      }
+      return actions.map((action: any) => ({ fieldId: action.fieldId, ok: true }));
+    });
+    const frame: any = {
+      url: () => currentUrl,
+      goto: vi.fn(async (href: string) => {
+        events.push(`goto:${new URL(href).pathname}`);
+        currentUrl = href;
+        recoveryState.snapshot = href.includes('PWForgotten') ? forgotSnap() : loginSnap();
+      }),
+      evaluate: vi.fn(async () => recoveryState.snapshot),
+      locator: vi.fn((selector: string) => {
+        const id = /data-aa-id="([^"]+)"/.exec(selector)?.[1] || '';
+        const loc: any = {
+          first: () => loc,
+          isVisible: vi.fn(async () => true),
+          evaluate: vi.fn(async () => ({
+            tagName: id === 'forgot-link' ? 'A' : 'BUTTON',
+            role: '',
+            href: id === 'forgot-link' ? umantisForgotUrl : null,
+            text: id === 'forgot-link' ? 'Ich habe mein Passwort vergessen' : id === 'reset-submit' ? 'Neues Passwort senden' : 'Login',
+            ariaLabel: '', title: '', labelledBy: '', dataAutomationId: '',
+            formId: id === 'reset-submit' ? 'pw-form' : id === 'login-btn' ? 'login-form' : '',
+            formIdentityFields: [], formHasPassword: false,
+          })),
+          click: vi.fn(async () => {
+            events.push(`click:${id}`);
+            if (id === 'login-btn') {
+              const typedPass = recoveryState.snapshot.fields.find((f: any) => f.id === 'pass')?.value;
+              if (typedPass === 'Temp-Synthetic-9!') {
+                currentUrl = umantisAppUrl;
+                recoveryState.snapshot = signedInSnap();
+              } else {
+                recoveryState.snapshot = loginSnap('Benutzername oder Passwort nicht korrekt');
+              }
+            } else if (id === 'reset-submit') {
+              events.push('submitted:pw-forgotten');
+            }
+          }),
+        };
+        return loc;
+      }),
+    };
+    const page: any = {
+      url: () => currentUrl,
+      goto: frame.goto,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      waitForLoadState: vi.fn(async () => {}),
+      waitForTimeout: vi.fn(async () => {}),
+    };
+    const accounts: any = {
+      load: vi.fn(async () => ({ email: alias, password: storedPassword, status, verifiedAt: null })),
+      beginRecovery: vi.fn(async (_host: string, next: any) => {
+        status = 'recovering';
+        storedPassword = next.password;
+        return { status: 'started', requestedAt: 1_700_000_000_000 };
+      }),
+      waitForPasswordReset: vi.fn(async () => ({ temporaryPassword: 'Temp-Synthetic-9!', messageId: 'm1', receivedAt: 1_700_000_001_000 })),
+      completeRecovery: vi.fn(async (_host: string, opts?: any) => {
+        if (opts?.password) storedPassword = opts.password;
+        status = 'pending';
+        return true;
+      }),
+      abortRecovery: vi.fn(async () => true),
+      mark: vi.fn(async () => {}),
+    };
+    const result = await handleAuth({
+      page,
+      snapshot: recoveryState.snapshot as any,
+      ctx: { candidate: { identity: { email: alias } }, accounts } as any,
+    });
+    expect(result).toMatchObject({ snapshot: { url: umantisAppUrl }, accountRecovered: true });
+    expect(accounts.completeRecovery).toHaveBeenCalledWith(umantisHost, { password: 'Temp-Synthetic-9!' });
+    expect(events).toContain('click:reset-submit');
+    expect(events).toContain('fill:pass:temp');
+  });
 });
