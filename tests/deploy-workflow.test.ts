@@ -1181,6 +1181,24 @@ describe('deploy.yml — non-IT legs reuse the IT Rollup bundle (#19575)', () =>
     expect(steps.indexOf(download)).toBeLessThan(steps.indexOf(restore));
     expect(steps.indexOf(restore)).toBeLessThan(steps.indexOf(build));
   });
+
+  // Run 45446025312: the wait step saw the artifact through the REST API, then a
+  // tokenless download-artifact (the runner's internal results service) answered
+  // "Artifact not found" for en (0.8 s after finalize) and de (3.9 s after),
+  // while fr, 10.8 s after, downloaded it. Both steps must read the same API.
+  it('downloads the bundle through the same REST view the wait step confirmed', () => {
+    const wait = named('Wait for IT Rollup bundle artifact');
+    const download = named('Download IT Rollup bundle artifact');
+
+    expect(wait.run).toContain('actions/runs/${IT_BUNDLE_RUN_ID}/artifacts');
+    // `github-token` is what switches download-artifact from the internal
+    // results service to the REST API.
+    expect(download.with).toMatchObject({
+      'github-token': wait.env?.GH_TOKEN,
+      repository: wait.env?.IT_BUNDLE_REPOSITORY,
+      'run-id': wait.env?.IT_BUNDLE_RUN_ID,
+    });
+  });
 });
 
 describe('deploy.yml — bounded jobs SEO heap collection cadence', () => {
