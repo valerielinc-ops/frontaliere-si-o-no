@@ -212,7 +212,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-service-planning-partner-%28fmd%29-100-4153/1440102533",
-    "firstSeenAt": "2026-09-23T23:46:50.733Z"
+    "firstSeenAt": "2026-09-23T23:46:50.733Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "service-planning-partner-f-m-d-100-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "service-planning-partner-f-m-d-100-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "id": "endress-hauser-b8f08ca3d94c",
@@ -262,7 +271,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-outside-sales-engineer-projectmanager-wastewater-%28fmd%29-100-4153/1375634533",
-    "firstSeenAt": "2026-07-04T10:43:55.750Z"
+    "firstSeenAt": "2026-07-04T10:43:55.750Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "outside-sales-engineer-projectmanager-wastewater-100-m-w-d-endress-hauser-reinach": "BL",
+        "outside-sales-engineer-projectmanager-wastewater-f-m-d-100-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "outside-sales-engineer-projectmanager-wastewater-100-m-w-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "id": "endress-hauser-48538e4d1625",
@@ -358,7 +377,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-strategic-buyer-constructionconstruction-services-80-100-%28fmd%29-4153/1400692533",
-    "firstSeenAt": "2026-07-04T10:44:05.636Z"
+    "firstSeenAt": "2026-07-04T10:44:05.636Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "strategic-buyer-construction-construction-services-80-100-f-m-d-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "strategic-buyer-construction-construction-services-80-100-f-m-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "strategic-buyer-construction-construction-services-80-100-f-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "id": "endress-hauser-b4e43ca71d2d",
@@ -423,7 +454,20 @@
         "firstSeenAt": "2026-09-04T13:34:48.159Z",
         "title": "Systemarchitekt*in Elektro- & Verfahrenstechnik (w/m/d)"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "systemarchitekt-in-elektro-verfahrenstechnik-w-m-d-endress-hauser-reinach": "BL",
+        "system-architect-in-ingegneria-elettrica-e-dei-processi-m-f-d-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "systemarchitekt-in-elektro-verfahrenstechnik-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "systemarchitekt-in-elektro-verfahrenstechnik-w-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "id": "endress-hauser-3cd8e2ab003d",
@@ -468,7 +512,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-hr-expertin-talent-acquisition-%28wmd%29-4153/1450678733",
-    "firstSeenAt": "2026-10-26T21:43:21.162Z"
+    "firstSeenAt": "2026-10-26T21:43:21.162Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "esperto-a-hr-nell-acquisizione-di-talenti-m-f-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "id": "endress-hauser-6efde504dfa7",
@@ -519,7 +569,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-strategischer-eink%c3%a4uferin-bau-baudienstleistungen-80-100-%28wmd%29-4153/1400692633",
-    "firstSeenAt": "2026-07-04T10:44:06.198Z"
+    "firstSeenAt": "2026-07-04T10:44:06.198Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "strategische-r-einkaufer-in-bau-baudienstleistungen-80-100-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "strategische-r-einkaufer-in-bau-baudienstleistungen-80-100-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "strategische-r-einkaufer-in-bau-baudienstleistungen-80-100-w-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "id": "endress-hauser-701c3b1bc256",
@@ -566,83 +628,70 @@
         "firstSeenAt": "2026-10-07T21:30:08.765Z",
         "title": "Quality Engineer Compliance 80-100% (w/m/d)"
       }
-    ]
-  },
-  {
-    "id": "endress-hauser-ebd2ace8b85f",
-    "slug": "quality-ingegnere-compliance-80-100-w-m-d-endress-hauser-reinach-fb7e27a72b",
-    "title": "Quality Engineer Compliance 80-100% (w/m/d)",
-    "titleByLocale": {
-      "it": "Quality Ingegnere Compliance 80-100% (w/m/d)",
-      "en": "Quality Engineer Compliance 80-100% (m/f/d)",
-      "de": "Quality Engineer Compliance 80-100% (w/m/d)",
-      "fr": "Qualité Ingénieur Compliance 80-100% (w/m/d)"
-    },
-    "company": "Endress+Hauser",
-    "companyKey": "endress-hauser",
-    "location": "Reinach",
-    "addressLocality": "Reinach",
-    "descriptionByLocale": {
-      "it": "A Endress+ Hauser, i progressi sono fatti attraverso la cooperazione. Come fornitore leader mondiale di tecnologie di misura con oltre 17.000 dipendenti, stiamo plasmando il futuro dell'automazione dei processi. Se sviluppiamo e implementiamo nuove tecnologie come team, produciamo strumenti di misura in comune o rafforziamo relazioni importanti con innumerevoli industrie in tutto il mondo – lavoriamo per creare partnership fiduciose che aiutano tutti coloro che hanno successo a lungo termine. Come azienda a conduzione familiare, pensiamo oltre le decisioni a breve termine e perseguiamo una visione orientata al futuro – per i nostri dipendenti, i nostri clienti e per il mondo di domani.\n\nPer rafforzare il nostro team, stiamo cercando un Quality Engineer Compliance (m/f/d) che svolgerà un ruolo centrale nel rafforzare la qualità e la conformità normativa nel nostro ambiente di produzione. Come parte di Flowtec, uno dei nostri centri di produzione globali per la tecnologia di misurazione del flusso, lavorerai a stretto contatto con la produzione e lo sviluppo, garantendo che i nostri prodotti soddisfino gli standard internazionali e siano valutati dai clienti in tutto il mondo.\n\nTi piace lavorare vicino alla produzione e concentrarti sempre sulla qualità e sulla conformità? Ti motiva a tradurre norme e regolamenti complessi in soluzioni pratiche e di valore? Sei felice di condividere le tue competenze e di apprezzare la collaborazione tra reparti e luoghi?\n\nIn questa funzione, si combina il know-how tecnico con un modo di lavoro orientato alla pratica. Essi assicurano che gli standard siano implementati in modo efficace, i controlli vengono effettuati professionalmente e il miglioramento continuo è saldamente ancorato nei nostri processi produttivi.\n\nQuali sono le tue responsabilità?\n\nLoro:\n\n• pianificare, effettuare e sostenere audit interni ed esterni nell'ambiente di produzione.\n\n• analizzare le deviazioni, definire adeguate misure correttive e garantire la loro effettiva attuazione.\n\n• applicare la vostra conoscenza approfondita delle norme e degli standard pertinenti in modo pratico e orientato alla produzione.\n\n• condividere attivamente il tuo know-how nella rete globale e supportare i colleghi in materia di regolamentazione e conformità.\n\n• lavorare a stretto contatto con la produzione, R&D, ingegneria e qualità.\n\n• viaggio occasionalmente come parte della vostra attività (circa 10%).\n\nCosa ci aspettiamo da te?\n\n• hanno una laurea completa o una laurea FH, ad esempio in un campo come l'ingegneria o l'assicurazione della qualità, la conformità o un campo di competenza comparabile.\n\n• hanno un forte background tecnico e diversi anni di esperienza nella gestione della qualità in un ambiente industriale, idealmente nella produzione e nella revisione.\n\n• hanno una buona conoscenza delle norme e dei regolamenti pertinenti, in particolare le direttive sulle attrezzature di pressione, le applicazioni igieniche, le ex-regolazioni e le approvazioni idealmente nel settore dei sigilli e dei marittimi.\n\n• hanno esperienza nell'attuazione di norme e standard nei processi produttivi esistenti, nonché nell'esecuzione di valutazioni e audit.\n\n• lavoro orientato al processo, pragmatico e con una mentalità pratica e apprezzare la cooperazione trasversale.\n\n• hanno dimostrato esperienza nella costruzione, nello sviluppo e nella chiusura di lacune di qualità e conformità.\n\nCosa puoi aspettarti da noi?\n\n• Una società a conduzione familiare, impegnata con una visione sostenibile\n\n• Promuovere l'apprendimento permanente attraverso molteplici opportunità di formazione e sviluppo, trasferimento di conoscenze interne e apprendimento\n\n• Sostenere un sano equilibrio di vita lavorativa attraverso orari di lavoro flessibili\n\n• Promuovere soluzioni di mobilità sostenibile come i trasporti pubblici\n\n• Servizi per famiglie, tra cui l'infanzia e l'infanzia durante le vacanze scolastiche\n\nCome si applica?\n\nSi prega di caricare i documenti di richiesta tramite la nostra pagina di carriera. Per motivi di protezione dei dati, le applicazioni via e-mail non possono purtroppo essere considerate.\n\nChiediamo alle agenzie di reclutamento, ai fornitori di servizi HR o alle organizzazioni simili di astenersi dalle mailing non richieste di profili o dalle richieste di cooperazione. Per questa posizione, non lavoriamo attualmente con fornitori di servizi esterni. Le applicazioni non richieste non vengono considerate e eliminate senza ulteriori esami. Grazie per la vostra comprensione.",
-      "en": "At Endress+Hauser, progress is made through cooperation. As the world’s leading provider of measurement technology with over 17,000 employees, we are shaping the future of process automation. Whether we develop and implement new technologies as a team, jointly manufacture measuring instruments or strengthen important relationships with countless industries worldwide – we work to create trusting partnerships that help everyone involved to succeed in the long term. As a family-run company, we think beyond short-term decisions and pursue a future-oriented vision – for our employees, our customers and for the world of tomorrow.\n\nTo strengthen our team, we are looking for a Quality Engineer Compliance (m/f/d) who will play a central role in strengthening quality and regulatory compliance in our production environment. As part of Flowtec, one of our global production centers for flow measurement technology, you will work closely with production and development, ensuring that our products meet international standards and are valued by customers worldwide.\n\nDo you like to work close to production and always focus on quality and compliance? Does it motivate you to translate complex norms and regulations into practical, value-adding solutions? Are you happy to share your expertise and appreciate collaboration across departments and locations?\n\nIn this function, you combine technical know-how with a practice-oriented way of working. They ensure that standards are implemented effectively, audits are carried out professionally and continuous improvement is firmly anchored in our production processes.\n\nWhat are your responsibilities?\n\nThey:\n\n• plan, carry out and support internal and external audits in the production environment.\n\n• analyse deviations, define appropriate corrective measures and ensure their effective implementation.\n\n• apply your in-depth knowledge of relevant norms and standards in a practical and production-oriented manner.\n\n• actively share your know-how in the global network and support colleagues on regulatory and compliance issues.\n\n• work closely with production, R&D, engineering and quality.\n\n• travel occasionally as part of your activity (about 10%).\n\nWhat do we expect from you?\n\n• have a completed university or FH degree, e.g. in a field such as engineering or in quality assurance, compliance or a comparable field of expertise.\n\n• have a strong technical background and several years of experience in quality management in an industrial environment, ideally in production and auditing.\n\n• have very good knowledge of relevant standards and regulations, in particular pressure equipment directives, hygienic applications, ex-regulations and ideally approvals in the field of seals and marine.\n\n• have experience in implementing norms and standards in existing production processes as well as in carrying out assessments and audits.\n\n• work process-oriented, pragmatic and with a hands-on mentality and appreciate cross-divisional cooperation.\n\n• have proven experience in building, developing and closing quality and compliance gaps.\n\nWhat can you expect from us?\n\n• A family-run, committed company with a sustainable vision\n\n• Promoting lifelong learning through multiple training and development opportunities, internal knowledge transfer and e‐learning\n\n• Supporting a healthy work-life balance through flexible working hours\n\n• Promoting sustainable mobility solutions such as public transport\n\n• Family-friendly services, including childcare and childcare during school holidays\n\nHow do you apply?\n\nPlease upload your application documents via our career page. For data protection reasons, applications by e-mail can unfortunately not be considered.\n\nWe ask recruitment agencies, HR service providers or similar organizations to refrain from unsolicited profile mailings or requests for cooperation. For this position, we do not currently work with external service providers. Unsolicited applications are not considered and deleted without further examination. Thank you for your understanding.",
-      "de": "Bei Endress+Hauser entsteht Fortschritt durch Zusammenarbeit. Als weltweit führender Anbieter von Messtechnik mit über 17.000 Mitarbeitenden gestalten wir die Zukunft der Prozessautomatisierung. Ob wir im Team neue Technologien entwickeln und umsetzen, gemeinsam Messgeräte herstellen oder wichtige Beziehungen zu unzähligen Industrien weltweit stärken – wir arbeiten daran, vertrauensvolle Partnerschaften zu schaffen, die allen Beteiligten nachhaltig zum Erfolg verhelfen. Als familiengeführtes Unternehmen denken wir über kurzfristige Entscheidungen hinaus und verfolgen eine zukunftsorientierte Vision – für unsere Mitarbeitenden, unsere Kundinnen und Kunden sowie für die Welt von morgen.\n\nZur Verstärkung unseres Teams suchen wir eine*n Quality Engineer Compliance (w/m/d), die*der eine zentrale Rolle bei der Stärkung von Qualität und regulatorischer Konformität in unserer Produktionsumgebung übernimmt. Als Teil von Flowtec, einem unserer globalen Produktionszentren für Durchflussmesstechnik, arbeiten Sie eng mit der Produktion und der Entwicklung zusammen und stellen sicher, dass unsere Produkte internationalen Standards entsprechen und von Kundinnen und Kunden weltweit geschätzt werden.\n\nArbeiten Sie gerne nahe an der Produktion und haben Qualität und Compliance dabei stets im Fokus? Motiviert es Sie, komplexe Normen und Regularien in praxisnahe, wertschöpfende Lösungen zu übersetzen? Teilen Sie Ihr Fachwissen gerne und schätzen die Zusammenarbeit über Abteilungen und Standorte hinweg?\n\nIn dieser Funktion verbinden Sie technisches Know-how mit einer praxisorientierten Arbeitsweise. Sie stellen sicher, dass Standards wirksam umgesetzt werden, Audits professionell durchgeführt sind und kontinuierliche Verbesserung fest in unseren Produktionsprozessen verankert ist.\n\nWelche Aufgaben übernehmen Sie?\n\nSie:\n\n• planen, führen durch und unterstützen interne sowie externe Audits im Produktionsumfeld..\n\n• analysieren Abweichungen, definieren geeignete Korrekturmassnahmen und stellen deren wirksame Umsetzung sicher.\n\n• wenden Ihr fundiertes Wissen zu relevanten Normen und Standards praxisnah und produktionsorientiert an.\n\n• teilen Ihr Know-how aktiv im globalen Netzwerk und unterstützen Kolleginnen und Kollegen zu regulatorischen und Compliance-Themen.\n\n• arbeiten eng mit den Bereichen Produktion, R&D, Engineering und Quality zusammen.\n\n• reisen gelegentlich im Rahmen Ihrer Tätigkeit (ca. 10 %).\n\nWas erwarten wir von Ihnen?\n\n• verfügen über einen abgeschlossenen Universitäts- oder FH-Abschluss, z. B. in einem Bereich wie Engineering oder in Quality Assurance, Compliance oder einem vergleichbaren Fachgebiet.\n\n• bringen einen starken technischen Hintergrund sowie mehrere Jahre Erfahrung im Qualitätsmanagement in einem industriellen Umfeld mit, idealerweise in der Produktion und im Auditbereich.\n\n• verfügen über sehr gute Kenntnisse relevanter Normen und Regularien, insbesondere Druckgeräterichtlinien, hygienische Anwendungen, Ex-Vorschriften sowie idealerweise Zulassungen im Bereich Dichtungen und Marine.\n\n• haben Erfahrung in der Umsetzung von Normen und Standards in bestehenden Produktionsprozessen sowie in der Durchführung von Bewertungen und Audits.\n\n• arbeiten prozessorientiert, pragmatisch und mit einer Hands-on-Mentalität und schätzen die bereichsübergreifende Zusammenarbeit.\n\n• verfügen über nachgewiesene Erfahrung im Aufbau, der Weiterentwicklung und dem Schliessen von Qualitäts- und Compliance-Lücken.\n\nWas können Sie von uns erwarten?\n\n• Ein familiengeführtes, engagiertes Unternehmen mit einer nachhaltigen Vision\n\n• Förderung von lebenslangem Lernen durch vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten, internen Wissenstransfer sowie E‑Learning\n\n• Unterstützung einer gesunden Work-Life-Balance durch flexible Arbeitszeiten\n\n• Förderung nachhaltiger Mobilitätslösungen wie den öffentlichen Verkehr\n\n• Familienfreundliche Angebote, einschliesslich Betreuungsplätzen und Kinderbetreuung während der Schulferien\n\nWie bewerben Sie sich?\n\nBitte laden Sie Ihre Bewerbungsunterlagen über unsere Karriereseite hoch. Aus Datenschutzgründen können Bewerbungen per E‑Mail leider nicht berücksichtigt werden.\n\nPersonalvermittlungen, HR-Dienstleister oder ähnliche Organisationen bitten wir, von unaufgeforderten Profilzusendungen oder Anfragen zu einer Zusammenarbeit abzusehen. Für diese Position arbeiten wir derzeit nicht mit externen Dienstleistern zusammen. Unaufgeforderte Bewerbungen werden nicht berücksichtigt und ohne weitere Prüfung gelöscht. Vielen Dank für Ihr Verständnis.",
-      "fr": "Chez Endress+ Hauser, des progrès sont réalisés grâce à la coopération. En tant que leader mondial de la technologie de mesure avec plus de 17 000 employés, nous façonnons l'avenir de l'automatisation des processus. Que nous développons et mettons en œuvre de nouvelles technologies en équipe, fabriquons conjointement des instruments de mesure ou renforçons des relations importantes avec d'innombrables industries dans le monde entier – nous travaillons à créer des partenariats de confiance qui aident toutes les parties concernées à réussir à long terme. En tant qu'entreprise familiale, nous pensons au-delà des décisions à court terme et poursuivons une vision prospective – pour nos employés, nos clients et pour le monde de demain.\n\nPour renforcer notre équipe, nous sommes à la recherche d'un Ingénieur de Qualité Conformité (h/f/d) qui jouera un rôle central dans le renforcement de la qualité et de la conformité réglementaire dans notre environnement de production. Dans le cadre de Flowtec, l'un de nos centres de production mondiaux pour la technologie de mesure des flux, vous travaillerez en étroite collaboration avec la production et le développement, en veillant à ce que nos produits répondent aux normes internationales et soient appréciés par les clients du monde entier.\n\nVous aimez travailler près de la production et toujours vous concentrer sur la qualité et la conformité? Cela vous motive-t-il à traduire des normes et des règlements complexes en solutions pratiques et valorisantes? Êtes-vous heureux de partager votre expertise et d'apprécier la collaboration entre les ministères et les lieux?\n\nDans cette fonction, vous combinez le savoir-faire technique avec un mode de travail axé sur la pratique. Ils assurent la mise en œuvre efficace des normes, les audits sont effectués professionnellement et l'amélioration continue est fermement ancrée dans nos processus de production.\n\nQuelles sont vos responsabilités?\n\nIls:\n\n• planifier, exécuter et soutenir les audits internes et externes dans l'environnement de production.\n\n• analyser les écarts, définir les mesures correctives appropriées et assurer leur mise en œuvre effective.\n\n• d'appliquer votre connaissance approfondie des normes pertinentes de manière pratique et axée sur la production.\n\n• partager activement votre savoir-faire dans le réseau mondial et soutenir vos collègues sur les questions de réglementation et de conformité.\n\n• collaborer étroitement avec la production, la R-D, l'ingénierie et la qualité.\n\n• Voyagez occasionnellement dans le cadre de votre activité (environ 10%).\n\nQu'attendons-nous de vous?\n\n• posséder un diplôme universitaire ou de FH, par exemple dans un domaine comme l'ingénierie ou l'assurance de la qualité, la conformité ou un domaine d'expertise comparable.\n\n• ont une solide expérience technique et plusieurs années d'expérience en gestion de la qualité dans un environnement industriel, idéalement en production et en audit.\n\n• ont une très bonne connaissance des normes et des règlements pertinents, en particulier les directives relatives aux équipements sous pression, les applications hygiéniques, les ex-réglementations et idéalement les approbations dans le domaine des scellés et de la marine.\n\n• avoir de l'expérience dans l'application des normes dans les processus de production existants ainsi que dans l'exécution des évaluations et des audits.\n\n• travail orienté processus, pragmatique et avec une mentalité pratique et apprécier la coopération interdivisions.\n\n• ont fait la preuve de leur expérience dans la construction, le développement et la réduction des lacunes en matière de qualité et de conformité.\n\nQu'attendez-vous de nous?\n\n• Une entreprise familiale engagée avec une vision durable\n\n• Promouvoir l'apprentissage tout au long de la vie par de multiples possibilités de formation et de développement, le transfert interne des connaissances et l'apprentissage en ligne\n\n• Soutenir un équilibre entre le travail et la vie personnelle grâce à des horaires de travail flexibles\n\n• Promouvoir des solutions de mobilité durable telles que les transports publics\n\n• Services adaptés aux familles, y compris garde d ' enfants et garde d ' enfants pendant les vacances scolaires\n\nComment postuler?\n\nVeuillez télécharger vos documents d'application via notre page carrière. Pour des raisons de protection des données, les demandes par e-mail ne peuvent malheureusement pas être considérées.\n\nNous demandons aux agences de recrutement, aux fournisseurs de services de RH ou à des organismes semblables de s'abstenir de présenter des courriels de profil non sollicités ou des demandes de coopération. Pour ce poste, nous ne travaillons pas actuellement avec des fournisseurs de services externes. Les demandes non sollicitées ne sont pas examinées et supprimées sans autre examen. Merci de votre compréhension."
-    },
-    "slugByLocale": {
-      "it": "quality-ingegnere-compliance-80-100-w-m-d-endress-hauser-reinach-fb7e27a72b",
-      "en": "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-wx0k22",
-      "de": "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-cec075de",
-      "fr": "qualite-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach"
-    },
-    "sector": "Strumentazione industriale / Automazione",
-    "expiredAt": "2026-11-22T09:21:36.264Z",
-    "previousSlugs": [
-      "quality-ingegnere-compliance-80-100-w-m-d-endress-hauser-reinach-39d4892d0a",
-      "qualitat-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach",
-      "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-wx0k22",
-      "qualite-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach-8c29fe",
-      "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach",
-      "qualite-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach-8c29fe-1cca3b37"
     ],
+    "canton": "BL",
     "previousSlugsByLocale": {
-      "it": [
-        "quality-ingegnere-compliance-80-100-w-m-d-endress-hauser-reinach-39d4892d0a",
-        "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-cec075de",
-        "qualite-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach-8c29fe"
-      ],
-      "en": [
-        "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach",
-        "qualite-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach-8c29fe"
-      ],
       "de": [
+        "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach",
+        "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-cec075de",
         "qualitat-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach",
         "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-wx0k22",
         "qualite-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach-8c29fe"
       ],
+      "it": [
+        "quality-ingegnere-compliance-80-100-w-m-d-endress-hauser-reinach-fb7e27a72b",
+        "quality-ingegnere-compliance-80-100-w-m-d-endress-hauser-reinach-39d4892d0a",
+        "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-cec075de",
+        "qualite-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach-8c29fe",
+        "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach"
+      ],
+      "en": [
+        "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-wx0k22",
+        "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach",
+        "qualite-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach-8c29fe"
+      ],
       "fr": [
+        "qualite-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach",
         "qualite-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach-8c29fe-1cca3b37",
         "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach"
       ]
     },
-    "postalCode": "4153",
-    "streetAddress": "Reinach",
-    "salaryMin": 72500,
-    "salaryMax": 110500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-quality-engineer-compliance-80-100-%28wmd%29-4153/1388669133",
-    "firstSeenAt": "2026-10-07T21:30:45.682Z",
-    "sourceIdentityHistory": [
-      {
-        "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-quality-engineer-compliance-80-100-%28wmd%29-4153/1388669133",
-        "firstSeenAt": "2026-10-07T21:30:45.682Z",
-        "title": "Quality Engineer Compliance 80-100% (w/m/d)"
+    "previousSlugCantonByLocale": {
+      "de": {
+        "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach": "BL",
+        "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-cec075de": "BL",
+        "qualitat-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach": "BL",
+        "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-wx0k22": "BL",
+        "qualite-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach-8c29fe": "BL"
       },
-      {
-        "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-quality-engineer-compliance-80-100-%28wmd%29-4153/1445224633",
-        "firstSeenAt": "2026-10-07T21:30:45.682Z",
-        "title": "Quality Engineer Compliance 80-100% (w/m/d)"
+      "it": {
+        "quality-ingegnere-compliance-80-100-w-m-d-endress-hauser-reinach-fb7e27a72b": "BL",
+        "quality-ingegnere-compliance-80-100-w-m-d-endress-hauser-reinach-39d4892d0a": "BL",
+        "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-cec075de": "BL",
+        "qualite-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach-8c29fe": "BL",
+        "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-wx0k22": "BL",
+        "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach": "BL",
+        "qualite-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach-8c29fe": "BL"
+      },
+      "fr": {
+        "qualite-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach": "BL",
+        "qualite-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach-8c29fe-1cca3b37": "BL",
+        "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach": "BL"
       }
+    },
+    "previousSlugs": [
+      "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach",
+      "quality-ingegnere-compliance-80-100-w-m-d-endress-hauser-reinach-fb7e27a72b",
+      "quality-ingegnere-compliance-80-100-w-m-d-endress-hauser-reinach-39d4892d0a",
+      "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-cec075de",
+      "qualite-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach-8c29fe",
+      "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-wx0k22",
+      "qualitat-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach",
+      "qualite-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach",
+      "qualite-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach-8c29fe-1cca3b37"
     ]
   },
   {
@@ -693,7 +742,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-projekt-managerin-marketing-sales-%28wmd%29-80-4153/1447561233",
-    "firstSeenAt": "2026-10-15T09:20:30.337Z"
+    "firstSeenAt": "2026-10-15T09:20:30.337Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projekt-manager-in-marketing-sales-w-m-d-endress-hauser-reinach": "BL",
+        "projekt-manager-in-marketing-sales-w-m-d-80-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "projekt-manager-in-marketing-sales-w-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "id": "endress-hauser-d4af915a831f",
@@ -725,7 +784,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-trainee-strategic-business-%28fmd%29-50-4153/1427096833",
-    "firstSeenAt": "2026-08-17T21:45:28.820Z"
+    "firstSeenAt": "2026-08-17T21:45:28.820Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "trainee-strategic-business-f-m-d-50-endress-hauser-reinach"
+      ],
+      "de": [
+        "trainee-strategic-business-f-m-d-50-endress-hauser-reinach"
+      ],
+      "fr": [
+        "trainee-strategic-business-f-m-d-50-endress-hauser-reinach"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "trainee-strategic-business-f-m-d-50-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "trainee-strategic-business-f-m-d-50-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "trainee-strategic-business-f-m-d-50-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "project-manager-applications-f-m-d-100-endress-hauser-reinach-bf30620f",
@@ -794,7 +876,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-head-of-department-welding-technology-%28wmd%29-4153/1387367133",
-    "firstSeenAt": "2026-08-14T11:19:44.781Z"
+    "firstSeenAt": "2026-08-14T11:19:44.781Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "head-of-department-welding-technology-w-m-d-endress-hauser-reinach"
+      ],
+      "de": [
+        "head-of-department-welding-technology-w-m-d-endress-hauser-reinach"
+      ],
+      "fr": [
+        "head-of-department-welding-technology-w-m-d-endress-hauser-reinach"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "head-of-department-welding-technology-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "head-of-department-welding-technology-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "head-of-department-welding-technology-w-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "giornata-di-prova-per-operatore-trice-automatico-a-endress-hauser-reinach",
@@ -844,7 +949,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-schnuppertag-automatikerin-4153/1426015733",
-    "firstSeenAt": "2026-08-13T10:23:17.660Z"
+    "firstSeenAt": "2026-08-13T10:23:17.660Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "schnuppertag-automatiker-in-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "schnuppertag-automatiker-in-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "schnuppertag-automatiker-in-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "addetto-a-alla-produzione-di-prefabricazione-m-f-d-100-endress-hauser-reinach",
@@ -896,7 +1013,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-mitarbeiterin-produktion-vorfertigung-%28wmd%29-100-4153/1451244933",
-    "firstSeenAt": "2026-10-26T21:43:20.552Z"
+    "firstSeenAt": "2026-10-26T21:43:20.552Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-produktion-vorfertigung-w-m-d-100-endress-hauser-reinach": "BL",
+        "collaboratore-trice-in-produktion-vorfertigung-m-w-d-100-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "mitarbeiter-in-produktion-vorfertigung-w-m-d-100-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "mitarbeiter-in-produktion-vorfertigung-w-m-d-100-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "assistant-to-the-managing-director-m-f-d-endress-hauser-reinach",
@@ -929,7 +1059,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-assistant-to-the-managing-director-%28mfd%29-4153/1457192833",
-    "firstSeenAt": "2026-11-13T21:23:27.360Z"
+    "firstSeenAt": "2026-11-13T21:23:27.360Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "assistant-to-the-managing-director-m-f-d-endress-hauser-reinach"
+      ],
+      "fr": [
+        "assistant-to-the-managing-director-m-f-d-endress-hauser-reinach"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "assistant-to-the-managing-director-m-f-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "assistant-to-the-managing-director-m-f-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "leader-tecnico-embedded-c-sw-developer-architect-dal-settore-industriale-100-endress-hauser-reinach",
@@ -959,14 +1106,36 @@
     "sector": "Strumentazione industriale / Automazione",
     "expiredAt": "2026-11-14T21:30:52.735Z",
     "previousSlugs": [
-      "principal-expert-embedded-software-w-m-d-endress-hauser-reinach"
+      "principal-expert-embedded-software-w-m-d-endress-hauser-reinach",
+      "lead-expert-embedded-c-softwareentwickler-in-w-m-d-endress-hauser-reinach",
+      "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress",
+      "leader-tecnico-embedded-c-sw-developer-architect-dal-settore-industriale-100-endress-hauser-reinach-69769947",
+      "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress-24834e15",
+      "technical-lead-embedded-c-sw-developer-architect-from-the-industrial-sector-100-endress-hauser-reinach-a30e6b13",
+      "responsable-technique-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress-hauser-reinach-81c4ff5f"
     ],
     "previousSlugsByLocale": {
       "de": [
-        "principal-expert-embedded-software-w-m-d-endress-hauser-reinach"
+        "principal-expert-embedded-software-w-m-d-endress-hauser-reinach",
+        "lead-expert-embedded-c-softwareentwickler-in-w-m-d-endress-hauser-reinach",
+        "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress-24834e15"
       ],
       "it": [
-        "principal-expert-embedded-software-w-m-d-endress-hauser-reinach"
+        "principal-expert-embedded-software-w-m-d-endress-hauser-reinach",
+        "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress",
+        "lead-expert-embedded-c-softwareentwickler-in-w-m-d-endress-hauser-reinach",
+        "leader-tecnico-embedded-c-sw-developer-architect-dal-settore-industriale-100-endress-hauser-reinach-69769947",
+        "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress-24834e15"
+      ],
+      "en": [
+        "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress",
+        "technical-lead-embedded-c-sw-developer-architect-from-the-industrial-sector-100-endress-hauser-reinach-a30e6b13",
+        "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress-24834e15"
+      ],
+      "fr": [
+        "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress",
+        "responsable-technique-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress-hauser-reinach-81c4ff5f",
+        "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress-24834e15"
       ]
     },
     "postalCode": "4153",
@@ -987,8 +1156,31 @@
         "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-principal-expert-embedded-software-%28wmd%29-4153/1280881301",
         "firstSeenAt": "2026-07-04T10:44:02.140Z",
         "title": "Principal Expert Embedded Software (w/m/d)"
+      },
+      {
+        "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-technical-lead-embedded-c%2b%2b-sw-entwickler-architektin-aus-der-industriebranche%2c-100-4153/1280881301",
+        "firstSeenAt": "2026-07-04T10:44:02.140Z",
+        "title": "Technical Lead Embedded C++ SW-Entwickler/-Architekt*in aus der Industriebranche, 100%"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "principal-expert-embedded-software-w-m-d-endress-hauser-reinach": "BL",
+        "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress": "BL",
+        "lead-expert-embedded-c-softwareentwickler-in-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "principal-expert-embedded-software-w-m-d-endress-hauser-reinach": "BL",
+        "lead-expert-embedded-c-softwareentwickler-in-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress": "BL"
+      },
+      "fr": {
+        "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress": "BL"
+      }
+    }
   },
   {
     "slug": "team-leader-it-e-ingegneria-del-software-nella-produzione-elettronica-m-f-d-endress-hauser-reinach",
@@ -1038,7 +1230,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-teamleiterin-it-&-software-engineering-in-der-elektronikfertigung-%28mwd%29-4153/1440787333",
-    "firstSeenAt": "2026-09-24T14:28:40.212Z"
+    "firstSeenAt": "2026-09-24T14:28:40.212Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiter-in-it-software-engineering-in-der-elektronikfertigung-m-w-d-endress-hauser": "BL"
+      },
+      "en": {
+        "teamleiter-in-it-software-engineering-in-der-elektronikfertigung-m-w-d-endress-hauser": "BL"
+      },
+      "fr": {
+        "teamleiter-in-it-software-engineering-in-der-elektronikfertigung-m-w-d-endress-hauser": "BL"
+      }
+    }
   },
   {
     "slug": "operatore-macchina-m-f-d-endress-hauser-reinach",
@@ -1071,22 +1275,33 @@
       "mitarbeiter-in-coriolis-produktion-high-volume-w-m-d-endress-hauser-reinach",
       "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach",
       "coriolis-production-high-volume-employee-m-w-d-endress-hauser-reinach",
-      "collaborateur-rice-en-production-coriolis-high-volume-m-w-d-endress-hauser-reinach"
+      "collaborateur-rice-en-production-coriolis-high-volume-m-w-d-endress-hauser-reinach",
+      "maschinenfuhrer-w-m-d-endress-hauser-reinach",
+      "operatore-macchina-m-f-d-endress-hauser-reinach-76ec1a15",
+      "machine-operator-m-f-d-endress-hauser-reinach-05fed3fe",
+      "operateur-de-machine-h-f-d-endress-hauser-reinach-02d7acda"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "mitarbeiter-in-coriolis-produktion-high-volume-w-m-d-endress-hauser-reinach"
+        "mitarbeiter-in-coriolis-produktion-high-volume-w-m-d-endress-hauser-reinach",
+        "maschinenfuhrer-w-m-d-endress-hauser-reinach",
+        "operatore-macchina-m-f-d-endress-hauser-reinach-76ec1a15"
       ],
       "en": [
         "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach",
-        "coriolis-production-high-volume-employee-m-w-d-endress-hauser-reinach"
+        "coriolis-production-high-volume-employee-m-w-d-endress-hauser-reinach",
+        "maschinenfuhrer-w-m-d-endress-hauser-reinach",
+        "machine-operator-m-f-d-endress-hauser-reinach-05fed3fe"
       ],
       "de": [
-        "mitarbeiter-in-coriolis-produktion-high-volume-w-m-d-endress-hauser-reinach"
+        "mitarbeiter-in-coriolis-produktion-high-volume-w-m-d-endress-hauser-reinach",
+        "maschinenfuhrer-w-m-d-endress-hauser-reinach"
       ],
       "fr": [
         "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach",
-        "collaborateur-rice-en-production-coriolis-high-volume-m-w-d-endress-hauser-reinach"
+        "collaborateur-rice-en-production-coriolis-high-volume-m-w-d-endress-hauser-reinach",
+        "maschinenfuhrer-w-m-d-endress-hauser-reinach",
+        "operateur-de-machine-h-f-d-endress-hauser-reinach-02d7acda"
       ]
     },
     "postalCode": "4153",
@@ -1108,7 +1323,28 @@
         "firstSeenAt": "2026-08-28T05:23:01.781Z",
         "title": "Mitarbeiter*in Coriolis Produktion High Volume (w/m/d)"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-coriolis-produktion-high-volume-w-m-d-endress-hauser-reinach": "BL",
+        "maschinenfuhrer-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach": "BL",
+        "coriolis-production-high-volume-employee-m-w-d-endress-hauser-reinach": "BL",
+        "maschinenfuhrer-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "mitarbeiter-in-coriolis-produktion-high-volume-w-m-d-endress-hauser-reinach": "BL",
+        "maschinenfuhrer-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach": "BL",
+        "collaborateur-rice-en-production-coriolis-high-volume-m-w-d-endress-hauser-reinach": "BL",
+        "maschinenfuhrer-w-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "production-supply-chain-support-engineer-f-m-d-endress-hauser-reinach",
@@ -1141,7 +1377,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-production-&-supply-chain-support-engineer-%28fmd%29-4153/1421767133",
-    "firstSeenAt": "2026-08-03T13:05:30.520Z"
+    "firstSeenAt": "2026-08-03T13:05:30.520Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "production-supply-chain-support-engineer-f-m-d-endress-hauser-reinach"
+      ],
+      "de": [
+        "production-supply-chain-support-engineer-f-m-d-endress-hauser-reinach"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "production-supply-chain-support-engineer-f-m-d-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "production-supply-chain-support-engineer-f-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "gestione-del-processo-nella-lavorazione-del-tubo-m-f-d-endress-hauser-reinach",
@@ -1191,7 +1444,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-prozessbetreuerin-rohrbearbeitung-%28wmd%29-4153/1431376633",
-    "firstSeenAt": "2026-08-31T17:13:49.681Z"
+    "firstSeenAt": "2026-08-31T17:13:49.681Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "prozessbetreuer-in-rohrbearbeitung-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "prozessbetreuer-in-rohrbearbeitung-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "prozessbetreuer-in-rohrbearbeitung-w-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "praktikum-digitalisierung-e-prozessoptimierung-m-w-d-endress-hauser-reinach",
@@ -1241,7 +1506,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-praktikum-digitalisierung-und-prozessoptimierung-%28wmd%29-4153/1445931533",
-    "firstSeenAt": "2026-10-09T09:14:18.472Z"
+    "firstSeenAt": "2026-10-09T09:14:18.472Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikum-digitalisierung-und-prozessoptimierung-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "praktikum-digitalisierung-und-prozessoptimierung-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "praktikum-digitalisierung-und-prozessoptimierung-w-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "esperto-di-gestione-dell-ordine-m-f-d-80-100-endress-hauser-reinach",
@@ -1288,7 +1565,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-order-handling-expert-%28mfd%29-80-100-4153/1439060533",
-    "firstSeenAt": "2026-09-19T22:55:43.782Z"
+    "firstSeenAt": "2026-09-19T22:55:43.782Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "order-handling-expert-m-f-d-80-100-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "order-handling-expert-m-f-d-80-100-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "team-lead-device-software-test-w-m-d-endress-hauser-reinach",
@@ -1321,7 +1607,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-team-lead-device-software-test-%28wmd%29-4153/1445553733",
-    "firstSeenAt": "2026-10-08T09:23:21.190Z"
+    "firstSeenAt": "2026-10-08T09:23:21.190Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "team-lead-device-software-test-w-m-d-endress-hauser-reinach"
+      ],
+      "de": [
+        "team-lead-device-software-test-w-m-d-endress-hauser-reinach"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "team-lead-device-software-test-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "team-lead-device-software-test-w-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "responsabile-dell-industria-acqua-e-acque-reflue-m-f-d-endress-hauser-reinach-ccb6d896",
@@ -1421,7 +1724,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-prozesstechnikerin-logistik-%28wmd%29-100-4153/1448151733",
-    "firstSeenAt": "2026-10-15T21:17:57.048Z"
+    "firstSeenAt": "2026-10-15T21:17:57.048Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "prozesstechniker-in-logistik-w-m-d-100-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "prozesstechniker-in-logistik-w-m-d-100-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "prozesstechniker-in-logistik-w-m-d-100-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "tecnico-a-di-produzione-endress-hauser-reinach",
@@ -1473,7 +1788,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-technischer-mitarbeiterin-produktion-4153/1449067433",
-    "firstSeenAt": "2026-10-19T21:18:51.687Z"
+    "firstSeenAt": "2026-10-19T21:18:51.687Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technische-r-mitarbeiter-in-produktion-endress-hauser-reinach": "BL",
+        "technische-r-collaboratore-trice-in-produktion-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "technische-r-mitarbeiter-in-produktion-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "technische-r-mitarbeiter-in-produktion-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "ingegnere-a-dei-dati-m-f-d-endress-hauser-reinach",
@@ -1519,7 +1847,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-data-engineerin-%28mwd%29-4153/1446122233",
-    "firstSeenAt": "2026-10-09T21:22:12.744Z"
+    "firstSeenAt": "2026-10-09T21:22:12.744Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "data-engineer-in-m-w-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "data-engineer-in-m-w-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "ux-ui-designer-m-f-d-endress-hauser-reinach",
@@ -1549,7 +1886,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-uxui-designer-%28mfd%29-4153/1450152333",
-    "firstSeenAt": "2026-10-22T09:20:20.302Z"
+    "firstSeenAt": "2026-10-22T09:20:20.302Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "ux-ui-designer-m-f-d-endress-hauser-reinach"
+      ],
+      "de": [
+        "ux-ui-designer-m-f-d-endress-hauser-reinach"
+      ],
+      "fr": [
+        "ux-ui-designer-m-f-d-endress-hauser-reinach"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "ux-ui-designer-m-f-d-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "ux-ui-designer-m-f-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "ux-ui-designer-m-f-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "technical-lead-embedded-c-software-developer-m-f-d-100-endress-hauser-reinach",
@@ -1581,7 +1941,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-technical-lead-embedded-c%2b%2b-software-developer-%28mfd%29-100-4153/1280881401",
-    "firstSeenAt": "2026-07-04T10:44:02.703Z"
+    "firstSeenAt": "2026-07-04T10:44:02.703Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "technical-lead-embedded-c-software-developer-m-f-d-100-endress-hauser-reinach"
+      ],
+      "de": [
+        "technical-lead-embedded-c-software-developer-m-f-d-100-endress-hauser-reinach"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "technical-lead-embedded-c-software-developer-m-f-d-100-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "technical-lead-embedded-c-software-developer-m-f-d-100-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "apprendista-r-elektroniker-in-cfc-2027-endress-hauser-reinach",
@@ -1630,7 +2007,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-lernender-elektronikerin-efz-2027-4153/1418180833",
-    "firstSeenAt": "2026-07-23T12:19:25.174Z"
+    "firstSeenAt": "2026-07-23T12:19:25.174Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lernende-r-elektroniker-in-efz-2027-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "lernende-r-elektroniker-in-efz-2027-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "lernende-r-elektroniker-in-efz-2027-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "team-leader-test-engineering-m-f-d-endress-hauser-reinach-304d4bc9",
@@ -1707,7 +2096,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-working-student-junior-process-specialist-%28wmd%29-40-80-4153/1385476633",
-    "firstSeenAt": "2026-07-04T10:43:54.033Z"
+    "firstSeenAt": "2026-07-04T10:43:54.033Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "working-student-junior-process-specialist-w-m-d-40-80-endress-hauser-reinach"
+      ],
+      "de": [
+        "working-student-junior-process-specialist-w-m-d-40-80-endress-hauser-reinach"
+      ],
+      "fr": [
+        "working-student-junior-process-specialist-w-m-d-40-80-endress-hauser-reinach"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "working-student-junior-process-specialist-w-m-d-40-80-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "working-student-junior-process-specialist-w-m-d-40-80-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "working-student-junior-process-specialist-w-m-d-40-80-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "global-finance-business-partner-f-m-d-endress-hauser-reinach",
@@ -1739,7 +2151,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-global-finance-business-partner-%28fmd%29-4153/1441943333",
-    "firstSeenAt": "2026-09-28T21:20:28.091Z"
+    "firstSeenAt": "2026-09-28T21:20:28.091Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "global-finance-business-partner-f-m-d-endress-hauser-reinach"
+      ],
+      "de": [
+        "global-finance-business-partner-f-m-d-endress-hauser-reinach"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "global-finance-business-partner-f-m-d-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "global-finance-business-partner-f-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "responsabile-di-progetto-marketing-e-vendite-m-f-d-endress-hauser-reinach-5efc596a",
@@ -1920,7 +2349,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-lernender-logistikerin-efz-2027-4153/1418182033",
-    "firstSeenAt": "2026-07-23T12:19:19.048Z"
+    "firstSeenAt": "2026-07-23T12:19:19.048Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lernende-r-logistiker-in-efz-2027-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "lernende-r-logistiker-in-efz-2027-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "lernende-r-logistiker-in-efz-2027-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "proprietario-di-processo-locale-sap-me-f-m-d-endress-hauser-reinach",
@@ -1966,7 +2407,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-sap-me-local-process-owner-%28wmd%29-4153/1420195133",
-    "firstSeenAt": "2026-07-29T11:40:26.102Z"
+    "firstSeenAt": "2026-07-29T11:40:26.102Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sap-me-local-process-owner-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "sap-me-local-process-owner-w-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "leader-del-team-nella-produzione-di-elettronica-di-supporto-di-qualita-m-f-d-endress-hauser-reinach",
@@ -2015,7 +2465,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-teamleiterin-qualit%c3%a4tssupport-elektronikfertigung-%28mwd%29-4153/1419587533",
-    "firstSeenAt": "2026-07-28T11:49:48.274Z"
+    "firstSeenAt": "2026-07-28T11:49:48.274Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiter-in-qualitatssupport-elektronikfertigung-m-w-d-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "teamleiter-in-qualitatssupport-elektronikfertigung-m-w-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "teamleiter-in-qualitatssupport-elektronikfertigung-m-w-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "operatore-di-macchine-nella-tecnologia-della-saldatura-100-f-m-d-endress-hauser-reinach",
@@ -2081,7 +2543,23 @@
         "firstSeenAt": "2026-07-04T10:43:55.169Z",
         "title": "Maschinenführer*in Schleifen und Roboterprogrammierung (w/m/d)"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "maschinenfuhrer-in-in-der-schwei-technik-100-w-m-d-endress-hauser-reinach": "BL",
+        "maschinenfuhrer-in-schleifen-und-roboterprogrammierung-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "maschinenfuhrer-in-in-der-schwei-technik-100-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "maschinenfuhrer-in-schleifen-und-roboterprogrammierung-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "maschinenfuhrer-in-in-der-schwei-technik-100-w-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "process-systems-engineer-w-m-d-endress-hauser-reinach",
@@ -2111,7 +2589,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-process-systems-engineer-%28wmd%29-4153/1430762433",
-    "firstSeenAt": "2026-08-28T05:22:52.531Z"
+    "firstSeenAt": "2026-08-28T05:22:52.531Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "process-systems-engineer-w-m-d-endress-hauser-reinach"
+      ],
+      "de": [
+        "process-systems-engineer-w-m-d-endress-hauser-reinach"
+      ],
+      "fr": [
+        "process-systems-engineer-w-m-d-endress-hauser-reinach"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "process-systems-engineer-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "process-systems-engineer-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "process-systems-engineer-w-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "spezialist-in-per-elektrotechnik-100-m-w-d-endress-hauser-reinach",
@@ -2160,73 +2661,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-spezialistin-f%c3%bcr-elektrotechnik-100-%28mwd%29-4153/1277000001",
-    "firstSeenAt": "2026-07-04T10:44:03.289Z"
-  },
-  {
-    "slug": "leader-tecnico-embedded-c-sw-developer-architect-dal-settore-industriale-100-endress-hauser-reinach-69769947",
-    "title": "Lead Expert Embedded C++ Softwareentwickler*in (w/m/d)",
-    "titleByLocale": {
-      "it": "Technical Lead Sviluppatore/Architetto Software Embedded C++ (Industria), 100%",
-      "en": "Lead Expert Embedded C++ Software Developer* (m/f/d)",
-      "de": "Lead Expert Embedded C++ Softwareentwickler*in (w/m/d)",
-      "fr": "Technical Lead Développeur/Architecte Logiciel Embedded C++ (Industrie), 100%"
-    },
-    "company": "Endress+Hauser",
-    "companyKey": "endress-hauser",
-    "location": "Reinach",
-    "addressLocality": "Reinach",
-    "descriptionByLocale": {
-      "it": "Descrizione\n\nIn Endress+Hauser il progresso avviene attraverso la collaborazione. In qualità di fornitore leader mondiale di strumenti di misura, i nostri oltre 17.000 dipendenti stanno plasmando il futuro nel campo dell'automazione dei processi. Che si tratti di innovare e implementare nuove tecnologie in team, di collaborare allo sviluppo di nuovi dispositivi o di rafforzare relazioni chiave con vari settori globali, il nostro lavoro si basa sulla costruzione di relazioni di fiducia che aiutano tutti ad avere successo. Essendo un’azienda a conduzione familiare, guardiamo oltre gli obiettivi a breve termine e lavoriamo per creare una visione orientata al futuro per i nostri dipendenti, i nostri clienti e il mondo in generale.\n\nCerchiamo uno sviluppatore/architetto SW Technical Lead Embedded C++ dal settore industriale per integrare il nostro team e utilizzare la tua esperienza per modellare in modo sostenibile il nostro panorama software e arricchirlo sia tecnicamente che personalmente.\n\nDi cosa tratta questa posizione?\n\nSei una persona a cui piace compiere passi tecnologici audaci? Ti piace trasformare le idee in chiari concetti software per il domani? E ti piace accompagnare gli altri nel loro viaggio e stabilire insieme degli standard?\nSe ti rivedi in questo ruolo, ricoprirai un ruolo che contribuirà a plasmare le nostre future generazioni di dispositivi e avrà un impatto reale sulle tecnologie che le persone in tutto il mondo incontrano ogni giorno.\n\nCompiti\n\n- assumere la leadership funzionale e tecnica del software nel contesto delle nostre piattaforme software attuali e future.\n- Lavorando in squadra progettiamo nuovi concetti software, architetture di sistema e processi nell'ambiente software, ponendo così le basi per le future generazioni di dispositivi.\n- modellare lo sviluppo strategico all'interno del software, stabilire processi e nuovi metodi e svilupparli ulteriormente continuamente.\n- Sviluppare professionalmente i dipendenti attraverso coaching e mentoring attivi.\n- assumere un ruolo centrale nella creazione e nel mantenimento di reti all'interno e all'esterno dell'azienda e rappresentare i nostri interessi negli organismi di standardizzazione.\n\nRequisiti\n\n- possedere un diploma universitario (Master, dottore in scienze tecniche ETH o equivalente) nel campo dell'informatica tecnica, dell'ingegneria elettrica o della tecnologia dell'automazione.\n- avere almeno 15 anni di esperienza nello sviluppo, architettura e progettazione real-time di sistemi embedded.\n- avere ottima conoscenza ed esperienza nell'uso di C/C++ embedded, nei metodi di sicurezza e robustezza, nelle metriche di qualità del software e nello sviluppo test-driven.\n- apportare conoscenze approfondite dall'ambiente industriale e avere familiarità con i requisiti in aree di applicazione regolamentate come la sicurezza funzionale o la metrologia.\n- avere esperienza nel lavoro di gruppo o di comitato, nonché un'ottima conoscenza della lingua inglese e almeno una buona conoscenza del tedesco.\n\nOffriamo\n\n- Siamo un'azienda a conduzione familiare con grande impegno e una visione sostenibile.\n- Promuoviamo l'apprendimento permanente attraverso una varietà di opportunità di formazione e perfezionamento, trasferimento interno di conoscenze ed e-learning.\n- Investiamo nella vostra salute – con una gestione sanitaria completa.\n- Ti supportiamo con un piano pensionistico aziendale e offerte per conciliare famiglia e lavoro.\n- Beneficerai di un ambiente di lavoro in cui curiosità tecnologica, apprezzamento e libertà creativa si uniscono.\n\nContatto\n\nPer candidarti ti chiediamo di caricare i tuoi documenti sulla nostra pagina delle carriere. Purtroppo le candidature inviateci via e-mail non possono essere prese in considerazione per motivi di protezione dei dati.\n\nSi pregano agenzie, fornitori di servizi del personale o aziende simili di astenersi dall'inviare profili e richieste di possibili collaborazioni non richiesti. Al momento non stiamo lavorando con fornitori di servizi esterni per questa posizione. Tutte le candidature non richieste provenienti dai fornitori di servizi non verranno prese in considerazione e verranno eliminate senza ulteriore esame. Ti ringraziamo per la comprensione.\n\n#LI-SH2",
-      "en": "At Endress+Hauser, progress is made through collaboration. As the world’s leading provider of measuring instruments, our more than 17,000 employees are shaping the future in the field of process automation. Whether it’s innovating and implementing new technologies in a team, working together to develop new devices, or strengthening important relationships with different global industries, our work is based on building trusted relationships that help everyone succeed. As a family-run company, we look beyond short-term goals and work to create a future-oriented vision for our employees, our customers and the world in general.\n\nWe are looking for a Technical Lead Embedded C++ SW developer/architect from the industrial sector to complement our team and use their experience to shape our software landscape in a sustainable way and enrich it both technically and humanly.\n\nWhat is at stake here?\n\nAre you someone who likes to take bold technological steps? Do you enjoy shaping clear software concepts for tomorrow from ideas? And do you enjoy accompanying others on their way and setting standards together?\nIf you find yourself in it, you’ll find yourself in a role where you shape our future generations of devices and have a real impact on the technologies that people around the world encounter every day.\n\nWhat tasks will you take on?\n\nThey shall:\n• assume functional and technical software leadership in the context of our current and future software platforms.\n• In the team, we design new software concepts, system architectures and processes in the software environment and thus lay the foundations for future device generations.\n• shape the strategic development within the software, establish processes and new methods and continuously develop them further.\n• Professionally develop employees through active coaching and mentoring.\n• play a central role in establishing and maintaining networks within and outside the company and represent our interests in standardization organizations.\n\nWhat do we expect from you?\n\nThey:\n• have a university degree (Master, Doctor of Technical Sciences ETH or equivalent) in the field of Computer Engineering, Electrical Engineering or Automation Engineering.\n• have at least 15 years of experience in the development, architecture and real-time design of embedded systems.\n• have excellent knowledge and experience in the use of embedded C/C++, in security and robustness methods, in software quality metrics and in test-driven development.\n• bring in-depth knowledge from an industrial environment and are familiar with requirements in regulated application areas such as functional safety or metrology.\n• have experience in group or committee work as well as very good English and at least good German skills.\n\nWhat can you expect from us?\n\n• We are a family company with great commitment and a sustainable vision.\n• We promote lifelong learning through diverse training and further education opportunities, internal knowledge transfer and e-learning.\n• We invest in your health – with comprehensive health management.\n• We support you with a company pension and offers for the compatibility of family and work.\n• You benefit from a working environment in which technological curiosity, appreciation and creative freedom come together.\n\nHow do you apply?\n\nTo apply, we ask you to upload your documents to our career page. Applications sent to us by e-mail can unfortunately not be considered for data protection reasons.\n\nAgencies, personnel service providers or similar companies are asked to refrain from the unsolicited transmission of profiles and requests for possible cooperation. We do not currently work with external service providers for this position. All unsolicited applications from service providers are not considered and deleted without further examination. Thank you for your understanding.\n\n#LI-SH2",
-      "de": "Bei Endress+Hauser geschieht Fortschritt durch Zusammenarbeit. Als weltweit führender Anbieter von Messgeräten gestalten unsere über 17.000 Mitarbeiter*innen die Zukunft im Bereich der Prozessautomatisierung. Ob bei der Innovation und Umsetzung neuer Technologien im Team, der Zusammenarbeit in der Entwicklung neuer Geräte oder der Stärkung wichtiger Beziehungen zu verschiedenen globalen Industrien: Unsere Arbeit basiert darauf, vertrauensvolle Beziehungen aufzubauen, die allen zum Erfolg verhelfen. Als familiengeführtes Unternehmen schauen wir über kurzfristige Ziele hinaus und arbeiten daran, eine zukunftsorientierte Vision für unsere Mitarbeiter*innen, unsere Kundinnen und Kunden und die Welt im Allgemeinen zu schaffen.\n\nWir suchen eine*n Technical Lead Embedded C++ SW-Entwickler/-Architekt*in aus der Industriebranche, um unser Team zu ergänzen und mit Ihrer Erfahrung unsere Softwarelandschaft nachhaltig zu prägen und technisch wie menschlich zu bereichern.\n\nWorum geht es in dieser Stelle?\n\nSind Sie jemand, der gerne mutige technologische Schritte wagt? Haben Sie Freude daran, aus Ideen klare Softwarekonzepte für morgen zu formen? Und macht es Ihnen Spass, andere auf ihrem Weg zu begleiten und gemeinsam Standards zu setzen?\nWenn Sie sich darin wiederfinden, erwartet Sie eine Rolle, in der Sie unsere künftigen Gerätegenerationen mitgestalten und echten Einfluss auf Technologien haben, die Menschen weltweit jeden Tag begegnen.\n\nWelche Aufgaben werden Sie übernehmen?\n\nSie werden:\n• funktionales und technisches Software-Leadership im Kontext unserer aktuellen und künftigen Softwareplattformen übernehmen.\n• im Team neue Softwarekonzepte, Systemarchitekturen sowie Prozesse im Softwareumfeld entwerfen und damit die Grundlagen für kommende Gerätegenerationen legen.\n• die strategische Entwicklung innerhalb der Software prägen, Prozesse und neue Methoden etablieren und diese kontinuierlich weiterentwickeln.\n• Mitarbeiter*innen durch aktives Coaching und Mentoring fachlich weiterentwickeln.\n• eine zentrale Rolle beim Aufbau und der Pflege von Netzwerken innerhalb und ausserhalb des Unternehmens übernehmen und unsere Interessen in Standardisierungsorganisationen vertreten.\n\nWas erwarten wir von Ihnen?\n\nSie:\n• verfügen über ein Hochschulstudium (Master, Doctor of Technical Sciences ETH oder vergleichbar) im Bereich Technische Informatik, Elektrotechnik oder Automatisierungstechnik.\n• verfügen über mindestens 15 Jahre Erfahrung in der Entwicklung, Architektur und im Echtzeitdesign von Embedded-Systemen.\n• verfügen über exzellente Kenntnisse und Erfahrung im Einsatz von Embedded C/C++, in Sicherheits- und Robustheitsmethoden, in Softwarequalitätsmetriken sowie im Test-Driven Development.\n• bringen fundierte Kenntnisse aus einem industriellen Umfeld mit und sind vertraut mit Anforderungen in regulierten Anwendungsgebieten wie funktionaler Sicherheit oder Metrologie.\n• bringen Erfahrung in Konzern- respektive Gremienarbeit sowie sehr gute Englisch- und mindestens gute Deutsch-Kenntnisse mit.\n\nWas können Sie von uns erwarten?\n\n• Wir sind ein Familienunternehmen mit grossem Engagement und einer nachhaltigen Vision.\n• Wir fördern lebenslanges Lernen durch vielfältige Schulungs- und Weiterbildungsmöglichkeiten, internen Wissenstransfer und E-Learning.\n• Wir investieren in Ihre Gesundheit – mit einem umfassenden Gesundheitsmanagement.\n• Wir unterstützen Sie mit einer betrieblichen Altersvorsorge und Angeboten zur Vereinbarkeit von Familie und Beruf.\n• Sie profitieren von einer Arbeitsumgebung, in der technologische Neugier, Wertschätzung und Gestaltungsspielraum zusammenkommen.\n\nWie bewerben Sie sich?\n\nUm sich zu bewerben, bitten wir Sie, Ihre Unterlagen auf unserer Karriereseite hochzuladen. Bewerbungen, die uns per E-Mail zugesandt werden, können leider aus Datenschutzgründen nicht berücksichtigt werden.\n\nAgenturen, Personaldienstleister oder ähnliche Unternehmen werden gebeten, von der unaufgeforderten Übermittlung von Profilen und Anfragen zu einer möglichen Zusammenarbeit abzusehen. Derzeit arbeiten wir für diese Stelle nicht mit externen Dienstleistern zusammen. Alle unaufgeforderten Bewerbungen von Dienstleistern werden nicht berücksichtigt und ohne weitere Prüfung gelöscht. Wir bedanken uns für Ihr Verständnis.\n\n#LI-SH2",
-      "fr": "Descriptif\n\nChez Endress+Hauser, le progrès passe par la collaboration. En tant que premier fournisseur mondial d'instruments de mesure, nos plus de 17 000 collaborateurs façonnent l'avenir dans le domaine de l'automatisation des processus. Qu'il s'agisse d'innover et de mettre en œuvre de nouvelles technologies en équipe, de collaborer au développement de nouveaux appareils ou de renforcer des relations clés avec diverses industries mondiales, notre travail est basé sur l'établissement de relations de confiance qui aident chacun à réussir. En tant qu'entreprise familiale, nous regardons au-delà des objectifs à court terme et travaillons à créer une vision d'avenir pour nos collaborateurs, nos clients et le monde en général.\n\nNous recherchons un développeur/architecte technique Lead Embedded C++ SW du secteur industriel pour compléter notre équipe et utiliser votre expérience pour façonner durablement notre paysage logiciel et l'enrichir à la fois techniquement et personnellement.\n\nDe quoi parle ce poste ?\n\nÊtes-vous quelqu’un qui aime prendre des mesures technologiques audacieuses ? Aimez-vous transformer des idées en concepts logiciels clairs pour demain ? Et aimez-vous accompagner les autres dans leur voyage et établir des normes ensemble ?\nSi vous vous y voyez, vous jouerez un rôle qui contribuera à façonner nos futures générations d’appareils et aura un réel impact sur les technologies que les gens du monde entier rencontrent quotidiennement.\n\nTâches\n\n- assumer le leadership logiciel fonctionnel et technique dans le contexte de nos plateformes logicielles actuelles et futures.\n- En travaillant en équipe, nous concevons de nouveaux concepts logiciels, architectures système et processus dans l'environnement logiciel, jetant ainsi les bases des futures générations d'appareils.\n- façonner le développement stratégique au sein du logiciel, établir des processus et de nouvelles méthodes et les développer en permanence.\n- Développer professionnellement les employés grâce à un coaching et un mentorat actifs.\n- jouer un rôle central dans la création et le maintien de réseaux au sein et à l'extérieur de l'entreprise et représenter nos intérêts auprès des organismes de normalisation.\n\nExigences\n\n- être titulaire d'un diplôme universitaire (Master, Docteur en Sciences Techniques ETH ou équivalent) dans le domaine de l'informatique technique, de l'électrotechnique ou de l'automatisation.\n- avoir au moins 15 ans d'expérience dans le développement, l'architecture et la conception temps réel de systèmes embarqués.\n- avoir d'excellentes connaissances et expérience dans l'utilisation du C/C++ embarqué, dans les méthodes de sécurité et de robustesse, dans les métriques de qualité logicielle et dans le développement piloté par les tests.\n- apporter des connaissances approfondies d'un environnement industriel et connaître les exigences des domaines d'application réglementés tels que la sécurité fonctionnelle ou la métrologie.\n- avoir une expérience du travail en groupe ou en comité ainsi qu'une très bonne connaissance de l'anglais et au moins une bonne connaissance de l'allemand.\n\nNous offrons\n\n- Nous sommes une entreprise familiale avec un grand engagement et une vision durable.\n- Nous promouvons l'apprentissage tout au long de la vie à travers une variété d'opportunités de formation et de perfectionnement, le transfert de connaissances interne et l'apprentissage en ligne.\n- Nous investissons dans votre santé – avec une gestion globale de la santé.\n- Nous vous accompagnons avec un plan de retraite d'entreprise et des propositions pour concilier famille et travail.\n- Vous bénéficiez d'un environnement de travail où se côtoient curiosité technologique, appréciation et liberté de création.\n\nContacter\n\nPour postuler, nous vous demandons de télécharger vos documents sur notre page carrières. Malheureusement, les candidatures qui nous sont envoyées par email ne peuvent être prises en compte pour des raisons de protection des données.\n\nLes agences, prestataires de services de personnel ou entreprises similaires sont priés de s'abstenir d'envoyer des profils et des demandes de renseignements non sollicités concernant une éventuelle collaboration. Nous ne travaillons actuellement pas avec des prestataires de services externes pour ce poste. Toutes les candidatures non sollicitées émanant de prestataires de services ne seront pas prises en compte et seront supprimées sans autre examen. Nous vous remercions de votre compréhension.\n\n#LI-SH2"
-    },
-    "slugByLocale": {
-      "it": "leader-tecnico-embedded-c-sw-developer-architect-dal-settore-industriale-100-endress-hauser-reinach-69769947",
-      "en": "technical-lead-embedded-c-sw-developer-architect-from-the-industrial-sector-100-endress-hauser-reinach-a30e6b13",
-      "de": "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress-24834e15",
-      "fr": "responsable-technique-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress-hauser-reinach-81c4ff5f"
-    },
-    "sector": "Strumentazione industriale / Automazione",
-    "expiredAt": "2026-10-10T09:24:39.682Z",
-    "previousSlugs": [
-      "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress-24834e15",
-      "lead-expert-embedded-c-softwareentwickler-in-w-m-d-endress-hauser-reinach"
-    ],
-    "previousSlugsByLocale": {
-      "de": [
-        "lead-expert-embedded-c-softwareentwickler-in-w-m-d-endress-hauser-reinach"
-      ],
-      "it": [
-        "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress-24834e15",
-        "lead-expert-embedded-c-softwareentwickler-in-w-m-d-endress-hauser-reinach"
-      ],
-      "en": [
-        "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress-24834e15"
-      ],
-      "fr": [
-        "technical-lead-embedded-c-sw-entwickler-architekt-in-aus-der-industriebranche-100-endress-24834e15"
-      ]
-    },
-    "postalCode": "4153",
-    "salaryMin": 99500,
-    "salaryMax": 169500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-lead-expert-embedded-c%2b%2b-softwareentwicklerin-%28wmd%29-4153/1280881301",
-    "firstSeenAt": "2026-07-04T10:44:02.140Z",
-    "sourceIdentityHistory": [
-      {
-        "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-lead-expert-embedded-c%2b%2b-softwareentwicklerin-%28wmd%29-4153/1280881301",
-        "firstSeenAt": "2026-07-04T10:44:02.140Z",
-        "title": "Lead Expert Embedded C++ Softwareentwickler*in (w/m/d)"
+    "firstSeenAt": "2026-07-04T10:44:03.289Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spezialist-in-fur-elektrotechnik-100-m-w-d-endress-hauser-reinach": "BL"
       },
-      {
-        "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-technical-lead-embedded-c%2b%2b-sw-entwickler-architektin-aus-der-industriebranche%2c-100-4153/1280881301",
-        "firstSeenAt": "2026-07-04T10:44:02.140Z",
-        "title": "Technical Lead Embedded C++ SW-Entwickler/-Architekt*in aus der Industriebranche, 100%"
+      "en": {
+        "spezialist-in-fur-elektrotechnik-100-m-w-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "spezialist-in-fur-elektrotechnik-100-m-w-d-endress-hauser-reinach": "BL"
       }
-    ]
+    }
   },
   {
     "slug": "servizio-tecnico-f-m-d-100-endress-hauser-bussigny",
@@ -2289,7 +2736,20 @@
         "firstSeenAt": "2026-07-17T11:38:50.355Z",
         "title": "Technicien de Service - Suisse romande (f/m/d) 100%"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "service-technician-f-m-d-100-endress-hauser-bussigny": "VD",
+        "technicien-de-service-suisse-romande-f-m-d-100-endress-hauser-bussigny": "VD"
+      },
+      "de": {
+        "technicien-de-service-suisse-romande-f-m-d-100-endress-hauser-bussigny": "VD"
+      },
+      "fr": {
+        "service-technician-f-m-d-100-endress-hauser-bussigny": "VD"
+      }
+    }
   },
   {
     "slug": "senior-engineer-polymer-chemistry-manufacturing-technologies-f-m-d-endress-hauser-reinach",
@@ -2319,7 +2779,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-senior-engineer-polymer-chemistry-&-manufacturing-technologies-%28fmd%29-4153/1437536833",
-    "firstSeenAt": "2026-09-19T22:55:43.206Z"
+    "firstSeenAt": "2026-09-19T22:55:43.206Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "senior-engineer-polymer-chemistry-manufacturing-technologies-f-m-d-endress-hauser-reinach"
+      ],
+      "de": [
+        "senior-engineer-polymer-chemistry-manufacturing-technologies-f-m-d-endress-hauser-reinach"
+      ],
+      "fr": [
+        "senior-engineer-polymer-chemistry-manufacturing-technologies-f-m-d-endress-hauser-reinach"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "senior-engineer-polymer-chemistry-manufacturing-technologies-f-m-d-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "senior-engineer-polymer-chemistry-manufacturing-technologies-f-m-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "senior-engineer-polymer-chemistry-manufacturing-technologies-f-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "team-lead-digitalization-integration-projects-m-f-d-endress-hauser-reinach",
@@ -2360,6 +2843,9 @@
       ],
       "fr": [
         "chef-d-equipe-digitalization-integration-projects-mvp-m-f-d-endress-hauser-reinach"
+      ],
+      "en": [
+        "team-lead-digitalization-integration-projects-m-f-d-endress-hauser-reinach"
       ]
     },
     "postalCode": "4153",
@@ -2380,7 +2866,23 @@
         "firstSeenAt": "2026-09-01T10:19:51.264Z",
         "title": "Team Lead, Digitalization & Integration Projects - m/f/d"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "team-lead-digitalization-integration-projects-mvp-m-f-d-endress-hauser-reinach": "BL",
+        "chef-d-equipe-digitalization-integration-projects-mvp-m-f-d-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "team-lead-digitalization-integration-projects-m-f-d-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "team-lead-digitalization-integration-projects-mvp-m-f-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "chef-d-equipe-digitalization-integration-projects-mvp-m-f-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "ingegnere-di-produzione-nella-produzione-di-sensori-m-f-d-endress-hauser-reinach",
@@ -2429,7 +2931,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-produktionsingenieurin-sensorfertigung-%28wmd%29-4153/1427982033",
-    "firstSeenAt": "2026-08-20T10:12:21.343Z"
+    "firstSeenAt": "2026-08-20T10:12:21.343Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "produktionsingenieur-in-sensorfertigung-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "produktionsingenieur-in-sensorfertigung-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "produktionsingenieur-in-sensorfertigung-w-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "apprendista-r-automatiker-in-cfc-2027-endress-hauser-reinach",
@@ -2478,7 +2992,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-lernender-automatikerin-efz-2027-4153/1418180333",
-    "firstSeenAt": "2026-07-23T12:19:20.957Z"
+    "firstSeenAt": "2026-07-23T12:19:20.957Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lernende-r-automatiker-in-efz-2027-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "lernende-r-automatiker-in-efz-2027-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "lernende-r-automatiker-in-efz-2027-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "capo-turno-in-elektronikfertigung-dauernachtschicht-w-m-d-100-endress-hauser-reinach",
@@ -2554,7 +3080,28 @@
         "firstSeenAt": "2026-07-04T10:44:05.072Z",
         "title": "Schichtleiter*in Elektronikfertigung Dauernachtschicht (w/m/d) 100%"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratore-trice-in-elektronikfertigung-dauernachtschicht-m-w-d-100-endress-hauser-reinach": "BL",
+        "employee-in-electronics-manufacturing-permanent-night-shift-f-m-d-100-endress-hauser-reinach": "BL",
+        "mitarbeiter-in-elektronikfertigung-dauernachtschicht-w-m-d-100-endress-hauser-reinach": "BL",
+        "employe-dans-l-electronique-fabrication-poste-de-nuit-permanent-f-m-j-100-endress-hauser-reinach": "BL",
+        "schichtleiter-in-elektronikfertigung-dauernachtschicht-w-m-d-100-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "employee-in-electronics-manufacturing-permanent-night-shift-f-m-d-100-endress-hauser-reinach": "BL",
+        "schichtleiter-in-elektronikfertigung-dauernachtschicht-w-m-d-100-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "mitarbeiter-in-elektronikfertigung-dauernachtschicht-w-m-d-100-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "employe-dans-l-electronique-fabrication-poste-de-nuit-permanent-f-m-j-100-endress-hauser-reinach": "BL",
+        "schichtleiter-in-elektronikfertigung-dauernachtschicht-w-m-d-100-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "conduttore-di-livello-m-f-d-endress-hauser-reinach",
@@ -2636,7 +3183,31 @@
         "firstSeenAt": "2026-07-04T10:43:58.092Z",
         "title": "Schichtleiter*in direkte Fertigung (f/m/d)"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "schichtleiter-in-w-m-d-endress-hauser-reinach": "BL",
+        "capo-turno-in-direkte-fertigung-f-m-d-endress-hauser-reinach": "BL",
+        "shift-leader-in-direkte-fertigung-f-m-d-endress-hauser-reinach": "BL",
+        "schichtleiter-in-direkte-fertigung-f-m-d-endress-hauser-reinach": "BL",
+        "chef-d-equipe-in-direkte-fertigung-f-m-d-endress-hauser-reinach": "BL",
+        "capo-turno-in-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "schichtleiter-in-w-m-d-endress-hauser-reinach": "BL",
+        "shift-leader-in-direkte-fertigung-f-m-d-endress-hauser-reinach": "BL",
+        "shift-leader-in-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "schichtleiter-in-direkte-fertigung-f-m-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "schichtleiter-in-w-m-d-endress-hauser-reinach": "BL",
+        "chef-d-equipe-in-w-m-d-endress-hauser-reinach": "BL",
+        "chef-d-equipe-in-direkte-fertigung-f-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "amministratore-sap-mes-m-f-d-produzione-di-sensori-endress-hauser-reinach",
@@ -2679,7 +3250,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-sap-mes-administratorin-%28fmd%29-sensorfertigung-4153/1422738433",
-    "firstSeenAt": "2026-08-04T11:38:42.908Z"
+    "firstSeenAt": "2026-08-04T11:38:42.908Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sap-mes-administrator-in-f-m-d-sensorfertigung-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "prefabbricazione-della-produzione-di-coriolis-m-f-d-endress-hauser-reinach",
@@ -2730,7 +3307,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-mitarbeiterin-coriolis-produktion-vorfertigung-%28wmd%29-4153/1428647533",
-    "firstSeenAt": "2026-08-21T09:52:43.424Z"
+    "firstSeenAt": "2026-08-21T09:52:43.424Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-coriolis-produktion-vorfertigung-w-m-d-endress-hauser-reinach": "BL",
+        "collaboratore-trice-in-coriolis-produktion-vorfertigung-m-w-d-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "mitarbeiter-in-coriolis-produktion-vorfertigung-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "mitarbeiter-in-coriolis-produktion-vorfertigung-w-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "service-planing-partner-f-m-d-100-endress-hauser-reinach-1bc0bfb7",
@@ -2869,7 +3459,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-application-engineer-%28fmd%29-4153/1422303433",
-    "firstSeenAt": "2026-08-03T22:28:56.432Z"
+    "firstSeenAt": "2026-08-03T22:28:56.432Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "application-engineer-f-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "dipendenti-nella-produzione-di-tubi-m-f-d-endress-hauser-reinach",
@@ -2949,7 +3545,30 @@
         "firstSeenAt": "2026-08-31T17:14:05.424Z",
         "title": "Mitarbeiter*in Rohrfertigung (w/m/d)"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-rohrfertigung-w-m-d-endress-hauser-reinach": "BL",
+        "collaboratore-trice-in-rohrfertigung-m-w-d-endress-hauser-reinach": "BL",
+        "dipendenti-nella-logistica-di-produzione-m-f-d-endress-hauser-reinach": "BL",
+        "employee-in-production-logistics-m-f-d-endress-hauser-reinach": "BL",
+        "mitarbeiter-in-produktionslogistik-w-m-d-endress-hauser-reinach": "BL",
+        "employe-en-logistique-de-production-h-f-d-endress-hauser-reinach": "BL",
+        "collaboratore-trice-in-produktionslogistik-m-w-d-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "mitarbeiter-in-rohrfertigung-w-m-d-endress-hauser-reinach": "BL",
+        "employee-in-production-logistics-m-f-d-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "mitarbeiter-in-produktionslogistik-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "mitarbeiter-in-rohrfertigung-w-m-d-endress-hauser-reinach": "BL",
+        "employe-en-logistique-de-production-h-f-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "technischer-collaboratore-trice-in-m-w-d-mechanik-endress-hauser-reinach",
@@ -2998,7 +3617,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-technischer-mitarbeiterin-%28wmd%29-mechanik-4153/1396628833",
-    "firstSeenAt": "2026-07-04T10:43:59.857Z"
+    "firstSeenAt": "2026-07-04T10:43:59.857Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technischer-mitarbeiter-in-w-m-d-mechanik-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "technischer-mitarbeiter-in-w-m-d-mechanik-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "technischer-mitarbeiter-in-w-m-d-mechanik-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "working-student-junior-test-system-specialist-w-m-d-60-endress-hauser-reinach",
@@ -3028,7 +3659,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-working-student-junior-test-system-specialist-%28wmd%29-60-4153/1385479333",
-    "firstSeenAt": "2026-07-04T10:43:53.449Z"
+    "firstSeenAt": "2026-07-04T10:43:53.449Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "working-student-junior-test-system-specialist-w-m-d-60-endress-hauser-reinach"
+      ],
+      "de": [
+        "working-student-junior-test-system-specialist-w-m-d-60-endress-hauser-reinach"
+      ],
+      "fr": [
+        "working-student-junior-test-system-specialist-w-m-d-60-endress-hauser-reinach"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "working-student-junior-test-system-specialist-w-m-d-60-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "working-student-junior-test-system-specialist-w-m-d-60-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "working-student-junior-test-system-specialist-w-m-d-60-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "ingegnere-di-sviluppo-soluzioni-80-100-m-f-d-endress-hauser-reinach",
@@ -3883,7 +4537,23 @@
         "firstSeenAt": "2026-07-04T10:44:11.393Z",
         "title": "Solution Development Engineer*in 80-100 % (w/m/d)"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "solution-development-engineer-in-80-100-w-m-d-endress-hauser-reinach": "BL",
+        "solution-development-engineer-80-100-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "solution-development-engineer-in-80-100-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "solution-development-engineer-in-80-100-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "solution-development-engineer-in-80-100-w-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "meccanica-nei-sistemi-di-fabbricazione-di-impianti-m-f-d-endress-hauser-reinach",
@@ -3951,7 +4621,24 @@
         "firstSeenAt": "2026-08-20T21:45:07.182Z",
         "title": "Mechaniker*in Anlagenbau Manufacturing Systems (w/m/d)"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mechaniker-in-anlagenbau-manufactoring-systems-w-m-d-endress-hauser-reinach": "BL",
+        "mechaniker-in-anlagenbau-manufacturing-systems-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "mechaniker-in-anlagenbau-manufactoring-systems-w-m-d-endress-hauser-reinach": "BL",
+        "mechanic-in-plant-engineering-manufactoring-systems-m-f-d-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "mechaniker-in-anlagenbau-manufactoring-systems-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "mechaniker-in-anlagenbau-manufactoring-systems-w-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "responsabile-qualita-reclami-60-80-m-f-d-endress-hauser-reinach",
@@ -3994,7 +4681,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-quality-&-complaint-manager-60-80-%28mwd%29-4153/1417971433",
-    "firstSeenAt": "2026-07-22T22:51:15.020Z"
+    "firstSeenAt": "2026-07-22T22:51:15.020Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "quality-complaint-manager-60-80-m-w-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "senior-software-architect-iiot-platform-netilion-m-f-d-endress-hauser-freiburg",
@@ -4024,7 +4717,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/germany/job/freiburg-senior-software-architect%2c-iiot-platform-%28netilion%29-mfd-79110/1431922033",
-    "firstSeenAt": "2026-08-31T17:14:06.779Z"
+    "firstSeenAt": "2026-08-31T17:14:06.779Z",
+    "canton": "FR",
+    "previousSlugsByLocale": {
+      "en": [
+        "senior-software-architect-iiot-platform-netilion-m-f-d-endress-hauser-freiburg"
+      ],
+      "de": [
+        "senior-software-architect-iiot-platform-netilion-m-f-d-endress-hauser-freiburg"
+      ],
+      "fr": [
+        "senior-software-architect-iiot-platform-netilion-m-f-d-endress-hauser-freiburg"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "senior-software-architect-iiot-platform-netilion-m-f-d-endress-hauser-freiburg": "FR"
+      },
+      "de": {
+        "senior-software-architect-iiot-platform-netilion-m-f-d-endress-hauser-freiburg": "FR"
+      },
+      "fr": {
+        "senior-software-architect-iiot-platform-netilion-m-f-d-endress-hauser-freiburg": "FR"
+      }
+    }
   },
   {
     "slug": "dipendente-tecnico-in-assemblaggio-finale-100-m-f-d-endress-hauser-reinach",
@@ -4075,7 +4791,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-technischer-mitarbeiterin-endmontage-100-%28wmd%29-4153/1433807533",
-    "firstSeenAt": "2026-09-04T13:34:45.108Z"
+    "firstSeenAt": "2026-09-04T13:34:45.108Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technische-r-mitarbeiter-in-endmontage-100-w-m-d-endress-hauser-reinach": "BL",
+        "technische-r-collaboratore-trice-in-endmontage-100-m-w-d-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "technische-r-mitarbeiter-in-endmontage-100-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "technische-r-mitarbeiter-in-endmontage-100-w-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "talent-acquisition-expert-in-temporaneo-m-w-d-endress-hauser-reinach",
@@ -4123,7 +4852,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-talent-acquisition-expertin-befristet-%28wmd%29-4153/1427255133",
-    "firstSeenAt": "2026-08-18T09:51:50.379Z"
+    "firstSeenAt": "2026-08-18T09:51:50.379Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "talent-acquisition-expert-in-befristet-w-m-d-endress-hauser-reinach": "BL",
+        "talent-acquisition-expert-in-befristet-m-w-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "talent-acquisition-expert-in-befristet-w-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "head-of-main-department-production-engineering-endress-hauser-reinach",
@@ -4153,7 +4892,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-head-of-main-department-production-engineering-4153/1431315533",
-    "firstSeenAt": "2026-08-28T05:22:22.285Z"
+    "firstSeenAt": "2026-08-28T05:22:22.285Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "head-of-main-department-production-engineering-endress-hauser-reinach"
+      ],
+      "de": [
+        "head-of-main-department-production-engineering-endress-hauser-reinach"
+      ],
+      "fr": [
+        "head-of-main-department-production-engineering-endress-hauser-reinach"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "head-of-main-department-production-engineering-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "head-of-main-department-production-engineering-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "head-of-main-department-production-engineering-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "head-of-main-department-produktionstechnologie-endress-hauser-reinach",
@@ -4183,7 +4945,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-head-of-main-department-produktionstechnologie-4153/1431315633",
-    "firstSeenAt": "2026-08-28T05:23:03.076Z"
+    "firstSeenAt": "2026-08-28T05:23:03.076Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "head-of-main-department-produktionstechnologie-endress-hauser-reinach"
+      ],
+      "de": [
+        "head-of-main-department-produktionstechnologie-endress-hauser-reinach"
+      ],
+      "fr": [
+        "head-of-main-department-produktionstechnologie-endress-hauser-reinach"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "head-of-main-department-produktionstechnologie-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "head-of-main-department-produktionstechnologie-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "head-of-main-department-produktionstechnologie-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "ict-system-engineer-80-100-w-m-d-endress-hauser-reinach",
@@ -4213,7 +4998,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/other-countries-regions/job/reinach-ict-system-engineer-80-100-%28wmd%29-4153/1240311801",
-    "firstSeenAt": "2026-07-29T11:40:24.317Z"
+    "firstSeenAt": "2026-07-29T11:40:24.317Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "ict-system-engineer-80-100-w-m-d-endress-hauser-reinach"
+      ],
+      "de": [
+        "ict-system-engineer-80-100-w-m-d-endress-hauser-reinach"
+      ],
+      "fr": [
+        "ict-system-engineer-80-100-w-m-d-endress-hauser-reinach"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "ict-system-engineer-80-100-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "ict-system-engineer-80-100-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "ict-system-engineer-80-100-w-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "pcb-design-engineer-m-w-d-endress-hauser-reinach",
@@ -4243,7 +5051,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-pcb-design-engineer-%28mwd%29-4153/1421253533",
-    "firstSeenAt": "2026-07-31T11:59:19.046Z"
+    "firstSeenAt": "2026-07-31T11:59:19.046Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "pcb-design-engineer-m-w-d-endress-hauser-reinach"
+      ],
+      "de": [
+        "pcb-design-engineer-m-w-d-endress-hauser-reinach"
+      ],
+      "fr": [
+        "pcb-design-engineer-m-w-d-endress-hauser-reinach"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "pcb-design-engineer-m-w-d-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "pcb-design-engineer-m-w-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "pcb-design-engineer-m-w-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "sviluppo-dell-organizzazione-principale-esperto-80-100-m-f-d-endress-hauser-reinach",
@@ -4289,7 +5120,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-principal-expert-organization-development-80-100-%28mwd%29-4153/1374984333",
-    "firstSeenAt": "2026-07-09T22:41:54.146Z"
+    "firstSeenAt": "2026-07-09T22:41:54.146Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "principal-expert-organization-development-80-100-m-w-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "principal-expert-organization-development-80-100-m-w-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "bachelor-thesis-untersuchung-alternativer-materialien-per-la-alimentari-e-getrankeindustrie-endress-hauser-reinach",
@@ -4340,7 +5180,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-bachelor-thesis-untersuchung-alternativer-materialien-f%c3%bcr-die-lebensmittel-und-getr%c3%a4nkeindustrie-4153/1401129133",
-    "firstSeenAt": "2026-07-04T10:44:11.989Z"
+    "firstSeenAt": "2026-07-04T10:44:11.989Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "bachelor-thesis-untersuchung-alternativer-materialien-fur-die-lebensmittel-und": "BL"
+      },
+      "en": {
+        "bachelor-thesis-untersuchung-alternativer-materialien-fur-die-lebensmittel-und": "BL"
+      },
+      "fr": {
+        "bachelor-thesis-untersuchung-alternativer-materialien-fur-die-lebensmittel-und": "BL",
+        "these-de-baccalaureat-etude-de-materiaux-alternatifs-pour-l-industrie-des-aliments-et-des-boissons-endress-hauser": "BL"
+      }
+    }
   },
   {
     "slug": "prefabbricazione-dei-dipendenti-m-f-d-endress-hauser-reinach",
@@ -4391,7 +5244,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-mitarbeiterin-produktion-vorfertigung-%28wmd%29-4153/1436776233",
-    "firstSeenAt": "2026-09-14T16:02:39.178Z"
+    "firstSeenAt": "2026-09-14T16:02:39.178Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-produktion-vorfertigung-w-m-d-endress-hauser-reinach": "BL",
+        "collaboratore-trice-in-produktion-vorfertigung-m-w-d-endress-hauser-reinach": "BL"
+      },
+      "en": {
+        "mitarbeiter-in-produktion-vorfertigung-w-m-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "mitarbeiter-in-produktion-vorfertigung-w-m-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "responsabile-dei-dati-master-di-produzione-m-f-d-endress-hauser-reinach",
@@ -4479,7 +5345,26 @@
         "firstSeenAt": "2026-07-04T10:43:56.353Z",
         "title": "Production Master Data Manager (w/m/d)"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "production-master-data-manager-w-m-d-endress-hauser-reinach": "BL",
+        "dati-master-di-produzione-globale-esperti-f-m-d-al-100-endress-hauser-reinach": "BL",
+        "expert-global-production-master-data-f-m-d-100-endress-hauser-reinach": "BL",
+        "donnees-de-reference-sur-la-production-mondiale-f-m-d-100-endress-hauser-reinach": "BL",
+        "esperto-di-gestione-ordini-e-dati-master-80-100-lun-f-giorno-endress-hauser-reinach": "BL",
+        "order-handling-master-data-expert-80-100-m-f-d-endress-hauser-reinach": "BL",
+        "expert-en-gestion-des-commandes-et-donnees-de-base-80-100-m-f-d-endress-hauser-reinach": "BL"
+      },
+      "de": {
+        "expert-global-production-master-data-f-m-d-100-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "gestionnaire-principal-de-donnees-de-production-f-m-d-endress-hauser-reinach": "BL",
+        "donnees-de-reference-sur-la-production-mondiale-f-m-d-100-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "stage-contenuti-di-apprendimento-e-ottimizzazione-della-formazione-m-f-d-endress-hauser-reinach",
@@ -4525,7 +5410,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-praktikum-learning-content-&-training-optimization-%28mwd%29-4153/1430039033",
-    "firstSeenAt": "2026-08-26T10:05:34.420Z"
+    "firstSeenAt": "2026-08-26T10:05:34.420Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikum-learning-content-training-optimization-m-w-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "praktikum-learning-content-training-optimization-m-w-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "stage-qualita-del-software-e-sviluppo-m-f-d-endress-hauser-reinach",
@@ -4571,56 +5465,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-praktikum-software-quality-and-development-%28mwd%29-4153/1284414701",
-    "firstSeenAt": "2026-08-21T21:44:21.952Z"
-  },
-  {
-    "slug": "operatore-macchina-m-f-d-endress-hauser-reinach-76ec1a15",
-    "title": "Maschinenführer (w/m/d)",
-    "titleByLocale": {
-      "it": "Operatore macchina (m/f/d)",
-      "en": "Machine operator (m/f/d)",
-      "de": "Maschinenführer (w/m/d)",
-      "fr": "Opérateur de machine (h/f/d)"
-    },
-    "company": "Endress+Hauser",
-    "companyKey": "endress-hauser",
-    "location": "Reinach",
-    "addressLocality": "Reinach",
-    "descriptionByLocale": {
-      "it": "Bei Endress+Hauser geschieht Fortschritt durch Zusammenarbeit. Als weltweit führender Anbieter von Messgeräten gestalten unsere über 18.000 Mitarbeitenden die Zukunft im Bereich der Prozessautomatisierung. Ob bei der Innovation und Umsetzung neuer Technologien im Team, der Zusammenarbeit in der Entwicklung neuer Geräte oder der Stärkung wichtiger Beziehungen zu verschiedenen globalen Industrien: Unsere Arbeit basiert darauf, vertrauensvolle Beziehungen aufzubauen, die allen zum Erfolg verhelfen. Als familiengeführtes Unternehmen schauen wir über kurzfristige Ziele hinaus und arbeiten daran, eine zukunftsorientierte Vision für unsere Mitarbeitenden, unsere Kundinnen und Kunden und die Welt im Allgemeinen zu schaffen.\n\nWir suchen eine*n Maschinenführer*in (w/m/d), um unser Produktionsteam im DRS MA1 zu ergänzen und einen wichtigen Beitrag zu einem stabilen, sicheren und qualitativ hochwertigen Fertigungsprozess zu leisten. In dieser Rolle sorgen Sie dafür, dass unsere automatisierten Schweißanlagen zuverlässig arbeiten und unsere hohen Qualitätsstandards eingehalten werden.\n\nWorum geht es in der Stelle?\n\nInteressieren Sie sich für moderne Fertigungstechnologien und automatisierte Anlagen? Arbeiten Sie gerne praxisnah und übernehmen Verantwortung für einen reibungslosen Produktionsbetrieb? Möchten Sie Ihr technisches Know-how in einem Umfeld einsetzen, das kontinuierliche Verbesserung aktiv fördert?\n\nWelche Aufgaben werden Sie übernehmen?\n\nSie werden:\n\n• TIG- und MAG-Schweissroboter-Halsschweissanlagen sowie Betriebsmittel in der Montage im laufenden Produktionsbetrieb bedienen.\n\n• Maschinen und Betriebsmittel kontrollieren und überwachen sowie einen stabilen und sicheren Betrieb sicherstellen.\n\n• Die Fertigungsprozesse hinsichtlich Qualität, Sicherheit und Produktivität überwachen.\n\n• Kleinere Störungen beheben und einfache Reparaturen direkt an den Anlagen durchführen.\n\n• Aktiv bei KVP-, Lean- und TPM-Aktivitäten mitarbeiten und die kontinuierliche Verbesserung unterstützen.\n\n• Für Sauberkeit und Ordnung am Arbeitsplatz unter konsequenter Anwendung der 5S-Prinzipien sorgen.\n\nWas erwarten wir von Ihnen?\n\nSie:\n\n• Verfügen über eine abgeschlossene mechanische Grundausbildung.\n\n• Bringen eine Weiterbildung sowie praktische Erfahrung im Bereich Schweißen mit.\n\n• Sind flexibel und bereit, im 2-Schicht-Betrieb zu arbeiten.\n\n• Verfügen über gute Deutschkenntnisse in Wort und Schrift.\n\n• Kennen die gängigen MS-Office-Tools.\n\n• Arbeiten verantwortungsbewusst, selbstständig und belastbar.\n\nWas können Sie von uns erwarten?\n\n• Wir sind ein familiengeführtes Unternehmen mit großem Engagement und einer nachhaltigen Vision.\n\n• Wir fördern lebenslanges Lernen durch vielfältige Aus- und Weiterbildungsmöglichkeiten, internen Wissenstransfer und E-Learning.\n\n• Wir bieten Ihnen ein kollegiales und wertschätzendes Arbeitsumfeld, in dem Zusammenarbeit und gegenseitiger Respekt gelebt werden.\n\n• Wir stellen sicher, dass unsere Mitarbeitenden in modernen Arbeitsumgebungen mit zeitgemäßen Technologien und Arbeitsmitteln tätig sind.\n\n• Wir fördern kontinuierliche Verbesserung und geben Ihnen die Möglichkeit, eigene Ideen aktiv einzubringen und umzusetzen.\n\n• Wir bieten attraktive Anstellungsbedingungen sowie die Stabilität und Entwicklungsmöglichkeiten eines international führenden Familienunternehmens.\n\nWie bewerben Sie sich?\n\nUm sich zu bewerben, bitten wir Sie, Ihre Unterlagen auf unserer Karriereseite hochzuladen.\n\nBewerbungen, die uns per E-Mail erreichen, können",
-      "en": "Bei Endress+Hauser geschieht Fortschritt durch Zusammenarbeit. Als weltweit führender Anbieter von Messgeräten gestalten unsere über 18.000 Mitarbeitenden die Zukunft im Bereich der Prozessautomatisierung. Ob bei der Innovation und Umsetzung neuer Technologien im Team, der Zusammenarbeit in der Entwicklung neuer Geräte oder der Stärkung wichtiger Beziehungen zu verschiedenen globalen Industrien: Unsere Arbeit basiert darauf, vertrauensvolle Beziehungen aufzubauen, die allen zum Erfolg verhelfen. Als familiengeführtes Unternehmen schauen wir über kurzfristige Ziele hinaus und arbeiten daran, eine zukunftsorientierte Vision für unsere Mitarbeitenden, unsere Kundinnen und Kunden und die Welt im Allgemeinen zu schaffen.\n\nWir suchen eine*n Maschinenführer*in (w/m/d), um unser Produktionsteam im DRS MA1 zu ergänzen und einen wichtigen Beitrag zu einem stabilen, sicheren und qualitativ hochwertigen Fertigungsprozess zu leisten. In dieser Rolle sorgen Sie dafür, dass unsere automatisierten Schweißanlagen zuverlässig arbeiten und unsere hohen Qualitätsstandards eingehalten werden.\n\nWorum geht es in der Stelle?\n\nInteressieren Sie sich für moderne Fertigungstechnologien und automatisierte Anlagen? Arbeiten Sie gerne praxisnah und übernehmen Verantwortung für einen reibungslosen Produktionsbetrieb? Möchten Sie Ihr technisches Know-how in einem Umfeld einsetzen, das kontinuierliche Verbesserung aktiv fördert?\n\nWelche Aufgaben werden Sie übernehmen?\n\nSie werden:\n\n• TIG- und MAG-Schweissroboter-Halsschweissanlagen sowie Betriebsmittel in der Montage im laufenden Produktionsbetrieb bedienen.\n\n• Maschinen und Betriebsmittel kontrollieren und überwachen sowie einen stabilen und sicheren Betrieb sicherstellen.\n\n• Die Fertigungsprozesse hinsichtlich Qualität, Sicherheit und Produktivität überwachen.\n\n• Kleinere Störungen beheben und einfache Reparaturen direkt an den Anlagen durchführen.\n\n• Aktiv bei KVP-, Lean- und TPM-Aktivitäten mitarbeiten und die kontinuierliche Verbesserung unterstützen.\n\n• Für Sauberkeit und Ordnung am Arbeitsplatz unter konsequenter Anwendung der 5S-Prinzipien sorgen.\n\nWas erwarten wir von Ihnen?\n\nSie:\n\n• Verfügen über eine abgeschlossene mechanische Grundausbildung.\n\n• Bringen eine Weiterbildung sowie praktische Erfahrung im Bereich Schweißen mit.\n\n• Sind flexibel und bereit, im 2-Schicht-Betrieb zu arbeiten.\n\n• Verfügen über gute Deutschkenntnisse in Wort und Schrift.\n\n• Kennen die gängigen MS-Office-Tools.\n\n• Arbeiten verantwortungsbewusst, selbstständig und belastbar.\n\nWas können Sie von uns erwarten?\n\n• Wir sind ein familiengeführtes Unternehmen mit großem Engagement und einer nachhaltigen Vision.\n\n• Wir fördern lebenslanges Lernen durch vielfältige Aus- und Weiterbildungsmöglichkeiten, internen Wissenstransfer und E-Learning.\n\n• Wir bieten Ihnen ein kollegiales und wertschätzendes Arbeitsumfeld, in dem Zusammenarbeit und gegenseitiger Respekt gelebt werden.\n\n• Wir stellen sicher, dass unsere Mitarbeitenden in modernen Arbeitsumgebungen mit zeitgemäßen Technologien und Arbeitsmitteln tätig sind.\n\n• Wir fördern kontinuierliche Verbesserung und geben Ihnen die Möglichkeit, eigene Ideen aktiv einzubringen und umzusetzen.\n\n• Wir bieten attraktive Anstellungsbedingungen sowie die Stabilität und Entwicklungsmöglichkeiten eines international führenden Familienunternehmens.\n\nWie bewerben Sie sich?\n\nUm sich zu bewerben, bitten wir Sie, Ihre Unterlagen auf unserer Karriereseite hochzuladen.\n\nBewerbungen, die uns per E-Mail erreichen, können",
-      "de": "Bei Endress+Hauser geschieht Fortschritt durch Zusammenarbeit. Als weltweit führender Anbieter von Messgeräten gestalten unsere über 18.000 Mitarbeitenden die Zukunft im Bereich der Prozessautomatisierung. Ob bei der Innovation und Umsetzung neuer Technologien im Team, der Zusammenarbeit in der Entwicklung neuer Geräte oder der Stärkung wichtiger Beziehungen zu verschiedenen globalen Industrien: Unsere Arbeit basiert darauf, vertrauensvolle Beziehungen aufzubauen, die allen zum Erfolg verhelfen. Als familiengeführtes Unternehmen schauen wir über kurzfristige Ziele hinaus und arbeiten daran, eine zukunftsorientierte Vision für unsere Mitarbeitenden, unsere Kundinnen und Kunden und die Welt im Allgemeinen zu schaffen.\n\nWir suchen eine*n Maschinenführer*in (w/m/d), um unser Produktionsteam im DRS MA1 zu ergänzen und einen wichtigen Beitrag zu einem stabilen, sicheren und qualitativ hochwertigen Fertigungsprozess zu leisten. In dieser Rolle sorgen Sie dafür, dass unsere automatisierten Schweißanlagen zuverlässig arbeiten und unsere hohen Qualitätsstandards eingehalten werden.\n\nWorum geht es in der Stelle?\n\nInteressieren Sie sich für moderne Fertigungstechnologien und automatisierte Anlagen? Arbeiten Sie gerne praxisnah und übernehmen Verantwortung für einen reibungslosen Produktionsbetrieb? Möchten Sie Ihr technisches Know-how in einem Umfeld einsetzen, das kontinuierliche Verbesserung aktiv fördert?\n\nWelche Aufgaben werden Sie übernehmen?\n\nSie werden:\n\n• als Mitarbeiter*in zu ca. 80% in der Produktion tätig sein.\n\n• TIG- und MAG-Schweissroboter-Halsschweissanlagen sowie Betriebsmittel in der Montage im laufenden Produktionsbetrieb bedienen.\n\n• Maschinen und Betriebsmittel kontrollieren und überwachen sowie einen stabilen und sicheren Betrieb sicherstellen.\n\n• Die Fertigungsprozesse hinsichtlich Qualität, Sicherheit und Produktivität überwachen.\n\n• Kleinere Störungen beheben und einfache Reparaturen direkt an den Anlagen durchführen.\n\n• Aktiv bei KVP-, Lean- und TPM-Aktivitäten mitarbeiten und die kontinuierliche Verbesserung unterstützen.\n\nWas erwarten wir von Ihnen?\n\nSie:\n\n• Verfügen über eine abgeschlossene mechanische Grundausbildung.\n\n• Bringen eine Weiterbildung sowie praktische Erfahrung im Bereich Schweißen mit.\n\n• Sind flexibel und bereit, im 2-Schicht-Betrieb zu arbeiten.\n\n• Verfügen über gute Deutschkenntnisse in Wort und Schrift.\n\n• Kennen die gängigen MS-Office-Tools.\n\n• Arbeiten verantwortungsbewusst, selbstständig und belastbar.\n\nWas können Sie von uns erwarten?\n\n• Wir sind ein familiengeführtes Unternehmen mit großem Engagement und einer nachhaltigen Vision.\n\n• Wir fördern lebenslanges Lernen durch vielfältige Aus- und Weiterbildungsmöglichkeiten, internen Wissenstransfer und E-Learning.\n\n• Wir bieten Ihnen ein kollegiales und wertschätzendes Arbeitsumfeld, in dem Zusammenarbeit und gegenseitiger Respekt gelebt werden.\n\n• Wir stellen sicher, dass unsere Mitarbeitenden in modernen Arbeitsumgebungen mit zeitgemäßen Technologien und Arbeitsmitteln tätig sind.\n\n• Wir fördern kontinuierliche Verbesserung und geben Ihnen die Möglichkeit, eigene Ideen aktiv einzubringen und umzusetzen.\n\n• Wir bieten attraktive Anstellungsbedingungen sowie die Stabilität und Entwicklungsmöglichkeiten eines international führenden Familienunternehmens.\n\nWie bewerben Sie sich?\n\nUm sich zu bewerben, bitten wir Sie, Ihre Unterlagen auf unserer Karriereseite hochzuladen.\n\nBewerbungen, die uns per E-Mail erreichen, können aus Datenschutzgründen leider nicht berücksichtigt werden.\n\nAgenturen, Personaldienstleister oder ähnliche Unternehmen werden gebeten, von der unaufgeforderten Übermittlung von Profilen und Anfragen zu einer möglichen Zusammenarbeit abzusehen. Derzeit arbeiten wir für diese Stelle nicht mit externen Dienstleistern zusammen. Alle unaufgeforderten Bewerbungen von Dienstleistern werden nicht berücksichtigt und ohne weitere Prüfung gelöscht. Wir bedanken uns für Ihr Verständnis.",
-      "fr": "Bei Endress+Hauser geschieht Fortschritt durch Zusammenarbeit. Als weltweit führender Anbieter von Messgeräten gestalten unsere über 18.000 Mitarbeitenden die Zukunft im Bereich der Prozessautomatisierung. Ob bei der Innovation und Umsetzung neuer Technologien im Team, der Zusammenarbeit in der Entwicklung neuer Geräte oder der Stärkung wichtiger Beziehungen zu verschiedenen globalen Industrien: Unsere Arbeit basiert darauf, vertrauensvolle Beziehungen aufzubauen, die allen zum Erfolg verhelfen. Als familiengeführtes Unternehmen schauen wir über kurzfristige Ziele hinaus und arbeiten daran, eine zukunftsorientierte Vision für unsere Mitarbeitenden, unsere Kundinnen und Kunden und die Welt im Allgemeinen zu schaffen.\n\nWir suchen eine*n Maschinenführer*in (w/m/d), um unser Produktionsteam im DRS MA1 zu ergänzen und einen wichtigen Beitrag zu einem stabilen, sicheren und qualitativ hochwertigen Fertigungsprozess zu leisten. In dieser Rolle sorgen Sie dafür, dass unsere automatisierten Schweißanlagen zuverlässig arbeiten und unsere hohen Qualitätsstandards eingehalten werden.\n\nWorum geht es in der Stelle?\n\nInteressieren Sie sich für moderne Fertigungstechnologien und automatisierte Anlagen? Arbeiten Sie gerne praxisnah und übernehmen Verantwortung für einen reibungslosen Produktionsbetrieb? Möchten Sie Ihr technisches Know-how in einem Umfeld einsetzen, das kontinuierliche Verbesserung aktiv fördert?\n\nWelche Aufgaben werden Sie übernehmen?\n\nSie werden:\n\n• TIG- und MAG-Schweissroboter-Halsschweissanlagen sowie Betriebsmittel in der Montage im laufenden Produktionsbetrieb bedienen.\n\n• Maschinen und Betriebsmittel kontrollieren und überwachen sowie einen stabilen und sicheren Betrieb sicherstellen.\n\n• Die Fertigungsprozesse hinsichtlich Qualität, Sicherheit und Produktivität überwachen.\n\n• Kleinere Störungen beheben und einfache Reparaturen direkt an den Anlagen durchführen.\n\n• Aktiv bei KVP-, Lean- und TPM-Aktivitäten mitarbeiten und die kontinuierliche Verbesserung unterstützen.\n\n• Für Sauberkeit und Ordnung am Arbeitsplatz unter konsequenter Anwendung der 5S-Prinzipien sorgen.\n\nWas erwarten wir von Ihnen?\n\nSie:\n\n• Verfügen über eine abgeschlossene mechanische Grundausbildung.\n\n• Bringen eine Weiterbildung sowie praktische Erfahrung im Bereich Schweißen mit.\n\n• Sind flexibel und bereit, im 2-Schicht-Betrieb zu arbeiten.\n\n• Verfügen über gute Deutschkenntnisse in Wort und Schrift.\n\n• Kennen die gängigen MS-Office-Tools.\n\n• Arbeiten verantwortungsbewusst, selbstständig und belastbar.\n\nWas können Sie von uns erwarten?\n\n• Wir sind ein familiengeführtes Unternehmen mit großem Engagement und einer nachhaltigen Vision.\n\n• Wir fördern lebenslanges Lernen durch vielfältige Aus- und Weiterbildungsmöglichkeiten, internen Wissenstransfer und E-Learning.\n\n• Wir bieten Ihnen ein kollegiales und wertschätzendes Arbeitsumfeld, in dem Zusammenarbeit und gegenseitiger Respekt gelebt werden.\n\n• Wir stellen sicher, dass unsere Mitarbeitenden in modernen Arbeitsumgebungen mit zeitgemäßen Technologien und Arbeitsmitteln tätig sind.\n\n• Wir fördern kontinuierliche Verbesserung und geben Ihnen die Möglichkeit, eigene Ideen aktiv einzubringen und umzusetzen.\n\n• Wir bieten attraktive Anstellungsbedingungen sowie die Stabilität und Entwicklungsmöglichkeiten eines international führenden Familienunternehmens.\n\nWie bewerben Sie sich?\n\nUm sich zu bewerben, bitten wir Sie, Ihre Unterlagen auf unserer Karriereseite hochzuladen.\n\nBewerbungen, die uns per E-Mail erreichen, können"
-    },
-    "slugByLocale": {
-      "it": "operatore-macchina-m-f-d-endress-hauser-reinach-76ec1a15",
-      "en": "machine-operator-m-f-d-endress-hauser-reinach-05fed3fe",
-      "de": "maschinenfuhrer-w-m-d-endress-hauser-reinach",
-      "fr": "operateur-de-machine-h-f-d-endress-hauser-reinach-02d7acda"
-    },
-    "sector": "Strumentazione industriale / Automazione",
-    "expiredAt": "2026-09-21T16:00:45.928Z",
-    "previousSlugs": [
-      "maschinenfuhrer-w-m-d-endress-hauser-reinach"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "maschinenfuhrer-w-m-d-endress-hauser-reinach"
-      ],
-      "en": [
-        "maschinenfuhrer-w-m-d-endress-hauser-reinach"
-      ],
-      "fr": [
-        "maschinenfuhrer-w-m-d-endress-hauser-reinach"
-      ]
-    },
-    "postalCode": "4153",
-    "salaryMin": 62000,
-    "salaryMax": 94000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-maschinenf%c3%bchrer-%28wmd%29-4153/1430830233",
-    "firstSeenAt": "2026-08-28T05:23:01.781Z"
+    "firstSeenAt": "2026-08-21T21:44:21.952Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikum-software-quality-and-development-m-w-d-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "praktikum-software-quality-and-development-m-w-d-endress-hauser-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "supporto-per-l-intelligenza-degli-studenti-endress-hauser-reinach",
@@ -4666,7 +5520,70 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-student-marketing-intelligence-support-4153/1426377733",
-    "firstSeenAt": "2026-08-14T10:37:50.888Z"
+    "firstSeenAt": "2026-08-14T10:37:50.888Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "student-marketing-intelligence-support-endress-hauser-reinach": "BL"
+      },
+      "fr": {
+        "student-marketing-intelligence-support-endress-hauser-reinach": "BL"
+      }
+    }
+  },
+  {
+    "slug": "dati-master-di-produzione-globale-esperti-f-m-d-al-100-endress-hauser-reinach",
+    "title": "Expert Global Production Master Data (f/m/d) 100%",
+    "titleByLocale": {
+      "it": "Dati Master di Produzione Globale Esperti (f/m/d) al 100%",
+      "en": "Expert Global Production Master Data (f/m/d) 100%",
+      "de": "Experte Global Production Master Data (m/w/d) 100%",
+      "fr": "Données de référence sur la production mondiale (f/m/d) 100%"
+    },
+    "company": "Endress+Hauser",
+    "companyKey": "endress-hauser",
+    "location": "Reinach",
+    "addressLocality": "Reinach",
+    "descriptionByLocale": {
+      "it": "A Endress+ Hauser, il progresso avviene lavorando insieme. Come leader globale nella strumentazione di misura, con oltre 18.000 dipendenti modellano il futuro nel campo dell'automazione dei processi. Che si sviluppi e realizzi una nuova tecnologia come team, collaborando per costruire la strumentazione, o rafforzare le relazioni vitali con innumerevoli industrie globali, lavoriamo per creare relazioni di fiducia che aiutano tutti a prosperare. In qualità di azienda di proprietà familiare, guardiamo al di là delle mosse a breve termine e lavoriamo per creare una visione che è all'avanguardia per la nostra gente, i nostri clienti, e il mondo in generale. Stiamo cercando un Expert Global Production Master Data (f/m/d) per unirsi al nostro team e contribuire a porre le basi per un ambiente di produzione globale collegato, efficiente e pronto per il futuro in cui i dati fanno la differenza. Di che si tratta? Ti piace collegare complessi processi produttivi su scala globale? Sei entusiasta di utilizzare i dati per avere un impatto reale sulla qualità, l'efficienza e l'innovazione? Troverai un coordinamento internazionale e una collaborazione trasversale motivante? Se è così, ci si può aspettare un ruolo emozionante in cui si forma attivamente e sviluppare ulteriormente la spina dorsale digitale della nostra produzione globale. Quali compiti eseguirai? Lo farai:\n• lavorare in un team dinamico e operativo a livello globale e collaborare in siti con funzioni di produzione, ingegneria e digitalizzazione.\n• coordinare gli allineamenti complessi all'interno di una rete di produzione internazionale.\n• definire, mantenere e garantire la qualità dei dati master di produzione, inclusa la configurazione delle varianti e garantire strutture di dati coerenti in tutto il ciclo di vita del prodotto.\n• contribuire a e ottimizzare standard, processi e miglioramenti continui nella manutenzione dei dati master, guidando l'armonizzazione globale, la standardizzazione e l'ulteriore sviluppo della logica di processo sottostante.\n• assumersi la responsabilità di responsabile del progetto (sotto) nei progetti di sviluppo dei prodotti per l'industrializzazione globale dei nuovi prodotti e delle attività di introduzione e di rollout transfrontalieri nell'ambito della rete manifatturiera internazionale.\n• garantire il coordinamento e l'attuazione dei cambiamenti nell'intero ciclo di vita del prodotto come pianificatore di produzione responsabile del prodotto. Cosa ci aspettiamo da te? Tu...\n• tenere una laurea in campo tecnico (ad esempio, ingegneria di produzione, ingegneria meccanica, ingegneria industriale, o simili) e hanno almeno 8 anni di esperienza professionale in un ambiente industriale, con comprovata esperienza nell'ingegneria produttiva, master data e ruoli di industrializzazione, così come l'esperienza internazionale.\n• portare una forte conoscenza esperta nel mantenere i dati master di produzione SAP, in particolare in routing, bollette di materiali e configurazione delle varianti, insieme a una profonda comprensione di SAP ERP come sistema centrale per la gestione e l'integrazione di processi core come la gestione dei materiali, la pianificazione della produzione, la logistica e i dati master.\n• hanno dimostrato esperienza nell'implementazione, nel roll out o nello sviluppo di SAP ME in un ambiente di produzione ricco di varianti e sono sperimentati nell'implementazione operativa di complesse dipendenze di sistema e processo tra il piano del negozio, SAP ME e SAP ERP.\n• hanno almeno 8 anni di esperienza nella gestione del progetto e nell'industrializzazione di nuovi prodotti, l'introduzione di nuovi prodotti, processi o tecnologie, così come rollout cross-site in un ambiente internazionale.\n• possedere una forte mentalità globale, competenze interculturali, e la capacità di gestire e coordinare efficacemente argomenti complessi in una rete di produzione internazionale e decentralizzata. È possibile valutare diversi requisiti, priorità, processi, livelli di maturità e condizioni locali dei siti di produzione internazionali e tradurli in soluzioni sostenibili, globalmente coerenti e implementabili.\n• convincere con un alto livello di comunicazione, allineamento e capacità di integrazione in paesi, funzioni e luoghi, e avere la capacità di riunire diversi stakeholder con interessi a volte diversi, armonizzando e ottimizzando in modo sostenibile i processi di dati master globali.\n• sono fluenti in inglese, sia scritto che parlato, e lavorano in modo strutturato, responsabile e orientato al team. Cosa puoi aspettarti da noi?\n• Siamo un'azienda a conduzione familiare con un forte impegno e una visione sostenibile.\n• Promuoviamo l'apprendimento per tutta la vita attraverso diverse opportunità di formazione e sviluppo, trasferimento di conoscenze interne e e-learning.\n• Sosteniamo l'equilibrio della vita lavorativa con orari di lavoro flessibili.\n• Offriamo supporto per soluzioni di mobilità sostenibile come i trasporti pubblici.\n• Sosteniamo le politiche di famiglia, compresi i luoghi di assistenza all'infanzia e i servizi di assistenza all'infanzia durante le vacanze scolastiche.\n• Vi offriamo un ruolo significativo con impatto globale in un ambiente di lavoro stabile e innovativo. Come si applica? Per applicare ti chiediamo gentilmente di caricare i tuoi documenti nella nostra pagina di carriera. Le domande inviateci da E-Mail non possono purtroppo essere considerate a causa delle Considerazioni sulla privacy dei dati. Agenzie, fornitori di servizi HR o entità simili sono cortesemente invitati a astenersi dalla presentazione non richiesta di profili e richieste per quanto riguarda la potenziale collaborazione. Attualmente, non ci impegniamo con fornitori di servizi esterni per questo ruolo. Eventuali applicazioni non richieste saranno ignorate e eliminate senza ulteriori considerazioni. Apprezziamo la vostra comprensione. Richiedi ora »\n• Iniziare con LinkedIn <a href=\"javascript:alert('Use your Linked Nel profilo per unirsi al nostro",
+      "en": "At Endress+Hauser, progress happens by working together. As the global leader in measurement instrumentation, with over 18,000 employees shape the future in the field of process automation. Whether developing and realizing new technology as a team, collaborating to build instrumentation, or strengthening vital relationships with countless global industries, we work to create trusted relationships that help everyone thrive. As a family-owned company, we look beyond short-term moves and work to create a vision that is forward-thinking for our people, our clients, and the world at large.\n\nWe are looking for an Expert Global Production Master Data (f/m/d) to join our team and help lay the foundation for a connected, efficient, and future-ready global production environment where data makes the difference.\n\nWhat is this position about?\n\nDo you enjoy connecting complex production processes on a global scale? Are you excited about using data to make a real impact on quality, efficiency, and innovation? Do you find international coordination and cross-site collaboration motivating?\n\nIf so, you can expect an exciting role in which you will actively shape and further develop the digital backbone of our global production.\n\nWhat tasks will you perform?\n\nYou will:\n\n• work in a dynamic, globally operating team and collaborate across sites with production, engineering, and digitalization functions.\n\n• coordinate complex alignments within an international production network.\n\n• define, maintain, and ensure the quality of production master data, including variant configuration, and ensure consistent data structures throughout the entire product lifecycle.\n\n• contribute to and optimize standards, processes, and continuous improvements in master data maintenance, driving global harmonization, standardization, and the further development of underlying process logic.\n\n• take responsibility as a (sub-)project manager in product development projects for the global industrialization of new products and steer cross-site introduction and rollout activities within the international manufacturing network.\n\n• ensure coordination and implementation of changes across the entire product lifecycle as a product-responsible manufacturing planner.\n\nWhat do we expect from you?\n\nYou:\n\n• hold a degree in a technical field (e.g., production engineering, mechanical engineering, industrial engineering, or similar) and have at least 8 years of professional experience in an industrial environment, with proven experience in production-related engineering, master data and industrialization roles, as well as international experience.\n\n• bring strong expert knowledge in maintaining SAP production master data, particularly in routings, bills of materials, and variant configuration, along with a deep understanding of SAP ERP as a central system for managing and integrating core processes such as materials management, production planning, logistics, and master data.\n\n• have proven experience in implementing, rolling out, or further developing SAP ME in a variant-rich manufacturing environment and are experienced in the operational implementation of complex system and process dependencies between the shop floor, SAP ME and SAP ERP.\n\n• have at least 8 years of experience in project management and in the industrialization of new products, the introduction of new products, processes, or technologies, as well as cross-site rollouts in an international environment.\n\n• possess a strong global mindset, intercultural competence, and the ability to effectively manage and coordinate complex topics in an international and decentralized production network. You can assess different requirements, priorities, processes, maturity levels, and local conditions of international production sites and translate them into sustainable, globally consistent, and implementable solutions.\n\n• convince with a high level of communication, alignment, and integration skills across countries, functions, and locations, and have the ability to bring together diverse stakeholders with sometimes differing interests while sustainably harmonizing and optimizing global master data processes.\n\n• are fluent in English, both written and spoken, and work in a structured, responsible and team-oriented manner.\n\nWhat can you expect from us?\n\n• We are a family-owned company with a strong commitment and a sustainable vision.\n\n• We promote lifelong learning through diverse training and development opportunities, internal knowledge transfer, and e-learning.\n\n• We support work-life balance with flexible working hours.\n\n• We offer support for sustainable mobility solutions such as public transportation.\n\n• We support family-friendly policies, including childcare places and childcare services during school holidays.\n\n• We offer you a meaningful role with global impact in a stable and innovative working environment.\n\nHow do you apply?\n\nTo apply we kindly ask you to upload your documents on our career page. Applications sent to us by E-Mail can unfortunately not be considered due to Data Privacy Considerations.\n\nAgencies, HR service providers, or similar entities are kindly requested to refrain from unsolicited submission of profiles and inquiries regarding potential collaboration. Currently, we do not engage with external service providers for this role. Any unsolicited applications will be disregarded and deleted without further consideration. We appreciate your understanding.",
+      "de": "Bei Endress+ Hauser, Fortschritt geschieht durch Zusammenarbeit. Als weltweit führender Anbieter von Messinstrumenten gestalten über 18.000 Mitarbeiter die Zukunft im Bereich der Prozessautomatisierung. Ob die Entwicklung und Realisierung neuer Technologien als Team, die Zusammenarbeit beim Aufbau von Instrumenten oder die Stärkung wichtiger Beziehungen zu unzähligen globalen Branchen, wir arbeiten daran, vertrauenswürdige Beziehungen zu schaffen, die allen helfen, erfolgreich zu sein. Als Familienunternehmen blicken wir über kurzfristige Schritte hinaus und arbeiten daran, eine Vision zu schaffen, die für unsere Mitarbeiter, unsere Kunden und die Welt insgesamt zukunftsweisend ist. Wir suchen einen Expert Global Production Master Data (w/m/d), der unserem Team beitritt und die Grundlage für eine vernetzte, effiziente und zukunftsfähige globale Produktionsumgebung schafft, in der Daten den Unterschied ausmachen. Worum geht es hier? Haben Sie Spaß daran, komplexe Produktionsprozesse auf globaler Ebene zu verbinden? Sind Sie begeistert davon, Daten zu nutzen, um einen echten Einfluss auf Qualität, Effizienz und Innovation zu haben? Finden Sie internationale Koordination und standortübergreifende Zusammenarbeit motivierend? Dann erwarten Sie eine spannende Rolle, in der Sie das digitale Rückgrat unserer globalen Produktion aktiv mitgestalten und weiterentwickeln werden. Welche Aufgaben werden Sie ausführen? Sie werden\n• Arbeiten Sie in einem dynamischen, global agierenden Team und arbeiten Sie standortübergreifend mit Produktions-, Engineering- und Digitalisierungsfunktionen zusammen.\n• Koordination komplexer Ausrichtungen innerhalb eines internationalen Produktionsnetzwerks.\n• Festlegung, Pflege und Sicherstellung der Qualität der Produktionsstammdaten, einschließlich der Variantenkonfiguration, sowie Gewährleistung einheitlicher Datenstrukturen über den gesamten Produktlebenszyklus.\n• Beitrag zu und Optimierung von Standards, Prozessen und kontinuierlichen Verbesserungen in der Stammdatenpflege, Förderung der globalen Harmonisierung, Standardisierung und Weiterentwicklung der zugrunde liegenden Prozesslogik.\n• übernehmen als (Teil-)Projektleiter in Produktentwicklungsprojekten Verantwortung für die globale Industrialisierung neuer Produkte und steuern standortübergreifende Einführungs- und Rollout-Aktivitäten im internationalen Fertigungsnetzwerk.\n• Gewährleistung der Koordination und Umsetzung von Änderungen über den gesamten Produktlebenszyklus als produktverantwortlicher Fertigungsplaner. Was erwarten wir von Ihnen? Sie:\n• einen Abschluss in einem technischen Bereich (z. B. Produktionstechnik, Maschinenbau, Wirtschaftsingenieurwesen oder ähnliches) und mindestens 8 Jahre Berufserfahrung in einem industriellen Umfeld mit nachgewiesener Erfahrung in Produktionstechnik, Stammdaten und Industrialisierungsrollen sowie internationaler Erfahrung haben.\n• Bringen Sie fundiertes Expertenwissen in die Pflege von SAP-Produktionsstammdaten, insbesondere in Routings, Materialrechnungen und Variantenkonfiguration, sowie ein tiefes Verständnis von SAP ERP als zentrales System zur Verwaltung und Integration von Kernprozessen wie Materialmanagement, Produktionsplanung, Logistik und Stammdaten mit.\n• über ausgewiesene Erfahrung in der Implementierung, Einführung oder Weiterentwicklung von SAP ME in einer variantenreichen Fertigungsumgebung verfügen und über Erfahrung in der operativen Umsetzung komplexer System- und Prozessabhängigkeiten zwischen Shopfloor, SAP ME und SAP ERP verfügen.\n• mindestens 8 Jahre Erfahrung im Projektmanagement und in der Industrialisierung neuer Produkte, der Einführung neuer Produkte, Prozesse oder Technologien sowie standortübergreifender Rollouts im internationalen Umfeld.\n• besitzen eine starke globale Denkweise, interkulturelle Kompetenz und die Fähigkeit, komplexe Themen in einem internationalen und dezentralen Produktionsnetzwerk effektiv zu verwalten und zu koordinieren. Sie können unterschiedliche Anforderungen, Prioritäten, Prozesse, Reifegrade und lokale Bedingungen internationaler Produktionsstandorte bewerten und in nachhaltige, global konsistente und umsetzbare Lösungen umsetzen.\n• überzeugen durch ein hohes Maß an Kommunikations-, Ausrichtungs- und Integrationsfähigkeiten über Länder, Funktionen und Standorte hinweg und haben die Fähigkeit, verschiedene Stakeholder mit teilweise unterschiedlichen Interessen zusammenzubringen und gleichzeitig globale Stammdatenprozesse nachhaltig zu harmonisieren und zu optimieren.\n• Sie sprechen fließend Englisch, sowohl geschrieben als auch gesprochen, und arbeiten strukturiert, verantwortungsbewusst und teamorientiert. Was können Sie von uns erwarten?\n• Wir sind ein Familienunternehmen mit einem starken Engagement und einer nachhaltigen Vision.\n• Wir fördern lebenslanges Lernen durch vielfältige Ausbildungs- und Entwicklungsmöglichkeiten, internen Wissenstransfer und E-Learning.\n• Wir unterstützen die Work-Life-Balance durch flexible Arbeitszeiten.\n• Wir bieten Unterstützung für nachhaltige Mobilitätslösungen wie den öffentlichen Verkehr.\n• Wir unterstützen familienfreundliche Politik, einschließlich Kinderbetreuungsplätze und Kinderbetreuungsdienste während der Schulferien.\n• Wir bieten Ihnen eine sinnvolle Rolle mit globaler Wirkung in einem stabilen und innovativen Arbeitsumfeld. Wie bewerben Sie sich? Um sich zu bewerben, bitten wir Sie, Ihre Dokumente auf unserer Karriereseite hochzuladen. Bewerbungen, die uns per E-Mail zugesandt werden, können aus Datenschutzgründen leider nicht berücksichtigt werden. Agenturen, HR-Dienstleister oder ähnliche Einrichtungen werden gebeten, die unaufgeforderte Einreichung von Profilen und Anfragen bezüglich einer möglichen Zusammenarbeit zu unterlassen. Derzeit engagieren wir uns nicht mit externen Dienstleistern für diese Rolle. Alle unaufgeforderten Anträge werden ohne weitere Berücksichtigung unberücksichtigt gelassen und gelöscht. Wir schätzen Ihr Verständnis. Jetzt bewerben »\n• Bewerben Sie sich mit LinkedIn <a href=\"javascript:alert('Verwenden Sie Ihren Link) Im Profil, um unserem beizutreten",
+      "fr": "Chez Endress+ Hauser, le progrès se produit en travaillant ensemble. Leader mondial de l'instrumentation de mesure, plus de 18 000 employés façonnent l'avenir dans le domaine de l'automatisation des processus. Qu'il s'agisse de développer et de réaliser de nouvelles technologies en équipe, de collaborer à la construction d'instruments ou de renforcer les relations vitales avec d'innombrables industries mondiales, nous travaillons à créer des relations de confiance qui aident chacun à prospérer. En tant qu'entreprise familiale, nous regardons au-delà des mouvements à court terme et travaillons pour créer une vision qui est prospective pour nos gens, nos clients et le monde en général. Nous sommes à la recherche d'un Master Data Expert Global Production (f/m/d) pour rejoindre notre équipe et contribuer à jeter les bases d'un environnement de production mondial connecté, efficace et prêt à l'avenir où les données font la différence. Quelle est cette position ? Vous aimez connecter des processus de production complexes à l'échelle mondiale ? Êtes-vous excité par l'utilisation des données pour avoir un impact réel sur la qualité, l'efficacité et l'innovation? Trouvez-vous la coordination internationale et la collaboration intersite motivante? Si oui, vous pouvez vous attendre à un rôle passionnant dans lequel vous façonnerez et développerez activement l'épine dorsale numérique de notre production mondiale. Quelles tâches allez-vous accomplir? Vous:\n• travailler dans une équipe dynamique et mondiale et collaborer à travers les sites avec des fonctions de production, d'ingénierie et de numérisation.\n• coordonner des alignements complexes au sein d'un réseau international de production.\n• définir, maintenir et assurer la qualité des données maîtresses de production, y compris la configuration des variantes, et assurer la cohérence des structures de données tout au long du cycle de vie du produit.\n• contribuer et optimiser les normes, les processus et les améliorations continues de la maintenance des données maîtresses, favoriser l'harmonisation mondiale, la normalisation et le développement de la logique de processus sous-jacente.\n• prendre la responsabilité en tant que (sous-)gestionnaire de projets de développement de produits pour l'industrialisation mondiale de nouveaux produits et orienter les activités d'introduction et de déploiement trans-site au sein du réseau international de fabrication.\n• assurer la coordination et la mise en oeuvre des changements tout au long du cycle de vie du produit en tant que planificateur de fabrication responsable du produit. Qu'attendons-nous de vous ? Vous :\n• Être titulaire d'un diplôme dans un domaine technique (p. ex., génie de la production, génie mécanique, génie industriel, etc.) et avoir au moins 8 ans d'expérience professionnelle dans un environnement industriel, avec une expérience éprouvée dans le domaine de l'ingénierie de la production, des données de maîtrise et de l'industrialisation, ainsi qu'une expérience internationale.\n• apporter une solide connaissance experte dans le maintien des données de base de production SAP, en particulier dans les routages, les factures de matériaux et la configuration des variantes, ainsi qu'une compréhension approfondie de SAP ERP en tant que système central de gestion et d'intégration des processus de base tels que la gestion des matériaux, la planification de la production, la logistique et les données de base.\n• ont prouvé l'expérience dans la mise en œuvre, le déploiement ou le développement de SAP ME dans un environnement de fabrication riche en variantes et sont expérimentés dans la mise en œuvre opérationnelle de systèmes complexes et dépendances de processus entre l'atelier, SAP ME et SAP ERP.\n• avoir au moins 8 ans d'expérience dans la gestion de projets et dans l'industrialisation de nouveaux produits, l'introduction de nouveaux produits, procédés ou technologies, ainsi que des déploiements inter-site dans un environnement international.\n• posséder une solide mentalité mondiale, une compétence interculturelle et la capacité de gérer et de coordonner efficacement des sujets complexes dans un réseau de production international et décentralisé. Vous pouvez évaluer les différentes exigences, priorités, processus, niveaux de maturité et conditions locales des sites de production internationaux et les traduire en solutions durables, cohérentes à l'échelle mondiale et réalisables.\n• convaincre avec un haut niveau de communication, d'alignement et d'intégration des compétences dans les pays, les fonctions et les lieux, et avoir la capacité de réunir diverses parties prenantes avec des intérêts parfois différents tout en harmonisant et optimisant durablement les processus mondiaux de gestion des données.\n• sont parlants en anglais, écrits et parlés, et travaillent de manière structurée, responsable et axée sur l'équipe. Qu'attendez-vous de nous ?\n• Nous sommes une entreprise familiale avec un engagement fort et une vision durable.\n• Nous favorisons l'apprentissage tout au long de la vie grâce à diverses possibilités de formation et de développement, au transfert interne des connaissances et à l'apprentissage en ligne.\n• Nous soutenons l'équilibre travail-vie privée avec des horaires flexibles.\n• Nous offrons un soutien pour des solutions de mobilité durable telles que les transports en commun.\n• Nous soutenons les politiques favorables à la famille, y compris les lieux de garde d'enfants et les services de garde d'enfants pendant les vacances scolaires.\n• Nous vous offrons un rôle significatif avec un impact mondial dans un environnement de travail stable et innovant. Comment postuler ? Pour postuler, nous vous prions de bien vouloir télécharger vos documents sur notre page carrière. Les demandes qui nous sont envoyées par e-mail ne peuvent malheureusement pas être considérées en raison de considérations de confidentialité des données. Les organismes, les fournisseurs de services de RH ou des entités similaires sont priés de s'abstenir de soumettre sans invitation des profils et des demandes de renseignements concernant une collaboration éventuelle. Actuellement, nous n'intervenons pas avec des fournisseurs de services externes pour ce rôle. Toute demande non sollicitée sera ignorée et supprimée sans autre considération. Nous apprécions votre compréhension. Postuler maintenant »\n• Commencez à postuler avec LinkedIn <a href=\"javascript:alert('Utilisez votre lien En profil pour rejoindre notre"
+    },
+    "slugByLocale": {
+      "it": "dati-master-di-produzione-globale-esperti-f-m-d-al-100-endress-hauser-reinach",
+      "en": "expert-global-production-master-data-f-m-d-100-endress-hauser-reinach",
+      "de": "expert-global-production-master-data-f-m-d-100-endress-hauser-reinach",
+      "fr": "donnees-de-reference-sur-la-production-mondiale-f-m-d-100-endress-hauser-reinach"
+    },
+    "sector": "Strumentazione industriale / Automazione",
+    "expiredAt": "2026-09-19T22:56:33.096Z",
+    "previousSlugs": [
+      "expert-global-production-master-data-f-m-d-100-endress-hauser-reinach",
+      "esperto-di-gestione-ordini-e-dati-master-80-100-lun-f-giorno-endress-hauser-reinach",
+      "order-handling-master-data-expert-80-100-m-f-d-endress-hauser-reinach",
+      "expert-en-gestion-des-commandes-et-donnees-de-base-80-100-m-f-d-endress-hauser-reinach"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "expert-global-production-master-data-f-m-d-100-endress-hauser-reinach",
+        "esperto-di-gestione-ordini-e-dati-master-80-100-lun-f-giorno-endress-hauser-reinach",
+        "order-handling-master-data-expert-80-100-m-f-d-endress-hauser-reinach",
+        "expert-en-gestion-des-commandes-et-donnees-de-base-80-100-m-f-d-endress-hauser-reinach"
+      ],
+      "de": [
+        "order-handling-master-data-expert-80-100-m-f-d-endress-hauser-reinach"
+      ],
+      "fr": [
+        "expert-global-production-master-data-f-m-d-100-endress-hauser-reinach",
+        "expert-en-gestion-des-commandes-et-donnees-de-base-80-100-m-f-d-endress-hauser-reinach"
+      ]
+    },
+    "postalCode": "4153",
+    "salaryMin": 72500,
+    "salaryMax": 110500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "dati-master-di-produzione-globale-esperti-f-m-d-al-100-endress-hauser-reinach-2f31e3bd",
@@ -4812,6 +5729,38 @@
         "title": "Head of Technology IIoT & AI - m/f/d"
       }
     ]
+  },
+  {
+    "slug": "it-ot-service-manager-m-w-d-endress-hauser-reinach",
+    "title": "IT/OT Service Manager (m/w/d)",
+    "titleByLocale": {
+      "it": "IT/OT Service Manager (m/f/d)",
+      "en": "IT/OT Service Manager (m/f/d)",
+      "de": "IT/OT Service Manager (m/w/d)",
+      "fr": "Gestionnaire de services IT/OT (m/f/d)"
+    },
+    "company": "Endress+Hauser",
+    "companyKey": "endress-hauser",
+    "location": "Reinach",
+    "addressLocality": "Reinach",
+    "descriptionByLocale": {
+      "it": "A Endress+ Hauser, i progressi sono fatti attraverso la collaborazione. Come fornitore leader mondiale di strumenti di misura, i nostri oltre 18.000 dipendenti stanno plasmando il futuro nel campo dell’automazione dei processi. Che si tratti di innovare e implementare nuove tecnologie in un team, lavorare insieme per sviluppare nuovi dispositivi, o rafforzare relazioni importanti con diverse industrie globali, il nostro lavoro si basa sulla costruzione di relazioni di fiducia che aiutano tutti ad avere successo. Come azienda a conduzione familiare, guardiamo oltre gli obiettivi a breve termine e lavoriamo per creare una visione orientata al futuro per i nostri dipendenti, i nostri clienti e il mondo in generale.\n\nCosa c'è in gioco qui?\n\nIn qualità di IT/OT Service Manager (m/f/d) si lavora in un team responsabile della gestione del ciclo di vita di IT/OT Solutions o Services.\n\nQuali compiti assumerai?\n\n• Come punto di contatto centrale, lavorerai molto a stretto contatto con i nostri clienti interni (produzione, ingegneria, sviluppo, ecc.) al fine di comprendere le loro esigenze e soddisfare le loro esigenze per i servizi IT/OT.\n\n• Analizzerai e modella i processi e traduci i requisiti aziendali in requisiti IT per la realizzazione\n\n• Svilupperai Servizi IT/OT insieme ad architetti software e product manager IT\n\n• Diventano servizi IT/OT, responsabili della loro documentazione, test, monitoraggio e ulteriore sviluppo\n\n• Prenderai il controllo della gestione dei progetti di digitalizzazione se necessario\n\nCosa ci aspettiamo da te?\n\n• Hai completato una laurea tecnica con una specializzazione in elettronica, informatica, tecnologia di automazione o una qualifica paragonabile\n\n• Hai diversi anni di esperienza professionale con sistemi IT/OT (ad esempio SCADA, MES, PLC, piattaforme IoT) nell'ambiente industriale e idealmente nell'ambiente di test\n\n• Hai la capacità di assorbire e analizzare i requisiti del cliente, creare concetti tecnici e suggerimenti di servizio\n\n• Hanno una buona conoscenza dell'inglese\n\n• Sono una personalità creativa, comunicativa e capace di squadra\n\n• Hai esperienza nella gestione dei progetti\n\nCosa puoi aspettarti da noi?\n\n• Siamo un'azienda familiare con grande impegno e una visione sostenibile\n\n• Promuoviamo l'apprendimento lungo tutto l'arco della vita attraverso diverse opportunità di formazione e di formazione, trasferimento di conoscenze interne e apprendimento\n\n• Sosteniamo il vostro equilibrio di vita lavorativa con orari di lavoro flessibili e un ambiente di lavoro che tiene conto della vostra realtà di vita\n\n• Offriamo supporto per la mobilità sostenibile, ad esempio B.\n\n• Promuoviamo offerte per famiglie come l'infanzia e programmi di vacanza per i vostri bambini\n\nCome si applica?\n\nPer richiedere, ti chiediamo di caricare i tuoi documenti nella nostra pagina di carriera. Le domande inviateci via e-mail non possono purtroppo essere considerate per motivi di protezione dei dati.\n\n*Chiediamo gentilmente alle agenzie, ai fornitori di servizi HR o alle organizzazioni simili di astenersi dalla presentazione non richiesta di profili e richieste di cooperazione. Attualmente non lavoriamo con fornitori di servizi esterni per questa posizione. Le applicazioni non richieste non vengono considerate e eliminate senza ulteriore elaborazione. Grazie per la vostra comprensione.\n\nApplica ora,\n\n<li role=\"none\" class=\"tc-provider-option social-apply-option cookiemanaged applicationListItemOption-linkedin\" style=\"display:none\" id=\"applyListItemOption-bottom-linked",
+      "en": "At Endress+Hauser, progress is made through collaboration. As the world’s leading provider of measuring instruments, our more than 18,000 employees are shaping the future in the field of process automation. Whether it’s innovating and implementing new technologies in a team, working together to develop new devices, or strengthening important relationships with different global industries, our work is based on building trusted relationships that help everyone succeed. As a family-run company, we look beyond short-term goals and work to create a future-oriented vision for our employees, our customers and the world in general.\n\nWhat is at stake here?\n\nAs an IT/OT Service Manager (m/f/d) you work in a team that is responsible for the life cycle management of IT/OT Solutions or Services.\n\nWhat tasks will you take on?\n\n• As a central point of contact, you will work very closely with our internal customers (production, engineering, development, etc.) in order to understand their needs and meet their requirements for IT/OT services.\n\n• You will analyze and model processes and translate business requirements into IT requirements for realization\n\n• You will develop IT/OT Services together with software architects and IT product managers\n\n• They become IT/OT services, responsible for their documentation, testing, monitoring and further development\n\n• You will take over the management of digitalization projects if necessary\n\nWhat do we expect from you?\n\n• You have completed a technical degree with a specialization in electronics, computer science, automation technology or a comparable qualification\n\n• You have several years of professional experience with IT/OT systems (e.g. SCADA, MES, PLC, IoT platforms) in the industrial environment and ideally in the test environment\n\n• You have the ability to absorb and analyze customer requirements, create technical concepts and service suggestions\n\n• They have a good knowledge of English\n\n• Are a creative, communicative and team capable personality\n\n• You have experience in project management\n\nWhat can you expect from us?\n\n• We are a family company with great commitment and a sustainable vision\n\n• We promote lifelong learning through diverse training and further education opportunities, internal knowledge transfer and e-learning\n\n• We support your work-life balance with flexible working hours and a working environment that takes your life reality into account\n\n• We offer support for sustainable mobility, e.g. B. Public transport grants\n\n• We promote family-friendly offers such as childcare and holiday programs for your children\n\nHow do you apply?\n\nTo apply, we ask you to upload your documents to our career page. Applications sent to us by e-mail can unfortunately not be considered for data protection reasons.\n\n*We kindly ask agencies, HR service providers or similar organizations to refrain from unsolicited submission of profiles and requests for cooperation. We do not currently work with external service providers for this position. Unsolicited applications are not considered and deleted without further processing. Thank you for your understanding.\n\nApply now,\n\n<li role=\"none\" class=\"tc-provider-option social-apply-option cookiemanaged applyListItemOption-linkedin\" style=\"display:none\" id=\"applyListItemOption-bottom-linked",
+      "de": "Bei Endress+Hauser geschieht Fortschritt durch Zusammenarbeit. Als weltweit führender Anbieter von Messgeräten gestalten unsere über 18.000 Mitarbeitenden die Zukunft im Bereich der Prozessautomatisierung. Ob bei der Innovation und Umsetzung neuer Technologien im Team, der Zusammenarbeit in der Entwicklung neuer Geräte oder der Stärkung wichtiger Beziehungen zu verschiedenen globalen Industrien: Unsere Arbeit basiert darauf, vertrauensvolle Beziehungen aufzubauen, die allen zum Erfolg verhelfen. Als familiengeführtes Unternehmen schauen wir über kurzfristige Ziele hinaus und arbeiten daran, eine zukunftsorientierte Vision für unsere Mitarbeitenden, unsere Kundinnen und Kunden und die Welt im Allgemeinen zu schaffen.\n\nWorum geht es in dieser Stelle?\n\nAls IT/OT Service Manager (m/w/d) arbeiten Sie in einem Team, dass die Verantwortung für den Life Cycle Management von IT/OT Solutions, beziehungsweise Services hat.\n\nWelche Aufgaben werden Sie übernehmen?\n\n• Sie werden, als zentraler Ansprechpartner, sehr eng mit unseren internen Kunden (Produktion, Engineering, Entwicklung, usw.) zusammenarbeiten, um ihre Bedürfnisse zu verstehen und ihre Anforderungen an IT/OT Services aufzunehmen\n\n• Sie werden Prozesse analysieren und modellieren und Geschäftsanforderungen in IT-Anforderungen hinsichtlich Realisierung übersetzen\n\n• Sie werden IT/OT Services, zusammen mit Softwarearchitekten und IT-Produktverantwortlichen, erarbeiten\n\n• Sie werden IT/OT Services, verantworten inkl. deren Dokumentation, Test, Monitoring und Weiterentwicklung\n\n• Sie werden bei Bedarf die Leitung von Digitalisierungsprojekten übernehmen\n\nWas erwarten wir von Ihnen?\n\n• Sie bringen ein abgeschlossenes technisches Studium mit Fachrichtung Elektronik, Informatik, Automatisierungstechnik oder eine vergleichbare Qualifikation mit\n\n• Sie haben mehrjährige Berufserfahrung mit IT/OT-Systemen (z. B. SCADA, MES, SPS, IoT-Plattformen) im industriellen Umfeld und idealerweise im Testumfeld\n\n• Sie haben die Fähigkeit Kundenanforderungen aufzunehmen und zu analysieren, technische Konzepte und Servicevorschläge zu erstellen\n\n• Sie verfügen über gute Englischkenntnisse\n\n• Sind eine kreative, kommunikative und teamfähige Persönlichkeit\n\n• Sie bringen Erfahrung in der Projektleitung mit\n\nWas können Sie von uns erwarten?\n\n• Wir sind ein Familienunternehmen mit großem Engagement und einer nachhaltigen Vision\n\n• Wir fördern lebenslanges Lernen durch vielfältige Schulungs- und Weiterbildungsmöglichkeiten, internen Wissenstransfer und E-Learning\n\n• Wir unterstützen Ihre Work-Life-Balance mit flexiblen Arbeitszeiten und einem Arbeitsumfeld, das Rücksicht auf Ihre Lebensrealität nimmt\n\n• Wir bieten Unterstützung bei nachhaltiger Mobilität, z. B. durch Zuschüsse für den öffentlichen Nahverkehr\n\n• Wir fördern familienfreundliche Angebote wie Kinderbetreuung und Ferienprogramme für Ihre Kinder\n\nWie bewerben Sie sich?\n\nUm sich zu bewerben, bitten wir Sie, Ihre Unterlagen auf unserer Karriereseite hochzuladen. Bewerbungen, die uns per E-Mail zugesandt werden, können leider aus Datenschutzgründen nicht berücksichtigt werden.\n\n*Agenturen, HR-Dienstleister oder ähnliche Organisationen bitten wir höflich, von der unaufgeforderten Einsendung von Profilen und Anfragen zur Zusammenarbeit abzusehen. Derzeit arbeiten wir für diese Position nicht mit externen Dienstleistern zusammen. Unaufgeforderte Bewerbungen werden nicht berücksichtigt und ohne weitere Bearbeitung gelöscht. Wir danken für Ihr Verständnis.",
+      "fr": "Chez Endress+ Hauser, des progrès sont réalisés grâce à la collaboration. En tant que premier fournisseur mondial d'instruments de mesure, nos plus de 18 000 employés façonnent l'avenir dans le domaine de l'automatisation des processus. Que ce soit l'innovation et la mise en œuvre de nouvelles technologies dans une équipe, la collaboration pour développer de nouveaux appareils ou le renforcement de relations importantes avec différentes industries mondiales, notre travail est basé sur l'établissement de relations de confiance qui aident chacun à réussir. En tant qu'entreprise familiale, nous regardons au-delà des objectifs à court terme et travaillons pour créer une vision prospective pour nos employés, nos clients et le monde en général.\n\nQuel est l'enjeu ici ?\n\nEn tant que gestionnaire de services IT/OT (m/f/d), vous travaillez dans une équipe responsable de la gestion du cycle de vie des solutions ou des services IT/OT.\n\nQuelles tâches allez-vous entreprendre?\n\n• En tant que point de contact central, vous travaillerez en étroite collaboration avec nos clients internes (production, ingénierie, développement, etc.) afin de comprendre leurs besoins et de répondre à leurs besoins en services IT/OT.\n\n• Vous allez analyser et modéliser les processus et traduire les exigences opérationnelles en exigences informatiques pour la réalisation\n\n• Vous développerez des services IT/OT avec des architectes logiciels et des gestionnaires de produits IT\n\n• Ils deviennent des services IT/OT, chargés de la documentation, des essais, du suivi et du développement\n\n• Vous prendrez en charge la gestion des projets de numérisation si nécessaire\n\nQu'attendons-nous de vous ?\n\n• Vous avez obtenu un diplôme technique avec une spécialisation en électronique, informatique, technologie d'automatisation ou une qualification comparable\n\n• Vous avez plusieurs années d'expérience professionnelle avec les systèmes IT/OT (par exemple SCADA, MES, PLC, IoT plates-formes) dans l'environnement industriel et idéalement dans l'environnement de test\n\n• Vous avez la capacité d'absorber et d'analyser les besoins des clients, de créer des concepts techniques et des suggestions de service\n\n• Ils ont une bonne connaissance de l'anglais\n\n• Sont une personnalité créative, communicative et capable d'équipe\n\n• Vous avez de l'expérience en gestion de projet\n\nQu'attendez-vous de nous ?\n\n• Nous sommes une entreprise familiale avec un grand engagement et une vision durable\n\n• Nous encourageons l'éducation et la formation tout au long de la vie au moyen de diverses possibilités de formation et de formation continue, du transfert interne des connaissances et de l'apprentissage en ligne\n\n• Nous soutenons votre équilibre travail-vie personnelle avec des horaires de travail flexibles et un environnement de travail qui prend en compte votre réalité de vie\n\n• Nous offrons un soutien à la mobilité durable, par exemple B.\n\n• Nous faisons la promotion d'offres familiales telles que des programmes de garde d'enfants et de vacances pour vos enfants\n\nComment postuler?\n\nPour postuler, nous vous demandons de télécharger vos documents sur notre page de carrière. Les demandes qui nous sont envoyées par e-mail ne peuvent malheureusement pas être considérées pour des raisons de protection des données.\n\n*Nous demandons aux agences, aux fournisseurs de services RH ou à des organisations similaires de s'abstenir de présenter des profils et des demandes de coopération non sollicitées. Nous ne travaillons pas actuellement avec des fournisseurs de services externes pour ce poste. Les demandes non sollicitées ne sont pas examinées et supprimées sans traitement ultérieur. Merci de votre compréhension.\n\nAppliquer maintenant,\n\n<li role=\"none\" class=\"tc-provider-option social-apply-option cookiemanaged applyListItemOption-linkedin\" style=\"display:none\" id=\"applyListItemOption-bottom-linked"
+    },
+    "slugByLocale": {
+      "fr": "gestionnaire-de-services-it-ot-m-f-d-endress-hauser-reinach"
+    },
+    "sector": "Strumentazione industriale / Automazione",
+    "expiredAt": "2026-09-14T16:02:41.910Z",
+    "postalCode": "4153",
+    "salaryMin": 99500,
+    "salaryMax": 169500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-itot-service-manager-%28mwd%29-4153/1274773301",
+    "firstSeenAt": "2026-07-21T12:55:58.712Z"
   },
   {
     "slug": "apprendista-r-kauffrau-kaufmann-cfc-endress-hauser-reinach-8991a208",
@@ -6264,6 +7213,82 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-senior-project-managerin-data-management-%28wmd%29-4153/1290918201",
     "firstSeenAt": "2026-07-04T10:44:04.417Z"
+  },
+  {
+    "slug": "project-manager-tecnologia-nella-gestione-delle-strutture-al-100-m-f-d-endress-hauser-reinach",
+    "title": "Projektleiter*in Technik im Facility Management 100% (m/w/d)",
+    "titleByLocale": {
+      "it": "Project Manager Tecnologia nella Gestione delle Strutture al 100% (m/f/d)",
+      "en": "Project manager*in Technology in Facility Management 100% (m/f/d)",
+      "de": "Projektleiter*in Technik im Facility Management 100% (m/w/d)",
+      "fr": "Gestionnaire de projet* en technologie dans la gestion des installations 100% (m/f/d)"
+    },
+    "company": "Endress+Hauser",
+    "companyKey": "endress-hauser",
+    "location": "Reinach",
+    "addressLocality": "Reinach",
+    "descriptionByLocale": {
+      "it": "A Endress+ Hauser, i progressi sono fatti attraverso la collaborazione. Come fornitore leader mondiale di strumenti di misura, i nostri circa 17.000 dipendenti stanno plasmando il futuro nel campo dell’automazione dei processi. Che si tratti di innovare e implementare nuove tecnologie in un team, lavorare insieme per sviluppare nuovi dispositivi o rafforzare relazioni importanti con diverse industrie globali, il nostro lavoro si basa sulla costruzione di relazioni di fiducia che aiutano tutti ad avere successo. Come azienda a conduzione familiare, guardiamo oltre gli obiettivi a breve termine e lavoriamo per creare una visione orientata al futuro per i nostri dipendenti, i nostri clienti e il mondo in generale. Stiamo cercando un project manager nella gestione delle strutture (m/f/d) per integrare il nostro team di gestione delle strutture nel sito Reinach e sviluppare congiuntamente un'infrastruttura sostenibile, moderna e orientata al futuro. Cosa c'è in gioco qui? Vuoi controllare progetti tecnici impegnativi a tua responsabilità? Ti fa appello a contribuire attivamente alla strategia energetica 2030+ nel nostro campus? Ti piace riunire diversi stakeholder e implementare soluzioni insieme? In questo ruolo, formerai attivamente la nostra tecnologia di costruzione e guiderai progetti in avanti che hanno un impatto diretto su un ambiente di lavoro sostenibile ed efficiente. Quali compiti assumerai? Essi:\n• occupare la gestione complessiva dei progetti di piccole e medie dimensioni (0,1 - 10 milioni) nel settore della gestione degli impianti presso il sito Reinach, garantendo qualità, scadenze e costi.\n• focalizzarsi su progetti impegnativi nella costruzione della tecnologia e promuovere attivamente e sviluppare ulteriormente l'attuazione delle misure della strategia energetica 2030+.\n• i progettisti interni ed esterni e le aziende che eseguono conducono e coordinano, implementano linee guida strategiche in modo operativo e, se necessario, partecipano attivamente alla gestione delle costruzioni.\n• agire come interfaccia a diverse aree di business e quindi garantire una cooperazione regolare.\n• Contribuisci la tua esperienza in attrezzature per la costruzione tecnica e supporta i colleghi da operazioni e manutenzione in modo mirato. Cosa ci aspettiamo da te? Loro:\n• hanno una qualifica professionale nel campo della tecnologia di costruzione (automazione di costruzione o HVAC) con ulteriore formazione come tecnico di costruzione HF/FH o comparabile e conoscere gli standard SIA.\n• hanno diversi anni di esperienza in progetti tecnicamente impegnativi nell'ambiente industriale e idealmente una formazione di project management (IPMA Level C).\n• preferibilmente portare la conoscenza di strumenti CAD e la piattaforma di gestione degli edifici DesigoCC.\n• master tedesco in parola e scrittura, la conoscenza dell'inglese è un vantaggio.\n• Pensare concettualmente, agire orientato alla soluzione e comunicare in modo chiaro e convincente.\n• A loro piace lavorare in una squadra e vogliono fare la differenza insieme ad altri. Cosa puoi aspettarti da noi?\n• Siamo una società di famiglia con grande impegno e una visione sostenibile.\n• Promuoviamo l'apprendimento lungo tutto l'arco della vita attraverso diverse opportunità di formazione e di formazione, trasferimento di conoscenze interne e e-learning.\n• Sosteniamo il vostro equilibrio di vita lavorativa con orari di lavoro flessibili.\n• Offriamo supporto a soluzioni di mobilità sostenibile come i trasporti pubblici.\n• Ci concentriamo sulle condizioni quadro a misura di famiglia, compresi i servizi di assistenza all'infanzia. Come si applica? Per richiedere, ti chiediamo di caricare i tuoi documenti nella nostra pagina di carriera. Le domande inviateci via e-mail non possono purtroppo essere considerate per motivi di protezione dei dati. Agenzie, fornitori di servizi del personale o società simili sono tenuti a astenersi dalla trasmissione non richiesta di profili e richieste di possibile cooperazione. Attualmente non lavoriamo con fornitori di servizi esterni per questa posizione. Tutte le applicazioni non richieste dai fornitori di servizi non vengono considerate e eliminate senza ulteriori esami. Grazie per la vostra comprensione. #LI-NZ2 Applichi subito.\n• Avviare l'applicazione con LinkedIn Traduzione:",
+      "en": "At Endress+Hauser, progress is made through collaboration. As the world’s leading provider of measuring instruments, our approximately 17,000 employees are shaping the future in the field of process automation. Whether it’s innovating and implementing new technologies in a team, working together to develop new devices or strengthening important relationships with different global industries, our work is based on building trusted relationships that help everyone succeed. As a family-run company, we look beyond short-term goals and work to create a future-oriented vision for our employees, our customers and the world in general. We are looking for a project manager in facility management (m/f/d) to complement our facility management team at the Reinach site and jointly develop a sustainable, modern and future-oriented infrastructure. What is at stake here? Do you want to control demanding technical projects on your own responsibility? Does it appeal to you to actively contribute to the Energy Strategy 2030+ at our campus? Do you enjoy bringing together different stakeholders and implementing solutions together? In this role, you will actively shape our building technology and drive forward projects that have a direct impact on a sustainable and efficient working environment. What tasks will you take on? They shall:\n• take over the overall project management of small to medium-sized projects (0.1 - 10 million) in the area of facility management at the Reinach site, ensuring quality, deadlines and costs.\n• focus on challenging projects in building technology and actively promote and further develop the implementation of the measures of the Energy Strategy 2030+.\n• internal and external planners and executing companies lead and coordinate, implement strategic guidelines operationally and, if necessary, actively participate in the construction management.\n• act as an interface to different business areas and thus ensure smooth cooperation.\n• Contribute your expertise in technical building equipment and support colleagues from operations and maintenance in a targeted manner. What do we expect from you? They:\n• have a professional qualification in the field of building technology (building automation or HVAC) with further training as building technician HF/FH or comparable and know the SIA standards.\n• have several years of experience in technically challenging projects in the industrial environment and ideally a project management training (IPMA Level C).\n• preferably bring knowledge of CAD tools and the building management platform DesigoCC.\n• master German in word and writing, knowledge of English is an advantage.\n• Think conceptually, act solution-oriented and communicate clearly and convincingly.\n• They like to work in a team and want to make a difference together with others. What can you expect from us?\n• We are a family company with great commitment and a sustainable vision.\n• We promote lifelong learning through diverse training and further education opportunities, internal knowledge transfer and e-learning.\n• We support your work-life balance with flexible working hours.\n• We offer support in sustainable mobility solutions such as public transport.\n• We focus on family-friendly framework conditions, including childcare services. How do you apply? To apply, we ask you to upload your documents to our career page. Applications sent to us by e-mail can unfortunately not be considered for data protection reasons. Agencies, personnel service providers or similar companies are asked to refrain from the unsolicited transmission of profiles and requests for possible cooperation. We do not currently work with external service providers for this position. All unsolicited applications from service providers are not considered and deleted without further examination. Thank you for your understanding. #LI-NZ2 Apply now.\n• Start your application with LinkedIn <img aria-label=\"Help to apply with LinkedIn\" src=\"/platform/images",
+      "de": "Bei Endress+Hauser geschieht Fortschritt durch Zusammenarbeit. Als weltweit führender Anbieter von Messgeräten gestalten unsere rund 17'000 Mitarbeitenden die Zukunft im Bereich der Prozessautomatisierung. Ob bei der Innovation und Umsetzung neuer Technologien im Team, der Zusammenarbeit in der Entwicklung neuer Geräte oder der Stärkung wichtiger Beziehungen zu verschiedenen globalen Industrien: Unsere Arbeit basiert darauf, vertrauensvolle Beziehungen aufzubauen, die allen zum Erfolg verhelfen. Als familiengeführtes Unternehmen schauen wir über kurzfristige Ziele hinaus und arbeiten daran, eine zukunftsorientierte Vision für unsere Mitarbeitenden, unsere Kundinnen und Kunden und die Welt im Allgemeinen zu schaffen.\n\nWir suchen eine*n Projektleiter*in Technik im Facility Management (m/w/d), um unser Team im Facility Management am Standort Reinach zu ergänzen und gemeinsam eine nachhaltige, moderne und zukunftsorientierte Infrastruktur weiterzuentwickeln.\n\nWorum geht es in dieser Stelle?\nMöchten Sie anspruchsvolle technische Projekte eigenverantwortlich steuern? Reizt es Sie, aktiv zur Energiestrategie 2030+ an unserem Campus beizutragen? Haben Sie Freude daran, verschiedene Anspruchsgruppen zusammenzubringen und gemeinsam Lösungen zu realisieren? Dann gestalten Sie in dieser Rolle unsere Gebäudetechnik aktiv mit und treiben Projekte voran, die direkten Einfluss auf eine nachhaltige und effiziente Arbeitsumgebung haben.\n\nWelche Aufgaben werden Sie übernehmen?\nSie werden:\n\n• die Gesamtprojektleitung von kleinen bis mittleren Projekten (0.1 - 10 Mio.) im Bereich Facility Management am Standort Reinach übernehmen und dabei Qualität, Termine und Kosten sicherstellen.\n\n• den Fokus auf anspruchsvolle Projekte in der Gebäudetechnik legen und die Umsetzung der Massnahmen der Energiestrategie 2030+ aktiv vorantreiben und weiterentwickeln.\n\n•\ninterne sowie externe Planer und ausführende Unternehmen führen und koordinieren, setzen strategische Vorgaben operativ um und bringen sich bei Bedarf selbst aktiv in der Bauleitung ein.\n\n• als Schnittstelle zu verschiedenen Geschäftsbereichen wirken und so eine reibungslose Zusammenarbeit sicherstellen.\n\n• Ihr Fachwissen in der technischen Gebäudeausrüstung einbringen und Kolleg*innen aus Betrieb und Unterhalt gezielt unterstützen.\n\nWas erwarten wir von Ihnen?\nSie:\n\n• verfügen über einen Berufsabschluss im Bereich Gebäudetechnik (Gebäudeautomation oder HLKS) mit Weiterbildung als Gebäudetechniker HF/FH oder vergleichbar und kennen die SIA-Normen.\n\n• haben mehrjährige Erfahrung in technisch anspruchsvollen Projekten im industriellen Umfeld und idealerweise eine Projektmanagementausbildung (IPMA Level C).\n\n• bringen vorzugsweise Kenntnisse in CAD-Tools sowie der Gebäudemanagementplattform DesigoCC mit.\n\n• beherrschen Deutsch in Wort und Schrift, Englischkenntnisse sind von Vorteil.\n\n• denken konzeptionell, handeln lösungsorientiert und kommunizieren klar und überzeugend.\n\n• arbeiten gerne im Team und möchten gemeinsam mit anderen etwas bewegen.\n\nWas können Sie von uns erwarten?\n\n• Wir sind ein Familienunternehmen mit grossem Engagement und einer nachhaltigen Vision.\n\n• Wir fördern lebenslanges Lernen durch vielfältige Schulungs- und Weiterbildungsmöglichkeiten, internen Wissenstransfer und E-Learning.\n\n• Wir unterstützen Ihre Work-Life-Balance mit flexiblen Arbeitszeiten.\n\n• Wir bieten Unterstützung bei nachhaltigen Mobilitätslösungen wie öffentlichen Verkehrsmitteln.\n\n• Wir setzen auf familienfreundliche Rahmenbedingungen, einschliesslich Kinderbetreuungsangeboten.\n\nWie bewerben Sie sich?\nUm sich zu bewerben, bitten wir Sie, Ihre Unterlagen auf unserer Karriereseite hochzuladen. Bewerbungen, die uns per E-Mail zugesandt werden, können leider aus Datenschutzgründen nicht berücksichtigt werden.\n\nAgenturen, Personaldienstleister oder ähnliche Unternehmen werden gebeten, von der unaufgeforderten Übermittlung von Profilen und Anfragen zu einer möglichen Zusammenarbeit abzusehen. Derzeit arbeiten wir für diese Stelle nicht mit externen Dienstleistern zusammen. Alle unaufgeforderten Bewerbungen von Dienstleistern werden nicht berücksichtigt und ohne weitere Prüfung gelöscht. Wir bedanken uns für Ihr Verständnis.\n\n#LI-NZ2\n\nJetzt bewerben »\n\n•\n\nBewerbung mit LinkedIn starten\n\n<img aria-label=\"Hilfe zur Bewerbung mit LinkedIn\" src=\"/platform/images",
+      "fr": "Chez Endress+ Hauser, des progrès sont réalisés grâce à la collaboration. En tant que premier fournisseur mondial d'instruments de mesure, nos quelque 17 000 employés façonnent l'avenir dans le domaine de l'automatisation des processus. Que ce soit l'innovation et la mise en œuvre de nouvelles technologies dans une équipe, la collaboration pour développer de nouveaux appareils ou le renforcement de relations importantes avec différentes industries mondiales, notre travail est basé sur l'établissement de relations de confiance qui aident chacun à réussir. En tant qu'entreprise familiale, nous regardons au-delà des objectifs à court terme et travaillons à créer une vision prospective pour nos employés, nos clients et le monde en général. Nous cherchons un gestionnaire de projet en gestion des installations (m/f/d) pour compléter notre équipe de gestion des installations sur le site de Reinach et développer conjointement une infrastructure durable, moderne et orientée vers l'avenir. Quel est l'enjeu ici ? Voulez-vous contrôler les projets techniques exigeants de votre propre responsabilité? Vous plaît-il de contribuer activement à la Stratégie énergétique 2030+ sur notre campus? Aimez-vous rassembler différents acteurs et mettre en œuvre des solutions ensemble? Dans ce rôle, vous allez façonner activement notre technologie de construction et faire avancer des projets qui ont un impact direct sur un environnement de travail durable et efficace. Quelles tâches allez-vous entreprendre? Ils:\n• prendre en charge la gestion globale des projets de petite à moyenne dimension (0,1 à 10 millions) dans le domaine de la gestion des installations sur le site de Reinach, en assurant la qualité, les délais et les coûts.\n• mettre l'accent sur des projets stimulants dans le domaine de la construction technologique et promouvoir et développer activement la mise en œuvre des mesures de la stratégie énergétique 2030+.\n• les planificateurs internes et externes et les sociétés d'exécution dirigent et coordonnent, mettent en œuvre des lignes directrices stratégiques de manière opérationnelle et, si nécessaire, participent activement à la gestion de la construction.\n• agir en tant qu'interface avec différents secteurs d'activité et ainsi assurer une coopération harmonieuse.\n• Apportez votre expertise en équipement de construction technique et aidez vos collègues des opérations et de l'entretien de manière ciblée. Qu'attendons-nous de vous ? Ils :\n• ont une qualification professionnelle dans le domaine de la technologie du bâtiment (automatisation du bâtiment ou CVC) avec une formation continue en tant que technicien de bâtiment HF/FH ou comparable et connaissent les normes SIA.\n• avoir plusieurs années d'expérience dans des projets techniquement difficiles dans l'environnement industriel et idéalement une formation en gestion de projet (IPMA niveau C).\n• de préférence apporter la connaissance des outils CAO et la plate-forme de gestion du bâtiment DesigoCC.\n• maîtrise l'allemand en paroles et en écriture, la connaissance de l'anglais est un avantage.\n• Pensez conceptuellement, agissez en fonction de la solution et communiquez clairement et de manière convaincante.\n• Ils aiment travailler en équipe et veulent faire une différence avec les autres. Qu'attendez-vous de nous ?\n• Nous sommes une entreprise familiale avec un grand engagement et une vision durable.\n• Nous encourageons l'éducation et la formation tout au long de la vie par le biais de diverses possibilités de formation et de formation continue, du transfert interne des connaissances et de l'apprentissage en ligne.\n• Nous soutenons votre équilibre travail-vie personnelle avec des horaires de travail flexibles.\n• Nous offrons un soutien dans les solutions de mobilité durable telles que les transports en commun.\n• Nous nous concentrons sur les conditions-cadres favorables à la famille, y compris les services de garde d'enfants. Comment postuler ? Pour postuler, nous vous demandons de télécharger vos documents sur notre page carrière. Les demandes qui nous sont envoyées par e-mail ne peuvent malheureusement pas être considérées pour des raisons de protection des données. Les agences, les prestataires de services au personnel ou des entreprises similaires sont invités à s'abstenir de transmettre sans invitation des profils et des demandes de coopération éventuelle. Nous ne travaillons pas actuellement avec des fournisseurs de services externes pour ce poste. Toutes les demandes non sollicitées de fournisseurs de services ne sont pas examinées et supprimées sans examen plus approfondi. Merci de votre compréhension. NZ2 Demande maintenant.\n• Commencez votre application avec LinkedIn <img aria-label=\"Aide pour postuler avec LinkedIn\" src=\"/platform/images"
+    },
+    "slugByLocale": {
+      "it": "project-manager-tecnologia-nella-gestione-delle-strutture-al-100-m-f-d-endress-hauser-reinach",
+      "en": "project-manager-in-technology-in-facility-management-100-m-f-d-endress-hauser-reinach",
+      "de": "projektleiter-in-technik-im-facility-management-100-m-w-d-endress-hauser-reinach",
+      "fr": "gestionnaire-de-projet-en-technologie-dans-la-gestion-des-installations-100-m-f-d-endress-hauser-reinach"
+    },
+    "sector": "Strumentazione industriale / Automazione",
+    "expiredAt": "2026-07-15T22:20:28.278Z",
+    "previousSlugs": [
+      "projektleiter-in-technik-im-facility-management-100-m-w-d-endress-hauser-reinach",
+      "responsabile-tecnico-di-progetto-in-gestione-strutture-al-100-m-f-d-endress-hauser-reinach",
+      "technical-project-manager-in-facility-management-100-m-f-d-endress-hauser-reinach",
+      "technischer-projektmanager-im-facility-management-100-m-w-d-endress-hauser-reinach",
+      "gestionnaire-de-projet-technique-en-gestion-des-installations-100-m-f-d-endress-hauser-reinach"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "projektleiter-in-technik-im-facility-management-100-m-w-d-endress-hauser-reinach",
+        "responsabile-tecnico-di-progetto-in-gestione-strutture-al-100-m-f-d-endress-hauser-reinach",
+        "technical-project-manager-in-facility-management-100-m-f-d-endress-hauser-reinach",
+        "technischer-projektmanager-im-facility-management-100-m-w-d-endress-hauser-reinach",
+        "gestionnaire-de-projet-technique-en-gestion-des-installations-100-m-f-d-endress-hauser-reinach"
+      ],
+      "en": [
+        "projektleiter-in-technik-im-facility-management-100-m-w-d-endress-hauser-reinach",
+        "technical-project-manager-in-facility-management-100-m-f-d-endress-hauser-reinach"
+      ],
+      "fr": [
+        "projektleiter-in-technik-im-facility-management-100-m-w-d-endress-hauser-reinach",
+        "gestionnaire-de-projet-technique-en-gestion-des-installations-100-m-f-d-endress-hauser-reinach",
+        "technical-project-manager-in-facility-management-100-m-f-d-endress-hauser-reinach"
+      ],
+      "de": [
+        "technischer-projektmanager-im-facility-management-100-m-w-d-endress-hauser-reinach",
+        "technical-project-manager-in-facility-management-100-m-f-d-endress-hauser-reinach"
+      ]
+    },
+    "postalCode": "4153",
+    "salaryMin": 85500,
+    "salaryMax": 129500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-projektleiterin-technik-im-facility-management-100-%28mwd%29-4153/1398819233",
+    "firstSeenAt": "2026-07-04T10:43:58.694Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-projektleiterin-technik-im-facility-management-100-%28mwd%29-4153/1398819233",
+        "firstSeenAt": "2026-07-04T10:43:58.694Z",
+        "title": "Projektleiter*in Technik im Facility Management 100% (m/w/d)"
+      },
+      {
+        "sourceIdentity": "url:https://careers.endress.com/switzerland/job/reinach-technical-project-manager-in-facility-management-100-%28mfd%29-4153/1398819133",
+        "firstSeenAt": "2026-07-04T10:43:58.694Z",
+        "title": "Technical Project Manager in Facility Management 100% (m/f/d)"
+      }
+    ]
   },
   {
     "slug": "responsabile-sviluppo-industriale-acqua-acque-reflue-e-rifiuti-m-f-d-endress-hauser-reinach",

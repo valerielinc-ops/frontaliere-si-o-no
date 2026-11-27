@@ -42,7 +42,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/673276/2229/pub/1/index.html",
-    "firstSeenAt": "2026-09-04T13:47:24.050Z"
+    "firstSeenAt": "2026-09-04T13:47:24.050Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "postdoc-position-on-redox-targeted-flow-batteries-empa-dubendorf": "ZH"
+      }
+    }
   },
   {
     "id": "empa-96321f4a5541",
@@ -87,7 +93,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/673276/2226/pub/1/index.html",
-    "firstSeenAt": "2026-09-03T13:47:33.713Z"
+    "firstSeenAt": "2026-09-03T13:47:33.713Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "phd-position-on-nanozyme-based-coating-for-antimicrobial-implants-empa-st-gallen": "SG"
+      }
+    }
   },
   {
     "slug": "apprendista-laboratore-trice-afc-indirizzo-tessile-a-empa-st-gallen",
@@ -130,20 +142,24 @@
         "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen",
         "apprendista-laboratore-trice-afc-indirizzo-tessile-a-empa-st-gallen-0192b1cd",
         "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen-fdf47e13",
-        "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen-htzli1"
+        "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen-htzli1",
+        "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen"
       ],
       "en": [
         "apprentice-laboratory-technician-efz-specialization-textile-a-empa-st-gallen-16fbaaa9",
         "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen-fdf47e13",
-        "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen"
+        "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen",
+        "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen"
       ],
       "de": [
-        "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen-fdf47e13"
+        "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen-fdf47e13",
+        "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen"
       ],
       "fr": [
         "apprenti-e-laborantin-e-cfc-orientation-textile-a-empa-st-gallen-31735148",
         "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen-fdf47e13",
-        "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen"
+        "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen",
+        "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen"
       ]
     },
     "postalCode": "9000",
@@ -170,7 +186,23 @@
         "firstSeenAt": "2026-07-04T10:39:25.174Z",
         "title": "Lernende/r Laborant/in EFZ Fachrichtung Textil (a)"
       }
-    ]
+    ],
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen": "SG",
+        "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen": "SG"
+      },
+      "en": {
+        "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen": "SG"
+      },
+      "de": {
+        "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen": "SG"
+      },
+      "fr": {
+        "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen": "SG"
+      }
+    }
   },
   {
     "slug": "comunicazione-di-stage-100-empa-dubendorf",
@@ -214,7 +246,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/673276/2239/pub/1/index.html",
-    "firstSeenAt": "2026-09-28T21:28:26.618Z"
+    "firstSeenAt": "2026-09-28T21:28:26.618Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikum-kommunikation-100-empa-dubendorf": "ZH"
+      }
+    }
   },
   {
     "slug": "posizione-del-dottorato-nel-campo-dei-metamateriali-vibrazionali-non-lineari-empa-dubendorf",
@@ -264,7 +302,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/673276/2250/pub/1/index.html",
-    "firstSeenAt": "2026-10-23T09:46:23.157Z"
+    "firstSeenAt": "2026-10-23T09:46:23.157Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "phd-position-in-the-field-of-nonlinear-vibrational-metamaterials-empa-dubendorf": "ZH"
+      },
+      "de": {
+        "phd-position-in-the-field-of-nonlinear-vibrational-metamaterials-empa-dubendorf": "ZH"
+      },
+      "fr": {
+        "phd-position-in-the-field-of-nonlinear-vibrational-metamaterials-empa-dubendorf": "ZH"
+      }
+    }
   },
   {
     "slug": "specialista-risorse-umane-administration-risorse-umane-it-80-100-empa-dubendorf",
@@ -308,7 +358,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/673276/2236/pub/1/index.html",
-    "firstSeenAt": "2026-09-23T23:52:11.703Z"
+    "firstSeenAt": "2026-09-23T23:52:11.703Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "specialist-hr-administration-hr-it-80-100-empa-dubendorf": "ZH"
+      }
+    }
   },
   {
     "slug": "system-engineer-cell-culture-automation-80-100-empa-st-gallen",
@@ -339,7 +395,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/673276/2218/pub/1/index.html",
-    "firstSeenAt": "2026-07-20T22:55:02.889Z"
+    "firstSeenAt": "2026-07-20T22:55:02.889Z",
+    "canton": "SG",
+    "previousSlugsByLocale": {
+      "en": [
+        "system-engineer-cell-culture-automation-80-100-empa-st-gallen"
+      ],
+      "de": [
+        "system-engineer-cell-culture-automation-80-100-empa-st-gallen"
+      ],
+      "fr": [
+        "system-engineer-cell-culture-automation-80-100-empa-st-gallen"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "system-engineer-cell-culture-automation-80-100-empa-st-gallen": "SG"
+      },
+      "de": {
+        "system-engineer-cell-culture-automation-80-100-empa-st-gallen": "SG"
+      },
+      "fr": {
+        "system-engineer-cell-culture-automation-80-100-empa-st-gallen": "SG"
+      }
+    }
   },
   {
     "slug": "postdoctoral-researcher-in-organic-light-emitting-devices-oleds-empa-dubendorf",
@@ -375,7 +454,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/673276/2227/pub/1/index.html",
-    "firstSeenAt": "2026-09-19T23:08:47.414Z"
+    "firstSeenAt": "2026-09-19T23:08:47.414Z",
+    "previousSlugsByLocale": {
+      "it": []
+    },
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "postdoctoral-researcher-in-organic-light-emitting-devices-oleds-empa-dubendorf": "ZH"
+      }
+    }
   },
   {
     "slug": "studente-di-dottorato-nella-sintesi-di-materiali-polimerici-empa-dubendorf",
@@ -419,7 +507,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/673276/2225/pub/1/index.html",
-    "firstSeenAt": "2026-09-01T14:25:57.524Z"
+    "firstSeenAt": "2026-09-01T14:25:57.524Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "phd-student-in-the-synthesis-of-polymeric-materials-empa-dubendorf": "ZH"
+      }
+    }
   },
   {
     "slug": "posizione-del-dottorato-intitolato-gestione-dello-stress-termico-umano-in-varie-applicazioni-empa-st-gallen",
@@ -463,7 +557,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/673276/2230/pub/1/index.html",
-    "firstSeenAt": "2026-09-08T23:33:50.106Z"
+    "firstSeenAt": "2026-09-08T23:33:50.106Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "phd-position-titled-human-heat-stress-management-in-various-applications-empa-st-gallen": "SG"
+      }
+    }
   },
   {
     "slug": "apprendista-politecnico-meccanico-a-empa-dubendorf",
@@ -519,7 +619,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/673276/2206/pub/1/index.html",
-    "firstSeenAt": "2026-07-04T10:39:25.167Z"
+    "firstSeenAt": "2026-07-04T10:39:25.167Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lernende-r-polymechaniker-in-a-empa-dubendorf": "ZH",
+        "apprendista-polymechaniker-in-a-empa-dubendorf": "ZH"
+      },
+      "en": {
+        "lernende-r-polymechaniker-in-a-empa-dubendorf": "ZH",
+        "apprentice-polymechaniker-in-a-empa-dubendorf": "ZH"
+      },
+      "fr": {
+        "lernende-r-polymechaniker-in-a-empa-dubendorf": "ZH",
+        "apprenti-e-polymechaniker-in-a-empa-dubendorf": "ZH"
+      }
+    }
   },
   {
     "slug": "ricercatore-post-dottorato-in-ceramica-proton-conductors-e-semiconduttore-fotoelettrochimica-empa-dubendorf",
@@ -575,7 +690,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/673276/2221/pub/1/index.html",
-    "firstSeenAt": "2026-08-12T22:09:11.999Z"
+    "firstSeenAt": "2026-08-12T22:09:11.999Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "postdoctoral-researcher-in-ceramic-proton-conductors-and-semiconductor": "ZH",
+        "postdoctoral-researcher-in-ceramic-proton-conductors-and-semiconductor-photoelectrochemistry-empa-dubendorf": "ZH"
+      },
+      "de": {
+        "postdoctoral-researcher-in-ceramic-proton-conductors-and-semiconductor": "ZH",
+        "postdoktorand-in-keramik-protonenleiter-und-halbleiter-photoelektrochemie-empa-dubendorf": "ZH"
+      },
+      "fr": {
+        "postdoctoral-researcher-in-ceramic-proton-conductors-and-semiconductor": "ZH",
+        "chercheur-postdoctoral-en-ceramique-proton-conducteurs-et-semi-conducteur-photoelectrochimie-empa-dubendorf": "ZH"
+      }
+    }
   },
   {
     "slug": "posizione-postdoc-in-elettrocatalisi-co2-in-condizioni-realistiche-empa-dubendorf",
@@ -625,7 +755,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/673276/2181/pub/4/index.html",
-    "firstSeenAt": "2026-07-04T10:39:25.182Z"
+    "firstSeenAt": "2026-07-04T10:39:25.182Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf": "ZH"
+      },
+      "de": {
+        "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf": "ZH"
+      },
+      "fr": {
+        "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf": "ZH"
+      }
+    }
   },
   {
     "slug": "ricercatore-post-dottorato-sulla-modellatura-e-degradazione-degli-adsorbenti-solidi-di-co2-empa-dubendorf",
@@ -675,7 +817,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/673276/2176/pub/1/index.html",
-    "firstSeenAt": "2026-07-04T10:39:25.183Z"
+    "firstSeenAt": "2026-07-04T10:39:25.183Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "postdoctoral-researcher-on-co2-solid-adsorbent-shaping-and-degradation-empa-dubendorf": "ZH"
+      },
+      "de": {
+        "postdoctoral-researcher-on-co2-solid-adsorbent-shaping-and-degradation-empa-dubendorf": "ZH"
+      },
+      "fr": {
+        "postdoctoral-researcher-on-co2-solid-adsorbent-shaping-and-degradation-empa-dubendorf": "ZH"
+      }
+    }
   },
   {
     "slug": "postdoc-engineer-in-acoustics-for-laser-processing-80-100-empa-thun",
@@ -706,7 +860,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/673276/2207/pub/1/index.html",
-    "firstSeenAt": "2026-07-04T10:39:25.164Z"
+    "firstSeenAt": "2026-07-04T10:39:25.164Z",
+    "canton": "BE",
+    "previousSlugsByLocale": {
+      "en": [
+        "postdoc-engineer-in-acoustics-for-laser-processing-80-100-empa-thun"
+      ],
+      "de": [
+        "postdoc-engineer-in-acoustics-for-laser-processing-80-100-empa-thun"
+      ],
+      "fr": [
+        "postdoc-engineer-in-acoustics-for-laser-processing-80-100-empa-thun"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "postdoc-engineer-in-acoustics-for-laser-processing-80-100-empa-thun": "BE"
+      },
+      "de": {
+        "postdoc-engineer-in-acoustics-for-laser-processing-80-100-empa-thun": "BE"
+      },
+      "fr": {
+        "postdoc-engineer-in-acoustics-for-laser-processing-80-100-empa-thun": "BE"
+      }
+    }
   },
   {
     "slug": "posizione-di-group-leader-a-tempo-indeterminato-in-additive-manufacturing-dei-metalli-empa-thun",
@@ -756,7 +933,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/673276/2224/pub/1/index.html",
-    "firstSeenAt": "2026-08-31T17:33:57.028Z"
+    "firstSeenAt": "2026-08-31T17:33:57.028Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "tenure-track-group-leader-position-metal-additive-manufacturing-empa-thun": "BE"
+      },
+      "de": {
+        "tenure-track-group-leader-position-metal-additive-manufacturing-empa-thun": "BE"
+      },
+      "fr": {
+        "tenure-track-group-leader-position-metal-additive-manufacturing-empa-thun": "BE"
+      }
+    }
   },
   {
     "slug": "posizione-post-doc-in-istopatologia-a-raggi-x-3d-dei-tumori-colorettali-empa-dubendorf",
@@ -808,7 +997,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/673276/2209/pub/1/index.html",
-    "firstSeenAt": "2026-07-04T10:39:25.163Z"
+    "firstSeenAt": "2026-07-04T10:39:25.163Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "postdoc-position-in-3d-x-ray-histopathology-of-colorectal-tumors-empa-dubendorf": "ZH"
+      },
+      "de": {
+        "postdoc-position-in-3d-x-ray-histopathology-of-colorectal-tumors-empa-dubendorf": "ZH"
+      },
+      "fr": {
+        "postdoc-position-in-3d-x-ray-histopathology-of-colorectal-tumors-empa-dubendorf": "ZH",
+        "position-postdoc-dans-l-histopathologie-par-rayons-x-3d-des-tumeurs-colorectales-empa-dubendorf": "ZH"
+      }
+    }
   },
   {
     "slug": "phd-position-in-nanomedicine-disegno-quantitativo-delle-nanoparticelle-multi-cargo-per-la-consegna-del-gene-del-cancro",
@@ -858,7 +1060,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/673276/2222/pub/1/index.html",
-    "firstSeenAt": "2026-08-11T10:36:02.292Z"
+    "firstSeenAt": "2026-08-11T10:36:02.292Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "phd-position-in-nanomedicine-quantitative-design-of-multi-cargo-nanoparticles-for-cancer": "SG"
+      },
+      "de": {
+        "phd-position-in-nanomedicine-quantitative-design-of-multi-cargo-nanoparticles-for-cancer": "SG"
+      },
+      "fr": {
+        "phd-position-in-nanomedicine-quantitative-design-of-multi-cargo-nanoparticles-for-cancer": "SG"
+      }
+    }
   },
   {
     "slug": "posizione-postdoc-chemist-per-l-ion-scavenging-selettivo-in-batterie-empa-st-gallen",
@@ -908,7 +1122,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/673276/2217/pub/1/index.html",
-    "firstSeenAt": "2026-07-15T22:36:16.742Z"
+    "firstSeenAt": "2026-07-15T22:36:16.742Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "postdoc-position-chemist-for-selective-ion-scavenging-in-batteries-empa-st-gallen": "SG"
+      },
+      "de": {
+        "postdoc-position-chemist-for-selective-ion-scavenging-in-batteries-empa-st-gallen": "SG"
+      },
+      "fr": {
+        "postdoc-position-chemist-for-selective-ion-scavenging-in-batteries-empa-st-gallen": "SG"
+      }
+    }
   },
   {
     "slug": "posizione-del-dottorato-soft-active-matter-microrobots-for-medicine-sam3-empa-dubendorf",
@@ -1822,6 +2048,70 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/673276/2205/pub/1/index.html",
     "firstSeenAt": "2026-07-04T10:39:25.176Z"
+  },
+  {
+    "slug": "apprendista-physiklaborant-in-a-empa-thun",
+    "title": "Lernende/r Physiklaborant/in (a)",
+    "titleByLocale": {
+      "it": "Apprendista Physiklaborant/in (a)",
+      "en": "Apprentice Physiklaborant/in (a)",
+      "de": "Lernende/r Physiklaborant/in (a)",
+      "fr": "Laboratoire d'apprentissage/de physique (a)"
+    },
+    "company": "Empa",
+    "companyKey": "empa",
+    "location": "Thun",
+    "addressLocality": "Thun",
+    "descriptionByLocale": {
+      "it": "La scienza dei materiali e la tecnologia sono la nostra passione. Con la nostra ricerca all'avanguardia, i circa 1.100 dipendenti di Empa danno un contributo decisivo a beneficio della società per un futuro che vale la pena di vivere. Empa è un'istituzione di ricerca del dominio ETH. Laboratorio di apprendistato/fisica (a) Per l'agosto 2027, offriamo un luogo di formazione impegnativo in un ambiente di ricerca affascinante nel reparto Materiali e Nanomechanics a Thun. Cosa ti aspetta Lavorare in un istituto di ricerca ETH porta molta varietà nel lavoro quotidiano. Se sei interessato alla fisica, all'elettronica, alla tecnologia e ai materiali, ti garantiamo attività interessanti in un ambiente di ricerca internazionale. Ti piace anche lavorare e armeggiare. Cosa porti con te\n• Scuola secondaria A con ottime prestazioni in scienze, matematica e materie linguistiche - L'inglese è la nostra lingua quotidiana\n• Interesse teorico e pratico in fisica, chimica, materiali, elettronica, informatica e sistemi tecnici\n• pensiero astratto e approccio metodico, comprensione tecnica e manualità\n• Buona osservazione e comprensione, cura, lavoro responsabile e affidabile\n• Godetevi un ambiente di lavoro altamente tecnico e complesso\n• Alte competenze nella comunicazione e nella cooperazione con le persone Siete anche convinti di iniziare il vostro futuro con un apprendistato professionale. Cosa ti offriamo\n• Indagherete l'integrità fisica e chimica dei materiali metallici e dei loro componenti, come vengono applicati ad esempio in edifici, ponti, gallerie, impianti di produzione, ingegneria meccanica, energia, ferrovia e tecnologia medica\n• Determina le caratteristiche materiali utilizzando metodi analitici all'avanguardia e effettua misurazioni fisiche e serie di test con materiali e sistemi\n• Si lavora su impianti di prova, preparare i test, eseguirli e poi documentarli\n• Frequenti la scuola professionale di Zurigo. La visita del BMS è supportata. Offriamo una formazione di base emozionante e versatile con la più recente tecnologia. Empa è un ambiente di ricerca vivace e innovativo con un tocco internazionale e eccellenti condizioni di lavoro nell'agglomerato di Zurigo. “a” sta per “tutti” nei nostri annunci di lavoro. Viviamo una cultura di inclusione e rispetto. Diamo il benvenuto a tutte le persone che hanno il desiderio di attività innovative, sostenibili e significative - solo che conta. Non vediamo l'ora della tua applicazione online completa incl. Lettera di motivazione, CV, certificati, diplomi e contatti di due persone di riferimento. Si prega di inviarli esclusivamente tramite il nostro portale di applicazione. Le domande per e-mail o per posta non saranno considerate.",
+      "en": "Materials science and technology are our passion. With our cutting-edge research, Empa’s approximately 1,100 employees make decisive contributions to the benefit of society for a future worth living in. Empa is a research institution of the ETH Domain. Apprentice/physics laboratory (a) For August 2027, we offer a challenging training place in a fascinating research environment in the Materials and Nanomechanics department in Thun. What awaits you Working at an ETH research institute brings a lot of variety into everyday work. If you are interested in physics, electronics, technology and materials, we guarantee you exciting tasks in an international research environment. You also love working and tinkering. What do you bring with you\n• Secondary School A with very good performance in science, mathematics and linguistic subjects - English is our everyday language\n• Theoretical and practical interest in physics, chemistry, materials, electronics, computer science and technical systems\n• Abstract thinking and methodical approach, technical understanding and manual skill\n• Good observation and understanding, care, responsible and reliable work\n• Enjoying a highly technical and complex work environment\n• High competences in communication and cooperation with people You are also convinced to start your future with a vocational apprenticeship. What we offer you\n• You will investigate the physical and chemical integrity of metallic materials and their components, as they are applied e.g. in buildings, bridges, tunnels, production plants, mechanical engineering, energy, railway and medical technology\n• You determine material characteristics using state-of-the-art analytical methods and carry out physical measurements and test series with materials and systems\n• You work on test facilities, prepare tests, carry them out and then document them\n• You attend the vocational school in Zurich. The visit of the BMS is supported. We offer an exciting and versatile basic training training with the latest technology. Empa is a lively and innovative research environment with an international flair and excellent employment conditions in the agglomeration of Zurich. “a” stands for “all” in our job advertisements. We live a culture of inclusion and respect. We welcome all people who have the desire for innovative, sustainable and meaningful activities - only that counts. We look forward to your complete online application incl. Letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit them exclusively via our application portal. Applications by e-mail or by post will not be considered.",
+      "de": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs. Lernende/r Physiklaborant/in (a) Für August 2027 bieten wir in der Abteilung Werkstoff- und Nanomechanik in Thun einen anspruchsvollen Ausbildungsplatz in einem faszinierenden Forschungsumfeld. Was erwartet dich An einem ETH Forschungsinstitut tätig zu sein, bringt viel Abwechslung in den Berufsalltag. Wenn du Interesse an Physik, Elektronik, Technik und Werkstoffen hast, garantieren wir dir spannende Aufgaben in einem internationalen Umfeld der Forschung. Zudem liebst du das Tüfteln und Werken. Was bringst du mit\n• Sekundarschule A mit sehr guten Leistungen in den naturwissenschaftlichen, mathematischen und sprachlichen Fächern - Englisch ist bei uns Alltagssprache\n• Theoretisches und praktisches Interesse für Physik, Chemie, Werkstoffe, Elektronik sowie Informatik und an technischen Systemen\n• Abstraktes Denken und methodisches Vorgehen, technisches Verständnis und manuelle Geschicklichkeit\n• Gute Beobachtungs- und Auffassungsgabe, Sorgfalt, verantwortungsvolles und zuverlässiges Arbeiten\n• Freude an einer hoch technisierten und komplexen Arbeitsumgebung\n• Hohe Kompetenzen in der Kommunikation und Zusammenarbeit mit Menschen Du bist zudem überzeugt, deine Zukunft mit einer Berufslehre zu starten. Was wir dir bieten\n• Du untersuchst die physikalische und chemische Integrität von metallischen Werkstoffen und ihren Bauteilen, wie sie z.B. in Gebäuden, Brücken, Tunnels, Produktionsanlagen, im Maschinenbau sowie der Energie-, Bahn- und Medizinaltechnik angewendet werden\n• Du ermittelst Werkstoffkennwerte mittels modernster analytischer Methoden und führst physikalische Messungen und Versuchsreihen mit Werkstoffen und Systemen durch\n• Du tüftelst an Versuchsanlagen, bereitest Versuche vor, führst sie durch und dokumentierst sie anschliessend\n• Du besuchst die Berufsschule in Zürich. Der Besuch der BMS wird unterstützt. Wir bieten eine spannende und vielseitige Grundausbildung Ausbildung mit modernster Technik. Die Empa ist ein lebendiges und innovatives Forschungsumfeld mit internationalem Flair und hervorragenden Anstellungsbedingungen in der Agglomeration Zürich. «a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt. Wir freuen uns auf deine vollständige Online-Bewerbung inkl. Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome und Kontaktdaten von zwei Referenzpersonen. Bitte reiche diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
+      "fr": "La science et la technologie des matériaux sont notre passion. Grâce à notre recherche de pointe, Empa, environ 1 100 employés apportent une contribution décisive au bénéfice de la société pour un avenir digne d'être vécu. Empa est une institution de recherche du domaine ETH. Laboratoire d'apprentissage/de physique (a) Pour août 2027, nous offrons une formation stimulante dans un environnement de recherche fascinant au département Matériaux et nanomécaniques de Thun. Ce qui vous attend Travailler dans un institut de recherche de l'ETH apporte beaucoup de variété dans le travail quotidien. Si vous êtes intéressé par la physique, l'électronique, la technologie et les matériaux, nous vous garantissons des tâches passionnantes dans un environnement de recherche international. Vous aimez aussi travailler et bricoler. Qu'apportez-vous ?\n• École secondaire A avec de très bonnes performances en sciences, mathématiques et sujets linguistiques - L'anglais est notre langue quotidienne\n• Intérêt théorique et pratique pour la physique, la chimie, les matériaux, l'électronique, l'informatique et les systèmes techniques\n• Réflexion abstraite et approche méthodique, compréhension technique et compétence manuelle\n• Bonne observation et compréhension, soins, travail responsable et fiable\n• Profitez d'un environnement de travail très technique et complexe\n• Hautes compétences en matière de communication et de coopération avec les personnes Vous êtes également convaincu de commencer votre avenir par un apprentissage professionnel. Ce que nous vous offrons\n• Vous étudierez l'intégrité physique et chimique des matériaux métalliques et de leurs composants, tels qu'ils sont appliqués dans les bâtiments, les ponts, les tunnels, les usines de production, l'ingénierie mécanique, l'énergie, la technologie ferroviaire et médicale\n• Vous déterminez les caractéristiques des matériaux à l'aide de méthodes analytiques de pointe et effectuez des mesures physiques et des séries d'essais avec des matériaux et des systèmes\n• Vous travaillez sur des installations de test, préparez des tests, effectuez-les et documentez-les\n• Vous fréquentez l'école professionnelle de Zurich. La visite du BMS est soutenue. Nous offrons une formation de base passionnante et polyvalente avec la dernière technologie. Empa est un environnement de recherche dynamique et innovant avec un style international et d'excellentes conditions d'emploi dans l'agglomération de Zurich. Il s'agit de tous dans nos offres d'emploi. Nous vivons une culture d'inclusion et de respect. Nous souhaitons la bienvenue à toutes les personnes qui désirent des activités novatrices, durables et significatives - seulement cela compte. Nous attendons avec impatience votre demande en ligne complète, y compris. Lettre de motivation, CV, certificats, diplômes et coordonnées de deux personnes de référence. Veuillez les soumettre exclusivement via notre portail d'applications. Les demandes par courrier électronique ou par la poste ne seront pas prises en considération."
+    },
+    "slugByLocale": {
+      "it": "apprendista-physiklaborant-in-a-empa-thun",
+      "en": "apprentice-physiklaborant-in-a-empa-thun",
+      "de": "lernende-r-physiklaborant-in-a-empa-thun",
+      "fr": "laboratoire-d-apprentissage-de-physique-a-empa-thun"
+    },
+    "sector": "Università / Ricerca",
+    "expiredAt": "2026-07-09T22:24:00.864Z",
+    "previousSlugs": [
+      "lernende-r-physiklaborant-in-a-empa-thun",
+      "apprentissage-laboratoire-de-physique-en-a-empa-thun"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "lernende-r-physiklaborant-in-a-empa-thun"
+      ],
+      "en": [
+        "lernende-r-physiklaborant-in-a-empa-thun"
+      ],
+      "fr": [
+        "apprentissage-laboratoire-de-physique-en-a-empa-thun",
+        "lernende-r-physiklaborant-in-a-empa-thun"
+      ]
+    },
+    "postalCode": "3602",
+    "streetAddress": "Feuerwerkerstrasse 39",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/673276/2197/pub/1/index.html",
+    "firstSeenAt": "2026-07-04T10:39:25.172Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/673276/2197/pub/1/index.html",
+        "firstSeenAt": "2026-07-04T10:39:25.172Z",
+        "title": "Lernende/r Physiklaborant/in (a)"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/673276/2197/pub/2/index.html",
+        "firstSeenAt": "2026-07-07T22:14:30.867Z",
+        "title": "Lernende/r Physiklaborant/in (a)"
+      }
+    ]
   },
   {
     "slug": "assistent-in-con-drive-e-zahlenflair-80-100-a-empa-dubendorf",

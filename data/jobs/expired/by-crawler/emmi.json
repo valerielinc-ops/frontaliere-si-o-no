@@ -117,7 +117,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/postes-vacants/collaborateur-affinage-de-fromage/638c04b6-a143-4ca6-8d54-348d527b4b1a",
-    "firstSeenAt": "2026-10-15T21:20:06.797Z"
+    "firstSeenAt": "2026-10-15T21:20:06.797Z",
+    "canton": "JU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaborateur-affinage-de-fromage-emmi-ch": "JU",
+        "collaborateur-affinage-de-fromage-emmi-saignelegier": "JU"
+      },
+      "en": {
+        "collaborateur-affinage-de-fromage-emmi-ch": "JU",
+        "collaborative-cheese-refining-emmi-saignelegier-jura": "JU"
+      },
+      "de": {
+        "collaborateur-affinage-de-fromage-emmi-ch": "JU",
+        "verbundkaseraffination-emmi-saignelegier-jura": "JU"
+      }
+    }
   },
   {
     "id": "emmi-3687593892ae",
@@ -168,7 +183,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-export-portionen-3/bdea819e-dce4-498c-b642-c5c5e74de2ca",
-    "firstSeenAt": "2026-10-13T21:16:26.801Z"
+    "firstSeenAt": "2026-10-13T21:16:26.801Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "anlagenfuhrer-in-export-portionen-3-emmi-ch": "BE"
+      },
+      "en": {
+        "anlagenfuhrer-in-export-portionen-3-emmi-ch": "BE"
+      },
+      "fr": {
+        "anlagenfuhrer-in-export-portionen-3-emmi-ch": "BE"
+      }
+    }
   },
   {
     "id": "emmi-8a7ca77bbc96",
@@ -219,7 +246,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/interne-r-transportmitarbeiter-in-in-der-kaesekonfektionierung/748b705e-77f6-492f-be5f-91c0983271d0",
-    "firstSeenAt": "2026-11-17T21:34:50.285Z"
+    "firstSeenAt": "2026-11-17T21:34:50.285Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "interne-r-transportmitarbeiter-in-in-der-kasekonfektionierung-emmi-ch": "LU"
+      },
+      "en": {
+        "interne-r-transportmitarbeiter-in-in-der-kasekonfektionierung-emmi-ch": "LU"
+      },
+      "fr": {
+        "interne-r-transportmitarbeiter-in-in-der-kasekonfektionierung-emmi-ch": "LU"
+      }
+    }
   },
   {
     "id": "emmi-613ceb470a39",
@@ -269,7 +308,8 @@
       ],
       "de": [
         "mitarbeiter-in-labor-emmi-suhr",
-        "collaboratore-trice-labor-emmi-suhr"
+        "collaboratore-trice-labor-emmi-suhr",
+        "mitarbeiter-in-labor-emmi-ch"
       ],
       "fr": [
         "mitarbeiter-in-labor-emmi-suhr",
@@ -301,7 +341,24 @@
         "firstSeenAt": "2026-11-05T21:21:41.980Z",
         "title": "Mitarbeiter:in Labor"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-labor-emmi-ch": "AG",
+        "collaboratore-trice-labor-emmi-suhr": "AG"
+      },
+      "en": {
+        "mitarbeiter-in-labor-emmi-suhr": "AG"
+      },
+      "de": {
+        "mitarbeiter-in-labor-emmi-ch": "AG",
+        "mitarbeiter-in-labor-emmi-suhr": "AG"
+      },
+      "fr": {
+        "mitarbeiter-in-labor-emmi-suhr": "AG"
+      }
+    }
   },
   {
     "id": "emmi-42bc108884ca",
@@ -348,7 +405,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/teamleiter-in-gebaeudereinigung/cbc5a7de-1f1c-41a8-9f32-a32942d3d610",
-    "firstSeenAt": "2026-09-26T13:56:43.658Z"
+    "firstSeenAt": "2026-09-26T13:56:43.658Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiter-in-gebaudereinigung-emmi-ch": "LU",
+        "teamleiter-in-gebaudereinigung-emmi-luzern": "LU"
+      }
+    }
   },
   {
     "id": "emmi-412f23ded6be-r8e2145a6",
@@ -741,7 +805,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/lehre-als-logistiker-in-efz-2027/9ff4035b-e1fb-4203-8459-ef9322868088",
-    "firstSeenAt": "2026-07-10T22:44:12.660Z",
+    "firstSeenAt": "2026-07-09T22:40:47.288Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/lehre-als-logistiker-in-efz-2027/1954e955-a464-45f6-9b2e-17eb432bbb34",
@@ -770,7 +834,7 @@
       },
       {
         "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/lehre-als-logistiker-in-efz-2027/9ff4035b-e1fb-4203-8459-ef9322868088",
-        "firstSeenAt": "2026-07-10T22:44:12.660Z",
+        "firstSeenAt": "2026-07-09T22:40:47.288Z",
         "title": "Lehre als Logistiker:in EFZ 2027"
       },
       {
@@ -778,7 +842,36 @@
         "firstSeenAt": "2026-07-09T22:40:47.288Z",
         "title": "Lehre als Logistiker:in EFZ 2027"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehre-als-logistiker-in-efz-2027-emmi-ch": "BE",
+        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-2027-emmi-zollikofen": "BE",
+        "lehre-als-logistiker-in-efz-2027-emmi-ch-4": "BE",
+        "lehre-als-logistiker-in-efz-2027-emmi-ch-3": "BE",
+        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-2027-emmi-ostermundigen": "BE",
+        "lehre-als-logistiker-in-efz-2027-emmi-ch-2": "BE",
+        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-2027-emmi-emmen": "BE"
+      },
+      "en": {
+        "teaching-as-a-logistician-in-efz-2027-emmi-zollikofen-bern": "BE",
+        "lehre-als-logistiker-in-efz-2027-emmi-ch-4": "BE",
+        "teaching-as-a-logistician-in-efz-2027-emmi-ostermundigen-bern": "BE",
+        "lehre-als-logistiker-in-efz-2027-emmi-ch-3": "BE",
+        "teaching-as-a-logistician-in-efz-2027-emmi-emmen-luzern": "BE",
+        "lehre-als-logistiker-in-efz-2027-emmi-ch-1b244631": "BE",
+        "lehre-als-logistiker-in-efz-2027-emmi-ch-f42bb708": "BE"
+      },
+      "fr": {
+        "enseignement-en-tant-que-logisticien-en-efz-2027-emmi-zollikofen-bern": "BE",
+        "lehre-als-logistiker-in-efz-2027-emmi-ch-4": "BE",
+        "enseignement-en-tant-que-logisticien-en-efz-2027-emmi-ostermundigen-bern": "BE",
+        "lehre-als-logistiker-in-efz-2027-emmi-ch-3": "BE",
+        "enseignement-en-tant-que-logisticien-en-efz-2027-emmi-emmen-luzern": "BE",
+        "lehre-als-logistiker-in-efz-2027-emmi-ch-1b244631": "BE",
+        "lehre-als-logistiker-in-efz-2027-emmi-ch-f42bb708": "BE"
+      }
+    }
   },
   {
     "id": "emmi-53cefdbcffdf",
@@ -889,7 +982,8 @@
         "operatore-di-impianti-misto-emmi-suhr",
         "mixed-plant-operator-emmi-suhr",
         "operateur-d-installations-mixtes-emmi-suhr",
-        "anlagenfuhrer-in-abfullung-emmi-ch"
+        "anlagenfuhrer-in-abfullung-emmi-ch",
+        "anlagenfuhrer-in-mischerei-emmi-ch"
       ],
       "fr": [
         "gestionnaire-de-la-plante-en-usine-mixte-emmi-suhr-aargau",
@@ -916,21 +1010,88 @@
       "it": {
         "operatore-di-impianti-misto-emmi-suhr-1065d67f": "AG",
         "anlagenfuhrer-in-mischerei-emmi-ch-b847b6f3": "AG",
-        "anlagenfuhrer-in-abfullung-emmi-ch-a686489b": "AG"
+        "anlagenfuhrer-in-abfullung-emmi-ch-a686489b": "AG",
+        "conduttore-dell-impianto-in-miscelazione-emmi-suhr": "AG",
+        "gestionnaire-de-la-plante-dans-la-plante-de-melange-emmi-suhr-aargau": "AG",
+        "plant-manager-in-mixing-plant-emmi-suhr-aargau": "AG",
+        "direttore-dell-impianto-in-impianto-di-miscelazione-emmi-suhr-aargau": "AG",
+        "plant-manager-in-impianto-misto-emmi-suhr-aargau": "AG",
+        "filling-plant-operator-emmi-suhr": "AG",
+        "responsabile-impianti-di-riempimento-emmi-suhr": "AG",
+        "anlagenfuhrer-in-abfullung-emmi-suhr": "AG",
+        "operatore-di-sistema-in-imbottigliamento-emmi-suhr-aargau": "AG",
+        "imbottigliamento-dell-operatore-degli-impianti-emmi-suhr-aargau": "AG",
+        "anlagenfuhrer-in-abfullung-emmi-ch-cbcifb": "AG",
+        "responsabile-impianti-di-riempimento-emmi-suhr-cbcifb": "AG",
+        "responsabile-impianti-di-riempimento-emmi-suhr-kwvxof": "AG",
+        "conducteur-d-installation-en-pet-emmi-suhr": "AG",
+        "anlagenfuhrer-in-pet-emmi-ch": "AG",
+        "plant-operator-pet-emmi-suhr": "AG",
+        "gestore-dell-impianto-in-pet-emmi-suhr": "AG",
+        "mixed-plant-operator-emmi-suhr": "AG",
+        "operateur-d-installations-mixtes-emmi-suhr": "AG",
+        "operatore-di-impianti-misto-emmi-suhr": "AG",
+        "anlagenfuhrer-in-mischerei-emmi-ch": "AG",
+        "direttore-dell-impianto-in-impianto-di-miscelazione-emmi-suhr-aargau-07ny31": "AG",
+        "conducteur-d-installation-en-melange-emmi-suhr": "AG"
       },
       "en": {
         "mixed-plant-operator-emmi-suhr-bae718d5": "AG",
-        "anlagenfuhrer-in-abfullung-emmi-ch-a686489b": "AG"
+        "anlagenfuhrer-in-abfullung-emmi-ch-a686489b": "AG",
+        "plant-manager-mixing-plant-emmi-suhr": "AG",
+        "system-operator-in-bottling-emmi-suhr-aargau": "AG",
+        "plant-manager-in-mixing-plant-emmi-suhr-aargau": "AG",
+        "operatore-di-impianti-misto-emmi-suhr": "AG",
+        "anlagenfuhrer-in-mischerei-emmi-ch": "AG",
+        "operateur-d-installations-mixtes-emmi-suhr": "AG",
+        "mixed-plant-operator-emmi-suhr": "AG",
+        "direttore-dell-impianto-in-impianto-di-miscelazione-emmi-suhr-aargau-07ny31": "AG",
+        "conducteur-d-installation-en-melange-emmi-suhr": "AG"
       },
       "de": {
         "anlagenfuhrer-in-mischerei-emmi-ch-b847b6f3": "AG",
-        "anlagenfuhrer-in-abfullung-emmi-ch-a686489b": "AG"
+        "anlagenfuhrer-in-abfullung-emmi-ch-a686489b": "AG",
+        "anlagenfuhrer-in-mischerei-emmi-suhr": "AG",
+        "operatore-di-impianti-misto-emmi-suhr": "AG",
+        "mixed-plant-operator-emmi-suhr": "AG",
+        "operateur-d-installations-mixtes-emmi-suhr": "AG",
+        "anlagenfuhrer-in-abfullung-emmi-ch": "AG",
+        "direttore-dell-impianto-in-impianto-di-miscelazione-emmi-suhr-aargau-07ny31": "AG",
+        "conducteur-d-installation-en-melange-emmi-suhr": "AG",
+        "anlagenfuhrer-in-mischerei-emmi-ch": "AG"
       },
       "fr": {
         "operateur-d-installations-mixtes-emmi-suhr-69eb7f5f": "AG",
-        "anlagenfuhrer-in-abfullung-emmi-ch-a686489b": "AG"
+        "anlagenfuhrer-in-abfullung-emmi-ch-a686489b": "AG",
+        "gestionnaire-de-la-plante-en-usine-mixte-emmi-suhr-aargau": "AG",
+        "operateur-de-systeme-en-mise-en-bouteille-emmi-suhr-aargau": "AG",
+        "responsable-d-installation-de-remplissage-emmi-suhr": "AG",
+        "gestionnaire-de-la-plante-dans-la-plante-de-melange-emmi-suhr-aargau": "AG",
+        "operatore-di-impianti-misto-emmi-suhr": "AG",
+        "anlagenfuhrer-in-mischerei-emmi-ch": "AG",
+        "mixed-plant-operator-emmi-suhr": "AG",
+        "operateur-d-installations-mixtes-emmi-suhr": "AG",
+        "direttore-dell-impianto-in-impianto-di-miscelazione-emmi-suhr-aargau-07ny31": "AG",
+        "conducteur-d-installation-en-melange-emmi-suhr": "AG"
       }
-    }
+    },
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-mischerei/067a8a71-1ee1-46d9-8192-9aadb0b9dac9",
+        "firstSeenAt": "2026-09-01T14:17:24.041Z",
+        "title": "Anlagenführer:in Mischerei"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-mischerei/1d917863-79b0-4da7-b8e5-65b477081758",
+        "firstSeenAt": "2026-09-01T14:17:24.041Z",
+        "title": "Anlagenführer:in Mischerei"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-mischerei/bd33e612-d0f2-4f11-b90a-d88bdd7f7c6b",
+        "firstSeenAt": "2026-09-01T14:17:24.041Z",
+        "title": "Anlagenführer:in Mischerei"
+      }
+    ]
   },
   {
     "id": "emmi-7a1bb52a7917-r7abfa344",
@@ -1011,18 +1172,36 @@
         "responsabile-delle-piante-latte-passato-emmi-suhr-dec3209b": "AG",
         "responsable-de-l-usine-a-passe-milch-emmi-suhr-aargau-9e740237": "AG",
         "plant-manager-in-past-milch-emmi-suhr-aargau-32ae4c9c": "AG",
-        "anlagenfuhrer-in-past-milch-emmi-ch-3f71780d": "AG"
+        "anlagenfuhrer-in-past-milch-emmi-ch-3f71780d": "AG",
+        "plant-manager-past-milk-emmi-suhr": "AG",
+        "responsable-de-l-usine-a-passe-milch-emmi-suhr": "AG"
       },
       "en": {
         "plant-manager-in-past-milch-emmi-suhr-aargau-32ae4c9c": "AG",
-        "plant-manager-past-milk-emmi-suhr-4df85630": "AG"
+        "plant-manager-past-milk-emmi-suhr-4df85630": "AG",
+        "responsabile-impianti-in-past-milch-emmi-suhr-aargau": "AG",
+        "responsabile-delle-piante-latte-passato-emmi-suhr": "AG",
+        "responsable-de-l-usine-a-passe-milch-emmi-suhr-aargau": "AG",
+        "anlagenfuhrer-in-past-milch-emmi-ch": "AG",
+        "responsable-de-l-usine-a-passe-milch-emmi-suhr": "AG"
       },
       "de": {
-        "anlagenfuhrer-in-past-milch-emmi-ch-3f71780d": "AG"
+        "anlagenfuhrer-in-past-milch-emmi-ch-3f71780d": "AG",
+        "responsabile-impianti-in-past-milch-emmi-suhr-aargau": "AG",
+        "responsabile-delle-piante-latte-passato-emmi-suhr": "AG",
+        "responsable-de-l-usine-a-passe-milch-emmi-suhr-aargau": "AG",
+        "plant-manager-in-past-milch-emmi-suhr-aargau": "AG",
+        "plant-manager-past-milk-emmi-suhr": "AG",
+        "responsable-de-l-usine-a-passe-milch-emmi-suhr": "AG"
       },
       "fr": {
         "responsable-de-l-usine-a-passe-milch-emmi-suhr-aargau-9e740237": "AG",
-        "responsable-de-l-usine-a-passe-milch-emmi-suhr-982227e9": "AG"
+        "responsable-de-l-usine-a-passe-milch-emmi-suhr-982227e9": "AG",
+        "responsabile-impianti-in-past-milch-emmi-suhr-aargau": "AG",
+        "responsabile-delle-piante-latte-passato-emmi-suhr": "AG",
+        "plant-manager-in-past-milch-emmi-suhr-aargau": "AG",
+        "anlagenfuhrer-in-past-milch-emmi-ch": "AG",
+        "plant-manager-past-milk-emmi-suhr": "AG"
       }
     },
     "previousSlugs": [
@@ -1037,6 +1216,23 @@
       "anlagenfuhrer-in-past-milch-emmi-ch",
       "responsable-de-l-usine-a-passe-milch-emmi-suhr-982227e9",
       "plant-manager-in-past-milch-emmi-suhr-aargau"
+    ],
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-past-milch/04baed25-3617-4048-b805-ee8a47b84488",
+        "firstSeenAt": "2026-09-01T14:17:24.039Z",
+        "title": "Anlagenführer:in Past-Milch"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-past-milch/1028fb18-cc35-4819-961d-f64498c11e3f",
+        "firstSeenAt": "2026-09-01T14:17:24.039Z",
+        "title": "Anlagenführer:in Past-Milch"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-past-milch/9cb556aa-cbe0-4e3d-b736-c37f52219829",
+        "firstSeenAt": "2026-09-01T14:17:24.039Z",
+        "title": "Anlagenführer:in Past-Milch"
+      }
     ]
   },
   {
@@ -1108,7 +1304,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in/a781cb1f-c38c-4164-8162-dc48dfe42a2a",
-    "firstSeenAt": "2026-09-07T15:10:44.232Z",
+    "firstSeenAt": "2026-08-20T21:44:11.303Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in/1e2e38b2-a015-477a-a2b7-94a6139e1743",
@@ -1116,8 +1312,13 @@
         "title": "Anlagenführer:in"
       },
       {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in/a781cb1f-c38c-4164-8162-dc48dfe42a2a",
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in/8768b364-56f0-4f12-8f07-f811aa253ac9",
         "firstSeenAt": "2026-09-07T15:10:44.232Z",
+        "title": "Anlagenführer:in 100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in/a781cb1f-c38c-4164-8162-dc48dfe42a2a",
+        "firstSeenAt": "2026-08-20T21:44:11.303Z",
         "title": "Anlagenführer:in 100%"
       },
       {
@@ -1130,11 +1331,16 @@
       "it": {
         "operatore-trice-di-impianti-emmi-frenkendorf-basel-landschaft-4121e5e8": "BL",
         "anlagenfuhrer-in-emmi-ch-71696cbc": "BL",
-        "anlagenfuhrer-in-100-emmi-ch-685cc756": "BL"
+        "anlagenfuhrer-in-100-emmi-ch-685cc756": "BL",
+        "operatore-emmi-emmen-luzern": "BL",
+        "anlagenfuhrer-in-100-emmi-frenkendorf": "BL"
       },
       "en": {
         "plant-operator-emmi-frenkendorf-basel-landschaft-c282b6d2": "BL",
-        "anlagenfuhrer-in-emmi-ch-71696cbc": "BL"
+        "anlagenfuhrer-in-emmi-ch-71696cbc": "BL",
+        "operator-in-emmi-emmen-luzern": "BL",
+        "anlagenfuhrer-in-100-emmi-ch": "BL",
+        "anlagenfuhrer-in-100-emmi-frenkendorf": "BL"
       },
       "de": {
         "anlagenfuhrer-in-100-emmi-ch-685cc756": "BL",
@@ -1143,7 +1349,10 @@
       },
       "fr": {
         "operateur-trice-d-installation-emmi-frenkendorf-basel-landschaft-fccd0178": "BL",
-        "anlagenfuhrer-in-emmi-ch-71696cbc": "BL"
+        "anlagenfuhrer-in-emmi-ch-71696cbc": "BL",
+        "operateur-in-emmi-emmen-luzern": "BL",
+        "anlagenfuhrer-in-100-emmi-ch": "BL",
+        "anlagenfuhrer-in-100-emmi-frenkendorf": "BL"
       }
     }
   },
@@ -1259,7 +1468,12 @@
         "betriebselektriker-in-automatiker-in-emmi-dagmersellen-f9b6e454",
         "elettricista-aziendale-automatico-a-emmi-ostermundigen-115dd3a8",
         "elettricista-aziendale-automatico-a-emmi-ostermundigen-994af42d",
-        "techniker-in-automation-emmi-ch"
+        "techniker-in-automation-emmi-ch",
+        "industrial-electrician-automation-technician-emmi-suhr-aargau",
+        "electricien-ne-d-exploitation-automaticien-ne-emmi-suhr-aargau",
+        "betriebselektriker-in-automatiker-in-emmi-ch",
+        "betriebselektriker-in-automatiker-in-emmi-ch-2",
+        "betriebselektriker-in-automatiker-in-emmi-suhr"
       ],
       "en": [
         "industrial-electrician-automation-technician-emmi-dagmersellen-luzern-881e4c15",
@@ -1278,7 +1492,11 @@
         "elettricista-industriale-tecnico-a-di-automazione-emmi-suhr-aargau",
         "industrial-electrician-automation-technician-emmi-dagmersellen-luzern-0f4ccff8",
         "plantelectrician-automation-technician-emmi-ostermundigen-3ab2c178",
-        "plantelectrician-automation-technician-emmi-ostermundigen-937a1ebc"
+        "plantelectrician-automation-technician-emmi-ostermundigen-937a1ebc",
+        "betriebselektriker-in-automatiker-in-emmi-ch",
+        "electricien-ne-d-exploitation-automaticien-ne-emmi-suhr-aargau",
+        "betriebselektriker-in-automatiker-in-emmi-ch-2",
+        "betriebselektriker-in-automatiker-in-emmi-suhr"
       ],
       "de": [
         "betriebselektriker-in-automatiker-in-emmi-ch-ee2b9ea5",
@@ -1287,7 +1505,11 @@
         "plantelectrician-automation-technician-emmi-ostermundigen",
         "electricien-d-exploitation-automaticien-emmi-ostermundigen",
         "elettricista-industriale-tecnico-a-di-automazione-emmi-suhr-aargau",
-        "techniker-in-automation-emmi-ch-699800c5"
+        "techniker-in-automation-emmi-ch-699800c5",
+        "industrial-electrician-automation-technician-emmi-suhr-aargau",
+        "electricien-ne-d-exploitation-automaticien-ne-emmi-suhr-aargau",
+        "betriebselektriker-in-automatiker-in-emmi-ch-2",
+        "betriebselektriker-in-automatiker-in-emmi-suhr"
       ],
       "fr": [
         "electricien-ne-d-exploitation-automaticien-ne-emmi-dagmersellen-luzern-5e3fdbc7",
@@ -1306,7 +1528,11 @@
         "elettricista-industriale-tecnico-a-di-automazione-emmi-suhr-aargau",
         "electricien-ne-d-exploitation-automaticien-ne-emmi-dagmersellen-luzern-8f250a11",
         "electricien-d-exploitation-automaticien-emmi-ostermundigen-02c87066",
-        "electricien-d-exploitation-automaticien-emmi-ostermundigen-f1422d8b"
+        "electricien-d-exploitation-automaticien-emmi-ostermundigen-f1422d8b",
+        "betriebselektriker-in-automatiker-in-emmi-ch",
+        "industrial-electrician-automation-technician-emmi-suhr-aargau",
+        "betriebselektriker-in-automatiker-in-emmi-ch-2",
+        "betriebselektriker-in-automatiker-in-emmi-suhr"
       ]
     },
     "previousSlugCantonByLocale": {
@@ -1323,7 +1549,30 @@
         "elettricista-aziendale-automatista-emmi-dagmersellen-luzern-055967a4": "AG",
         "techniker-in-automation-emmi-ch-4c0a2f7e": "AG",
         "elettricista-aziendale-automatico-a-emmi-ostermundigen-c3bb4c1f": "AG",
-        "techniker-in-automation-emmi-ch-699800c5": "AG"
+        "techniker-in-automation-emmi-ch-699800c5": "AG",
+        "elettricista-di-stabilimento-automatista-emmi-ostermundigen-bern-78ed98bb": "AG",
+        "betriebselektriker-in-automatiker-in-emmi-ch-2-6fa86d63": "AG",
+        "elettricista-aziendale-automatico-a-emmi-dagmersellen": "AG",
+        "elettricista-aziendale-automatista-emmi-dagmersellen-luzern-bc0640c0": "AG",
+        "betriebselektriker-in-automatiker-in-emmi-dagmersellen-7157e661": "AG",
+        "elettricista-aziendale-automatico-a-emmi-ostermundigen-5f94abe2": "AG",
+        "plantelectrician-automation-technician-emmi-ostermundigen": "AG",
+        "electricien-d-exploitation-automaticien-emmi-ostermundigen": "AG",
+        "elettricista-aziendale-automatico-a-emmi-ostermundigen-0be21dee": "AG",
+        "elettricista-aziendale-automatista-emmi-dagmersellen-luzern-0bb50e9a": "AG",
+        "betriebselektriker-in-automatiker-in-emmi-dagmersellen-aa235515": "AG",
+        "elettricista-aziendale-automatico-a-emmi-ostermundigen-f0b30a7b": "AG",
+        "elettricista-aziendale-automatico-a-emmi-ostermundigen-a4bab186": "AG",
+        "elettricista-aziendale-automatista-emmi-dagmersellen-luzern-b2ba8060": "AG",
+        "betriebselektriker-in-automatiker-in-emmi-dagmersellen-f9b6e454": "AG",
+        "elettricista-aziendale-automatico-a-emmi-ostermundigen-115dd3a8": "AG",
+        "elettricista-aziendale-automatico-a-emmi-ostermundigen-994af42d": "AG",
+        "techniker-in-automation-emmi-ch": "AG",
+        "elettricista-industriale-tecnico-a-di-automazione-emmi-suhr-aargau-a389442a": "AG",
+        "industrial-electrician-automation-technician-emmi-ostermundigen-bern-1e26a50c": "AG",
+        "industrial-electrician-automation-technician-emmi-suhr-aargau-62338d23": "AG",
+        "electricien-ne-d-exploitation-automaticien-ne-emmi-ostermundigen-bern-f795ab67": "AG",
+        "electricien-ne-d-exploitation-automaticien-ne-emmi-suhr-aargau-97ddca08": "AG"
       },
       "en": {
         "betriebselektriker-in-automatiker-in-emmi-suhr-0fc3e263": "AG",
@@ -1337,7 +1586,29 @@
         "betriebselektriker-in-automatiker-in-emmi-suhr": "AG",
         "elettricista-aziendale-automatista-emmi-dagmersellen-luzern-055967a4": "AG",
         "techniker-in-automation-emmi-ch-4c0a2f7e": "AG",
-        "elettricista-aziendale-automatico-a-emmi-ostermundigen-c3bb4c1f": "AG"
+        "elettricista-aziendale-automatico-a-emmi-ostermundigen-c3bb4c1f": "AG",
+        "industrial-electrician-automation-technician-emmi-dagmersellen-luzern-881e4c15": "AG",
+        "plantelectrician-automation-technician-emmi-ostermundigen-210f6973": "AG",
+        "plantelectrician-automation-technician-emmi-dagmersellen": "AG",
+        "industrial-electrician-automation-technician-emmi-dagmersellen-luzern-d6d075a7": "AG",
+        "betriebselektriker-in-automatiker-in-emmi-dagmersellen": "AG",
+        "plantelectrician-automation-technician-emmi-ostermundigen-bd86411d": "AG",
+        "elettricista-aziendale-automatico-a-emmi-ostermundigen": "AG",
+        "electricien-d-exploitation-automaticien-emmi-ostermundigen": "AG",
+        "plantelectrician-automation-technician-emmi-ostermundigen-f0d14629": "AG",
+        "techniker-in-automation-emmi-ch": "AG",
+        "industrial-electrician-automation-technician-emmi-dagmersellen-luzern-e066e0e0": "AG",
+        "plantelectrician-automation-technician-emmi-ostermundigen-c88eebd4": "AG",
+        "plantelectrician-automation-technician-emmi-ostermundigen-d119de95": "AG",
+        "elettricista-industriale-tecnico-a-di-automazione-emmi-suhr-aargau": "AG",
+        "industrial-electrician-automation-technician-emmi-dagmersellen-luzern-0f4ccff8": "AG",
+        "plantelectrician-automation-technician-emmi-ostermundigen-3ab2c178": "AG",
+        "plantelectrician-automation-technician-emmi-ostermundigen-937a1ebc": "AG",
+        "elettricista-industriale-tecnico-a-di-automazione-emmi-suhr-aargau-a389442a": "AG",
+        "industrial-electrician-automation-technician-emmi-ostermundigen-bern-1e26a50c": "AG",
+        "industrial-electrician-automation-technician-emmi-suhr-aargau-62338d23": "AG",
+        "electricien-ne-d-exploitation-automaticien-ne-emmi-ostermundigen-bern-f795ab67": "AG",
+        "electricien-ne-d-exploitation-automaticien-ne-emmi-suhr-aargau-97ddca08": "AG"
       },
       "de": {
         "betriebselektriker-in-automatiker-in-emmi-suhr-0fc3e263": "AG",
@@ -1352,7 +1623,18 @@
         "elettricista-aziendale-automatista-emmi-dagmersellen-luzern-055967a4": "AG",
         "techniker-in-automation-emmi-ch-4c0a2f7e": "AG",
         "elettricista-aziendale-automatico-a-emmi-ostermundigen-c3bb4c1f": "AG",
-        "techniker-in-automation-emmi-ch-699800c5": "AG"
+        "techniker-in-automation-emmi-ch-699800c5": "AG",
+        "betriebselektriker-in-automatiker-in-emmi-ch-ee2b9ea5": "AG",
+        "betriebselektriker-in-automatiker-in-emmi-dagmersellen": "AG",
+        "elettricista-aziendale-automatico-a-emmi-ostermundigen": "AG",
+        "plantelectrician-automation-technician-emmi-ostermundigen": "AG",
+        "electricien-d-exploitation-automaticien-emmi-ostermundigen": "AG",
+        "elettricista-industriale-tecnico-a-di-automazione-emmi-suhr-aargau": "AG",
+        "elettricista-industriale-tecnico-a-di-automazione-emmi-suhr-aargau-a389442a": "AG",
+        "industrial-electrician-automation-technician-emmi-ostermundigen-bern-1e26a50c": "AG",
+        "industrial-electrician-automation-technician-emmi-suhr-aargau-62338d23": "AG",
+        "electricien-ne-d-exploitation-automaticien-ne-emmi-ostermundigen-bern-f795ab67": "AG",
+        "electricien-ne-d-exploitation-automaticien-ne-emmi-suhr-aargau-97ddca08": "AG"
       },
       "fr": {
         "betriebselektriker-in-automatiker-in-emmi-suhr-0fc3e263": "AG",
@@ -1366,7 +1648,29 @@
         "betriebselektriker-in-automatiker-in-emmi-suhr": "AG",
         "elettricista-aziendale-automatista-emmi-dagmersellen-luzern-055967a4": "AG",
         "techniker-in-automation-emmi-ch-4c0a2f7e": "AG",
-        "elettricista-aziendale-automatico-a-emmi-ostermundigen-c3bb4c1f": "AG"
+        "elettricista-aziendale-automatico-a-emmi-ostermundigen-c3bb4c1f": "AG",
+        "electricien-ne-d-exploitation-automaticien-ne-emmi-dagmersellen-luzern-5e3fdbc7": "AG",
+        "electricien-d-exploitation-automaticien-emmi-ostermundigen-9c74f31f": "AG",
+        "electricien-d-exploitation-automaticien-emmi-dagmersellen": "AG",
+        "electricien-ne-d-exploitation-automaticien-ne-emmi-dagmersellen-luzern-1c77b1da": "AG",
+        "betriebselektriker-in-automatiker-in-emmi-dagmersellen": "AG",
+        "electricien-d-exploitation-automaticien-emmi-ostermundigen-f0ac9200": "AG",
+        "elettricista-aziendale-automatico-a-emmi-ostermundigen": "AG",
+        "plantelectrician-automation-technician-emmi-ostermundigen": "AG",
+        "electricien-d-exploitation-automaticien-emmi-ostermundigen-b87b7ed2": "AG",
+        "techniker-in-automation-emmi-ch": "AG",
+        "electricien-ne-d-exploitation-automaticien-ne-emmi-dagmersellen-luzern-f77986ed": "AG",
+        "electricien-d-exploitation-automaticien-emmi-ostermundigen-9e07d16b": "AG",
+        "electricien-d-exploitation-automaticien-emmi-ostermundigen-971e0932": "AG",
+        "elettricista-industriale-tecnico-a-di-automazione-emmi-suhr-aargau": "AG",
+        "electricien-ne-d-exploitation-automaticien-ne-emmi-dagmersellen-luzern-8f250a11": "AG",
+        "electricien-d-exploitation-automaticien-emmi-ostermundigen-02c87066": "AG",
+        "electricien-d-exploitation-automaticien-emmi-ostermundigen-f1422d8b": "AG",
+        "elettricista-industriale-tecnico-a-di-automazione-emmi-suhr-aargau-a389442a": "AG",
+        "industrial-electrician-automation-technician-emmi-ostermundigen-bern-1e26a50c": "AG",
+        "industrial-electrician-automation-technician-emmi-suhr-aargau-62338d23": "AG",
+        "electricien-ne-d-exploitation-automaticien-ne-emmi-ostermundigen-bern-f795ab67": "AG",
+        "electricien-ne-d-exploitation-automaticien-ne-emmi-suhr-aargau-97ddca08": "AG"
       }
     },
     "postalCode": "5034",
@@ -1376,7 +1680,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebselektriker-in-automatiker-in/63302ac0-0593-4cb0-96b9-f8b3b448aa86",
-    "firstSeenAt": "2026-10-22T09:22:22.045Z",
+    "firstSeenAt": "2026-06-10T07:51:39.204Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebselektriker-in-automatiker-in/030ef2da-51d6-416e-9ba5-1e3298d0d0cf",
@@ -1395,7 +1699,7 @@
       },
       {
         "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebselektriker-in-automatiker-in/63302ac0-0593-4cb0-96b9-f8b3b448aa86",
-        "firstSeenAt": "2026-10-22T09:22:22.045Z",
+        "firstSeenAt": "2026-06-10T07:51:39.204Z",
         "title": "Betriebselektriker:in / Automatiker:in"
       },
       {
@@ -1459,7 +1763,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/sachbearbeiterin-customer-service-b2b/c32716a5-6e24-467d-b1d3-b2df0fa2a037",
-    "firstSeenAt": "2026-11-02T21:31:48.580Z"
+    "firstSeenAt": "2026-11-02T21:31:48.580Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiterin-customer-service-b2b-emmi-ch": "LU"
+      },
+      "en": {
+        "sachbearbeiterin-customer-service-b2b-emmi-ch": "LU"
+      },
+      "fr": {
+        "sachbearbeiterin-customer-service-b2b-emmi-ch": "LU"
+      }
+    }
   },
   {
     "id": "emmi-4397d483b43a",
@@ -1515,7 +1831,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-weiterverpackung/ee8f8d29-0a25-4a35-9b9f-0b0250b96166",
-    "firstSeenAt": "2026-10-30T09:32:43.317Z"
+    "firstSeenAt": "2026-10-30T09:32:43.317Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "anlagenfuhrer-in-weiterverpackung-emmi-ch": "AG",
+        "anlagenfuhrer-in-weiterverpackung-emmi-suhr": "AG"
+      },
+      "en": {
+        "anlagenfuhrer-in-weiterverpackung-emmi-suhr": "AG"
+      },
+      "de": {
+        "anlagenfuhrer-in-weiterverpackung-emmi-ch": "AG"
+      },
+      "fr": {
+        "anlagenfuhrer-in-weiterverpackung-emmi-suhr": "AG"
+      }
+    }
   },
   {
     "id": "emmi-9d875a61b16c",
@@ -1566,7 +1898,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/teamleiter-in-jogurt-kaffeeaufbereitung/4cec41c9-c055-43c2-9687-5da03a774195",
-    "firstSeenAt": "2026-10-05T21:32:05.411Z"
+    "firstSeenAt": "2026-10-05T21:32:05.411Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiter-in-jogurt-kaffeeaufbereitung-emmi-ch": "BE"
+      },
+      "en": {
+        "teamleiter-in-jogurt-kaffeeaufbereitung-emmi-ch": "BE"
+      },
+      "fr": {
+        "teamleiter-in-jogurt-kaffeeaufbereitung-emmi-ch": "BE"
+      }
+    }
   },
   {
     "id": "emmi-110346bac05b",
@@ -1621,7 +1965,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/health-safety-lead-region-bern-ost/d7d7d8bf-b6d0-4f30-9401-604fc2daa34c",
-    "firstSeenAt": "2026-10-26T21:47:19.424Z"
+    "firstSeenAt": "2026-10-26T21:47:19.424Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "health-safety-lead-region-bern-ost-emmi-ch": "BE",
+        "salute-e-sicurezza-piombo-regione-berna-est-emmi-ostermundigen-bern": "BE"
+      },
+      "en": {
+        "health-safety-lead-region-bern-ost-emmi-ch": "BE"
+      },
+      "fr": {
+        "health-safety-lead-region-bern-ost-emmi-ch": "BE",
+        "sante-et-securite-region-responsable-bern-east-emmi-ostermundigen-bern": "BE"
+      }
+    }
   },
   {
     "id": "emmi-8ef2e25cea69",
@@ -1653,7 +2011,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/assistant-to-the-head-hr-switzerland/9d79b949-d380-4145-b05d-a60546aaaa3e",
-    "firstSeenAt": "2026-10-23T09:29:51.378Z"
+    "firstSeenAt": "2026-10-23T09:29:51.378Z",
+    "canton": "LU",
+    "previousSlugsByLocale": {
+      "en": [
+        "assistant-head-hr-switzerland-emmi-ch"
+      ],
+      "de": [
+        "assistant-head-hr-switzerland-emmi-ch"
+      ],
+      "fr": [
+        "assistant-head-hr-switzerland-emmi-ch"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "assistant-head-hr-switzerland-emmi-ch": "LU"
+      },
+      "de": {
+        "assistant-head-hr-switzerland-emmi-ch": "LU"
+      },
+      "fr": {
+        "assistant-head-hr-switzerland-emmi-ch": "LU"
+      }
+    }
   },
   {
     "id": "emmi-7fdde2872f4f",
@@ -1705,7 +2086,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/projektleiter-in-molkereitechnik/bdf8e3b3-7868-43e1-9f48-877912eebf02",
-    "firstSeenAt": "2026-09-09T13:50:08.957Z"
+    "firstSeenAt": "2026-09-09T13:50:08.957Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-molkereitechnik-emmi-ch": "AG"
+      },
+      "en": {
+        "projektleiter-in-molkereitechnik-emmi-suhr": "AG"
+      },
+      "fr": {
+        "projektleiter-in-molkereitechnik-emmi-suhr": "AG"
+      }
+    }
   },
   {
     "slug": "addetto-a-alla-produzione-emmi-landquart-graubunden",
@@ -1785,7 +2178,20 @@
         "firstSeenAt": "2026-09-26T13:56:43.654Z",
         "title": "Betriebsmitarbeiter:in Produktion"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "betriebsmitarbeiter-in-produktion-emmi-ch": "GR",
+        "betriebsmitarbeiter-in-produktion-emmi-landquart": "GR"
+      },
+      "en": {
+        "betriebsmitarbeiter-in-produktion-emmi-landquart": "GR"
+      },
+      "fr": {
+        "betriebsmitarbeiter-in-produktion-emmi-landquart": "GR"
+      }
+    }
   },
   {
     "slug": "operatore-trice-di-impianto-di-porzionamento-emmi-kirchberg-bern",
@@ -1835,7 +2241,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-portionen/4930188d-bf5d-459b-8550-0c104ccda735",
-    "firstSeenAt": "2026-11-04T21:27:37.442Z"
+    "firstSeenAt": "2026-11-04T21:27:37.442Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "anlagenfuhrer-in-portionen-emmi-ch": "BE"
+      },
+      "en": {
+        "anlagenfuhrer-in-portionen-emmi-ch": "BE"
+      },
+      "fr": {
+        "anlagenfuhrer-in-portionen-emmi-ch": "BE"
+      }
+    }
   },
   {
     "slug": "senior-product-manager-emmi-caff-latte-emmi-luzern",
@@ -1879,7 +2297,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/senior-product-manager-emmi-caffe-latte/6702492c-e804-46bf-ba9e-b70dcfc06a99",
-    "firstSeenAt": "2026-10-13T09:19:07.744Z"
+    "firstSeenAt": "2026-10-13T09:19:07.744Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-product-manager-emmi-caffe-latte-emmi-ch": "LU"
+      }
+    }
   },
   {
     "id": "emmi-194e638ecc41",
@@ -1946,7 +2370,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027/6fe35107-f292-4e4c-a77b-e4dc9e277f9f",
-    "firstSeenAt": "2026-07-10T10:50:40.389Z",
+    "firstSeenAt": "2026-07-09T22:40:47.291Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027/13f9f61d-31ed-4735-b0af-5d9ba7c7224b",
@@ -1963,7 +2387,28 @@
         "firstSeenAt": "2026-07-09T22:40:47.291Z",
         "title": "Lehre als Polymechaniker:in EFZ Fachrichtung Instandhaltung 2027"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027-emmi-ch": "LU",
+        "lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027-emmi-ch-2": "LU",
+        "apprendistato-come-polymechaniker-in-cfc-specializzazione-instandhaltung-2027-emmi-ostermundigen": "LU",
+        "lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027-emmi-ch-ehdqbq": "LU"
+      },
+      "en": {
+        "lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027-emmi-ch-2": "LU",
+        "teaching-as-a-polymechanic-in-efz-department-of-maintenance-2027-emmi-ostermundigen-bern": "LU",
+        "lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027-emmi-ch": "LU"
+      },
+      "de": {
+        "lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027-emmi-ch-ehdqbq": "LU"
+      },
+      "fr": {
+        "lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027-emmi-ch-2": "LU",
+        "enseignement-en-tant-que-polymecanicien-dans-efz-departement-de-l-entretien-2027-emmi-ostermundigen-bern": "LU",
+        "lehre-als-polymechaniker-in-efz-fachrichtung-instandhaltung-2027-emmi-ch": "LU"
+      }
+    }
   },
   {
     "id": "emmi-0dc8b3b1f60d-r368ea807",
@@ -2043,7 +2488,28 @@
         "firstSeenAt": "2026-06-10T07:51:39.208Z",
         "title": "Betriebsmitarbeiter:in Logistik"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "betriebsmitarbeiter-in-logistik-emmi-ch": "LU",
+        "operatore-trice-di-logistica-emmi-dagmersellen-luzern": "LU",
+        "betriebsmitarbeiter-in-logistik-emmi-ch-417b00ae": "LU",
+        "betriebsmitarbeiter-in-logistik-emmi-dagmersellen": "LU"
+      },
+      "en": {
+        "logistics-operations-employee-emmi-dagmersellen-luzern": "LU",
+        "betriebsmitarbeiter-in-logistik-emmi-dagmersellen": "LU"
+      },
+      "de": {
+        "betriebsmitarbeiter-in-logistik-emmi-ch": "LU",
+        "betriebsmitarbeiter-in-logistik-emmi-dagmersellen-79590211": "LU",
+        "betriebsmitarbeiter-in-logistik-emmi-ch-417b00ae": "LU"
+      },
+      "fr": {
+        "collaborateur-trice-d-exploitation-logistique-emmi-dagmersellen-luzern": "LU",
+        "betriebsmitarbeiter-in-logistik-emmi-dagmersellen": "LU"
+      }
+    }
   },
   {
     "slug": "manager-in-convenienza-2-emmi-kirchberg-bern",
@@ -2087,7 +2553,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-convenience-2/4cd66a84-5701-417e-b15b-88de415b12eb",
-    "firstSeenAt": "2026-08-12T22:21:39.546Z"
+    "firstSeenAt": "2026-08-12T22:21:39.546Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "anlagenfuhrer-in-convenience-2-emmi-ch": "BE"
+      }
+    }
   },
   {
     "slug": "operatore-automatico-elettricista-operativo-emmi-kirchberg-bern",
@@ -2179,7 +2651,26 @@
         "firstSeenAt": "2026-06-10T07:51:39.210Z",
         "title": "Automatiker:in / Betriebselektriker:in"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "operatore-automatico-elettricista-operativo-emmi-kirchberg-ms3slx": "BE",
+        "automaticien-ne-electricien-ne-d-exploitation-emmi-kirchberg": "BE",
+        "automated-electrician-plant-electrician-emmi-kirchberg": "BE",
+        "operatore-automatico-elettricista-operativo-emmi-kirchberg": "BE",
+        "automatiker-in-betriebselektriker-in-emmi-kirchberg": "BE",
+        "automatiker-in-betriebselektriker-in-emmi-ch": "BE"
+      },
+      "en": {
+        "automated-electrician-plant-electrician-emmi-kirchberg": "BE",
+        "automatiker-in-betriebselektriker-in-emmi-kirchberg": "BE"
+      },
+      "fr": {
+        "automaticien-ne-electricien-ne-d-exploitation-emmi-kirchberg": "BE",
+        "automatiker-in-betriebselektriker-in-emmi-kirchberg": "BE"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-anlagenfuhrer-in-cfc-2027-emmi-dagmersellen",
@@ -2245,7 +2736,8 @@
         "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-t4fl4d",
         "apprendistato-come-anlagenfuhrer-in-cfc-2027-emmi-emmen",
         "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-w8ijq4",
-        "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-5tr2zv"
+        "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-5tr2zv",
+        "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch"
       ],
       "en": [
         "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-3",
@@ -2255,7 +2747,8 @@
         "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-2",
         "apprenticeship-as-plant-manager-in-efz-2027-emmi-langnau-im-emmental-bern",
         "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-5",
-        "apprenticeship-as-plant-manager-in-efz-2027-emmi-emmen-luzern"
+        "apprenticeship-as-plant-manager-in-efz-2027-emmi-emmen-luzern",
+        "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch"
       ],
       "de": [
         "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-5tr2zv",
@@ -2272,7 +2765,8 @@
         "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-2",
         "apprentissage-en-tant-que-gestionnaire-d-usine-en-efz-2027-emmi-langnau-im-emmental-bern",
         "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch-5",
-        "apprentissage-en-tant-que-gestionnaire-d-usine-en-efz-2027-emmi-emmen-luzern"
+        "apprentissage-en-tant-que-gestionnaire-d-usine-en-efz-2027-emmi-emmen-luzern",
+        "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch"
       ]
     },
     "postalCode": "6252",
@@ -2314,7 +2808,13 @@
         "firstSeenAt": "2026-07-09T22:40:47.288Z",
         "title": "Lehre als Anlagenführer:in EFZ 2027"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehre-als-anlagenfuhrer-in-efz-2027-emmi-ch": "LU"
+      }
+    }
   },
   {
     "slug": "gestione-del-sistema-liquid-uht-emmi-suhr-aargau",
@@ -2359,16 +2859,20 @@
         "anlagenfuhrer-in-flussig-uht-emmi-ch-xe5e32",
         "system-operator-in-liquid-uht-emmi-suhr-aargau",
         "anlagenfuhrer-in-flussig-uht-emmi-ch",
-        "operatore-di-sistema-in-liquido-uht-emmi-suhr-aargau-xe5e32"
+        "operatore-di-sistema-in-liquido-uht-emmi-suhr-aargau-xe5e32",
+        "operatore-di-sistema-in-liquido-uht-emmi-suhr-aargau"
       ],
       "de": [
-        "anlagenfuhrer-in-flussig-uht-emmi-ch-xe5e32"
+        "anlagenfuhrer-in-flussig-uht-emmi-ch-xe5e32",
+        "operatore-di-sistema-in-liquido-uht-emmi-suhr-aargau"
       ],
       "en": [
-        "anlagenfuhrer-in-flussig-uht-emmi-ch"
+        "anlagenfuhrer-in-flussig-uht-emmi-ch",
+        "operatore-di-sistema-in-liquido-uht-emmi-suhr-aargau"
       ],
       "fr": [
-        "anlagenfuhrer-in-flussig-uht-emmi-ch"
+        "anlagenfuhrer-in-flussig-uht-emmi-ch",
+        "operatore-di-sistema-in-liquido-uht-emmi-suhr-aargau"
       ]
     },
     "postalCode": "5034",
@@ -2400,7 +2904,28 @@
         "firstSeenAt": "2026-07-07T12:16:22.953Z",
         "title": "Anlagenführer:in Flüssig UHT"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "operatore-di-sistema-in-liquido-uht-emmi-suhr-aargau-xtm91y": "AG",
+        "operateur-du-systeme-en-liquide-uht-emmi-suhr-aargau": "AG",
+        "anlagenfuhrer-in-flussig-uht-emmi-ch-xe5e32": "AG",
+        "system-operator-in-liquid-uht-emmi-suhr-aargau": "AG",
+        "operatore-di-sistema-in-liquido-uht-emmi-suhr-aargau": "AG",
+        "anlagenfuhrer-in-flussig-uht-emmi-ch": "AG"
+      },
+      "en": {
+        "operatore-di-sistema-in-liquido-uht-emmi-suhr-aargau": "AG"
+      },
+      "de": {
+        "operatore-di-sistema-in-liquido-uht-emmi-suhr-aargau": "AG",
+        "anlagenfuhrer-in-flussig-uht-emmi-ch-xe5e32": "AG"
+      },
+      "fr": {
+        "operatore-di-sistema-in-liquido-uht-emmi-suhr-aargau": "AG"
+      }
+    }
   },
   {
     "slug": "tecnologa-o-del-latte-o-tecnologo-a-alimentare-emmi-dagmersellen-3ef3e7a2d7",
@@ -2443,7 +2968,12 @@
       "dairy-technologist-or-food-technologist-emmi-dagmersellen-863d4e04",
       "technologue-en-technologie-du-lait-ou-technologue-en-technologie-alimentaire-emmi-dagmersellen-luzern",
       "technologue-en-technologie-du-lait-ou-technologue-en-technologie-alimentaire-emmi-dagmersellen-a6ef182c",
-      "traduzione-del-post-di-lavoro-emmi-dagmersellen-wibrkc"
+      "traduzione-del-post-di-lavoro-emmi-dagmersellen-wibrkc",
+      "tecnologa-o-del-latte-o-tecnologo-a-alimentare-emmi-dagmersellen-4bdc0d5452",
+      "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch-df7acfbb",
+      "tecnologa-o-del-latte-o-tecnologo-a-alimentare-emmi-dagmersellen-65fbc850",
+      "dairy-technologist-or-food-technologist-emmi-dagmersellen-d5e4f53f",
+      "technologue-en-technologie-du-lait-ou-technologue-en-technologie-alimentaire-emmi-dagmersellen-ab161905"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2456,24 +2986,30 @@
         "translation-of-job-posting-emmi-dagmersellen",
         "traduction-du-post-de-travail-emmi-dagmersellen",
         "dairy-technologist-or-food-technologist-emmi-dagmersellen-luzern",
-        "traduzione-del-post-di-lavoro-emmi-dagmersellen-wibrkc"
+        "traduzione-del-post-di-lavoro-emmi-dagmersellen-wibrkc",
+        "tecnologa-o-del-latte-o-tecnologo-a-alimentare-emmi-dagmersellen-4bdc0d5452",
+        "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch-df7acfbb",
+        "tecnologa-o-del-latte-o-tecnologo-a-alimentare-emmi-dagmersellen-65fbc850"
       ],
       "en": [
         "dairy-technologist-or-food-technologist-emmi-dagmersellen-luzern",
         "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch-1ac1e9f8",
         "dairy-technologist-or-food-technologist-emmi-dagmersellen-863d4e04",
         "translation-of-job-posting-emmi-dagmersellen",
-        "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch"
+        "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch",
+        "dairy-technologist-or-food-technologist-emmi-dagmersellen-d5e4f53f"
       ],
       "de": [
-        "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch-1ac1e9f8"
+        "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch-1ac1e9f8",
+        "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch-df7acfbb"
       ],
       "fr": [
         "technologue-en-technologie-du-lait-ou-technologue-en-technologie-alimentaire-emmi-dagmersellen-luzern",
         "traduction-du-post-de-travail-emmi-dagmersellen",
         "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch-1ac1e9f8",
         "technologue-en-technologie-du-lait-ou-technologue-en-technologie-alimentaire-emmi-dagmersellen-a6ef182c",
-        "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch"
+        "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch",
+        "technologue-en-technologie-du-lait-ou-technologue-en-technologie-alimentaire-emmi-dagmersellen-ab161905"
       ]
     },
     "postalCode": "6252",
@@ -2520,7 +3056,26 @@
         "firstSeenAt": "2026-06-10T07:51:39.176Z",
         "title": "Milchtechnologin/-technologe oder Lebensmitteltechnologe/-technologin"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch": "LU",
+        "tecnologa-o-del-latte-o-tecnologo-a-alimentare-emmi-dagmersellen": "LU",
+        "tecnologa-o-del-latte-o-tecnologo-a-alimentare-emmi-dagmersellen-4bdc0d5452": "LU",
+        "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch-df7acfbb": "LU",
+        "tecnologa-o-del-latte-o-tecnologo-a-alimentare-emmi-dagmersellen-65fbc850": "LU"
+      },
+      "en": {
+        "dairy-technologist-or-food-technologist-emmi-dagmersellen-d5e4f53f": "LU"
+      },
+      "de": {
+        "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch-df7acfbb": "LU"
+      },
+      "fr": {
+        "technologue-en-technologie-du-lait-ou-technologue-en-technologie-alimentaire-emmi-dagmersellen-ab161905": "LU"
+      }
+    }
   },
   {
     "slug": "modellazione-di-plant-manager-emmi-suhr-aargau",
@@ -2586,7 +3141,20 @@
         "firstSeenAt": "2026-09-11T13:42:06.151Z",
         "title": "Anlagenführer:in Modellierung"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "modellazione-di-plant-manager-emmi-suhr": "AG",
+        "anlagenfuhrer-in-modellierung-emmi-ch": "AG"
+      },
+      "en": {
+        "plant-manager-modeling-emmi-suhr": "AG"
+      },
+      "fr": {
+        "modelisation-du-gestionnaire-d-usine-emmi-suhr": "AG"
+      }
+    }
   },
   {
     "slug": "team-leader-in-butterei-emmi-suhr-aargau",
@@ -2634,7 +3202,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/teamleiter-in-butterei/9451d4d3-2635-4c8e-bde5-19554d07c6ee",
-    "firstSeenAt": "2026-09-03T13:35:12.508Z"
+    "firstSeenAt": "2026-09-03T13:35:12.508Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiter-in-butterei-emmi-ch": "AG"
+      },
+      "de": {
+        "teamleiter-in-butterei-emmi-suhr": "AG"
+      }
+    }
   },
   {
     "slug": "studente-di-lavoro-eccellente-leadership-emmi-luzern-luzern",
@@ -2681,7 +3258,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/working-student-excellent-leadership/8ad20a7e-f76c-4a52-bd3c-03fd879057c5",
-    "firstSeenAt": "2026-10-29T21:34:16.009Z"
+    "firstSeenAt": "2026-10-29T21:34:16.009Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "working-student-excellent-leadership-emmi-ch": "LU"
+      },
+      "fr": {
+        "working-student-excellent-leadership-emmi-ch": "LU"
+      }
+    }
   },
   {
     "slug": "capo-turno-uht-past-emmi-ostermundigen-bern",
@@ -2725,7 +3311,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/schichtfuehrer-in-uht-past/877386aa-a9b3-446b-b7b9-ccaec79f8f88",
-    "firstSeenAt": "2026-10-02T09:17:28.357Z"
+    "firstSeenAt": "2026-10-02T09:17:28.357Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "schichtfuhrer-in-uht-past-emmi-ch": "BE"
+      }
+    }
   },
   {
     "slug": "team-leader-produzione-uht-past-emmi-ostermundigen-bern",
@@ -2775,7 +3367,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/teamleiter-in-produktion-uht-past/b448615b-b651-4f8d-b5f0-28710e8d8168",
-    "firstSeenAt": "2026-10-08T09:20:41.984Z"
+    "firstSeenAt": "2026-10-08T09:20:41.984Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiter-in-produktion-uht-past-emmi-ch": "BE"
+      },
+      "en": {
+        "teamleiter-in-produktion-uht-past-emmi-ch": "BE"
+      },
+      "fr": {
+        "teamleiter-in-produktion-uht-past-emmi-ch": "BE"
+      }
+    }
   },
   {
     "slug": "risorse-umane-assistant-international-emmi-luzern",
@@ -2823,7 +3427,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/hr-assistant-international/1ab9e4c1-aeb0-49e1-9fa4-a68b1a851436",
-    "firstSeenAt": "2026-10-05T21:32:05.409Z"
+    "firstSeenAt": "2026-10-05T21:32:05.409Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hr-assistant-international-emmi-ch": "LU"
+      },
+      "fr": {
+        "assistante-en-ressources-humaines-emmi-luzern-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "gestione-delle-applicazioni-sap-scm-emmi-ostermundigen-bern",
@@ -2867,7 +3480,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/application-operation-manager-sap-scm/61d189e6-e846-4984-ae07-819d8d6098b1",
-    "firstSeenAt": "2026-10-02T09:17:28.353Z"
+    "firstSeenAt": "2026-10-02T09:17:28.353Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "application-operation-manager-sap-scm-emmi-ch": "BE"
+      }
+    }
   },
   {
     "slug": "addetto-a-operativo-a-logistica-confezionamento-emmi-emmen",
@@ -2954,7 +3573,8 @@
         "collaborateur-rice-d-exploitation-en-logistique-et-conditionnement-emmi-emmen-luzern": "LU",
         "betriebsmitarbeiter-in-logistik-konfektionierung-emmi-ch": "LU"
       }
-    }
+    },
+    "canton": "LU"
   },
   {
     "slug": "collaboratore-trice-operativo-a-nella-logistica-centrale-operativa-emmi-emmen-luzern",
@@ -3498,7 +4118,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/job-vacancies/global-media-manager/13e7d466-b9fa-4bb9-ac44-5267c34fdd5a",
-    "firstSeenAt": "2026-10-19T09:22:27.142Z"
+    "firstSeenAt": "2026-10-19T09:22:27.142Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "global-media-manager-emmi-ch": "LU"
+      },
+      "de": {
+        "global-media-manager-emmi-ch": "LU"
+      },
+      "fr": {
+        "global-media-manager-emmi-ch": "LU"
+      }
+    }
   },
   {
     "slug": "meccanico-a-di-manutenzione-emmi-dagmersellen-aa125a28d4",
@@ -3612,7 +4244,11 @@
       "betriebsmechaniker-in-emmi-dagmersellen-6448f393",
       "betriebsmechaniker-in-emmi-dagmersellen-353a5dd0",
       "betriebsmechaniker-in-emmi-dagmersellen-b8cda5a3",
-      "betriebsmechaniker-in-emmi-dagmersellen"
+      "betriebsmechaniker-in-emmi-dagmersellen",
+      "betriebsmechaniker-in-emmi-ch",
+      "meccanico-a-di-manutenzione-emmi-dagmersellen",
+      "operational-mechanic-emmi-dagmersellen",
+      "mecanicien-ne-d-exploitation-emmi-dagmersellen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -3621,7 +4257,9 @@
         "meccanico-a-di-manutenzione-emmi-emmen-1ae31da535",
         "betriebsmechaniker-in-emmi-ch-2-52eeadbd",
         "meccanico-a-di-manutenzione-emmi-emmen-37477945",
-        "betriebsmechaniker-in-emmi-dagmersellen"
+        "betriebsmechaniker-in-emmi-dagmersellen",
+        "betriebsmechaniker-in-emmi-ch",
+        "meccanico-a-di-manutenzione-emmi-dagmersellen"
       ],
       "de": [
         "betriebsmechaniker-in-emmi-ch-738809d6",
@@ -3702,15 +4340,18 @@
         "betriebsmechaniker-in-emmi-dagmersellen-6448f393",
         "betriebsmechaniker-in-emmi-dagmersellen-353a5dd0",
         "betriebsmechaniker-in-emmi-dagmersellen-b8cda5a3",
-        "betriebsmechaniker-in-emmi-dagmersellen"
+        "betriebsmechaniker-in-emmi-dagmersellen",
+        "betriebsmechaniker-in-emmi-ch"
       ],
       "en": [
         "operational-mechanic-emmi-emmen-49a76f67",
-        "betriebsmechaniker-in-emmi-dagmersellen"
+        "betriebsmechaniker-in-emmi-dagmersellen",
+        "operational-mechanic-emmi-dagmersellen"
       ],
       "fr": [
         "mecanicien-ne-d-exploitation-emmi-emmen-bf1f09ec",
-        "betriebsmechaniker-in-emmi-dagmersellen"
+        "betriebsmechaniker-in-emmi-dagmersellen",
+        "mecanicien-ne-d-exploitation-emmi-dagmersellen"
       ]
     },
     "postalCode": "6252",
@@ -3747,7 +4388,24 @@
         "firstSeenAt": "2026-08-10T21:49:51.287Z",
         "title": "Betriebsmechaniker:in"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "betriebsmechaniker-in-emmi-ch": "LU",
+        "meccanico-a-di-manutenzione-emmi-dagmersellen": "LU"
+      },
+      "en": {
+        "operational-mechanic-emmi-dagmersellen": "LU"
+      },
+      "de": {
+        "betriebsmechaniker-in-emmi-dagmersellen": "LU",
+        "betriebsmechaniker-in-emmi-ch": "LU"
+      },
+      "fr": {
+        "mecanicien-ne-d-exploitation-emmi-dagmersellen": "LU"
+      }
+    }
   },
   {
     "slug": "milchtechnologin-o-milchtechnologe-emmi-landquart-798a93f087",
@@ -3903,7 +4561,8 @@
       ],
       "de": [
         "milchtechnologin-oder-milchtechnologe-emmi-ch-50db07cd",
-        "milchtechnologin-oder-milchtechnologe-emmi-ch"
+        "milchtechnologin-oder-milchtechnologe-emmi-ch",
+        "milchtechnologin-oder-milchtechnologe-emmi-landquart"
       ]
     },
     "postalCode": "7302",
@@ -3955,7 +4614,34 @@
         "firstSeenAt": "2026-07-07T22:23:34.052Z",
         "title": "Milchtechnologin oder Milchtechnologe"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "tecnico-lattiero-caseario-emmi-landquart-4p1cwa": "GR",
+        "milchtechnologin-oder-milchtechnologe-emmi-ch-2": "GR",
+        "tecnico-lattiero-caseario-emmi-landquart-6s079b": "GR",
+        "technologue-du-lait-ou-technologue-du-lait-emmi-landquart": "GR",
+        "milk-technologist-or-dairy-technologist-emmi-landquart": "GR",
+        "tecnico-lattiero-caseario-emmi-landquart": "GR",
+        "milchtechnologin-oder-milchtechnologe-emmi-ch": "GR",
+        "milchtechnologin-o-milchtechnologe-emmi-landquart": "GR"
+      },
+      "en": {
+        "milk-technologist-or-dairy-technologist-emmi-landquart": "GR",
+        "milk-technologist-or-dairy-technologist-emmi-landquart-graubunden": "GR",
+        "milchtechnologin-oder-milchtechnologe-emmi-landquart": "GR"
+      },
+      "de": {
+        "milchtechnologin-oder-milchtechnologe-emmi-landquart": "GR",
+        "milchtechnologin-oder-milchtechnologe-emmi-ch": "GR"
+      },
+      "fr": {
+        "technologue-du-lait-ou-technologue-du-lait-emmi-landquart": "GR",
+        "technologue-du-lait-ou-technologue-du-lait-emmi-landquart-graubunden": "GR",
+        "milchtechnologin-oder-milchtechnologe-emmi-landquart": "GR"
+      }
+    }
   },
   {
     "slug": "tecnico-di-automazione-emmi-dagmersellen-luzern",
@@ -4069,7 +4755,10 @@
       "techniker-in-automation-emmi-dagmersellen-1c411709",
       "techniker-in-automation-emmi-dagmersellen-d8e50e20",
       "techniker-in-automation-emmi-dagmersellen-7a202808",
-      "techniker-in-automation-emmi-dagmersellen"
+      "techniker-in-automation-emmi-dagmersellen",
+      "automation-technician-emmi-dagmersellen",
+      "techniker-in-automation-emmi-ch",
+      "technicien-ne-en-automatisation-emmi-dagmersellen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -4081,7 +4770,8 @@
       "en": [
         "industrial-electrician-automation-technician-emmi-dagmersellen-luzern",
         "automation-technician-emmi-dagmersellen-25acd604",
-        "techniker-in-automation-emmi-dagmersellen"
+        "techniker-in-automation-emmi-dagmersellen",
+        "automation-technician-emmi-dagmersellen"
       ],
       "de": [
         "betriebselektriker-in-automatiker-in-emmi-ch-1a362813",
@@ -4162,12 +4852,14 @@
         "techniker-in-automation-emmi-dagmersellen-1c411709",
         "techniker-in-automation-emmi-dagmersellen-d8e50e20",
         "techniker-in-automation-emmi-dagmersellen-7a202808",
-        "techniker-in-automation-emmi-dagmersellen"
+        "techniker-in-automation-emmi-dagmersellen",
+        "techniker-in-automation-emmi-ch"
       ],
       "fr": [
         "electricien-ne-d-exploitation-automaticien-ne-emmi-dagmersellen-luzern",
         "technicien-ne-en-automatisation-emmi-dagmersellen-5ee14769",
-        "techniker-in-automation-emmi-dagmersellen"
+        "techniker-in-automation-emmi-dagmersellen",
+        "technicien-ne-en-automatisation-emmi-dagmersellen"
       ]
     },
     "postalCode": "6252",
@@ -4189,53 +4881,28 @@
         "firstSeenAt": "2026-10-09T21:22:15.157Z",
         "title": "Techniker:in Automation"
       }
-    ]
-  },
-  {
-    "slug": "tecnologa-o-del-latte-o-tecnologo-a-alimentare-emmi-dagmersellen-4bdc0d5452",
-    "title": "Milchtechnologin/-technologe oder Lebensmitteltechnologe/-technologin",
-    "titleByLocale": {
-      "it": "Tecnologa/o del latte o tecnologo/a alimentare",
-      "en": "Dairy technologist or food technologist",
-      "de": "Milchtechnologin/-technologe oder Lebensmitteltechnologe/-technologin",
-      "fr": "Technologue en technologie du lait ou technologue en technologie alimentaire"
-    },
-    "company": "Emmi",
-    "companyKey": "emmi",
-    "location": "Dagmersellen, Luzern",
-    "addressLocality": "Dagmersellen",
-    "descriptionByLocale": {
-      "it": "Cuore, passione e momenti di latte indimenticabili – ecco cosa rappresenta Emmi. A Dagmersellen, 100 milioni di litri di latte vengono trasformati ogni anno nella migliore crema di formaggio, rendendoci uno dei più grandi produttori di mozzarella in Svizzera. Diventa parte della nostra storia di successo.\n\nPuoi farlo.\n\n• È possibile preparare in modo affidabile le nostre piante complesse nella produzione di mozzarella e crema di formaggio.\n\n• Fornire tutti gli strumenti necessari e utilizzare i quattro sistemi diversi.\n\n• In caso di problemi tecnici, è possibile utilizzare le conoscenze per risolvere i problemi di produzione e sostenere i tecnici.\n\n• Si effettuano operazioni di pulizia e manutenzione indipendentemente.\n\n• Documenti i tuoi flussi di lavoro e li passi in modo pulito al prossimo turno.\n\nLo porti con te.\n\n• Avete la formazione professionale EFZ (latte o la tecnologia alimentare) e forse già acquisito qualche esperienza come responsabile di impianti: in un'azienda alimentare.\n\n• Si mostra la flessibilità con la disponibilità per il lavoro a turni (3 turni: 20:00 - 4:00, Mo, 4:00 - 13:00 e 12:00 - 20:00 / assegnazioni stagionali il sabato).\n\n• Ti piace lavorare in una squadra, sono aperti, collegiali, disponibili e godere di imparare.\n\n• Si padroneggia la lingua tedesca nella parola e nella scrittura e si è tecnicamente interessati.\n\nQuesto è ciò che vi offriamo\n\n• 5 settimane di vacanza: Godetevi cinque settimane di vacanza all'anno. Dall'età di 46 anni, il diritto di vacanza aumenta gradualmente fino a sei settimane.\n\n• Attraente fondo pensionistico con piani di risparmio flessibili: La nostra fondazione pensione Emmi paga l'interesse per il risparmio di pensione al di sopra del minimo legale. Il vostro contributo si basa sul vostro stipendio annuale – senza deduzione di coordinamento. Scegliere tra piano di risparmio standard o più con 1% maggiori contributi di risparmio.\n\n• Condivisione di successo volontaria: A seconda del successo aziendale, riceverai una condivisione volontaria di successo. In questo modo, vogliamo riconoscere il vostro prezioso contributo al successo dell’azienda.\n\n• Indennità volontaria per bambini: se si guadagna meno di CHF 5.000, si riceverà un'indennità volontaria di CHF 100 al mese per ogni bambino.\n\n• Parcheggio gratuito: Offriamo ai nostri dipendenti parcheggio gratuito nella posizione.\n\n• Pasti economici nel ristorante del personale: Per la prima colazione, pranzo e pausa pasti, è disponibile un ristorante personale con prezzi scontati dei dipendenti.\n\nMaggiori informazioni sui benefici",
-      "en": "Heart, passion and unforgettable milk moments – this is what Emmi stands for. In Dagmersellen, 100 million liters of milk are processed into the finest cream cheese every year, making us one of the largest mozzarella producers in Switzerland. Become part of our success story.\n\nYou can do that.\n\n• You can reliably prepare our complex plants in the production of mozzarella and cream cheese.\n\n• You provide all the necessary tools and operate the four different systems.\n\n• In case of technical problems, you can use your knowledge to solve production problems and support the technicians.\n\n• You carry out cleaning and maintenance tasks independently.\n\n• You document your workflows and pass them cleanly to the next shift.\n\nYou bring that with you\n\n• You have the vocational training EFZ (milk or food technology) and perhaps already gained some experience as a plant manager: in a food business.\n\n• You show your flexibility with your readiness for shift work (3 shifts: 20:00 - 4:00, Mo, 4:00 - 13:00 and 12:00 - 20:00 / seasonal assignments on Saturday).\n\n• You enjoy working in a team, are open, collegial, helpful and enjoy learning.\n\n• You master the German language in word and writing and you are technically interested.\n\nThis is what we offer you\n\n• 5 weeks of vacation: Enjoy five weeks of vacation per year. From the age of 46, your holiday entitlement gradually increases to up to six weeks.\n\n• Attractive pension fund with flexible savings plans: Our Emmi pension foundation pays interest on your retirement savings above the legal minimum. Your contribution is based on your annual salary – without coordination deduction. Choose between standard or plus savings plan with 1% higher savings contributions.\n\n• Voluntary Success Sharing: Depending on the business success, you will receive a voluntary success Sharing. In doing so, we want to acknowledge your valuable contribution to the company’s success.\n\n• Voluntary child allowance: If you earn less than CHF 5,000, you will receive a voluntary allowance of CHF 100 per month for each child.\n\n• Free parking: We offer our employees free parking at the location.\n\n• Cheap meals in the staff restaurant: For breakfast, lunch and break meals, a staff restaurant with discounted employee prices is available.\n\nLearn more about benefits",
-      "de": "Herz, Leidenschaft und unvergessliche Milchmomente – dafür steht Emmi. In Dagmersellen werden jährlich 100 Millionen Liter Milch zu feinstem Frischkäse verarbeitet und somit gehören wir zu einer der grössten Mozzarellaproduzentinnen der Schweiz. Werde Teil unserer Erfolgsgeschichte.\n\nDas kannst du bewirken\n\n• Zuverlässig bereitest du unsere komplexen Anlagen in der Produktion von Mozzarella und Frischkäse vor.\n\n• Du stellst alle nötigen Hilfsmittel bereit und bedienst abwechslungsweise die vier verschiedenen Anlagen.\n\n• Bei technischen Problemen kannst du mit deinen Kenntnissen auftretende Produktionsprobleme beheben und die Techniker unterstützen.\n\n• Reinigungs- und Instandhaltungsaufgaben führst du selbstständig durch.\n\n• Du dokumentierst deine Arbeitsabläufe und übergibst diese sauber an die nächste Schicht.\n\nDas bringst du mit\n\n• Du hast die Berufsausbildung EFZ (Milch- oder Lebensmitteltechnologie) und vielleicht schon etwas Erfahrung als Anlagenführer:in in einem Lebensmittelbetrieb gesammelt.\n\n• Deine Flexibilität zeigst du mit deiner Bereitschaft für Schichtarbeit (3-Schichten: So, 20.00 - 4.00 Uhr, Mo, 4.00 - 13.00 Uhr und 12.00 - 20.00 Uhr/Saisoneinsätze am Samstag).\n\n• Du arbeitest gerne im Team, bist offen, kollegial, hilfsbereit und lernst gerne dazu.\n\n• Die deutsche Sprache beherrscht du in Wort und Schrift und du bist technisch interessiert.\n\nDas bieten wir dir\n\n• 5 Wochen Ferien: Geniesse fünf Wochen Ferien pro Jahr. Ab dem 46. Lebensjahr steigert sich dein Urlaubsanspruch schrittweise auf bis zu sechs Wochen.\n\n• Attraktive Pensionskasse mit flexiblen Sparplänen: Unsere Emmi Vorsorgestiftung verzinst dein Altersguthaben über dem gesetzlichen Minimum. Dein Beitrag basiert auf deinem Jahresgehalt – ohne Koordinationsabzug. Wähle zwischen Standard- oder Plus-Sparplan mit 1 % höheren Sparbeiträgen.\n\n• Freiwillige Erfolgsbeteiligung: Je nach Geschäftserfolg erhältst du eine freiwillige Erfolgsbeteiligung. Damit möchten wir deinen wertvollen Beitrag zum Unternehmenserfolg anerkennen.\n\n• Freiwillige Kinderzulage: Bei einem Einkommen unter CHF 5'000 erhältst du eine freiwillige Zulage von CHF 100 pro Monat für jedes Kind.\n\n• Kostenlose Parkplätze: Wir bieten unseren Mitarbeitenden gratis Parkplätze am Standort.\n\n• Günstige Verpflegung im Personalrestaurant: Für Frühstück, Mittagessen und Pausenverpflegung steht dir ein Personalrestaurant mit vergünstigten Mitarbeitendenpreisen zur Verfügung.\n\nMehr über Benefits erfahren",
-      "fr": "Coeur, passion et moments de lait inoubliables – voilà ce que représente Emmi. À Dagmersellen, 100 millions de litres de lait sont transformés chaque année en meilleur fromage à la crème, ce qui fait de nous l'un des plus grands producteurs de mozzarella en Suisse. Faites partie de notre réussite.\n\nTu peux le faire.\n\n• Vous pouvez préparer nos plantes complexes de façon fiable dans la production de mozzarella et de fromage à la crème.\n\n• Vous fournissez tous les outils nécessaires et actionnez les quatre systèmes différents.\n\n• En cas de problèmes techniques, vous pouvez utiliser vos connaissances pour résoudre des problèmes de production et soutenir les techniciens.\n\n• Vous effectuez des tâches de nettoyage et d'entretien indépendamment.\n\n• Vous documentez vos flux de travail et les passez proprement au prochain poste.\n\nApporte ça avec toi.\n\n• Vous avez la formation professionnelle EFZ (lait ou technologie alimentaire) et peut-être déjà acquis une certaine expérience en tant que gestionnaire d'usine: dans une entreprise alimentaire.\n\n• Vous montrez votre flexibilité avec votre disponibilité pour le travail posté (3 postes : 20:00 - 4:00, Mo, 4:00 - 13:00 et 12:00 - 20:00 / affectations saisonnières le samedi).\n\n• Vous aimez travailler en équipe, être ouvert, collégial, utile et apprendre.\n\n• Vous maîtrisez l'allemand en parole et en écriture et vous êtes techniquement intéressé.\n\nC'est ce que nous vous offrons.\n\n• 5 semaines de vacances: Profitez de cinq semaines de vacances par année. À partir de l'âge de 46 ans, votre droit de vacances augmente graduellement jusqu'à six semaines.\n\n• Fonds de pension attrayant avec des régimes d'épargne flexibles: Notre fondation de pension Emmi verse des intérêts sur votre épargne retraite au-dessus du minimum légal. Votre cotisation est basée sur votre salaire annuel – sans déduction de coordination. Choisissez entre un régime d'épargne standard ou plus avec des cotisations d'épargne plus élevées de 1%.\n\n• Partage volontaire du succès : Selon le succès de l'entreprise, vous recevrez un partage volontaire du succès. Ce faisant, nous voulons reconnaître votre précieuse contribution au succès de l'entreprise.\n\n• Allocation pour enfant volontaire: Si vous gagnez moins de 5 000 francs suisses, vous recevrez une allocation volontaire de 100 francs suisses par mois pour chaque enfant.\n\n• Parking gratuit: Nous offrons à nos employés un parking gratuit à l'emplacement.\n\n• Repas bon marché dans le restaurant du personnel: Pour le petit déjeuner, le déjeuner et la pause, un restaurant du personnel avec des tarifs réduits est disponible.\n\nEn savoir plus sur les avantages"
-    },
-    "slugByLocale": {
-      "it": "tecnologa-o-del-latte-o-tecnologo-a-alimentare-emmi-dagmersellen-4bdc0d5452",
-      "en": "dairy-technologist-or-food-technologist-emmi-dagmersellen-d5e4f53f",
-      "de": "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch-df7acfbb",
-      "fr": "technologue-en-technologie-du-lait-ou-technologue-en-technologie-alimentaire-emmi-dagmersellen-ab161905"
-    },
-    "sector": "Food & Beverage (dairy)",
-    "expiredAt": "2026-10-31T09:23:31.937Z",
-    "previousSlugs": [
-      "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch-df7acfbb",
-      "tecnologa-o-del-latte-o-tecnologo-a-alimentare-emmi-dagmersellen-65fbc850"
     ],
-    "previousSlugsByLocale": {
-      "it": [
-        "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch-df7acfbb",
-        "tecnologa-o-del-latte-o-tecnologo-a-alimentare-emmi-dagmersellen-65fbc850"
-      ]
-    },
-    "postalCode": "6252",
-    "streetAddress": "Stationsstrasse 21",
-    "salaryMin": 69500,
-    "salaryMax": 106000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin/d3312045-257f-4b5f-9235-8f3321305699",
-    "firstSeenAt": "2026-08-10T21:49:51.289Z"
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "elettricista-aziendale-automatista-emmi-dagmersellen-luzern": "LU",
+        "betriebselektriker-in-automatiker-in-emmi-dagmersellen": "LU",
+        "techniker-in-automation-emmi-ch-acdeda0b": "LU"
+      },
+      "en": {
+        "industrial-electrician-automation-technician-emmi-dagmersellen-luzern": "LU",
+        "automation-technician-emmi-dagmersellen": "LU"
+      },
+      "de": {
+        "techniker-in-automation-emmi-dagmersellen": "LU",
+        "techniker-in-automation-emmi-ch": "LU",
+        "betriebselektriker-in-automatiker-in-emmi-ch-1a362813": "LU"
+      },
+      "fr": {
+        "electricien-ne-d-exploitation-automaticien-ne-emmi-dagmersellen-luzern": "LU",
+        "technicien-ne-en-automatisation-emmi-dagmersellen": "LU"
+      }
+    }
   },
   {
     "slug": "gruppo-leader-produzione-gelato-emmi-ostermundigen-bern",
@@ -4279,7 +4946,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/teamleiter-in-produktion-ice-cream/ecc9e691-d622-4b72-9a60-8314fed9bdbf",
-    "firstSeenAt": "2026-09-11T13:42:06.137Z"
+    "firstSeenAt": "2026-09-11T13:42:06.137Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiter-in-produktion-ice-cream-emmi-ch": "BE"
+      }
+    }
   },
   {
     "slug": "operatore-trice-di-impianti-di-riempimento-emmi-dagmersellen-luzern",
@@ -4361,7 +5034,26 @@
         "firstSeenAt": "2026-08-12T10:27:57.881Z",
         "title": "Anlagenführer:in Abfüllanlagen"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "operateur-de-reseau-dans-les-usines-d-embouteillage-emmi-dagmersellen-luzern": "LU",
+        "system-operator-in-bottling-plants-emmi-dagmersellen-luzern": "LU",
+        "operatore-di-sistema-negli-impianti-di-imbottigliamento-emmi-dagmersellen-luzern": "LU",
+        "anlagenfuhrer-in-abfullanlagen-emmi-ch": "LU"
+      },
+      "en": {
+        "system-operator-in-bottling-plants-emmi-dagmersellen-luzern": "LU",
+        "plant-operator-bottling-equipment-emmi-dagmersellen-luzern": "LU",
+        "facility-manager-filling-plants-emmi-dagmersellen": "LU"
+      },
+      "fr": {
+        "operateur-de-reseau-dans-les-usines-d-embouteillage-emmi-dagmersellen-luzern": "LU",
+        "materiel-d-embouteillage-pour-operateurs-d-usines-emmi-dagmersellen-luzern": "LU",
+        "conducteur-d-installation-dans-les-installations-de-remplissage-emmi-dagmersellen": "LU"
+      }
+    }
   },
   {
     "slug": "specialista-in-costruzione-e-manutenzione-di-tubazioni-emmi-dagmersellen-luzern",
@@ -4396,29 +5088,34 @@
       "koordinator-in-rohrleitungs-e-anlagenbau-emmi-dagmersellen",
       "pipeline-and-plant-engineering-coordinator-emmi-dagmersellen-luzern",
       "coordinateur-dans-la-construction-de-conduites-et-d-installations-emmi-dagmersellen-luzern",
-      "spezialist-in-rohrleitungsbau-instandhaltung-emmi-dagmersellen"
+      "spezialist-in-rohrleitungsbau-instandhaltung-emmi-dagmersellen",
+      "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
         "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch-762542aa",
         "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch",
         "koordinator-in-rohrleitungs-e-anlagenbau-emmi-dagmersellen",
-        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-dagmersellen"
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-dagmersellen",
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch"
       ],
       "en": [
         "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch",
         "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch-762542aa",
         "pipeline-and-plant-engineering-coordinator-emmi-dagmersellen-luzern",
-        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-dagmersellen"
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-dagmersellen",
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch"
       ],
       "de": [
-        "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch"
+        "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch",
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch"
       ],
       "fr": [
         "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch-762542aa",
         "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch",
         "coordinateur-dans-la-construction-de-conduites-et-d-installations-emmi-dagmersellen-luzern",
-        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-dagmersellen"
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-dagmersellen",
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch"
       ]
     },
     "postalCode": "6252",
@@ -4428,7 +5125,32 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/spezialist-in-rohrleitungsbau-instandhaltung/2f1bd0cd-6a0f-4e3c-bf3b-464b0ace7fc7",
-    "firstSeenAt": "2026-10-05T21:32:05.413Z"
+    "firstSeenAt": "2026-10-05T21:32:05.413Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch": "LU",
+        "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch": "LU",
+        "koordinator-in-rohrleitungs-e-anlagenbau-emmi-dagmersellen": "LU",
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-dagmersellen": "LU"
+      },
+      "en": {
+        "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch": "LU",
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch": "LU",
+        "pipeline-and-plant-engineering-coordinator-emmi-dagmersellen-luzern": "LU",
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-dagmersellen": "LU"
+      },
+      "de": {
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch": "LU",
+        "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch": "LU"
+      },
+      "fr": {
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch": "LU",
+        "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch": "LU",
+        "coordinateur-dans-la-construction-de-conduites-et-d-installations-emmi-dagmersellen-luzern": "LU",
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-dagmersellen": "LU"
+      }
+    }
   },
   {
     "slug": "specialita-degli-operatori-emmi-bischofszell-thurgau",
@@ -4498,7 +5220,23 @@
         "firstSeenAt": "2026-09-11T13:42:06.149Z",
         "title": "Maschinenführer:in Spezialitäten"
       }
-    ]
+    ],
+    "canton": "TG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "maschinenfuhrer-in-spezialitaten-emmi-bischofszell": "TG",
+        "specialita-degli-operatori-emmi-bischofszell": "TG",
+        "maschinenfuhrer-in-spezialitaten-emmi-ch": "TG"
+      },
+      "en": {
+        "specialties-of-operators-emmi-bischofszell": "TG",
+        "maschinenfuhrer-in-spezialitaten-emmi-bischofszell": "TG"
+      },
+      "fr": {
+        "specialites-des-operateurs-emmi-bischofszell": "TG",
+        "maschinenfuhrer-in-spezialitaten-emmi-bischofszell": "TG"
+      }
+    }
   },
   {
     "slug": "test-leader-in-microbiologia-emmi-emmen-luzern",
@@ -4530,13 +5268,18 @@
     "previousSlugs": [
       "leader-du-test-en-microbiologie-emmi-emmen-luzern",
       "test-leader-in-microbiology-emmi-emmen-luzern",
-      "prufleiter-in-mikrobiologie-emmi-ch-29255e66"
+      "prufleiter-in-mikrobiologie-emmi-ch-29255e66",
+      "prufleiter-in-mikrobiologie-emmi-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
         "leader-du-test-en-microbiologie-emmi-emmen-luzern",
         "test-leader-in-microbiology-emmi-emmen-luzern",
-        "prufleiter-in-mikrobiologie-emmi-ch-29255e66"
+        "prufleiter-in-mikrobiologie-emmi-ch-29255e66",
+        "prufleiter-in-mikrobiologie-emmi-ch"
+      ],
+      "de": [
+        "prufleiter-in-mikrobiologie-emmi-ch"
       ]
     },
     "postalCode": "6032",
@@ -4546,7 +5289,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/pruefleiter-in-mikrobiologie/af7642d0-4424-40b8-8bb7-cf57d76af95f",
-    "firstSeenAt": "2026-08-21T21:43:25.976Z"
+    "firstSeenAt": "2026-08-21T21:43:25.976Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leader-du-test-en-microbiologie-emmi-emmen-luzern": "LU",
+        "test-leader-in-microbiology-emmi-emmen-luzern": "LU",
+        "prufleiter-in-mikrobiologie-emmi-ch": "LU"
+      },
+      "de": {
+        "prufleiter-in-mikrobiologie-emmi-ch": "LU"
+      }
+    }
   },
   {
     "slug": "risorse-umane-business-partner-emmi-suhr-bc1e048cb5",
@@ -4579,19 +5333,55 @@
       "hr-business-partner-emmi-ch-311fda9a",
       "hr-business-partner-emmi-ch-2-1077572c",
       "hr-business-partner-emmi-suhr-343f5c60",
-      "risorse-umane-business-partner-emmi-suhr-2f407acf"
+      "risorse-umane-business-partner-emmi-suhr-2f407acf",
+      "hr-business-partner-emmi-ch",
+      "hr-business-partner-emmi-ch-2",
+      "risorse-umane-business-partner-emmi-suhr",
+      "risorse-umane-business-partner-in-emmi-suhr",
+      "hr-business-partner-emmi-suhr",
+      "hr-business-partner-in-emmi-ch",
+      "partner-commerciale-delle-risorse-umane-emmi-bischofszell-cpchgd",
+      "ressources-humaines-business-partner-in-emmi-suhr",
+      "partner-comercial-de-recursos-humanos-emmi-bischofszell",
+      "hr-business-partner-emmi-ch-cpchgd",
+      "hr-business-partner-emmi-bischofszell",
+      "partenaire-d-affaires-rh-emmi-bischofszell-thurgau",
+      "partenaire-operationnel-rh-emmi-bischofszell-thurgau",
+      "partner-commerciale-delle-risorse-umane-emmi-bischofszell"
     ],
     "previousSlugsByLocale": {
       "it": [
         "hr-business-partner-emmi-ch-311fda9a",
         "hr-business-partner-emmi-ch-2-1077572c",
-        "risorse-umane-business-partner-emmi-suhr-2f407acf"
+        "risorse-umane-business-partner-emmi-suhr-2f407acf",
+        "hr-business-partner-emmi-ch",
+        "hr-business-partner-emmi-ch-2",
+        "risorse-umane-business-partner-emmi-suhr",
+        "risorse-umane-business-partner-in-emmi-suhr",
+        "hr-business-partner-in-emmi-ch",
+        "partner-commerciale-delle-risorse-umane-emmi-bischofszell-cpchgd",
+        "ressources-humaines-business-partner-in-emmi-suhr"
       ],
       "fr": [
-        "hr-business-partner-emmi-suhr-343f5c60"
+        "hr-business-partner-emmi-suhr-343f5c60",
+        "hr-business-partner-emmi-suhr",
+        "ressources-humaines-business-partner-in-emmi-suhr",
+        "hr-business-partner-in-emmi-ch",
+        "hr-business-partner-emmi-bischofszell",
+        "partenaire-d-affaires-rh-emmi-bischofszell-thurgau",
+        "partenaire-operationnel-rh-emmi-bischofszell-thurgau"
       ],
       "en": [
-        "hr-business-partner-emmi-ch-2-1077572c"
+        "hr-business-partner-emmi-ch-2-1077572c",
+        "hr-business-partner-emmi-suhr",
+        "hr-business-partner-emmi-ch-2",
+        "hr-business-partner-in-emmi-ch",
+        "partner-comercial-de-recursos-humanos-emmi-bischofszell"
+      ],
+      "de": [
+        "hr-business-partner-emmi-ch",
+        "hr-business-partner-in-emmi-ch",
+        "hr-business-partner-emmi-ch-cpchgd"
       ]
     },
     "postalCode": "5034",
@@ -4601,7 +5391,67 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/hr-business-partner/3e6a7768-6205-44f2-ac3a-e71d43c6fcb5",
-    "firstSeenAt": "2026-06-10T07:51:39.183Z"
+    "firstSeenAt": "2026-06-10T07:51:39.183Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hr-business-partner-emmi-ch": "AG",
+        "hr-business-partner-emmi-ch-2": "AG",
+        "risorse-umane-business-partner-emmi-suhr": "AG"
+      },
+      "en": {
+        "hr-business-partner-emmi-suhr": "AG",
+        "hr-business-partner-emmi-ch-2": "AG"
+      },
+      "de": {
+        "hr-business-partner-emmi-ch": "AG"
+      },
+      "fr": {
+        "hr-business-partner-emmi-suhr": "AG"
+      }
+    },
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/hr-business-partner-in/757027fd-941c-4d67-8359-020ba9d22261",
+        "firstSeenAt": "2026-08-13T22:02:45.597Z",
+        "title": "HR Business Partner:in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/hr-business-partner-in/cd6909f0-f8f7-47f7-8c85-a6b4a73f4b75",
+        "firstSeenAt": "2026-08-11T10:23:21.717Z",
+        "title": "HR Business Partner:in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/hr-business-partner/3e6a7768-6205-44f2-ac3a-e71d43c6fcb5",
+        "firstSeenAt": "2026-06-10T07:51:39.183Z",
+        "title": "HR Business Partner"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/hr-business-partner/757027fd-941c-4d67-8359-020ba9d22261",
+        "firstSeenAt": "2026-06-10T07:51:39.183Z",
+        "title": "HR Business Partner"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/hr-business-partner/f9a4b6dc-7a40-4950-96a3-1419bbde747d",
+        "firstSeenAt": "2026-06-10T07:51:39.183Z",
+        "title": "HR Business Partner"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/hr-business-partner/fad5cb13-0727-4e10-b014-69dff72f8dbe",
+        "firstSeenAt": "2026-06-10T07:51:39.183Z",
+        "title": "HR Business Partner"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/hr-business-partner/fb0dccc5-2f99-4727-9bdc-7aed32b97d99",
+        "firstSeenAt": "2026-07-21T23:21:56.586Z",
+        "title": "HR Business Partner"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/hr-business-partner/fe2c7fe5-2917-4433-8a13-e04665779800",
+        "firstSeenAt": "2026-06-10T07:51:39.183Z",
+        "title": "HR Business Partner"
+      }
+    ]
   },
   {
     "slug": "responsabile-impianti-di-imbottigliamento-del-formaggio-emmi-langnau-im-emmental",
@@ -4645,7 +5495,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagefuehrer-in-schmelzkaese-abfuellung/6718422e-b0a7-41d1-bc94-d968201fd374",
-    "firstSeenAt": "2026-09-23T23:42:57.161Z"
+    "firstSeenAt": "2026-09-23T23:42:57.161Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "anlagefuhrer-in-schmelzkase-abfullung-emmi-ch": "BE"
+      }
+    }
   },
   {
     "slug": "meccanico-a-di-manutenzione-emmi-emmen-1ae31da535-8ca8960e",
@@ -4678,7 +5534,6 @@
       "betriebsmechaniker-in-emmi-ch-060c624a",
       "betriebsmechaniker-in-emmi-ch-2-b6065f1f",
       "meccanico-a-di-manutenzione-emmi-emmen-2858343c",
-      "betriebsmechaniker-in-emmi-ch",
       "betriebsmechaniker-in-emmi-ch-2",
       "meccanico-a-di-manutenzione-emmi-emmen",
       "operational-mechanic-emmi-emmen",
@@ -4713,7 +5568,6 @@
       "it": [
         "betriebsmechaniker-in-emmi-emmen",
         "mecanicien-ne-d-exploitation-emmi-emmen",
-        "betriebsmechaniker-in-emmi-ch",
         "betriebsmechaniker-in-emmi-ch-2",
         "meccanico-a-di-manutenzione-emmi-emmen",
         "meccanico-a-di-manutenzione-emmi-emmen-luzern-d6e1edbc",
@@ -4736,7 +5590,6 @@
         "betriebsmechaniker-in-emmi-ch-2",
         "meccanico-a-di-manutenzione-emmi-emmen",
         "mecanicien-ne-d-exploitation-emmi-emmen",
-        "betriebsmechaniker-in-emmi-ch",
         "betriebsmechaniker-in-emmi-emmen",
         "betriebsmechaniker-in-emmi-ch-a0c164e4",
         "betriebsmechaniker-in-emmi-ch-21b78834",
@@ -5461,7 +6314,8 @@
         "apprendistato-come-milchtechnologin-milchtechnologe-cfc-2027-emmi-suhr",
         "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-7",
         "apprendistato-come-milchtechnologin-milchtechnologe-cfc-2027-emmi-stein",
-        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-8"
+        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-8",
+        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch"
       ],
       "en": [
         "teaching-as-a-dairy-technologist-dairy-technologist-efz-2027-emmi-stein-appenzell-ausserrhoden",
@@ -5474,7 +6328,8 @@
         "teaching-as-a-dairy-technologist-dairy-technologist-efz-2027-emmi-ostermundigen-bern",
         "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-2",
         "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-7",
-        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-8"
+        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-8",
+        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch"
       ],
       "de": [
         "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-8pwhsk",
@@ -5496,7 +6351,8 @@
         "enseignement-en-tant-que-technologue-technologue-laitier-efz-2027-emmi-ostermundigen-bern",
         "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-2",
         "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-7",
-        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-8"
+        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch-8",
+        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch"
       ]
     },
     "postalCode": "6032",
@@ -5553,7 +6409,13 @@
         "firstSeenAt": "2026-07-10T10:50:40.375Z",
         "title": "Lehre als Milchtechnologin / Milchtechnologe EFZ 2027"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehre-als-milchtechnologin-milchtechnologe-efz-2027-emmi-ch": "LU"
+      }
+    }
   },
   {
     "slug": "meccanica-aziendale-in-emmi-bischofszell-thurgau",
@@ -5613,8 +6475,6 @@
       "betriebsmechaniker-in-emmi-ch-3-541ba79d",
       "betriebsmechaniker-in-emmi-ch-3",
       "meccanica-aziendale-in-emmi-bischofszell-thurgau-i3mts4",
-      "betriebsmechaniker-in-emmi-ch",
-      "betriebsmechaniker-in-emmi-ch-2",
       "betriebsmechaniker-in-emmi-ch-5625a627",
       "betriebsmechaniker-in-emmi-ch-2-9fef7280",
       "betriebsmechaniker-in-emmi-ch-49777d2b",
@@ -5652,9 +6512,7 @@
         "betriebsmechaniker-in-emmi-ch-3-4e1a5139",
         "betriebsmechaniker-in-emmi-ch-3-52947238",
         "betriebsmechaniker-in-emmi-ch-3-ebd2bb47",
-        "betriebsmechaniker-in-emmi-ch-3-2b21e7a1",
-        "betriebsmechaniker-in-emmi-ch",
-        "betriebsmechaniker-in-emmi-ch-2"
+        "betriebsmechaniker-in-emmi-ch-3-2b21e7a1"
       ],
       "en": [
         "business-mechanic-emmi-bischofszell",
@@ -5668,8 +6526,7 @@
         "betriebsmechaniker-in-emmi-bischofszell",
         "betriebsmechaniker-in-emmi-ch-3",
         "betriebsmechaniker-in-emmi-ch-5625a627",
-        "betriebsmechaniker-in-emmi-ch-2-1b28fd90",
-        "betriebsmechaniker-in-emmi-ch"
+        "betriebsmechaniker-in-emmi-ch-2-1b28fd90"
       ],
       "fr": [
         "mecanicien-d-affaires-emmi-bischofszell",
@@ -5749,7 +6606,41 @@
         "firstSeenAt": "2026-08-10T21:49:51.287Z",
         "title": "Betriebsmechaniker:in"
       }
-    ]
+    ],
+    "canton": "TG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "plant-mechanic-emmi-bischofszell": "TG",
+        "meccanica-aziendale-in-emmi-bischofszell-thurgau-62bq4u": "TG",
+        "mecanicien-d-entreprise-in-emmi-bischofszell-thurgau": "TG",
+        "betriebsmechaniker-in-emmi-bischofszell": "TG",
+        "betriebsmechaniker-in-emmi-ch-3": "TG",
+        "meccanica-aziendale-emmi-bischofszell": "TG",
+        "mecanicien-d-affaires-emmi-bischofszell": "TG",
+        "business-mechanic-in-emmi-bischofszell-thurgau": "TG",
+        "betriebsmechaniker-in-emmi-ch-5625a627": "TG",
+        "betriebsmechaniker-in-emmi-ch-2-9fef7280": "TG"
+      },
+      "en": {
+        "business-mechanic-emmi-bischofszell": "TG",
+        "plant-mechanic-emmi-bischofszell": "TG",
+        "betriebsmechaniker-in-emmi-bischofszell": "TG",
+        "betriebsmechaniker-in-emmi-ch-49777d2b": "TG",
+        "betriebsmechaniker-in-emmi-ch-2-1b28fd90": "TG"
+      },
+      "de": {
+        "betriebsmechaniker-in-emmi-bischofszell": "TG",
+        "betriebsmechaniker-in-emmi-ch-5625a627": "TG",
+        "betriebsmechaniker-in-emmi-ch-2-1b28fd90": "TG"
+      },
+      "fr": {
+        "mecanicien-d-affaires-emmi-bischofszell": "TG",
+        "betriebsmechaniker-in-emmi-bischofszell": "TG",
+        "mecanicien-d-entreprise-in-emmi-bischofszell-thurgau": "TG",
+        "betriebsmechaniker-in-emmi-ch-49777d2b": "TG",
+        "betriebsmechaniker-in-emmi-ch-2-1b28fd90": "TG"
+      }
+    }
   },
   {
     "slug": "responsabile-di-progetto-f-e-funktionelle-produkte-emmi-emmen",
@@ -5799,7 +6690,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/projektleiter-in-f-e-funktionelle-produkte/159f7835-f446-4935-b5f8-30f2ef2ca199",
-    "firstSeenAt": "2026-10-26T21:47:19.421Z"
+    "firstSeenAt": "2026-10-26T21:47:19.421Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-f-e-funktionelle-produkte-emmi-ch": "LU"
+      },
+      "en": {
+        "projektleiter-in-f-e-funktionelle-produkte-emmi-ch": "LU"
+      },
+      "fr": {
+        "projektleiter-in-f-e-funktionelle-produkte-emmi-ch": "LU"
+      }
+    }
   },
   {
     "slug": "piano-di-produzione-in-emmi-ostermundigen-bern",
@@ -5873,7 +6776,20 @@
         "firstSeenAt": "2026-07-02T10:58:29.755Z",
         "title": "Produktionsplaner:in"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "produktionsplaner-in-emmi-ostermundigen": "BE",
+        "produktionsplaner-in-emmi-ch": "BE"
+      },
+      "en": {
+        "produktionsplaner-in-emmi-ostermundigen": "BE"
+      },
+      "fr": {
+        "produktionsplaner-in-emmi-ostermundigen": "BE"
+      }
+    }
   },
   {
     "slug": "operatore-emmi-kirchberg-bern",
@@ -5948,7 +6864,9 @@
       "anlagenfuhrer-in-100-emmi-ch",
       "plant-operator-emmi-frenkendorf-basel-landschaft",
       "anlagenfuhrer-in-100-emmi-frenkendorf",
-      "operateur-trice-d-installation-emmi-frenkendorf-basel-landschaft"
+      "operateur-trice-d-installation-emmi-frenkendorf-basel-landschaft",
+      "anlagenfuhrer-in-kasekonfektionierung-emmi-ch",
+      "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -5978,7 +6896,16 @@
         "operateur-trice-d-installation-emmi-frenkendorf-basel-landschaft",
         "operatore-trice-di-impianti-emmi-frenkendorf-basel-landschaft",
         "anlagenfuhrer-in-100-emmi-ch",
-        "anlagenfuhrer-in-emmi-ch"
+        "anlagenfuhrer-in-emmi-ch",
+        "operatore-di-impianto-mixmatic-emmi-ostermundigen-bern",
+        "system-manager-in-mixmatic-emmi-ostermundigen-bern",
+        "anlagenfuhrer-in-mixmatic-emmi-ch",
+        "gestionnaire-de-systeme-dans-mixmatic-emmi-ostermundigen-bern",
+        "system-manager-in-mixmatic-emmi-ostermundigen",
+        "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern",
+        "system-operator-in-cheese-preparation-emmi-emmen-luzern",
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch",
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen"
       ],
       "en": [
         "operator-in-emmi-kirchberg-bern",
@@ -5992,7 +6919,14 @@
         "anlagenfuhrer-in-100-emmi-frenkendorf",
         "operateur-trice-d-installation-emmi-frenkendorf-basel-landschaft",
         "plant-operator-emmi-frenkendorf-basel-landschaft",
-        "anlagenfuhrer-in-emmi-ch"
+        "anlagenfuhrer-in-emmi-ch",
+        "operatore-di-impianto-mixmatic-emmi-ostermundigen-bern",
+        "system-manager-in-mixmatic-emmi-ostermundigen-bern",
+        "anlagenfuhrer-in-mixmatic-emmi-ch",
+        "gestionnaire-de-systeme-dans-mixmatic-emmi-ostermundigen-bern",
+        "system-manager-in-mixmatic-emmi-ostermundigen",
+        "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern",
+        "system-operator-in-cheese-preparation-emmi-emmen-luzern"
       ],
       "de": [
         "maschinenfuhrer-in-emmi-ch-l5p4ro",
@@ -6004,7 +6938,15 @@
         "operateur-trice-d-installation-emmi-frenkendorf-basel-landschaft",
         "anlagenfuhrer-in-100-emmi-ch",
         "anlagenfuhrer-in-100-emmi-frenkendorf",
-        "anlagenfuhrer-in-emmi-ch"
+        "anlagenfuhrer-in-emmi-ch",
+        "operatore-di-impianto-mixmatic-emmi-ostermundigen-bern",
+        "system-manager-in-mixmatic-emmi-ostermundigen-bern",
+        "anlagenfuhrer-in-mixmatic-emmi-ch",
+        "gestionnaire-de-systeme-dans-mixmatic-emmi-ostermundigen-bern",
+        "system-manager-in-mixmatic-emmi-ostermundigen",
+        "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern",
+        "system-operator-in-cheese-preparation-emmi-emmen-luzern",
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch"
       ],
       "fr": [
         "operateur-in-emmi-kirchberg-bern",
@@ -6020,7 +6962,14 @@
         "plant-operator-emmi-frenkendorf-basel-landschaft",
         "anlagenfuhrer-in-100-emmi-frenkendorf",
         "operateur-trice-d-installation-emmi-frenkendorf-basel-landschaft",
-        "anlagenfuhrer-in-emmi-ch"
+        "anlagenfuhrer-in-emmi-ch",
+        "operatore-di-impianto-mixmatic-emmi-ostermundigen-bern",
+        "system-manager-in-mixmatic-emmi-ostermundigen-bern",
+        "anlagenfuhrer-in-mixmatic-emmi-ch",
+        "gestionnaire-de-systeme-dans-mixmatic-emmi-ostermundigen-bern",
+        "system-manager-in-mixmatic-emmi-ostermundigen",
+        "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern",
+        "system-operator-in-cheese-preparation-emmi-emmen-luzern"
       ]
     },
     "postalCode": "3422",
@@ -6062,7 +7011,61 @@
         "firstSeenAt": "2026-06-18T12:13:27.095Z",
         "title": "Maschinenführer:in"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "operatore-di-impianto-mixmatic-emmi-ostermundigen-bern": "BE",
+        "system-manager-in-mixmatic-emmi-ostermundigen-bern": "BE",
+        "anlagenfuhrer-in-mixmatic-emmi-ch": "BE",
+        "gestionnaire-de-systeme-dans-mixmatic-emmi-ostermundigen-bern": "BE",
+        "system-manager-in-mixmatic-emmi-ostermundigen": "BE",
+        "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern": "BE",
+        "system-operator-in-cheese-preparation-emmi-emmen-luzern": "BE",
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch": "BE",
+        "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern": "BE",
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen-j1jqxs": "BE",
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen": "BE",
+        "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern-4913c3": "BE",
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch-2": "BE",
+        "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern-4913c3": "BE",
+        "system-operator-in-cheese-preparation-emmi-emmen-luzern-4913c3": "BE",
+        "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch": "BE",
+        "anlagenfuhrer-in-emmi-ch": "BE"
+      },
+      "en": {
+        "operatore-di-impianto-mixmatic-emmi-ostermundigen-bern": "BE",
+        "system-manager-in-mixmatic-emmi-ostermundigen-bern": "BE",
+        "anlagenfuhrer-in-mixmatic-emmi-ch": "BE",
+        "gestionnaire-de-systeme-dans-mixmatic-emmi-ostermundigen-bern": "BE",
+        "system-manager-in-mixmatic-emmi-ostermundigen": "BE",
+        "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern": "BE",
+        "system-operator-in-cheese-preparation-emmi-emmen-luzern": "BE",
+        "operator-in-emmi-kirchberg-bern": "BE"
+      },
+      "de": {
+        "operatore-di-impianto-mixmatic-emmi-ostermundigen-bern": "BE",
+        "system-manager-in-mixmatic-emmi-ostermundigen-bern": "BE",
+        "anlagenfuhrer-in-mixmatic-emmi-ch": "BE",
+        "gestionnaire-de-systeme-dans-mixmatic-emmi-ostermundigen-bern": "BE",
+        "system-manager-in-mixmatic-emmi-ostermundigen": "BE",
+        "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern": "BE",
+        "system-operator-in-cheese-preparation-emmi-emmen-luzern": "BE",
+        "anlagenfuhrer-in-emmi-ch": "BE",
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch": "BE"
+      },
+      "fr": {
+        "operatore-di-impianto-mixmatic-emmi-ostermundigen-bern": "BE",
+        "system-manager-in-mixmatic-emmi-ostermundigen-bern": "BE",
+        "anlagenfuhrer-in-mixmatic-emmi-ch": "BE",
+        "gestionnaire-de-systeme-dans-mixmatic-emmi-ostermundigen-bern": "BE",
+        "system-manager-in-mixmatic-emmi-ostermundigen": "BE",
+        "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern": "BE",
+        "system-operator-in-cheese-preparation-emmi-emmen-luzern": "BE",
+        "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern": "BE",
+        "operateur-in-emmi-kirchberg-bern": "BE"
+      }
+    }
   },
   {
     "slug": "assistant-head-hr-switzerland-emmi-ch-25078014",
@@ -6152,7 +7155,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/maschinenfuehrer-in/f9351689-a87e-4bd3-860d-ef9161dc23a2",
-    "firstSeenAt": "2026-06-18T12:13:27.095Z",
+    "firstSeenAt": "2026-06-10T07:51:39.207Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/maschinenfuehrer-in/82ce5c6a-92f7-44bc-89e7-fd028b969845",
@@ -6166,10 +7169,30 @@
       },
       {
         "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/maschinenfuehrer-in/f9351689-a87e-4bd3-860d-ef9161dc23a2",
-        "firstSeenAt": "2026-06-18T12:13:27.095Z",
+        "firstSeenAt": "2026-06-10T07:51:39.207Z",
         "title": "Maschinenführer:in"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "maschinenfuhrer-in-emmi-ch": "BE",
+        "conduttore-della-macchina-in-emmi-emmen": "BE",
+        "maschinenfuhrer-in-emmi-emmen-cegxx1": "BE",
+        "maschinenfuhrer-in-emmi-emmen": "BE"
+      },
+      "en": {
+        "maschinenfuhrer-in-emmi-ch": "BE",
+        "maschinenfuhrer-in-emmi-emmen": "BE"
+      },
+      "fr": {
+        "maschinenfuhrer-in-emmi-ch": "BE",
+        "conducteur-conductrice-de-machines-emmi-emmen": "BE",
+        "maschinenfuhrer-in-emmi-emmen": "BE"
+      },
+      "de": {
+        "maschinenfuhrer-in-emmi-emmen": "BE"
+      }
+    }
   },
   {
     "slug": "specialista-in-elettrotecnica-emmi-ostermundigen-bern",
@@ -6227,7 +7250,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/fachspezialist-in-elektrotechnik/55f49031-c3e9-49fa-b952-f89a93cb3ef1",
-    "firstSeenAt": "2026-06-29T13:01:17.217Z"
+    "firstSeenAt": "2026-06-29T13:01:17.217Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "elettricista-aziendale-automatico-a-emmi-ostermundigen": "BE",
+        "fachspezialist-in-elektrotechnik-emmi-ch": "BE",
+        "betriebselektriker-in-automatiker-in-emmi-ch-8bccc23f": "BE",
+        "betriebselektriker-in-automatiker-in-emmi-ch-2-f17b6cb6": "BE"
+      },
+      "en": {
+        "plantelectrician-automation-technician-emmi-ostermundigen": "BE"
+      },
+      "fr": {
+        "electricien-d-exploitation-automaticien-emmi-ostermundigen": "BE"
+      }
+    }
   },
   {
     "slug": "chauffeuse-o-chauffeur-kategorie-c-e-emmi-bischofszell",
@@ -6337,20 +7375,31 @@
     "previousSlugCantonByLocale": {
       "it": {
         "chauffeuse-o-chauffeur-kategorie-c-e-emmi-suhr": "AG",
-        "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch": "AG"
+        "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch": "AG",
+        "autista-categoria-c-e-emmi-bischofszell-0zibvk": "TG",
+        "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch-3": "TG",
+        "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch-4": "TG",
+        "chauffeur-categorie-c-e-emmi-bischofszell": "TG",
+        "driver-category-c-e-emmi-bischofszell": "TG",
+        "autista-categoria-c-e-emmi-bischofszell": "TG",
+        "chauffeuse-oder-chauffeur-kategorie-c-e-100-emmi-ch-2": "TG",
+        "chauffeuse-oder-chauffeur-kategorie-c-e-100-emmi-ch": "TG"
       },
       "en": {
         "chauffeur-or-chauffeur-category-c-e-emmi-suhr-aargau": "AG",
-        "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch": "AG"
+        "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch": "AG",
+        "chauffeur-or-chauffeur-category-c-e-emmi-bischofszell-thurgau": "TG"
       },
       "de": {
         "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch": "AG"
       },
       "fr": {
         "categorie-de-chauffeur-c-e-emmi-suhr-aargau": "AG",
-        "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch": "AG"
+        "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch": "AG",
+        "categorie-de-chauffeur-c-e-emmi-bischofszell-thurgau": "TG"
       }
-    }
+    },
+    "canton": "TG"
   },
   {
     "slug": "milchtechnologin-o-milchtechnologe-emmi-landquart-0d2ec9fa",
@@ -6463,7 +7512,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/maschinenfuehrer-in-jogurt/25f2a9d9-7d3d-467c-8209-3917fe85ebcf",
-    "firstSeenAt": "2026-09-30T21:18:18.875Z"
+    "firstSeenAt": "2026-09-30T21:18:18.875Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "maschinenfuhrer-in-jogurt-emmi-ch": "BE",
+        "maschinenfuhrer-in-jogurt-emmi-ostermundigen": "BE"
+      }
+    }
   },
   {
     "slug": "ricerca-specialistica-e-sviluppo-emmi-emmen-luzern",
@@ -6513,7 +7569,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/fachspezialist-in-forschung-entwicklung/889d0fba-a00a-4f67-b2ff-636387d03639",
-    "firstSeenAt": "2026-10-08T09:20:41.990Z"
+    "firstSeenAt": "2026-10-08T09:20:41.990Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialist-in-forschung-entwicklung-emmi-ch": "LU"
+      },
+      "en": {
+        "fachspezialist-in-forschung-entwicklung-emmi-ch": "LU"
+      },
+      "fr": {
+        "fachspezialist-in-forschung-entwicklung-emmi-ch": "LU"
+      }
+    }
   },
   {
     "slug": "team-leader-nell-imbottigliamento-del-latte-emmi-bischofszell-thurgau",
@@ -6606,7 +7674,36 @@
         "firstSeenAt": "2026-08-06T12:11:29.161Z",
         "title": "Teamleiter:in Milchabfüllung"
       }
-    ]
+    ],
+    "canton": "TG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "capo-turno-100-emmi-bischofszell-thurgau": "TG",
+        "shift-leader-100-emmi-bischofszell-thurgau": "TG",
+        "schichtleiter-in-100-emmi-bischofszell": "TG",
+        "chef-d-equipe-100-emmi-bischofszell-thurgau": "TG",
+        "schichtleiter-in-100-emmi-ch": "TG",
+        "capo-turno-emmi-bischofszell": "TG",
+        "schichtleiter-in-emmi-bischofszell": "TG",
+        "chef-d-equipe-de-nuit-emmi-bischofszell-thurgau": "TG",
+        "schichtleiter-in-emmi-ch": "TG",
+        "shift-leader-emmi-bischofszell-thurgau": "TG",
+        "capo-turno-emmi-bischofszell-thurgau": "TG",
+        "team-leader-nell-imbottigliamento-del-latte-emmi-bischofszell": "TG",
+        "teamleiter-in-milchabfullung-emmi-ch": "TG"
+      },
+      "en": {
+        "team-leader-milk-bottling-emmi-bischofszell": "TG",
+        "shift-leader-100-emmi-bischofszell-thurgau": "TG"
+      },
+      "de": {
+        "schichtleiter-in-100-emmi-bischofszell": "TG"
+      },
+      "fr": {
+        "chef-de-l-equipe-d-embouteillage-du-lait-emmi-bischofszell": "TG",
+        "chef-d-equipe-100-emmi-bischofszell-thurgau": "TG"
+      }
+    }
   },
   {
     "slug": "meccanico-a-di-manutenzione-emmi-dagmersellen-luzern",
@@ -6999,7 +8096,26 @@
         "firstSeenAt": "2026-06-10T07:51:39.196Z",
         "title": "Anlagenführer:in Käserei"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsabile-impianti-caseificio-emmi-emmen": "LU",
+        "manager-in-cheese-factory-emmi-emmen": "LU",
+        "responsable-d-installations-de-fromagerie-emmi-emmen": "LU",
+        "responsabile-impianti-caseificio-emmi-emmen-q2xl8i": "LU",
+        "anlagenfuhrer-in-kaserei-emmi-ch-2": "LU",
+        "anlagenfuhrer-in-kaserei-emmi-ch": "LU"
+      },
+      "en": {
+        "manager-in-cheese-factory-emmi-emmen": "LU",
+        "anlagenfuhrer-in-kaserei-emmi-ch-2": "LU"
+      },
+      "fr": {
+        "responsable-d-installations-de-fromagerie-emmi-emmen": "LU",
+        "anlagenfuhrer-in-kaserei-emmi-ch-2": "LU"
+      }
+    }
   },
   {
     "slug": "meccanico-di-manutenzione-automatico-turno-diurno-emmi-langnau-im-emmental-aeeb2faa",
@@ -7151,7 +8267,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/projektleiter-in-f-e-kaese-und-sensorik/cd81989f-cbd0-4aec-9d08-f4f79c0a5680",
-    "firstSeenAt": "2026-10-08T21:17:15.739Z"
+    "firstSeenAt": "2026-10-08T21:17:15.739Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-f-e-kase-und-sensorik-emmi-ch": "LU",
+        "responsabile-di-progetto-f-e-kase-e-sensorik-emmi-emmen": "LU"
+      },
+      "en": {
+        "projektleiter-in-f-e-kase-und-sensorik-emmi-ch": "LU"
+      },
+      "fr": {
+        "projektleiter-in-f-e-kase-und-sensorik-emmi-ch": "LU"
+      }
+    }
   },
   {
     "slug": "milchtechnologin-o-milchtechnologe-emmi-landquart-8e2dcd64b3",
@@ -7224,7 +8353,8 @@
       "de": [
         "milk-technologist-or-dairy-technologist-emmi-landquart",
         "technologue-du-lait-ou-technologue-du-lait-emmi-landquart",
-        "milchtechnologin-o-milchtechnologe-emmi-landquart"
+        "milchtechnologin-o-milchtechnologe-emmi-landquart",
+        "milchtechnologin-oder-milchtechnologe-emmi-ch"
       ]
     },
     "postalCode": "7302",
@@ -7256,7 +8386,32 @@
         "firstSeenAt": "2026-08-10T21:49:51.289Z",
         "title": "Milchtechnologin oder Milchtechnologe"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "milchtechnologin-o-milchtechnologe-emmi-landquart": "GR",
+        "tecnico-lattiero-caseario-emmi-landquart-4p1cwa": "GR",
+        "milchtechnologin-oder-milchtechnologe-emmi-ch-2": "GR",
+        "tecnico-lattiero-caseario-emmi-landquart-6s079b": "GR",
+        "technologue-du-lait-ou-technologue-du-lait-emmi-landquart": "GR",
+        "milk-technologist-or-dairy-technologist-emmi-landquart": "GR",
+        "tecnico-lattiero-caseario-emmi-landquart": "GR",
+        "milchtechnologin-oder-milchtechnologe-emmi-ch": "GR",
+        "milchtechnologin-o-milchtechnologe-emmi-landquart-8e2dcd64b3": "GR"
+      },
+      "en": {
+        "milk-technologist-or-dairy-technologist-emmi-landquart": "GR",
+        "milchtechnologin-oder-milchtechnologe-emmi-landquart": "GR"
+      },
+      "de": {
+        "milchtechnologin-oder-milchtechnologe-emmi-ch": "GR"
+      },
+      "fr": {
+        "technologue-du-lait-ou-technologue-du-lait-emmi-landquart": "GR",
+        "milchtechnologin-oder-milchtechnologe-emmi-landquart": "GR"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-kauffrau-kaufmann-cfc-2027-emmi-kirchberg",
@@ -7339,7 +8494,20 @@
         "firstSeenAt": "2026-07-09T22:40:47.285Z",
         "title": "Lehre als Kauffrau / Kaufmann EFZ 2027"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehre-als-kauffrau-kaufmann-efz-2027-emmi-ch-2": "BE",
+        "lehre-als-kauffrau-kaufmann-efz-2027-emmi-ch": "BE"
+      },
+      "en": {
+        "lehre-als-kauffrau-kaufmann-efz-2027-emmi-ch-2": "BE"
+      },
+      "fr": {
+        "lehre-als-kauffrau-kaufmann-efz-2027-emmi-ch-2": "BE"
+      }
+    }
   },
   {
     "slug": "manager-finanza-transformation-data-ai-emmi-luzern",
@@ -7386,7 +8554,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/job-vacancies/manager-finance-transformation-data-ai/7b402bc7-f32e-4024-a2f8-c07b0b195201",
-    "firstSeenAt": "2026-10-07T09:24:13.009Z"
+    "firstSeenAt": "2026-10-07T09:24:13.009Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "manager-finance-transformation-data-ai-emmi-ch": "LU"
+      },
+      "de": {
+        "manager-finance-transformation-data-ai-emmi-ch": "LU"
+      }
+    }
   },
   {
     "slug": "responsabile-di-progetto-engineering-emmi-dagmersellen-b904f0a2eb",
@@ -7459,7 +8636,21 @@
         "firstSeenAt": "2026-09-11T13:42:06.162Z",
         "title": "Projektleiter:in Engineering"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsabile-di-progetto-engineering-emmi-dagmersellen-a86ea507c8": "LU",
+        "projektleiter-in-engineering-emmi-ch": "LU",
+        "responsabile-di-progetto-engineering-emmi-dagmersellen": "LU"
+      },
+      "en": {
+        "project-manager-engineering-emmi-dagmersellen-luzern": "LU"
+      },
+      "fr": {
+        "chef-de-projet-engineering-emmi-dagmersellen-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "venditore-emmi-kappelen-bern",
@@ -8643,7 +9834,14 @@
         "firstSeenAt": "2026-07-27T12:39:23.883Z",
         "title": "Fachspezialist:in Ersatzteillager"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialist-in-ersatzteillager-emmi-ch": "LU",
+        "fachspezialist-in-ersatzteillager-emmi-emmen": "LU"
+      }
+    }
   },
   {
     "slug": "venditore-cdd-emmi-lausanne-vaud",
@@ -8725,7 +9923,14 @@
         "firstSeenAt": "2026-09-23T23:42:57.164Z",
         "title": "Vendeur / Vendeuse (CDD)"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "vendeur-vendeuse-cdd-emmi-lausanne": "VD",
+        "vendeur-vendeuse-cdd-emmi-ch": "VD"
+      }
+    }
   },
   {
     "slug": "venditore-emmi-crissier-vaud",
@@ -8862,7 +10067,20 @@
         "firstSeenAt": "2026-07-06T22:33:34.805Z",
         "title": "Vendeur / Vendeuse"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "vendeur-vendeuse-emmi-ch": "VD",
+        "vendeur-vendeuse-emmi-crissier": "VD"
+      },
+      "en": {
+        "vendeur-vendeuse-emmi-ch": "VD"
+      },
+      "de": {
+        "vendeur-vendeuse-emmi-ch": "VD"
+      }
+    }
   },
   {
     "slug": "responsabile-di-progetto-engineering-emmi-dagmersellen-18ee8051",
@@ -8976,7 +10194,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/restaurationsspezialist-in-chaeschaeuer-bern-zytglogge-befristet-auf-3-monate/be506208-d62a-4637-aebb-05f4ca5b28d7",
-    "firstSeenAt": "2026-07-21T23:21:56.587Z"
+    "firstSeenAt": "2026-07-21T23:21:56.587Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "restaurationsspezialist-in-chaschauer-bern-zytglogge-befristet-auf-3-monate-emmi-bern": "BE",
+        "restaurationsspezialist-in-chaschauer-bern-zytglogge-befristet-auf-3-monate-emmi-ch": "BE"
+      }
+    }
   },
   {
     "slug": "specialista-in-sala-pallettizzazione-emmi-ostermundigen-bern-daffc461",
@@ -9106,11 +10331,13 @@
         "lehre-als-milchpraktiker-in-eba-2027-emmi-ch-2",
         "apprendistato-come-milchpraktiker-in-afp-2027-emmi-dagmersellen",
         "lehre-als-milchpraktiker-in-eba-2027-emmi-ch-s3llav",
-        "lehre-als-milchpraktiker-in-eba-2027-emmi-ch-kohitz"
+        "lehre-als-milchpraktiker-in-eba-2027-emmi-ch-kohitz",
+        "lehre-als-milchpraktiker-in-eba-2027-emmi-ch"
       ],
       "en": [
         "lehre-als-milchpraktiker-in-eba-2027-emmi-ch-2",
-        "teaching-as-a-milk-practitioner-in-eba-2027-emmi-dagmersellen-luzern"
+        "teaching-as-a-milk-practitioner-in-eba-2027-emmi-dagmersellen-luzern",
+        "lehre-als-milchpraktiker-in-eba-2027-emmi-ch"
       ],
       "de": [
         "lehre-als-milchpraktiker-in-eba-2027-emmi-ch-kohitz",
@@ -9118,7 +10345,8 @@
       ],
       "fr": [
         "lehre-als-milchpraktiker-in-eba-2027-emmi-ch-2",
-        "enseignement-en-tant-que-praticien-du-lait-en-eba-2027-emmi-dagmersellen-luzern"
+        "enseignement-en-tant-que-praticien-du-lait-en-eba-2027-emmi-dagmersellen-luzern",
+        "lehre-als-milchpraktiker-in-eba-2027-emmi-ch"
       ]
     },
     "postalCode": "3072",
@@ -9145,7 +10373,13 @@
         "firstSeenAt": "2026-07-10T10:50:40.383Z",
         "title": "Lehre als Milchpraktiker:in EBA 2027"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehre-als-milchpraktiker-in-eba-2027-emmi-ch": "BE"
+      }
+    }
   },
   {
     "slug": "operazioni-staff-logistica-di-raccolta-emmi-emmen-luzern-28366daf",
@@ -9661,7 +10895,8 @@
         "chauffeur-or-chauffeur-category-c-e-emmi-suhr-aargau",
         "chauffeuse-o-chauffeur-kategorie-c-e-emmi-suhr-kmkb5u",
         "autista-o-autista-categoria-c-e-emmi-ostermundigen",
-        "autista-o-categoria-autista-c-e-emmi-suhr"
+        "autista-o-categoria-autista-c-e-emmi-suhr",
+        "chauffeuse-oder-chauffeur-kategorie-c-e-100-emmi-ch-3"
       ],
       "en": [
         "chauffeur-or-chauffeur-category-c-e-emmi-bischofszell-thurgau",
@@ -9751,118 +10986,14 @@
         "firstSeenAt": "2026-06-10T07:51:39.206Z",
         "title": "Chauffeuse oder Chauffeur Kategorie C/E"
       }
-    ]
-  },
-  {
-    "slug": "risorse-umane-business-partner-in-emmi-suhr",
-    "title": "HR Business Partner",
-    "titleByLocale": {
-      "it": "Specialista HR - Partenaire Aziendale",
-      "en": "HR Business Partner",
-      "de": "Personalwesen Business Partner",
-      "fr": "Partenaire d'affaires RH"
-    },
-    "company": "Emmi",
-    "companyKey": "emmi",
-    "location": "Suhr, Aargau",
-    "addressLocality": "Suhr",
-    "descriptionByLocale": {
-      "it": "Non solo vuoi accompagnare temi HR, ma anche plasmare attivamente il futuro di una location produttiva? Con noi, sei vicino al business, lavorare a stretto contatto con manager e dipendenti e portare la tua esperienza in cui ha un impatto. Oltre alle operazioni quotidiane, aiuterà a modellare i cambiamenti, sviluppare i dirigenti e accompagnare la posizione sulla sua strada verso il futuro.\n\nPuoi farlo.\n\n• Supporto e consulenza di manager lungo tutto il ciclo di vita dei dipendenti.\n\n• Partner Sparring: nella gestione del sito per il personale, le questioni organizzative e culturali.\n\n• Accompagnamento dei processi di cambiamento e partecipazione attiva alla posizione e allo sviluppo organizzativo.\n\n• Moderazione di workshop, dialoghi di leadership e sviluppi di team.\n\n• Sviluppo di soluzioni sostenibili nei settori della gestione del talento, della conservazione dei dipendenti e della pianificazione della successione.\n\n• Gestione professionale di casi di personale esigente, questioni di diritto del lavoro e gestione dell'assenza.\n\n• Una stretta collaborazione con i nostri servizi HR per il supporto professionale ed efficiente del personale.\n\nLo porti con te.\n\n• Hai un certificato HR o un'ulteriore formazione comparabile, oltre a diversi anni di esperienza come HR Business Partner: in un ambiente di produzione o industriale.\n\n• È un piacere accompagnare i manager sia nelle operazioni quotidiane che in questioni strategiche.\n\n• Esperienza o ulteriore formazione nei settori della gestione dei cambiamenti, sviluppo organizzativo, coaching o sviluppo di leadership.\n\n• Metodo di lavoro indipendente, pragmatico e orientato alla soluzione.\n\n• Forte capacità di consulenza e moderazione, nonché una buona sensazione per le persone e le organizzazioni.\n\n• Conoscenza sicura della lingua tedesca e buona conoscenza dell'inglese.\n\nQuesto è ciò che vi offriamo\n\n• Servizio Anniversario: Loyalty paga: Ogni cinque anni, premiamo la vostra lealtà con un premio, che si può anche ricevere sotto forma di vacanze o come un contributo una volta al fondo pensione.\n\n• Modelli di tempo di lavoro flessibili: Offriamo vari modelli di tempo di lavoro, come flessibilità o tempo di lavoro affidabile, al fine di soddisfare le esigenze personali e desideri dei nostri dipendenti.\n\n• Piano di sviluppo individuale: con piani di sviluppo su misura, promuoviamo in modo specifico le vostre competenze individuali e sosteniamo la vostra crescita a lungo termine – una componente centrale della nostra strategia di sostenibilità. Per saperne di più.\n\n• Supplementi interessanti & servizi aggiuntivi: Ricevete il 20% di indennità di tempo dalle ore 20, tempi di riscaldamento a pagamento, un credito di tempo per i tempi di cambiamento e un equo compenso per la piquetting al di fuori del vostro orario di lavoro.\n\n• Ulteriori opportunità di formazione e sviluppo: Emmi si concentra sull'ulteriore sviluppo dei nostri dipendenti: Offriamo programmi di talento, supporto formazione e formazione ulteriore e promuovere tutte le competenze per la vostra crescita professionale. Scopri di più sulle nostre offerte di sviluppo qui.\n\n• Focus sulla vostra salute: Offriamo la gestione della salute professionale, misure preventive e consulenza sociale gratuita dal nostro partner Proitera per le preoccupazioni professionali e private.",
-      "en": "Do you not only want to accompany HR topics, but also actively shape the future of a production location? With us, you are close to the business, work closely with managers and employees and bring your expertise where it has an impact. In addition to day-to-day operations, you will help shape changes, develop executives and accompany the location on its way into the future.\n\nYou can do that.\n\n• Support and advice of managers along the entire employee lifecycle.\n\n• Sparring Partner: in site management for personnel, organizational and cultural issues.\n\n• Accompaniment of change processes as well as active participation in location and organizational development.\n\n• Moderation of workshops, leadership dialogues and team developments.\n\n• Development of sustainable solutions in the areas of talent management, employee retention and succession planning.\n\n• Professional handling of demanding personnel cases, labour law issues and absence management.\n\n• Close cooperation with our HR services for professional and efficient personnel support.\n\nYou bring that with you\n\n• You have an HR certificate or comparable further education as well as several years of experience as an HR Business Partner: in a manufacturing or industrial environment.\n\n• It is a pleasure to accompany managers both in everyday operations and in strategic issues.\n\n• Experience or further education in the areas of change management, organizational development, coaching or leadership development.\n\n• Independent, pragmatic and solution-oriented working method.\n\n• Strong consulting and moderation skills as well as a good feeling for people and organizations.\n\n• Confident knowledge of German and good knowledge of English.\n\nThis is what we offer you\n\n• Service Anniversary: Loyalty pays off: Every five years, we reward your loyalty with a premium, which you can also receive in the form of holidays or as a one-time contribution to the pension fund.\n\n• Flexible working time models: We offer various working time models, such as flexibilities or trusted working time, in order to meet the personal needs and wishes of our employees.\n\n• Individual development plan: With tailor-made development plans, we specifically promote your individual skills and support your long-term growth – a central component of our sustainability strategy. Learn more .\n\n• Attractive surcharges & additional services: You receive 20% time allowance from 8 pm, paid warm-up times, a time credit for changing times and a fair compensation for piquetting outside your working hours.\n\n• Further education and development opportunities: Emmi focuses on the further development of our employees: We offer talent programs, support training and further education and promote all skills for your professional growth. Find out more about our development offers here.\n\n• Focus on your health: We offer occupational health management, preventive measures and free social advice from our partner Proitera for professional and private concerns.",
-      "de": "Du möchtest nicht nur HR-Themen begleiten, sondern die Zukunft eines Produktionsstandorts aktiv mitgestalten? Bei uns bist du nah am Business, arbeitest eng mit Führungskräften und Mitarbeitenden zusammen und bringst deine Expertise dort ein, wo sie Wirkung entfaltet. Neben dem operativen HR-Alltag gestaltest du Veränderungen mit, entwickelst Führungskräfte weiter und begleitest den Standort auf seinem Weg in die Zukunft.\n\nDas kannst du bewirken\n\n• Betreuung und Beratung von Führungskräften entlang des gesamten Employee Lifecycles.\n\n• Sparring-Partner:in der Standortleitung bei personellen, organisatorischen und kulturellen Fragestellungen.\n\n• Begleitung von Veränderungsprozessen sowie aktive Mitgestaltung der Standort- und Organisationsentwicklung.\n\n• Moderation von Workshops, Führungsdialogen und Teamentwicklungen.\n\n• Entwicklung nachhaltiger Lösungen in den Bereichen Talent Management, Mitarbeiterbindung und Nachfolgeplanung.\n\n• Professioneller Umgang mit anspruchsvollen Personalfällen, arbeitsrechtlichen Fragestellungen und dem Absenzmanagement.\n\n• Enge Zusammenarbeit mit unseren HR Services für eine professionelle und effiziente Personalbetreuung.\n\nDas bringst du mit\n\n• Du verfügst über einen HR-Fachausweis oder eine vergleichbare Weiterbildung sowie mehrere Jahre Erfahrung als HR Business Partner:in in einem produzierenden oder industriellen Umfeld.\n\n• Freude daran, Führungskräfte sowohl im operativen Alltag als auch bei strategischen Fragestellungen zu begleiten.\n\n• Erfahrung oder eine Weiterbildung in den Bereichen Change Management, Organisationsentwicklung, Coaching oder Leadership Development.\n\n• Selbstständige, pragmatische und lösungsorientierte Arbeitsweise.\n\n• Ausgeprägte Beratungs- und Moderationskompetenz sowie ein gutes Gespür für Menschen und Organisationen.\n\n• Stilsichere Deutschkenntnisse und gute Englischkenntnisse.\n\nDas bieten wir dir\n\n• Dienstjubiläum: Loyalität zahlt sich aus: Alle fünf Jahre belohnen wir deine Treue mit einer Prämie, die du wahlweise auch in Form von Ferien oder als Einmaleinlage in die Pensionskasse beziehen kannst.\n\n• Flexible Arbeitszeitmodelle: Wir bieten verschiedene Arbeitszeitmodelle wie Gleit- oder Vertrauensarbeitszeit, um den persönlichen Bedürfnissen und Wünschen unserer Mitarbeitenden gerecht zu werden.\n\n• Individueller Entwicklungsplan: Mit massgeschneiderten Entwicklungsplänen fördern wir gezielt deine individuellen Kompetenzen und unterstützen dein langfristiges Wachstum – ein zentraler Bestandteil unserer Nachhaltigkeitsstrategie. Erfahre mehr .\n\n• Attraktive Zuschläge & Zusatzleistungen: Du erhältst 20 % Zeitzulage ab 20 Uhr, bezahlte Aufwärmzeiten, eine Zeitgutschrift für Umkleidezeiten und eine faire Entschädigung für Piketteinsätze ausserhalb deiner Arbeitszeit.\n\n• Weiterbildung & Entwicklungsmöglichkeiten: Bei Emmi steht die Weiterentwicklung unserer Mitarbeitenden im Vordergrund: Wir bieten Talentprogramme, unterstützen Aus- und Weiterbildungen und fördern alle Kompetenzen für dein berufliches Wachstum. Erfahre hier mehr über unsere Entwicklungsangebote.\n\n• Deine Gesundheit im Fokus: Wir bieten betriebliches Gesundheitsmanagement, präventive Massnahmen und kostenlose Sozialberatung durch unseren Partner Proitera für berufliche und private Anliegen.\n\nMehr über Benefits erfahren",
-      "fr": "Voulez-vous non seulement accompagner les sujets RH, mais aussi façonner activement l'avenir d'un lieu de production? Avec nous, vous êtes proche de l'entreprise, travaillez en étroite collaboration avec les gestionnaires et les employés et apportez votre expertise là où elle a un impact. En plus des opérations quotidiennes, vous aiderez à façonner les changements, développerez des cadres et accompagnerez l'emplacement sur son chemin vers l'avenir.\n\nTu peux le faire.\n\n• Soutien et conseils des gestionnaires tout au long du cycle de vie des employés.\n\n• Partenaire de partage : gestion du site pour les questions de personnel, d'organisation et de culture.\n\n• Accompagnement des processus de changement et participation active à l'implantation et au développement organisationnel.\n\n• Modération des ateliers, dialogues avec les dirigeants et développements en équipe.\n\n• Développement de solutions durables dans les domaines de la gestion des talents, du maintien en poste des employés et de la planification de la relève.\n\n• Traitement professionnel des dossiers de personnel exigeant, des questions de droit du travail et de gestion des absences.\n\n• Collaboration étroite avec nos services RH pour un soutien professionnel et efficace du personnel.\n\nApporte ça avec toi.\n\n• Vous disposez d'un certificat RH ou d'une formation complémentaire comparable ainsi que de plusieurs années d'expérience en tant que partenaire d'affaires RH : dans un environnement manufacturier ou industriel.\n\n• C'est un plaisir d'accompagner les gestionnaires à la fois dans les opérations quotidiennes et dans les questions stratégiques.\n\n• Expérience ou formation continue dans les domaines de la gestion du changement, du développement organisationnel, de l'encadrement ou du leadership.\n\n• Méthode de travail indépendante, pragmatique et axée sur la solution.\n\n• Fortes compétences en consultation et en modération ainsi qu'un bon sentiment pour les gens et les organisations.\n\n• Connaissance de l'allemand et bonne connaissance de l'anglais.\n\nC'est ce que nous vous offrons\n\n• Anniversaire de service : La fidélité est payante : Tous les cinq ans, nous récompensons votre fidélité avec une prime que vous pouvez également recevoir sous forme de vacances ou de cotisations uniques à la caisse de retraite.\n\n• Modèles flexibles de temps de travail: Nous offrons divers modèles de temps de travail, tels que des flexibilités ou un temps de travail de confiance, afin de répondre aux besoins et aux souhaits personnels de nos employés.\n\n• Plan de développement individuel : Avec des plans de développement sur mesure, nous promouvons vos compétences individuelles et soutenons votre croissance à long terme – un élément central de notre stratégie de développement durable. En savoir plus .\n\n• Suppléments attractifs et services supplémentaires: Vous bénéficiez d'une allocation de temps de 20 % à partir de 20 heures, des heures d'échauffement payées, d'un crédit de temps pour les changements d'horaires et d'une juste compensation pour le picting en dehors de vos heures de travail.\n\n• Possibilités de formation continue et de développement : Emmi met l'accent sur le perfectionnement de ses employés : Nous offrons des programmes de talent, de soutien à la formation et à la formation continue et de promouvoir toutes les compétences pour votre croissance professionnelle. En savoir plus sur nos offres de développement ici.\n\n• Concentrez-vous sur votre santé : nous offrons la gestion de la santé au travail, des mesures préventives et des conseils sociaux gratuits de notre partenaire Proitera pour des préoccupations professionnelles et privées."
-    },
-    "slugByLocale": {
-      "it": "risorse-umane-business-partner-in-emmi-suhr",
-      "en": "hr-business-partner-in-emmi-ch",
-      "de": "hr-business-partner-in-emmi-ch",
-      "fr": "ressources-humaines-business-partner-in-emmi-suhr"
-    },
-    "sector": "Food & Beverage (dairy)",
-    "expiredAt": "2026-10-09T09:16:46.661Z",
-    "previousSlugs": [
-      "hr-business-partner-in-emmi-ch",
-      "hr-business-partner-emmi-ch",
-      "partner-commerciale-delle-risorse-umane-emmi-bischofszell",
-      "partner-commerciale-delle-risorse-umane-emmi-bischofszell-cpchgd",
-      "ressources-humaines-business-partner-in-emmi-suhr",
-      "partner-comercial-de-recursos-humanos-emmi-bischofszell",
-      "hr-business-partner-emmi-ch-cpchgd",
-      "hr-business-partner-emmi-bischofszell",
-      "partenaire-d-affaires-rh-emmi-bischofszell-thurgau",
-      "partenaire-operationnel-rh-emmi-bischofszell-thurgau"
     ],
-    "previousSlugsByLocale": {
-      "it": [
-        "hr-business-partner-in-emmi-ch",
-        "hr-business-partner-emmi-ch",
-        "partner-commerciale-delle-risorse-umane-emmi-bischofszell-cpchgd",
-        "ressources-humaines-business-partner-in-emmi-suhr"
-      ],
-      "fr": [
-        "hr-business-partner-in-emmi-ch",
-        "hr-business-partner-emmi-bischofszell",
-        "partenaire-d-affaires-rh-emmi-bischofszell-thurgau",
-        "partenaire-operationnel-rh-emmi-bischofszell-thurgau"
-      ],
-      "en": [
-        "partner-comercial-de-recursos-humanos-emmi-bischofszell"
-      ],
-      "de": [
-        "hr-business-partner-emmi-ch",
-        "hr-business-partner-emmi-ch-cpchgd"
-      ]
-    },
-    "postalCode": "5034",
-    "streetAddress": "Obertelweg 2",
-    "salaryMin": 62000,
-    "salaryMax": 94000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/hr-business-partner/757027fd-941c-4d67-8359-020ba9d22261",
-    "firstSeenAt": "2026-06-10T07:51:39.183Z",
-    "sourceIdentityHistory": [
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/hr-business-partner-in/757027fd-941c-4d67-8359-020ba9d22261",
-        "firstSeenAt": "2026-08-13T22:02:45.597Z",
-        "title": "HR Business Partner:in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/hr-business-partner-in/cd6909f0-f8f7-47f7-8c85-a6b4a73f4b75",
-        "firstSeenAt": "2026-08-11T10:23:21.717Z",
-        "title": "HR Business Partner:in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/hr-business-partner/3e6a7768-6205-44f2-ac3a-e71d43c6fcb5",
-        "firstSeenAt": "2026-06-10T07:51:39.183Z",
-        "title": "HR Business Partner"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/hr-business-partner/757027fd-941c-4d67-8359-020ba9d22261",
-        "firstSeenAt": "2026-06-10T07:51:39.183Z",
-        "title": "HR Business Partner"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/hr-business-partner/f9a4b6dc-7a40-4950-96a3-1419bbde747d",
-        "firstSeenAt": "2026-06-10T07:51:39.183Z",
-        "title": "HR Business Partner"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/hr-business-partner/fad5cb13-0727-4e10-b014-69dff72f8dbe",
-        "firstSeenAt": "2026-06-10T07:51:39.183Z",
-        "title": "HR Business Partner"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/hr-business-partner/fb0dccc5-2f99-4727-9bdc-7aed32b97d99",
-        "firstSeenAt": "2026-07-21T23:21:56.586Z",
-        "title": "HR Business Partner"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/hr-business-partner/fe2c7fe5-2917-4433-8a13-e04665779800",
-        "firstSeenAt": "2026-06-10T07:51:39.183Z",
-        "title": "HR Business Partner"
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chauffeuse-oder-chauffeur-kategorie-c-e-100-emmi-ch-3": "LU",
+        "chauffeuse-oder-chauffeur-kategorie-c-e-100-emmi-ch": "LU"
       }
-    ]
+    }
   },
   {
     "slug": "betriebsmechaniker-in-emmi-ch-cs1c32",
@@ -20745,8 +21876,7 @@
       "plant-manager-in-mixing-plant-emmi-suhr-aargau",
       "anlagenfuhrer-in-abfullung-emmi-ch",
       "anlagenfuhrer-in-abfullung-emmi-suhr",
-      "filling-plant-operator-emmi-suhr",
-      "anlagenfuhrer-in-mischerei-emmi-ch"
+      "filling-plant-operator-emmi-suhr"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -26168,7 +27298,6 @@
         "anlagenfuhrer-in-mischerei-emmi-suhr-13dd8083",
         "anlagenfuhrer-in-abfullung-emmi-ch-3a3431f7",
         "direttore-dell-impianto-in-impianto-di-miscelazione-emmi-suhr-aargau-07ny31-eb90ac24",
-        "anlagenfuhrer-in-mischerei-emmi-ch",
         "anlagenfuhrer-in-abfullung-emmi-suhr"
       ],
       "fr": [
@@ -34946,8 +36075,7 @@
       "koordinator-in-rohrleitungs-e-anlagenbau-emmi-dagmersellen-c9b3183e",
       "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch-ef81dbaf",
       "pipeline-and-plant-engineering-coordinator-emmi-dagmersellen-luzern-ce98bee8",
-      "coordinateur-dans-la-construction-de-conduites-et-d-installations-emmi-dagmersellen-luzern-62ab6d79",
-      "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch"
+      "coordinateur-dans-la-construction-de-conduites-et-d-installations-emmi-dagmersellen-luzern-62ab6d79"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -34956,14 +36084,12 @@
         "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch-9f351315",
         "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch-af9c0fe0",
         "koordinator-in-rohrleitungs-e-anlagenbau-emmi-dagmersellen-c9b3183e",
-        "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch-ef81dbaf",
-        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch"
+        "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch-ef81dbaf"
       ],
       "en": [
         "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch-b7369b6b",
         "pipeline-and-plant-engineering-coordinator-emmi-dagmersellen-luzern-559c95bd",
         "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch-af9c0fe0",
-        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch",
         "pipeline-and-plant-engineering-coordinator-emmi-dagmersellen-luzern-ce98bee8",
         "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch-ef81dbaf"
       ],
@@ -34971,7 +36097,6 @@
         "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch-b7369b6b",
         "coordinateur-dans-la-construction-de-conduites-et-d-installations-emmi-dagmersellen-luzern-6f2f6d30",
         "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch-af9c0fe0",
-        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch",
         "coordinateur-dans-la-construction-de-conduites-et-d-installations-emmi-dagmersellen-luzern-62ab6d79",
         "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch-ef81dbaf"
       ],
@@ -35651,17 +36776,20 @@
         "apprentice-milk-technologist-cfc-2027-emmi-saignelegier-jura",
         "apprenti-e-technologue-du-lait-cfc-2027-emmi-ch",
         "apprentice-milk-technologist-cfc-2026-emmi-courgenay",
-        "apprentice-milk-technologist-cfc-2026-emmi-saignelegier"
+        "apprentice-milk-technologist-cfc-2026-emmi-saignelegier",
+        "apprenti-e-technologue-du-lait-cfc-2027-emmi-ch-2"
       ],
       "de": [
         "auszubildender-milchtechnologe-cfc-2027-emmi-courgenay-jura",
         "auszubildender-milchtechnologe-cfc-2027-emmi-saignelegier-jura",
         "apprenti-e-technologue-du-lait-cfc-2027-emmi-ch",
         "lernende-r-milchtechnologe-in-efz-2026-emmi-courgenay",
-        "lernende-r-milchtechnologe-in-efz-2026-emmi-saignelegier"
+        "lernende-r-milchtechnologe-in-efz-2026-emmi-saignelegier",
+        "apprenti-e-technologue-du-lait-cfc-2027-emmi-ch-2"
       ],
       "fr": [
-        "apprenti-e-technologue-du-lait-cfc-2026-emmi-ch"
+        "apprenti-e-technologue-du-lait-cfc-2026-emmi-ch",
+        "apprenti-e-technologue-du-lait-cfc-2027-emmi-ch-2"
       ]
     },
     "postalCode": "2350",
@@ -35703,7 +36831,33 @@
         "firstSeenAt": "2026-07-14T22:19:42.495Z",
         "title": "Apprenti-e technologue du lait CFC 2027"
       }
-    ]
+    ],
+    "canton": "JU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "apprenti-e-technologue-du-lait-cfc-2027-emmi-ch": "JU",
+        "apprenti-e-technologue-du-lait-cfc-2027-emmi-ch-2-9r4vrp": "JU",
+        "apprendista-tecnologo-del-latte-cfc-2026-emmi-saignelegier": "JU",
+        "apprentice-milk-technologist-cfc-2026-emmi-saignelegier": "JU",
+        "lernende-r-milchtechnologe-in-efz-2026-emmi-saignelegier": "JU",
+        "apprenti-e-technologue-du-lait-cfc-2026-emmi-ch": "JU",
+        "tecnologia-del-latte-di-apprendista-cfc-2027-emmi-courgenay-jura-zbrrt8": "JU",
+        "apprentice-milk-technologist-cfc-2027-emmi-courgenay-jura": "JU",
+        "auszubildender-milchtechnologe-cfc-2027-emmi-courgenay-jura": "JU",
+        "tecnologia-del-latte-di-apprendista-cfc-2027-emmi-courgenay-jura": "JU",
+        "tecnologia-del-latte-di-apprendista-cfc-2027-emmi-saignelegier-jura": "JU",
+        "apprendista-tecnologo-del-latte-afc-2027-emmi-saignelegier-jura": "JU",
+        "apprenti-e-technologue-du-lait-cfc-2026-emmi-ch-2": "JU"
+      },
+      "en": {
+        "apprentice-milk-technologist-cfc-2027-emmi-courgenay-jura": "JU",
+        "apprentice-milk-technologist-cfc-2027-emmi-saignelegier-jura": "JU"
+      },
+      "de": {
+        "auszubildender-milchtechnologe-cfc-2027-emmi-courgenay-jura": "JU",
+        "auszubildender-milchtechnologe-cfc-2027-emmi-saignelegier-jura": "JU"
+      }
+    }
   },
   {
     "slug": "operatore-macchina-in-3-shift-emmi-emmen-luzern",
@@ -35752,10 +36906,15 @@
         "operatore-macchina-in-3-shift-emmi-emmen-luzern-9og6dl"
       ],
       "en": [
-        "maschinenfuhrer-in-3-schicht-emmi-emmen"
+        "maschinenfuhrer-in-3-schicht-emmi-emmen",
+        "operatore-macchina-in-3-shift-emmi-emmen-luzern"
       ],
       "fr": [
-        "maschinenfuhrer-in-3-schicht-emmi-emmen"
+        "maschinenfuhrer-in-3-schicht-emmi-emmen",
+        "operatore-macchina-in-3-shift-emmi-emmen-luzern"
+      ],
+      "de": [
+        "operatore-macchina-in-3-shift-emmi-emmen-luzern"
       ]
     },
     "postalCode": "6032",
@@ -35787,7 +36946,24 @@
         "firstSeenAt": "2026-06-24T11:18:35.517Z",
         "title": "Maschinenführer:in 3-Schicht"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "maschinenfuhrer-in-3-schicht-emmi-ch": "LU",
+        "operatore-macchina-in-3-shift-emmi-emmen-luzern-1iu9bt": "LU",
+        "operateur-de-machine-en-3-equipes-emmi-emmen-luzern": "LU",
+        "machine-operator-in-3-shift-emmi-emmen-luzern": "LU",
+        "maschinenfuhrer-in-3-schicht-emmi-emmen": "LU",
+        "operatore-macchina-in-3-shift-emmi-emmen-luzern-3plhe6": "LU"
+      },
+      "en": {
+        "maschinenfuhrer-in-3-schicht-emmi-emmen": "LU"
+      },
+      "fr": {
+        "maschinenfuhrer-in-3-schicht-emmi-emmen": "LU"
+      }
+    }
   },
   {
     "slug": "ai-platform-ingegnere-emmi-ostermundigen-bern",
@@ -35833,7 +37009,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/ai-platform-engineer/be3c2ecc-31ba-4234-8056-ae6cbae146a1",
-    "firstSeenAt": "2026-07-15T22:19:42.389Z"
+    "firstSeenAt": "2026-07-15T22:19:42.389Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ai-platform-engineer-emmi-ch": "BE",
+        "ai-platform-ingegnere-emmi-ostermundigen": "BE"
+      }
+    }
   },
   {
     "slug": "ai-solution-consulente-emmi-ostermundigen-bern",
@@ -35880,7 +37063,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/ai-solution-consultant/9dc64342-d1b5-44dc-8f75-7482e83c97ec",
-    "firstSeenAt": "2026-07-15T22:19:42.390Z"
+    "firstSeenAt": "2026-07-15T22:19:42.390Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ai-solution-consultant-emmi-ch": "BE"
+      },
+      "fr": {
+        "ai-solution-consultant-emmi-ch": "BE"
+      }
+    }
   },
   {
     "slug": "laboratorio-in-emmi-dagmersellen-luzern",
@@ -35944,7 +37136,20 @@
         "firstSeenAt": "2026-07-29T22:23:14.784Z",
         "title": "Laborant:in"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "laborant-in-emmi-ch": "LU",
+        "laboratorio-in-emmi-dagmersellen": "LU"
+      },
+      "en": {
+        "laborant-in-emmi-ch": "LU"
+      },
+      "fr": {
+        "laborant-in-emmi-ch": "LU"
+      }
+    }
   },
   {
     "slug": "operatore-macchina-in-imbottigliamento-emmi-bischofszell-thurgau",
@@ -36003,23 +37208,47 @@
         "maschinenfuhrer-in-aufbereitung-emmi-ch",
         "operateur-de-machine-en-preparation-emmi-bischofszell",
         "operatore-macchina-in-preparazione-emmi-bischofszell-thurgau-vphf8l",
-        "maschinenfuhrer-in-aufbereitung-emmi-bischofszell"
+        "maschinenfuhrer-in-aufbereitung-emmi-bischofszell",
+        "operatore-macchina-in-imbottigliamento-emmi-bischofszell",
+        "operatore-macchina-in-preparazione-emmi-bischofszell-thurgau",
+        "preparazione-dell-operatore-della-macchina-al-100-emmi-bischofszell",
+        "machine-operator-in-preparation-100-emmi-bischofszell",
+        "maschinenfuhrer-in-aufbereitung-100-emmi-ch",
+        "operateur-de-machine-en-preparation-100-emmi-bischofszell"
       ],
       "en": [
         "machine-operator-filling-emmi-bischofszell",
         "maschinenfuhrer-in-abfullung-emmi-bischofszell",
         "machine-operator-in-preparation-emmi-bischofszell",
-        "maschinenfuhrer-in-aufbereitung-emmi-bischofszell"
+        "maschinenfuhrer-in-aufbereitung-emmi-bischofszell",
+        "operatore-macchina-in-imbottigliamento-emmi-bischofszell",
+        "operatore-macchina-in-preparazione-emmi-bischofszell-thurgau",
+        "preparazione-dell-operatore-della-macchina-al-100-emmi-bischofszell",
+        "machine-operator-in-preparation-100-emmi-bischofszell",
+        "maschinenfuhrer-in-aufbereitung-100-emmi-ch",
+        "operateur-de-machine-en-preparation-100-emmi-bischofszell"
       ],
       "de": [
-        "maschinenfuhrer-in-aufbereitung-emmi-ch"
+        "maschinenfuhrer-in-aufbereitung-emmi-ch",
+        "operatore-macchina-in-imbottigliamento-emmi-bischofszell",
+        "operatore-macchina-in-preparazione-emmi-bischofszell-thurgau",
+        "preparazione-dell-operatore-della-macchina-al-100-emmi-bischofszell",
+        "machine-operator-in-preparation-100-emmi-bischofszell",
+        "maschinenfuhrer-in-aufbereitung-100-emmi-ch",
+        "operateur-de-machine-en-preparation-100-emmi-bischofszell"
       ],
       "fr": [
         "operateur-de-machine-en-mise-en-bouteille-emmi-bischofszell",
         "maschinenfuhrer-in-abfullung-emmi-bischofszell",
         "operateur-de-machine-en-preparation-emmi-bischofszell",
         "operateur-de-machine-en-mise-en-bouteille-emmi-bischofszell-thurgau",
-        "maschinenfuhrer-in-aufbereitung-emmi-bischofszell"
+        "maschinenfuhrer-in-aufbereitung-emmi-bischofszell",
+        "operatore-macchina-in-imbottigliamento-emmi-bischofszell",
+        "operatore-macchina-in-preparazione-emmi-bischofszell-thurgau",
+        "preparazione-dell-operatore-della-macchina-al-100-emmi-bischofszell",
+        "machine-operator-in-preparation-100-emmi-bischofszell",
+        "maschinenfuhrer-in-aufbereitung-100-emmi-ch",
+        "operateur-de-machine-en-preparation-100-emmi-bischofszell"
       ]
     },
     "postalCode": "9220",
@@ -36061,7 +37290,60 @@
         "firstSeenAt": "2026-06-11T12:32:43.720Z",
         "title": "Maschinenführer:in Aufbereitung"
       }
-    ]
+    ],
+    "canton": "TG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "maschinenfuhrer-in-abfullung-emmi-ch": "TG",
+        "operatore-macchina-in-imbottigliamento-emmi-bischofszell-i9sw4z": "TG",
+        "operateur-de-machine-en-mise-en-bouteille-emmi-bischofszell": "TG",
+        "machine-operator-filling-emmi-bischofszell": "TG",
+        "operatore-macchina-in-imbottigliamento-emmi-bischofszell": "TG",
+        "maschinenfuhrer-in-abfullung-emmi-bischofszell": "TG",
+        "operatore-macchina-in-preparazione-emmi-bischofszell-thurgau": "TG",
+        "machine-operator-in-preparation-emmi-bischofszell": "TG",
+        "maschinenfuhrer-in-aufbereitung-emmi-ch": "TG",
+        "operateur-de-machine-en-preparation-emmi-bischofszell": "TG",
+        "preparazione-dell-operatore-della-macchina-al-100-emmi-bischofszell": "TG",
+        "machine-operator-in-preparation-100-emmi-bischofszell": "TG",
+        "maschinenfuhrer-in-aufbereitung-100-emmi-ch": "TG",
+        "operateur-de-machine-en-preparation-100-emmi-bischofszell": "TG",
+        "operatore-macchina-in-preparazione-emmi-bischofszell-thurgau-vphf8l": "TG",
+        "maschinenfuhrer-in-aufbereitung-emmi-bischofszell": "TG"
+      },
+      "en": {
+        "operatore-macchina-in-imbottigliamento-emmi-bischofszell": "TG",
+        "operatore-macchina-in-preparazione-emmi-bischofszell-thurgau": "TG",
+        "preparazione-dell-operatore-della-macchina-al-100-emmi-bischofszell": "TG",
+        "machine-operator-in-preparation-100-emmi-bischofszell": "TG",
+        "maschinenfuhrer-in-aufbereitung-100-emmi-ch": "TG",
+        "operateur-de-machine-en-preparation-100-emmi-bischofszell": "TG",
+        "machine-operator-filling-emmi-bischofszell": "TG",
+        "maschinenfuhrer-in-abfullung-emmi-bischofszell": "TG",
+        "machine-operator-in-preparation-emmi-bischofszell": "TG"
+      },
+      "de": {
+        "operatore-macchina-in-imbottigliamento-emmi-bischofszell": "TG",
+        "operatore-macchina-in-preparazione-emmi-bischofszell-thurgau": "TG",
+        "preparazione-dell-operatore-della-macchina-al-100-emmi-bischofszell": "TG",
+        "machine-operator-in-preparation-100-emmi-bischofszell": "TG",
+        "maschinenfuhrer-in-aufbereitung-100-emmi-ch": "TG",
+        "operateur-de-machine-en-preparation-100-emmi-bischofszell": "TG",
+        "maschinenfuhrer-in-aufbereitung-emmi-ch": "TG"
+      },
+      "fr": {
+        "operatore-macchina-in-imbottigliamento-emmi-bischofszell": "TG",
+        "operatore-macchina-in-preparazione-emmi-bischofszell-thurgau": "TG",
+        "preparazione-dell-operatore-della-macchina-al-100-emmi-bischofszell": "TG",
+        "machine-operator-in-preparation-100-emmi-bischofszell": "TG",
+        "maschinenfuhrer-in-aufbereitung-100-emmi-ch": "TG",
+        "operateur-de-machine-en-preparation-100-emmi-bischofszell": "TG",
+        "operateur-de-machine-en-mise-en-bouteille-emmi-bischofszell": "TG",
+        "maschinenfuhrer-in-abfullung-emmi-bischofszell": "TG",
+        "operateur-de-machine-en-preparation-emmi-bischofszell": "TG",
+        "operateur-de-machine-en-mise-en-bouteille-emmi-bischofszell-thurgau": "TG"
+      }
+    }
   },
   {
     "slug": "vorlehre-come-anlagenfuhrer-in-cfc-emmi-ostermundigen",
@@ -36125,7 +37407,20 @@
         "firstSeenAt": "2026-07-22T11:39:07.774Z",
         "title": "Vorlehre als Anlagenführer:in EFZ"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "vorlehre-als-anlagenfuhrer-in-efz-emmi-ch": "BE",
+        "vorlehre-als-anlagenfuhrer-in-efz-2027-emmi-ch": "BE"
+      },
+      "en": {
+        "vorlehre-als-anlagenfuhrer-in-efz-emmi-ch": "BE"
+      },
+      "fr": {
+        "vorlehre-als-anlagenfuhrer-in-efz-emmi-ch": "BE"
+      }
+    }
   },
   {
     "slug": "meccanica-aziendale-in-emmi-suhr-aargau",
@@ -36216,7 +37511,8 @@
         "plant-mechanic-emmi-bischofszell-f1fa99cf",
         "mecanicien-d-entreprise-in-emmi-dagmersellen-luzern-38b7e2eb",
         "mecanicien-d-entreprise-in-emmi-bischofszell-thurgau-ededc85f",
-        "mecanicien-d-affaires-emmi-bischofszell-e448f8b4"
+        "mecanicien-d-affaires-emmi-bischofszell-e448f8b4",
+        "meccanico-di-impianti-emmi-suhr"
       ],
       "en": [
         "betriebsmechaniker-in-emmi-suhr",
@@ -36236,7 +37532,8 @@
         "meccanica-aziendale-in-emmi-bischofszell-thurgau-0a41531d",
         "mecanicien-d-entreprise-in-emmi-dagmersellen-luzern-7f8a0c12",
         "mecanicien-d-entreprise-in-emmi-bischofszell-thurgau-baffea0d",
-        "mecanicien-d-affaires-emmi-bischofszell-b477142a"
+        "mecanicien-d-affaires-emmi-bischofszell-b477142a",
+        "meccanico-di-impianti-emmi-suhr"
       ],
       "de": [
         "betriebsmechaniker-in-emmi-suhr",
@@ -36254,7 +37551,9 @@
         "plant-mechanic-emmi-bischofszell-265ac66b",
         "mecanicien-d-entreprise-in-emmi-dagmersellen-luzern-7f8a0c12",
         "mecanicien-d-entreprise-in-emmi-bischofszell-thurgau-baffea0d",
-        "mecanicien-d-affaires-emmi-bischofszell-b477142a"
+        "mecanicien-d-affaires-emmi-bischofszell-b477142a",
+        "meccanico-di-impianti-emmi-suhr",
+        "betriebsmechaniker-in-emmi-ch-828ecd84"
       ],
       "fr": [
         "betriebsmechaniker-in-emmi-suhr",
@@ -36275,7 +37574,8 @@
         "meccanica-aziendale-in-emmi-bischofszell-thurgau-0a41531d",
         "business-mechanic-in-emmi-dagmersellen-luzern-10f92ba9",
         "business-mechanic-in-emmi-bischofszell-thurgau-ab55666e",
-        "plant-mechanic-emmi-bischofszell-265ac66b"
+        "plant-mechanic-emmi-bischofszell-265ac66b",
+        "meccanico-di-impianti-emmi-suhr"
       ]
     },
     "postalCode": "5034",
@@ -36387,7 +37687,35 @@
         "firstSeenAt": "2026-09-01T14:17:24.053Z",
         "title": "Betriebsmechaniker:in"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "meccanico-di-impianti-emmi-suhr-ml20rj": "AG",
+        "mecanicien-d-usine-emmi-suhr": "AG",
+        "plant-mechanic-emmi-suhr": "AG",
+        "meccanico-di-impianti-emmi-suhr": "AG",
+        "mecanicien-d-entreprise-in-emmi-suhr-aargau": "AG",
+        "business-mechanic-in-emmi-suhr-aargau": "AG",
+        "betriebsmechaniker-in-emmi-suhr": "AG",
+        "betriebsmechaniker-in-emmi-ch-2-76ea79da": "AG",
+        "betriebsmechaniker-in-emmi-ch-828ecd84": "AG"
+      },
+      "en": {
+        "meccanico-di-impianti-emmi-suhr": "AG",
+        "betriebsmechaniker-in-emmi-suhr": "AG"
+      },
+      "de": {
+        "meccanico-di-impianti-emmi-suhr": "AG",
+        "betriebsmechaniker-in-emmi-suhr": "AG",
+        "betriebsmechaniker-in-emmi-ch-828ecd84": "AG"
+      },
+      "fr": {
+        "meccanico-di-impianti-emmi-suhr": "AG",
+        "betriebsmechaniker-in-emmi-suhr": "AG",
+        "mecanicien-d-entreprise-in-emmi-suhr-aargau": "AG"
+      }
+    }
   },
   {
     "slug": "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-05d350",
@@ -36435,16 +37763,22 @@
         "operateur-de-la-centrale-en-poudre-emmi-dagmersellen-luzern",
         "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-1aziii",
         "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-6b2ydp",
-        "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-sun8ym"
+        "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-sun8ym",
+        "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern"
       ],
       "en": [
         "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen",
-        "plant-operator-in-powder-production-emmi-dagmersellen-luzern"
+        "plant-operator-in-powder-production-emmi-dagmersellen-luzern",
+        "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern"
       ],
       "fr": [
         "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen",
         "operateur-en-poudre-emmi-dagmersellen-luzern",
-        "operateur-de-la-centrale-en-poudre-emmi-dagmersellen-luzern"
+        "operateur-de-la-centrale-en-poudre-emmi-dagmersellen-luzern",
+        "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern"
+      ],
+      "de": [
+        "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern"
       ]
     },
     "postalCode": "6252",
@@ -36486,7 +37820,33 @@
         "firstSeenAt": "2026-07-24T11:36:28.741Z",
         "title": "Anlagenführer:in Pulverproduktion"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "anlagenfuhrer-in-pulverproduktion-emmi-ch": "LU",
+        "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen": "LU",
+        "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern": "LU",
+        "plant-operator-in-powder-production-emmi-dagmersellen-luzern": "LU",
+        "operateur-de-la-centrale-en-poudre-emmi-dagmersellen-luzern": "LU",
+        "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-1aziii": "LU",
+        "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-6b2ydp": "LU"
+      },
+      "en": {
+        "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern": "LU",
+        "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen": "LU",
+        "plant-operator-in-powder-production-emmi-dagmersellen-luzern": "LU"
+      },
+      "de": {
+        "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern": "LU"
+      },
+      "fr": {
+        "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern": "LU",
+        "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen": "LU",
+        "operateur-en-poudre-emmi-dagmersellen-luzern": "LU",
+        "operateur-de-la-centrale-en-poudre-emmi-dagmersellen-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "responsabile-del-processo-logistico-in-sala-di-controllo-ricevuta-di-merci-container-vuoto-emmi-kirchberg-bern",
@@ -36564,7 +37924,25 @@
         "firstSeenAt": "2026-06-10T07:51:39.205Z",
         "title": "Logistik Prozessleiter:in Leitstand, Wareneingang & Leergebinde"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "logistics-process-manager-in-control-room-goods-receipt-empty-container-emmi-kirchberg-bern": "BE",
+        "logistics-process-manager-dans-la-salle-de-controle-recepisse-de-marchandises-conteneur-vide-emmi-kirchberg-bern": "BE",
+        "responsabile-del-processo-logistico-in-sala-di-controllo-merci-in-entrata-e-contenitori-vuoti-emmi-kirchberg": "BE",
+        "logistics-process-manager-in-control-station-incoming-goods-empty-containers-emmi-kirchberg": "BE",
+        "responsable-des-processus-logistiques-dans-le-poste-de-commande-la-reception-des-marchandises-et-les-conteneurs-vides": "BE",
+        "logistik-prozessleiter-in-leitstand-wareneingang-leergebinde-emmi-ch": "BE"
+      },
+      "en": {
+        "logistik-prozessleiter-in-leitstand-wareneingang-leergebinde-emmi-ch": "BE"
+      },
+      "fr": {
+        "logistics-process-manager-dans-la-salle-de-controle-recepisse-de-marchandises-conteneur-vide-emmi-kirchberg-bern": "BE",
+        "logistik-prozessleiter-in-leitstand-wareneingang-leergebinde-emmi-ch": "BE"
+      }
+    }
   },
   {
     "slug": "responsabile-della-gestione-della-qualita-emmi-landquart-graubunden",
@@ -36617,7 +37995,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/leiter-in-qualitaetsmanagment/49a275fd-3c2e-4e06-8c05-237423aae638",
-    "firstSeenAt": "2026-09-10T23:08:44.773Z"
+    "firstSeenAt": "2026-09-10T23:08:44.773Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leiter-in-qualitatsmanagment-emmi-ch": "GR",
+        "responsabile-qualitatsmanagment-emmi-landquart": "GR"
+      },
+      "en": {
+        "leiter-in-qualitatsmanagment-emmi-landquart": "GR"
+      },
+      "fr": {
+        "leiter-in-qualitatsmanagment-emmi-landquart": "GR"
+      }
+    }
   },
   {
     "slug": "senior-brand-manager-emmi-caff-latte-emmi-luzern",
@@ -36661,7 +38052,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/senior-brand-manager-emmi-caffe-latte/77232062-8a37-47e2-a234-2f3887ca3ea6",
-    "firstSeenAt": "2026-09-02T23:10:39.201Z"
+    "firstSeenAt": "2026-09-02T23:10:39.201Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-brand-manager-emmi-caffe-latte-emmi-ch": "LU"
+      }
+    }
   },
   {
     "slug": "senior-product-manager-categoria-competenza-e-analisi-emmi-luzern-luzern",
@@ -36725,7 +38122,20 @@
         "firstSeenAt": "2026-07-27T22:18:47.908Z",
         "title": "Senior Product Manager"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-product-manager-kategorie-expertise-analytik-emmi-ch": "LU"
+      },
+      "en": {
+        "senior-product-manager-kategorie-expertise-analytik-emmi-ch": "LU"
+      },
+      "fr": {
+        "senior-product-manager-kategorie-expertise-analytik-emmi-ch": "LU",
+        "senior-product-manager-emmi-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "capo-turno-in-glace-1-2-turno-emmi-ostermundigen-bern",
@@ -36915,7 +38325,22 @@
         "firstSeenAt": "2026-07-31T11:58:33.627Z",
         "title": "Schichtführer:in Glace (1-2 Schicht)"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "schichtfuhrer-in-glace-1-2-schicht-emmi-ch": "BE"
+      },
+      "en": {
+        "schichtfuhrer-in-glace-1-2-schicht-emmi-ch": "BE"
+      },
+      "de": {
+        "schichtfuhrer-in-glace-1-2-schicht-emmi-ch": "BE"
+      },
+      "fr": {
+        "schichtfuhrer-in-glace-1-2-schicht-emmi-ch": "BE"
+      }
+    }
   },
   {
     "slug": "leadership-development-specialista-emmi-luzern",
@@ -36964,7 +38389,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/leadership-development-specialist/d2f55d3d-7a47-4037-87d3-225a8f2f8815",
-    "firstSeenAt": "2026-08-20T10:11:46.085Z"
+    "firstSeenAt": "2026-08-20T10:11:46.085Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leadership-development-specialist-emmi-ch": "LU",
+        "leadership-development-spezialist-emmi-luzern": "LU"
+      },
+      "fr": {
+        "leadership-development-specialist-emmi-ch": "LU"
+      }
+    }
   },
   {
     "slug": "team-leader-production-jogurt-emmi-ostermundigen-bern",
@@ -37016,7 +38451,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/teamleiter-in-produktion-jogurt/2d1e5240-9573-4933-9e72-04db85c3da90",
-    "firstSeenAt": "2026-09-02T13:39:47.209Z"
+    "firstSeenAt": "2026-09-02T13:39:47.209Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiter-in-produktion-jogurt-emmi-ch": "BE",
+        "team-leader-in-produzione-yogurt-emmi-ostermundigen-bern": "BE"
+      },
+      "en": {
+        "teamleiter-in-produktion-jogurt-emmi-ch": "BE"
+      },
+      "fr": {
+        "teamleiter-in-produktion-jogurt-emmi-ch": "BE"
+      }
+    }
   },
   {
     "slug": "vendeur-vendeuse-60-emmi-lausanne",
@@ -37066,7 +38514,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/postes-vacants/vendeur-vendeuse/67c9d8f6-6032-41d9-853a-871824d6f1b3",
-    "firstSeenAt": "2026-08-19T10:14:16.306Z"
+    "firstSeenAt": "2026-08-19T10:14:16.306Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "vendeur-vendeuse-60-emmi-ch": "VD"
+      },
+      "en": {
+        "vendeur-vendeuse-60-emmi-ch": "VD"
+      },
+      "de": {
+        "vendeur-vendeuse-60-emmi-ch": "VD"
+      }
+    }
   },
   {
     "slug": "consulente-clienti-in-retail-field-service-svizzera-orientale-grigio-emmi-luzern-luzern",
@@ -37116,7 +38576,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/kundenberater-in-retail-aussendienst-ostschweiz-graubuenden/62390418-9576-4e53-b9e1-fa5b4d73dd7e",
-    "firstSeenAt": "2026-08-13T10:22:46.497Z"
+    "firstSeenAt": "2026-08-13T10:22:46.497Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenberater-in-retail-aussendienst-ostschweiz-graubunden-emmi-ch": "LU"
+      },
+      "en": {
+        "kundenberater-in-retail-aussendienst-ostschweiz-graubunden-emmi-ch": "LU"
+      },
+      "fr": {
+        "kundenberater-in-retail-aussendienst-ostschweiz-graubunden-emmi-ch": "LU"
+      }
+    }
   },
   {
     "slug": "gestione-account-emmi-luzern-luzern",
@@ -37151,10 +38623,12 @@
     ],
     "previousSlugsByLocale": {
       "it": [
-        "key-account-manager-in-emmi-ch"
+        "key-account-manager-in-emmi-ch",
+        "account-manager-emmi-ch"
       ],
       "fr": [
-        "gestionnaire-de-compte-cle-in-emmi-bischofszell-thurgau"
+        "gestionnaire-de-compte-cle-in-emmi-bischofszell-thurgau",
+        "account-manager-emmi-ch"
       ],
       "en": [
         "key-account-manager-in-emmi-ch"
@@ -37187,7 +38661,16 @@
         "firstSeenAt": "2026-07-10T22:44:12.655Z",
         "title": "Key Account Manager:in"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "account-manager-emmi-ch": "LU"
+      },
+      "fr": {
+        "account-manager-emmi-ch": "LU"
+      }
+    }
   },
   {
     "slug": "impiegato-a-vendite-interne-foodservice-emmi-luzern",
@@ -37250,20 +38733,23 @@
         "mitarbeiter-in-verkaufsinnendienst-foodservice-emmi-ch",
         "sales-coordinator-foodservice-emmi-luzern-luzern",
         "sachbearbeiter-in-verkaufsinnendienst-foodservice-emmi-ch",
-        "personale-in-ufficio-vendita-foodservice-emmi-luzern-luzern"
+        "personale-in-ufficio-vendita-foodservice-emmi-luzern-luzern",
+        "assistenza-commerciale-foodservcie-emmi-luzern-luzern"
       ],
       "en": [
         "associate-verkaufsinnendienst-foodservice-emmi-luzern",
         "sales-coordinator-foodservice-emmi-luzern-luzern",
         "sachbearbeiter-in-verkaufsinnendienst-foodservice-emmi-ch",
         "personnel-in-sales-office-foodservice-emmi-luzern-luzern",
-        "sales-support-foodservcie-emmi-ch"
+        "sales-support-foodservcie-emmi-ch",
+        "assistenza-commerciale-foodservcie-emmi-luzern-luzern"
       ],
       "de": [
         "mitarbeiter-in-verkaufsinnendienst-foodservice-emmi-ch",
         "sales-coordinator-foodservice-emmi-ch",
         "sales-support-foodservcie-emmi-ch",
-        "sales-coordinator-foodservice-emmi-ch-eghdy6"
+        "sales-coordinator-foodservice-emmi-ch-eghdy6",
+        "assistenza-commerciale-foodservcie-emmi-luzern-luzern"
       ],
       "fr": [
         "collaborateur-trice-verkaufsinnendienst-foodservice-emmi-luzern",
@@ -37272,7 +38758,8 @@
         "personnel-dans-le-bureau-de-vente-foodservice-emmi-luzern-luzern",
         "sales-coordinateur-foodservice-emmi-luzern-luzern",
         "sales-support-foodservcie-emmi-ch",
-        "soutien-aux-ventes-foodservcie-emmi-luzern-luzern"
+        "soutien-aux-ventes-foodservcie-emmi-luzern-luzern",
+        "assistenza-commerciale-foodservcie-emmi-luzern-luzern"
       ]
     },
     "postalCode": "6005",
@@ -37299,7 +38786,46 @@
         "firstSeenAt": "2026-07-21T23:21:56.582Z",
         "title": "Sales Coordinator Foodservice"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaborateur-trice-verkaufsinnendienst-foodservice-emmi-luzern": "LU",
+        "associate-verkaufsinnendienst-foodservice-emmi-luzern": "LU",
+        "collaboratore-trice-verkaufsinnendienst-foodservice-emmi-luzern": "LU",
+        "sales-coordinator-foodservice-emmi-ch": "LU",
+        "sales-coordinateur-foodservice-emmi-luzern-luzern": "LU",
+        "sales-support-foodservcie-emmi-ch": "LU",
+        "assistenza-commerciale-foodservcie-emmi-luzern-luzern-eghdy6": "LU",
+        "sales-coordinator-foodservice-emmi-ch-eghdy6": "LU",
+        "soutien-aux-ventes-foodservcie-emmi-luzern-luzern": "LU",
+        "collaborateur-trice-verkaufsinnendienst-foodservice-emmi-luzern-luzern": "LU",
+        "mitarbeiter-in-verkaufsinnendienst-foodservice-emmi-ch": "LU",
+        "sales-coordinator-foodservice-emmi-luzern-luzern": "LU",
+        "assistenza-commerciale-foodservcie-emmi-luzern-luzern": "LU",
+        "sachbearbeiter-in-verkaufsinnendienst-foodservice-emmi-ch": "LU",
+        "personale-in-ufficio-vendita-foodservice-emmi-luzern-luzern": "LU",
+        "impiegato-a-vendite-interne-foodservice-emmi-luzern": "LU"
+      },
+      "en": {
+        "assistenza-commerciale-foodservcie-emmi-luzern-luzern": "LU",
+        "associate-verkaufsinnendienst-foodservice-emmi-luzern": "LU",
+        "sales-coordinator-foodservice-emmi-luzern-luzern": "LU",
+        "sachbearbeiter-in-verkaufsinnendienst-foodservice-emmi-ch": "LU",
+        "personnel-in-sales-office-foodservice-emmi-luzern-luzern": "LU"
+      },
+      "de": {
+        "assistenza-commerciale-foodservcie-emmi-luzern-luzern": "LU",
+        "mitarbeiter-in-verkaufsinnendienst-foodservice-emmi-ch": "LU"
+      },
+      "fr": {
+        "assistenza-commerciale-foodservcie-emmi-luzern-luzern": "LU",
+        "collaborateur-trice-verkaufsinnendienst-foodservice-emmi-luzern": "LU",
+        "collaborateur-trice-verkaufsinnendienst-foodservice-emmi-luzern-luzern": "LU",
+        "sachbearbeiter-in-verkaufsinnendienst-foodservice-emmi-ch": "LU",
+        "personnel-dans-le-bureau-de-vente-foodservice-emmi-luzern-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "operatore-in-confezione-di-formaggio-emmi-kirchberg-bern",
@@ -37379,7 +38905,25 @@
         "firstSeenAt": "2026-07-14T12:08:54.404Z",
         "title": "Anlagenführer:in Käseverpackung"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "anlagenfuhrer-in-kaseverpackung-emmi-ch": "BE",
+        "conduttore-dell-impianto-in-produzione-di-formaggio-emmi-kirchberg-bern": "BE",
+        "system-operator-in-cheese-production-emmi-kirchberg-bern": "BE",
+        "operateur-du-systeme-dans-la-production-de-fromage-emmi-kirchberg-bern": "BE",
+        "anlagenfuhrer-in-kaseproduktion-emmi-ch": "BE"
+      },
+      "en": {
+        "anlagenfuhrer-in-kaseverpackung-emmi-ch": "BE",
+        "system-operator-in-cheese-production-emmi-kirchberg-bern": "BE"
+      },
+      "fr": {
+        "anlagenfuhrer-in-kaseverpackung-emmi-ch": "BE",
+        "operateur-du-systeme-dans-la-production-de-fromage-emmi-kirchberg-bern": "BE"
+      }
+    }
   },
   {
     "slug": "pulizia-del-personale-emmi-emmen-luzern",
@@ -37432,7 +38976,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/mitarbeiter-in-reinigung/d742b55c-cbc0-4f13-8e77-dd10955be701",
-    "firstSeenAt": "2026-09-11T23:13:32.695Z"
+    "firstSeenAt": "2026-09-11T23:13:32.695Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-reinigung-emmi-ch": "LU",
+        "collaboratore-trice-reinigung-emmi-emmen": "LU"
+      },
+      "en": {
+        "mitarbeiter-in-reinigung-emmi-emmen": "LU"
+      },
+      "fr": {
+        "mitarbeiter-in-reinigung-emmi-emmen": "LU"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-laborant-in-cfc-specializzazione-biologie-2027-emmi-ostermundigen",
@@ -37482,7 +39039,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/lehre-als-laborant-in-efz-fachrichtung-biologie-2027/e260decc-98c2-42d4-85c9-bc2376b2d03e",
-    "firstSeenAt": "2026-07-09T22:40:47.284Z"
+    "firstSeenAt": "2026-07-09T22:40:47.284Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehre-als-laborant-in-efz-fachrichtung-biologie-2027-emmi-ch": "BE"
+      },
+      "en": {
+        "lehre-als-laborant-in-efz-fachrichtung-biologie-2027-emmi-ch": "BE"
+      },
+      "fr": {
+        "lehre-als-laborant-in-efz-fachrichtung-biologie-2027-emmi-ch": "BE"
+      }
+    }
   },
   {
     "slug": "sachbearbeiter-in-transporthilfsmittel-emmi-suhr",
@@ -40194,13 +41763,12 @@
     "slugByLocale": {
       "it": "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern-03d79008",
       "en": "system-operator-in-cheese-preparation-emmi-emmen-luzern-4b30d8ae",
-      "de": "anlagenfuhrer-in-kasekonfektionierung-emmi-ch",
+      "de": "anlagenfuhrer-in-kasekonfektionierung-emmi-ch-c67639ba",
       "fr": "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern-f8b56b74"
     },
     "sector": "Food & Beverage (dairy)",
     "expiredAt": "2026-09-01T02:27:03.345Z",
     "previousSlugs": [
-      "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen",
       "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern-4913c3-j1jqxs",
       "operatore-dell-impianto-nel-confezionamento-di-formaggi-emmi-emmen",
       "cheese-packaging-plant-manager-emmi-emmen",
@@ -40245,7 +41813,8 @@
       "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch-7e5e15cc",
       "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern-4913c3-932ca0b8",
       "system-operator-in-cheese-preparation-emmi-emmen-luzern-e19a9ebb",
-      "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern-f2f438d9"
+      "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern-f2f438d9",
+      "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -40287,7 +41856,9 @@
         "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch-46d5c123",
         "system-operator-in-cheese-preparation-emmi-emmen-luzern-cdbf37df",
         "system-operator-in-cheese-preparation-emmi-emmen-luzern-e19a9ebb",
-        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen-j1jqxs-d817a6f4"
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen-j1jqxs-d817a6f4",
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen",
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch"
       ],
       "fr": [
         "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern-4913c3",
@@ -40302,7 +41873,9 @@
         "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch-46d5c123",
         "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern-9f8e3680",
         "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern-f2f438d9",
-        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen-j1jqxs-d817a6f4"
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen-j1jqxs-d817a6f4",
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen",
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch"
       ],
       "de": [
         "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch",
@@ -40312,7 +41885,8 @@
         "system-operator-in-cheese-preparation-emmi-emmen-luzern-4913c3",
         "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern-4913c3",
         "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch-46d5c123",
-        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch-c67639ba"
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch-c67639ba",
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen"
       ]
     },
     "postalCode": "6032",
@@ -43022,7 +44596,7 @@
     "firstSeenAt": "2026-06-29T22:26:41.253Z"
   },
   {
-    "slug": "key-account-manager-in-emmi-ch-461fa1f1",
+    "slug": "key-account-manager-in-emmi-ch",
     "title": "Key Account Manager:in",
     "titleByLocale": {
       "it": "Key Account Manager:",
@@ -43041,22 +44615,24 @@
       "fr": "• Vos responsabilités comprennent des comptes clés définis (p. ex. Migros, Industrie/B2B et Service alimentaire), que vous développez stratégiquement.\n\n• Vous façonnerez de façon significative l'expansion des affaires avec les clients existants et nouveaux et assurerez la réalisation des objectifs centraux.\n\n• Vous dirigez des négociations et élaborez des offres ainsi que des prévisions et une planification budgétaire fondées.\n\n• Sur la base d'analyses fondées des données de gestion du marché, des clients et des catégories, vous développerez des mesures ciblées et développerez de nouveaux champs de croissance.\n\n• De la première évaluation de faisabilité à la mise en œuvre réussie, vous accompagnez les projets et coordonnez la coopération avec les interfaces internes.\n\n• Grâce à votre soutien professionnel et à votre communication proactive, vous pouvez assurer un haut niveau de satisfaction des clients.\n\n• En outre, vous prenez la direction d'une petite équipe de service à la clientèle et favorisez une coopération confiante et axée sur la performance.\n\n• Un environnement de taille moyenne correspond à votre style de travail : vous valorisez les courtes distances, les tâches générales et la possibilité d'obtenir un impact stratégique et opérationnel.\n\n• La base de votre qualification est une formation commerciale ou commerciale, idéalement complétée par une formation continue en vente, marketing ou gestion.\n\n• Une expérience approfondie dans la gestion de compte clé vous distingue – l'expérience dans l'industrie des biens de consommation complète idéalement votre profil.\n\n• Une pensée et une expérience entrepreneuriales fortes dans le développement des clients et des marchés vous distinguent.\n\n• Avec votre apparence confiante ainsi que vos solides compétences en négociation et en communication, vous convainquez à tous les niveaux.\n\n• Une façon de travailler structurée, analytique et axée sur les objectifs vous aide à garder un aperçu même dans des situations difficiles.\n\n• L'initiative, l'affirmation et la joie de coordonner des interfaces complexes complètent votre profil.\n\n• Très bonne connaissance de l'allemand est nécessaire, les langues supplémentaires sont un plus."
     },
     "slugByLocale": {
-      "it": "key-account-manager-in-emmi-ch-461fa1f1",
-      "en": "key-account-manager-in-emmi-ch-461fa1f1",
-      "de": "key-account-manager-in-emmi-ch-461fa1f1",
-      "fr": "gestionnaire-de-compte-cle-in-emmi-bischofszell-thurgau-78800e66"
+      "it": "key-account-manager-in-emmi-ch",
+      "en": "key-account-manager-in-emmi-ch",
+      "de": "key-account-manager-in-emmi-ch",
+      "fr": "gestionnaire-de-compte-cle-in-emmi-bischofszell-thurgau"
     },
     "sector": "Food & Beverage (dairy)",
     "expiredAt": "2026-07-15T22:19:42.497Z",
     "previousSlugs": [
-      "gestione-account-emmi-luzern-luzern-65a01896",
-      "account-manager-emmi-luzern-bcb341d8",
-      "account-manager-emmi-ch-73d21d3b",
-      "gestionnaire-de-compte-emmi-luzern-luzern-6d9614c0",
+      "gestione-account-emmi-luzern-luzern",
       "account-manager-emmi-luzern",
       "account-manager-emmi-ch",
       "gestionnaire-de-compte-emmi-luzern-luzern",
-      "gestione-account-emmi-luzern-luzern"
+      "key-account-manager-in-emmi-ch-461fa1f1",
+      "gestione-account-emmi-luzern-luzern-65a01896",
+      "account-manager-emmi-luzern-bcb341d8",
+      "account-manager-emmi-ch-73d21d3b",
+      "gestionnaire-de-compte-cle-in-emmi-bischofszell-thurgau-78800e66",
+      "gestionnaire-de-compte-emmi-luzern-luzern-6d9614c0"
     ],
     "postalCode": "9220",
     "streetAddress": "Steigstrasse 2",
@@ -43066,28 +44642,20 @@
     "salaryPeriod": "YEAR",
     "previousSlugsByLocale": {
       "it": [
-        "gestione-account-emmi-luzern-luzern-65a01896",
-        "account-manager-emmi-luzern",
-        "account-manager-emmi-ch",
-        "gestionnaire-de-compte-emmi-luzern-luzern"
+        "key-account-manager-in-emmi-ch-461fa1f1",
+        "gestione-account-emmi-luzern-luzern-65a01896"
       ],
       "en": [
-        "account-manager-emmi-luzern-bcb341d8",
-        "gestione-account-emmi-luzern-luzern",
-        "account-manager-emmi-ch",
-        "gestionnaire-de-compte-emmi-luzern-luzern"
+        "key-account-manager-in-emmi-ch-461fa1f1",
+        "account-manager-emmi-luzern-bcb341d8"
       ],
       "de": [
-        "account-manager-emmi-ch-73d21d3b",
-        "gestione-account-emmi-luzern-luzern",
-        "account-manager-emmi-luzern",
-        "gestionnaire-de-compte-emmi-luzern-luzern"
+        "key-account-manager-in-emmi-ch-461fa1f1",
+        "account-manager-emmi-ch-73d21d3b"
       ],
       "fr": [
-        "gestionnaire-de-compte-emmi-luzern-luzern-6d9614c0",
-        "gestione-account-emmi-luzern-luzern",
-        "account-manager-emmi-luzern",
-        "account-manager-emmi-ch"
+        "gestionnaire-de-compte-cle-in-emmi-bischofszell-thurgau-78800e66",
+        "gestionnaire-de-compte-emmi-luzern-luzern-6d9614c0"
       ]
     }
   },
