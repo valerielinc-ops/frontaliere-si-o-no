@@ -47,6 +47,8 @@ export const WORKDAY_RATE_LIMITED_OUTCOME = 'rate-limited';
 /** The run did not contact the tenant because its cooldown had not expired. */
 export const WORKDAY_COOLDOWN_OUTCOME = 'rate-limited-cooldown';
 
+const CLOCK_SKEW_MS = 5 * 60 * 1000;
+
 const OUTCOMES = new Set([WORKDAY_RATE_LIMITED_OUTCOME, WORKDAY_COOLDOWN_OUTCOME]);
 
 function parseIso(value) {
@@ -71,9 +73,13 @@ export function workdayCooldownDelayMs(consecutiveRuns, retryAfterMs = null) {
 /**
  * Validate a record read from a summary. Returns a clean copy or `null`.
  *
+ * A record whose `lastRateLimitedAt` lies in the future (beyond clock skew) is
+ * rejected: it would anchor the 24 h cap far ahead and silence the tenant.
+ *
  * @param {unknown} raw
+ * @param {number} [nowMs]
  */
-export function normalizeWorkdayCooldownRecord(raw) {
+export function normalizeWorkdayCooldownRecord(raw, nowMs = Date.now()) {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
   const { tenant, firstRateLimitedAt, lastRateLimitedAt, consecutiveRuns, nextAttemptAfter, outcome } = raw;
   if (typeof tenant !== 'string' || tenant.trim() === '') return null;
@@ -81,6 +87,7 @@ export function normalizeWorkdayCooldownRecord(raw) {
   if (![firstRateLimitedAt, lastRateLimitedAt, nextAttemptAfter].every((value) => Number.isFinite(parseIso(value)))) {
     return null;
   }
+  if (parseIso(lastRateLimitedAt) > nowMs + CLOCK_SKEW_MS) return null;
   return {
     tenant,
     firstRateLimitedAt,
@@ -110,7 +117,7 @@ export function isWorkdayCooldownActive(record, nowMs) {
  * @param {{ tenant: string, nowMs: number, retryAfterMs?: number|null }} event
  */
 export function nextWorkdayCooldownRecord(previous, { tenant, nowMs, retryAfterMs = null }) {
-  const prior = normalizeWorkdayCooldownRecord(previous);
+  const prior = normalizeWorkdayCooldownRecord(previous, nowMs);
   const sameTenant = prior && prior.tenant === tenant ? prior : null;
   const consecutiveRuns = sameTenant ? sameTenant.consecutiveRuns + 1 : 1;
   const nowIso = new Date(nowMs).toISOString();
@@ -139,8 +146,8 @@ function entryFor(tenant) {
 }
 
 /** Load the record of the previous run's summary (called when the crawler registers). */
-export function hydrateWorkdayCooldown(raw) {
-  const record = normalizeWorkdayCooldownRecord(raw);
+export function hydrateWorkdayCooldown(raw, nowMs = Date.now()) {
+  const record = normalizeWorkdayCooldownRecord(raw, nowMs);
   if (record) entryFor(record.tenant).previous = record;
   return record;
 }

@@ -1129,7 +1129,7 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   // repair, so it neither feeds the empty streak nor reads as `broken`. The
   // same floor as the transport aborts ends the leniency: a series older than
   // that is a tenant that does not come back and falls into the broken path.
-  const rateLimit = normalizeWorkdayCooldownRecord(observation.workdayRateLimit);
+  const rateLimit = normalizeWorkdayCooldownRecord(observation.workdayRateLimit, nowMs);
   const rateLimitSeriesAgeMs = rateLimit ? nowMs - Date.parse(rateLimit.firstRateLimitedAt) : 0;
   const rateLimitedCooldown =
     rateLimit !== null &&

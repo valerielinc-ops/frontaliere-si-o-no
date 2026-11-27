@@ -43,7 +43,7 @@ type Record = ReturnType<typeof workdayCooldownSummaryField>;
 async function runOnce(previous: Record, nowMs: number, fetchImpl: () => Promise<Response>) {
   resetWorkdayCooldownRegistryForTests();
   resetWorkdayImplicitRateLimitStateForTests();
-  hydrateWorkdayCooldown(previous);
+  hydrateWorkdayCooldown(previous, nowMs);
   const fetchMock = vi.fn(fetchImpl);
   vi.stubGlobal('fetch', fetchMock);
   const relayFallback = vi.fn().mockResolvedValue({ status: 429, text: '', upstream: true });
@@ -168,6 +168,20 @@ describe('Workday cross-run cooldown (#20279)', () => {
       outcome: 'rate-limited',
     } as Record;
     const run = await runOnce(corrupt, T0 + 25 * HOUR, ok);
+    expect(run.error).toBeNull();
+    expect(run.requests).toBe(1);
+  });
+
+  it('rejects a record dated in the future instead of silencing the tenant', async () => {
+    const future = {
+      tenant: TENANT,
+      firstRateLimitedAt: '2099-01-01T00:00:00.000Z',
+      lastRateLimitedAt: '2099-01-01T00:00:00.000Z',
+      consecutiveRuns: 1,
+      nextAttemptAfter: '2099-01-01T06:00:00.000Z',
+      outcome: 'rate-limited',
+    } as Record;
+    const run = await runOnce(future, T0, ok);
     expect(run.error).toBeNull();
     expect(run.requests).toBe(1);
   });
