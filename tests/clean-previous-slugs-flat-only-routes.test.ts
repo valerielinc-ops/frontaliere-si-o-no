@@ -178,4 +178,39 @@ describe('flat-only previous slug that is one locale active slug', () => {
     expect(localeRouteKeys(claimant)).not.toContain(`it:${master}`);
     expect(localeRouteKeys(owner)).toContain(`it:${master}`);
   });
+
+  // The reader matches a flat value against the buckets byte for byte, so the
+  // cleaner must too: a value that differs only in spacing is still flat-only.
+  for (const [shape, flat, bucketed] of [
+    ['padded flat value', 'old ', 'old'],
+    ['padded bucket value', 'old', 'old '],
+    ['inner double space', 'old  route', 'old route'],
+  ] as const) {
+    it(`keeps the fallback when the emptied bucket only looks like the flat entry (${shape})`, () => {
+      const route = bucketed.trim();
+      const record: any = {
+        slug: 'master',
+        slugByLocale: { it: 'it-new', en: route, de: 'de-new', fr: 'fr-new' },
+        previousSlugs: [flat],
+        previousSlugsByLocale: { en: [bucketed] },
+      };
+
+      cleanPreviousSlugsPerLocale(record);
+
+      for (const locale of ['it', 'de', 'fr']) {
+        expect(getPreviousSlugsForLocale(record, locale)).toContain(route);
+      }
+    });
+  }
+
+  it('does not let a look-alike bucket value keep a flat entry the reader treats as flat-only', () => {
+    const record = job({ previousSlugs: [`${ACTIVE.en} `], previousSlugsByLocale: { de: [ACTIVE.en] } });
+
+    cleanPreviousSlugsPerLocale(record);
+
+    expect(record.previousSlugs).toBeUndefined();
+    for (const locale of ['it', 'de', 'fr']) {
+      expect(getPreviousSlugsForLocale(record, locale)).toContain(ACTIVE.en);
+    }
+  });
 });

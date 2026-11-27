@@ -9176,10 +9176,12 @@ function materializeFlatOnlyRoute(job, slug) {
  */
 export function cleanPreviousSlugsPerLocale(job) {
   // Read before the bucket pass: a flat value that mirrors a bucket is served
-  // by that bucket alone, even if the pass below empties it.
+  // by that bucket alone, even if the pass below empties it. Membership is on
+  // the stored value, as in getPreviousSlugsForLocale: a bucket value that only
+  // looks alike once normalized leaves the flat entry flat-only.
   const bucketedOnEntry = new Set(
     Object.values(job.previousSlugsByLocale || {})
-      .flatMap((arr) => (Array.isArray(arr) ? arr.map((s) => normalizeSpace(String(s))) : [])),
+      .flatMap((arr) => (Array.isArray(arr) ? arr : [])),
   );
 
   // Clean locale-aware entries: per-locale comparison only
@@ -9245,10 +9247,10 @@ export function cleanPreviousSlugsPerLocale(job) {
     job.previousSlugs = job.previousSlugs.filter(s => {
       const norm = normalizeSpace(String(s));
       // If it's in a locale bucket, keep it (locale cleaning already handled it)
-      if (localeAwareAll.has(norm)) return true;
+      if (localeAwareAll.has(s)) return true;
       // Otherwise apply the old global cleanup: remove if matches any active slug
       if (activeSet.has(norm)) {
-        if (!bucketedOnEntry.has(norm) && !materializeFlatOnlyRoute(job, norm)) return true;
+        if (!bucketedOnEntry.has(s) && !materializeFlatOnlyRoute(job, norm)) return true;
         recordSlugMutation({
           jobId: job.id, locale: null, slug: norm, action: 'drop',
           source: 'dedicated-crawler-common.cleanPreviousSlugsPerLocale/flat',
