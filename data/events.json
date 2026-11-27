@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-27T18:48:38.918Z",
+  "generatedAt": "2026-11-27T19:46:57.399Z",
   "totalEvents": 18661,
   "events": [
     {
@@ -506271,7 +506271,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il laboratorio è dedicato alla sofrologia e a pratiche di rilassamento dinamico. Si svolge a Ginevra.",
+      "descriptionByLocale": {
+        "it": "Il laboratorio è dedicato alla sofrologia e a pratiche di rilassamento dinamico. Si svolge a Ginevra.",
+        "en": "This workshop focuses on sophrology and dynamic relaxation practices. It takes place in Geneva.",
+        "de": "Der Workshop widmet sich der Sophrologie und dynamischen Entspannungsübungen. Er findet in Genf statt.",
+        "fr": "Cet atelier est consacré à la sophrologie et à des pratiques de relaxation dynamique. Il se déroule à Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:stage-festival-celtiques-stage-fiddle-violon-ecossais-iles-shetland-maurice-henderson",
@@ -605855,7 +605863,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’incontro informativo presenta un percorso di formazione professionale nell’ambito della leadership. Illustra i contenuti, i possibili benefici e i requisiti di partecipazione, lasciando spazio alle domande; la partecipazione è gratuita.",
+      "descriptionByLocale": {
+        "it": "L’incontro informativo presenta un percorso di formazione professionale nell’ambito della leadership. Illustra i contenuti, i possibili benefici e i requisiti di partecipazione, lasciando spazio alle domande; la partecipazione è gratuita.",
+        "en": "The information session introduces a professional development course focused on leadership. It covers the programme’s subject matter, potential benefits and participation requirements, with time for questions; attendance is free.",
+        "de": "Der Informationsanlass stellt einen beruflichen Weiterbildungskurs im Führungsbereich vor. Behandelt werden Kursinhalte, mögliche Vorteile und Teilnahmevoraussetzungen; Fragen können ebenfalls eingebracht werden, und die Teilnahme ist kostenlos.",
+        "fr": "La séance d’information présente une formation professionnelle consacrée au leadership. Elle aborde le contenu du programme, les bénéfices possibles et les conditions de participation, tout en permettant aux personnes présentes de poser leurs questions; la participation est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A2Wamxv",
@@ -605885,7 +605901,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La sessione online presenta percorsi SVF in leadership, management e coordinamento di team. La partecipazione è gratuita e si possono rivolgere domande agli esperti.",
+      "descriptionByLocale": {
+        "it": "La sessione online presenta percorsi SVF in leadership, management e coordinamento di team. La partecipazione è gratuita e si possono rivolgere domande agli esperti.",
+        "en": "The online briefing outlines SVF courses in leadership, management and team leadership. Attendance is free, and participants can put questions to the specialists.",
+        "de": "Das Online-Treffen gibt einen Überblick über SVF-Lehrgänge für Leadership, Management und Teamleitung. Die Teilnahme ist gebührenfrei, und die Fachleute stehen für Fragen zur Verfügung.",
+        "fr": "La séance en ligne présente des formations SVF en leadership, en management et en encadrement d’équipe. La participation est gratuite et les spécialistes peuvent répondre aux questions."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:Ar3QwML",
@@ -608618,7 +608642,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il corso offre un’introduzione alle funzioni essenziali di iPhone e iPad. Tra gli argomenti figurano la connessione a Internet, la gestione dei contatti e delle app, e l’uso di foto, video, calendario, note e musica.",
+      "descriptionByLocale": {
+        "it": "Il corso offre un’introduzione alle funzioni essenziali di iPhone e iPad. Tra gli argomenti figurano la connessione a Internet, la gestione dei contatti e delle app, e l’uso di foto, video, calendario, note e musica.",
+        "en": "The course introduces essential functions of iPhone and iPad devices. Topics include connecting to the internet, managing contacts and apps, and using photos, videos, calendars, notes, and music.",
+        "de": "Der Kurs vermittelt grundlegende Kenntnisse zur Bedienung eines iPhone oder iPad. Behandelt werden unter anderem Internetverbindungen, Kontakte und Apps sowie die Nutzung von Fotos, Videos, Kalender, Notizen und Musik.",
+        "fr": "Le cours présente les fonctions essentielles de l’iPhone et de l’iPad. Il aborde notamment la connexion à Internet, la gestion des contacts et des applications, ainsi que l’utilisation des photos, des vidéos, du calendrier, des notes et de la musique."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:d69cd1f8f9cf43df9ebfdf07f7c06f98",
@@ -609876,7 +609908,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Schaffhausen, l’incontro presenta un percorso MBSR che applica la consapevolezza alla gestione dello stress. La descrizione riguarda i temi del corso, le condizioni di partecipazione e le domande sulla formazione.",
+      "descriptionByLocale": {
+        "it": "A Schaffhausen, l’incontro presenta un percorso MBSR che applica la consapevolezza alla gestione dello stress. La descrizione riguarda i temi del corso, le condizioni di partecipazione e le domande sulla formazione.",
+        "en": "This information session in Schaffhausen introduces an MBSR course focused on managing stress through mindfulness. It covers the course topics and participation requirements, with an opportunity to ask questions about the training.",
+        "de": "Der Informationsanlass in Schaffhausen stellt ein MBSR-Angebot zur Stressbewältigung mit Achtsamkeit vor. Behandelt werden die Kursthemen, die Teilnahmebedingungen und Fragen zur Weiterbildung.",
+        "fr": "À Schaffhouse, cette séance d’information présente une formation MBSR axée sur la gestion du stress par la pleine conscience. Elle aborde les thèmes du cours, les conditions de participation et les questions relatives à la formation."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A1WygTE",
