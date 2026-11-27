@@ -1,10 +1,10 @@
 {
   "key": "pks-bewerbung-ch",
   "label": "pks-bewerbung",
-  "generatedAt": "2026-11-27T02:15:48.100Z",
-  "total": 2,
-  "discovered": 2,
-  "parsed": 2,
+  "generatedAt": "2026-11-27T09:49:54.589Z",
+  "total": 3,
+  "discovered": 3,
+  "parsed": 3,
   "lastFetchOutcome": null,
   "fetchReceipt": {
     "specKey": "pks-bewerbung-ch",
@@ -12,11 +12,15 @@
       "https://www.pks-personal.ch/pks/bewerber/stellen-kaufmaennisch.php"
     ],
     "phase": "detail",
-    "pages": 3,
+    "pages": 4,
     "httpStatuses": [
       {
         "status": 200,
         "url": "https://www.pks-personal.ch/pks/bewerber/stellen-kaufmaennisch.php"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pks-personal.ch/stellen/hr-business-partner-80-90-m-w-d/basel/hrm/557f54ba"
       },
       {
         "status": 200,
@@ -35,23 +39,70 @@
   },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 2,
-  "detailCandidates": 2,
+  "written": 3,
+  "detailCandidates": 3,
   "detailGone": 0,
   "detailRejected": 0,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5766,
-  "avgDurationMs": 5766,
+  "durationMs": 7977,
+  "avgDurationMs": 7977,
   "durationHistory": [
-    5766
+    7977
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "pks-bewerbung-ch-f7ea94b4771c",
+      "slug": "hr-business-partner-80-90-m-w-d-personalfragen-fuhrungsfragen-ihre-buhne-4102-binningen",
+      "company": "pks-bewerbung",
+      "companyKey": "pks-bewerbung-ch",
+      "companyDomain": "pks-personal.ch",
+      "title": "HR Business Partner 80-90% (m/w/d) - Personalfragen. Führungsfragen. Ihre Bühne.",
+      "location": "4102 Binningen",
+      "canton": "BL",
+      "url": "https://www.pks-personal.ch/stellen/hr-business-partner-80-90-m-w-d/basel/hrm/557f54ba",
+      "source": "pks-bewerbung Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-27T09:49:28.698Z",
+      "addressLocality": "Binningen",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4102",
+      "streetAddress": "Binningen",
+      "category": "Risorse Umane",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.pks-personal.ch/stellen/hr-business-partner-80-90-m-w-d/basel/hrm/557f54ba",
+      "needsRetranslation": true,
+      "salaryMin": 55800,
+      "salaryMax": 84600,
+      "salarySource": "estimated",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-25T09:49:28.698Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-27T09:49:28.698Z",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 21,
+        "completeness": 23
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -67,7 +118,7 @@
       "url": "https://www.pks-personal.ch/stellen/hr-generalistin-80-100-ihr-einstieg-in-die-hr-digitalisierung/basel/hrm/91824262",
       "source": "pks-bewerbung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T02:15:35.819Z",
+      "crawledAt": "2026-11-27T09:49:28.702Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -90,7 +141,7 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T02:15:35.819Z",
+      "validThrough": "2027-02-15T09:49:28.702Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -112,7 +163,7 @@
       "url": "https://www.pks-personal.ch/stellen/payroll-specialist-schweiz-de-fr-80-100/basel/hrm/e30f7470",
       "source": "pks-bewerbung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T02:15:35.817Z",
+      "crawledAt": "2026-11-27T09:49:28.700Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -135,7 +186,7 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T02:15:35.817Z",
+      "validThrough": "2027-02-23T09:49:28.700Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -146,5 +197,5 @@
       }
     }
   ],
-  "codeCommit": "82a13ff820a52b1fd566366458c7138e8a19df8e"
+  "codeCommit": "aa906573a1d7c917a15920150c8e7480adfd379e"
 }
