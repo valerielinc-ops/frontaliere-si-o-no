@@ -27,8 +27,9 @@
       "de": "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-2"
     },
     "sector": "Administration publique / Service public",
-    "expiredAt": "2026-11-27T09:55:38.741Z",
+    "expiredAt": "2026-11-27T21:35:53.459Z",
     "previousSlugs": [
+      "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-2",
       "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-j6wrvf",
       "segretario-generale-aggiunto-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
@@ -36,6 +37,7 @@
       "secretaire-general-e-adjoint-e-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "ufficio-della-bancarotta-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
       "psicomoticista-nelle-scuole-etat-de-vaud-administration-cantonale-vaudoise-jorat-mezieres",
+      "huissier-ere-d-un-office-de-faillites-etat-de-vaud-yverdon-les-bains",
       "gestore-di-file-specializzato-etat-de-vaud-administration-cantonale-vaudoise-lausanne-eff536",
       "gestore-di-file-specializzato-etat-de-vaud-administration-cantonale-vaudoise-lausanne-e121c6",
       "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-3",
@@ -57,7 +59,6 @@
       "analyste-metier-etat-de-vaud-prilly",
       "deputy-secretary-general-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "office-of-bankruptcy-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
-      "huissier-ere-d-un-office-de-faillites-etat-de-vaud-yverdon-les-bains",
       "specialist-file-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne-eff536",
       "specialist-file-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne-e121c6",
       "specialist-file-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
@@ -133,7 +134,6 @@
     },
     "previousSlugCantonByLocale": {
       "it": {
-        "huissier-ere-d-un-office-de-faillites-etat-de-vaud-yverdon-les-bains": "VD",
         "gestore-di-file-specializzato-etat-de-vaud-administration-cantonale-vaudoise-lausanne-eff536": "VD",
         "gestore-di-file-specializzato-etat-de-vaud-administration-cantonale-vaudoise-lausanne-e121c6": "VD",
         "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-3": "VD",
@@ -153,19 +153,18 @@
         "gestore-amministrativo-etat-de-vaud-administration-cantonale-vaudoise-lausanne": "VD",
         "analizzatore-di-affari-etat-de-vaud-administration-cantonale-vaudoise-prilly": "VD",
         "analyste-metier-etat-de-vaud-prilly": "VD",
-        "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-2": "VD",
         "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-lausanne": "VD",
         "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-j6wrvf": "VD",
         "segretario-generale-aggiunto-etat-de-vaud-administration-cantonale-vaudoise-lausanne": "VD",
         "secretaire-general-e-adjoint-e-etat-de-vaud-lausanne": "VD",
         "secretaire-general-e-adjoint-e-etat-de-vaud-administration-cantonale-vaudoise-lausanne": "VD",
         "ufficio-della-bancarotta-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains": "VD",
-        "psicomoticista-nelle-scuole-etat-de-vaud-administration-cantonale-vaudoise-jorat-mezieres": "VD"
+        "psicomoticista-nelle-scuole-etat-de-vaud-administration-cantonale-vaudoise-jorat-mezieres": "VD",
+        "huissier-ere-d-un-office-de-faillites-etat-de-vaud-yverdon-les-bains": "VD"
       },
       "en": {
         "deputy-secretary-general-etat-de-vaud-administration-cantonale-vaudoise-lausanne": "VD",
         "office-of-bankruptcy-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains": "VD",
-        "huissier-ere-d-un-office-de-faillites-etat-de-vaud-yverdon-les-bains": "VD",
         "specialist-file-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne-eff536": "VD",
         "specialist-file-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne-e121c6": "VD",
         "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-3": "VD",
@@ -177,19 +176,18 @@
         "psychomoticien-ne-en-milieu-scolaire-etat-de-vaud-jorat-mezieres": "VD",
         "business-analyst-etat-de-vaud-administration-cantonale-vaudoise-prilly": "VD",
         "analyste-metier-etat-de-vaud-prilly": "VD",
-        "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-2": "VD",
         "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-lausanne": "VD",
         "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-j6wrvf": "VD",
         "segretario-generale-aggiunto-etat-de-vaud-administration-cantonale-vaudoise-lausanne": "VD",
         "secretaire-general-e-adjoint-e-etat-de-vaud-lausanne": "VD",
         "secretaire-general-e-adjoint-e-etat-de-vaud-administration-cantonale-vaudoise-lausanne": "VD",
         "ufficio-della-bancarotta-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains": "VD",
-        "psicomoticista-nelle-scuole-etat-de-vaud-administration-cantonale-vaudoise-jorat-mezieres": "VD"
+        "psicomoticista-nelle-scuole-etat-de-vaud-administration-cantonale-vaudoise-jorat-mezieres": "VD",
+        "huissier-ere-d-un-office-de-faillites-etat-de-vaud-yverdon-les-bains": "VD"
       },
       "de": {
         "stellvertretender-generalsekretar-etat-de-vaud-administration-cantonale-vaudoise-lausanne": "VD",
         "buro-des-konkurses-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains": "VD",
-        "huissier-ere-d-un-office-de-faillites-etat-de-vaud-yverdon-les-bains": "VD",
         "spezialisierter-dateimanager-etat-de-vaud-administration-cantonale-vaudoise-lausanne-eff536": "VD",
         "spezialisierter-dateimanager-etat-de-vaud-administration-cantonale-vaudoise-lausanne-e121c6": "VD",
         "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-3": "VD",
@@ -201,28 +199,27 @@
         "psychomoticien-ne-en-milieu-scolaire-etat-de-vaud-jorat-mezieres": "VD",
         "business-analyst-etat-de-vaud-administration-cantonale-vaudoise-prilly": "VD",
         "analyste-metier-etat-de-vaud-prilly": "VD",
-        "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-2": "VD",
         "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-lausanne": "VD",
         "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-j6wrvf": "VD",
         "segretario-generale-aggiunto-etat-de-vaud-administration-cantonale-vaudoise-lausanne": "VD",
         "secretaire-general-e-adjoint-e-etat-de-vaud-lausanne": "VD",
         "secretaire-general-e-adjoint-e-etat-de-vaud-administration-cantonale-vaudoise-lausanne": "VD",
         "ufficio-della-bancarotta-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains": "VD",
-        "psicomoticista-nelle-scuole-etat-de-vaud-administration-cantonale-vaudoise-jorat-mezieres": "VD"
+        "psicomoticista-nelle-scuole-etat-de-vaud-administration-cantonale-vaudoise-jorat-mezieres": "VD",
+        "huissier-ere-d-un-office-de-faillites-etat-de-vaud-yverdon-les-bains": "VD"
       },
       "fr": {
-        "huissier-ere-d-un-office-de-faillites-etat-de-vaud-yverdon-les-bains": "VD",
         "gestionnaire-de-dossiers-specialises-etat-de-vaud-epalinges": "VD",
         "psychomoticien-ne-en-milieu-scolaire-etat-de-vaud-jorat-mezieres": "VD",
         "analyste-metier-etat-de-vaud-prilly": "VD",
-        "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-2": "VD",
         "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-lausanne": "VD",
         "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-j6wrvf": "VD",
         "segretario-generale-aggiunto-etat-de-vaud-administration-cantonale-vaudoise-lausanne": "VD",
         "secretaire-general-e-adjoint-e-etat-de-vaud-lausanne": "VD",
         "secretaire-general-e-adjoint-e-etat-de-vaud-administration-cantonale-vaudoise-lausanne": "VD",
         "ufficio-della-bancarotta-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains": "VD",
-        "psicomoticista-nelle-scuole-etat-de-vaud-administration-cantonale-vaudoise-jorat-mezieres": "VD"
+        "psicomoticista-nelle-scuole-etat-de-vaud-administration-cantonale-vaudoise-jorat-mezieres": "VD",
+        "huissier-ere-d-un-office-de-faillites-etat-de-vaud-yverdon-les-bains": "VD"
       }
     },
     "postalCode": "1003",
