@@ -599,6 +599,7 @@
         "system-engineer-messaging-specialist-ubp-ch",
         "system-engineer-messaging-specialist-union-bancaire-privee-geneva-switzerland",
         "system-engineer-active-directory-specialist-ubp-ch-449266f3",
+        "system-engineer-union-bancaire-privee-geneva-switzerland-67b8ca93",
         "system-engineer-union-bancaire-privee-geneva-switzerland"
       ],
       "it": [
@@ -1624,7 +1625,47 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://iaadtu.fa.ocs.oraclecloud.eu/hcmui/candidateexperience/en/sites/cx_1/job/100",
-    "firstSeenAt": "2026-10-26T21:44:07.640Z"
+    "firstSeenAt": "2026-10-26T21:44:07.640Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "responsabile-compliance-and-registered-compliance-officer-union-bancaire-privee-jersey"
+      ],
+      "en": [
+        "head-of-compliance-and-registered-compliance-officer-ubp-ch",
+        "head-of-compliance-and-registered-compliance-officer-union-bancaire-privee-jersey"
+      ],
+      "de": [
+        "leiter-compliance-and-registered-compliance-officer-union-bancaire-privee-jersey",
+        "head-of-compliance-and-registered-compliance-officer-ubp-ch"
+      ],
+      "fr": [
+        "responsable-compliance-and-registered-compliance-officer-union-bancaire-privee-jersey",
+        "head-of-compliance-and-registered-compliance-officer-ubp-ch"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsabile-compliance-and-registered-compliance-officer-union-bancaire-privee-jersey": "TI"
+      },
+      "en": {
+        "head-of-compliance-and-registered-compliance-officer-ubp-ch": "TI",
+        "head-of-compliance-and-registered-compliance-officer-union-bancaire-privee-jersey": "TI"
+      },
+      "de": {
+        "leiter-compliance-and-registered-compliance-officer-union-bancaire-privee-jersey": "TI",
+        "head-of-compliance-and-registered-compliance-officer-ubp-ch": "TI"
+      },
+      "fr": {
+        "responsable-compliance-and-registered-compliance-officer-union-bancaire-privee-jersey": "TI",
+        "head-of-compliance-and-registered-compliance-officer-ubp-ch": "TI"
+      }
+    },
+    "previousSlugs": [
+      "responsabile-compliance-and-registered-compliance-officer-union-bancaire-privee-jersey",
+      "head-of-compliance-and-registered-compliance-officer-union-bancaire-privee-jersey",
+      "leiter-compliance-and-registered-compliance-officer-union-bancaire-privee-jersey",
+      "responsable-compliance-and-registered-compliance-officer-union-bancaire-privee-jersey"
+    ]
   },
   {
     "slug": "assistant-relationship-manager-12-mese-union-bancaire-privee-geneva-switzerland",
@@ -4871,7 +4912,8 @@
       "specialista-fiscale-union-bancaire-privee-geneva-switzerland",
       "tax-specialiste-union-bancaire-privee-geneva-switzerland-53af7f-0ae9d959",
       "specialiste-fiscal-union-bancaire-privee-geneva-switzerland-10e4c302",
-      "tax-specialist-ubp-ch-c0627385"
+      "tax-specialist-ubp-ch-c0627385",
+      "tax-specialist-ubp-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
