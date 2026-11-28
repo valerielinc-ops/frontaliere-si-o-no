@@ -1227,6 +1227,8 @@ describe('deploy.yml — non-IT legs reuse the IT Rollup bundle (#19575)', () =>
     expect(restore.run).toContain('dist/assets');
     expect(restore.run).toContain('route-chunks.json');
     expect(restore.run).toContain('job-canon-ordering-fields.json');
+    // A bundle of an earlier attempt is accepted only with this run's build id.
+    expect(restore.run).toContain('if [ "$(cat dist/build-id.txt)" != "$DEPLOY_BUILD_ID" ]; then');
     expect(steps.indexOf(upload)).toBeLessThan(steps.indexOf(wait));
     expect(steps.indexOf(wait)).toBeLessThan(steps.indexOf(download));
     expect(steps.indexOf(download)).toBeLessThan(steps.indexOf(restore));

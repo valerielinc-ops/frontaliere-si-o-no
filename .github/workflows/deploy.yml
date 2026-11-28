@@ -1156,7 +1156,13 @@ jobs:
           if [ -f "$extracted/metadata/content-manifest-bundle.tsv" ]; then
             cp "$extracted/metadata/content-manifest-bundle.tsv" .
           fi
-          test -s dist/build-id.txt
+          # A reused bundle may come from an earlier attempt of this run. The
+          # build id is minted once per matrix-setup execution (same run, SHA
+          # and inputs), so any other bundle is refused before the SEO build.
+          if [ "$(cat dist/build-id.txt)" != "$DEPLOY_BUILD_ID" ]; then
+            echo "::error::IT Rollup bundle has build id $(cat dist/build-id.txt), this leg expects $DEPLOY_BUILD_ID: re-run all jobs"
+            exit 1
+          fi
 
       - name: Build (BUILD_LOCALE=${{ matrix.locale }})
         id: build_step
