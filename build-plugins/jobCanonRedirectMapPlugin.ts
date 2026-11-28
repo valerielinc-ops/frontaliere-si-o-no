@@ -961,14 +961,23 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
             for (const locale of JOB_CANON_LOCALES) {
               const currentSlug = localizedActiveJobSlug(job, locale);
               if (currentSlug) {
+                const currentPath = buildCanonicalJobDetailPath(locale, job, currentSlug, canton);
+                // The "served in this locale" bit needs the page to exist: a
+                // complete emitted-page manifest that omits the path means the
+                // build does not serve it, so it must not suppress an alias.
+                // Without a manifest (isolated or partial inventory) the
+                // active job keeps its self-contained contract.
+                const currentPageServed = activeJobPageLookup === null
+                  || activeJobPageLookup.has(currentPath);
                 addWorkerSlugFlags(
                   currentSlug,
                   WORKER_CANDIDATE_FLAG
                     | WORKER_ACTIVE_ROUTE_FLAG
-                    | (1 << (LOCALE_INDEX.get(locale)! + WORKER_CURRENT_IN_LOCALE_SHIFT)),
+                    | (currentPageServed
+                      ? 1 << (LOCALE_INDEX.get(locale)! + WORKER_CURRENT_IN_LOCALE_SHIFT)
+                      : 0),
                 );
                 trackSlugBucket(currentSlug);
-                const currentPath = buildCanonicalJobDetailPath(locale, job, currentSlug, canton);
                 const prefix = sectionPrefix(currentPath);
                 if (prefix) {
                   // A complete manifest may positively add or negatively
