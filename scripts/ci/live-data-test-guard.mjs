@@ -526,6 +526,13 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
  */
 export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
   {
+    file: 'tests/git-commit-data-job-slice-ceiling.test.ts',
+    roots: ['data/jobs/'],
+    since: '2026-11-28',
+    evidence: 'review',
+    reason: 'le slice data/jobs/ sono scritte e lette solo in repository git temporanei (mkdtemp) creati dal test; dal checkout legge gli script sotto prova',
+  },
+  {
     file: 'tests/fiscal-facts-forbidden-phrases.test.ts',
     roots: ['services/locales/'],
     since: '2026-10-31',
