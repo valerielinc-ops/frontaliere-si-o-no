@@ -76,13 +76,16 @@ function autoAd(collapsed = false): string {
 /** Job-board-like page: three Auto Ads containers in main (one collapsed). */
 function mountPage(): void {
   document.body.innerHTML = `
-    <main id="main-content">
-      <div id="job-auth-gate"><button class="gate-cta">Accedi</button></div>
-      <div class="ft-rail-grid-x"><aside class="rail-left"><span class="rail-item">x</span></aside></div>
-      <section class="job-list"><article class="job-card">job</article></section>
-      ${autoAd()}${autoAd(true)}${autoAd()}
-      <ins class="adsbygoogle manual-slot"></ins>
-    </main>
+    <div class="ft-rail-grid-x">
+      <aside class="rail-left"><span class="rail-item">x</span></aside>
+      <main id="main-content">
+        <div id="job-auth-gate"><button class="gate-cta">Accedi</button></div>
+        <section class="job-list"><article class="job-card">job</article></section>
+        ${autoAd()}${autoAd(true)}${autoAd()}
+        <ins class="adsbygoogle manual-slot"></ins>
+      </main>
+      <aside class="rail-right"><span class="rail-item-r">y</span></aside>
+    </div>
     <footer class="${FOOTER_CLASSES}">
       <div class="mx-auto max-w-7xl px-4 py-10"><div class="grid grid-cols-2 gap-8">links</div></div>
     </footer>
@@ -199,6 +202,36 @@ describe('buildCwvAttributionEvent', () => {
     const event = buildCwvAttributionEvent(cls('needs-improvement', { largestShiftTarget: selector, loadState: 'dom-content-loaded' }));
     assertRegisteredShape(event);
     expect(event.component).toBe(component);
+  });
+
+  // Production hierarchy: grid wrapper > aside + main. Main targets must not be
+  // swallowed by the wrapper (the bug: every main target classified `rail`).
+  it('classifies main descendants as main and only the aside rails as rail, by node reference', () => {
+    const componentOf = (sel: string) => {
+      const event = buildCwvAttributionEvent(cls('poor', { largestShiftSource: { node: document.querySelector(sel) }, loadState: 'complete' }));
+      assertRegisteredShape(event);
+      return event.component;
+    };
+    expect(componentOf('#main-content')).toBe('main');
+    expect(componentOf('.job-card')).toBe('main');
+    expect(componentOf('.job-list')).toBe('main');
+    expect(componentOf('.rail-left')).toBe('rail');
+    expect(componentOf('.rail-item')).toBe('rail');
+    expect(componentOf('.rail-right')).toBe('rail');
+    expect(componentOf('.ft-rail-grid-x')).toBe('rail');
+    expect(componentOf('.rail-left')).not.toBe(componentOf('#main-content'));
+  });
+
+  it('keeps the static SEO main classified as main, inside or outside the rail grid', () => {
+    document.body.innerHTML = `
+      <div class="ft-rail-grid"><main class="seo-static-content"><h1 class="static-h1">t</h1></main></div>
+      <main class="cluster-seo-prose"><p class="prose-p">p</p></main>
+      <main class="seo-static-content"><p class="bare-p">p</p></main>`;
+    for (const sel of ['.static-h1', '.prose-p', '.bare-p']) {
+      const event = buildCwvAttributionEvent(cls('poor', { largestShiftSource: { node: document.querySelector(sel) }, loadState: 'complete' }));
+      assertRegisteredShape(event);
+      expect(event.component).toBe('main');
+    }
   });
 
   it('returns null for good CLS/INP and for every other metric', () => {

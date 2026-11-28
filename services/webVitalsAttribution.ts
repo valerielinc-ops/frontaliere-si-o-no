@@ -43,16 +43,21 @@ const AUTO_AD_COLLAPSED_SELECTOR = '[data-ft-autoad-collapsed]';
 
 /**
  * First `closest()` match wins, so the order matters: an ad inside the footer
- * is an ad, the footer is only what is left. Seven buckets keep `component`
+ * is an ad, the footer is only what is left; the most specific structural
+ * container (main) beats the grid wrapper that contains it. Seven buckets keep `component`
  * far below GA4's 500 distinct values per day.
  */
 const COMPONENT_CLASSIFIERS: ReadonlyArray<readonly [CwvAttributionComponent, string]> = [
   ['auto_ad', AUTO_AD_SELECTOR],
   ['manual_ad', 'ins.adsbygoogle'],
   ['footer', 'footer'],
-  ['rail', '.ft-rail-grid, .ft-rail-grid-x'],
   ['job_gate', '#job-auth-gate'],
-  ['main', '#main-content'],
+  // `main` before `rail`: in production `#main-content` (and the static
+  // `main.seo-static-content` fallback) is a CHILD of the rail grid wrapper, so
+  // `closest()` on any main target would hit the wrapper first. The rail
+  // `aside`s are siblings of main, never ancestors, hence only they stay `rail`.
+  ['main', '#main-content, main.seo-static-content, main.cluster-seo-prose'],
+  ['rail', '.ft-rail-grid, .ft-rail-grid-x'],
 ];
 const FALLBACK_COMPONENT: CwvAttributionComponent = 'other';
 const UNKNOWN_COMPONENT: CwvAttributionComponent = 'unknown';
