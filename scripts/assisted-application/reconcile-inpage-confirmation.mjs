@@ -20,7 +20,7 @@
  */
 import { parseArgs } from 'node:util';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
-import { getFirestoreDb } from '../lib/firestore-admin.mjs';
+import { getFunctionsFirestoreDb } from './lib/functions-admin.mjs';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from '../../functions/src/assistedApplicationCvCheck.js';
 import { submissionGuard, submissionRefFor } from '../../functions/src/assistedApplicationSubmissionGuard.js';
 import { reconcileSubmissionReceipt } from '../../functions/src/assistedApplicationReceiptReconcile.js';
@@ -158,7 +158,7 @@ export async function reconcileInPageConfirmation({ db, bucket, key, apply = fal
 if (isInvokedDirectly(import.meta.url)) {
   const { values } = parseArgs({ options: { apply: { type: 'boolean' }, 'dry-run': { type: 'boolean' }, list: { type: 'boolean' } } });
   if (values.apply && values['dry-run']) throw new Error('Usage: reconcile-inpage-confirmation.mjs [--dry-run | --apply] [--list]');
-  const db = await getFirestoreDb();
+  const db = await getFunctionsFirestoreDb();
   const { getStorage } = await import('firebase-admin/storage');
   const { orders, ...counts } = await reconcileInPageConfirmation({
     db, bucket: getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET), key: await runKey(), apply: Boolean(values.apply),

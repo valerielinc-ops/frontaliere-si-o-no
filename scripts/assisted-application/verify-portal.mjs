@@ -2,7 +2,7 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { parseArgs } from 'node:util';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
-import { getFirestoreDb } from '../lib/firestore-admin.mjs';
+import { getFunctionsFirestoreDb } from './lib/functions-admin.mjs';
 import { ASSISTED_APPLICATION_ORDER_ID_RE, hasAssistedApplicationConsent } from '../../functions/src/assistedApplicationConstants.js';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from '../../functions/src/assistedApplicationCvCheck.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from '../../functions/src/assistedApplicationRetention.js';
@@ -186,7 +186,7 @@ if (isInvokedDirectly(import.meta.url)) {
   const orderId = String(values.order || ''); const round = Number(values.round || 1);
   if (!ASSISTED_APPLICATION_ORDER_ID_RE.test(orderId) || !Number.isSafeInteger(round) || round < 1 || round > 20
     || (!values.request && !/^[a-z0-9-]{16,80}$/i.test(String(values.nonce || '')))) throw new Error('invalid_verification_arguments');
-  const db = await getFirestoreDb(); const version = currentPortalCodeVersion();
+  const db = await getFunctionsFirestoreDb(); const version = currentPortalCodeVersion();
   if (values.request) console.log(JSON.stringify(await requestPortalVerification({ db, orderId, round, version })));
   else {
     const { getStorage } = await import('firebase-admin/storage');

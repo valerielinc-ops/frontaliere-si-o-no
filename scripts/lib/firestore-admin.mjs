@@ -543,6 +543,7 @@ function registerProcessAccounting(counter, env) {
 
 let activeCounter;
 let activeFirestoreDb;
+let activeAdminModulesFirestoreDb;
 
 function getActiveCounter(env = process.env) {
   if (!activeCounter) {
@@ -565,15 +566,21 @@ function getActiveCounter(env = process.env) {
  * @param {string} [projectId='frontaliere-ticino'] fallback project id
  * @returns {Promise<import('firebase-admin/firestore').Firestore>}
  */
-export async function getFirestoreDb(projectId = FIRESTORE_PROJECT_ID) {
+/**
+ * `adminModules` ({app, firestore}, optional): the firebase-admin modules to initialise and read the database from.
+ * By default the ones this file resolves (the repository root's). A script that hands its db to code under
+ * `functions/` must pass the instance THAT code uses (assisted-application/lib/functions-admin.mjs): a db of one
+ * instance rejects a FieldValue sentinel (serverTimestamp, delete, ...) built by another.
+ */
+export async function getFirestoreDb(projectId = FIRESTORE_PROJECT_ID, { adminModules = null } = {}) {
   const hasInlineCredentials = Boolean(process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
   const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
   if (!hasInlineCredentials && (!credPath || !fs.existsSync(credPath))) {
     throw new Error('GOOGLE_APPLICATION_CREDENTIALS required (Firebase service account JSON).');
   }
-  if (activeFirestoreDb) return activeFirestoreDb;
-  const { initializeApp, cert, getApps, applicationDefault } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
+  if (adminModules ? activeAdminModulesFirestoreDb : activeFirestoreDb) return adminModules ? activeAdminModulesFirestoreDb : activeFirestoreDb;
+  const { initializeApp, cert, getApps, applicationDefault } = adminModules?.app || await import('firebase-admin/app');
+  const { getFirestore } = adminModules?.firestore || await import('firebase-admin/firestore');
   if (getApps().length === 0) {
     let cred = null;
     if (process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
@@ -591,6 +598,8 @@ export async function getFirestoreDb(projectId = FIRESTORE_PROJECT_ID) {
     if (cred?.project_id) initializeApp({ credential: cert(cred) });
     else initializeApp({ credential: applicationDefault(), projectId });
   }
-  activeFirestoreDb = instrumentFirestore(getFirestore(), getActiveCounter());
-  return activeFirestoreDb;
+  const instrumented = instrumentFirestore(getFirestore(), getActiveCounter());
+  if (adminModules) activeAdminModulesFirestoreDb = instrumented;
+  else activeFirestoreDb = instrumented;
+  return instrumented;
 }
