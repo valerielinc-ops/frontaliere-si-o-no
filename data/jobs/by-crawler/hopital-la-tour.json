@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hopital-la-tour",
-  "assembledAt": "2026-11-28T09:38:05.136Z",
-  "runId": "46129730939",
+  "assembledAt": "2026-11-28T21:31:44.814Z",
+  "runId": "46190785749",
   "jobs": [
     {
       "id": "hopital-la-tour-861b7c049de5",
@@ -34,7 +34,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/medecin-urgentiste-senior-1506",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:37:56.776Z",
+      "crawledAt": "2026-11-28T21:31:38.338Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -94,7 +94,7 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-22T09:37:56.776Z",
+      "validThrough": "2027-02-22T21:31:38.338Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -128,7 +128,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/ergotherapeute-a-80-cdi-1514",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:37:56.775Z",
+      "crawledAt": "2026-11-28T21:31:38.336Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -182,7 +182,7 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:37:56.775Z",
+      "validThrough": "2026-12-28T21:31:38.336Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -217,7 +217,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/technicien-ne-en-radiologie-au-service-de-radio-oncologie-a-90-1536",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:37:56.774Z",
+      "crawledAt": "2026-11-28T21:31:38.335Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -277,7 +277,7 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T09:37:56.774Z",
+      "validThrough": "2027-02-02T21:31:38.335Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -311,7 +311,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-en-medecine-cdm-6-mois-80-1546",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:37:56.772Z",
+      "crawledAt": "2026-11-28T21:31:38.334Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -371,7 +371,7 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T09:37:56.772Z",
+      "validThrough": "2027-02-03T21:31:38.334Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -405,7 +405,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/assistante-technique-specialisee-en-salle-doperation-atsso-a-100-1556",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:37:56.771Z",
+      "crawledAt": "2026-11-28T21:31:38.333Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -462,7 +462,95 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T09:37:56.771Z",
+      "validThrough": "2027-01-12T21:31:38.333Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "hopital-la-tour-a6216bdb5cb4",
+      "slug": "assistente-di-gestione-junior-al-100-hopital-de-la-tour-meyrin",
+      "slugByLocale": {
+        "it": "assistente-di-gestione-junior-al-100-hopital-de-la-tour-meyrin",
+        "en": "assistant-e-de-direction-junior-e-a-100-hopital-la-tour-meyrin",
+        "de": "assistant-e-de-direction-junior-e-a-100-hopital-la-tour-meyrin",
+        "fr": "assistant-e-de-direction-junior-e-a-100-hopital-la-tour-meyrin"
+      },
+      "company": "Hôpital de La Tour",
+      "companyKey": "hopital-la-tour",
+      "companyDomain": "la-tour.ch",
+      "title": "Assistant·e de Direction junior·e à 100 %",
+      "titleByLocale": {
+        "it": "Assistente di gestione Junior al 100%",
+        "en": "100% Junior Management Assistant",
+        "de": "Assistent·e de Direction junior·e à 100 %",
+        "fr": "Assistant·e de Direction junior·e à 100 %"
+      },
+      "description": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible pour ses patients, il place l’amélioration continue, l’excellence médicale et l’accompagnement de ses collaborateurs au cœur de ses priorités. L’institution emploie plus de 1’200 collaborateurs, représentant plus de 60 métiers, et collabore avec plus de 550 médecins agréés.\n\nPour la Direction générale, nous recrutons un/e\n\nAssistant·e de Direction junior·e à 100 % (ref : 2045)\n\nVotre mission :\n\nAfin de renforcer le bureau de la Direction générale, nous recherchons un(e) Assistant(e) de Direction junior disposant de 3 à 5 ans d’expérience dans une fonction d’assistanat de direction ou de support à des cadres dirigeants.\n\nRattaché(e) à la Coordinatrice du bureau de la Direction générale, vous contribuez au bon fonctionnement des Directions et à la fluidité de leur organisation. Dans un environnement exigeant et stimulant, vous assurez un soutien administratif, organisationnel et logistique de qualité, en faisant preuve de réactivité, d’anticipation et de discrétion. Vous intervenez principalement auprès des Directions des opérations, des soins et financière, tout en contribuant à la continuité du support apporté à la Direction générale.\n\nÀ ce titre, vous serez notamment amené(e) à :\n\n• Gérer et coordonner les agendas, rendez-vous et réunions de plusieurs membres de la Direction ;\n\n• Organiser les priorités, anticiper les contraintes et préparer les informations nécessaires au bon déroulement des rendez-vous ;\n\n• Assurer un accueil professionnel des visiteurs, partenaires et collaborateurs ;\n\n• Réceptionner et orienter les appels et les demandes adressés à la Direction ;\n\n• Assurer le suivi de la boîte mail générique de la Direction et veiller au traitement des demandes nécessitant une réponse ou une action ;\n\n• Préparer et mettre en forme des documents, présentations, procès-verbaux et comptes rendus ;\n\n• Organiser des réunions, des déplacements professionnels et des événements institutionnels ;\n\n• Assurer le suivi administratif des actions décidées lors des réunions ;\n\n• Contribuer à la gestion et à l’actualisation des contenus de la Direction générale sur l’intranet ;\n\n• Apporter un soutien administratif et organisationnel à la Coordinatrice du bureau de la Direction générale et contribuer à la continuité du fonctionnement de la Direction générale ;\n\n• Assurer le support administratif et logistique de la Commission santé et sécurité au travail, notamment l’organisation des séances, la préparation des convocations et la rédaction des comptes rendus ;\n\n• Veiller à la bonne organisation des espaces communs de la Direction et à la disponibilité des fournitures et consommables nécessaires.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Formation supérieure ou spécialisée dans le domaine de l’assistanat de direction, de la gestion ou de l’administration ;\n\n• Idéalement 3 à 5 ans d’expérience professionnelle dans une fonction d’assistanat de direction ou de support à des cadres dirigeants ;\n\n• Excellentes capacités rédactionnelles et parfaite maîtrise du français et de l’orthographe ;\n\n• Maîtrise des outils bureautiques et collaboratifs, en particulier Microsoft 365, Teams et SharePoint ;\n\n• Aisance dans la gestion simultanée de plusieurs activités, priorités et interlocuteurs ;\n\n• Niveau d’anglais intermédiaire.\n\nVous souhaitez aujourd’hui consolider votre expérience en rejoignant un environnement institutionnel exigeant, dans lequel vous pourrez développer progressivement votre autonomie et vos responsabilités.\n\nReconnu(e) pour votre rigueur et votre fiabilité, vous vous distinguez par :\n\n• votre excellent sens de l'organisation, du service et des priorités ;\n\n• votre capacité à anticiper, à travailler de manière autonome et à vous adapter rapidement aux situations et aux demandes ;\n\n• votre sens de la confidentialité, votre discrétion et votre discernement, qui vous permettent de traiter avec professionnalisme des informations sensibles ;\n\n• votre diplomatie, votre aisance relationnelle et votre présentation professionnelle, qui vous permettent d'interagir avec des interlocuteurs variés, internes comme externes.\n\nCe que nous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\n Pourcentage : Temps complet - 100%\n\nPourquoi nous rejoindre :\n\nEn rejoignant l’Hôpital de La Tour, vous intégrez un environnement professionnel exigeant et dynamique, au cœur du fonctionnement de l’institution. Vous occupez une fonction polyvalente, en lien direct avec plusieurs Directions, et contribuez concrètement à la qualité de leur organisation et de leur coordination.\n\nVous souhaitez mettre vos compétences organisationnelles, votre sens du service et votre capacité d’anticipation au service d’un environnement hospitalier ? Rejoignez l’Hôpital de La Tour et prenez part à une institution qui place la qualité, la confiance et l’excellence au cœur de ses priorités. Nous nous réjouissons de découvrir votre candidature !",
+      "descriptionByLocale": {
+        "it": "L'ospedale La Tour è una struttura acuta di alto livello, privata, indipendente e su scala umana. Ancorato nella sua missione di ripristinare la migliore qualità di vita possibile per i suoi pazienti, pone il miglioramento continuo, l'eccellenza medica e l'accompagnamento dei suoi collaboratori al centro delle sue priorità. L'istituzione impiega oltre 1.200 dipendenti, che rappresentano più di 60 professioni, e collabora con più di 550 medici registrati.\n\nPer la direzione generale, stiamo reclutando\n\n100% Junior Management Assistant (rif: 2045)\n\nLa vostra missione:\n\nAl fine di rafforzare l'Ufficio di presidenza della Direzione generale, stiamo cercando un assistente di gestione Junior con 3-5 anni di esperienza in una funzione di supporto manageriale o esecutivo.\n\nAllegati al Coordinatore dell'Ufficio Branch, contribuite al corretto funzionamento delle Direzioni e alla fluidità della loro organizzazione. In un ambiente impegnativo e stimolante, garantisci un supporto amministrativo, organizzativo e logistico di qualità, dimostrando reattività, anticipazione e discrezione. Lei interviene principalmente con le Direzioni di Operazioni, Cura e Finanza, contribuendo alla continuità del supporto fornito alla Direzione Generale.\n\nCome tale, vi verrà chiesto di:\n\n• Gestione e coordinamento degli ordini del giorno, delle riunioni e delle riunioni di diversi membri della Direzione;\n\n• Organizzare le priorità, anticipare i vincoli e preparare le informazioni necessarie per rendere gli appuntamenti di lavoro;\n\n• Fornire accoglienza professionale per visitatori, partner e collaboratori;\n\n• Ricevi e richiami diretti e richieste alla Direzione;\n\n• Seguire la casella di posta generica della Direzione e garantire il trattamento delle richieste che richiedono risposta o azione;\n\n• Preparare e formattare documenti, presentazioni, minuti e record;\n\n• Organizzare riunioni, viaggi d'affari e eventi istituzionali;\n\n• garantire il follow-up amministrativo delle azioni decise nelle riunioni;\n\n• Contribuire alla gestione e all'aggiornamento del contenuto della Direzione generale sull'internet;\n\n• Fornire supporto amministrativo e organizzativo al Coordinatore dell'Ufficio Branch e contribuire alla continuità delle operazioni del Branch;\n\n• Fornire supporto amministrativo e logistico alla Commissione per la salute e la sicurezza sul lavoro, compresa l'organizzazione di riunioni, la preparazione di convocazioni e la preparazione di minuti;\n\n• Assicurare una corretta organizzazione degli spazi comuni della Direzione e la disponibilità di forniture e materiali di consumo necessari.\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Formazione superiore o specializzata in gestione, gestione o amministrazione;\n\n• Idealmente 3-5 anni di esperienza professionale in una funzione di supporto manageriale o manageriale;\n\n• Ottimi competenze editoriali e perfetta padronanza del francese e ortografia;\n\n• Mastery di automazione degli uffici e strumenti collaborativi, in particolare Microsoft 365, Teams e SharePoint;\n\n• Una struttura per la gestione simultanea di diverse attività, priorità e interlocutori;\n\n• Intermedio livello inglese.\n\nOggi si vuole consolidare la vostra esperienza unendo un ambiente istituzionale esigente in cui si può gradualmente sviluppare la vostra autonomia e responsabilità.\n\nRiconosciuto per il rigore e l'affidabilità, si distingue per:\n\n• il vostro eccellente senso di organizzazione, servizio e priorità;\n\n• la vostra capacità di anticipare, lavorare in modo indipendente e adattarsi rapidamente a situazioni e richieste;\n\n• il vostro senso di riservatezza, discrezione e discernimento, che consentono di trattare le informazioni sensibili professionalmente;\n\n• la vostra diplomazia, facilità di relazione e presentazione professionale, che consentono di interagire con vari interlocutori, sia interni che esterni.\n\nCosa proponiamo:\n\nTipo di contratto: Contratto con Durata indeterminata\nPercentuale: Tempo pieno - 100%\n\nPerché unirsi a noi:\n\nEntrando nell'Ospedale di La Tour, si integra un ambiente professionale esigente e dinamico, al centro del funzionamento dell'istituzione. Hai una funzione versatile, direttamente collegata a diverse direzioni, e dare un contributo concreto alla qualità della loro organizzazione e coordinamento.\n\nVuoi mettere le tue capacità organizzative, il tuo senso di servizio e la tua capacità di anticipazione al servizio di un ambiente ospedaliero? Unisciti all'Ospedale La Tour e partecipa a un'istituzione che pone qualità, fiducia ed eccellenza nel cuore delle sue priorità. Non vediamo l'ora di scoprire la tua applicazione!",
+        "en": "La Tour Hospital is a high-level, private, independent and human-scale acute care facility. Anchored in his mission to restore the best possible quality of life for his patients, he places continuous improvement, medical excellence and the accompaniment of his collaborators at the heart of his priorities. The institution employs more than 1,200 employees, representing more than 60 professions, and collaborates with more than 550 registered doctors.\n\nFor the Directorate-General, we are recruiting\n\n100% Junior Management Assistant (ref: 2045)\n\nYour mission:\n\nIn order to strengthen the Bureau of the General Directorate, we are looking for a Junior Management Assistant with 3 to 5 years of experience in a managerial or executive support function.\n\nAttached to the Coordinator of the Branch Office, you contribute to the proper functioning of the Directorates and the fluidity of their organization. In a challenging and challenging environment, you ensure quality administrative, organizational and logistical support, demonstrating responsiveness, anticipation and discretion. You mainly intervene with the Directorates of Operations, Care and Finance, while contributing to the continuity of support provided to the Directorate General.\n\nAs such, you will be asked to:\n\n• Managing and coordinating the agendas, meetings and meetings of several members of the Directorate;\n\n• Organize priorities, anticipate constraints and prepare the information needed to make appointments work;\n\n• Provide professional reception for visitors, partners and collaborators;\n\n• Receive and direct appeals and requests to the Directorate;\n\n• Follow-up of the Directorate's generic mailbox and ensure the processing of requests requiring response or action;\n\n• Prepare and format documents, presentations, minutes and records;\n\n• Organize meetings, business trips and institutional events;\n\n• To ensure the administrative follow-up of actions decided at meetings;\n\n• Contribute to the management and updating of the content of the Directorate-General on the intranet;\n\n• To provide administrative and organizational support to the Coordinator of the Branch Office and to contribute to the continuity of the Branch's operations;\n\n• Provide administrative and logistical support to the Occupational Health and Safety Commission, including the organization of meetings, the preparation of summonses and the preparation of minutes;\n\n• Ensure proper organization of the Directorate's common spaces and availability of necessary supplies and consumables.\n\nWe are looking for a profile that meets the following criteria:\n\n• Higher or specialized training in management, management or administration;\n\n• Ideally 3-5 years of professional experience in a managerial or managerial support function;\n\n• Excellent editorial skills and perfect mastery of French and spelling;\n\n• Mastery of office automation and collaborative tools, in particular Microsoft 365, Teams and SharePoint;\n\n• A facility for the simultaneous management of several activities, priorities and interlocutors;\n\n• Intermediate English level.\n\nToday you want to consolidate your experience by joining a demanding institutional environment in which you can gradually develop your autonomy and responsibilities.\n\nRecognized for your rigor and reliability, you stand out by:\n\n• your excellent sense of organization, service and priorities;\n\n• your ability to anticipate, work independently and adapt quickly to situations and requests;\n\n• your sense of confidentiality, discretion and discernment, which allow you to treat sensitive information professionally;\n\n• your diplomacy, relationship ease and professional presentation, which allow you to interact with various interlocutors, both internal and external.\n\nWhat we propose:\n\nType of contract: Contract with Indeterminate Duration\nPercentage: Full time - 100%\n\nWhy join us:\n\nBy joining the Hospital of La Tour, you integrate a demanding and dynamic professional environment, at the heart of the functioning of the institution. You have a versatile function, directly linked to several Directorates, and make a concrete contribution to the quality of their organization and coordination.\n\nDo you want to put your organizational skills, your sense of service and your capacity for anticipation at the service of a hospital environment? Join La Tour Hospital and take part in an institution that places quality, trust and excellence at the heart of its priorities. We look forward to discovering your application!",
+        "de": "La Tour Hospital ist eine hochrangige, private, unabhängige und menschliche Akutversorgungseinrichtung. In seiner Mission, die bestmögliche Lebensqualität für seine Patienten wiederherzustellen, stellt er kontinuierliche Verbesserung, medizinische Exzellenz und die Begleitung seiner Mitarbeiter in den Mittelpunkt seiner Prioritäten. Die Einrichtung beschäftigt mehr als 1.200 Mitarbeiter, die mehr als 60 Berufe repräsentieren, und arbeitet mit mehr als 550 registrierten Ärzten zusammen.\n\nFür die Generaldirektion rekrutieren wir\n\n100% Junior Management Assistant (Ref: 2045)\n\nIhre Mission:\n\nUm das Präsidium der Generaldirektion zu stärken, suchen wir einen Junior Management Assistant mit 3 bis 5 Jahren Erfahrung in einer Führungs- oder Executive Support Funktion.\n\nAn den Koordinator der Zweigstelle angeschlossen, tragen Sie zum ordnungsgemäßen Funktionieren der Direktionen und zur Fluidität ihrer Organisation bei. In einem herausfordernden und herausfordernden Umfeld gewährleisten Sie eine qualitativ hochwertige administrative, organisatorische und logistische Unterstützung und zeigen Reaktionsfähigkeit, Antizipation und Diskretion. Sie intervenieren hauptsächlich bei den Direktionen für Operationen, Pflege und Finanzen und tragen gleichzeitig zur Kontinuität der Unterstützung der Generaldirektion bei.\n\nDaher werden Sie aufgefordert,\n\n• Verwaltung und Koordinierung der Tagesordnungen, Sitzungen und Sitzungen mehrerer Mitglieder der Direktion;\n\n• Organisieren Sie Prioritäten, antizipieren Sie Einschränkungen und bereiten Sie die Informationen vor, die erforderlich sind, damit Termine funktionieren;\n\n• Professioneller Empfang für Besucher, Partner und Mitarbeiter;\n\n• Entgegennahme und direkte Übermittlung von Beschwerden und Ersuchen an die Direktion;\n\n• Weiterverfolgung des allgemeinen Postfachs der Direktion und Gewährleistung der Bearbeitung von Anfragen, die eine Reaktion oder Aktion erfordern;\n\n• Erstellung und Formatierung von Dokumenten, Präsentationen, Protokollen und Aufzeichnungen;\n\n• Organisation von Meetings, Geschäftsreisen und institutionellen Veranstaltungen;\n\n• Gewährleistung der administrativen Weiterverfolgung der in den Sitzungen beschlossenen Maßnahmen;\n\n• Beitrag zur Verwaltung und Aktualisierung der Inhalte der Generaldirektion im Intranet;\n\n• den Koordinator der Zweigstelle administrativ und organisatorisch zu unterstützen und zur Kontinuität der Geschäftstätigkeit der Zweigstelle beizutragen;\n\n• administrative und logistische Unterstützung der Kommission für Arbeitssicherheit und Gesundheitsschutz, einschließlich der Organisation von Sitzungen, der Vorbereitung von Vorladungen und der Vorbereitung von Protokollen;\n\n• Gewährleistung einer ordnungsgemäßen Organisation der gemeinsamen Räume der Direktion und der Verfügbarkeit der erforderlichen Lieferungen und Verbrauchsmaterialien.\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• Höhere oder spezialisierte Ausbildung in Management, Management oder Verwaltung;\n\n• Idealerweise 3-5 Jahre Berufserfahrung in einer Führungs- oder Führungsunterstützungsfunktion;\n\n• Hervorragende redaktionelle Fähigkeiten und perfekte Beherrschung von Französisch und Rechtschreibung;\n\n• Beherrschung der Büroautomation und der kollaborativen Tools, insbesondere Microsoft 365, Teams und SharePoint;\n\n• Eine Einrichtung zur gleichzeitigen Verwaltung mehrerer Aktivitäten, Prioritäten und Gesprächspartner;\n\n• Mittleres Englischniveau.\n\nHeute möchten Sie Ihre Erfahrung festigen, indem Sie sich einem anspruchsvollen institutionellen Umfeld anschließen, in dem Sie Ihre Autonomie und Verantwortlichkeiten schrittweise entwickeln können.\n\nAnerkannt für Ihre Strenge und Zuverlässigkeit, heben Sie sich ab durch:\n\n• Ihr exzellentes Gespür für Organisation, Service und Prioritäten;\n\n• Ihre Fähigkeit, vorauszusehen, unabhängig zu arbeiten und sich schnell an Situationen und Anforderungen anzupassen;\n\n• Ihr Gefühl von Vertraulichkeit, Diskretion und Urteilsvermögen, das es Ihnen ermöglicht, sensible Informationen professionell zu behandeln;\n\n• Ihre Diplomatie, Beziehung Leichtigkeit und professionelle Präsentation, die es Ihnen ermöglichen, mit verschiedenen Gesprächspartnern zu interagieren, sowohl intern als auch extern.\n\nWas wir vorschlagen:\n\nArt des Vertrags: Vertrag mit unbestimmter Laufzeit\nProzentsatz: Vollzeit - 100%\n\nWarum kommen Sie zu uns:\n\nIndem Sie dem Hospital of La Tour beitreten, integrieren Sie ein anspruchsvolles und dynamisches professionelles Umfeld, das im Mittelpunkt des Funktionierens der Institution steht. Sie haben eine vielseitige Funktion, direkt mit mehreren Direktionen verbunden, und leisten einen konkreten Beitrag zur Qualität ihrer Organisation und Koordination.\n\nMöchten Sie Ihre organisatorischen Fähigkeiten, Ihr Servicegefühl und Ihre Antizipationsfähigkeit in den Dienst eines Krankenhausumfeldes stellen? Treten Sie dem La Tour Hospital bei und nehmen Sie an einer Institution teil, die Qualität, Vertrauen und Exzellenz in den Mittelpunkt ihrer Prioritäten stellt. Wir freuen uns auf Ihre Bewerbung!",
+        "fr": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible pour ses patients, il place l’amélioration continue, l’excellence médicale et l’accompagnement de ses collaborateurs au cœur de ses priorités. L’institution emploie plus de 1’200 collaborateurs, représentant plus de 60 métiers, et collabore avec plus de 550 médecins agréés.\n\nPour la Direction générale, nous recrutons un/e\n\nAssistant·e de Direction junior·e à 100 % (ref : 2045)\n\nVotre mission :\n\nAfin de renforcer le bureau de la Direction générale, nous recherchons un(e) Assistant(e) de Direction junior disposant de 3 à 5 ans d’expérience dans une fonction d’assistanat de direction ou de support à des cadres dirigeants.\n\nRattaché(e) à la Coordinatrice du bureau de la Direction générale, vous contribuez au bon fonctionnement des Directions et à la fluidité de leur organisation. Dans un environnement exigeant et stimulant, vous assurez un soutien administratif, organisationnel et logistique de qualité, en faisant preuve de réactivité, d’anticipation et de discrétion. Vous intervenez principalement auprès des Directions des opérations, des soins et financière, tout en contribuant à la continuité du support apporté à la Direction générale.\n\nÀ ce titre, vous serez notamment amené(e) à :\n\n• Gérer et coordonner les agendas, rendez-vous et réunions de plusieurs membres de la Direction ;\n\n• Organiser les priorités, anticiper les contraintes et préparer les informations nécessaires au bon déroulement des rendez-vous ;\n\n• Assurer un accueil professionnel des visiteurs, partenaires et collaborateurs ;\n\n• Réceptionner et orienter les appels et les demandes adressés à la Direction ;\n\n• Assurer le suivi de la boîte mail générique de la Direction et veiller au traitement des demandes nécessitant une réponse ou une action ;\n\n• Préparer et mettre en forme des documents, présentations, procès-verbaux et comptes rendus ;\n\n• Organiser des réunions, des déplacements professionnels et des événements institutionnels ;\n\n• Assurer le suivi administratif des actions décidées lors des réunions ;\n\n• Contribuer à la gestion et à l’actualisation des contenus de la Direction générale sur l’intranet ;\n\n• Apporter un soutien administratif et organisationnel à la Coordinatrice du bureau de la Direction générale et contribuer à la continuité du fonctionnement de la Direction générale ;\n\n• Assurer le support administratif et logistique de la Commission santé et sécurité au travail, notamment l’organisation des séances, la préparation des convocations et la rédaction des comptes rendus ;\n\n• Veiller à la bonne organisation des espaces communs de la Direction et à la disponibilité des fournitures et consommables nécessaires.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Formation supérieure ou spécialisée dans le domaine de l’assistanat de direction, de la gestion ou de l’administration ;\n\n• Idéalement 3 à 5 ans d’expérience professionnelle dans une fonction d’assistanat de direction ou de support à des cadres dirigeants ;\n\n• Excellentes capacités rédactionnelles et parfaite maîtrise du français et de l’orthographe ;\n\n• Maîtrise des outils bureautiques et collaboratifs, en particulier Microsoft 365, Teams et SharePoint ;\n\n• Aisance dans la gestion simultanée de plusieurs activités, priorités et interlocuteurs ;\n\n• Niveau d’anglais intermédiaire.\n\nVous souhaitez aujourd’hui consolider votre expérience en rejoignant un environnement institutionnel exigeant, dans lequel vous pourrez développer progressivement votre autonomie et vos responsabilités.\n\nReconnu(e) pour votre rigueur et votre fiabilité, vous vous distinguez par :\n\n• votre excellent sens de l'organisation, du service et des priorités ;\n\n• votre capacité à anticiper, à travailler de manière autonome et à vous adapter rapidement aux situations et aux demandes ;\n\n• votre sens de la confidentialité, votre discrétion et votre discernement, qui vous permettent de traiter avec professionnalisme des informations sensibles ;\n\n• votre diplomatie, votre aisance relationnelle et votre présentation professionnelle, qui vous permettent d'interagir avec des interlocuteurs variés, internes comme externes.\n\nCe que nous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\nPourcentage : Temps complet - 100%\n\nPourquoi nous rejoindre :\n\nEn rejoignant l’Hôpital de La Tour, vous intégrez un environnement professionnel exigeant et dynamique, au cœur du fonctionnement de l’institution. Vous occupez une fonction polyvalente, en lien direct avec plusieurs Directions, et contribuez concrètement à la qualité de leur organisation et de leur coordination.\n\nVous souhaitez mettre vos compétences organisationnelles, votre sens du service et votre capacité d’anticipation au service d’un environnement hospitalier ? Rejoignez l’Hôpital de La Tour et prenez part à une institution qui place la qualité, la confiance et l’excellence au cœur de ses priorités. Nous nous réjouissons de découvrir votre candidature !"
+      },
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://recrutement.latour.ch/fr/nos-offres/assistante-de-direction-juniore-a-100-1568",
+      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-28T21:31:38.331Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1217",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/assistante-de-direction-juniore-a-100-1568",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistant-e-de-direction-junior-e-a-100-hopital-la-tour-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-de-direction-junior-e-a-100-hopital-la-tour-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-10-30T21:40:48.040Z",
+      "salaryMin": 77500,
+      "salaryMax": 108000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 108000,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Hôpital de La Tour",
+        "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
+        "postalCode": "1217",
+        "addressLocality": "Meyrin",
+        "addressRegion": "GE",
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
+      },
+      "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-29T21:31:38.331Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -497,7 +585,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmierere-pour-la-clinique-de-la-douleur-cdmax-12-mois-a-70-1565",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:37:56.769Z",
+      "crawledAt": "2026-11-28T21:31:38.331Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -557,95 +645,7 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T09:37:56.769Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "hopital-la-tour-a6216bdb5cb4",
-      "slug": "assistente-di-gestione-junior-al-100-hopital-de-la-tour-meyrin",
-      "slugByLocale": {
-        "it": "assistente-di-gestione-junior-al-100-hopital-de-la-tour-meyrin",
-        "en": "assistant-e-de-direction-junior-e-a-100-hopital-la-tour-meyrin",
-        "de": "assistant-e-de-direction-junior-e-a-100-hopital-la-tour-meyrin",
-        "fr": "assistant-e-de-direction-junior-e-a-100-hopital-la-tour-meyrin"
-      },
-      "company": "Hôpital de La Tour",
-      "companyKey": "hopital-la-tour",
-      "companyDomain": "la-tour.ch",
-      "title": "Assistant·e de Direction junior·e à 100 %",
-      "titleByLocale": {
-        "it": "Assistente di gestione Junior al 100%",
-        "en": "100% Junior Management Assistant",
-        "de": "Assistent·e de Direction junior·e à 100 %",
-        "fr": "Assistant·e de Direction junior·e à 100 %"
-      },
-      "description": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible pour ses patients, il place l’amélioration continue, l’excellence médicale et l’accompagnement de ses collaborateurs au cœur de ses priorités. L’institution emploie plus de 1’200 collaborateurs, représentant plus de 60 métiers, et collabore avec plus de 550 médecins agréés.\n\nPour la Direction générale, nous recrutons un/e\n\nAssistant·e de Direction junior·e à 100 % (ref : 2045)\n\nVotre mission :\n\nAfin de renforcer le bureau de la Direction générale, nous recherchons un(e) Assistant(e) de Direction junior disposant de 3 à 5 ans d’expérience dans une fonction d’assistanat de direction ou de support à des cadres dirigeants.\n\nRattaché(e) à la Coordinatrice du bureau de la Direction générale, vous contribuez au bon fonctionnement des Directions et à la fluidité de leur organisation. Dans un environnement exigeant et stimulant, vous assurez un soutien administratif, organisationnel et logistique de qualité, en faisant preuve de réactivité, d’anticipation et de discrétion. Vous intervenez principalement auprès des Directions des opérations, des soins et financière, tout en contribuant à la continuité du support apporté à la Direction générale.\n\nÀ ce titre, vous serez notamment amené(e) à :\n\n• Gérer et coordonner les agendas, rendez-vous et réunions de plusieurs membres de la Direction ;\n\n• Organiser les priorités, anticiper les contraintes et préparer les informations nécessaires au bon déroulement des rendez-vous ;\n\n• Assurer un accueil professionnel des visiteurs, partenaires et collaborateurs ;\n\n• Réceptionner et orienter les appels et les demandes adressés à la Direction ;\n\n• Assurer le suivi de la boîte mail générique de la Direction et veiller au traitement des demandes nécessitant une réponse ou une action ;\n\n• Préparer et mettre en forme des documents, présentations, procès-verbaux et comptes rendus ;\n\n• Organiser des réunions, des déplacements professionnels et des événements institutionnels ;\n\n• Assurer le suivi administratif des actions décidées lors des réunions ;\n\n• Contribuer à la gestion et à l’actualisation des contenus de la Direction générale sur l’intranet ;\n\n• Apporter un soutien administratif et organisationnel à la Coordinatrice du bureau de la Direction générale et contribuer à la continuité du fonctionnement de la Direction générale ;\n\n• Assurer le support administratif et logistique de la Commission santé et sécurité au travail, notamment l’organisation des séances, la préparation des convocations et la rédaction des comptes rendus ;\n\n• Veiller à la bonne organisation des espaces communs de la Direction et à la disponibilité des fournitures et consommables nécessaires.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Formation supérieure ou spécialisée dans le domaine de l’assistanat de direction, de la gestion ou de l’administration ;\n\n• Idéalement 3 à 5 ans d’expérience professionnelle dans une fonction d’assistanat de direction ou de support à des cadres dirigeants ;\n\n• Excellentes capacités rédactionnelles et parfaite maîtrise du français et de l’orthographe ;\n\n• Maîtrise des outils bureautiques et collaboratifs, en particulier Microsoft 365, Teams et SharePoint ;\n\n• Aisance dans la gestion simultanée de plusieurs activités, priorités et interlocuteurs ;\n\n• Niveau d’anglais intermédiaire.\n\nVous souhaitez aujourd’hui consolider votre expérience en rejoignant un environnement institutionnel exigeant, dans lequel vous pourrez développer progressivement votre autonomie et vos responsabilités.\n\nReconnu(e) pour votre rigueur et votre fiabilité, vous vous distinguez par :\n\n• votre excellent sens de l'organisation, du service et des priorités ;\n\n• votre capacité à anticiper, à travailler de manière autonome et à vous adapter rapidement aux situations et aux demandes ;\n\n• votre sens de la confidentialité, votre discrétion et votre discernement, qui vous permettent de traiter avec professionnalisme des informations sensibles ;\n\n• votre diplomatie, votre aisance relationnelle et votre présentation professionnelle, qui vous permettent d'interagir avec des interlocuteurs variés, internes comme externes.\n\nCe que nous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\n Pourcentage : Temps complet - 100%\n\nPourquoi nous rejoindre :\n\nEn rejoignant l’Hôpital de La Tour, vous intégrez un environnement professionnel exigeant et dynamique, au cœur du fonctionnement de l’institution. Vous occupez une fonction polyvalente, en lien direct avec plusieurs Directions, et contribuez concrètement à la qualité de leur organisation et de leur coordination.\n\nVous souhaitez mettre vos compétences organisationnelles, votre sens du service et votre capacité d’anticipation au service d’un environnement hospitalier ? Rejoignez l’Hôpital de La Tour et prenez part à une institution qui place la qualité, la confiance et l’excellence au cœur de ses priorités. Nous nous réjouissons de découvrir votre candidature !",
-      "descriptionByLocale": {
-        "it": "L'ospedale La Tour è una struttura acuta di alto livello, privata, indipendente e su scala umana. Ancorato nella sua missione di ripristinare la migliore qualità di vita possibile per i suoi pazienti, pone il miglioramento continuo, l'eccellenza medica e l'accompagnamento dei suoi collaboratori al centro delle sue priorità. L'istituzione impiega oltre 1.200 dipendenti, che rappresentano più di 60 professioni, e collabora con più di 550 medici registrati.\n\nPer la direzione generale, stiamo reclutando\n\n100% Junior Management Assistant (rif: 2045)\n\nLa vostra missione:\n\nAl fine di rafforzare l'Ufficio di presidenza della Direzione generale, stiamo cercando un assistente di gestione Junior con 3-5 anni di esperienza in una funzione di supporto manageriale o esecutivo.\n\nAllegati al Coordinatore dell'Ufficio Branch, contribuite al corretto funzionamento delle Direzioni e alla fluidità della loro organizzazione. In un ambiente impegnativo e stimolante, garantisci un supporto amministrativo, organizzativo e logistico di qualità, dimostrando reattività, anticipazione e discrezione. Lei interviene principalmente con le Direzioni di Operazioni, Cura e Finanza, contribuendo alla continuità del supporto fornito alla Direzione Generale.\n\nCome tale, vi verrà chiesto di:\n\n• Gestione e coordinamento degli ordini del giorno, delle riunioni e delle riunioni di diversi membri della Direzione;\n\n• Organizzare le priorità, anticipare i vincoli e preparare le informazioni necessarie per rendere gli appuntamenti di lavoro;\n\n• Fornire accoglienza professionale per visitatori, partner e collaboratori;\n\n• Ricevi e richiami diretti e richieste alla Direzione;\n\n• Seguire la casella di posta generica della Direzione e garantire il trattamento delle richieste che richiedono risposta o azione;\n\n• Preparare e formattare documenti, presentazioni, minuti e record;\n\n• Organizzare riunioni, viaggi d'affari e eventi istituzionali;\n\n• garantire il follow-up amministrativo delle azioni decise nelle riunioni;\n\n• Contribuire alla gestione e all'aggiornamento del contenuto della Direzione generale sull'internet;\n\n• Fornire supporto amministrativo e organizzativo al Coordinatore dell'Ufficio Branch e contribuire alla continuità delle operazioni del Branch;\n\n• Fornire supporto amministrativo e logistico alla Commissione per la salute e la sicurezza sul lavoro, compresa l'organizzazione di riunioni, la preparazione di convocazioni e la preparazione di minuti;\n\n• Assicurare una corretta organizzazione degli spazi comuni della Direzione e la disponibilità di forniture e materiali di consumo necessari.\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Formazione superiore o specializzata in gestione, gestione o amministrazione;\n\n• Idealmente 3-5 anni di esperienza professionale in una funzione di supporto manageriale o manageriale;\n\n• Ottimi competenze editoriali e perfetta padronanza del francese e ortografia;\n\n• Mastery di automazione degli uffici e strumenti collaborativi, in particolare Microsoft 365, Teams e SharePoint;\n\n• Una struttura per la gestione simultanea di diverse attività, priorità e interlocutori;\n\n• Intermedio livello inglese.\n\nOggi si vuole consolidare la vostra esperienza unendo un ambiente istituzionale esigente in cui si può gradualmente sviluppare la vostra autonomia e responsabilità.\n\nRiconosciuto per il rigore e l'affidabilità, si distingue per:\n\n• il vostro eccellente senso di organizzazione, servizio e priorità;\n\n• la vostra capacità di anticipare, lavorare in modo indipendente e adattarsi rapidamente a situazioni e richieste;\n\n• il vostro senso di riservatezza, discrezione e discernimento, che consentono di trattare le informazioni sensibili professionalmente;\n\n• la vostra diplomazia, facilità di relazione e presentazione professionale, che consentono di interagire con vari interlocutori, sia interni che esterni.\n\nCosa proponiamo:\n\nTipo di contratto: Contratto con Durata indeterminata\nPercentuale: Tempo pieno - 100%\n\nPerché unirsi a noi:\n\nEntrando nell'Ospedale di La Tour, si integra un ambiente professionale esigente e dinamico, al centro del funzionamento dell'istituzione. Hai una funzione versatile, direttamente collegata a diverse direzioni, e dare un contributo concreto alla qualità della loro organizzazione e coordinamento.\n\nVuoi mettere le tue capacità organizzative, il tuo senso di servizio e la tua capacità di anticipazione al servizio di un ambiente ospedaliero? Unisciti all'Ospedale La Tour e partecipa a un'istituzione che pone qualità, fiducia ed eccellenza nel cuore delle sue priorità. Non vediamo l'ora di scoprire la tua applicazione!",
-        "en": "La Tour Hospital is a high-level, private, independent and human-scale acute care facility. Anchored in his mission to restore the best possible quality of life for his patients, he places continuous improvement, medical excellence and the accompaniment of his collaborators at the heart of his priorities. The institution employs more than 1,200 employees, representing more than 60 professions, and collaborates with more than 550 registered doctors.\n\nFor the Directorate-General, we are recruiting\n\n100% Junior Management Assistant (ref: 2045)\n\nYour mission:\n\nIn order to strengthen the Bureau of the General Directorate, we are looking for a Junior Management Assistant with 3 to 5 years of experience in a managerial or executive support function.\n\nAttached to the Coordinator of the Branch Office, you contribute to the proper functioning of the Directorates and the fluidity of their organization. In a challenging and challenging environment, you ensure quality administrative, organizational and logistical support, demonstrating responsiveness, anticipation and discretion. You mainly intervene with the Directorates of Operations, Care and Finance, while contributing to the continuity of support provided to the Directorate General.\n\nAs such, you will be asked to:\n\n• Managing and coordinating the agendas, meetings and meetings of several members of the Directorate;\n\n• Organize priorities, anticipate constraints and prepare the information needed to make appointments work;\n\n• Provide professional reception for visitors, partners and collaborators;\n\n• Receive and direct appeals and requests to the Directorate;\n\n• Follow-up of the Directorate's generic mailbox and ensure the processing of requests requiring response or action;\n\n• Prepare and format documents, presentations, minutes and records;\n\n• Organize meetings, business trips and institutional events;\n\n• To ensure the administrative follow-up of actions decided at meetings;\n\n• Contribute to the management and updating of the content of the Directorate-General on the intranet;\n\n• To provide administrative and organizational support to the Coordinator of the Branch Office and to contribute to the continuity of the Branch's operations;\n\n• Provide administrative and logistical support to the Occupational Health and Safety Commission, including the organization of meetings, the preparation of summonses and the preparation of minutes;\n\n• Ensure proper organization of the Directorate's common spaces and availability of necessary supplies and consumables.\n\nWe are looking for a profile that meets the following criteria:\n\n• Higher or specialized training in management, management or administration;\n\n• Ideally 3-5 years of professional experience in a managerial or managerial support function;\n\n• Excellent editorial skills and perfect mastery of French and spelling;\n\n• Mastery of office automation and collaborative tools, in particular Microsoft 365, Teams and SharePoint;\n\n• A facility for the simultaneous management of several activities, priorities and interlocutors;\n\n• Intermediate English level.\n\nToday you want to consolidate your experience by joining a demanding institutional environment in which you can gradually develop your autonomy and responsibilities.\n\nRecognized for your rigor and reliability, you stand out by:\n\n• your excellent sense of organization, service and priorities;\n\n• your ability to anticipate, work independently and adapt quickly to situations and requests;\n\n• your sense of confidentiality, discretion and discernment, which allow you to treat sensitive information professionally;\n\n• your diplomacy, relationship ease and professional presentation, which allow you to interact with various interlocutors, both internal and external.\n\nWhat we propose:\n\nType of contract: Contract with Indeterminate Duration\nPercentage: Full time - 100%\n\nWhy join us:\n\nBy joining the Hospital of La Tour, you integrate a demanding and dynamic professional environment, at the heart of the functioning of the institution. You have a versatile function, directly linked to several Directorates, and make a concrete contribution to the quality of their organization and coordination.\n\nDo you want to put your organizational skills, your sense of service and your capacity for anticipation at the service of a hospital environment? Join La Tour Hospital and take part in an institution that places quality, trust and excellence at the heart of its priorities. We look forward to discovering your application!",
-        "de": "La Tour Hospital ist eine hochrangige, private, unabhängige und menschliche Akutversorgungseinrichtung. In seiner Mission, die bestmögliche Lebensqualität für seine Patienten wiederherzustellen, stellt er kontinuierliche Verbesserung, medizinische Exzellenz und die Begleitung seiner Mitarbeiter in den Mittelpunkt seiner Prioritäten. Die Einrichtung beschäftigt mehr als 1.200 Mitarbeiter, die mehr als 60 Berufe repräsentieren, und arbeitet mit mehr als 550 registrierten Ärzten zusammen.\n\nFür die Generaldirektion rekrutieren wir\n\n100% Junior Management Assistant (Ref: 2045)\n\nIhre Mission:\n\nUm das Präsidium der Generaldirektion zu stärken, suchen wir einen Junior Management Assistant mit 3 bis 5 Jahren Erfahrung in einer Führungs- oder Executive Support Funktion.\n\nAn den Koordinator der Zweigstelle angeschlossen, tragen Sie zum ordnungsgemäßen Funktionieren der Direktionen und zur Fluidität ihrer Organisation bei. In einem herausfordernden und herausfordernden Umfeld gewährleisten Sie eine qualitativ hochwertige administrative, organisatorische und logistische Unterstützung und zeigen Reaktionsfähigkeit, Antizipation und Diskretion. Sie intervenieren hauptsächlich bei den Direktionen für Operationen, Pflege und Finanzen und tragen gleichzeitig zur Kontinuität der Unterstützung der Generaldirektion bei.\n\nDaher werden Sie aufgefordert,\n\n• Verwaltung und Koordinierung der Tagesordnungen, Sitzungen und Sitzungen mehrerer Mitglieder der Direktion;\n\n• Organisieren Sie Prioritäten, antizipieren Sie Einschränkungen und bereiten Sie die Informationen vor, die erforderlich sind, damit Termine funktionieren;\n\n• Professioneller Empfang für Besucher, Partner und Mitarbeiter;\n\n• Entgegennahme und direkte Übermittlung von Beschwerden und Ersuchen an die Direktion;\n\n• Weiterverfolgung des allgemeinen Postfachs der Direktion und Gewährleistung der Bearbeitung von Anfragen, die eine Reaktion oder Aktion erfordern;\n\n• Erstellung und Formatierung von Dokumenten, Präsentationen, Protokollen und Aufzeichnungen;\n\n• Organisation von Meetings, Geschäftsreisen und institutionellen Veranstaltungen;\n\n• Gewährleistung der administrativen Weiterverfolgung der in den Sitzungen beschlossenen Maßnahmen;\n\n• Beitrag zur Verwaltung und Aktualisierung der Inhalte der Generaldirektion im Intranet;\n\n• den Koordinator der Zweigstelle administrativ und organisatorisch zu unterstützen und zur Kontinuität der Geschäftstätigkeit der Zweigstelle beizutragen;\n\n• administrative und logistische Unterstützung der Kommission für Arbeitssicherheit und Gesundheitsschutz, einschließlich der Organisation von Sitzungen, der Vorbereitung von Vorladungen und der Vorbereitung von Protokollen;\n\n• Gewährleistung einer ordnungsgemäßen Organisation der gemeinsamen Räume der Direktion und der Verfügbarkeit der erforderlichen Lieferungen und Verbrauchsmaterialien.\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• Höhere oder spezialisierte Ausbildung in Management, Management oder Verwaltung;\n\n• Idealerweise 3-5 Jahre Berufserfahrung in einer Führungs- oder Führungsunterstützungsfunktion;\n\n• Hervorragende redaktionelle Fähigkeiten und perfekte Beherrschung von Französisch und Rechtschreibung;\n\n• Beherrschung der Büroautomation und der kollaborativen Tools, insbesondere Microsoft 365, Teams und SharePoint;\n\n• Eine Einrichtung zur gleichzeitigen Verwaltung mehrerer Aktivitäten, Prioritäten und Gesprächspartner;\n\n• Mittleres Englischniveau.\n\nHeute möchten Sie Ihre Erfahrung festigen, indem Sie sich einem anspruchsvollen institutionellen Umfeld anschließen, in dem Sie Ihre Autonomie und Verantwortlichkeiten schrittweise entwickeln können.\n\nAnerkannt für Ihre Strenge und Zuverlässigkeit, heben Sie sich ab durch:\n\n• Ihr exzellentes Gespür für Organisation, Service und Prioritäten;\n\n• Ihre Fähigkeit, vorauszusehen, unabhängig zu arbeiten und sich schnell an Situationen und Anforderungen anzupassen;\n\n• Ihr Gefühl von Vertraulichkeit, Diskretion und Urteilsvermögen, das es Ihnen ermöglicht, sensible Informationen professionell zu behandeln;\n\n• Ihre Diplomatie, Beziehung Leichtigkeit und professionelle Präsentation, die es Ihnen ermöglichen, mit verschiedenen Gesprächspartnern zu interagieren, sowohl intern als auch extern.\n\nWas wir vorschlagen:\n\nArt des Vertrags: Vertrag mit unbestimmter Laufzeit\nProzentsatz: Vollzeit - 100%\n\nWarum kommen Sie zu uns:\n\nIndem Sie dem Hospital of La Tour beitreten, integrieren Sie ein anspruchsvolles und dynamisches professionelles Umfeld, das im Mittelpunkt des Funktionierens der Institution steht. Sie haben eine vielseitige Funktion, direkt mit mehreren Direktionen verbunden, und leisten einen konkreten Beitrag zur Qualität ihrer Organisation und Koordination.\n\nMöchten Sie Ihre organisatorischen Fähigkeiten, Ihr Servicegefühl und Ihre Antizipationsfähigkeit in den Dienst eines Krankenhausumfeldes stellen? Treten Sie dem La Tour Hospital bei und nehmen Sie an einer Institution teil, die Qualität, Vertrauen und Exzellenz in den Mittelpunkt ihrer Prioritäten stellt. Wir freuen uns auf Ihre Bewerbung!",
-        "fr": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible pour ses patients, il place l’amélioration continue, l’excellence médicale et l’accompagnement de ses collaborateurs au cœur de ses priorités. L’institution emploie plus de 1’200 collaborateurs, représentant plus de 60 métiers, et collabore avec plus de 550 médecins agréés.\n\nPour la Direction générale, nous recrutons un/e\n\nAssistant·e de Direction junior·e à 100 % (ref : 2045)\n\nVotre mission :\n\nAfin de renforcer le bureau de la Direction générale, nous recherchons un(e) Assistant(e) de Direction junior disposant de 3 à 5 ans d’expérience dans une fonction d’assistanat de direction ou de support à des cadres dirigeants.\n\nRattaché(e) à la Coordinatrice du bureau de la Direction générale, vous contribuez au bon fonctionnement des Directions et à la fluidité de leur organisation. Dans un environnement exigeant et stimulant, vous assurez un soutien administratif, organisationnel et logistique de qualité, en faisant preuve de réactivité, d’anticipation et de discrétion. Vous intervenez principalement auprès des Directions des opérations, des soins et financière, tout en contribuant à la continuité du support apporté à la Direction générale.\n\nÀ ce titre, vous serez notamment amené(e) à :\n\n• Gérer et coordonner les agendas, rendez-vous et réunions de plusieurs membres de la Direction ;\n\n• Organiser les priorités, anticiper les contraintes et préparer les informations nécessaires au bon déroulement des rendez-vous ;\n\n• Assurer un accueil professionnel des visiteurs, partenaires et collaborateurs ;\n\n• Réceptionner et orienter les appels et les demandes adressés à la Direction ;\n\n• Assurer le suivi de la boîte mail générique de la Direction et veiller au traitement des demandes nécessitant une réponse ou une action ;\n\n• Préparer et mettre en forme des documents, présentations, procès-verbaux et comptes rendus ;\n\n• Organiser des réunions, des déplacements professionnels et des événements institutionnels ;\n\n• Assurer le suivi administratif des actions décidées lors des réunions ;\n\n• Contribuer à la gestion et à l’actualisation des contenus de la Direction générale sur l’intranet ;\n\n• Apporter un soutien administratif et organisationnel à la Coordinatrice du bureau de la Direction générale et contribuer à la continuité du fonctionnement de la Direction générale ;\n\n• Assurer le support administratif et logistique de la Commission santé et sécurité au travail, notamment l’organisation des séances, la préparation des convocations et la rédaction des comptes rendus ;\n\n• Veiller à la bonne organisation des espaces communs de la Direction et à la disponibilité des fournitures et consommables nécessaires.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Formation supérieure ou spécialisée dans le domaine de l’assistanat de direction, de la gestion ou de l’administration ;\n\n• Idéalement 3 à 5 ans d’expérience professionnelle dans une fonction d’assistanat de direction ou de support à des cadres dirigeants ;\n\n• Excellentes capacités rédactionnelles et parfaite maîtrise du français et de l’orthographe ;\n\n• Maîtrise des outils bureautiques et collaboratifs, en particulier Microsoft 365, Teams et SharePoint ;\n\n• Aisance dans la gestion simultanée de plusieurs activités, priorités et interlocuteurs ;\n\n• Niveau d’anglais intermédiaire.\n\nVous souhaitez aujourd’hui consolider votre expérience en rejoignant un environnement institutionnel exigeant, dans lequel vous pourrez développer progressivement votre autonomie et vos responsabilités.\n\nReconnu(e) pour votre rigueur et votre fiabilité, vous vous distinguez par :\n\n• votre excellent sens de l'organisation, du service et des priorités ;\n\n• votre capacité à anticiper, à travailler de manière autonome et à vous adapter rapidement aux situations et aux demandes ;\n\n• votre sens de la confidentialité, votre discrétion et votre discernement, qui vous permettent de traiter avec professionnalisme des informations sensibles ;\n\n• votre diplomatie, votre aisance relationnelle et votre présentation professionnelle, qui vous permettent d'interagir avec des interlocuteurs variés, internes comme externes.\n\nCe que nous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\nPourcentage : Temps complet - 100%\n\nPourquoi nous rejoindre :\n\nEn rejoignant l’Hôpital de La Tour, vous intégrez un environnement professionnel exigeant et dynamique, au cœur du fonctionnement de l’institution. Vous occupez une fonction polyvalente, en lien direct avec plusieurs Directions, et contribuez concrètement à la qualité de leur organisation et de leur coordination.\n\nVous souhaitez mettre vos compétences organisationnelles, votre sens du service et votre capacité d’anticipation au service d’un environnement hospitalier ? Rejoignez l’Hôpital de La Tour et prenez part à une institution qui place la qualité, la confiance et l’excellence au cœur de ses priorités. Nous nous réjouissons de découvrir votre candidature !"
-      },
-      "location": "Meyrin",
-      "canton": "GE",
-      "url": "https://recrutement.latour.ch/fr/nos-offres/assistante-de-direction-juniore-a-100-1568",
-      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:37:56.768Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1217",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/assistante-de-direction-juniore-a-100-1568",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistant-e-de-direction-junior-e-a-100-hopital-la-tour-meyrin"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-e-de-direction-junior-e-a-100-hopital-la-tour-meyrin"
-        ]
-      },
-      "firstSeenAt": "2026-10-30T21:40:48.040Z",
-      "salaryMin": 77500,
-      "salaryMax": 108000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 108000,
-          "unitText": "YEAR"
-        }
-      },
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Hôpital de La Tour",
-        "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
-        "postalCode": "1217",
-        "addressLocality": "Meyrin",
-        "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z",
-        "streetAddressSource": "zefix-registry"
-      },
-      "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-29T09:37:56.768Z",
+      "validThrough": "2027-01-28T21:31:38.331Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -680,7 +680,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/preparateur-rice-en-pharmacie-60-100-1562",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:37:56.766Z",
+      "crawledAt": "2026-11-28T21:31:38.329Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -740,7 +740,7 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-29T09:37:56.766Z",
+      "validThrough": "2027-01-29T21:31:38.329Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -774,7 +774,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/secretaire-medicale-en-radiologie-a-80-cdi-1569",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:37:56.764Z",
+      "crawledAt": "2026-11-28T21:31:38.327Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -834,196 +834,7 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T09:37:56.764Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "hopital-la-tour-31768c572652",
-      "slug": "aiuto-ospedaliero-giornaliero-era-presso-la-piscina-70-fisso-20-flessore-cdi-hopital-de-la-tour-meyrin",
-      "slugByLocale": {
-        "it": "aiuto-ospedaliero-giornaliero-era-presso-la-piscina-70-fisso-20-flessore-cdi-hopital-de-la-tour-meyrin",
-        "en": "day-hospital-aid-era-at-the-pool-70-fixed-20-flex-cdi-hopital-de-la-tour-meyrin",
-        "de": "tageskrankenhaushilfe-ara-am-pool-70-fixiert-20-flex-cdi-hopital-de-la-tour-meyrin",
-        "fr": "aide-hospitalier-ere-de-jour-au-pool-70-fixe-20-flex-cdi-hopital-la-tour-meyrin"
-      },
-      "company": "Hôpital de La Tour",
-      "companyKey": "hopital-la-tour",
-      "companyDomain": "la-tour.ch",
-      "title": "Aide hospitalier (-ère) de jour au Pool 70% fixe 20% flex CDI",
-      "titleByLocale": {
-        "it": "Aiuto ospedaliero giornaliero (era) presso la piscina 70% fisso 20% flessore CDI",
-        "en": "Day hospital aid (-era) at the Pool 70% fixed 20% flex CDI",
-        "de": "Tageskrankenhaushilfe (-Ära) am Pool 70% fixiert 20% flex CDI",
-        "fr": "Aide hospitalier (-ère) de jour au Pool 70% fixe 20% flex CDI"
-      },
-      "description": "Le Pool de personnel soignant met à disposition des services cliniques des ressources ponctuelles de collaborateurs expérimentés afin de pallier les absences ponctuelles, mais aussi de renforcer les équipes lors de pics de travail. Il est constitué des collaborateurs flexibles et adaptables à différentes unités.\n\nAfin de compléter notre service nous recrutons un(-e) :\n\nAide hospitalier (-ère) de jour au Pool 70% fixe 20% flex CDI (ref : 2074)\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\n\nVous devrez assurer l’accueil des patients atteints de pathologies polyvalentes, dans le cadre d’une prise en charge globale en phase aigüe.\n\nVotre mission :\n\nA ce titre vous êtes en charge de ;\n\n• Accueillir le patient et sa famille en les rendant acteurs de la prise en charge\n\n• Recueillir les données administratives\n\n• Prendre en charge l’enfant dans sa globalité en collaboration avec l’équipe pluridisciplinaire et répondre à ses besoins fondamentaux (hygiène, douleur, alimentation, confort, ...)\n\n• Assurer l'approvisionnement en matériel, vérifier leur fonctionnement et assurer la prise en charge de la maintenance, appliquer les procédures de nettoyage et de désinfection\n\n• Participer au bon fonctionnement du service, faire des transmissions sur le dossier de soins informatisé\n\n• Mettre à jour ses pratiques professionnelles en fonctions des procédures de soins du service ou institutionnelles\n\nNous recherchons un profil répondant aux critères suivants :\n\n• 2 années d'expérience minimum auprès d'une structure hospitalière\n\n• Diplôme d’Aide-Soignant\n\n• Autonome, bienveillance, polyvalence, proactivité, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\nNous vous proposons :\n\nType de contrat : Contrat à durée indeterminée\n Pourcentage : 70% fixe et 20% flex\n Date d'entrée en fonction: Dès que possible\n Type d'horaires : Irréguliers",
-      "descriptionByLocale": {
-        "it": "La Pool of Caregivers fornisce servizi clinici con risorse ad hoc di collaboratori esperti al fine di compensare eventuali assenze, ma anche per rafforzare i team durante il lavoro di punta. Si compone di collaboratori flessibili adattabili a diverse unità.\n\nPer completare il nostro servizio ne stiamo reclutando uno:\n\nAiuto ospedaliero giornaliero (era) presso la piscina 70% fisso 20% flessore CDI (ref: 2074)\n\nIn una struttura all'avanguardia si ha una posizione varia su un team multidisciplinare di infermieri, operatori sanitari, medici.\n\nAvrete bisogno di ospitare pazienti con patologie multiple come parte di una fase acuta completa di cura.\n\nLa vostra missione:\n\nCome tale siete responsabili di;\n\n• Accogliere il paziente e la sua famiglia facendoli coinvolgere nella cura\n\n• Raccogliere dati amministrativi\n\n• Cura del bambino nel suo complesso in collaborazione con il team multidisciplinare e soddisfare le sue esigenze di base (igiene, dolore, cibo, comfort, ...)\n\n• Assicurare la fornitura di attrezzature, verificare il loro funzionamento e garantire la gestione della manutenzione, applicare le procedure di pulizia e disinfezione\n\n• Partecipare al corretto funzionamento del servizio, effettuare trasmissioni sul file di cura computerizzato\n\n• Aggiornamento delle pratiche professionali in relazione alle procedure di assistenza o di assistenza istituzionale\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Esperienza minima di 2 anni con struttura ospedaliera\n\n• Diploma di Caregiver\n\n• L'autostima, la benevolenza, la versatilità, la proattività, l'adattabilità, l'organizzazione e il senso di priorità sono qualità essenziali\n\nVi offriamo:\n\nTipo di contratto: Contratto con durata indefinita\nPercentuale: 70% fisso e 20% flex\nData effettiva: appena possibile\nTipo di ora : irregolare",
-        "en": "The Pool of Caregivers provides clinical services with ad hoc resources from experienced collaborators in order to compensate for occasional absences, but also to strengthen teams during peak work. It is made up of flexible collaborators adaptable to different units.\n\nIn order to complete our service we are recruiting one:\n\nDay hospital aid (-era) at the Pool 70% fixed 20% flex CDI (ref: 2074)\n\nIn a state-of-the-art facility you hold a varied position on a multidisciplinary team of nurses, health care workers, doctors.\n\nYou will need to accommodate patients with multiple pathologies as part of a comprehensive acute phase of care.\n\nYour mission:\n\nAs such you are in charge of;\n\n• Welcoming the patient and his/her family by making them involved in care\n\n• Collect administrative data\n\n• Care for the child as a whole in collaboration with the multidisciplinary team and meet its basic needs (hygiene, pain, food, comfort, ...)\n\n• Ensure the supply of equipment, verify their operation and ensure the management of maintenance, apply cleaning and disinfection procedures\n\n• Participate in the proper functioning of the service, make transmissions on the computerized care file\n\n• Updating of professional practices in relation to service or institutional care procedures\n\nWe are looking for a profile that meets the following criteria:\n\n• 2 years minimum experience with hospital structure\n\n• Diploma of Caregiver\n\n• Self-reliance, benevolence, versatility, proactivity, adaptability, organization and sense of priority are essential qualities\n\nWe offer you:\n\nType of contract: Contract with indefinite duration\nPercentage: 70% fixed and 20% flex\nEffective date: As soon as possible\nType of hours : Irregular",
-        "de": "Der Pool of Caregivers stellt klinischen Dienstleistungen Ad-hoc-Ressourcen von erfahrenen Mitarbeitern zur Verfügung, um gelegentliche Abwesenheiten auszugleichen, aber auch Teams während der Spitzenarbeit zu stärken. Es besteht aus flexiblen Mitarbeitern, die sich an verschiedene Einheiten anpassen lassen.\n\nUm unseren Service zu vervollständigen, rekrutieren wir einen:\n\nTageskrankenhaushilfe (-Ära) am Pool 70% festgelegt 20% flex CDI (ref: 2074)\n\nIn einer hochmodernen Einrichtung haben Sie eine abwechslungsreiche Position in einem multidisziplinären Team von Krankenschwestern, Gesundheitspersonal, Ärzten.\n\nSie müssen Patienten mit mehreren Pathologien als Teil einer umfassenden akuten Phase der Versorgung aufnehmen.\n\nIhre Mission:\n\nAls solche sind Sie verantwortlich für;\n\n• Begrüßung des Patienten und seiner/ihrer Familie durch Einbeziehung in die Pflege\n\n• Erhebung administrativer Daten\n\n• Betreuung des Kindes als Ganzes in Zusammenarbeit mit dem multidisziplinären Team und Erfüllung seiner Grundbedürfnisse (Hygiene, Schmerzen, Nahrung, Komfort, ...)\n\n• Sicherstellung der Versorgung mit Ausrüstung, Überprüfung ihres Betriebs und Gewährleistung der Wartungsverwaltung, Anwendung von Reinigungs- und Desinfektionsverfahren\n\n• Beteiligen Sie sich am ordnungsgemäßen Funktionieren des Dienstes, machen Sie Übertragungen auf die computergestützte Pflegedatei\n\n• Aktualisierung der beruflichen Praxis in Bezug auf Dienstleistungen oder institutionelle Betreuungsverfahren\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• 2 Jahre Mindesterfahrung mit Krankenhausstruktur\n\n• Diplom der Pflegekraft\n\n• Eigenständigkeit, Wohlwollen, Vielseitigkeit, Proaktivität, Anpassungsfähigkeit, Organisation und Prioritätsgefühl sind wesentliche Eigenschaften\n\nWir bieten Ihnen:\n\nArt des Vertrags: unbefristeter Vertrag\nProzentsatz: 70% fix und 20% flex\nDatum des Inkrafttretens: So bald wie möglich\nArt der Stunden: unregelmäßig",
-        "fr": "Le Pool de personnel soignant met à disposition des services cliniques des ressources ponctuelles de collaborateurs expérimentés afin de pallier les absences ponctuelles, mais aussi de renforcer les équipes lors de pics de travail. Il est constitué des collaborateurs flexibles et adaptables à différentes unités.\n\nAfin de compléter notre service nous recrutons un(-e) :\n\nAide hospitalier (-ère) de jour au Pool 70% fixe 20% flex CDI (ref : 2074)\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\n\nVous devrez assurer l’accueil des patients atteints de pathologies polyvalentes, dans le cadre d’une prise en charge globale en phase aigüe.\n\nVotre mission :\n\nA ce titre vous êtes en charge de ;\n\n• Accueillir le patient et sa famille en les rendant acteurs de la prise en charge\n\n• Recueillir les données administratives\n\n• Prendre en charge l’enfant dans sa globalité en collaboration avec l’équipe pluridisciplinaire et répondre à ses besoins fondamentaux (hygiène, douleur, alimentation, confort, ...)\n\n• Assurer l'approvisionnement en matériel, vérifier leur fonctionnement et assurer la prise en charge de la maintenance, appliquer les procédures de nettoyage et de désinfection\n\n• Participer au bon fonctionnement du service, faire des transmissions sur le dossier de soins informatisé\n\n• Mettre à jour ses pratiques professionnelles en fonctions des procédures de soins du service ou institutionnelles\n\nNous recherchons un profil répondant aux critères suivants :\n\n• 2 années d'expérience minimum auprès d'une structure hospitalière\n\n• Diplôme d’Aide-Soignant\n\n• Autonome, bienveillance, polyvalence, proactivité, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\nNous vous proposons :\n\nType de contrat : Contrat à durée indeterminée\nPourcentage : 70% fixe et 20% flex\nDate d'entrée en fonction: Dès que possible\nType d'horaires : Irréguliers"
-      },
-      "needsRetranslation": false,
-      "location": "Meyrin",
-      "canton": "GE",
-      "url": "https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-ere-de-jour-au-pool-70-fixe-20-flex-cdi-1574",
-      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:37:56.762Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1217",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-ere-de-jour-au-pool-70-fixe-20-flex-cdi-1574",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "aide-hospitalier-ere-de-jour-au-pool-70-fixe-20-flex-cdi-hopital-la-tour-meyrin"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "aide-hospitalier-ere-de-jour-au-pool-70-fixe-20-flex-cdi-hopital-la-tour-meyrin"
-        ],
-        "en": [
-          "aide-hospitalier-ere-de-jour-au-pool-70-fixe-20-flex-cdi-hopital-la-tour-meyrin"
-        ],
-        "de": [
-          "aide-hospitalier-ere-de-jour-au-pool-70-fixe-20-flex-cdi-hopital-la-tour-meyrin"
-        ]
-      },
-      "firstSeenAt": "2026-11-06T21:49:52.394Z",
-      "salaryMin": 60500,
-      "salaryMax": 84400,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 84400,
-          "unitText": "YEAR"
-        }
-      },
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Hôpital de La Tour",
-        "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
-        "postalCode": "1217",
-        "addressLocality": "Meyrin",
-        "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z",
-        "streetAddressSource": "zefix-registry"
-      },
-      "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T09:37:56.762Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "hopital-la-tour-e0cba468094a",
-      "slug": "infermiera-a-piscina-cdm-11-mesi-al-90-hopital-de-la-tour-meyrin",
-      "slugByLocale": {
-        "it": "infermiera-a-piscina-cdm-11-mesi-al-90-hopital-de-la-tour-meyrin",
-        "en": "nurse-at-pool-cdm-11-months-at-90-hopital-de-la-tour-meyrin",
-        "de": "krankenschwester-im-pool-cdm-11-monate-bei-90-hopital-de-la-tour-meyrin",
-        "fr": "infirmier-iere-au-pool-cdm-11-mois-a-90-hopital-la-tour-meyrin"
-      },
-      "company": "Hôpital de La Tour",
-      "companyKey": "hopital-la-tour",
-      "companyDomain": "la-tour.ch",
-      "title": "Infirmier (-ière) au Pool - CDM 11 mois à 90 %",
-      "titleByLocale": {
-        "it": "Infermiera a Piscina - CDM 11 mesi al 90%",
-        "en": "Nurse at Pool - CDM 11 months at 90%",
-        "de": "Krankenschwester im Pool - CDM 11 Monate bei 90%",
-        "fr": "Infirmier (-ière) au Pool - CDM 11 mois à 90 %"
-      },
-      "description": "Le Pool de personnel soignant joue un rôle essentiel au sein de notre établissement. Il met à disposition des services cliniques des professionnels expérimentés, capables d'intervenir dans différentes unités afin d'assurer la continuité des soins, de pallier les absences ponctuelles et de renforcer les équipes lors de périodes de forte activité.\n\nComposé de collaborateurs polyvalents, flexibles et autonomes, le Pool offre un environnement de travail stimulant, riche en rencontres et en expériences professionnelles.\n\nDans le cadre d'un remplacement de congé maternité, nous recrutons un/une\n\nInfirmier (-ière) au Pool - CDM 11 mois à 90 % (ref : 2072)\n\nVotre mission\n\nAu sein d'un établissement de pointe, vous évoluez dans un environnement pluridisciplinaire, en collaboration étroite avec les infirmiers(-ères), aides-soignants(-es) et médecins.\n\nVous assurez la prise en charge globale de patients présentant des pathologies variées en phase aiguë, en veillant à la qualité, à la sécurité et à la continuité des soins.\n\nÀ ce titre, vos principales responsabilités sont les suivantes :\n\n•\n Accueillir, installer et accompagner les patients, en leur présentant les informations relatives à leur séjour et à leur prise en charge.\n\n•\n Recueillir, évaluer et transmettre les données médicales et administratives, tout en assurant la mise à jour du dossier patient informatisé.\n\n•\n Organiser et planifier les soins en tenant compte des priorités, du degré d'urgence et de l'évolution de l'état clinique des patients.\n\n•\n Réaliser les soins sur prescription médicale, dans le respect des protocoles, des procédures et des exigences institutionnelles.\n\n•\n Assurer une documentation rigoureuse et complète du dossier patient informatisé.\n\n•\n Surveiller et évaluer en continu l'état clinique des patients, identifier rapidement toute évolution et adapter la prise en charge en conséquence.\n\nVotre profil\n\nVous êtes un(-e) professionnel(-le) engagé(-e), doté(-e) d'un excellent sens clinique et appréciant la diversité des situations de soins.\n\nVous disposez des qualifications et qualités suivantes :\n\n•\n Diplôme d'infirmier(-ère).\n\n•\n Reconnaissance de la Croix-Rouge suisse obligatoire pour les titulaires d'un diplôme étranger.\n\n•\n Excellent sens du contact et du service, avec une attention particulière portée à la satisfaction et au bien-être des patients.\n\n•\n Autonomie, bienveillance et sens des responsabilités.\n\n•\n Grande polyvalence et capacité à vous adapter rapidement à différents environnements et organisations de travail.\n\n•\n Excellentes capacités d'organisation, d'anticipation et de gestion des priorités.\n\n•\n Esprit d'équipe, attitude positive et aptitude à instaurer un climat de confiance avec vos collègues et les patients.\n\n•\n Grande flexibilité et disponibilité face aux exigences d'un poste au Pool.\n\nCe que nous vous proposons\n\n•\n Un poste varié offrant une réelle richesse d'expériences cliniques.\n\n•\n L'opportunité de développer et de valoriser votre polyvalence au sein de différentes unités.\n\n•\n Un environnement de travail stimulant, au contact d'équipes pluridisciplinaires expérimentées.\n\n•\n Une activité qui favorise l'autonomie, l'adaptabilité et le développement de vos compétences professionnelles.\n\nConditions du poste :\n\n•\n Type de contrat : Contrat à durée maximale de 11 mois (remplacement de congé maternité).\n\n•\n Taux d'activité : 90 %.\n\n•\n Horaires : Variables, selon les besoins des services.\n\nEnvie de relever le défi et de rejoindre notre Pool de personnel soignant ?\n\nNous nous réjouissons de découvrir votre candidature et de vous accueillir au sein de nos équipes !",
-      "descriptionByLocale": {
-        "it": "Il Caregiver Pool svolge un ruolo essenziale nella nostra istituzione. Fornisce servizi clinici a professionisti esperti che possono intervenire in diverse unità per garantire la continuità della cura, compensare eventuali assenze e rafforzare i team durante i periodi di alta attività.\n\nComposto da collaboratori versatili, flessibili e autonomi, il Pool offre un ambiente di lavoro stimolante, ricco di incontri ed esperienze professionali.\n\nCome parte di una sostituzione del congedo di maternità, reclutiamo uno / uno\n\nInfermiera a Piscina - CDM 11 mesi al 90% (rif: 2072)\n\nLa tua missione\n\nIn una struttura all'avanguardia, si lavora in un ambiente multidisciplinare, in stretta collaborazione con infermieri, assistenti e medici.\n\nAssicurate la cura complessiva dei pazienti con varie condizioni nella fase acuta, garantendo la qualità, la sicurezza e la continuità della cura.\n\nCome tale, le vostre principali responsabilità sono:\n\n•\nPer ricevere, installare e accompagnare i pazienti con informazioni sul loro soggiorno e la loro cura.\n\n•\nRaccogliere, valutare e trasmettere dati medici e amministrativi, mantenendo il record del paziente computerizzato.\n\n•\nOrganizzare e pianificare l'assistenza tenendo conto delle priorità, dell'urgenza e del cambiamento delle condizioni cliniche.\n\n•\nEseguire l'assistenza medica di prescrizione in conformità con protocolli, procedure e requisiti istituzionali.\n\n•\nAssicurare una documentazione rigorosa e completa del record del paziente computerizzato.\n\n•\nMonitorare e valutare lo stato clinico dei pazienti in modo continuo, identificare rapidamente eventuali modifiche e regolare la gestione di conseguenza.\n\nIl tuo profilo\n\nSei un professionista impegnato che ha un ottimo senso clinico e apprezza la diversità delle situazioni di cura.\n\nHai le seguenti qualifiche e qualità:\n\n•\nDiploma di infermiera.\n\n•\nRiconoscimento della Croce Rossa svizzera obbligatorio per i titolari di un diploma straniero.\n\n•\nOttimo senso di contatto e servizio, con particolare attenzione alla soddisfazione del paziente e al benessere.\n\n•\nAutonomia, benevolenza e senso di responsabilità.\n\n•\nGrande versatilità e capacità di adattarsi rapidamente a diversi ambienti di lavoro e organizzazioni.\n\n•\nEccellente capacità organizzative, di anticipazione e di gestione prioritaria.\n\n•\nSpirito di squadra, atteggiamento positivo e capacità di costruire fiducia con i vostri colleghi e pazienti.\n\n•\nGrande flessibilità e disponibilità per soddisfare le esigenze di una posizione in piscina.\n\nCosa offriamo\n\n•\nUna posizione varia che offre una ricchezza di esperienze cliniche.\n\n•\nL'opportunità di sviluppare e migliorare la vostra versatilità in diverse unità.\n\n•\nUn ambiente di lavoro stimolante, a contatto con team multidisciplinari esperti.\n\n•\nUn'attività che promuove l'autonomia, l'adattabilità e lo sviluppo delle tue competenze professionali.\n\nCondizioni postali:\n\n•\nTipo di contratto: Contratto con una durata massima di 11 mesi (sostituzione del congedo di maternità).\n\n•\nTasso di partecipazione: 90%.\n\n•\nOrari: Variabili, a seconda delle esigenze dei servizi.\n\nVuoi incontrare la sfida e unirti al nostro Caregiver Pool?\n\nNon vediamo l'ora di scoprire la tua applicazione e di darti il benvenuto ai nostri team!",
-        "en": "The Caregiver Pool plays an essential role in our institution. It provides clinical services to experienced professionals who can intervene in different units to ensure continuity of care, to compensate for occasional absences and to strengthen teams during periods of high activity.\n\nComposed of versatile, flexible and autonomous collaborators, the Pool offers a stimulating working environment, rich in meetings and professional experiences.\n\nAs part of a maternity leave replacement, we recruit one/one\n\nNurse at Pool - CDM 11 months at 90% (ref: 2072)\n\nYour Mission\n\nIn a state-of-the-art facility, you work in a multidisciplinary environment, in close collaboration with nurses, caregivers and physicians.\n\nYou ensure the overall care of patients with various conditions in the acute phase, ensuring the quality, safety and continuity of care.\n\nAs such, your main responsibilities are:\n\n•\nTo receive, install and accompany patients with information on their stay and care.\n\n•\nCollect, evaluate and transmit medical and administrative data, while maintaining the computerized patient record.\n\n•\nOrganize and plan care taking into account priorities, urgency and changing clinical conditions.\n\n•\nPerform medical prescription care in accordance with protocols, procedures and institutional requirements.\n\n•\nEnsure rigorous and complete documentation of the computerized patient record.\n\n•\nMonitor and evaluate the clinical status of patients on an ongoing basis, quickly identify any changes and adjust management accordingly.\n\nYour profile\n\nYou are a committed professional who has excellent clinical sense and appreciates the diversity of care situations.\n\nYou have the following qualifications and qualities:\n\n•\nDiploma of Nurse.\n\n•\nRecognition of the Swiss Red Cross compulsory for holders of a foreign diploma.\n\n•\nExcellent sense of contact and service, with particular attention to patient satisfaction and well-being.\n\n•\nAutonomy, benevolence and sense of responsibility.\n\n•\nGreat versatility and ability to adapt quickly to different working environments and organizations.\n\n•\nExcellent organizational, anticipation and priority management capabilities.\n\n•\nTeam spirit, positive attitude and ability to build confidence with your colleagues and patients.\n\n•\nGreat flexibility and availability to meet the requirements of a position in the Pool.\n\nWhat we offer\n\n•\nA varied position offering a wealth of clinical experiences.\n\n•\nThe opportunity to develop and enhance your versatility within different units.\n\n•\nA stimulating working environment, in contact with experienced multidisciplinary teams.\n\n•\nAn activity that promotes the autonomy, adaptability and development of your professional skills.\n\nPost conditions:\n\n•\nType of contract: Contract with a maximum duration of 11 months (replacement of maternity leave).\n\n•\nParticipation rate: 90%.\n\n•\nSchedules : Variables, depending on the needs of the services.\n\nWant to meet the challenge and join our Caregiver Pool?\n\nWe look forward to discovering your application and welcoming you to our teams!",
-        "de": "Der Caregiver Pool spielt eine wesentliche Rolle in unserer Institution. Es bietet klinische Dienstleistungen für erfahrene Fachkräfte, die in verschiedenen Einheiten eingreifen können, um die Kontinuität der Versorgung zu gewährleisten, gelegentliche Abwesenheiten auszugleichen und Teams in Zeiten hoher Aktivität zu stärken.\n\nDer Pool besteht aus vielseitigen, flexiblen und autonomen Mitarbeitern und bietet ein anregendes Arbeitsumfeld, das reich an Meetings und beruflichen Erfahrungen ist.\n\nIm Rahmen eines Mutterschaftsurlaubs ersetzen wir einen / einen\n\nNurse at Pool - CDM 11 Monate bei 90% (ref: 2072)\n\nDeine Mission\n\nIn einer hochmodernen Einrichtung arbeiten Sie in einem multidisziplinären Umfeld in enger Zusammenarbeit mit Krankenschwestern, Betreuern und Ärzten.\n\nSie gewährleisten die Gesamtversorgung von Patienten mit verschiedenen Erkrankungen in der akuten Phase und gewährleisten die Qualität, Sicherheit und Kontinuität der Versorgung.\n\nAls solche sind Ihre Hauptaufgaben:\n\n•\nUm zu empfangen, zu installieren und zu begleiten Patienten mit Informationen über ihren Aufenthalt und Pflege.\n\n•\nSammeln, bewerten und übertragen Sie medizinische und administrative Daten, während Sie die computergestützte Patientenakte beibehalten.\n\n•\nOrganisieren und planen Sie die Pflege unter Berücksichtigung von Prioritäten, Dringlichkeit und sich ändernden klinischen Bedingungen.\n\n•\nFühren Sie eine ärztliche Verschreibung in Übereinstimmung mit Protokollen, Verfahren und institutionellen Anforderungen durch.\n\n•\nGewährleistung einer strengen und vollständigen Dokumentation der computergestützten Patientenakte.\n\n•\nÜberwachen und bewerten Sie den klinischen Status von Patienten auf einer laufenden Basis, schnell zu erkennen, Änderungen und passen Sie das management entsprechend.\n\nDein Profil\n\nSie sind ein engagierter Fachmann, der einen exzellenten klinischen Sinn hat und die Vielfalt der Pflegesituationen schätzt.\n\nSie haben folgende Qualifikationen und Qualitäten:\n\n•\nDiplom der Krankenschwester.\n\n•\nAnerkennung des Schweizerischen Roten Kreuzes für Inhaber eines ausländischen Diploms.\n\n•\nAusgezeichneter Kontakt und Service, mit besonderem Augenmerk auf Patientenzufriedenheit und Wohlbefinden.\n\n•\nAutonomie, Wohlwollen und Verantwortungsbewusstsein.\n\n•\nGroße Vielseitigkeit und Fähigkeit, sich schnell an unterschiedliche Arbeitsumgebungen und Organisationen anzupassen.\n\n•\nHervorragende organisatorische, Antizipations- und Prioritätsmanagementfähigkeiten.\n\n•\nTeamgeist, positive Einstellung und Fähigkeit, Vertrauen bei Ihren Kollegen und Patienten aufzubauen.\n\n•\nGroße Flexibilität und Verfügbarkeit, um die Anforderungen einer Position im Pool zu erfüllen.\n\nWas wir bieten\n\n•\nEine abwechslungsreiche Position bietet eine Fülle von klinischen Erfahrungen.\n\n•\nDie Möglichkeit, Ihre Vielseitigkeit in verschiedenen Einheiten zu entwickeln und zu verbessern.\n\n•\nEin anregendes Arbeitsumfeld, in Kontakt mit erfahrenen multidisziplinären Teams.\n\n•\nEine Aktivität, die die Autonomie, Anpassungsfähigkeit und Entwicklung Ihrer beruflichen Fähigkeiten fördert.\n\nPostbedingungen:\n\n•\nArt des Vertrags: Vertrag mit einer maximalen Laufzeit von 11 Monaten (Ersatz des Mutterschaftsurlaubs).\n\n•\nTeilnahmequote: 90 %.\n\n•\nZeitpläne: Variablen, abhängig von den Bedürfnissen der Dienste.\n\nMöchten Sie sich der Herausforderung stellen und unserem Caregiver Pool beitreten?\n\nWir freuen uns darauf, Ihre Bewerbung zu entdecken und Sie in unseren Teams willkommen zu heißen!",
-        "fr": "Le Pool de personnel soignant joue un rôle essentiel au sein de notre établissement. Il met à disposition des services cliniques des professionnels expérimentés, capables d'intervenir dans différentes unités afin d'assurer la continuité des soins, de pallier les absences ponctuelles et de renforcer les équipes lors de périodes de forte activité.\n\nComposé de collaborateurs polyvalents, flexibles et autonomes, le Pool offre un environnement de travail stimulant, riche en rencontres et en expériences professionnelles.\n\nDans le cadre d'un remplacement de congé maternité, nous recrutons un/une\n\nInfirmier (-ière) au Pool - CDM 11 mois à 90 % (ref : 2072)\n\nVotre mission\n\nAu sein d'un établissement de pointe, vous évoluez dans un environnement pluridisciplinaire, en collaboration étroite avec les infirmiers(-ères), aides-soignants(-es) et médecins.\n\nVous assurez la prise en charge globale de patients présentant des pathologies variées en phase aiguë, en veillant à la qualité, à la sécurité et à la continuité des soins.\n\nÀ ce titre, vos principales responsabilités sont les suivantes :\n\n•\n Accueillir, installer et accompagner les patients, en leur présentant les informations relatives à leur séjour et à leur prise en charge.\n\n•\n Recueillir, évaluer et transmettre les données médicales et administratives, tout en assurant la mise à jour du dossier patient informatisé.\n\n•\n Organiser et planifier les soins en tenant compte des priorités, du degré d'urgence et de l'évolution de l'état clinique des patients.\n\n•\n Réaliser les soins sur prescription médicale, dans le respect des protocoles, des procédures et des exigences institutionnelles.\n\n•\n Assurer une documentation rigoureuse et complète du dossier patient informatisé.\n\n•\n Surveiller et évaluer en continu l'état clinique des patients, identifier rapidement toute évolution et adapter la prise en charge en conséquence.\n\nVotre profil\n\nVous êtes un(-e) professionnel(-le) engagé(-e), doté(-e) d'un excellent sens clinique et appréciant la diversité des situations de soins.\n\nVous disposez des qualifications et qualités suivantes :\n\n•\n Diplôme d'infirmier(-ère).\n\n•\n Reconnaissance de la Croix-Rouge suisse obligatoire pour les titulaires d'un diplôme étranger.\n\n•\n Excellent sens du contact et du service, avec une attention particulière portée à la satisfaction et au bien-être des patients.\n\n•\n Autonomie, bienveillance et sens des responsabilités.\n\n•\n Grande polyvalence et capacité à vous adapter rapidement à différents environnements et organisations de travail.\n\n•\n Excellentes capacités d'organisation, d'anticipation et de gestion des priorités.\n\n•\n Esprit d'équipe, attitude positive et aptitude à instaurer un climat de confiance avec vos collègues et les patients.\n\n•\n Grande flexibilité et disponibilité face aux exigences d'un poste au Pool.\n\nCe que nous vous proposons\n\n•\n Un poste varié offrant une réelle richesse d'expériences cliniques.\n\n•\n L'opportunité de développer et de valoriser votre polyvalence au sein de différentes unités.\n\n•\n Un environnement de travail stimulant, au contact d'équipes pluridisciplinaires expérimentées.\n\n•\n Une activité qui favorise l'autonomie, l'adaptabilité et le développement de vos compétences professionnelles.\n\nConditions du poste :\n\n•\n Type de contrat : Contrat à durée maximale de 11 mois (remplacement de congé maternité).\n\n•\n Taux d'activité : 90 %.\n\n•\n Horaires : Variables, selon les besoins des services.\n\nEnvie de relever le défi et de rejoindre notre Pool de personnel soignant ?\n\nNous nous réjouissons de découvrir votre candidature et de vous accueillir au sein de nos équipes !"
-      },
-      "location": "Meyrin",
-      "canton": "GE",
-      "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-11-mois-a-90-1572",
-      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:37:56.761Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1217",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-11-mois-a-90-1572",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "infirmier-iere-au-pool-cdm-11-mois-a-90-hopital-la-tour-meyrin"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-iere-au-pool-cdm-11-mois-a-90-hopital-la-tour-meyrin"
-        ],
-        "en": [
-          "infirmier-iere-au-pool-cdm-11-mois-a-90-hopital-la-tour-meyrin"
-        ],
-        "de": [
-          "infirmier-iere-au-pool-cdm-11-mois-a-90-hopital-la-tour-meyrin"
-        ]
-      },
-      "firstSeenAt": "2026-11-06T21:49:52.392Z",
-      "salaryMin": 77900,
-      "salaryMax": 108500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77900,
-          "maxValue": 108500,
-          "unitText": "YEAR"
-        }
-      },
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Hôpital de La Tour",
-        "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
-        "postalCode": "1217",
-        "addressLocality": "Meyrin",
-        "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z",
-        "streetAddressSource": "zefix-registry"
-      },
-      "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T09:37:56.761Z",
+      "validThrough": "2027-02-02T21:31:38.327Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1057,7 +868,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-80-fixe-et-20-flex-cdi-1575",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:37:56.761Z",
+      "crawledAt": "2026-11-28T21:31:38.325Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1117,7 +928,196 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T09:37:56.761Z",
+      "validThrough": "2027-02-05T21:31:38.325Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "hopital-la-tour-31768c572652",
+      "slug": "aiuto-ospedaliero-giornaliero-era-presso-la-piscina-70-fisso-20-flessore-cdi-hopital-de-la-tour-meyrin",
+      "slugByLocale": {
+        "it": "aiuto-ospedaliero-giornaliero-era-presso-la-piscina-70-fisso-20-flessore-cdi-hopital-de-la-tour-meyrin",
+        "en": "day-hospital-aid-era-at-the-pool-70-fixed-20-flex-cdi-hopital-de-la-tour-meyrin",
+        "de": "tageskrankenhaushilfe-ara-am-pool-70-fixiert-20-flex-cdi-hopital-de-la-tour-meyrin",
+        "fr": "aide-hospitalier-ere-de-jour-au-pool-70-fixe-20-flex-cdi-hopital-la-tour-meyrin"
+      },
+      "company": "Hôpital de La Tour",
+      "companyKey": "hopital-la-tour",
+      "companyDomain": "la-tour.ch",
+      "title": "Aide hospitalier (-ère) de jour au Pool 70% fixe 20% flex CDI",
+      "titleByLocale": {
+        "it": "Aiuto ospedaliero giornaliero (era) presso la piscina 70% fisso 20% flessore CDI",
+        "en": "Day hospital aid (-era) at the Pool 70% fixed 20% flex CDI",
+        "de": "Tageskrankenhaushilfe (-Ära) am Pool 70% fixiert 20% flex CDI",
+        "fr": "Aide hospitalier (-ère) de jour au Pool 70% fixe 20% flex CDI"
+      },
+      "description": "Le Pool de personnel soignant met à disposition des services cliniques des ressources ponctuelles de collaborateurs expérimentés afin de pallier les absences ponctuelles, mais aussi de renforcer les équipes lors de pics de travail. Il est constitué des collaborateurs flexibles et adaptables à différentes unités.\n\nAfin de compléter notre service nous recrutons un(-e) :\n\nAide hospitalier (-ère) de jour au Pool 70% fixe 20% flex CDI (ref : 2074)\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\n\nVous devrez assurer l’accueil des patients atteints de pathologies polyvalentes, dans le cadre d’une prise en charge globale en phase aigüe.\n\nVotre mission :\n\nA ce titre vous êtes en charge de ;\n\n• Accueillir le patient et sa famille en les rendant acteurs de la prise en charge\n\n• Recueillir les données administratives\n\n• Prendre en charge l’enfant dans sa globalité en collaboration avec l’équipe pluridisciplinaire et répondre à ses besoins fondamentaux (hygiène, douleur, alimentation, confort, ...)\n\n• Assurer l'approvisionnement en matériel, vérifier leur fonctionnement et assurer la prise en charge de la maintenance, appliquer les procédures de nettoyage et de désinfection\n\n• Participer au bon fonctionnement du service, faire des transmissions sur le dossier de soins informatisé\n\n• Mettre à jour ses pratiques professionnelles en fonctions des procédures de soins du service ou institutionnelles\n\nNous recherchons un profil répondant aux critères suivants :\n\n• 2 années d'expérience minimum auprès d'une structure hospitalière\n\n• Diplôme d’Aide-Soignant\n\n• Autonome, bienveillance, polyvalence, proactivité, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\nNous vous proposons :\n\nType de contrat : Contrat à durée indeterminée\n Pourcentage : 70% fixe et 20% flex\n Date d'entrée en fonction: Dès que possible\n Type d'horaires : Irréguliers",
+      "descriptionByLocale": {
+        "it": "La Pool of Caregivers fornisce servizi clinici con risorse ad hoc di collaboratori esperti al fine di compensare eventuali assenze, ma anche per rafforzare i team durante il lavoro di punta. Si compone di collaboratori flessibili adattabili a diverse unità.\n\nPer completare il nostro servizio ne stiamo reclutando uno:\n\nAiuto ospedaliero giornaliero (era) presso la piscina 70% fisso 20% flessore CDI (ref: 2074)\n\nIn una struttura all'avanguardia si ha una posizione varia su un team multidisciplinare di infermieri, operatori sanitari, medici.\n\nAvrete bisogno di ospitare pazienti con patologie multiple come parte di una fase acuta completa di cura.\n\nLa vostra missione:\n\nCome tale siete responsabili di;\n\n• Accogliere il paziente e la sua famiglia facendoli coinvolgere nella cura\n\n• Raccogliere dati amministrativi\n\n• Cura del bambino nel suo complesso in collaborazione con il team multidisciplinare e soddisfare le sue esigenze di base (igiene, dolore, cibo, comfort, ...)\n\n• Assicurare la fornitura di attrezzature, verificare il loro funzionamento e garantire la gestione della manutenzione, applicare le procedure di pulizia e disinfezione\n\n• Partecipare al corretto funzionamento del servizio, effettuare trasmissioni sul file di cura computerizzato\n\n• Aggiornamento delle pratiche professionali in relazione alle procedure di assistenza o di assistenza istituzionale\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Esperienza minima di 2 anni con struttura ospedaliera\n\n• Diploma di Caregiver\n\n• L'autostima, la benevolenza, la versatilità, la proattività, l'adattabilità, l'organizzazione e il senso di priorità sono qualità essenziali\n\nVi offriamo:\n\nTipo di contratto: Contratto con durata indefinita\nPercentuale: 70% fisso e 20% flex\nData effettiva: appena possibile\nTipo di ora : irregolare",
+        "en": "The Pool of Caregivers provides clinical services with ad hoc resources from experienced collaborators in order to compensate for occasional absences, but also to strengthen teams during peak work. It is made up of flexible collaborators adaptable to different units.\n\nIn order to complete our service we are recruiting one:\n\nDay hospital aid (-era) at the Pool 70% fixed 20% flex CDI (ref: 2074)\n\nIn a state-of-the-art facility you hold a varied position on a multidisciplinary team of nurses, health care workers, doctors.\n\nYou will need to accommodate patients with multiple pathologies as part of a comprehensive acute phase of care.\n\nYour mission:\n\nAs such you are in charge of;\n\n• Welcoming the patient and his/her family by making them involved in care\n\n• Collect administrative data\n\n• Care for the child as a whole in collaboration with the multidisciplinary team and meet its basic needs (hygiene, pain, food, comfort, ...)\n\n• Ensure the supply of equipment, verify their operation and ensure the management of maintenance, apply cleaning and disinfection procedures\n\n• Participate in the proper functioning of the service, make transmissions on the computerized care file\n\n• Updating of professional practices in relation to service or institutional care procedures\n\nWe are looking for a profile that meets the following criteria:\n\n• 2 years minimum experience with hospital structure\n\n• Diploma of Caregiver\n\n• Self-reliance, benevolence, versatility, proactivity, adaptability, organization and sense of priority are essential qualities\n\nWe offer you:\n\nType of contract: Contract with indefinite duration\nPercentage: 70% fixed and 20% flex\nEffective date: As soon as possible\nType of hours : Irregular",
+        "de": "Der Pool of Caregivers stellt klinischen Dienstleistungen Ad-hoc-Ressourcen von erfahrenen Mitarbeitern zur Verfügung, um gelegentliche Abwesenheiten auszugleichen, aber auch Teams während der Spitzenarbeit zu stärken. Es besteht aus flexiblen Mitarbeitern, die sich an verschiedene Einheiten anpassen lassen.\n\nUm unseren Service zu vervollständigen, rekrutieren wir einen:\n\nTageskrankenhaushilfe (-Ära) am Pool 70% festgelegt 20% flex CDI (ref: 2074)\n\nIn einer hochmodernen Einrichtung haben Sie eine abwechslungsreiche Position in einem multidisziplinären Team von Krankenschwestern, Gesundheitspersonal, Ärzten.\n\nSie müssen Patienten mit mehreren Pathologien als Teil einer umfassenden akuten Phase der Versorgung aufnehmen.\n\nIhre Mission:\n\nAls solche sind Sie verantwortlich für;\n\n• Begrüßung des Patienten und seiner/ihrer Familie durch Einbeziehung in die Pflege\n\n• Erhebung administrativer Daten\n\n• Betreuung des Kindes als Ganzes in Zusammenarbeit mit dem multidisziplinären Team und Erfüllung seiner Grundbedürfnisse (Hygiene, Schmerzen, Nahrung, Komfort, ...)\n\n• Sicherstellung der Versorgung mit Ausrüstung, Überprüfung ihres Betriebs und Gewährleistung der Wartungsverwaltung, Anwendung von Reinigungs- und Desinfektionsverfahren\n\n• Beteiligen Sie sich am ordnungsgemäßen Funktionieren des Dienstes, machen Sie Übertragungen auf die computergestützte Pflegedatei\n\n• Aktualisierung der beruflichen Praxis in Bezug auf Dienstleistungen oder institutionelle Betreuungsverfahren\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• 2 Jahre Mindesterfahrung mit Krankenhausstruktur\n\n• Diplom der Pflegekraft\n\n• Eigenständigkeit, Wohlwollen, Vielseitigkeit, Proaktivität, Anpassungsfähigkeit, Organisation und Prioritätsgefühl sind wesentliche Eigenschaften\n\nWir bieten Ihnen:\n\nArt des Vertrags: unbefristeter Vertrag\nProzentsatz: 70% fix und 20% flex\nDatum des Inkrafttretens: So bald wie möglich\nArt der Stunden: unregelmäßig",
+        "fr": "Le Pool de personnel soignant met à disposition des services cliniques des ressources ponctuelles de collaborateurs expérimentés afin de pallier les absences ponctuelles, mais aussi de renforcer les équipes lors de pics de travail. Il est constitué des collaborateurs flexibles et adaptables à différentes unités.\n\nAfin de compléter notre service nous recrutons un(-e) :\n\nAide hospitalier (-ère) de jour au Pool 70% fixe 20% flex CDI (ref : 2074)\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\n\nVous devrez assurer l’accueil des patients atteints de pathologies polyvalentes, dans le cadre d’une prise en charge globale en phase aigüe.\n\nVotre mission :\n\nA ce titre vous êtes en charge de ;\n\n• Accueillir le patient et sa famille en les rendant acteurs de la prise en charge\n\n• Recueillir les données administratives\n\n• Prendre en charge l’enfant dans sa globalité en collaboration avec l’équipe pluridisciplinaire et répondre à ses besoins fondamentaux (hygiène, douleur, alimentation, confort, ...)\n\n• Assurer l'approvisionnement en matériel, vérifier leur fonctionnement et assurer la prise en charge de la maintenance, appliquer les procédures de nettoyage et de désinfection\n\n• Participer au bon fonctionnement du service, faire des transmissions sur le dossier de soins informatisé\n\n• Mettre à jour ses pratiques professionnelles en fonctions des procédures de soins du service ou institutionnelles\n\nNous recherchons un profil répondant aux critères suivants :\n\n• 2 années d'expérience minimum auprès d'une structure hospitalière\n\n• Diplôme d’Aide-Soignant\n\n• Autonome, bienveillance, polyvalence, proactivité, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\nNous vous proposons :\n\nType de contrat : Contrat à durée indeterminée\nPourcentage : 70% fixe et 20% flex\nDate d'entrée en fonction: Dès que possible\nType d'horaires : Irréguliers"
+      },
+      "needsRetranslation": false,
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-ere-de-jour-au-pool-70-fixe-20-flex-cdi-1574",
+      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-28T21:31:38.325Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1217",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-ere-de-jour-au-pool-70-fixe-20-flex-cdi-1574",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "aide-hospitalier-ere-de-jour-au-pool-70-fixe-20-flex-cdi-hopital-la-tour-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-hospitalier-ere-de-jour-au-pool-70-fixe-20-flex-cdi-hopital-la-tour-meyrin"
+        ],
+        "en": [
+          "aide-hospitalier-ere-de-jour-au-pool-70-fixe-20-flex-cdi-hopital-la-tour-meyrin"
+        ],
+        "de": [
+          "aide-hospitalier-ere-de-jour-au-pool-70-fixe-20-flex-cdi-hopital-la-tour-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-11-06T21:49:52.394Z",
+      "salaryMin": 60500,
+      "salaryMax": 84400,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 84400,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Hôpital de La Tour",
+        "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
+        "postalCode": "1217",
+        "addressLocality": "Meyrin",
+        "addressRegion": "GE",
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
+      },
+      "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-05T21:31:38.325Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "hopital-la-tour-e0cba468094a",
+      "slug": "infermiera-a-piscina-cdm-11-mesi-al-90-hopital-de-la-tour-meyrin",
+      "slugByLocale": {
+        "it": "infermiera-a-piscina-cdm-11-mesi-al-90-hopital-de-la-tour-meyrin",
+        "en": "nurse-at-pool-cdm-11-months-at-90-hopital-de-la-tour-meyrin",
+        "de": "krankenschwester-im-pool-cdm-11-monate-bei-90-hopital-de-la-tour-meyrin",
+        "fr": "infirmier-iere-au-pool-cdm-11-mois-a-90-hopital-la-tour-meyrin"
+      },
+      "company": "Hôpital de La Tour",
+      "companyKey": "hopital-la-tour",
+      "companyDomain": "la-tour.ch",
+      "title": "Infirmier (-ière) au Pool - CDM 11 mois à 90 %",
+      "titleByLocale": {
+        "it": "Infermiera a Piscina - CDM 11 mesi al 90%",
+        "en": "Nurse at Pool - CDM 11 months at 90%",
+        "de": "Krankenschwester im Pool - CDM 11 Monate bei 90%",
+        "fr": "Infirmier (-ière) au Pool - CDM 11 mois à 90 %"
+      },
+      "description": "Le Pool de personnel soignant joue un rôle essentiel au sein de notre établissement. Il met à disposition des services cliniques des professionnels expérimentés, capables d'intervenir dans différentes unités afin d'assurer la continuité des soins, de pallier les absences ponctuelles et de renforcer les équipes lors de périodes de forte activité.\n\nComposé de collaborateurs polyvalents, flexibles et autonomes, le Pool offre un environnement de travail stimulant, riche en rencontres et en expériences professionnelles.\n\nDans le cadre d'un remplacement de congé maternité, nous recrutons un/une\n\nInfirmier (-ière) au Pool - CDM 11 mois à 90 % (ref : 2072)\n\nVotre mission\n\nAu sein d'un établissement de pointe, vous évoluez dans un environnement pluridisciplinaire, en collaboration étroite avec les infirmiers(-ères), aides-soignants(-es) et médecins.\n\nVous assurez la prise en charge globale de patients présentant des pathologies variées en phase aiguë, en veillant à la qualité, à la sécurité et à la continuité des soins.\n\nÀ ce titre, vos principales responsabilités sont les suivantes :\n\n•\n Accueillir, installer et accompagner les patients, en leur présentant les informations relatives à leur séjour et à leur prise en charge.\n\n•\n Recueillir, évaluer et transmettre les données médicales et administratives, tout en assurant la mise à jour du dossier patient informatisé.\n\n•\n Organiser et planifier les soins en tenant compte des priorités, du degré d'urgence et de l'évolution de l'état clinique des patients.\n\n•\n Réaliser les soins sur prescription médicale, dans le respect des protocoles, des procédures et des exigences institutionnelles.\n\n•\n Assurer une documentation rigoureuse et complète du dossier patient informatisé.\n\n•\n Surveiller et évaluer en continu l'état clinique des patients, identifier rapidement toute évolution et adapter la prise en charge en conséquence.\n\nVotre profil\n\nVous êtes un(-e) professionnel(-le) engagé(-e), doté(-e) d'un excellent sens clinique et appréciant la diversité des situations de soins.\n\nVous disposez des qualifications et qualités suivantes :\n\n•\n Diplôme d'infirmier(-ère).\n\n•\n Reconnaissance de la Croix-Rouge suisse obligatoire pour les titulaires d'un diplôme étranger.\n\n•\n Excellent sens du contact et du service, avec une attention particulière portée à la satisfaction et au bien-être des patients.\n\n•\n Autonomie, bienveillance et sens des responsabilités.\n\n•\n Grande polyvalence et capacité à vous adapter rapidement à différents environnements et organisations de travail.\n\n•\n Excellentes capacités d'organisation, d'anticipation et de gestion des priorités.\n\n•\n Esprit d'équipe, attitude positive et aptitude à instaurer un climat de confiance avec vos collègues et les patients.\n\n•\n Grande flexibilité et disponibilité face aux exigences d'un poste au Pool.\n\nCe que nous vous proposons\n\n•\n Un poste varié offrant une réelle richesse d'expériences cliniques.\n\n•\n L'opportunité de développer et de valoriser votre polyvalence au sein de différentes unités.\n\n•\n Un environnement de travail stimulant, au contact d'équipes pluridisciplinaires expérimentées.\n\n•\n Une activité qui favorise l'autonomie, l'adaptabilité et le développement de vos compétences professionnelles.\n\nConditions du poste :\n\n•\n Type de contrat : Contrat à durée maximale de 11 mois (remplacement de congé maternité).\n\n•\n Taux d'activité : 90 %.\n\n•\n Horaires : Variables, selon les besoins des services.\n\nEnvie de relever le défi et de rejoindre notre Pool de personnel soignant ?\n\nNous nous réjouissons de découvrir votre candidature et de vous accueillir au sein de nos équipes !",
+      "descriptionByLocale": {
+        "it": "Il Caregiver Pool svolge un ruolo essenziale nella nostra istituzione. Fornisce servizi clinici a professionisti esperti che possono intervenire in diverse unità per garantire la continuità della cura, compensare eventuali assenze e rafforzare i team durante i periodi di alta attività.\n\nComposto da collaboratori versatili, flessibili e autonomi, il Pool offre un ambiente di lavoro stimolante, ricco di incontri ed esperienze professionali.\n\nCome parte di una sostituzione del congedo di maternità, reclutiamo uno / uno\n\nInfermiera a Piscina - CDM 11 mesi al 90% (rif: 2072)\n\nLa tua missione\n\nIn una struttura all'avanguardia, si lavora in un ambiente multidisciplinare, in stretta collaborazione con infermieri, assistenti e medici.\n\nAssicurate la cura complessiva dei pazienti con varie condizioni nella fase acuta, garantendo la qualità, la sicurezza e la continuità della cura.\n\nCome tale, le vostre principali responsabilità sono:\n\n•\nPer ricevere, installare e accompagnare i pazienti con informazioni sul loro soggiorno e la loro cura.\n\n•\nRaccogliere, valutare e trasmettere dati medici e amministrativi, mantenendo il record del paziente computerizzato.\n\n•\nOrganizzare e pianificare l'assistenza tenendo conto delle priorità, dell'urgenza e del cambiamento delle condizioni cliniche.\n\n•\nEseguire l'assistenza medica di prescrizione in conformità con protocolli, procedure e requisiti istituzionali.\n\n•\nAssicurare una documentazione rigorosa e completa del record del paziente computerizzato.\n\n•\nMonitorare e valutare lo stato clinico dei pazienti in modo continuo, identificare rapidamente eventuali modifiche e regolare la gestione di conseguenza.\n\nIl tuo profilo\n\nSei un professionista impegnato che ha un ottimo senso clinico e apprezza la diversità delle situazioni di cura.\n\nHai le seguenti qualifiche e qualità:\n\n•\nDiploma di infermiera.\n\n•\nRiconoscimento della Croce Rossa svizzera obbligatorio per i titolari di un diploma straniero.\n\n•\nOttimo senso di contatto e servizio, con particolare attenzione alla soddisfazione del paziente e al benessere.\n\n•\nAutonomia, benevolenza e senso di responsabilità.\n\n•\nGrande versatilità e capacità di adattarsi rapidamente a diversi ambienti di lavoro e organizzazioni.\n\n•\nEccellente capacità organizzative, di anticipazione e di gestione prioritaria.\n\n•\nSpirito di squadra, atteggiamento positivo e capacità di costruire fiducia con i vostri colleghi e pazienti.\n\n•\nGrande flessibilità e disponibilità per soddisfare le esigenze di una posizione in piscina.\n\nCosa offriamo\n\n•\nUna posizione varia che offre una ricchezza di esperienze cliniche.\n\n•\nL'opportunità di sviluppare e migliorare la vostra versatilità in diverse unità.\n\n•\nUn ambiente di lavoro stimolante, a contatto con team multidisciplinari esperti.\n\n•\nUn'attività che promuove l'autonomia, l'adattabilità e lo sviluppo delle tue competenze professionali.\n\nCondizioni postali:\n\n•\nTipo di contratto: Contratto con una durata massima di 11 mesi (sostituzione del congedo di maternità).\n\n•\nTasso di partecipazione: 90%.\n\n•\nOrari: Variabili, a seconda delle esigenze dei servizi.\n\nVuoi incontrare la sfida e unirti al nostro Caregiver Pool?\n\nNon vediamo l'ora di scoprire la tua applicazione e di darti il benvenuto ai nostri team!",
+        "en": "The Caregiver Pool plays an essential role in our institution. It provides clinical services to experienced professionals who can intervene in different units to ensure continuity of care, to compensate for occasional absences and to strengthen teams during periods of high activity.\n\nComposed of versatile, flexible and autonomous collaborators, the Pool offers a stimulating working environment, rich in meetings and professional experiences.\n\nAs part of a maternity leave replacement, we recruit one/one\n\nNurse at Pool - CDM 11 months at 90% (ref: 2072)\n\nYour Mission\n\nIn a state-of-the-art facility, you work in a multidisciplinary environment, in close collaboration with nurses, caregivers and physicians.\n\nYou ensure the overall care of patients with various conditions in the acute phase, ensuring the quality, safety and continuity of care.\n\nAs such, your main responsibilities are:\n\n•\nTo receive, install and accompany patients with information on their stay and care.\n\n•\nCollect, evaluate and transmit medical and administrative data, while maintaining the computerized patient record.\n\n•\nOrganize and plan care taking into account priorities, urgency and changing clinical conditions.\n\n•\nPerform medical prescription care in accordance with protocols, procedures and institutional requirements.\n\n•\nEnsure rigorous and complete documentation of the computerized patient record.\n\n•\nMonitor and evaluate the clinical status of patients on an ongoing basis, quickly identify any changes and adjust management accordingly.\n\nYour profile\n\nYou are a committed professional who has excellent clinical sense and appreciates the diversity of care situations.\n\nYou have the following qualifications and qualities:\n\n•\nDiploma of Nurse.\n\n•\nRecognition of the Swiss Red Cross compulsory for holders of a foreign diploma.\n\n•\nExcellent sense of contact and service, with particular attention to patient satisfaction and well-being.\n\n•\nAutonomy, benevolence and sense of responsibility.\n\n•\nGreat versatility and ability to adapt quickly to different working environments and organizations.\n\n•\nExcellent organizational, anticipation and priority management capabilities.\n\n•\nTeam spirit, positive attitude and ability to build confidence with your colleagues and patients.\n\n•\nGreat flexibility and availability to meet the requirements of a position in the Pool.\n\nWhat we offer\n\n•\nA varied position offering a wealth of clinical experiences.\n\n•\nThe opportunity to develop and enhance your versatility within different units.\n\n•\nA stimulating working environment, in contact with experienced multidisciplinary teams.\n\n•\nAn activity that promotes the autonomy, adaptability and development of your professional skills.\n\nPost conditions:\n\n•\nType of contract: Contract with a maximum duration of 11 months (replacement of maternity leave).\n\n•\nParticipation rate: 90%.\n\n•\nSchedules : Variables, depending on the needs of the services.\n\nWant to meet the challenge and join our Caregiver Pool?\n\nWe look forward to discovering your application and welcoming you to our teams!",
+        "de": "Der Caregiver Pool spielt eine wesentliche Rolle in unserer Institution. Es bietet klinische Dienstleistungen für erfahrene Fachkräfte, die in verschiedenen Einheiten eingreifen können, um die Kontinuität der Versorgung zu gewährleisten, gelegentliche Abwesenheiten auszugleichen und Teams in Zeiten hoher Aktivität zu stärken.\n\nDer Pool besteht aus vielseitigen, flexiblen und autonomen Mitarbeitern und bietet ein anregendes Arbeitsumfeld, das reich an Meetings und beruflichen Erfahrungen ist.\n\nIm Rahmen eines Mutterschaftsurlaubs ersetzen wir einen / einen\n\nNurse at Pool - CDM 11 Monate bei 90% (ref: 2072)\n\nDeine Mission\n\nIn einer hochmodernen Einrichtung arbeiten Sie in einem multidisziplinären Umfeld in enger Zusammenarbeit mit Krankenschwestern, Betreuern und Ärzten.\n\nSie gewährleisten die Gesamtversorgung von Patienten mit verschiedenen Erkrankungen in der akuten Phase und gewährleisten die Qualität, Sicherheit und Kontinuität der Versorgung.\n\nAls solche sind Ihre Hauptaufgaben:\n\n•\nUm zu empfangen, zu installieren und zu begleiten Patienten mit Informationen über ihren Aufenthalt und Pflege.\n\n•\nSammeln, bewerten und übertragen Sie medizinische und administrative Daten, während Sie die computergestützte Patientenakte beibehalten.\n\n•\nOrganisieren und planen Sie die Pflege unter Berücksichtigung von Prioritäten, Dringlichkeit und sich ändernden klinischen Bedingungen.\n\n•\nFühren Sie eine ärztliche Verschreibung in Übereinstimmung mit Protokollen, Verfahren und institutionellen Anforderungen durch.\n\n•\nGewährleistung einer strengen und vollständigen Dokumentation der computergestützten Patientenakte.\n\n•\nÜberwachen und bewerten Sie den klinischen Status von Patienten auf einer laufenden Basis, schnell zu erkennen, Änderungen und passen Sie das management entsprechend.\n\nDein Profil\n\nSie sind ein engagierter Fachmann, der einen exzellenten klinischen Sinn hat und die Vielfalt der Pflegesituationen schätzt.\n\nSie haben folgende Qualifikationen und Qualitäten:\n\n•\nDiplom der Krankenschwester.\n\n•\nAnerkennung des Schweizerischen Roten Kreuzes für Inhaber eines ausländischen Diploms.\n\n•\nAusgezeichneter Kontakt und Service, mit besonderem Augenmerk auf Patientenzufriedenheit und Wohlbefinden.\n\n•\nAutonomie, Wohlwollen und Verantwortungsbewusstsein.\n\n•\nGroße Vielseitigkeit und Fähigkeit, sich schnell an unterschiedliche Arbeitsumgebungen und Organisationen anzupassen.\n\n•\nHervorragende organisatorische, Antizipations- und Prioritätsmanagementfähigkeiten.\n\n•\nTeamgeist, positive Einstellung und Fähigkeit, Vertrauen bei Ihren Kollegen und Patienten aufzubauen.\n\n•\nGroße Flexibilität und Verfügbarkeit, um die Anforderungen einer Position im Pool zu erfüllen.\n\nWas wir bieten\n\n•\nEine abwechslungsreiche Position bietet eine Fülle von klinischen Erfahrungen.\n\n•\nDie Möglichkeit, Ihre Vielseitigkeit in verschiedenen Einheiten zu entwickeln und zu verbessern.\n\n•\nEin anregendes Arbeitsumfeld, in Kontakt mit erfahrenen multidisziplinären Teams.\n\n•\nEine Aktivität, die die Autonomie, Anpassungsfähigkeit und Entwicklung Ihrer beruflichen Fähigkeiten fördert.\n\nPostbedingungen:\n\n•\nArt des Vertrags: Vertrag mit einer maximalen Laufzeit von 11 Monaten (Ersatz des Mutterschaftsurlaubs).\n\n•\nTeilnahmequote: 90 %.\n\n•\nZeitpläne: Variablen, abhängig von den Bedürfnissen der Dienste.\n\nMöchten Sie sich der Herausforderung stellen und unserem Caregiver Pool beitreten?\n\nWir freuen uns darauf, Ihre Bewerbung zu entdecken und Sie in unseren Teams willkommen zu heißen!",
+        "fr": "Le Pool de personnel soignant joue un rôle essentiel au sein de notre établissement. Il met à disposition des services cliniques des professionnels expérimentés, capables d'intervenir dans différentes unités afin d'assurer la continuité des soins, de pallier les absences ponctuelles et de renforcer les équipes lors de périodes de forte activité.\n\nComposé de collaborateurs polyvalents, flexibles et autonomes, le Pool offre un environnement de travail stimulant, riche en rencontres et en expériences professionnelles.\n\nDans le cadre d'un remplacement de congé maternité, nous recrutons un/une\n\nInfirmier (-ière) au Pool - CDM 11 mois à 90 % (ref : 2072)\n\nVotre mission\n\nAu sein d'un établissement de pointe, vous évoluez dans un environnement pluridisciplinaire, en collaboration étroite avec les infirmiers(-ères), aides-soignants(-es) et médecins.\n\nVous assurez la prise en charge globale de patients présentant des pathologies variées en phase aiguë, en veillant à la qualité, à la sécurité et à la continuité des soins.\n\nÀ ce titre, vos principales responsabilités sont les suivantes :\n\n•\n Accueillir, installer et accompagner les patients, en leur présentant les informations relatives à leur séjour et à leur prise en charge.\n\n•\n Recueillir, évaluer et transmettre les données médicales et administratives, tout en assurant la mise à jour du dossier patient informatisé.\n\n•\n Organiser et planifier les soins en tenant compte des priorités, du degré d'urgence et de l'évolution de l'état clinique des patients.\n\n•\n Réaliser les soins sur prescription médicale, dans le respect des protocoles, des procédures et des exigences institutionnelles.\n\n•\n Assurer une documentation rigoureuse et complète du dossier patient informatisé.\n\n•\n Surveiller et évaluer en continu l'état clinique des patients, identifier rapidement toute évolution et adapter la prise en charge en conséquence.\n\nVotre profil\n\nVous êtes un(-e) professionnel(-le) engagé(-e), doté(-e) d'un excellent sens clinique et appréciant la diversité des situations de soins.\n\nVous disposez des qualifications et qualités suivantes :\n\n•\n Diplôme d'infirmier(-ère).\n\n•\n Reconnaissance de la Croix-Rouge suisse obligatoire pour les titulaires d'un diplôme étranger.\n\n•\n Excellent sens du contact et du service, avec une attention particulière portée à la satisfaction et au bien-être des patients.\n\n•\n Autonomie, bienveillance et sens des responsabilités.\n\n•\n Grande polyvalence et capacité à vous adapter rapidement à différents environnements et organisations de travail.\n\n•\n Excellentes capacités d'organisation, d'anticipation et de gestion des priorités.\n\n•\n Esprit d'équipe, attitude positive et aptitude à instaurer un climat de confiance avec vos collègues et les patients.\n\n•\n Grande flexibilité et disponibilité face aux exigences d'un poste au Pool.\n\nCe que nous vous proposons\n\n•\n Un poste varié offrant une réelle richesse d'expériences cliniques.\n\n•\n L'opportunité de développer et de valoriser votre polyvalence au sein de différentes unités.\n\n•\n Un environnement de travail stimulant, au contact d'équipes pluridisciplinaires expérimentées.\n\n•\n Une activité qui favorise l'autonomie, l'adaptabilité et le développement de vos compétences professionnelles.\n\nConditions du poste :\n\n•\n Type de contrat : Contrat à durée maximale de 11 mois (remplacement de congé maternité).\n\n•\n Taux d'activité : 90 %.\n\n•\n Horaires : Variables, selon les besoins des services.\n\nEnvie de relever le défi et de rejoindre notre Pool de personnel soignant ?\n\nNous nous réjouissons de découvrir votre candidature et de vous accueillir au sein de nos équipes !"
+      },
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-11-mois-a-90-1572",
+      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-28T21:31:38.324Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1217",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-11-mois-a-90-1572",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "infirmier-iere-au-pool-cdm-11-mois-a-90-hopital-la-tour-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-iere-au-pool-cdm-11-mois-a-90-hopital-la-tour-meyrin"
+        ],
+        "en": [
+          "infirmier-iere-au-pool-cdm-11-mois-a-90-hopital-la-tour-meyrin"
+        ],
+        "de": [
+          "infirmier-iere-au-pool-cdm-11-mois-a-90-hopital-la-tour-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-11-06T21:49:52.392Z",
+      "salaryMin": 77900,
+      "salaryMax": 108500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77900,
+          "maxValue": 108500,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Hôpital de La Tour",
+        "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
+        "postalCode": "1217",
+        "addressLocality": "Meyrin",
+        "addressRegion": "GE",
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
+      },
+      "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-05T21:31:38.324Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1152,7 +1152,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-iere-de-jour-contrat-journalier-1576",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:37:56.759Z",
+      "crawledAt": "2026-11-28T21:31:38.322Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1212,7 +1212,7 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T09:37:56.759Z",
+      "validThrough": "2027-02-05T21:31:38.322Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1246,7 +1246,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-3-mois-a-90-1573",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:37:56.758Z",
+      "crawledAt": "2026-11-28T21:31:38.321Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1306,7 +1306,7 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T09:37:56.758Z",
+      "validThrough": "2027-02-05T21:31:38.321Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1341,7 +1341,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/developpeureuse-senior-ia-1571",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:37:56.757Z",
+      "crawledAt": "2026-11-28T21:31:38.320Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1401,7 +1401,7 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T09:37:56.757Z",
+      "validThrough": "2027-02-05T21:31:38.320Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1436,7 +1436,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/aide-soignant-e-en-soins-intensifs-cdmax-9-mois-1578",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:37:56.756Z",
+      "crawledAt": "2026-11-28T21:31:38.319Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1496,7 +1496,7 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-12T09:37:56.756Z",
+      "validThrough": "2027-02-12T21:31:38.319Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1530,7 +1530,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/secretaire-medicale-en-angiographie-80-cdi-1577",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:37:56.755Z",
+      "crawledAt": "2026-11-28T21:31:38.318Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1590,7 +1590,7 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-09T09:37:56.755Z",
+      "validThrough": "2027-02-09T21:31:38.318Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1624,7 +1624,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/coordinateurtrice-projet-rh-gestion-des-temps-et-planification-a-80-1580",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:37:56.754Z",
+      "crawledAt": "2026-11-28T21:31:38.317Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1684,7 +1684,7 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-10T09:37:56.754Z",
+      "validThrough": "2027-02-10T21:31:38.317Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1719,7 +1719,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/lingere-cdmax-3-mois-a-50-des-que-possible-1582",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:37:56.753Z",
+      "crawledAt": "2026-11-28T21:31:38.315Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1779,7 +1779,7 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-12T09:37:56.753Z",
+      "validThrough": "2027-02-12T21:31:38.315Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1813,7 +1813,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-unite-cardio-pulmonaire-et-soins-intermediaires-cdi-90-1581",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:37:56.750Z",
+      "crawledAt": "2026-11-28T21:31:38.314Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1873,7 +1873,7 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-12T09:37:56.750Z",
+      "validThrough": "2027-02-12T21:31:38.314Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1908,7 +1908,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/medecin-interne-ou-cheffe-de-clinique-a-100-cardiologie-non-invasive-1584",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:37:56.748Z",
+      "crawledAt": "2026-11-28T21:31:38.312Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1968,7 +1968,7 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-17T09:37:56.748Z",
+      "validThrough": "2027-02-16T21:31:38.312Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2003,7 +2003,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/neurologue-a-80-100-1586",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:37:56.743Z",
+      "crawledAt": "2026-11-28T21:31:38.308Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2063,7 +2063,7 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-22T09:37:56.743Z",
+      "validThrough": "2027-02-22T21:31:38.308Z",
       "validThroughSource": "last-observed-window"
     }
   ]
