@@ -14,6 +14,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { reconcileGhostExpired } from '../scripts/assemble-jobs-dataset.mjs';
+import { reconcileExpiredSlugs } from '../scripts/reconcile-job-slugs.mjs';
 import { localeRouteKeys } from '../scripts/lib/expired-jobs-archive.mjs';
 
 const sliceDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ghost-keep-slices-'));
@@ -144,5 +145,29 @@ describe('reconcileGhostExpired — routes survive the ghost gate', () => {
 
     expect(result.cleanedExpired).toHaveLength(2);
     expect(JSON.parse(fs.readFileSync(file, 'utf8'))).toHaveLength(2);
+  });
+});
+
+describe('reconcileExpiredSlugs — the next pass of the same assembly', () => {
+  it('does not push an older route out of a full bucket', () => {
+    const full = Array.from({ length: 20 }, (_, index) => `old-italian-${index}-example-garden`);
+    const active = activeJob({
+      companyKey: 'example-garden', addressLocality: 'Exampletown',
+      slug: 'serrista-esperto-example-garden-exampletown',
+      slugByLocale: { it: 'serrista-esperto-example-garden-exampletown' },
+      previousSlugs: [...full], previousSlugsByLocale: { it: [...full] },
+    });
+    const record = {
+      ...META, companyKey: 'example-garden', addressLocality: 'Exampletown',
+      slug: 'serrista-esperto-example-garden-exampletown-k4m2qz',
+      slugByLocale: { it: 'serrista-esperto-example-garden-exampletown-k4m2qz' },
+      sourceIdentity: `url:${POSTING}`,
+    };
+
+    const result = reconcileExpiredSlugs([active], [record], { dryRun: false });
+
+    // The match is found; the full bucket is what stops the write.
+    expect(result.mergedCount).toBe(1);
+    expect(active.previousSlugsByLocale.it).toEqual(full);
   });
 });

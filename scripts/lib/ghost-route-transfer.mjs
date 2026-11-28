@@ -92,11 +92,11 @@ function flatUnion(job, slug) {
  * Add one locale history route unless that would push another route out: either
  * the locale bucket or the flat union the helper keeps in sync is full.
  */
-export function addGhostSlugWithoutEviction(job, locale, slug) {
+export function addGhostSlugWithoutEviction(job, locale, slug, source = SOURCE) {
   const bucket = job.previousSlugsByLocale?.[locale];
   if (Array.isArray(bucket) && !bucket.includes(slug) && bucket.length >= DEFAULT_PREV_SLUG_CAP) return false;
   if (flatUnion(job, slug).size > LEGACY_PREV_SLUGS_CAP) return false;
-  addPreviousSlugForLocale(job, locale, slug, DEFAULT_PREV_SLUG_CAP, SOURCE);
+  addPreviousSlugForLocale(job, locale, slug, DEFAULT_PREV_SLUG_CAP, source);
   return true;
 }
 
