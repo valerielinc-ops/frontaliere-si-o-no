@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ergolz-klinik",
-  "assembledAt": "2026-11-28T09:22:21.309Z",
-  "runId": "46128737106",
+  "assembledAt": "2026-11-28T21:24:17.109Z",
+  "runId": "46189668040",
   "jobs": [
     {
       "id": "ergolz-klinik-9afa70b1ddcc",
@@ -35,7 +35,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/04/Inserat-Anasthesie-Pflege-60-80.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:22:14.353Z",
+      "crawledAt": "2026-11-28T21:24:10.168Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -89,7 +89,7 @@
       },
       "streetAddress": "Hammerstrasse 35",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:22:14.353Z",
+      "validThrough": "2026-12-28T21:24:10.168Z",
       "validThroughSource": "last-observed-window"
     }
   ]
