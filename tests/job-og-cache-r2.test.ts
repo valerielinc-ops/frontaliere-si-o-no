@@ -48,7 +48,7 @@ fi
 }
 
 function writeMarker(cache: string, deferred: number, liveEntries: string[]) {
-  fs.writeFileSync(path.join(cache, '.complete'), JSON.stringify({ deferred, liveEntries }));
+  fs.writeFileSync(path.join(cache, '.complete'), JSON.stringify({ deferred, errors: 0, liveEntries }));
 }
 
 describe('job OG cache R2 tier', () => {
@@ -76,6 +76,17 @@ describe('job OG cache R2 tier', () => {
     writeMarker(source.cache, 12, [A]);
     await expect(saveToR2({ rootDir: source.rootDir, env, version: VERSION })).resolves.toMatchObject({ saved: 0 });
     expect(fs.existsSync(object)).toBe(false);
+  });
+
+  it('does not replace the stored set after a pass with render errors', async () => {
+    const { env, build, object } = fixture();
+    const source = build('source');
+    fs.writeFileSync(path.join(source.cache, A), 'card-a');
+    fs.mkdirSync(path.dirname(object), { recursive: true });
+    fs.writeFileSync(object, 'previous complete archive');
+    fs.writeFileSync(path.join(source.cache, '.complete'), JSON.stringify({ deferred: 0, errors: 1, liveEntries: [A] }));
+    await expect(saveToR2({ rootDir: source.rootDir, env, version: VERSION })).resolves.toMatchObject({ saved: 0 });
+    expect(fs.readFileSync(object, 'utf8')).toBe('previous complete archive');
   });
 
   it('publishes nothing from a missing or truncated archive', async () => {

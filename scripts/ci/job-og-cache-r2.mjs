@@ -8,7 +8,7 @@
  * JOB_OG_RENDER_BUDGET_S on a cold render, and does so again on the following
  * builds until the set is refilled.
  *
- *   save     after a COMPLETE render (no deferred card): stream the live cache
+ *   save     after a COMPLETE render (no deferred card, no error): stream the live cache
  *            files into one object per raster version, overwritten in place.
  *   restore  only on an actions/cache miss: stream that object back.
  *
@@ -133,7 +133,9 @@ export async function saveToR2({ rootDir = process.cwd(), env = process.env, ver
   const cacheDir = path.join(rootDir, CACHE_DIR);
   const marker = JSON.parse(readFileSync(path.join(cacheDir, COMPLETION_MARKER), 'utf-8'));
   // A partial pass must not replace the last complete set.
-  if (marker.deferred !== 0) return { saved: 0, reason: `render pass is partial (deferred=${marker.deferred})` };
+  if (marker.deferred !== 0 || marker.errors !== 0) {
+    return { saved: 0, reason: `render pass is partial (deferred=${marker.deferred} errors=${marker.errors})` };
+  }
   if (!Array.isArray(marker.liveEntries)) return { saved: 0, reason: 'completion marker has no liveEntries list' };
   // Only the cards of the current jobs: the directory also keeps orphans of
   // closed jobs, which would grow a persistent archive without bound.
