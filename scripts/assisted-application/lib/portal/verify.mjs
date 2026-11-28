@@ -209,7 +209,9 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
     }
     // Passive GET resources are readable. Mutations are denied, except the
     // single owned sign-in form's request while its sign-in click is armed.
-    await context.route('**/*', async route => {
+    // A request that reaches the handler while the context is closing (the inspection may end on a page that is still
+    // loading) must never become an unhandled rejection: it would end the whole process before the verdict is written.
+    const fence = async route => {
       const request = route.request();
       const url = new URL(request.url());
       const method = request.method();
@@ -269,6 +271,9 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
         return route.continue();
       }
       return block(!loginArmed ? 'mutation_not_armed' : loginPosted ? 'second_mutation' : method !== 'POST' ? 'method_not_allowed' : 'login_route_mismatch');
+    };
+    await context.route('**/*', async route => {
+      try { return await fence(route); } catch { await route.abort().catch(() => {}); return undefined; }
     });
     stage = 'entry';
     const page = await context.newPage();
@@ -551,6 +556,8 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
     note('exception', proof.trace.at(-1)?.host ? `https://${proof.trace.at(-1).host}${proof.trace.at(-1).path || '/'}` : applyUrl, 'exception', proof.error);
     return proof;
   } finally {
+    // Requests still in flight are let go without waiting for (or hearing from) their handlers.
+    if (typeof context?.unrouteAll === 'function') await context.unrouteAll({ behavior: 'ignoreErrors' }).catch(() => {});
     await context?.close().catch(() => {});
     await browser.close().catch(() => {});
   }
