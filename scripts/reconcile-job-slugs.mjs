@@ -34,8 +34,8 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import {
   addPreviousSlugForLocale,
   LOCALES,
-  DEFAULT_PREV_SLUG_CAP,
   LEGACY_PREV_SLUGS_CAP,
+  promotePreviousSlugToLegacy,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId, hasUsableJobId, resolveJobDiffKey } from './lib/job-match-key.mjs';
 import {
@@ -45,11 +45,10 @@ import {
   sourcePostingUrlHrefs,
 } from './lib/job-identity.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
-import { mergePreviousSlugsCapped } from './lib/slug-history-journal.mjs';
 import { localeMapKey } from './lib/locale-map-diff.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import { localeRouteKeys } from './lib/expired-jobs-archive.mjs';
-import { addGhostSlugWithoutEviction } from './lib/ghost-route-transfer.mjs';
+import { addGhostSlugWithoutEviction, createPostingProof } from './lib/ghost-route-transfer.mjs';
 import {
   buildGhostExpiredProofIndex,
   findGhostExpiredReconciliationMatch,
@@ -974,29 +973,38 @@ export function reconcileOrphanSlugs(activeJobs, orphanSlugs, enrichedData, opti
       continue;
     }
 
-    // Apply merge — journaled via the shared addPreviousSlugForLocale helper
-    // (issue #3630 sibling) instead of a raw `.push()`, so this write shows
-    // up in the slug-history-journal summary and previousSlugs stays synced
-    // with previousSlugsByLocale rather than drifting from it.
-    if (!dryRun) {
-      const orphanLocale = detectSlugLocale(orphanSlug);
-      addPreviousSlugForLocale(job, orphanLocale, orphanSlug, DEFAULT_PREV_SLUG_CAP, 'reconcile-job-slugs.reconcileOrphanSlugs');
-    }
+    // Apply merge through the shared journaled helper, and only where it fits:
+    // a full locale bucket or flat union rejects the slug instead of pushing a
+    // served route out. A rejected orphan stays in the ledger, which the build
+    // reads to keep its page.
+    const addAlias = (locale, alias) => dryRun || addGhostSlugWithoutEviction(
+      job, locale, alias, 'reconcile-job-slugs.reconcileOrphanSlugs',
+    );
+    const orphanAdded = addAlias(detectSlugLocale(orphanSlug), orphanSlug);
+    let aliasesAdded = orphanAdded ? 1 : 0;
 
     // Also add cross-locale slugs from enrichment if available. Enrichment
     // entries carry a REAL locale key (unlike orphanSlug above, which is
     // detected heuristically) — use it directly instead of discarding it.
     if (enrichment?.slugByLocale && !dryRun) {
       for (const [locale, localeSlug] of Object.entries(enrichment.slugByLocale)) {
-        if (localeSlug && !existingSlugs.has(localeSlug)) {
-          addPreviousSlugForLocale(job, locale, localeSlug, DEFAULT_PREV_SLUG_CAP, 'reconcile-job-slugs.reconcileOrphanSlugs');
+        if (localeSlug && !existingSlugs.has(localeSlug) && addAlias(locale, localeSlug)) {
           existingSlugs.add(localeSlug);
           index.allSlugSet.add(localeSlug);
+          aliasesAdded++;
         }
       }
     }
 
-    index.allSlugSet.add(orphanSlug);
+    if (orphanAdded) {
+      index.allSlugSet.add(orphanSlug);
+    } else {
+      remainingOrphans.push(entry);
+      if (aliasesAdded === 0) {
+        skippedCount++;
+        continue;
+      }
+    }
     // Keyed by resolveJobDiffKey, not bare slug — activeJobs spans every
     // company, and two jobs sharing a computed slug would silently drop one
     // company's update from this Map (same collision class fixed in
@@ -1048,6 +1056,7 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
   const updatedJobs = new Map();
   const candidateReconciledIds = new Set();
   let processed = 0;
+  let postingProof = null; // indexed only if a candidate gets that far
 
   for (const ej of expiredJobs) {
     if (processed >= max) break;
@@ -1115,7 +1124,13 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
     // fuzzy title/company match is not the same posting when the archive
     // record names a different source posting. Merging it would hand `job`
     // another posting's routes, hash-tailed slug included.
-    if (!archiveRecordNamesPosting(ej, job) || !hasSameJobSourcePosting(ej, job)) {
+    // Both checks accept a URL from merge history, so also require what the
+    // ghost pass requires before any route moves.
+    if (
+      !archiveRecordNamesPosting(ej, job)
+      || !hasSameJobSourcePosting(ej, job)
+      || !(postingProof ??= createPostingProof(activeJobs, expiredJobs)).sameDeclaredPosting(ej, job)
+    ) {
       skippedCount++;
       if (verbose) console.log('  ⏭️ Best match is a different source posting — not merging');
       continue;
@@ -1274,11 +1289,32 @@ export function findMatchingSliceJob(sliceJobs, updatedJob) {
   return fallbackMatches.length === 1 ? fallbackMatches[0] : null;
 }
 
+/** Add `source`'s history to `target` where it fits, keeping each slug's locales. */
+function mergeHistoryWithoutEviction(target, source) {
+  const tag = 'reconcile-job-slugs.updateCrawlerSlices';
+  const bucketed = new Set();
+  for (const locale of LOCALES) {
+    for (const slug of source.previousSlugsByLocale?.[locale] || []) {
+      bucketed.add(slug);
+      // Already served there (a flat-only slug is, in all four): bucketing it
+      // would end the other three routes.
+      if (!localeRouteKeys(target).has(`${locale}:${slug}`)) addGhostSlugWithoutEviction(target, locale, slug, tag);
+    }
+  }
+  for (const slug of source.previousSlugs || []) {
+    if (bucketed.has(slug) || target.previousSlugs?.includes(slug)) continue;
+    if (Object.values(target.previousSlugsByLocale || {}).some((values) => values.includes(slug))) continue;
+    if ((target.previousSlugs?.length || 0) < LEGACY_PREV_SLUGS_CAP) {
+      promotePreviousSlugToLegacy(target, slug, LEGACY_PREV_SLUGS_CAP, tag);
+    }
+  }
+}
+
 /**
  * Update per-crawler slice files for all modified jobs.
  * @param {Map<string, object>} updatedJobs - slug → job (must have companyKey)
  */
-function updateCrawlerSlices(updatedJobs) {
+export function updateCrawlerSlices(updatedJobs, { slicesDir = DATA_SLICES_DIR } = {}) {
   // Group jobs by companyKey
   const byCompany = Object.create(null);
   for (const job of updatedJobs.values()) {
@@ -1289,7 +1325,7 @@ function updateCrawlerSlices(updatedJobs) {
   }
 
   for (const [ck, jobs] of Object.entries(byCompany)) {
-    const slicePath = path.join(DATA_SLICES_DIR, `${ck}.json`);
+    const slicePath = path.join(slicesDir, `${ck}.json`);
     if (!fs.existsSync(slicePath)) continue;
 
     const slice = readJson(slicePath);
@@ -1304,28 +1340,9 @@ function updateCrawlerSlices(updatedJobs) {
       if (sliceJob) {
         // Merge, don't overwrite (issue #3630 sibling): updatedJob comes
         // from data/jobs.json, a snapshot that can be stale relative to the
-        // live crawler slice — a dedicated crawler run after that snapshot
-        // was taken may have captured slice-only previousSlugs entries.
-        // Overwriting the slice's array wholesale silently discarded those.
-        const mergedFlat = mergePreviousSlugsCapped(sliceJob.previousSlugs, updatedJob.previousSlugs, {
-          jobId: sliceJob.id || updatedJob.id,
-          source: 'reconcile-job-slugs.updateCrawlerSlices',
-          cap: LEGACY_PREV_SLUGS_CAP,
-        });
-        if (mergedFlat.length > 0) sliceJob.previousSlugs = mergedFlat;
-        else delete sliceJob.previousSlugs;
-
-        if (updatedJob.previousSlugsByLocale) {
-          if (!sliceJob.previousSlugsByLocale) sliceJob.previousSlugsByLocale = {};
-          for (const locale of LOCALES) {
-            const a = sliceJob.previousSlugsByLocale[locale] || [];
-            const b = updatedJob.previousSlugsByLocale[locale] || [];
-            if (a.length === 0 && b.length === 0) continue;
-            const union = [...new Set([...a, ...b])];
-            sliceJob.previousSlugsByLocale[locale] =
-              union.length > DEFAULT_PREV_SLUG_CAP ? union.slice(-DEFAULT_PREV_SLUG_CAP) : union;
-          }
-        }
+        // live crawler slice. Only additions that fit: capping the union would
+        // push routes the slice serves out of it.
+        mergeHistoryWithoutEviction(sliceJob, updatedJob);
         modified = true;
       }
     }

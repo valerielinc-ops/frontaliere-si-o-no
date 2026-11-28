@@ -531,5 +531,26 @@ job-room page.
 - **Log.** Every run prints `[seco-jobroom] letti=… pubblicabili=…
   deduplicati=… esclusi=…`, each with its reasons.
 
+The search API shows only the first 100 rows of any query: `(page+1)*size > 100`
+answers `412 Invalid Search Parameters ... narrow your search` (measured
+2026-11-28: page=0&size=100 and page=9&size=10 are 200, page=1&size=100 and
+page=10&size=10 are 412; TI+GR+VS declared 3161 ads), so paging deeper cannot
+work and the crawler narrows the query instead (`fetchSecoAdSnapshot`). Each
+canton is swept over `onlineSince` (nested sets: ads online for at most k days):
+with `sort=date_asc` the set S_k opens with exactly the ads S_k adds to S_j, so
+one request reads that difference whenever the declared totals say it fits the
+window. A day that still overflows splits on `permanent` (exact) and on the
+workload band (overlapping bands, absorbed by the merge by stable id; the
+full-time band is split off last). `communalCodes` and `professionCodes` were
+probed and cannot partition blindly (the first is ignored or inconsistent, the
+second needs `{type, value}` objects from a list we do not have). A cell that no
+refinement narrows under 100, or a run past the request budget (400, one request
+per ~1.1 s), makes the snapshot `partial`: it never reaches the merge, so a live
+ad is never retired on a short read. A 412 stays a 4xx that surfaces. Measured
+live 2026-11-28: 3161 of 3161 ads in 99 requests (~108 s). The prospector's
+`fetchSecoEmployers` shares the reader and no longer sends a page behind the
+window (`search_window_exceeded`, partial); it samples the newest 100 ads per
+canton per run.
+
 The read is a full snapshot checked against `x-total-count`: the removal cycle
 treats an absent ad as gone, so a partial read must not reach the merge.

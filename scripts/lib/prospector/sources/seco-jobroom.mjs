@@ -98,29 +98,44 @@ function transportOptions(opts) {
 }
 
 /**
+ * The API refuses any request whose `(page + 1) * size` passes 100 with a 412
+ * "Invalid Search Parameters ... narrow your search" (measured 2026-11-28:
+ * page=0&size=100 and page=9&size=10 answer 200, page=1&size=100 and
+ * page=10&size=10 answer 412). Nothing deeper than the first 100 rows of a query
+ * is reachable, so a full read has to narrow the query, never page deeper.
+ */
+export const SECO_SEARCH_WINDOW = 100;
+
+/**
  * One page of the public search, the single request behind both consumers: the
  * prospector wants the employers, the job crawler publishes the ads. Never
  * throws — each consumer decides what a failed page means.
  *
  * `displayRestricted:false` asks for what anyone can read. `x-total-count` is
  * the source's own total, and the only way to tell a complete read from a
- * short one.
+ * short one. A page past the search window is not sent: it can only be refused.
  *
  * @param {number} page
- * @param {{ cantons: string[], onlineSince: number, pageSize: number, fetchImpl?: typeof fetch, sleepImpl?: (ms:number) => Promise<unknown>, lookupImpl?: any }} opts
+ * @param {{ cantons: string[], onlineSince: number, pageSize: number, sort?: 'date_asc'|'date_desc', permanent?: boolean|null, workloadMin?: number, workloadMax?: number, fetchImpl?: typeof fetch, sleepImpl?: (ms:number) => Promise<unknown>, lookupImpl?: any }} opts
  * @returns {Promise<{ ok: true, batch: any[], declaredTotal: number|null } | { ok: false, outcome: 'unavailable'|'malformed', errorCode: string }>}
  */
-export async function readSecoSearchPage(page, { cantons, onlineSince, pageSize, fetchImpl, sleepImpl, lookupImpl }) {
+export async function readSecoSearchPage(page, {
+  cantons, onlineSince, pageSize, sort = 'date_desc', permanent = null, workloadMin = 0, workloadMax = 100,
+  fetchImpl, sleepImpl, lookupImpl,
+}) {
+  if ((page + 1) * pageSize > SECO_SEARCH_WINDOW) {
+    return { ok: false, outcome: 'unavailable', errorCode: 'search_window_exceeded' };
+  }
   try {
-    const res = await politeFetch(`${API}?page=${page}&size=${pageSize}&sort=date_desc`, {
+    const res = await politeFetch(`${API}?page=${page}&size=${pageSize}&sort=${sort}`, {
       method: 'POST',
       accept: 'application/json',
       ignoreRobots: true,
       captureHeaders: ['x-total-count'],
       body: JSON.stringify({
-        permanent: null,
-        workloadPercentageMin: 0,
-        workloadPercentageMax: 100,
+        permanent,
+        workloadPercentageMin: workloadMin,
+        workloadPercentageMax: workloadMax,
         onlineSince,
         displayRestricted: false,
         keywords: [],
@@ -147,44 +162,152 @@ export async function readSecoSearchPage(page, { cantons, onlineSince, pageSize,
 }
 
 /**
+ * Further filters the API honours, applied in order to a cell that one day of
+ * ads still overflows. `permanent` splits exactly (420 + 102 = 522 on TI,
+ * 2026-11-28); the workload bands overlap (an ad spanning 40-60% matches both)
+ * and the merge by stable id absorbs that. The probe that fixed this list: a
+ * `communalCodes` filter is ignored or inconsistent without a canton and
+ * `professionCodes` needs `{type, value}` objects from a list we do not have,
+ * so neither can partition blindly.
+ */
+const SECO_REFINEMENTS = [
+  () => [{ permanent: true }, { permanent: false }],
+  () => [{ workloadMin: 0, workloadMax: 50 }, { workloadMin: 51, workloadMax: 100 }],
+  // Measured 2026-11-28: one employer posted 103 full-time ads in a single day
+  // in a canton; only the full-time band holds them (89 of 103).
+  (filter) => (filter.workloadMin === 51 && filter.workloadMax === 100
+    ? [{ workloadMin: 51, workloadMax: 99 }, { workloadMin: 100, workloadMax: 100 }]
+    : null),
+];
+
+/**
  * The whole feed for a set of cantons, read in one sweep.
+ *
+ * The API shows only the first 100 rows of any query, so the read is a
+ * partition: each canton is swept over `onlineSince` (nested sets, S_k = ads
+ * online for at most k days). With the sort ascending, S_k opens with its
+ * oldest ads, which are exactly S_k minus S_j; when that difference fits the
+ * window (declared totals tell), one request reads it whole, and the sweep moves
+ * on from k. A day that still overflows splits the cell on the next refinement.
+ * Everything is merged by stable id, since the same ad can fall in several
+ * cells and the feed moves under the sweep. Whether the result is whole is not
+ * decided here: the caller holds the deduplicated rows to the root query's own
+ * `x-total-count`. A cell that cannot be partitioned further, or a run over its
+ * request budget, makes the snapshot `partial`, and a partial snapshot never
+ * reaches the merge.
  *
  * The prospector's head/after cursors below are deliberately not used here:
  * they exist to spread a discovery sweep over several runs, while a publisher
  * must see every live ad in every run or it would retire the ones it skipped.
- * What this shares with them is the stable-ID rule: pages shift while new ads
- * land, so a row is identified by its ID and never by its position.
  *
- * @param {{ cantons?: string[], onlineSince?: number, maxPages?: number, pageSize?: number, fetchImpl?: typeof fetch, sleepImpl?: (ms:number) => Promise<unknown>, lookupImpl?: any }} [opts]
+ * @param {{ cantons?: string[], onlineSince?: number, maxRequests?: number, pageSize?: number, fetchImpl?: typeof fetch, sleepImpl?: (ms:number) => Promise<unknown>, lookupImpl?: any }} [opts]  `pageSize` is the read window (default and ceiling 100)
  * @returns {Promise<{ rows: any[], outcome: 'complete'|'partial'|'unavailable'|'malformed', errorCode: string|null, pagesRead: number, firstDeclaredTotal: number|null, lastDeclaredTotal: number|null, skippedRows: number }>}
  */
 export async function fetchSecoAdSnapshot(opts = {}) {
   const cantons = opts.cantons || ['TI'];
   const onlineSince = opts.onlineSince ?? 30;
-  const maxPages = opts.maxPages ?? 100;
-  const pageSize = opts.pageSize ?? 100;
+  const maxRequests = Number.isSafeInteger(opts.maxRequests) && opts.maxRequests > 0 ? opts.maxRequests : 400;
+  const windowSize = Number.isSafeInteger(opts.pageSize) && opts.pageSize > 0
+    ? Math.min(opts.pageSize, SECO_SEARCH_WINDOW)
+    : SECO_SEARCH_WINDOW;
   const byId = new Map();
   let pagesRead = 0;
   let firstDeclaredTotal = null;
   let lastDeclaredTotal = null;
   let skippedRows = 0;
+  let failure = null;
+  let incompleteCode = null;
   const finish = (outcome, errorCode = null) => ({
     rows: [...byId.values()], outcome, errorCode, pagesRead, firstDeclaredTotal, lastDeclaredTotal, skippedRows,
   });
 
-  for (let page = 0; page < maxPages; page++) {
-    const result = await readSecoSearchPage(page, { cantons, onlineSince, pageSize, ...transportOptions(opts) });
-    if (!result.ok) return finish(pagesRead > 0 ? 'partial' : result.outcome, result.errorCode);
+  async function read(filter, since, sort, size = windowSize) {
+    if (pagesRead >= maxRequests) {
+      failure = failure || { outcome: 'unavailable', errorCode: 'request_budget_exceeded' };
+      return null;
+    }
+    const result = await readSecoSearchPage(0, { onlineSince: since, pageSize: size, sort, ...filter, ...transportOptions(opts) });
+    if (!result.ok) {
+      failure = failure || result;
+      return null;
+    }
     pagesRead++;
-    if (firstDeclaredTotal === null) firstDeclaredTotal = result.declaredTotal;
-    if (result.declaredTotal !== null) lastDeclaredTotal = result.declaredTotal;
+    if (result.declaredTotal === null) {
+      failure = failure || { outcome: 'malformed', errorCode: 'missing_declared_total' };
+      return null;
+    }
     for (const row of result.batch) {
       const id = advertisementId(row);
       if (id) byId.set(id, row); else skippedRows++;
     }
-    if (result.batch.length < pageSize) return finish('complete');
+    return result;
   }
-  return finish('partial', 'page_limit_reached');
+
+  // Root query: its declared total is what the whole partition is held to.
+  const root = await read({ cantons }, onlineSince, 'date_desc');
+  if (!root) return finish(pagesRead > 0 ? 'partial' : failure.outcome, failure.errorCode);
+  firstDeclaredTotal = root.declaredTotal;
+  lastDeclaredTotal = root.declaredTotal;
+  if (root.declaredTotal <= windowSize) return finish('complete');
+
+  /**
+   * Reads the ads of one cell that went online between day `start` (exclusive)
+   * and day `end` (inclusive). `declaredAtStart` is the cell's own declared
+   * total at `start`, so what each request adds is known before it is trusted.
+   * @returns {Promise<boolean>} false once a request failed or ran out of budget
+   */
+  async function readCell(filter, refinements, start = 0, end = onlineSince, declaredAtStart = 0) {
+    let from = start;
+    let declaredAtFrom = declaredAtStart;
+    let step = end - start;
+    while (from < end) {
+      const to = Math.min(end, from + step);
+      const result = await read(filter, to, 'date_asc');
+      if (!result) return false;
+      const fresh = result.declaredTotal - declaredAtFrom;
+      if (result.declaredTotal <= windowSize || fresh <= windowSize) {
+        from = to;
+        declaredAtFrom = result.declaredTotal;
+        if (fresh * 2 < windowSize) step = Math.min(end - from, step * 2) || 1;
+        continue;
+      }
+      if (to - from > 1) { step = Math.max(1, Math.floor((to - from) / 2)); continue; }
+      // One day of this cell overflows the window: narrow the cell for that
+      // day only, then carry on with this cell from the day after.
+      let parts = null;
+      let rest = refinements;
+      while (!parts && rest.length) {
+        parts = rest[0](filter);
+        rest = rest.slice(1);
+      }
+      if (!parts) incompleteCode = incompleteCode || 'unpartitionable_leaf';
+      else {
+        for (const part of parts) {
+          const sub = { ...filter, ...part };
+          const atFrom = from === 0 ? { declaredTotal: 0 } : await read(sub, from, 'date_asc', 1);
+          if (!atFrom || !await readCell(sub, rest, from, to, atFrom.declaredTotal)) return false;
+        }
+      }
+      from = to;
+      declaredAtFrom = result.declaredTotal;
+    }
+    return true;
+  }
+
+  for (const canton of cantons.length > 1 ? cantons : [null]) {
+    const filter = { cantons: canton ? [canton] : cantons };
+    if (!await readCell(filter, SECO_REFINEMENTS)) {
+      return finish(pagesRead > 0 ? 'partial' : failure.outcome, failure.errorCode);
+    }
+  }
+
+  // The root total again: the gap the sweep itself moved is not a short read.
+  const closing = await read({ cantons }, onlineSince, 'date_desc', 1);
+  // Without the closing total the opening count cannot vouch for the sweep.
+  if (!closing) return finish('partial', failure?.errorCode || 'closing_total_unavailable');
+  lastDeclaredTotal = closing.declaredTotal;
+  if (incompleteCode) return finish('partial', incompleteCode);
+  return finish('complete');
 }
 
 /**
@@ -195,14 +318,17 @@ export async function fetchSecoEmployers(opts = {}) {
   const cantons = opts.cantons || ['TI'];
   const onlineSince = opts.onlineSince ?? 30;
   const maxPages = Number.isSafeInteger(opts.maxPages) && opts.maxPages > 0 ? opts.maxPages : 20;
-  const pageSize = Number.isSafeInteger(opts.pageSize) && opts.pageSize > 0 ? opts.pageSize : 100;
+  const pageSize = Number.isSafeInteger(opts.pageSize) && opts.pageSize > 0 ? Math.min(opts.pageSize, SECO_SEARCH_WINDOW) : SECO_SEARCH_WINDOW;
   const headSearchPages = Number.isSafeInteger(opts.headSearchPages) && opts.headSearchPages > 0
     ? opts.headSearchPages
     : Math.max(20, maxPages);
   const cursorSearchPages = Number.isSafeInteger(opts.cursorSearchPages) && opts.cursorSearchPages > 0
     ? opts.cursorSearchPages
     : Math.max(20, maxPages);
-  const startPageHint = Number.isSafeInteger(opts.startPageHint) && opts.startPageHint >= 0 ? opts.startPageHint : 0;
+  // A page behind the search window is refused by the feed: a persisted hint
+  // beyond it is dropped so the cursor search starts from page 0.
+  const startPageHint = Number.isSafeInteger(opts.startPageHint) && opts.startPageHint > 0
+    && (opts.startPageHint + 1) * pageSize <= SECO_SEARCH_WINDOW ? opts.startPageHint : 0;
   const startAfterId = typeof opts.startAfterId === 'string' && opts.startAfterId.trim()
     ? opts.startAfterId.trim()
     : null;

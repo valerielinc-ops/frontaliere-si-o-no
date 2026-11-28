@@ -7,6 +7,7 @@ import {
   preferRenderedPersonioContent,
   withRenderedPersonioPage,
 } from '../scripts/lib/ats-clients/personio-client.mjs';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import { stripHtml } from '../scripts/lib/crawler-template.mjs';
 
 // Real page, minimised: https://felfel.jobs.personio.de/job/2798583.
@@ -146,5 +147,44 @@ describe('rendered page as the published description', () => {
     await expect(withRenderedPersonioPage(record, 'https://x.jobs.personio.com/job/1')).resolves.toEqual({
       ...record, datePosted: '', postedDate: '', postingDateSource: 'unknown', postedAt: null,
     });
+  });
+});
+
+describe('fetchPersonioJobs authoritative empty proof', () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  const feed = (body: string, status = 200) =>
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response(body, { status }));
+
+  it('stamps a valid feed whose <workzag-jobs> root has 0 positions', async () => {
+    feed('<?xml version="1.0" encoding="UTF-8"?><workzag-jobs></workzag-jobs>');
+    const jobs = await fetchPersonioJobs('example');
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+  });
+
+  it('stamps the self-closing empty root too', async () => {
+    feed('<workzag-jobs/>');
+    expect(isAuthoritativeEmptySnapshot(await fetchPersonioJobs('example'))).toBe(true);
+  });
+
+  it('does not stamp a malformed/truncated document', async () => {
+    feed('<workzag-jobs><position>');
+    const jobs = await fetchPersonioJobs('example').catch(() => []);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('does not stamp when the root node is missing (e.g. an HTML error page)', async () => {
+    feed('<html><body>Maintenance</body></html>');
+    const jobs = await fetchPersonioJobs('example');
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('throws (no stamp) on a non-2xx response', async () => {
+    feed('<workzag-jobs></workzag-jobs>', 404);
+    await expect(fetchPersonioJobs('example')).rejects.toThrow(/HTTP 404/);
   });
 });

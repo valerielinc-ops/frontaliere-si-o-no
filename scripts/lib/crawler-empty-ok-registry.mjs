@@ -251,20 +251,6 @@ export const EMPTY_OK_CRAWLERS = new Set([
   // reappears. Same legitimately-empty regional-filter case as
   // manor/bracco/fnz.
   'clariant',
-  // Yapeal AG (Swiss mobile banking, Zürich): verified live 2026-07-25 — the
-  // Personio XML feed (https://yapeal-ag.jobs.personio.de/xml) returns HTTP
-  // 200 with a well-formed but empty `<workzag-jobs>` document (0
-  // `<position>` elements), and the careers page
-  // (https://yapeal.ch/en/company/about-yapeal/careers/) still links to the
-  // same `yapeal-ag.jobs.personio.de` tenant — confirming the ATS and
-  // subdomain are unchanged, not a fetch/parser break. The parser's own doc
-  // comment already noted this employer runs "currently a single position —
-  // low volume" (issue #3337 backlog); `lastNonZeroJobs: 1` in
-  // `data/crawler-health.json` matches. A neobank of this size legitimately
-  // has stretches with zero open roles; the parser is healthy and re-arms
-  // automatically when Yapeal republishes a posting. Same
-  // legitimately-empty small-employer case as linnea/josef-mueller (#4751).
-  'yapeal',
   // Veeam Software (Baar ZG Swiss entity, Greenhouse board `veeamsoftware`):
   // verified live 2026-08-05 — https://boards-api.greenhouse.io/v1/boards/
   // veeamsoftware/jobs returns HTTP 200 with 235 postings worldwide (board
@@ -360,7 +346,7 @@ export const EMPTY_OK_CRAWLERS = new Set([
   // section of this size legitimately has stretches with zero openings. The
   // listing/detail selectors are unchanged and healthy; re-arms automatically
   // when the org republishes a vacancy. Same legitimately-empty small-employer
-  // case as linnea/josef-mueller/yapeal.
+  // case as linnea/josef-mueller.
   'croix-rouge-fribourgeoise',
   // Saint-Gobain Weber/Isover Suisse (jobs.ch company pages 40563-saint-gobain-weber-ag
   // and 107006-saint-gobain-isover-sa, #5669): verified live 2026-08-12 — both

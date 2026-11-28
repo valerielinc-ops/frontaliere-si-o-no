@@ -37,6 +37,8 @@ import {
   topClsSelectors,
   topInpSelectors,
   missingInpSelectorCount,
+  inpUnknownShare,
+  inpTargetsByTemplate,
   valuedInpTargets,
 } from './lib/cwv-attribution.mjs';
 
@@ -57,6 +59,15 @@ export const ATTRIBUTION_GAP_MESSAGE = 'finestra post-emitter con campioni CWV n
 export const FAILURE_TITLE = 'CWV attribution report: dimensione GA4 non valida, contratto client/lettore divergente o evento web_vitals assente';
 export const ATTRIBUTION_GAP_FAILURE_TITLE = 'CWV attribution report: attribuzione assente dopo il rilascio dell\'emitter';
 export const VALUED_ATTRIBUTION_LIVE_FROM = '2026-11-20';
+// The capture buffer in services/webVitals.ts (interaction target remembered at
+// event time) removes the empty-target cause of `unknown` INP. Before it, ~77%
+// of the INP events were unknown. A window that starts after deploy + lag must
+// stay under the share below. The date is a floor, not a threshold: nothing is
+// relaxed for older windows, they are simply not judged by a gate they predate.
+export const INP_UNKNOWN_GATE_FROM = '2026-12-01';
+export const INP_UNKNOWN_MAX_SHARE = 0.3;
+export const INP_UNKNOWN_MIN_EVENTS = 30;
+export const INP_UNKNOWN_FAILURE_TITLE = 'CWV attribution report: bersaglio INP unknown oltre la soglia dopo la cattura lato client';
 export const VALUED_ATTRIBUTION_GAP_MESSAGE = 'finestra post-emitter con INP non good ma senza attribuzione target × valore × device';
 export const VALUED_ATTRIBUTION_GAP_FAILURE_TITLE = 'CWV attribution report: valore o device assente dall\'attribuzione INP';
 export const REPORT_HEADING = '### Attribuzione CWV dal campo';
@@ -127,6 +138,21 @@ export function renderReport(report, { runUrl } = {}) {
     inpTargets.forEach((row, i) => lines.push(`| ${i + 1} | \`${cell(row.selector)}\` | ${cell(row.component)} | ${row.count} | ${fmtMean(row.ac)} | ${fmtMean(row.cc)} |`));
     lines.push('', `_Bersagli INP unknown: ${missingInp} eventi._`);
     if (coverage.selectorsTruncated) lines.push('_Attenzione: la lettura paginata dei selettori non ha raggiunto tutta la coda GA4._');
+  }
+  const unknownInp = inpUnknownShare(selectors);
+  if (unknownInp.total) {
+    lines.push('', `_Quota INP unknown: ${(unknownInp.share * 100).toFixed(1)}% (${unknownInp.unknown}/${unknownInp.total} eventi)._`);
+  }
+  lines.push('', '#### INP per bersaglio × template × device', '');
+  const byTemplate = inpTargetsByTemplate(valuedSelectors);
+  if (!byTemplate.length) {
+    lines.push('_Nessun evento di attribuzione INP con valore e device nella finestra._');
+  } else {
+    lines.push('| bersaglio | template | device | INP p75 | n |', '|---|---|---|---:|---:|');
+    for (const row of byTemplate) {
+      lines.push(`| \`${cell(row.selector)}\` | ${cell(row.template)} | ${cell(row.device)} | ${fmtMs(row.inpP75)} | ${row.count} |`);
+    }
+    lines.push('', '_Il template e\' derivato da `pagePath` con il classificatore del client._');
   }
   lines.push('', '#### p75 INP per bersaglio e device', '');
   const valuedTargets = valuedInpTargets(valuedSelectors);
@@ -247,6 +273,13 @@ export async function main({
     && String(report.window?.startDate || '') > VALUED_ATTRIBUTION_LIVE_FROM
     && hasNonGoodInpTemplateSamples(report.templates)) {
     logError(`::error title=${VALUED_ATTRIBUTION_GAP_FAILURE_TITLE}::${VALUED_ATTRIBUTION_GAP_MESSAGE}`);
+    return 1;
+  }
+  const unknownInp = inpUnknownShare(report.selectors || []);
+  if (String(report.window?.startDate || '') > INP_UNKNOWN_GATE_FROM
+    && unknownInp.total >= INP_UNKNOWN_MIN_EVENTS
+    && unknownInp.share > INP_UNKNOWN_MAX_SHARE) {
+    logError(`::error title=${INP_UNKNOWN_FAILURE_TITLE}::${(unknownInp.share * 100).toFixed(1)}% degli INP (${unknownInp.unknown}/${unknownInp.total}) senza bersaglio, soglia ${INP_UNKNOWN_MAX_SHARE * 100}%`);
     return 1;
   }
   if (!report.attribution.length) {
