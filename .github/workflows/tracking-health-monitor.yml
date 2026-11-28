@@ -1,0 +1,155 @@
+name: Tracking health monitor
+
+# Hourly analytics-tag watchdog. GA4 sessions or events down by more than 40%
+# against the same hour 1 and 2 days earlier while Cloudflare still serves the
+# same human HTML traffic = a broken tag, not fewer visitors. Judgement lives in
+# scripts/lib/tracking-health.mjs; GA4 intraday lag is neutral (pending), never a
+# zero (see ga4_freshness in scripts/lib/revenue-signals.mjs).
+#
+# Issue lifecycle (fixed title, no measurements in the public issue):
+#   status=alarm      -> open or comment the high-priority issue;
+#   status=recovered  -> 3 consecutive measured hours without alarm: resolve it;
+#   status=pending    -> GA4/Cloudflare incomplete: neither open nor resolve;
+#   a run that cannot measure fails and is reported as `Workflow Failure: ...`.
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+    inputs:
+      current_hour:
+        description: 'Replay: hour to evaluate as YYYYMMDDHH (Europe/Zurich). Empty = now. A replay never writes an issue.'
+        required: false
+        default: ''
+        type: string
+
+concurrency:
+  group: tracking-health-monitor
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  monitor:
+    name: Monitor tracking health
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/url-first-seen/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Install GA4 auth client
+        run: |
+          npm install --prefix "$RUNNER_TEMP/ga4-deps" --no-save --ignore-scripts --no-fund --no-audit google-auth-library@11.1.0 >/dev/null
+          ln -s "$RUNNER_TEMP/ga4-deps/node_modules" node_modules
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          umask 077
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load Remote Config secrets
+        run: node scripts/load-rc-env.mjs
+
+      - name: Require backlog write token
+        run: |
+          set -euo pipefail
+          if [ -z "${GITHUB_PAT:-}" ]; then
+            echo "::error::GITHUB_PAT missing from Remote Config: cannot open or resolve the tracking issue (the workflow token would suppress downstream triage)."
+            exit 1
+          fi
+          echo "GH_TOKEN=${GITHUB_PAT}" >> "$GITHUB_ENV"
+
+      - name: Evaluate tracking health
+        id: monitor
+        env:
+          CURRENT_HOUR: ${{ github.event.inputs.current_hour }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          args=(--out=tracking-health.json --body-out=tracking-health-issue.md)
+          if [ -n "${CURRENT_HOUR:-}" ]; then args+=("--current-hour=$CURRENT_HOUR"); fi
+          node scripts/monitor-tracking-health.mjs "${args[@]}"
+
+      - name: Append private-data status to job log
+        if: always()
+        run: echo 'Tracking health monitor completed; GA4 and Cloudflare measurements are withheld from the public run.' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Open or update the tracking issue
+        if: steps.monitor.outputs.status == 'alarm' && github.event.inputs.current_hour == ''
+        run: |
+          set -euo pipefail
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Tracking GA4: calo di sessioni o eventi con traffico edge stabile" \
+            --description-file tracking-health-issue.md \
+            --priority 1 \
+            --label Bug \
+            --label tracking-health-monitor \
+            --workflow "${{ github.workflow }}"
+
+      - name: Resolve the tracking issue after recovery
+        if: steps.monitor.outputs.status == 'recovered' && github.event.inputs.current_hour == ''
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "Tracking GA4: calo di sessioni o eventi con traffico edge stabile" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Cleanup credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          Il monitor del tracking non ha potuto misurare (credenziali GA4/Cloudflare, API o report troncato): nessun verdetto è stato emesso in questa run.
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Riproduci:** \`node scripts/monitor-tracking-health.mjs\` con \`GOOGLE_APPLICATION_CREDENTIALS\` e \`CF_API_TOKEN\`; script in \`scripts/monitor-tracking-health.mjs\` e \`scripts/lib/tracking-health.mjs\`." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

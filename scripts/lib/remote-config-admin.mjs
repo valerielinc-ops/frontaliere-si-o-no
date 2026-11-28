@@ -35,12 +35,16 @@ export async function fetchRcTemplate(rc) {
 /**
  * Stages `key` = `value` in `template` if it differs from the current
  * defaultValue. Returns true if staged (change pending publish), false if
- * already up-to-date.
+ * already up-to-date. Fields other than the value, type and description of an
+ * existing parameter (such as `conditionalValues`) are kept.
  */
 export function stageRcParam(template, key, value, description) {
   const existing = template.parameters[key]?.defaultValue?.value;
   if (existing === value) return false;
+  // Keep the other fields (conditionalValues, ...): they may carry a condition that hides
+  // the parameter from client fetches.
   template.parameters[key] = {
+    ...template.parameters[key],
     defaultValue: { value },
     valueType: 'STRING',
     description,
