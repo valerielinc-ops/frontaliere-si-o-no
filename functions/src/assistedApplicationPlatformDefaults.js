@@ -354,7 +354,7 @@ const EDUCATION_LEVELS = [
   [5, /\b(?:master\w*|msc|mba|laurea (?:magistrale|specialistica)|magistrale|specialistica|diplom ingenieur|lizenziat\w*|licence de master)\b/],
   [3, /\b(?:associate (?:degree|diploma)|higher (?:national )?diploma|istruzione tecnica superiore|ifts|hohere fachschule|hf|eidgenossisch\w* diplom|brevetto federale|diploma federale|federal (?:diploma|certificate)|post ?secondary|technicien es|tecnico superiore|istituto tecnico superiore|its academy|fondazione its)\b/],
   [4, /\b(?:bachelor\w*|bsc|laurea|licence|university degree|college degree|degree|universit\w*|politecnico|fachhochschule|hochschule|haute ecole|hes|supsi|eth|epfl)\b/],
-  [2, /\b(?:matur\w*|diploma|liceo|istituto tecnico|istituto professionale|istituto (?:di istruzione )?superiore|scuola superiore|iis|itis|itc|itg|ipsia|perito|ragioneria|geometra|high school|(?<!lower )secondary|abitur|baccalaur\w*|gymnas\w*|kantonsschule|vocational|apprentice\w*|apprendist\w*|lehre|lehrabschluss|efz|afc|cfc|fahigkeitszeugnis|attestato federale di capacita|certificat federal de capacite|qualifica professionale|berufsausbildung|formation professionnelle)\b/],
+  [2, /\b(?:matur\w*|diploma|diplome|liceo|istituto tecnico|istituto professionale|istituto (?:di istruzione )?superiore|scuola superiore|iis|itis|itc|itg|ipsia|perito|ragioneria|geometra|high school|(?<!lower )secondary|abitur|baccalaur\w*|gymnas\w*|kantonsschule|vocational|apprentice\w*|apprendist\w*|lehre|lehrabschluss|efz|afc|cfc|fahigkeitszeugnis|attestato federale di capacita|certificat federal de capacite|qualifica professionale|berufsausbildung|formation professionnelle)\b/],
   [1, /\b(?:licenza media|scuola media|middle school|lower secondary|primary|elementary|sekundarschule|realschule|hauptschule|scuola dell obbligo|compulsory|obligatoire)\b/],
 ];
 
@@ -376,16 +376,33 @@ export function platformEducationLevel(profile = {}) {
 
 // The field of study a CV title states: an explicit key, or the words after «Laurea in», «Bachelor of», «Diplom in» …
 // A title that names no field («Diploma di perito informatico», «Maturità») yields '' and the candidate is asked.
-const DEGREE_FIELD_RE = /^(?:laurea(?:\s+(?:magistrale|specialistica|triennale|breve))?|master(?:['’]s)?(?:\s+degree)?(?:\s+of\s+(?:science|arts))?|bachelor(?:['’]s)?(?:\s+degree)?(?:\s+of\s+(?:science|arts))?|diploma(?:\s+di\s+laurea)?|dottorato(?:\s+di\s+ricerca)?|ph\.?d\.?|licence|diplom|msc|bsc|degree)\s+(?:in|of|en|nelle?|aus)\s+(.+)$/iu;
+const DEGREE_FIELD_RE = /^(?:laurea(?:\s+(?:magistrale|specialistica|triennale|breve))?|master(?:'s)?(?:\s+degree)?(?:\s+of\s+(?:science|arts))?|bachelor(?:'s)?(?:\s+degree)?(?:\s+of\s+(?:science|arts))?|diploma(?:\s+di\s+laurea)?|dottorato(?:\s+di\s+ricerca)?|ph\.?d\.?|licence|dipl[oô]me?(?:\s+d'[\p{L}]+)?|msc|bsc|degree)\s+(?:in|of|en|nelle?|aus)\s+(.+)$/iu;
+// A school diploma that writes its course: «Diploma di Maturità <indirizzo>», «Diploma di perito <indirizzo>», «Maturità
+// scientifica», «Matura … Schwerpunkt <x>». «Maturità» alone names no field. A typographic apostrophe stands for the
+// accent («Maturita’» = «Maturità»), so it is read as an optional mark after the word.
+const SCHOOL_DIPLOMA_FIELD_RES = [
+  /^diploma\s+di\s+matur[iì]t[aàá]'?\s+(?:in\s+)?(.+)$/iu,
+  /^matur[iì]t[aàá]'?\s+(?:in\s+)?(.+)$/iu,
+  /^diploma\s+di\s+(?:perito|tecnico)\s+(?:in\s+)?(.+)$/iu,
+  /^(?:matura|maturit[aä]t|abitur|gymnasiale\s+matur\w*)\b.*?\b(?:schwerpunkt(?:fach)?|profil|richtung)\s+(.+)$/iu,
+];
+// What follows the course on a CV line: place, year, mark, «obtained in …».
+const FIELD_TAIL_RE = /\s*(?:[,;(\[]|\s[-–—]\s|\s(?:presso|at|bei|chez|all'|con|mit|avec|anno|year|voto|votazione|grade|note|jahr|conseguit[oa]|ottenut[oa]|obtenu[e]?|erworben|nel|del)\b|\s\d)/iu;
+const NOT_A_FIELD_RE = /^(?:statale|superiore|finale|italiana|completa|di stato|di|in|della|del)$/iu;
+const trimField = (value) => clean(` ${value}`.split(FIELD_TAIL_RE)[0].replace(/[.\s]+$/u, ''), 120);
 function studyFieldOf(item) {
   for (const key of ['field', 'fieldOfStudy', 'major', 'studyField']) {
     const value = clean(item?.[key], 120);
     if (value) return value;
   }
-  const match = DEGREE_FIELD_RE.exec(clean(item?.degree, 200));
-  if (!match) return '';
-  const value = clean(match[1].split(/\s*(?:[,;(]|\s[-–—]\s|\spresso\s|\sat\s|\sall['’]\s*)/u)[0].replace(/[.\s]+$/u, ''), 120);
-  return /\p{L}{3}/u.test(value) && !/\d/.test(value) ? value : '';
+  const degree = clean(item?.degree, 200).replace(/[’‘`´ʼ]/g, "'");
+  for (const re of [DEGREE_FIELD_RE, ...SCHOOL_DIPLOMA_FIELD_RES]) {
+    const match = re.exec(degree);
+    if (!match) continue;
+    const value = trimField(match[1]);
+    if (/\p{L}{3}/u.test(value) && !/\d/.test(value) && !NOT_A_FIELD_RE.test(value)) return value;
+  }
+  return '';
 }
 
 /** The field of study of the CV's highest title; '' when none states it or the highest titles disagree. */
