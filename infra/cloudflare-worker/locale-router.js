@@ -2502,10 +2502,10 @@ export function apexLegacyResponse(url) {
 // The generated inventory also includes the finite salary-stats bridge
 // families. Full above-floor pages have no stub marker and remain 200,
 // even though the same path redirected while below floor.
-// Only listed HTML paths pay for a fresh GET probe. The probe is read only
-// through the head; the original response stays untouched and is returned as
-// is when it is not a bridge. Nothing is tee'd (single consumer, see the Cache
-// API note in the header). This also lets HEAD inspect the same GET document.
+// GET reads the original body only until the decision (marker in <head> or
+// </head> reached, at most LEGACY_STUB_INSPECT_BYTES), then replays the bytes
+// already read plus the untouched remainder: no second subrequest, no tee.
+// HEAD has no body, so it alone re-fetches as GET to inspect the document.
 
 export function legacyStubTarget(pathname) {
   return lookupLegacyTable(pathname, EDGE_LEGACY_STUB_REDIRECTS);
@@ -2527,13 +2527,19 @@ function isLegacyStubCandidate(response) {
   return type === '' || /^text\/html\b/i.test(type);
 }
 
-async function hasLegacyStubMarkerInHead(response) {
-  if (!response?.body) return false;
-  const reader = response.body.getReader();
+// Inspection budget: bytes read from the head of a GET body before the Worker
+// stops looking for the stub marker and serves the page unchanged (fail-open).
+// A CPU bound only: the rest of the stream always passes through intact.
+const LEGACY_STUB_INSPECT_BYTES = 64 * 1024;
+
+/**
+ * Incremental scanner for REDIRECT_STUB_MARKER inside <head>. `scan(bytes)`
+ * returns true (marker in head), false (</head> reached without it) or null
+ * (undecided); `finish()` flushes at end of stream.
+ */
+function createLegacyStubHeadScanner() {
   const decoder = new TextDecoder();
-  // Bound each transient decoded string even if the stream source yields one
-  // body-sized Uint8Array. The loop still visits the entire chunk unless the
-  // marker or </head> ends the inspection; this is not a response-size limit.
+  // Bound each transient decoded string even if one chunk is large.
   const decodeSliceBytes = 8 * 1024;
   const openingHead = /<head(?=[\s>])/i;
   const closingHead = '</head>';
@@ -2596,22 +2602,47 @@ async function hasLegacyStubMarkerInHead(response) {
     return null;
   }
 
-  try {
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) return inspect(decoder.decode()) === true;
-      for (let offset = 0; offset < value.byteLength; offset += decodeSliceBytes) {
-        const slice = value.subarray(offset, offset + decodeSliceBytes);
+  return {
+    scan(bytes) {
+      for (let offset = 0; offset < bytes.byteLength; offset += decodeSliceBytes) {
+        const slice = bytes.subarray(offset, offset + decodeSliceBytes);
         const result = inspect(decoder.decode(slice, { stream: true }));
         if (result !== null) return result;
       }
+      return null;
+    },
+    finish() {
+      return inspect(decoder.decode()) === true;
+    },
+  };
+}
+
+async function safeCancel(reader) {
+  try {
+    await reader.cancel();
+  } catch {
+    // The body may already be closed or errored.
+  }
+}
+
+// HEAD: the response has no body, so a fresh GET is read through the head.
+async function hasLegacyStubMarkerInHead(response) {
+  if (!response?.body) return false;
+  const reader = response.body.getReader();
+  const scanner = createLegacyStubHeadScanner();
+  let inspected = 0;
+  try {
+    while (inspected < LEGACY_STUB_INSPECT_BYTES) {
+      const { done, value } = await reader.read();
+      if (done) return scanner.finish();
+      const slice = value.subarray(0, LEGACY_STUB_INSPECT_BYTES - inspected);
+      inspected += slice.byteLength;
+      const result = scanner.scan(slice);
+      if (result !== null) return result;
     }
+    return false;
   } finally {
-    try {
-      await reader.cancel();
-    } catch {
-      // The response body may already be closed or errored.
-    }
+    await safeCancel(reader);
     try {
       reader.releaseLock();
     } catch {
@@ -2620,10 +2651,83 @@ async function hasLegacyStubMarkerInHead(response) {
   }
 }
 
+// GET: read the ORIGINAL body only until the decision, then either answer 301
+// or replay the bytes already read followed by the untouched remainder.
+async function upgradeLegacyStubGet(url, target, response) {
+  if (!response.body) return response;
+  const reader = response.body.getReader();
+  const consumed = [];
+  const scanner = createLegacyStubHeadScanner();
+  let inspected = 0;
+  let isBridge = false;
+  let exhausted = false;
+  let scanFailed = false;
+  while (inspected < LEGACY_STUB_INSPECT_BYTES && !scanFailed) {
+    let chunk;
+    try {
+      chunk = await reader.read();
+    } catch (error) {
+      return edgeFailureResponse(
+        url,
+        'legacy-stub-body',
+        'Origin unavailable',
+        { 'Retry-After': '30', 'Cache-Control': 'no-store' },
+        { status: 503, stage: 'legacy-stub', errorMessage: sanitizeErrorMessage(error) },
+      );
+    }
+    if (chunk.done) {
+      exhausted = true;
+      try {
+        isBridge = scanner.finish();
+      } catch {
+        isBridge = false;
+      }
+      break;
+    }
+    consumed.push(chunk.value);
+    try {
+      const slice = chunk.value.subarray(0, LEGACY_STUB_INSPECT_BYTES - inspected);
+      inspected += slice.byteLength;
+      const result = scanner.scan(slice);
+      if (result !== null) {
+        isBridge = result;
+        break;
+      }
+    } catch {
+      scanFailed = true; // fail open: serve prefix + remainder unchanged
+    }
+  }
+  if (isBridge) {
+    await safeCancel(reader);
+    return legacyStubMoved(url, target);
+  }
+  let index = 0;
+  const replay = new ReadableStream({
+    async pull(controller) {
+      if (index < consumed.length) {
+        controller.enqueue(consumed[index++]);
+        return;
+      }
+      if (exhausted) {
+        controller.close();
+        return;
+      }
+      const { done, value } = await reader.read();
+      if (done) controller.close();
+      else controller.enqueue(value);
+    },
+    cancel(reason) {
+      return reader.cancel(reason);
+    },
+  });
+  return new Response(replay, response);
+}
+
 /**
  * Upgrade the origin's legacy redirect stub to a 301 for the paths listed in
- * EDGE_LEGACY_STUB_REDIRECTS. `refetchAsGet` re-runs the router as GET for
- * both methods. Fail-open: any error returns the original response unchanged.
+ * EDGE_LEGACY_STUB_REDIRECTS. GET inspects the original body in streaming (no
+ * second subrequest); HEAD uses `refetchAsGet` because it has no body.
+ * Fail-open: any error returns the original response unchanged.
  */
 export async function upgradeLegacyStub(request, response, refetchAsGet) {
   if (request.method !== 'GET' && request.method !== 'HEAD') return response;
@@ -2631,6 +2735,7 @@ export async function upgradeLegacyStub(request, response, refetchAsGet) {
   const target = legacyStubTarget(url.pathname);
   if (target === undefined || !isLegacyStubCandidate(response)) return response;
 
+  if (request.method === 'GET') return upgradeLegacyStubGet(url, target, response);
   try {
     const probe = await refetchAsGet();
     if (!isLegacyStubCandidate(probe)) return response;
