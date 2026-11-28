@@ -2502,11 +2502,10 @@ export function apexLegacyResponse(url) {
 // The generated inventory also includes the finite salary-stats bridge
 // families. Full above-floor pages have no stub marker and remain 200,
 // even though the same path redirected while below floor.
-// Only listed paths pay the body read; every other response passes untouched,
-// and nothing is tee'd (single consumer, see the Cache API note in the header).
-// HEAD has no body to inspect, so a listed HEAD is answered from a GET of the
-// same URL through the same router.
-const LEGACY_STUB_MAX_BYTES = 256 * 1024;
+// GET reads the original body only until the decision (marker in <head> or
+// </head> reached, at most LEGACY_STUB_INSPECT_BYTES), then replays the bytes
+// already read plus the untouched remainder: no second subrequest, no tee.
+// HEAD has no body, so it alone re-fetches as GET to inspect the document.
 
 export function legacyStubTarget(pathname) {
   return lookupLegacyTable(pathname, EDGE_LEGACY_STUB_REDIRECTS);
@@ -2524,16 +2523,218 @@ function legacyStubMoved(url, target) {
 
 function isLegacyStubCandidate(response) {
   if (!response || response.status !== 200) return false;
-  const length = Number(response.headers.get('Content-Length') || 0);
-  if (length > LEGACY_STUB_MAX_BYTES) return false;
   const type = response.headers.get('Content-Type') || '';
   return type === '' || /^text\/html\b/i.test(type);
 }
 
+// Inspection budget: bytes read from the head of a GET body before the Worker
+// stops looking for the stub marker and serves the page unchanged (fail-open).
+// A CPU bound only: the rest of the stream always passes through intact.
+const LEGACY_STUB_INSPECT_BYTES = 64 * 1024;
+
+/**
+ * Incremental scanner for REDIRECT_STUB_MARKER inside <head>. `scan(bytes)`
+ * returns true (marker in head), false (</head> reached without it) or null
+ * (undecided); `finish()` flushes at end of stream.
+ */
+function createLegacyStubHeadScanner() {
+  const decoder = new TextDecoder();
+  // Bound each transient decoded string even if one chunk is large.
+  const decodeSliceBytes = 8 * 1024;
+  const openingHead = /<head(?=[\s>])/i;
+  const closingHead = '</head>';
+  const overlapLength = Math.max(REDIRECT_STUB_MARKER.length, closingHead.length) - 1;
+  let preHeadOverlap = '';
+  let inComment = false;
+  let commentOverlap = '';
+  let headStarted = false;
+  let insideHeadTag = false;
+  let quote = '';
+  let headOverlap = '';
+
+  function inspect(text) {
+    for (const character of text) {
+      if (!headStarted) {
+        if (inComment) {
+          commentOverlap = (commentOverlap + character).slice(-3);
+          if (commentOverlap === '-->') {
+            inComment = false;
+            commentOverlap = '';
+          }
+          continue;
+        }
+
+        const window = preHeadOverlap + character;
+        if (window.endsWith('<!--')) {
+          inComment = true;
+          preHeadOverlap = '';
+          continue;
+        }
+        if (window.toLowerCase().endsWith(closingHead)) return false;
+        if (openingHead.test(window)) {
+          headStarted = true;
+          insideHeadTag = character !== '>';
+          preHeadOverlap = '';
+          continue;
+        }
+        preHeadOverlap = window.slice(-6);
+        continue;
+      }
+
+      if (insideHeadTag) {
+        if (quote) {
+          if (character === quote) quote = '';
+        } else if (character === '"' || character === "'") {
+          quote = character;
+        } else if (character === '>') {
+          insideHeadTag = false;
+        }
+        continue;
+      }
+
+      const window = headOverlap + character;
+      const markerIndex = window.indexOf(REDIRECT_STUB_MARKER);
+      const closingIndex = window.toLowerCase().indexOf(closingHead);
+      if (markerIndex !== -1 && (closingIndex === -1 || markerIndex < closingIndex)) return true;
+      if (closingIndex !== -1) return false;
+      headOverlap = window.slice(-overlapLength);
+    }
+    return null;
+  }
+
+  return {
+    scan(bytes) {
+      for (let offset = 0; offset < bytes.byteLength; offset += decodeSliceBytes) {
+        const slice = bytes.subarray(offset, offset + decodeSliceBytes);
+        const result = inspect(decoder.decode(slice, { stream: true }));
+        if (result !== null) return result;
+      }
+      return null;
+    },
+    finish() {
+      return inspect(decoder.decode()) === true;
+    },
+  };
+}
+
+async function safeCancel(reader) {
+  try {
+    await reader.cancel();
+  } catch {
+    // The body may already be closed or errored.
+  }
+}
+
+// HEAD: the response has no body, so a fresh GET is read through the head.
+async function hasLegacyStubMarkerInHead(response) {
+  if (!response?.body) return false;
+  const reader = response.body.getReader();
+  const scanner = createLegacyStubHeadScanner();
+  let inspected = 0;
+  try {
+    while (inspected < LEGACY_STUB_INSPECT_BYTES) {
+      const { done, value } = await reader.read();
+      if (done) return scanner.finish();
+      const slice = value.subarray(0, LEGACY_STUB_INSPECT_BYTES - inspected);
+      inspected += slice.byteLength;
+      const result = scanner.scan(slice);
+      if (result !== null) return result;
+    }
+    return false;
+  } finally {
+    await safeCancel(reader);
+    try {
+      reader.releaseLock();
+    } catch {
+      // A failed stream read can leave the lock unavailable to release.
+    }
+  }
+}
+
+// GET: read the ORIGINAL body only until the decision, then either answer 301
+// or replay the bytes already read followed by the untouched remainder.
+async function upgradeLegacyStubGet(url, target, response) {
+  if (!response.body) return response;
+  const reader = response.body.getReader();
+  const consumed = [];
+  const scanner = createLegacyStubHeadScanner();
+  let inspected = 0;
+  let isBridge = false;
+  let exhausted = false;
+  let scanFailed = false;
+  while (inspected < LEGACY_STUB_INSPECT_BYTES && !scanFailed) {
+    let chunk;
+    try {
+      chunk = await reader.read();
+    } catch (error) {
+      return edgeFailureResponse(
+        url,
+        'legacy-stub-body',
+        'Origin unavailable',
+        { 'Retry-After': '30', 'Cache-Control': 'no-store' },
+        { status: 503, stage: 'legacy-stub', errorMessage: sanitizeErrorMessage(error) },
+      );
+    }
+    if (chunk.done) {
+      exhausted = true;
+      try {
+        isBridge = scanner.finish();
+      } catch {
+        isBridge = false;
+      }
+      break;
+    }
+    consumed.push(chunk.value);
+    try {
+      const slice = chunk.value.subarray(0, LEGACY_STUB_INSPECT_BYTES - inspected);
+      inspected += slice.byteLength;
+      const result = scanner.scan(slice);
+      if (result !== null) {
+        isBridge = result;
+        break;
+      }
+    } catch {
+      scanFailed = true; // fail open: serve prefix + remainder unchanged
+    }
+  }
+  if (isBridge) {
+    await safeCancel(reader);
+    return legacyStubMoved(url, target);
+  }
+  let index = 0;
+  const replay = new ReadableStream({
+    async pull(controller) {
+      if (index < consumed.length) {
+        controller.enqueue(consumed[index++]);
+        return;
+      }
+      if (exhausted) {
+        controller.close();
+        return;
+      }
+      const { done, value } = await reader.read();
+      if (done) controller.close();
+      else controller.enqueue(value);
+    },
+    cancel(reason) {
+      return reader.cancel(reason);
+    },
+  });
+  // The replayed stream carries exactly the bytes the runtime handed us (the
+  // Workers runtime decodes a compressed origin body on read and re-encodes it
+  // on egress from Content-Encoding, as it does for the untouched original), so
+  // Content-Encoding stays. Content-Length describes the origin's wire bytes and
+  // is dropped: the runtime frames the re-encoded stream itself.
+  const headers = new Headers(response.headers);
+  headers.delete('Content-Length');
+  return new Response(replay, { status: response.status, statusText: response.statusText, headers });
+}
+
 /**
  * Upgrade the origin's legacy redirect stub to a 301 for the paths listed in
- * EDGE_LEGACY_STUB_REDIRECTS. `refetchAsGet` re-runs the router for a HEAD.
- * Fail-open: any error returns a response equivalent to the one received.
+ * EDGE_LEGACY_STUB_REDIRECTS. GET inspects the original body in streaming (no
+ * second subrequest); HEAD uses `refetchAsGet` because it has no body.
+ * Fail-open: any error returns the original response unchanged.
  */
 export async function upgradeLegacyStub(request, response, refetchAsGet) {
   if (request.method !== 'GET' && request.method !== 'HEAD') return response;
@@ -2541,36 +2742,15 @@ export async function upgradeLegacyStub(request, response, refetchAsGet) {
   const target = legacyStubTarget(url.pathname);
   if (target === undefined || !isLegacyStubCandidate(response)) return response;
 
-  if (request.method === 'HEAD') {
-    try {
-      const probe = await refetchAsGet();
-      if (!isLegacyStubCandidate(probe)) return response;
-      const text = await probe.text();
-      return text.includes(REDIRECT_STUB_MARKER) ? legacyStubMoved(url, target) : response;
-    } catch {
-      return response;
-    }
-  }
-
-  let text;
+  if (request.method === 'GET') return upgradeLegacyStubGet(url, target, response);
   try {
-    text = await response.text();
+    const probe = await refetchAsGet();
+    if (!isLegacyStubCandidate(probe)) return response;
+    const isBridge = await hasLegacyStubMarkerInHead(probe);
+    return isBridge ? legacyStubMoved(url, target) : response;
   } catch {
-    return edgeFailureResponse(url, 'legacy-stub-body', 'Origin unavailable', {
-      'Retry-After': '30',
-      'Cache-Control': 'no-store',
-    });
+    return response;
   }
-  if (text.includes(REDIRECT_STUB_MARKER)) return legacyStubMoved(url, target);
-  // A live page at a listed path: hand back the same document. text() returned
-  // the DECODED body (the Workers runtime transparently decompresses origin
-  // responses but keeps their Content-Encoding header), so neither the encoded
-  // length nor the encoding label describes these bytes any more: drop both and
-  // let the edge compress the response on the way out.
-  const headers = new Headers(response.headers);
-  headers.delete('Content-Length');
-  headers.delete('Content-Encoding');
-  return new Response(text, { status: response.status, statusText: response.statusText, headers });
 }
 
 // ────────────────────────────────────────────────────────────────────────────
