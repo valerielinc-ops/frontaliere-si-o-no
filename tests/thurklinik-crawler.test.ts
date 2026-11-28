@@ -67,6 +67,25 @@ const DETAIL_FIXTURE_HTML = `
 </html>
 `;
 
+// Structure of the 2026-11-28 template (raw-HTML WPBakery block, no semantic
+// root, JobPosting JSON-LD); the text is invented.
+const TK_PAGE_BODY = 'Wir suchen eine engagierte Fachperson fuer unser Testteam mit Freude an der Zusammenarbeit.';
+const tkPageDetailHtml = ({ ldDescription = `<p>${TK_PAGE_BODY}</p><ul><li>Aufgabe Alpha im Testbereich</li></ul>`, withBody = true } = {}) => `
+<html><body>
+  <div class="site-header">Site header</div>
+  <div class="vc_row"><div class="wpb_wrapper">
+    <script type="application/ld+json" id="tk-job-ld">${JSON.stringify({
+      '@context': 'https://schema.org/', '@type': 'JobPosting', title: 'Testfachperson (20–60 %)', description: ldDescription,
+    })}</script>
+    <div class="tk-page" lang="de">
+      <div class="tk-jdhero"><h1>Testfachperson (20–60 %)</h1></div>
+      ${withBody ? `<div class="tk-jdbox"><p>${TK_PAGE_BODY}</p><h2>Ihre Aufgaben</h2><ul><li>Aufgabe Alpha im Testbereich</li></ul></div>` : ''}
+      <form><label>Bewerbungsformular</label></form>
+    </div>
+  </div></div>
+  <div class="site-footer">Site footer</div>
+</body></html>`;
+
 describe('Thurklinik crawler parser', () => {
   it('exports valid constants', () => {
     expect(THURKLINIK_KEY).toBe('thurklinik');
@@ -190,6 +209,24 @@ describe('Thurklinik crawler parser', () => {
       expect(fetchHtml).toHaveBeenCalledTimes(2);
       fetchHtml.mockReset();
     });
+    it('publishes a job from a .tk-page detail page', async () => {
+      const title = 'Testfachperson (20–60 %)';
+      fetchHtml.mockImplementation(async (url: string) => (url === THURKLINIK_CAREERS_URL
+        ? `<a href="/stellen/test-fachperson/">${title}</a>`
+        : tkPageDetailHtml({ ldDescription: `<p>${TK_PAGE_BODY.repeat(5)}</p>` })));
+      const jobs = await fetchAllThurklinikJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].description).toContain(TK_PAGE_BODY);
+      fetchHtml.mockReset();
+    });
+
+    it('fails when a detail page has no readable source body', async () => {
+      fetchHtml.mockImplementation(async (url: string) => (url === THURKLINIK_CAREERS_URL
+        ? '<a href="/stellen/test-fachperson/">Testfachperson (20–60 %)</a>'
+        : '<html><body><h1>Testfachperson</h1><div class="renamed-template"><p>Text</p></div></body></html>'));
+      await expect(fetchAllThurklinikJobs()).rejects.toThrow(/no readable source body/);
+      fetchHtml.mockReset();
+    });
   });
 
   describe('parseDetailPage', () => {
@@ -207,6 +244,27 @@ describe('Thurklinik crawler parser', () => {
       expect(detail.description).not.toContain('Site header');
       expect(detail.description).not.toContain('Site footer');
       expect(detail.description).not.toContain('Zurück zu allen Stellen');
+    });
+    it('reads the .tk-page template that has no semantic root', () => {
+      const detail = parseDetailPage(tkPageDetailHtml());
+      expect(detail.title).toBe('Testfachperson (20–60 %)');
+      expect(detail.description).toContain(TK_PAGE_BODY);
+      expect(detail.description).toContain('• Aufgabe Alpha im Testbereich');
+      expect(detail.description).not.toContain('Site header');
+      expect(detail.description).not.toContain('Site footer');
+      expect(detail.description).not.toContain('Bewerbungsformular');
+    });
+    it('falls back to the JobPosting JSON-LD description when no root matches', () => {
+      const html = tkPageDetailHtml().replace('class="tk-page"', 'class="renamed-template"');
+      const detail = parseDetailPage(html);
+      expect(detail.title).toBe('Testfachperson (20–60 %)');
+      expect(detail.description).toContain(TK_PAGE_BODY);
+      expect(detail.description).not.toContain('Site footer');
+    });
+    it('stays empty without a root and without a usable JSON-LD description', () => {
+      const html = tkPageDetailHtml({ ldDescription: '<p> </p>' }).replace('class="tk-page"', 'class="renamed-template"');
+      expect(parseDetailPage(html).description).toBe('');
+      expect(parseDetailPage('<body><h1>Stelle</h1><script type="application/ld+json">{not json</script></body>').description).toBe('');
     });
     it('fails closed when the page has no semantic vacancy root', () => {
       expect(parseDetailPage('<body><h1>Stelle</h1><p>Navigation only</p></body>')).toEqual({
