@@ -117,7 +117,7 @@ import {
 import { carryForwardFirstSeenAt } from './lib/first-seen-history.mjs';
 import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawler-source-hosts.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
-import { createSinglePostingProof, holdsEveryRoute, mergeGhostRoutes } from './lib/ghost-route-transfer.mjs';
+import { createPostingProof, holdsEveryRoute, mergeGhostRoutes, postingMetadataKey } from './lib/ghost-route-transfer.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 import { stampCodeCommit } from './lib/checkout-code-commit.mjs';
 import { readJsonFile } from './lib/read-large-json.mjs';
@@ -4919,7 +4919,6 @@ export function reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir = EXPI
     return { cleanedExpired: expiredJobs || [], ghostCount: 0, mergedSlugs: 0, retainedGhostCount: 0 };
   }
 
-  const jobTclKey = (job) => `${(job.title || '').toLowerCase().trim()}||${(job.company || '').toLowerCase().trim()}||${(job.location || '').toLowerCase().trim()}`;
   const hasEqualNonEmptyLocaleSlug = (left, right) => {
     const leftSlugs = left?.slugByLocale;
     const rightSlugs = right?.slugByLocale;
@@ -4961,7 +4960,7 @@ export function reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir = EXPI
   // fields are a candidate set, never identity proof by themselves.
   const activeByTCL = new Map();
   for (const j of activeJobs) {
-    const key = jobTclKey(j);
+    const key = postingMetadataKey(j);
     const candidates = activeByTCL.get(key) || [];
     candidates.push(j);
     activeByTCL.set(key, candidates);
@@ -4991,7 +4990,7 @@ export function reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir = EXPI
   const ghostIds = new Set();
   const ghostEvidenceById = new Map();
   let mergedSlugs = 0;
-  const isSameSinglePosting = createSinglePostingProof(activeJobs, expiredJobs, jobTclKey);
+  const postingProof = createPostingProof(activeJobs, expiredJobs);
 
   for (const ej of expiredJobs) {
     const localeSlugs = ej.slugByLocale ? Object.values(ej.slugByLocale) : [];
@@ -5002,7 +5001,7 @@ export function reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir = EXPI
     const expSlugs = localeSlugs.some((slug) => typeof slug === 'string' && slug.trim())
       ? localeSlugs
       : [ej.slug];
-    const key = jobTclKey(ej);
+    const key = postingMetadataKey(ej);
     const candidates = activeByTCL.get(key) || [];
     if (candidates.length === 0) continue;
 
@@ -5080,9 +5079,16 @@ export function reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir = EXPI
       overlapJob: proofOverlapSlug ? overlapJob : null,
     });
 
-    // Per-locale history moves only when both records declare, for themselves,
-    // the same single posting. Nothing is evicted to make room.
-    mergedSlugs += mergeGhostRoutes(match, ej, { proven: isSameSinglePosting(ej, match) });
+    // The match above may rest on merge history, a raw id or a URL key that
+    // drops the fragment: enough to find a candidate, not to give it routes.
+    // Routes move only on identities each record declares for itself (or when
+    // neither declares any); per-locale history also needs a single-posting
+    // token. Otherwise the record keeps its routes. Nothing is evicted.
+    const mayMoveRoutes = postingProof.sameDeclaredPosting(ej, match)
+      || (stablePostingIdentities(ej).size === 0 && stablePostingIdentities(match).size === 0);
+    if (mayMoveRoutes) {
+      mergedSlugs += mergeGhostRoutes(match, ej, { proven: postingProof.sameSinglePosting(ej, match) });
+    }
   }
 
   // Ghost reconciliation runs after the active assembly's normal ownership
