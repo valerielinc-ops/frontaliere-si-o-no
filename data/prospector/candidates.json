@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-28T14:49:57.283Z",
+  "updatedAt": "2026-11-28T14:50:26.557Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -440030,12 +440030,12 @@
     },
     "ducksch-anliker@zurich": {
       "key": "ducksch-anliker@zurich",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-15T05:23:35.064Z",
-      "updatedAt": "2026-11-28T14:32:45.013Z",
+      "updatedAt": "2026-11-28T14:50:26.504Z",
       "name": "Ducksch Anliker AG",
       "city": "Zürich",
       "zip": "8048",
@@ -440331,7 +440331,9 @@
           "sourceAdapterVersion": "generic-runner-v1"
         }
       ],
-      "sourceAdapterVersion": "generic-runner-v1"
+      "sourceAdapterVersion": "generic-runner-v1",
+      "promotionPr": "20571",
+      "promotionBranch": "prospector/promote-2026-11-28"
     },
     "ducommerce.ch": {
       "key": "ducommerce.ch",
@@ -805475,12 +805477,12 @@
     },
     "jensen@rumlang": {
       "key": "jensen@rumlang",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-07T08:32:27.081Z",
-      "updatedAt": "2026-11-28T14:32:38.747Z",
+      "updatedAt": "2026-11-28T14:50:26.504Z",
       "name": "Jensen AG",
       "city": "Rümlang",
       "zip": "8153",
@@ -805774,7 +805776,9 @@
           "sourceAdapterVersion": "generic-runner-v1"
         }
       ],
-      "sourceAdapterVersion": "generic-runner-v1"
+      "sourceAdapterVersion": "generic-runner-v1",
+      "promotionPr": "20571",
+      "promotionBranch": "prospector/promote-2026-11-28"
     },
     "jenzer-partner.ch": {
       "key": "jenzer-partner.ch",

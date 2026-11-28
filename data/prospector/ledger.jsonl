@@ -69642,3 +69642,5 @@
 {"eventType":"candidate_transition","key":"vtm-dienstleistung@rothrist","from":"promoting","to":"awaiting_first_crawl","at":"2026-11-28T14:49:57.177Z","runId":"46142030240","runAttempt":1,"phase":"promote","eventId":"b7245abda48a9173e13ede42"}
 {"eventType":"candidate_attempt","key":"sintio.ch","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-28T14:49:57.203Z","runId":"46142030240","runAttempt":1,"phase":"promote","eventId":"7da38add2cb8ee0ad2fdf923"}
 {"eventType":"candidate_transition","key":"vtm-dienstleistung@rothrist","from":"awaiting_first_crawl","to":"production","at":"2026-11-28T14:49:57.204Z","runId":"46142030240","runAttempt":1,"phase":"promote","eventId":"7cf277ac42e613306a3ffd2d"}
+{"eventType":"candidate_transition","key":"ducksch-anliker@zurich","from":"promoted","to":"promoting","at":"2026-11-28T14:50:26.504Z","runId":"46142030240","runAttempt":1,"phase":"promote","eventId":"ee322e7c80f8d6cf1a5b7f84"}
+{"eventType":"candidate_transition","key":"jensen@rumlang","from":"promoted","to":"promoting","at":"2026-11-28T14:50:26.504Z","runId":"46142030240","runAttempt":1,"phase":"promote","eventId":"63587a6095ee18eb2080b5da"}
