@@ -5501,7 +5501,15 @@ const EMPLOYER_COPY_WORDS = new Set(['join', 'joining', 'why', 'discover', 'meet
 const HIRING_VERBS = new Set(['sucht', 'cerca', 'recherche', 'recrute', 'engagiert', 'embauche']);
 const HIRING_SUBJECT_NON_NAMES = new Set(['wir', 'noi', 'nous', 'we', 'firma', 'unternehmen', 'azienda', 'societe', 'company', 'team', 'betrieb', 'arbeitgeber']);
 const STAFFING_AGENCY_WORDS = new Set(['personal', 'personnel', 'staffing', 'recruiting', 'recruitment', 'rekrutierung', 'temporary', 'interim', 'manpower', 'adecco', 'randstad', 'kelly', 'hays', 'synergie', 'workforce', 'personaldienstleistungen', 'personaldienstleistung', 'stellenvermittlung', 'arbeitsvermittlung', 'collocamento', 'reclutamento', 'somministrazione', 'temporaire', 'placement']);
-const isStaffingAgencyCompany = (company) => normalizeWords(company).split(' ').some((word) => STAFFING_AGENCY_WORDS.has(word));
+// The trade words a placement agency's names are made of: «STA Personal AG» and «STA Personalpartner AG» are one
+// agency. Compounds count by stem (personalpartner, personaldienst(e), personalvermittlung, temporaer...).
+const AGENCY_STEM_RE = /^(?:personal|temporar|temporaer|stellenvermittl|arbeitsvermittl|arbeitsmarkt)/;
+const isAgencyTradeWord = (word) => STAFFING_AGENCY_WORDS.has(word) || AGENCY_STEM_RE.test(word);
+// With an agency as the order's employer, these words next to its name, and its legal form, are the same
+// agency's variants. For any other employer «Partners» next to the name stays another name.
+const AGENCY_VARIANT_WORDS = new Set(['partner', 'partners', 'jobs', 'job', 'services', 'service', 'consulting', 'group', 'gruppe', 'holding', 'solutions', 'suisse', 'schweiz', 'switzerland', 'svizzera']);
+const isAgencyVariantWord = (word) => isAgencyTradeWord(word) || AGENCY_VARIANT_WORDS.has(word);
+const isStaffingAgencyCompany = (company) => normalizeWords(company).split(' ').some(isAgencyTradeWord);
 
 // «S.p.A.», «S.A.», «S.à r.l.» written with dots: collapse them before the line is cut at its full stops.
 function collapseDottedLegalForms(value) {
@@ -5525,13 +5533,17 @@ function foreignEmployerEvidenceInSegment(segment, { neutral, job, agency, known
     return capitalised(index) && !neutral.has(word) && !filler(word) && !LEGAL_FORM_TOKENS.has(raw[index]) && !EMPLOYER_KIND_WORDS.has(word);
   };
   const companyWords = jobCompanyWords(job);
-  // An agency naming itself with its own trade words («STA Personal AG» for the order of «STA»), or any agency
-  // when the order is an agency's, names no other employer.
+  // An entity is the order's own agency only when it carries the order's distinctive name («STA») and the rest of
+  // it is trade words and variants: «STA Personalpartner AG» is the agency of «STA Personal AG»,
+  // «Muster Personalpartner AG» is another one.
+  const distinctiveCompanyWords = [...companyWords].filter((word) => !isAgencyVariantWord(word));
   const exempt = (indexes) => {
     const words = indexes.map((index) => norm[index]);
     const unknown = words.filter((word) => word && !neutral.has(word) && !filler(word) && !NOT_A_NAME.has(word));
-    if (agency && words.some((word) => STAFFING_AGENCY_WORDS.has(word))) return true;
-    return words.some((word) => companyWords.has(word)) && unknown.every((word) => STAFFING_AGENCY_WORDS.has(word));
+    if (!unknown.every(isAgencyVariantWord)) return false;
+    return distinctiveCompanyWords.length
+      ? words.some((word) => distinctiveCompanyWords.includes(word))
+      : words.some((word) => companyWords.has(word));
   };
   const found = (reason, indexes) => (exempt(indexes) ? null : { reason, entity: indexes.map((index) => raw[index]).join(' ') });
   for (let index = 0; index < raw.length; index += 1) {
@@ -5685,6 +5697,10 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     ...(allowPostingLocation ? FIELD_LABEL_WORDS : []),
     ...FORM_VOCABULARY,
   ]);
+  // An agency's own variants differ by trade words only («STA Personal AG» / «STA Personalpartner AG»).
+  if (isStaffingAgencyCompany(job.company)) {
+    for (const word of normalizeWords(text).split(' ')) if (word && isAgencyVariantWord(word)) neutral.add(word);
+  }
   const identities = [companyIdentityWords(job.company), companyLongFormWords(job.company), ...companyShortForms(job.company)]
     .filter((words) => words.length > 0);
   const titleNamesOwnEmployer = (line) => {

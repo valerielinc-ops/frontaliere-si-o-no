@@ -92,7 +92,9 @@ describe('positive evidence keeps the real conflicts', () => {
     expect(namesAnotherEmployer('Bei Fragen melden Sie sich', job)).toBe(false);
     expect(namesAnotherEmployer('Concierge bei Fragen', job)).toBe(false);
     expect(namesAnotherEmployer('Concierge | Grand Hotel Esempio AG', job)).toBe(false);
-    expect(namesAnotherEmployer('Metallbauer | Beispiel Personal AG', { title: 'Metallbauer', company: 'Muster Staffing AG' })).toBe(false);
+    // Another agency is another employer, even for an agency's order: only the order's own distinctive name binds.
+    expect(namesAnotherEmployer('Metallbauer | Beispiel Personal AG', { title: 'Metallbauer', company: 'Muster Staffing AG' })).toBe(true);
+    expect(namesAnotherEmployer('Metallbauer | Muster Personal AG', { title: 'Metallbauer', company: 'Muster Staffing AG' })).toBe(false);
     expect(namesAnotherEmployer('Metallbauer | Beispiel Industrie AG', { title: 'Metallbauer', company: 'Muster Staffing AG' })).toBe(true);
   });
 
@@ -162,3 +164,44 @@ describe('an isolated ampersand joins one company name in the title slot', () =>
   });
 });
 
+
+// Fifth real case (STA, live proof 2026-11-28): the order's company is «STA Personal AG», the page names the same
+// agency «STA Personalpartner AG». Names that differ only by the trade words of placement agencies and by the legal
+// form are one agency; a really different name next to it, or another legal entity in the title, stays a conflict
+// (fail-closed: a client named in a title or heading is not shown to be the employer of record).
+describe('a placement agency\'s name variants are one employer', () => {
+  const title = 'Metallbauer/in für Montage von Sicherheitskomponenten';
+  const url = 'https://www.sta.example/stellen/metallbauer-in-zuerich-dauerstelle-1/';
+  const job = { title, company: 'STA Personal AG' };
+  const page = (...lines: string[]) => ['Stellenangebote', title, ...lines, 'Jetzt bewerben!', url].join('\n');
+  const bind = (text: string, order = job, diagnostics: Record<string, any> = {}) => formPostingMatch(text, order, {
+    pageUrl: url, postingUrl: url, postingMatched: true, pageHeading: title, pageHeadings: [title], diagnostics,
+  });
+
+  it.each([
+    'STA Personalpartner AG', 'STA Personal AG', 'STA Personaldienstleistungen AG', 'STA Personaldienste AG',
+    'STA Partner AG', 'STA Staffing AG', 'STA Jobs AG', 'STA Services AG', 'STA Consulting AG', 'STA Group AG',
+    'STA Holding AG', 'STA Recruitment AG', 'STA Temporär AG', 'STA Stellenvermittlung AG',
+  ])('binds the page that names the agency as «%s»', (name) => {
+    const diagnostics: Record<string, any> = {};
+    expect(bind(page(name, `Willkommen bei ${name}`, `© ${name}`), job, diagnostics)).toBe('match');
+    expect(diagnostics).toEqual({});
+  });
+
+  it('holds in both directions and for an agency written in the page\'s own spelling', () => {
+    expect(bind(page('STA Personal AG'), { title, company: 'STA Personalpartner AG' })).toBe('match');
+    expect(namesAnotherEmployer('Willkommen\nSTA Personalpartner AG', job)).toBe(false);
+  });
+
+  it('keeps a really different name next to the agency\'s, and other employers, a conflict', () => {
+    expect(namesAnotherEmployer('Willkommen\nSTA Muster Personal AG', job)).toBe(true);
+    expect(namesAnotherEmployer('STA Personal AG – Kunde: Siemens AG', job)).toBe(true);
+    expect(namesAnotherEmployer('Bewerbung bei Siemens AG', job)).toBe(true);
+    // Trade words alone do not make another agency the order's: the order's distinctive name («STA») must be in it.
+    expect(namesAnotherEmployer('Bewerbung bei Muster Personalpartner AG', job)).toBe(true);
+    expect(namesAnotherEmployer('Concierge | Muster Staffing AG', job)).toBe(true);
+    expect(namesAnotherEmployer('Bewerbung bei STA Personalpartner AG', job)).toBe(false);
+    // For an employer that is not an agency, «Partners» next to the name is still another name.
+    expect(namesAnotherEmployer('Welcome\nSTA Partners', { title, company: 'STA AG' })).toBe(true);
+  });
+});
