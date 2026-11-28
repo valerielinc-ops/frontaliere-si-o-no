@@ -1589,7 +1589,7 @@ if (!manifest || !isRecord(manifest)) {
   process.exit(1);
 }
 if (!hasExactKeys(manifest, ['schemaVersion', 'logical', 'v1', 'v2'])) fail('manifest has missing or unknown top-level fields');
-if (manifest.schemaVersion !== 1) fail('manifest schemaVersion is unknown');
+if (manifest.schemaVersion !== 2) fail('manifest schemaVersion is unknown');
 if (!hasExactKeys(manifest.logical, ['entries', 'aliases', 'canonicalEntriesSha256'])) fail('manifest logical section has missing or unknown fields');
 if (!hasExactKeys(manifest.v1, ['files'])) fail('manifest v1 section has missing or unknown fields');
 if (!hasExactKeys(manifest.v2, ['files'])) fail('manifest v2 section has missing or unknown fields');

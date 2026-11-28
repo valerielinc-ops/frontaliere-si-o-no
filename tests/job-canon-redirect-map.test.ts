@@ -984,6 +984,131 @@ describe('staged job-canon ordering handoff', () => {
     expect(fs.existsSync(path.join(root, 'dist/job-canon'))).toBe(true);
   });
 
+  it('streams active slug-map rows and keeps bucket output stable when source order changes', async () => {
+    delete process.env.BUILD_LOCALE;
+    process.env.BUILD_STAGE = 'single';
+    const older = sourceJob('stream-older', 42);
+    const newer = sourceJob('stream-newer', 12);
+    const rows = [older, newer].map((job) => ({
+      ...job,
+      slugByLocale: {
+        it: `${job.id}-it`,
+        en: 'stream-shared-en',
+        de: `${job.id}-de`,
+        fr: `${job.id}-fr`,
+      },
+    }));
+    const foreignSlug = 'stream-shared-en';
+    const expectedTarget = buildCanonicalJobDetailPath('it', rows[1], `${newer.id}-it`, 'ZH');
+
+    const emitForOrder = async (orderedRows: typeof rows): Promise<string> => {
+      const runRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-streamed-input-'));
+      const logSpy = vi.spyOn(console, 'log').mockImplementation(() => undefined);
+      try {
+        fs.mkdirSync(path.join(runRoot, 'data'), { recursive: true });
+        fs.writeFileSync(path.join(runRoot, 'data/jobs.json'), '[]');
+        fs.mkdirSync(path.join(runRoot, 'dist/data'), { recursive: true });
+        const publicRows = orderedRows.map(({ datePosted: _datePosted, firstSeenAt: _firstSeenAt, ...job }) => job);
+        fs.writeFileSync(path.join(runRoot, 'dist/data/jobs-slug-map.json'), JSON.stringify(publicRows));
+        writeAllKnownJobSlugs({}, runRoot);
+        setJobCanonOrderingFields(orderedRows);
+
+        const workerPlugin = jobCanonRedirectMapPlugin(runRoot);
+        await (workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin);
+
+        const relativeFile = `${jobCanonV2ShardKey(foreignSlug)}.json`;
+        const shardPath = path.join(runRoot, 'dist/job-canon/v2', relativeFile);
+        const shardBytes = fs.readFileSync(shardPath);
+        const shard = JSON.parse(shardBytes.toString('utf8')) as Record<string, { alias?: Record<string, string> }>;
+        const aliases = shard[foreignSlug]?.alias ?? {};
+        expect(aliases.it).toBe(expectedTarget.replace(/\/+$/, ''));
+        expect(Object.keys(aliases).sort()).toEqual(['de', 'fr', 'it']);
+        expect(new Set(Object.values(aliases)).size).toBe(Object.keys(aliases).length);
+        return fs.readFileSync(path.join(runRoot, 'dist/job-canon/manifest.json'), 'utf8');
+      } finally {
+        logSpy.mockRestore();
+        clearJobCanonOrderingFields();
+        fs.rmSync(runRoot, { recursive: true, force: true });
+      }
+    };
+
+    expect(await emitForOrder(rows)).toBe(await emitForOrder([...rows].reverse()));
+  });
+
+  it('writes the current section prefix for active slugs after a canton transfer', async () => {
+    delete process.env.BUILD_LOCALE;
+    process.env.BUILD_STAGE = 'single';
+    root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-active-prefix-transfer-'));
+    const previousCanton = 'TI';
+    const currentCanton = 'ZH';
+    const transferred = {
+      ...sourceJob('synthetic-active-transfer', 23),
+      canton: currentCanton,
+      company: 'Synthetic Employer',
+      location: 'Synthetic Location',
+    };
+    const locales = ['it', 'en', 'de', 'fr'] as const;
+    const legacyRegistry: Record<string, Record<string, string>> = {};
+    const sectionPrefix = (canonicalPath: string): string => {
+      const segments = canonicalPath.replace(/\/+$/, '').split('/').filter(Boolean);
+      return `/${segments.slice(0, -1).join('/')}`;
+    };
+    for (const locale of locales) {
+      const slug = transferred.slugByLocale[locale];
+      legacyRegistry[slug] = {
+        [locale]: buildCanonicalJobDetailPath(
+          locale,
+          { canton: previousCanton },
+          slug,
+        ),
+      };
+    }
+
+    fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+    fs.writeFileSync(path.join(root, 'data', 'jobs.json'), '[]');
+    fs.mkdirSync(path.join(root, 'dist', 'data'), { recursive: true });
+    const { datePosted: _datePosted, firstSeenAt: _firstSeenAt, ...publicJob } = transferred;
+    fs.writeFileSync(
+      path.join(root, 'dist', 'data', 'jobs-slug-map.json'),
+      JSON.stringify([publicJob]),
+    );
+    writeAllKnownJobSlugs(legacyRegistry, root);
+    setJobCanonOrderingFields([transferred]);
+
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => undefined);
+    try {
+      const workerPlugin = jobCanonRedirectMapPlugin(root);
+      await (workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin);
+
+      for (const locale of locales) {
+        const slug = transferred.slugByLocale[locale];
+        const currentPath = buildCanonicalJobDetailPath(locale, transferred, slug, currentCanton);
+        const previousPath = buildCanonicalJobDetailPath(locale, { canton: previousCanton }, slug);
+        const expectedPrefix = sectionPrefix(currentPath);
+        expect(expectedPrefix).not.toBe(sectionPrefix(previousPath));
+
+        const v1Path = path.join(root, 'dist', 'job-canon', `${jobSlugShardKey(slug)}.json`);
+        const v2Path = path.join(root, 'dist', 'job-canon', 'v2', `${jobCanonV2ShardKey(slug)}.json`);
+        const v1 = JSON.parse(fs.readFileSync(v1Path, 'utf8')) as Record<string, Record<string, string>>;
+        const v2 = JSON.parse(fs.readFileSync(v2Path, 'utf8')) as Record<string, Record<string, string>>;
+        expect(v1[slug][locale]).toBe(expectedPrefix);
+        expect(v2[slug]).toEqual(v1[slug]);
+      }
+    } finally {
+      logSpy.mockRestore();
+    }
+  });
+
+  it('keeps active slug-map parsing item-wise and sorts only the current bucket in memory', () => {
+    const source = fs.readFileSync(
+      path.resolve(process.cwd(), 'build-plugins/jobCanonRedirectMapPlugin.ts'),
+      'utf8',
+    );
+    expect(source).toContain('for (const rawJob of iterateJsonArrayFile(slugMapPath))');
+    expect(source).not.toContain('readJsonFile(slugMapPath)');
+    expect(source).toContain('bucketJobs.sort(compareActiveJobsByStableOrder)');
+  });
+
   it('fails closed with a named error when a public slug-map ID is absent from the handoff', async () => {
     root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-staged-mismatch-'));
     fs.mkdirSync(path.join(root, 'data'), { recursive: true });
@@ -2089,6 +2214,8 @@ describe('job canon bridge path planning and PR-B classification', () => {
   it.each([
     ['missing', undefined],
     ['invalid', '{}'],
+    ['wrapped object', '{"jobs":[]}'],
+    ['non-object row', '[[]]'],
   ] as const)('fails closed for an all-locale Worker slug map that is %s', async (state, mapContents) => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-all-locale-invalid-'));
     const previousLocale = process.env.BUILD_LOCALE;
@@ -2105,8 +2232,13 @@ describe('job canon bridge path planning and PR-B classification', () => {
       setJobCanonOrderingFields([]);
 
       const workerPlugin = jobCanonRedirectMapPlugin(root);
+      const expectedError = state === 'missing'
+        ? 'all-locale build requires'
+        : state === 'non-object row'
+          ? 'must contain only object rows'
+          : 'must contain an array';
       await expect((workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin))
-        .rejects.toThrow(state === 'missing' ? 'all-locale build requires' : 'must contain an array');
+        .rejects.toThrow(expectedError);
     } finally {
       fs.rmSync(root, { recursive: true, force: true });
       if (previousLocale === undefined) delete process.env.BUILD_LOCALE;
