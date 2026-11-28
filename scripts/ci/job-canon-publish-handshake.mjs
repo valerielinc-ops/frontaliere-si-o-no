@@ -23,7 +23,11 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 const HANDSHAKE_TIMEOUT_MS = Number(process.env.JOB_CANON_HANDSHAKE_TIMEOUT_MS) || 10 * 60 * 1000;
 const FETCH_TIMEOUT_MS = Number(process.env.JOB_CANON_FETCH_TIMEOUT_MS) || 20_000;
 const RETRY_INTERVAL_MS = Number(process.env.JOB_CANON_RETRY_INTERVAL_MS) || 5_000;
-const MAX_CONCURRENCY = Math.max(1, Number(process.env.JOB_CANON_VERIFY_CONCURRENCY) || 4);
+// Each pass is latency-bound (one small GET per shard, two when the edge
+// declares Vary: Origin) and runs twice inside the early CDN push, which every
+// shard push waits for. At 4, the 4613-shard passes of publish runs
+// 45654515999..46042181230 took about 6-10 of the 10 minutes above.
+const MAX_CONCURRENCY = Math.max(1, Number(process.env.JOB_CANON_VERIFY_CONCURRENCY) || 16);
 
 function readAffectedFile(file) {
   if (!existsSync(file)) throw new Error(`affected job-canon inventory is missing: ${file}`);

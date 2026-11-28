@@ -449,6 +449,42 @@ describe('job-canon publication handshake', () => {
     }
   });
 
+  it('verifies every shard with at most 16 requests in flight and still fails on one stale shard', async () => {
+    const { root, current } = fixtureTree();
+    try {
+      const bytes = Buffer.from('{"canonical":"/it/job/"}');
+      const keys = Array.from({ length: 60 }, (_, index) => {
+        const name = `${index.toString(16).padStart(3, '0')}.json`;
+        writeFileSync(join(current, 'v2', name), bytes);
+        return `job-canon/v2/${name}`;
+      });
+      let inFlight = 0;
+      let peak = 0;
+      const seen = new Set<string>();
+      const fetchWith = (staleSuffix: string) => async (url: string) => {
+        inFlight += 1;
+        peak = Math.max(peak, inFlight);
+        await new Promise((done) => setTimeout(done, 2));
+        inFlight -= 1;
+        seen.add(url);
+        const body = staleSuffix && url.endsWith(staleSuffix) ? Buffer.from('{"stale":true}') : bytes;
+        return { status: 200, headers: { get: () => '' }, arrayBuffer: async () => body };
+      };
+
+      await verifyMapFreshness(keys, current, 'https://cdn.example.test', fetchWith(''));
+      expect(peak).toBe(16);
+      expect(seen.size).toBe(keys.length);
+
+      seen.clear();
+      await expect(
+        verifyMapFreshness(keys, current, 'https://cdn.example.test', fetchWith('/v2/02a.json')),
+      ).rejects.toThrow('job-canon live validation failed for 1 shard(s)');
+      expect(seen.size).toBe(keys.length);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('checks both the stable and query-busted marker URL', async () => {
     const seen: string[] = [];
     await verifyMarker('43874484314', 'https://cdn.example.test', async (url: string) => {
