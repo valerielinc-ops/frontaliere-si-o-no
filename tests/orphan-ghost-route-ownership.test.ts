@@ -16,6 +16,7 @@ import path from 'node:path';
 import { reconcileGhostExpired } from '../scripts/assemble-jobs-dataset.mjs';
 import { reconcileExpiredSlugs, reconcileOrphanSlugs, updateCrawlerSlices } from '../scripts/reconcile-job-slugs.mjs';
 import { localeRouteKeys } from '../scripts/lib/expired-jobs-archive.mjs';
+import { createPostingProof } from '../scripts/lib/ghost-route-transfer.mjs';
 
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'orphan-ghost-routes-'));
 afterAll(() => fs.rmSync(tmp, { recursive: true, force: true }));
@@ -177,5 +178,17 @@ describe('ghost pass — current and flat slugs need the posting each record dec
     expect(result.mergedCount).toBe(0);
     expect(result.updatedExpired).toEqual([record]);
     expect(active).not.toHaveProperty('previousSlugsByLocale');
+  });
+});
+
+describe('createPostingProof — metadata tuples never collide', () => {
+  it('sees a third declarer whose delimiter-bearing fields spell the same joined text', () => {
+    const [archived, active, third] = [
+      ['Engineer||Field', 'Coop', 'Ticino'],
+      ['Engineer', 'Field||Coop', 'Ticino'],
+      ['Engineer', 'Field', 'Coop||Ticino'],
+    ].map(([title, company, location]) => ({ title, company, location, sourceIdentity: 'id:123456' }));
+
+    expect(createPostingProof([active], [archived, third]).sameDeclaredPosting(archived, active)).toBe(false);
   });
 });

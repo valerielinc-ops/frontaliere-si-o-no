@@ -193,7 +193,8 @@ export function ownPostingIdentities(record = {}) {
 
 /** Title, company and location: what every declarer of one posting must share. */
 export function postingMetadataKey(job) {
-  return [job.title, job.company, job.location].map((value) => (value || '').toLowerCase().trim()).join('||');
+  // JSON, not a joined string: a delimiter inside a field must not merge two tuples.
+  return JSON.stringify([job.title, job.company, job.location].map((value) => (value || '').toLowerCase().trim()));
 }
 
 /** A trailing slash on the path names the same page; query, hash and case do not change. */
