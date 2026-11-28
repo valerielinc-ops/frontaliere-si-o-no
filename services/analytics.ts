@@ -126,6 +126,7 @@ import { APPLICATION_CONCIERGE_PATH } from '../functions/src/lib/newsletterUrlPa
 import { readBuildIdForTelemetry } from './buildInfo';
 import { jobGateNewsletterTags } from './jobGateExperiment';
 import { GA4_ERROR_EVENTS, isNonProductionTelemetryHost } from './nonProductionHost';
+import { isThirdPartyOnlyStack } from './thirdPartyStackOrigins';
 import { isStalePassiveGa4Event, neutralizeGa4TrafficParams } from './ga4TrafficParams';
 
 // Keep this named export on the analytics chunk for compatibility with
@@ -1657,6 +1658,16 @@ export const Analytics = {
  // such as Firefox's dead-object wrapper cannot leak into GA4 through a
  // boundary path even when its stack is only `at :0:1`.
  if (isBenignErrorMessage(decodedMessage)) return;
+ 
+ // Stack-origin parity with the PostHog `before_send` filter: when EVERY
+ // ownership-bearing frame lives in a known third-party script (e.g. the
+ // gstatic reCAPTCHA client throwing NS_ERROR_NOT_INITIALIZED on Firefox,
+ // #20435/#20436) no first-party fix exists. This must be decided here, before
+ // emission: GA4 truncates `error_stack` to 100 chars, so the downstream
+ // monitor can no longer see the origin. Fail-open: an empty/redacted stack or
+ // any first-party frame keeps the event. Covers the window `error`,
+ // `unhandledrejection` and errorReporter paths, which all end in this sink.
+ if (isThirdPartyOnlyStack(info.stack)) return;
 
  // GA4 hard-truncates every custom event parameter VALUE to ~100 chars at
  // ingestion (platform limit, independent of the `truncate()` length args

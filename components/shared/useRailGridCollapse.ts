@@ -44,7 +44,7 @@ const RAIL_MEDIUM_PX = 180;
 /** Reserved width of the `xlw` tier when a side's rail is not collapsed. */
 const RAIL_WIDE_PX = 300;
 
-export function useRailGridCollapse({ collapseOnEmpty = true }: RailGridCollapseOptions = {}): RailGridCollapse {
+export function useRailGridCollapse({ collapseOnEmpty = false }: RailGridCollapseOptions = {}): RailGridCollapse {
   const [collapsed, setCollapsed] = useState<{ left: boolean; right: boolean }>({ left: false, right: false });
 
   const onLeftEmptyResolved = useCallback((allEmpty: boolean) => {
