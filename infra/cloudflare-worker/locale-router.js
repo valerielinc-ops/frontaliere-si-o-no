@@ -864,6 +864,8 @@ const COMPANY_PREFIX_BY_LOCALE = { en: 'company', de: 'unternehmen', fr: 'entrep
 const COMPANY_PREFIX_RE = /^(?:azienda|company|unternehmen|entreprise)-(.+)$/;
 const COMPANY_HUB_RE =
   /^(\/(?:en|de|fr)\/(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|trouver-emploi|job-search|jobsuche|recherche-emploi)-[a-z-]+)\/([^/]+)\/?$/;
+// Same shape without a locale prefix: the Italian section (`/cerca-lavoro-<canton>/`).
+const COMPANY_HUB_IT_RE = /^(\/cerca-lavoro-[a-z-]+)\/([^/]+)\/?$/;
 
 // Legacy related-search CLUSTER orphans (last segment `ricerca-/search-/suche-/
 // recherche-…`, the old per-canton cluster format migrated to
@@ -3414,9 +3416,15 @@ function recoverCrossLocaleCompanyPrefix(url, locale) {
 // after the map miss and the cross-locale-prefix miss, so a real job slug or a
 // fixable wrong-prefix hub is never hijacked.
 async function recoverPrunedCompanyHub(url, locale, origin) {
-  const correct = COMPANY_PREFIX_BY_LOCALE[locale];
+  // Italian hubs (`/cerca-lavoro-<canton>/azienda-<slug>/`, no locale prefix)
+  // are recovered here too, with the SAME already-canonical-prefix rule. They
+  // are deliberately NOT part of recoverCrossLocaleCompanyPrefix: a prefix
+  // swap is only deterministic when the foreign prefix cannot start a real job
+  // slug, and Italian job slugs may legitimately begin with `company-`,
+  // `unternehmen-` or `entreprise-`.
+  const correct = locale === 'it' ? 'azienda' : COMPANY_PREFIX_BY_LOCALE[locale];
   if (!correct) return null;
-  const m = url.pathname.match(COMPANY_HUB_RE);
+  const m = url.pathname.match(locale === 'it' ? COMPANY_HUB_IT_RE : COMPANY_HUB_RE);
   if (!m) return null;
   const [, routePrefix, lastSeg] = m;
   const pm = lastSeg.match(COMPANY_PREFIX_RE);
