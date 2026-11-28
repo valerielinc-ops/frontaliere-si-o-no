@@ -45,7 +45,10 @@ on:
         default: '45 days ago'
 
 concurrency:
-  group: jobs-data-pipeline
+  # A dry run writes nothing, so it must not occupy the global jobs-data-pipeline
+  # queue (cleanup-stale-jobs, reconcile-expired-route-duplicates,
+  # translate-pending, sync-gsc-orphans...). Scheduled and real runs keep it.
+  group: ${{ (inputs.dry_run == true || inputs.dry_run == 'true') && 'backfill-expired-dry-run' || 'jobs-data-pipeline' }}
   cancel-in-progress: false
   queue: max
 

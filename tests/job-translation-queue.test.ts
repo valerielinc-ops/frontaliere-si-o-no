@@ -95,6 +95,8 @@ function concurrencyMentionsJobsDataPipeline(workflowPath: string): boolean {
   return JSON.stringify(concurrency ?? null).includes(JOBS_DATA_PIPELINE_GROUP);
 }
 
+const BACKFILL_WORKFLOW = '.github/workflows/backfill-expired-from-history.yml';
+
 describe('measureTranslationQueue', () => {
   it('keeps every jobs-data-pipeline workflow queued without cancellation', () => {
     const matchingWorkflows = readdirSync(WORKFLOWS_DIR)
@@ -110,7 +112,6 @@ describe('measureTranslationQueue', () => {
       });
 
     expect(matchingWorkflows.sort()).toEqual([
-      '.github/workflows/backfill-expired-from-history.yml',
       '.github/workflows/cleanup-stale-jobs.yml',
       '.github/workflows/migrate-prospected-slugs.yml',
       '.github/workflows/reconcile-expired-route-duplicates.yml',
@@ -130,7 +131,15 @@ describe('measureTranslationQueue', () => {
       .map((name) => join(WORKFLOWS_DIR, name))
       .filter(concurrencyMentionsJobsDataPipeline);
 
-    expect(mentioningWorkflows.sort()).toEqual(matchingWorkflows.sort());
+    // The backfill is the one conditional member: real and scheduled runs use
+    // the shared group, a dry run (which writes nothing) uses its own.
+    expect(mentioningWorkflows.sort()).toEqual([...matchingWorkflows, BACKFILL_WORKFLOW].sort());
+    const backfillConcurrency = concurrencyConfig(BACKFILL_WORKFLOW);
+    expect(backfillConcurrency.group).toBe(
+      "${{ (inputs.dry_run == true || inputs.dry_run == 'true') && 'backfill-expired-dry-run' || 'jobs-data-pipeline' }}",
+    );
+    expect(backfillConcurrency['cancel-in-progress']).toBe(false);
+    expect(backfillConcurrency.queue).toBe('max');
 
     for (const workflowPath of matchingWorkflows) {
       const concurrency = concurrencyConfig(workflowPath);
