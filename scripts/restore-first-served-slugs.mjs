@@ -25,10 +25,13 @@ import { jobDetailPathsFor, normalizeServedPath } from './lib/published-slug-sta
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DEFAULT_SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
-// This file is deliberately checked in only after the GSC export has been
+// The allowlist is deliberately checked in only after the GSC export has been
 // reviewed. A generated plan or a caller-selected ledger is evidence of a
-// possible change, never authority to rewrite an indexed URL.
-const GSC_ALLOWLIST_COUNT = 40;
+// possible change, never authority to rewrite an indexed URL. The number of
+// approved slots is not a constant of this script: the receipt proves it
+// (`selection.count`, measured from the Search Console export), and the
+// allowlist must carry exactly that many entries.
+const GSC_ALLOWLIST_FILE = 'gsc-first-served-slug-allowlist.json';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 function optionValue(args, name) {
@@ -90,8 +93,8 @@ export function readCanonicalGscAllowlist(root = ROOT) {
     throw new Error('GSC allowlist must have schema=1, receiptSha256, and an entries array');
   }
   const receipt = readCanonicalGscReceipt(source.receiptSha256, root);
-  if (source.entries.length !== GSC_ALLOWLIST_COUNT) {
-    throw new Error(`GSC allowlist must contain exactly ${GSC_ALLOWLIST_COUNT} entries`);
+  if (source.entries.length < 1 || source.entries.length !== receipt.selectionCount) {
+    throw new Error(`GSC allowlist must contain exactly the ${receipt.selectionCount} entries proven by the receipt`);
   }
   const bySlot = new Map();
   for (const entry of source.entries) {
@@ -133,6 +136,8 @@ function readCanonicalGscReceipt(expectedSha256, root = ROOT) {
     || !/^https:\/\/frontaliereticino\.ch\/?$/.test(receipt.property)
     || !/^\d{4}-\d{2}-\d{2}T/.test(String(receipt.exportedAt || ''))
     || !Array.isArray(receipt.rows)
+    || !Number.isInteger(receipt.selection?.count)
+    || receipt.selection.count < 1
   ) {
     throw new Error('GSC receipt must identify the canonical property, export time, and page rows');
   }
@@ -145,7 +150,7 @@ function readCanonicalGscReceipt(expectedSha256, root = ROOT) {
     }
     rowsByUrl.set(url, { impressions });
   }
-  return { rowsByUrl };
+  return { rowsByUrl, selectionCount: receipt.selection.count };
 }
 
 function assertGscAllowlistIdentity(entry, change, job) {
@@ -179,7 +184,12 @@ async function main() {
   if (options.apply && options.slicesDir !== DEFAULT_SLICES_DIR) {
     throw new Error('--apply is restricted to the canonical data/jobs/by-crawler directory');
   }
-  const gscAllowlistBySlot = options.apply ? readCanonicalGscAllowlist() : null;
+  // Dry runs read the allowlist when it is checked in, so they show exactly
+  // the slots apply would write; before it exists they show every candidate.
+  const gscAllowlistBySlot = options.apply
+    || (!options.alignUnserved && fs.existsSync(path.join(ROOT, 'data', GSC_ALLOWLIST_FILE)))
+    ? readCanonicalGscAllowlist()
+    : null;
 
   const files = listSliceFileNames(options.slicesDir).sort();
   if (files.length === 0) {
@@ -214,6 +224,12 @@ async function main() {
     for (const job of jobs) {
       let jobChanged = false;
       for (const locale of LOCALES) {
+        // Only approved slots may be touched: the writer mutates the job as it
+        // selects, so an unapproved candidate must never reach it.
+        if (gscAllowlistBySlot && !gscAllowlistBySlot.has(`${file}\u0000${job.id}\u0000${locale}`)) {
+          skipped.set('not-in-gsc-allowlist', (skipped.get('not-in-gsc-allowlist') || 0) + 1);
+          continue;
+        }
         const result = servedSlugSliceWriter(job, locale, {
           usedSlugs: usedSlugs.get(locale),
           candidateClaims: candidateClaims.get(locale),
@@ -237,11 +253,11 @@ async function main() {
           candidateOrigin: result.candidateOrigin,
         };
         if (gscAllowlistBySlot) {
-          const entry = gscAllowlistBySlot.get(`${file}\u0000${job.id}\u0000${locale}`);
-          if (!entry) {
-            throw new Error(`change is not in the canonical GSC allowlist: ${file}:${job.id}:${locale}`);
-          }
-          assertGscAllowlistIdentity(entry, change, job);
+          assertGscAllowlistIdentity(
+            gscAllowlistBySlot.get(`${file}\u0000${job.id}\u0000${locale}`),
+            change,
+            job,
+          );
         }
         changes.push(change);
       }
@@ -255,12 +271,12 @@ async function main() {
     throw new Error(`GSC allowlist no longer resolves exactly (${plan.changes.length}/${gscAllowlistBySlot.size} entries)`);
   }
   if (options.planOut) writeJson(path.resolve(options.planOut), plan);
-  const expected = options.alignUnserved ? null : GSC_ALLOWLIST_COUNT;
+  const expected = gscAllowlistBySlot ? gscAllowlistBySlot.size : null;
   const countMatches = expected === null ? null : plan.changes.length === expected;
 
   if (options.apply) {
     if (!countMatches) {
-      throw new Error(`GSC restoration count changed: expected ${GSC_ALLOWLIST_COUNT}, measured ${plan.changes.length}`);
+      throw new Error(`GSC restoration count changed: expected ${expected}, measured ${plan.changes.length}`);
     }
     for (const [slicePath, sliceData] of changedSlices) writeJson(slicePath, sliceData);
   }

@@ -1,0 +1,253 @@
+{
+  "schema": 1,
+  "provider": "google-search-console",
+  "property": "https://frontaliereticino.ch/",
+  "gscSiteUrl": "sc-domain:frontaliereticino.ch",
+  "exportedAt": "2026-11-28T10:20:34.113Z",
+  "query": {
+    "startDate": "2026-10-29",
+    "endDate": "2026-11-25",
+    "dimensions": [
+      "page"
+    ],
+    "type": "web",
+    "dataState": "final",
+    "filters": [],
+    "aggregationType": "auto",
+    "rowLimit": 25000
+  },
+  "fullExport": {
+    "rows": 38485,
+    "impressions": 1267483,
+    "sha256": "51459e41a79d73aa4c83c4069ecaef3000ffb2e354bf25ba3579601b074319d2"
+  },
+  "selection": {
+    "count": 44,
+    "criterion": "Slot where servedSlugSliceWriter (allowFirstServedRestore, requireCurrentServed, ledger data/url-first-seen.json) proposes the first-served slug AND the canonical URL of that first-served slug has positive impressions in the export AND the canonical URL of the slug currently in the slice has zero impressions in the same export.",
+    "candidates": 4517,
+    "firstServedUrlPositive": 61,
+    "excludedCurrentUrlHasImpressions": 17
+  },
+  "rows": [
+    {
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/apprendista-afc-giardiniere-paesaggista-mendrisio/",
+      "impressions": 202,
+      "clicks": 16
+    },
+    {
+      "url": "https://frontaliereticino.ch/en/find-jobs-graubunden/seller-food-coop-genossenschaft-chur-fec30b/",
+      "impressions": 29,
+      "clicks": 3
+    },
+    {
+      "url": "https://frontaliereticino.ch/en/find-jobs-bern/rayon-conductor-convenience-meat-coop-genossenschaft-saanen/",
+      "impressions": 10,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-vaud/p2621-senior-pharmacometrician-debiopharm-lausanne/",
+      "impressions": 2,
+      "clicks": 1
+    },
+    {
+      "url": "https://frontaliereticino.ch/de/jobs-in-zurich/verkaufer-in-denner-richterswil/",
+      "impressions": 6,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/de/jobs-in-der-waadt/facharzt-fur-rheumatologie-w-m-ensemble-hospitalier-de-la-cote-ehc-morges/",
+      "impressions": 6,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/information-eoc-ente-ospedaliero-cantonale-bellinzona/",
+      "impressions": 7,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/karriere-oder-gesundheitsassistent-eoc-ente-ospedaliero-cantonale-lugano/",
+      "impressions": 7,
+      "clicks": 1
+    },
+    {
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/karriere-oder-gesundheitsassistent-eoc-ente-ospedaliero-cantonale-bellinzona/",
+      "impressions": 25,
+      "clicks": 6
+    },
+    {
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/mitarbeiter-verwaltung-fur-zentralbuchhaltung-und-rechnungswesen-eoc-ente-ospedaliero-cantonale-bellinzona/",
+      "impressions": 7,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/operator-sociosanitary-a-eoc-ente-ospedaliero-cantonale-mendrisio/",
+      "impressions": 4,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/intensiver-arzt-eoc-ente-ospedaliero-cantonale-lugano/",
+      "impressions": 3,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/medizinischer-assistent-eoc-ente-ospedaliero-cantonale-bellinzona/",
+      "impressions": 4,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/medizinischer-assistent-geriatrics-eoc-ente-ospedaliero-cantonale-lugano/",
+      "impressions": 7,
+      "clicks": 1
+    },
+    {
+      "url": "https://frontaliereticino.ch/en/find-jobs-aargau/polymechanic-maintenance-involving-mechanical-drives-fachkraft-ch-gmbh-kulm-aargau/",
+      "impressions": 1,
+      "clicks": 1
+    },
+    {
+      "url": "https://frontaliereticino.ch/de/jobs-in-luzern/lehrstelle-als-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch/",
+      "impressions": 3,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-valais/collaborateur-trice-relations-clients-80-ikea-ch/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+      "impressions": 4,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/custode-kantonale-verwaltung-zurich-winterthur-wulflingen/",
+      "impressions": 1,
+      "clicks": 1
+    },
+    {
+      "url": "https://frontaliereticino.ch/cerca-lavoro-argovia/team-leadership-oncologia-ematologia-kantonsspital-aarau-ksa-aarau/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+      "impressions": 3,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-uri/entretien-technique-des-vehicules-h-f-d-matterhorn-gotthard-bahn-andermatt/",
+      "impressions": 4,
+      "clicks": 1
+    },
+    {
+      "url": "https://frontaliereticino.ch/en/find-jobs-solothurn/crew-member-mcdonald-s-switzerland-egerkingen/",
+      "impressions": 1,
+      "clicks": 1
+    },
+    {
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-saint-gall/installation-electrique-region-de-st-gallen-ipersonal-ag-st-gallen-st-gallen/",
+      "impressions": 3,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/en/find-jobs-obwalden/electrical-installer-engelberg-region-ipersonal-ag-engelberg-obwalden/",
+      "impressions": 12,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/en/find-jobs-graubunden/automotive-mechatronics-specialist-domat-ems-region-ipersonal-ag-domat-ems-graubunden/",
+      "impressions": 4,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/de/jobs-im-aargau/automobil-mechatroniker-region-brugg-ipersonal-ag-brugg-aargau/",
+      "impressions": 7,
+      "clicks": 1
+    },
+    {
+      "url": "https://frontaliereticino.ch/de/jobs-im-aargau/automobil-mechatroniker-region-spreitenbach-ipersonal-ag-spreitenbach-aargau/",
+      "impressions": 2,
+      "clicks": 1
+    },
+    {
+      "url": "https://frontaliereticino.ch/en/find-jobs-aargau/automotive-mechatronics-specialist-lenzburg-region-ipersonal-ag-lenzburg-aargau/",
+      "impressions": 1,
+      "clicks": 1
+    },
+    {
+      "url": "https://frontaliereticino.ch/de/jobs-in-st-gallen/automobil-mechatroniker-region-flawil-ipersonal-ag-flawil-st-gallen/",
+      "impressions": 9,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/farmacista-con-funzione-di-sostituzione-medbase-winterthur-springerpool/",
+      "impressions": 4,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/de/jobs-in-zurich/fachperson-betreuung-kinder-genossenschaft-migros-zurich-obslsb/",
+      "impressions": 1,
+      "clicks": 1
+    },
+    {
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ginevra/responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva/",
+      "impressions": 3,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/en/find-jobs-aargau/social-worker-psychiatrische-dienste-aargau-pdag-windisch/",
+      "impressions": 1,
+      "clicks": 1
+    },
+    {
+      "url": "https://frontaliereticino.ch/en/find-jobs-geneva/installation-of-ventilation-systems-pemsa-geneve/",
+      "impressions": 3,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/electricity-pemsa-lugano/",
+      "impressions": 9,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/en/find-jobs-aargau/certified-physiotherapist-40-100-employed-or-self-employed-revenue-sharing-physio-swiss-sins/",
+      "impressions": 5,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-zoug/technicien-des-centres-de-donnees-suisse-zug-on-site-reboot-monkey-zug/",
+      "impressions": 7,
+      "clicks": 2
+    },
+    {
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-geneve/cadranographe-tampographe-h-f-rolex-geneve/",
+      "impressions": 17,
+      "clicks": 4
+    },
+    {
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/pasticcere-confettiere-nel-reparto-torte-pasticceria-100-confiserie-sprungli-ag-dietikon/",
+      "impressions": 18,
+      "clicks": 4
+    },
+    {
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-zurich-basel-e-wallisellen-per-2027-confiserie-sprungli-ag-zurich/",
+      "impressions": 4,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/metallbauer-in-per-produktion-sta-personal-ag-zurich/",
+      "impressions": 1,
+      "clicks": 1
+    },
+    {
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zugo/elettricista-di-montaggio-per-installazioni-a-corrente-forte-e-bassa-stellenpartner-ag-zug-zug/",
+      "impressions": 2,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/cerca-lavoro-berna/logistikfachmann-frau-stv-chef-in-magazzino-swiss-armed-forces-vtg-gundlischwand/",
+      "impressions": 12,
+      "clicks": 1
+    },
+    {
+      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/head-of-gastronomy-zfv-unternehmungen-zurich/",
+      "impressions": 3,
+      "clicks": 0
+    },
+    {
+      "url": "https://frontaliereticino.ch/cerca-lavoro-berna/service-collaboratore-trice-20-zfv-unternehmungen-bern/",
+      "impressions": 5,
+      "clicks": 0
+    }
+  ]
+}
