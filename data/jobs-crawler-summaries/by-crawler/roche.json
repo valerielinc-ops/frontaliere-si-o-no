@@ -1,7 +1,7 @@
 {
   "key": "roche",
   "label": "Roche",
-  "generatedAt": "2026-11-28T09:12:53.507Z",
+  "generatedAt": "2026-11-28T21:29:44.423Z",
   "total": 0,
   "discovered": null,
   "parsed": null,
@@ -21,13 +21,13 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64",
+  "codeCommit": "e60bb477e02fc78f2385473075e1dff5d9e2799a",
   "workdayRateLimit": {
     "tenant": "https://roche.wd3.myworkdayjobs.com/wday/cxs/roche/roche-ext",
     "firstRateLimitedAt": "2026-11-27T21:14:17.146Z",
-    "lastRateLimitedAt": "2026-11-28T09:12:53.520Z",
-    "consecutiveRuns": 2,
-    "nextAttemptAfter": "2026-11-28T21:12:53.520Z",
+    "lastRateLimitedAt": "2026-11-28T21:29:44.431Z",
+    "consecutiveRuns": 3,
+    "nextAttemptAfter": "2026-11-29T21:29:44.431Z",
     "outcome": "rate-limited"
   }
 }

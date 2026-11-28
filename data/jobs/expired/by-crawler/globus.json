@@ -1254,13 +1254,16 @@
     "expiredAt": "2026-11-09T09:19:32.939Z",
     "previousSlugsByLocale": {
       "it": [
-        "sales-support-a-20-samedis-globus-ch-084b6c82"
+        "sales-support-a-20-samedis-globus-ch-084b6c82",
+        "sales-support-a-20-samedis-en-cdd-globus-ch"
       ],
       "en": [
-        "sales-support-a-20-samedis-globus-ch-084b6c82"
+        "sales-support-a-20-samedis-globus-ch-084b6c82",
+        "sales-support-20-saturdays-globus-geneve"
       ],
       "de": [
-        "sales-support-a-20-samedis-globus-ch-084b6c82"
+        "sales-support-a-20-samedis-globus-ch-084b6c82",
+        "sales-support-20-samstags-globus-geneve"
       ]
     },
     "postalCode": "1201",
@@ -1270,7 +1273,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.globus.ch/sales-support-20-samedis-fr-j2547.html",
-    "firstSeenAt": "2026-10-22T21:18:23.682Z"
+    "firstSeenAt": "2026-10-22T21:18:23.682Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sales-support-a-20-samedis-en-cdd-globus-ch": "GE"
+      },
+      "en": {
+        "sales-support-20-saturdays-globus-geneve": "GE"
+      },
+      "de": {
+        "sales-support-20-samstags-globus-geneve": "GE"
+      }
+    },
+    "previousSlugs": [
+      "sales-support-a-20-samedis-en-cdd-globus-ch",
+      "sales-support-20-saturdays-globus-geneve",
+      "sales-support-20-samstags-globus-geneve"
+    ]
   },
   {
     "slug": "consulente-di-vendita-80-age-per-il-nostro-reparto-di-pelletteria-in-cdd-fino-al-16-gennaio-2027-globus-geneve",
