@@ -7,12 +7,13 @@ import {
   reachableSlugs,
   isGuardedSlicePath,
   GUARD_PER_LOCALE_CAP,
+  GUARD_LEGACY_CAP,
   loadGuardDenylist,
   _resetDenylistCache,
   _resetGscIndexedSlugsCache,
 } from '../scripts/lib/slug-preservation-guard.mjs';
 import { clear, getEvents } from '../scripts/lib/slug-history-journal.mjs';
-import { restoreLocaleSlug, mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { restoreLocaleSlug, mergePreserveLocaleData, getPreviousSlugsForLocale } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic } from '../scripts/lib/atomic-write-json.mjs';
 
 /**
@@ -710,5 +711,82 @@ describe('writeJsonAtomic wiring (the guard cannot be bypassed by forgetting it)
     // large-dataset-read-ok: `target` is a tiny file this test just wrote under its tmp root
     expect(JSON.parse(fs.readFileSync(target, 'utf8'))).toEqual(payload);
     expect(getEvents()).toHaveLength(0);
+  });
+});
+
+describe('slug-preservation-guard never narrows a flat-only route', () => {
+  const OLD = 'addetto-magazzino-serale-acme-lugano';
+  const GONE = 'magazziniere-notte-acme-lugano';
+  const record = (history: Record<string, unknown>) => ({
+    jobs: [{
+      id: 'company-flat1',
+      slug: 'magazziniere-turno-serale-acme-lugano',
+      slugByLocale: { it: 'magazziniere-turno-serale-acme-lugano' },
+      ...history,
+    }],
+  });
+  const guard = (previousValue: unknown, next: unknown) => preserveSlugHistory(
+    path.join('data', 'jobs', 'by-crawler', 'acme.json'),
+    next,
+    { previousValue, denylist: new Set<string>() },
+  );
+
+  beforeEach(() => {
+    clear();
+    _resetGscIndexedSlugsCache();
+    delete process.env.SLUG_PRESERVATION_GUARD;
+  });
+
+  it('does not bucket a slug the payload already serves flat-only', () => {
+    const next = record({ previousSlugs: [OLD], previousSlugsByLocale: {} });
+    const result = guard(record({ previousSlugs: [OLD], previousSlugsByLocale: { it: [OLD] } }), next);
+
+    expect(next.jobs[0].previousSlugsByLocale).toEqual({});
+    expect(next.jobs[0].previousSlugs).toEqual([OLD]);
+    expect(result.restored).toBe(0);
+  });
+
+  it('does not count a bucket for an unsupported locale as attribution', () => {
+    const next = record({ previousSlugs: [OLD], previousSlugsByLocale: { es: [OLD] } });
+    guard(record({ previousSlugs: [OLD], previousSlugsByLocale: { en: [OLD] } }), next);
+
+    expect(next.jobs[0].previousSlugsByLocale).toEqual({ es: [OLD] });
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      expect(getPreviousSlugsForLocale(next.jobs[0], locale)).toContain(OLD);
+    }
+  });
+
+  it('keeps that flat entry when another recapture pressures the full mirror', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'guard-flat-only-'));
+    try {
+      fs.mkdirSync(path.join(root, 'data'));
+      fs.writeFileSync(path.join(root, 'data', 'gsc-job-urls.json'), '[]');
+      fs.writeFileSync(path.join(root, 'data', 'gsc-orphan-job-slugs.json'), '[]');
+      const filler = Array.from({ length: GUARD_LEGACY_CAP - 1 }, (_, i) => `vecchio-ruolo-${i}`);
+      const flat = [OLD, ...filler];
+      const next = record({ previousSlugs: [...flat], previousSlugsByLocale: {} });
+      const before = record({ previousSlugs: [...flat], previousSlugsByLocale: { it: [OLD] } });
+      (before.jobs[0].slugByLocale as Record<string, string>).en = GONE;
+
+      preserveSlugHistory(
+        path.join('data', 'jobs', 'by-crawler', 'acme.json'),
+        next,
+        { previousValue: before, denylist: new Set<string>(), root },
+      );
+
+      expect(next.jobs[0].previousSlugs).toContain(OLD);
+      expect(next.jobs[0].previousSlugs).toContain(GONE);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('still restores into the bucket a slug the payload dropped', () => {
+    const next = record({ previousSlugs: [OLD], previousSlugsByLocale: {} });
+    guard(record({ previousSlugs: [OLD, GONE], previousSlugsByLocale: { it: [OLD], en: [GONE] } }), next);
+
+    expect((next.jobs[0].previousSlugsByLocale as Record<string, string[]>).en).toEqual([GONE]);
+    expect((next.jobs[0].previousSlugsByLocale as Record<string, string[]>).it ?? []).toEqual([]);
+    expect(next.jobs[0].previousSlugs).toContain(OLD);
   });
 });

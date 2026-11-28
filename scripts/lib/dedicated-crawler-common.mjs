@@ -9073,12 +9073,13 @@ export function getPreviousSlugsForLocale(job, locale) {
     ? job.previousSlugsByLocale[locale]
     : [];
   // Legacy: include flat previousSlugs that are NOT in any locale-specific bucket
-  // (once migrated, these are entries we couldn't attribute to a locale)
+  // (once migrated, these are entries we couldn't attribute to a locale). Only a
+  // supported locale attributes: a stray key (e.g. `es`) serves no route, so it
+  // must not take the flat entry away from the four that exist.
   const localeAwareAll = new Set();
-  if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
-    for (const arr of Object.values(job.previousSlugsByLocale)) {
-      if (Array.isArray(arr)) for (const s of arr) localeAwareAll.add(s);
-    }
+  for (const supported of LOCALES) {
+    const arr = job.previousSlugsByLocale?.[supported];
+    if (Array.isArray(arr)) for (const s of arr) localeAwareAll.add(s);
   }
   const legacy = Array.isArray(job.previousSlugs)
     ? job.previousSlugs.filter(s => !localeAwareAll.has(s))
