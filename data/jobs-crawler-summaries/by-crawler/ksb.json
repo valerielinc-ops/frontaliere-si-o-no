@@ -1,7 +1,7 @@
 {
   "key": "ksb",
   "label": "Kantonsspital Baden (KSB)",
-  "generatedAt": "2026-11-28T09:52:00.659Z",
+  "generatedAt": "2026-11-28T21:31:15.211Z",
   "total": 0,
   "discovered": null,
   "parsed": null,
@@ -21,13 +21,13 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64",
+  "codeCommit": "e60bb477e02fc78f2385473075e1dff5d9e2799a",
   "workdayRateLimit": {
     "tenant": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/wday/cxs/kantonsspitalbaden/ksb-careers",
     "firstRateLimitedAt": "2026-11-27T21:39:49.654Z",
     "lastRateLimitedAt": "2026-11-28T09:52:00.664Z",
     "consecutiveRuns": 2,
     "nextAttemptAfter": "2026-11-28T21:52:00.664Z",
-    "outcome": "rate-limited"
+    "outcome": "rate-limited-cooldown"
   }
 }

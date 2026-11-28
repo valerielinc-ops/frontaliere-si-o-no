@@ -1,25 +1,25 @@
 {
   "key": "international-school-of-ticino",
   "label": "International School of Ticino",
-  "generatedAt": "2026-11-28T09:48:47.500Z",
+  "generatedAt": "2026-11-28T21:35:20.179Z",
   "total": 0,
   "discovered": 461,
-  "parsed": 0,
+  "parsed": 1,
   "lastFetchOutcome": "selector_miss",
-  "authoritativeEmptySnapshot": false,
+  "fetchReceipt": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
+  "abortKind": null,
   "written": 0,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 118733,
-  "avgDurationMs": 118733,
-  "durationHistory": [
-    118733
-  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
+  "earlyExit": true,
+  "exitCode": 0,
+  "codeCommit": "e60bb477e02fc78f2385473075e1dff5d9e2799a"
 }

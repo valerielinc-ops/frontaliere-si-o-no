@@ -1,7 +1,7 @@
 {
   "key": "arxada",
   "label": "Arxada",
-  "generatedAt": "2026-11-28T09:51:59.789Z",
+  "generatedAt": "2026-11-28T21:31:15.613Z",
   "total": 0,
   "discovered": null,
   "parsed": null,
@@ -21,13 +21,13 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64",
+  "codeCommit": "e60bb477e02fc78f2385473075e1dff5d9e2799a",
   "workdayRateLimit": {
     "tenant": "https://lsi.wd3.myworkdayjobs.com/wday/cxs/lsi/Arxada_Careers",
     "firstRateLimitedAt": "2026-11-27T21:39:48.878Z",
     "lastRateLimitedAt": "2026-11-28T09:51:59.794Z",
     "consecutiveRuns": 2,
     "nextAttemptAfter": "2026-11-28T21:51:59.794Z",
-    "outcome": "rate-limited"
+    "outcome": "rate-limited-cooldown"
   }
 }

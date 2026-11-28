@@ -1,18 +1,25 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-11-28T09:46:39.653Z",
+  "generatedAt": "2026-11-28T21:33:42.849Z",
   "total": 5,
-  "sourceBodyFailureCount": 0,
-  "sourceBodyFailures": [],
+  "sourceBodyFailureCount": 1,
+  "sourceBodyFailures": [
+    {
+      "title": "Psychologin Psychotherapeutin Ambulant 2026–60% 100",
+      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Psychologin_Psychotherapeutin_ambulant_2026_60-100.pdf",
+      "reason": "pdf-extraction-failed",
+      "message": "HTTP 415 while fetching PDF (clean-IP Jina rescue exhausted)"
+    }
+  ],
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 14663,
-  "avgDurationMs": 14663,
+  "durationMs": 20316,
+  "avgDurationMs": 20316,
   "durationHistory": [
-    14663
+    20316
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -42,7 +49,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2026-12-28T09:46:21.989Z",
+      "validThrough": "2026-12-28T21:33:29.416Z",
       "_meta": {
         "sourceFilename": "Inserat-Psychiater_in-Ambulatorium-Bern_2026_ab-10.pdf"
       },
@@ -52,7 +59,7 @@
       "salaryMax": 119000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-28T09:46:21.989Z",
+      "crawledAt": "2026-11-28T21:33:29.416Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Herzogenbuchsee",
       "streetAddressSource": "to-enrich",
@@ -89,7 +96,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2026-12-28T09:46:21.989Z",
+      "validThrough": "2026-12-28T21:33:29.416Z",
       "_meta": {
         "sourceFilename": "Psychologin_Psychotherapeutin_ambulant_2026_60-100.pdf"
       },
@@ -99,7 +106,7 @@
       "salaryMax": 71400,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-28T09:46:21.989Z",
+      "crawledAt": "2026-11-28T21:33:29.416Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Herzogenbuchsee",
       "streetAddressSource": "to-enrich",
@@ -136,7 +143,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2027-02-04T09:46:21.989Z",
+      "validThrough": "2027-02-04T21:33:29.416Z",
       "_meta": {
         "sourceFilename": "Pflegefachfrau-HF_ca.-80-_02_2027.pdf"
       },
@@ -146,7 +153,7 @@
       "salaryMax": 119000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-28T09:46:21.989Z",
+      "crawledAt": "2026-11-28T21:33:29.416Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Herzogenbuchsee",
       "streetAddressSource": "to-enrich",
@@ -183,7 +190,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2027-01-28T09:46:21.989Z",
+      "validThrough": "2027-01-28T21:33:29.416Z",
       "_meta": {
         "sourceFilename": "Praktikantin-Pflege.pdf"
       },
@@ -193,7 +200,7 @@
       "salaryMax": 119000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-28T09:46:21.989Z",
+      "crawledAt": "2026-11-28T21:33:29.416Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Herzogenbuchsee",
       "streetAddressSource": "to-enrich",
@@ -230,7 +237,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2027-02-11T09:46:21.989Z",
+      "validThrough": "2027-02-11T21:33:29.416Z",
       "_meta": {
         "sourceFilename": "Inserat-Koechin_Koch_60-100-_2026_temp.pdf"
       },
@@ -240,7 +247,7 @@
       "salaryMax": 119000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-28T09:46:21.989Z",
+      "crawledAt": "2026-11-28T21:33:29.416Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Herzogenbuchsee",
       "streetAddressSource": "to-enrich",
@@ -254,5 +261,5 @@
       }
     }
   ],
-  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
+  "codeCommit": "e60bb477e02fc78f2385473075e1dff5d9e2799a"
 }
