@@ -15924,7 +15924,9 @@ ${staticAnalyticsHtml}
  const __slProsePaths: string[] = __slCandidatePaths.includes(__slItLegacyMirror)
  ? __slCandidatePaths
  : [...__slCandidatePaths, __slItLegacyMirror];
- const __slKeepProse = trafficFilter.decideMulti(__slProsePaths, 'soft-landing-expired').reason === 'has-traffic';
+ const __slKeepProse = trafficFilter.hasTrafficEvidence(__slProsePaths);
+ // Not decideMulti(...).reason === 'has-traffic': that returns 'no-pattern' for a class
+ // with no approved pattern (soft-landing-expired has none) and so was always false.
  // Add the edge copy before considering static suppression. The exact same
  // successful writer call is required by `shouldSkipExpiredJobStaticPage`.
  if (expiredJobEdgeSelected) {
