@@ -592,7 +592,13 @@ jobs:
       - name: Dry-run backfill report (no writes, no commits)
         id: dryrun
         if: inputs.dry_run == true || inputs.dry_run == 'true'
+        # The step is bounded below the job's 120-minute ceiling so the
+        # summarize and upload steps (always()) still get to run. A crawler
+        # not started inside the budget is reported as missing, not skipped
+        # silently.
+        timeout-minutes: 95
         env:
+          DRYRUN_RUN_BUDGET_SECONDS: '4800'
           MAX_COMMITS: ${{ inputs.max_commits || '0' }}
           CRAWLER_KEYS: ${{ inputs.crawler_keys || '' }}
           HISTORY_SINCE: ${{ inputs.history_since || '45 days ago' }}
@@ -608,6 +614,8 @@ jobs:
           mkdir -p "$report_dir"
           log="$report_dir/dry-run.log"
           : > "$log"
+          started_at="$(date +%s)"
+          run_budget_seconds="${DRYRUN_RUN_BUDGET_SECONDS:-4800}"
 
           if [ -n "$CRAWLER_KEYS" ]; then
             keys="$(printf '%s\n' "$CRAWLER_KEYS" | sed 's/[[:space:],][[:space:],]*/\n/g' | sed '/^$/d' | sort -u)"
@@ -624,7 +632,15 @@ jobs:
           esac
 
           mapfile -t key_list <<< "$keys"
+          # Requested workset, so the summarizer can tell a complete run from
+          # a truncated one (budget, timeout, error).
+          printf '%s\n' "${key_list[@]}" > "$report_dir/expected-keys.txt"
+          budget_hit=0
           for ((batch_start=0; batch_start<${#key_list[@]}; batch_start+=8)); do
+            if [ "$(( $(date +%s) - started_at ))" -ge "$run_budget_seconds" ]; then
+              budget_hit=1
+              break
+            fi
             batch_keys=("${key_list[@]:batch_start:8}")
             batch_crawler_keys=''
             printf -v batch_crawler_keys '%s,' "${batch_keys[@]}"
@@ -632,6 +648,10 @@ jobs:
             CRAWLER_KEYS="$batch_crawler_keys" node scripts/ci/prefetch-history-blobs.mjs
             for key in "${batch_keys[@]}"; do
               [ -n "$key" ] || continue
+              if [ "$(( $(date +%s) - started_at ))" -ge "$run_budget_seconds" ]; then
+                budget_hit=1
+                break 2
+              fi
               echo "──── Dry-run crawler: $key ────" | tee -a "$log"
               set +e
               DRY_RUN=1 BACKFILL_REPORT_PATH="$report_dir/$key.json" CRAWLER_KEYS="$key" \
@@ -646,7 +666,19 @@ jobs:
             done
           done
 
-          node scripts/ci/summarize-backfill-dry-run.mjs "$report_dir" "$log"
+          if [ "$budget_hit" -eq 1 ]; then
+            echo "::warning::Dry-run stopped at its ${run_budget_seconds}s budget; the summary lists the crawlers not reported."
+          fi
+
+      # Runs even when the dry-run step failed, hit its budget or timed out:
+      # every crawler finished so far already left its own JSON report.
+      - name: Summarize dry-run report
+        if: always() && (inputs.dry_run == true || inputs.dry_run == 'true')
+        timeout-minutes: 10
+        run: |
+          report_dir="$RUNNER_TEMP/backfill-dry-run"
+          [ -d "$report_dir" ] || { echo '::error::No dry-run report directory: the step never started.'; exit 1; }
+          node scripts/ci/summarize-backfill-dry-run.mjs "$report_dir" "$report_dir/dry-run.log" "$report_dir/expected-keys.txt"
 
       - name: Upload dry-run report
         if: always() && (inputs.dry_run == true || inputs.dry_run == 'true')

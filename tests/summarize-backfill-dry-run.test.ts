@@ -49,4 +49,17 @@ describe('summarize-backfill-dry-run', () => {
     expect(dryRunExitCode(summarizeDryRun([{ ...clean, lost: ['it:x'] }]))).toBe(1);
     expect(dryRunExitCode(summarizeDryRun([{ ...clean, ownerChanged: ['it:x'] }]))).toBe(1);
   });
+
+  it('marks the run incomplete and fails acceptance when a requested crawler left no report', () => {
+    const summary = summarizeDryRun([clean], '', ['a', 'b']);
+    expect(summary.complete).toBe(false);
+    expect(summary.missingCrawlers).toEqual(['b']);
+    expect(dryRunExitCode(summary)).toBe(1);
+  });
+
+  it('is complete when every requested crawler reported', () => {
+    const summary = summarizeDryRun([clean], '', ['a']);
+    expect(summary.complete).toBe(true);
+    expect(dryRunExitCode(summary)).toBe(0);
+  });
 });

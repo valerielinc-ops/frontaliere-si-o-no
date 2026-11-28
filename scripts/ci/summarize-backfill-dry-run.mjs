@@ -15,7 +15,7 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 const REFUSAL_LINE = /refusing to write the archive/u;
 const HEAP_LINE = /^\[heap\]/u;
 
-export function summarizeDryRun(reports, logText = '') {
+export function summarizeDryRun(reports, logText = '', expectedKeys = null) {
   const crawlers = reports.map((report) => ({
     crawlerKey: report.crawlerKey,
     refused: Boolean(report.refused),
@@ -33,7 +33,12 @@ export function summarizeDryRun(reports, logText = '') {
     }
   }
   const logLines = String(logText).split(/\r?\n/u);
+  const reported = new Set(crawlers.map((crawler) => crawler.crawlerKey));
+  const missingCrawlers = (expectedKeys || []).filter((key) => !reported.has(key));
   return {
+    // false when any requested crawler left no report (budget, timeout, error)
+    complete: missingCrawlers.length === 0,
+    missingCrawlers,
     crawlers,
     totals: {
       crawlers: crawlers.length,
@@ -52,11 +57,11 @@ export function summarizeDryRun(reports, logText = '') {
 }
 
 export function dryRunExitCode(summary) {
-  return summary.totals.lost > 0 || summary.totals.ownerChanged > 0 ? 1 : 0;
+  return summary.totals.lost > 0 || summary.totals.ownerChanged > 0 || !summary.complete ? 1 : 0;
 }
 
 function main() {
-  const [reportDir, logFile] = process.argv.slice(2);
+  const [reportDir, logFile, expectedKeysFile] = process.argv.slice(2);
   if (!reportDir) {
     console.error('usage: summarize-backfill-dry-run.mjs <report-dir> [log-file]');
     process.exit(2);
@@ -69,7 +74,10 @@ function main() {
       return (parsed.crawlers || []).map((crawler) => ({ ...crawler, maxRssMb: parsed.maxRssMb }));
     });
   const logText = logFile && fs.existsSync(logFile) ? fs.readFileSync(logFile, 'utf-8') : '';
-  const summary = summarizeDryRun(reports, logText);
+  const expectedKeys = expectedKeysFile && fs.existsSync(expectedKeysFile)
+    ? fs.readFileSync(expectedKeysFile, 'utf-8').split(/\r?\n/u).filter(Boolean)
+    : null;
+  const summary = summarizeDryRun(reports, logText, expectedKeys);
   fs.writeFileSync(path.join(reportDir, 'report.json'), `${JSON.stringify(summary, null, 2)}\n`);
   const { totals } = summary;
   const lines = [
@@ -77,6 +85,8 @@ function main() {
     `crawlers=${totals.crawlers} refusedCrawlers=${totals.refusedCrawlers.length} refusedRoutes=${totals.refusedRoutes} unrestoredLegitimateRoutes=${totals.unrestoredLegitimateRoutes}`,
     `restoredByLocale=${JSON.stringify(totals.restoredByLocale)}`,
     `lost=${totals.lost} ownerChanged=${totals.ownerChanged} maxRssMb=${totals.maxRssMb}`,
+    `complete=${summary.complete}${summary.complete ? '' : ` missing=${summary.missingCrawlers.join(',')}`}`,
+    ...summary.crawlers.map((crawler) => `crawler ${crawler.crawlerKey}: lost=${crawler.lost.length} ownerChanged=${crawler.ownerChanged.length} refused=${crawler.refused} restored=${JSON.stringify(crawler.restoredByLocale)}`),
     ...summary.refusalLogLines.map((line) => `log: ${line}`),
     ...summary.heapLines.map((line) => `log: ${line}`),
   ];
@@ -84,7 +94,7 @@ function main() {
   if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${lines.join('\n')}\n`);
   const exitCode = dryRunExitCode(summary);
   if (exitCode !== 0) {
-    console.error(`::error::Dry-run would lose ${totals.lost} served route(s) and change ${totals.ownerChanged} owner(s)`);
+    console.error(`::error::Dry-run not accepted: lost=${totals.lost} ownerChanged=${totals.ownerChanged} complete=${summary.complete}${summary.complete ? '' : ` missing=${summary.missingCrawlers.join(',')}`}`);
   }
   process.exit(exitCode);
 }
