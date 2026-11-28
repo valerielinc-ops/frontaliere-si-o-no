@@ -21,5 +21,7 @@ describe('GSC orphan workflow assembly reconciliation', () => {
       .find((step: { name?: string }) => step.name === 'Sync GSC orphan slugs + enrich');
 
     expect(sync.env.NODE_OPTIONS).toBe('--max-old-space-size=8192');
+    // The post-merge capacity check reads this line from the run log.
+    expect(sync.run).toContain('[memory] sync-gsc-orphans peak_rss_mib=');
   });
 });

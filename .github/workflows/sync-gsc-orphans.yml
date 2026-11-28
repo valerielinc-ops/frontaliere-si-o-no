@@ -83,7 +83,10 @@ jobs:
       - name: Sync GSC orphan slugs + enrich
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: |
-          node scripts/sync-gsc-orphans.mjs \
+          # Prints the process peak RSS in the run log when node exits on its own
+          # (a V8 heap OOM aborts instead, and then prints its GC trace).
+          node --import 'data:text/javascript,process.on("exit",()=>console.log("[memory] sync-gsc-orphans peak_rss_mib="+Math.ceil(process.resourceUsage().maxRSS/1024)))' \
+            scripts/sync-gsc-orphans.mjs \
             ${{ inputs.dry_run == true && '--dry-run' || '' }}
         env:
           # The default ~4 GB heap runs out right after the orphan merge (53,887
