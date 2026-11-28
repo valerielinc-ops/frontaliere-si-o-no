@@ -223,6 +223,11 @@ describe('trade compounds and legal-notice lines are no other employer', () => {
     expect(namesAnotherEmployer('Bewerbung bei Muster Personalpartner AG', sta)).toBe(true);
     expect(namesAnotherEmployer('Bewerbung bei Muster Stellenpartner AG', sta)).toBe(true);
     expect(namesAnotherEmployer('Willkommen\nSTA Muster Stellenpartner AG', sta)).toBe(true);
+    // The broad trade stems never hide another agency by themselves: the order's distinctive name must be in the entity.
+    for (const other of ['Jobcenter AG', 'Staffpoint AG', 'Tempcare AG', 'Recruitwerk AG', 'Stellenwerk AG', 'Muster Partner AG']) {
+      expect(namesAnotherEmployer(other, sta)).toBe(true);
+      expect(namesAnotherEmployer(`Bewerbung bei ${other}`, sta)).toBe(true);
+    }
   });
 
   it.each([

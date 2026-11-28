@@ -5510,7 +5510,11 @@ const isAgencyTradeWord = (word) => STAFFING_AGENCY_WORDS.has(word) || AGENCY_ST
 const AGENCY_VARIANT_WORDS = new Set(['partner', 'partners', 'jobs', 'job', 'services', 'service', 'consulting', 'group', 'gruppe', 'holding', 'solutions', 'suisse', 'schweiz', 'switzerland', 'svizzera']);
 // Compounds of the trade by stem (stellenpartner, jobpartner, staffline, tempforce, recruitpoint, *partner).
 const AGENCY_VARIANT_STEM_RE = /^(?:stellen|job|staff|temp|recruit)|.partner$/;
-const isAgencyVariantWord = (word) => isAgencyTradeWord(word) || AGENCY_VARIANT_WORDS.has(word) || AGENCY_VARIANT_STEM_RE.test(word);
+// The page-wide neutral set takes only the narrow list: the broad stems (job*, staff*, temp*, *partner...) would
+// hide another agency's name («Jobcenter AG») before the entity check; they count only next to the order's
+// distinctive name (neighbour scan) or inside an entity that carries it (`exempt`).
+const isAgencyNarrowVariantWord = (word) => isAgencyTradeWord(word) || AGENCY_VARIANT_WORDS.has(word);
+const isAgencyVariantWord = (word) => isAgencyNarrowVariantWord(word) || AGENCY_VARIANT_STEM_RE.test(word);
 const isStaffingAgencyCompany = (company) => normalizeWords(company).split(' ').some(isAgencyTradeWord);
 
 // «S.p.A.», «S.A.», «S.à r.l.» written with dots: collapse them before the line is cut at its full stops.
@@ -5705,8 +5709,9 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     ...FORM_VOCABULARY,
   ]);
   // An agency's own variants differ by trade words only («STA Personal AG» / «STA Personalpartner AG»).
-  if (isStaffingAgencyCompany(job.company)) {
-    for (const word of normalizeWords(text).split(' ')) if (word && isAgencyVariantWord(word)) neutral.add(word);
+  const agencyOrder = isStaffingAgencyCompany(job.company);
+  if (agencyOrder) {
+    for (const word of normalizeWords(text).split(' ')) if (word && isAgencyNarrowVariantWord(word)) neutral.add(word);
   }
   const identities = [companyIdentityWords(job.company), companyLongFormWords(job.company), ...companyShortForms(job.company)]
     .filter((words) => words.length > 0);
@@ -5819,7 +5824,8 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
         if (proseWord(at) && !OTHER_EMPLOYER_MARKER_WORDS.has(words[at]) && !EMPLOYER_KIND_WORDS.has(words[at])) continue;
         if (!neutral.has(words[at]) && !labels?.has(words[at])
           && !(EMPLOYER_KIND_CLASS.has(words[at]) && ourKinds.has(EMPLOYER_KIND_CLASS.get(words[at])))
-          && !isSelectOneLabelToken(words, at)) return hit('name_next_to_ours', `${words[at]} next to ${word}`, phrase);
+          && !isSelectOneLabelToken(words, at)
+          && !(agencyOrder && isAgencyVariantWord(words[at]) && !isAgencyVariantWord(word))) return hit('name_next_to_ours', `${words[at]} next to ${word}`, phrase);
       }
     }
   }
