@@ -7,7 +7,8 @@
  * the file. Any job (by `id`) that appeared in history but is no longer in
  * the current slice is "lost" — re-archive it into
  * `data/jobs/expired/by-crawler/<key>.json` using the most-recent historical
- * version of the job. Existing expired entries are preserved (merge by slug);
+ * version of the job. Existing expired entries are preserved by company-scoped
+ * route ownership;
  * historical expired entries that later disappeared from the archive are also
  * restored, and legacy entries receive sourceIdentity/firstSeenAt metadata
  * from the active-slice history. The same history pass repairs active slice
@@ -34,11 +35,14 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { tmpdir } from 'node:os';
+import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { mergeUrlKey } from './lib/job-url-key.mjs';
+import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 import {
   collapseDuplicateRouteEntries,
   createSameIdentityArchiveIndex,
@@ -48,23 +52,35 @@ import {
   normalizeExpiredEntryTitles,
   normalizeExpiredAtEntries,
 } from './lib/expired-jobs-archive.mjs';
+import { ACTIVE_JOB_PAGE_LOCALES, localizedActiveJobSlug } from '../build-plugins/shared/activeJobPageSelection.ts';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import {
   listExpiredSliceFiles,
+  parseExpiredSliceFileName,
   readExpiredSliceShards,
   writeExpiredSliceRows,
 } from './lib/expired-slice-store.mjs';
 import { historySinceArgs } from './ci/prefetch-history-blobs.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
-import { archiveRecordSourceIdentities, buildStableJobIdentity } from './lib/job-identity.mjs';
+import {
+  archiveRecordNamesPosting,
+  archiveRecordSourceIdentities,
+  buildStableJobIdentity,
+} from './lib/job-identity.mjs';
 import { ambiguousJobIdentities, createFirstSeenMetadataIndex } from './lib/first-seen-history.mjs';
 import { isHeldFromPublication } from './lib/translation-publication-hold.mjs';
+import { resolveExpiredRouteCanton, setExpiredRouteCanton } from './lib/expired-route-canton.mjs';
+import { stableStringify } from './lib/stable-stringify.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
 const BY_CRAWLER_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
 const EXPIRED_DIR = path.join(ROOT, 'data', 'jobs', 'expired', 'by-crawler');
+const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({
+  cantonSlugFile: JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-url-slugs.json'), 'utf-8')),
+  municipalitiesFile: JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-municipalities.json'), 'utf-8')),
+});
 
 const DRY_RUN = process.env.DRY_RUN === '1';
 const MAX_COMMITS = process.env.MAX_COMMITS ? Number(process.env.MAX_COMMITS) : 0;
@@ -95,6 +111,868 @@ function readJobsFromSlice(blob) {
   if (Array.isArray(parsed)) return parsed;
   if (parsed && typeof parsed === 'object' && Array.isArray(parsed.jobs)) return parsed.jobs;
   return [];
+}
+
+function invalidHistoricalRow(family, relPath, sha, index, detail) {
+  throw new Error(
+    `Historical JSON ${family} row ${index} is unusable for ${relPath} at ${sha}: ${detail}`,
+  );
+}
+
+function validateHistoricalRow(job, family, relPath, sha, index) {
+  const fail = (field, detail = 'has an unsupported type') => (
+    invalidHistoricalRow(family, relPath, sha, index, `${field} ${detail}`)
+  );
+  const isObject = (value) => value && typeof value === 'object' && !Array.isArray(value);
+  const isOptionalString = (value) => value == null || typeof value === 'string';
+  const isOptionalId = (value) => value == null
+    || typeof value === 'string'
+    || (typeof value === 'number' && Number.isFinite(value));
+
+  for (const field of ['slug', 'url', 'applyUrl', 'sourceIdentity', 'companyKey', 'canton', 'title', 'company', 'location', 'expiredAt', 'firstSeenAt']) {
+    if (!isOptionalString(job[field])) fail(field);
+  }
+  for (const field of ['id', 'externalId', 'jobId']) {
+    if (!isOptionalId(job[field])) fail(field);
+  }
+  if (job.slugByLocale != null) {
+    if (!isObject(job.slugByLocale)) fail('slugByLocale');
+    if (Object.values(job.slugByLocale).some((slug) => !isOptionalString(slug))) {
+      fail('slugByLocale values');
+    }
+  }
+  if (job.previousSlugs != null) {
+    if (!Array.isArray(job.previousSlugs)) fail('previousSlugs');
+    if (job.previousSlugs.some((slug) => typeof slug !== 'string')) fail('previousSlugs entries');
+  }
+  for (const field of ['previousSlugsByLocale']) {
+    if (job[field] == null) continue;
+    if (!isObject(job[field])) fail(field);
+    for (const slugs of Object.values(job[field])) {
+      if (!Array.isArray(slugs) || slugs.some((slug) => typeof slug !== 'string')) {
+        fail(`${field} values`);
+      }
+    }
+  }
+  if (job.previousSlugCantonByLocale != null) {
+    if (!isObject(job.previousSlugCantonByLocale)) fail('previousSlugCantonByLocale');
+    for (const cantons of Object.values(job.previousSlugCantonByLocale)) {
+      if (!isObject(cantons) || Object.values(cantons).some((canton) => !isOptionalString(canton))) {
+        fail('previousSlugCantonByLocale values');
+      }
+    }
+  }
+  if (job.sourceIdentityHistory != null) {
+    if (!Array.isArray(job.sourceIdentityHistory)) fail('sourceIdentityHistory');
+    for (const history of job.sourceIdentityHistory) {
+      if (!isObject(history)) fail('sourceIdentityHistory entries');
+      for (const field of ['id', 'externalId', 'jobId']) {
+        if (!isOptionalId(history[field])) fail(`sourceIdentityHistory.${field}`);
+      }
+      for (const field of ['url', 'sourceIdentity', 'firstSeenAt', 'title']) {
+        if (!isOptionalString(history[field])) fail(`sourceIdentityHistory.${field}`);
+      }
+    }
+  }
+
+  const active = family === 'active crawler slice';
+  let routes;
+  try {
+    routes = emittedRouteEntries(job, { active });
+  } catch {
+    fail('route fields', 'cannot produce a recoverable emitted route');
+  }
+  if (!routes.some(({ slug }) => typeof slug === 'string' && slug.trim())) {
+    fail('route fields', 'do not produce a recoverable emitted route');
+  }
+}
+
+/** Historical data must not silently turn into an empty snapshot. */
+function readHistoricalJobs(blob, relPath, sha, family) {
+  let parsed;
+  try {
+    parsed = JSON.parse(blob);
+  } catch {
+    throw new Error(`Historical JSON for ${family} is invalid for ${relPath} at ${sha}`);
+  }
+  const jobs = Array.isArray(parsed)
+    ? parsed
+    : parsed && typeof parsed === 'object' && !Array.isArray(parsed) && Array.isArray(parsed.jobs)
+      ? parsed.jobs
+      : null;
+  if (!jobs) throw new Error(`Historical JSON has an unsupported root shape for ${family} at ${relPath} at ${sha}`);
+  for (let index = 0; index < jobs.length; index += 1) {
+    const row = jobs[index];
+    if (!row || typeof row !== 'object' || Array.isArray(row)) {
+      invalidHistoricalRow(family, relPath, sha, index, 'is not an object');
+    }
+    validateHistoricalRow(row, family, relPath, sha, index);
+  }
+  return jobs;
+}
+
+function payloadFingerprint(value) {
+  return createHash('sha256').update(stableStringify(value)).digest('hex');
+}
+
+function compactStringMap(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
+  return Object.fromEntries(Object.entries(value).filter(([, item]) => typeof item === 'string'));
+}
+
+function compactStringArrayMap(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
+  return Object.fromEntries(Object.entries(value)
+    .filter(([, items]) => Array.isArray(items))
+    .map(([key, items]) => [key, items.filter((item) => typeof item === 'string')]));
+}
+
+function compactStringObjectMap(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
+  return Object.fromEntries(Object.entries(value)
+    .filter(([, entries]) => entries && typeof entries === 'object' && !Array.isArray(entries))
+    .map(([key, entries]) => [key, compactStringMap(entries)]));
+}
+
+/** Only fields used by identity proof, ambiguity grouping, and emitted routes. */
+function compactOwnerEvidence(job, { active = false } = {}) {
+  const identityFields = {};
+  for (const key of ['id', 'externalId', 'jobId', 'url', 'sourceIdentity']) {
+    if (job?.[key] !== undefined) identityFields[key] = job[key];
+  }
+  if (Array.isArray(job?.sourceIdentityHistory)) {
+    identityFields.sourceIdentityHistory = job.sourceIdentityHistory
+      .filter((entry) => entry && typeof entry === 'object' && !Array.isArray(entry))
+      .map((entry) => {
+        const identity = {};
+        for (const key of ['id', 'externalId', 'jobId', 'url', 'sourceIdentity']) {
+          if (entry[key] !== undefined) identity[key] = entry[key];
+        }
+        return identity;
+      });
+  }
+  const routeFields = {
+    ...(typeof job?.slug === 'string' ? { slug: job.slug } : {}),
+    slugByLocale: compactStringMap(job?.slugByLocale),
+    previousSlugs: Array.isArray(job?.previousSlugs)
+      ? job.previousSlugs.filter((slug) => typeof slug === 'string')
+      : [],
+    previousSlugsByLocale: compactStringArrayMap(job?.previousSlugsByLocale),
+    previousSlugCantonByLocale: compactStringObjectMap(job?.previousSlugCantonByLocale),
+  };
+  return {
+    ...identityFields,
+    companyKey: String(job?.companyKey || ''),
+    ...routeFields,
+    routeEntries: emittedRouteEntries(job || {}, { active }),
+  };
+}
+
+function compactOwnerIdentityEvidence(job) {
+  const evidence = compactOwnerEvidence(job);
+  delete evidence.slug;
+  delete evidence.slugByLocale;
+  delete evidence.previousSlugs;
+  delete evidence.previousSlugsByLocale;
+  delete evidence.previousSlugCantonByLocale;
+  delete evidence.routeEntries;
+  return evidence;
+}
+
+function historicalOwnerAccumulatorKey(identityEvidence, fingerprint) {
+  const identityKey = stableStringify(identityEvidence);
+  const hasPostingIdentity = [...archiveRecordSourceIdentities(identityEvidence || {})]
+    .some((identity) => namesOnePosting(identity));
+  // Company and listing-page identities do not prove that distinct legacy
+  // rows belong to one posting. Keep each payload's compact evidence apart;
+  // exact repeated snapshots still deduplicate by their stable fingerprint.
+  return hasPostingIdentity ? identityKey : stableStringify([identityEvidence, fingerprint]);
+}
+
+function compactActiveRoutePayload(job) {
+  return {
+    ...(typeof job?.slug === 'string' ? { slug: job.slug } : {}),
+    slugByLocale: compactStringMap(job?.slugByLocale),
+    previousSlugs: Array.isArray(job?.previousSlugs)
+      ? job.previousSlugs.filter((slug) => typeof slug === 'string')
+      : [],
+    previousSlugsByLocale: compactStringArrayMap(job?.previousSlugsByLocale),
+    previousSlugCantonByLocale: compactStringObjectMap(job?.previousSlugCantonByLocale),
+  };
+}
+
+function rebuildOwnerEvidence(owner, routeJob = {}) {
+  const previousSlugsByLocale = Object.fromEntries([...owner.routeSlugsByLocale].map(([locale, slugs]) => (
+    [locale, [...slugs]]
+  )));
+  const previousSlugCantonByLocale = Object.fromEntries([...owner.routeCantonsByLocale].map(([locale, cantons]) => (
+    [locale, Object.fromEntries(cantons)]
+  )));
+  owner.evidence = {
+    ...owner.identityEvidence,
+    ...(typeof routeJob?.slug === 'string' ? { slug: routeJob.slug } : {}),
+    slugByLocale: compactStringMap(routeJob?.slugByLocale),
+    previousSlugs: [...new Set([...owner.routeSlugsByLocale.values()].flatMap((slugs) => [...slugs]))],
+    previousSlugsByLocale,
+    previousSlugCantonByLocale,
+    routeEntries: [...owner.routeEvidenceByPath.values()],
+  };
+}
+
+function refreshOwnerRouteEvidence(owner, routeJob, { active = false } = {}) {
+  owner.routeEvidenceByPath ||= new Map();
+  owner.routeSlugsByLocale ||= new Map();
+  owner.routeCantonsByLocale ||= new Map();
+  for (const route of emittedRouteEntries(routeJob, { active })) {
+    const routeKey = stableStringify([route.localeSlugKey, route.emittedPath, route.canton || '']);
+    owner.routeEvidenceByPath.set(routeKey, route);
+    const slugs = owner.routeSlugsByLocale.get(route.locale) || new Set();
+    slugs.add(route.slug);
+    owner.routeSlugsByLocale.set(route.locale, slugs);
+    const cantons = owner.routeCantonsByLocale.get(route.locale) || new Map();
+    if (route.canton && !cantons.has(route.slug)) cantons.set(route.slug, route.canton);
+    owner.routeCantonsByLocale.set(route.locale, cantons);
+  }
+  rebuildOwnerEvidence(owner, routeJob);
+}
+
+function addHistoricalOwnerSighting(index, job, { active = false, retainPayload = false } = {}) {
+  const identityEvidence = compactOwnerIdentityEvidence(job);
+  const fingerprint = payloadFingerprint(job);
+  const key = historicalOwnerAccumulatorKey(identityEvidence, fingerprint);
+  let owner = index.get(key);
+  if (!owner) {
+    owner = {
+      identityEvidence,
+      evidence: null,
+      firstPayloadFingerprint: fingerprint,
+      hasDistinctPayload: false,
+      ...(retainPayload ? { representative: job } : {}),
+    };
+    index.set(key, owner);
+  }
+  if (owner.firstPayloadFingerprint !== fingerprint) owner.hasDistinctPayload = true;
+  if (retainPayload) {
+    if (compareExpiredAt(owner.representative?.expiredAt, job?.expiredAt) < 0) {
+      mergeSourceIdentityHistory(job, owner.representative);
+      owner.representative = job;
+    } else {
+      mergeSourceIdentityHistory(owner.representative, job);
+    }
+  }
+  refreshOwnerRouteEvidence(owner, job, { active });
+  return owner;
+}
+
+function historicalOwnerIdentityEvidence(owner) {
+  const evidence = { companyKey: owner.companyKey };
+  const representative = owner.representative || {};
+  const commonIdentities = owner.commonPostingIdentities;
+  const rawId = representative.id ?? representative.externalId ?? representative.jobId;
+  if (rawId != null && commonIdentities.has(`id:${String(rawId).trim().toLowerCase()}`)) {
+    evidence.id = rawId;
+  }
+  if (typeof representative.url === 'string'
+    && commonIdentities.has(buildStableJobIdentity({ url: representative.url }))) {
+    evidence.url = representative.url;
+  }
+
+  const declared = [...owner.commonDeclaredIdentities].sort();
+  const primary = declared.includes(representative.sourceIdentity)
+    ? representative.sourceIdentity
+    : declared[0];
+  if (primary) evidence.sourceIdentity = primary;
+  const history = declared.filter((identity) => identity !== primary);
+  if (history.length > 0) {
+    evidence.sourceIdentityHistory = history.map((sourceIdentity) => ({ sourceIdentity }));
+  }
+  return evidence;
+}
+
+/**
+ * Collect expired history with one full payload per proven posting. The proof
+ * set is intersected on every merge, so a pairwise chain cannot turn into a
+ * transitive posting match. Listing URLs never enter the posting proof set.
+ */
+export function createHistoricalExpiredOwnerCollector() {
+  const owners = [];
+  const ownersByCompanyIdentity = new Map();
+  const exactPayloads = new Map();
+  const proofIndexKey = (companyKey, identity) => JSON.stringify([companyKey, identity]);
+
+  const add = (job) => {
+    const companyKey = String(job?.companyKey || '');
+    const proofIdentities = new Set([...archiveRecordSourceIdentities(job)].filter(namesOnePosting));
+    const declaredIdentities = declaredPostingIdentities(job);
+    const identityEvidence = compactOwnerIdentityEvidence(job);
+    const fingerprint = payloadFingerprint(job);
+    const exactKey = stableStringify([identityEvidence, fingerprint]);
+    const duplicate = exactPayloads.get(exactKey);
+    const candidates = new Set();
+    for (const identity of proofIdentities) {
+      for (const owner of ownersByCompanyIdentity.get(proofIndexKey(companyKey, identity)) || []) {
+        candidates.add(owner);
+      }
+    }
+    const matching = [...candidates].filter((owner) => {
+      if (owner.companyKey !== companyKey
+        || ![...owner.commonPostingIdentities].some((identity) => proofIdentities.has(identity))) return false;
+      return declaredIdentities.size === 0
+        || !owner.hasDeclaredIdentities
+        || [...owner.commonDeclaredIdentities].some((identity) => declaredIdentities.has(identity));
+    });
+
+    let owner = matching.length === 1 ? matching[0] : duplicate;
+    if (!owner) {
+      owner = {
+        companyKey,
+        representative: job,
+        commonPostingIdentities: new Set(proofIdentities),
+        commonDeclaredIdentities: new Set(declaredIdentities),
+        observedPostingIdentities: new Set(proofIdentities),
+        observedDeclaredIdentities: new Set(declaredIdentities),
+        hasDeclaredIdentities: declaredIdentities.size > 0,
+        identityEvidence,
+        evidence: null,
+        firstPayloadFingerprint: fingerprint,
+        hasDistinctPayload: false,
+        routeEvidenceByPath: new Map(),
+        routeSlugsByLocale: new Map(),
+        routeCantonsByLocale: new Map(),
+      };
+      owners.push(owner);
+    } else {
+      if (owner.firstPayloadFingerprint !== fingerprint) owner.hasDistinctPayload = true;
+      for (const identity of proofIdentities) owner.observedPostingIdentities.add(identity);
+      for (const identity of declaredIdentities) owner.observedDeclaredIdentities.add(identity);
+      for (const identity of owner.commonPostingIdentities) {
+        if (!proofIdentities.has(identity)) owner.commonPostingIdentities.delete(identity);
+      }
+      if (declaredIdentities.size > 0) {
+        if (!owner.hasDeclaredIdentities) {
+          owner.commonDeclaredIdentities = new Set(declaredIdentities);
+          owner.hasDeclaredIdentities = true;
+        } else {
+          for (const identity of owner.commonDeclaredIdentities) {
+            if (!declaredIdentities.has(identity)) owner.commonDeclaredIdentities.delete(identity);
+          }
+        }
+      }
+      if (compareExpiredAt(owner.representative?.expiredAt, job?.expiredAt) < 0) {
+        owner.representative = job;
+      }
+    }
+
+    owner.identityEvidence = historicalOwnerIdentityEvidence(owner);
+    refreshOwnerRouteEvidence(owner, job);
+    rebuildOwnerEvidence(owner, owner.representative);
+    exactPayloads.set(exactKey, owner);
+    for (const identity of owner.commonPostingIdentities) {
+      const key = proofIndexKey(companyKey, identity);
+      const group = ownersByCompanyIdentity.get(key) || new Set();
+      group.add(owner);
+      ownersByCompanyIdentity.set(key, group);
+    }
+    return owner;
+  };
+
+  return {
+    add,
+    values: () => owners.values(),
+  };
+}
+
+function mergeHistoricalOwnerAccumulator(index, incoming) {
+  const key = historicalOwnerAccumulatorKey(incoming.identityEvidence, incoming.firstPayloadFingerprint);
+  const current = index.get(key);
+  if (!current) {
+    index.set(key, incoming);
+    return;
+  }
+  if (current.firstPayloadFingerprint !== incoming.firstPayloadFingerprint
+    || incoming.hasDistinctPayload) current.hasDistinctPayload = true;
+  if (!current.representative) {
+    current.representative = incoming.representative;
+  } else if (incoming.representative
+    && compareExpiredAt(current.representative.expiredAt, incoming.representative.expiredAt) < 0) {
+    if (current.representative) mergeSourceIdentityHistory(incoming.representative, current.representative);
+    current.representative = incoming.representative;
+  } else if (current.representative && incoming.representative) {
+    mergeSourceIdentityHistory(current.representative, incoming.representative);
+  }
+  for (const route of incoming.routeEvidenceByPath?.values() || []) {
+    const routeKey = stableStringify([route.localeSlugKey, route.emittedPath, route.canton || '']);
+    current.routeEvidenceByPath ||= new Map();
+    current.routeEvidenceByPath.set(routeKey, route);
+    const slugs = current.routeSlugsByLocale?.get(route.locale) || new Set();
+    slugs.add(route.slug);
+    current.routeSlugsByLocale ||= new Map();
+    current.routeSlugsByLocale.set(route.locale, slugs);
+    const cantons = current.routeCantonsByLocale?.get(route.locale) || new Map();
+    if (route.canton && !cantons.has(route.slug)) cantons.set(route.slug, route.canton);
+    current.routeCantonsByLocale ||= new Map();
+    current.routeCantonsByLocale.set(route.locale, cantons);
+  }
+  rebuildOwnerEvidence(current, current.representative || incoming.evidence);
+}
+
+function materializeHistoricalOwnerRoutes(owner) {
+  const source = owner?.representative;
+  if (!source) return null;
+  const representative = { ...source };
+  for (const field of ['id', 'externalId', 'jobId', 'url', 'sourceIdentity', 'sourceIdentityHistory']) {
+    if (Object.hasOwn(owner.identityEvidence || {}, field)) {
+      representative[field] = owner.identityEvidence[field];
+    } else {
+      delete representative[field];
+    }
+  }
+  const currentPaths = new Map(emittedRouteEntries(representative).map((route) => [
+    route.localeSlugKey,
+    route.emittedPath,
+  ]));
+  const previousByLocale = compactStringArrayMap(representative.previousSlugsByLocale);
+  for (const route of owner.routeEvidenceByPath?.values() || []) {
+    if (currentPaths.get(route.localeSlugKey) === route.emittedPath) continue;
+    if (currentPaths.has(route.localeSlugKey)) {
+      throw new Error('Historical route evidence has two canton-qualified paths for one locale slug');
+    }
+    const previous = previousByLocale[route.locale] || [];
+    if (!previous.includes(route.slug)) previous.push(route.slug);
+    previousByLocale[route.locale] = previous;
+    if (route.canton && !representative.previousSlugCantonByLocale?.[route.locale]?.[route.slug]) {
+      setExpiredRouteCanton(representative, route.locale, route.slug, route.canton);
+    }
+  }
+  if (Object.keys(previousByLocale).length > 0) representative.previousSlugsByLocale = previousByLocale;
+  return representative;
+}
+
+function expandOwnerEvidence(owners, listingIdentities) {
+  const expanded = [];
+  for (const owner of owners.values()) {
+    const hasUnambiguousPostingIdentity = [...archiveRecordSourceIdentities(owner.evidence)].some((identity) => (
+      namesOnePosting(identity) && !listingIdentities.isAmbiguous(identity)
+    ));
+    const duplicateUnprovenOwner = owner.hasDistinctPayload && !hasUnambiguousPostingIdentity;
+    expanded.push(owner.evidence);
+    if (duplicateUnprovenOwner) expanded.push({ ...owner.evidence });
+  }
+  return expanded;
+}
+
+function routeOwnerProofKey(job, kind, route, isAmbiguousIdentity) {
+  const identities = [...archiveRecordSourceIdentities(job)];
+  const proven = identities.filter((identity) => (
+    namesOnePosting(identity) && !isAmbiguousIdentity(identity)
+  )).sort();
+  if (proven.length === 0) return '';
+  const declared = [
+    job?.sourceIdentity,
+    ...(Array.isArray(job?.sourceIdentityHistory)
+      ? job.sourceIdentityHistory.map((entry) => entry?.sourceIdentity)
+      : []),
+  ].filter((identity) => typeof identity === 'string' && identity.trim()).sort();
+  return stableStringify([
+    kind,
+    String(job?.companyKey || ''),
+    route.localeSlugKey,
+    route.emittedPath,
+    proven,
+    declared,
+  ]);
+}
+
+function mergeHistoricalRecoveryRepresentatives(rows, isAmbiguousIdentity) {
+  const owners = [];
+  const byCompanyIdentity = new Map();
+  const byCompanyIdentityAndDeclaration = new Map();
+  const byCompanyIdentityWithoutDeclaration = new Map();
+  const indexKey = (companyKey, identity) => JSON.stringify([companyKey, identity]);
+  const declarationIndexKey = (companyKey, identity, declaration) => (
+    JSON.stringify([companyKey, identity, declaration])
+  );
+  const proofIdentitiesOf = (row) => new Set([...archiveRecordSourceIdentities(row)].filter((identity) => (
+    namesOnePosting(identity) && !isAmbiguousIdentity(identity)
+  )));
+  const indexOwner = (owner, add) => {
+    for (const identity of owner.commonPostingIdentities) {
+      const key = indexKey(owner.companyKey, identity);
+      const all = byCompanyIdentity.get(key) || new Set();
+      if (add) all.add(owner);
+      else all.delete(owner);
+      if (all.size > 0) byCompanyIdentity.set(key, all);
+      else byCompanyIdentity.delete(key);
+
+      if (!owner.hasDeclaredIdentities) {
+        const withoutDeclaration = byCompanyIdentityWithoutDeclaration.get(key) || new Set();
+        if (add) withoutDeclaration.add(owner);
+        else withoutDeclaration.delete(owner);
+        if (withoutDeclaration.size > 0) byCompanyIdentityWithoutDeclaration.set(key, withoutDeclaration);
+        else byCompanyIdentityWithoutDeclaration.delete(key);
+      } else {
+        for (const declaration of owner.commonDeclaredIdentities) {
+          const declaredKey = declarationIndexKey(owner.companyKey, identity, declaration);
+          const declared = byCompanyIdentityAndDeclaration.get(declaredKey) || new Set();
+          if (add) declared.add(owner);
+          else declared.delete(owner);
+          if (declared.size > 0) byCompanyIdentityAndDeclaration.set(declaredKey, declared);
+          else byCompanyIdentityAndDeclaration.delete(declaredKey);
+        }
+      }
+    }
+  };
+  const createOwner = (row) => {
+    const declared = declaredPostingIdentities(row);
+    const owner = {
+      representative: row,
+      companyKey: String(row?.companyKey || ''),
+      commonPostingIdentities: proofIdentitiesOf(row),
+      commonDeclaredIdentities: declared,
+      hasDeclaredIdentities: declared.size > 0,
+    };
+    owners.push(owner);
+    indexOwner(owner, true);
+    return owner;
+  };
+  const matchesEveryOwner = (owner, row, rowProof, rowDeclared) => {
+    if (![...owner.commonPostingIdentities].some((identity) => rowProof.has(identity))) return false;
+    if (rowDeclared.size > 0 && owner.hasDeclaredIdentities
+      && ![...owner.commonDeclaredIdentities].some((identity) => rowDeclared.has(identity))) return false;
+    return true;
+  };
+  const sorted = [...rows].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt));
+  for (const row of sorted) {
+    const companyKey = String(row?.companyKey || '');
+    const rowProof = proofIdentitiesOf(row);
+    const rowDeclared = declaredPostingIdentities(row);
+    const possibleOwners = new Set();
+    for (const identity of rowProof) {
+      const key = indexKey(companyKey, identity);
+      if (rowDeclared.size === 0) {
+        for (const owner of byCompanyIdentity.get(key) || []) {
+          possibleOwners.add(owner);
+          if (possibleOwners.size > 1) break;
+        }
+      } else {
+        for (const owner of byCompanyIdentityWithoutDeclaration.get(key) || []) {
+          possibleOwners.add(owner);
+          if (possibleOwners.size > 1) break;
+        }
+        if (possibleOwners.size > 1) break;
+        for (const declaration of rowDeclared) {
+          const declaredKey = declarationIndexKey(companyKey, identity, declaration);
+          for (const owner of byCompanyIdentityAndDeclaration.get(declaredKey) || []) {
+            possibleOwners.add(owner);
+            if (possibleOwners.size > 1) break;
+          }
+          if (possibleOwners.size > 1) break;
+        }
+      }
+      if (possibleOwners.size > 1) break;
+    }
+    const matchingOwners = [...possibleOwners].filter((owner) => (
+      owner.companyKey === companyKey && matchesEveryOwner(owner, row, rowProof, rowDeclared)
+    ));
+    if (matchingOwners.length !== 1) {
+      createOwner(row);
+      continue;
+    }
+
+    const [owner] = matchingOwners;
+    const newer = owner.representative;
+    const candidate = structuredClone(newer);
+    const olderRoutes = emittedRouteKeys(row);
+    let routeCapRefused = false;
+    mergeExpiredRouteEvidence(
+      candidate,
+      addExpiredFallbackAliases(candidate, row),
+      'backfill-expired-from-history/compact-history',
+      { onLegacyRouteCapRefusal: () => { routeCapRefused = true; } },
+    );
+    mergeSourceIdentityHistory(candidate, row);
+    const candidateRoutes = emittedRouteKeys(candidate);
+    const candidateIdentities = archiveRecordSourceIdentities(candidate);
+    const preservesEvidence = !routeCapRefused
+      && [...olderRoutes].every((route) => candidateRoutes.has(route))
+      && [...archiveRecordSourceIdentities(row)].every((identity) => candidateIdentities.has(identity));
+    if (!preservesEvidence) {
+      createOwner(row);
+      continue;
+    }
+
+    indexOwner(owner, false);
+    Object.assign(newer, candidate);
+    for (const identity of owner.commonPostingIdentities) {
+      if (!rowProof.has(identity)) owner.commonPostingIdentities.delete(identity);
+    }
+    if (rowDeclared.size > 0) {
+      if (!owner.hasDeclaredIdentities) {
+        owner.commonDeclaredIdentities = new Set(rowDeclared);
+        owner.hasDeclaredIdentities = true;
+      } else {
+        for (const identity of owner.commonDeclaredIdentities) {
+          if (!rowDeclared.has(identity)) owner.commonDeclaredIdentities.delete(identity);
+        }
+      }
+    }
+    indexOwner(owner, true);
+  }
+  return owners.map(({ representative }) => representative);
+}
+
+/**
+ * The emitted job URL includes its locale-specific canton section. Comparing
+ * only `locale:slug` confuses two valid routes that share a slug in different
+ * cantons. Active bridge aliases use the active row's canton; archived aliases
+ * retain their recorded route canton where available.
+ */
+function emittedRouteKey(locale, slug, canton) {
+  const section = resolveCantonSection(locale, canton);
+  const prefix = locale === 'it' ? '' : `${locale}/`;
+  return `${prefix}${section}/${slug}/`;
+}
+
+function emittedRouteEntries(job, { active = false } = {}) {
+  const defaultCanton = resolveJobCanton(job || {});
+  const routeKeys = new Set(localeRouteKeys(job || {}));
+  if (active) {
+    for (const locale of ACTIVE_JOB_PAGE_LOCALES) {
+      const slug = localizedActiveJobSlug(job || {}, locale);
+      if (slug) routeKeys.add(`${locale}:${slug}`);
+    }
+  } else {
+    // The expired renderer uses the primary slug when a locale has no
+    // explicit localized slug. Keep these paths alongside locale aliases.
+    for (const locale of ACTIVE_JOB_PAGE_LOCALES) {
+      const slug = job?.slugByLocale?.[locale] || job?.slug;
+      if (slug) routeKeys.add(`${locale}:${slug}`);
+    }
+  }
+  const entries = [];
+  for (const routeKey of routeKeys) {
+    const separator = routeKey.indexOf(':');
+    if (separator < 0) continue;
+    const locale = routeKey.slice(0, separator);
+    const slug = routeKey.slice(separator + 1);
+    if (!locale || !slug) continue;
+    const routeCanton = active
+      ? defaultCanton
+      : resolveExpiredRouteCanton(job, locale, slug) || defaultCanton;
+    entries.push({
+      locale,
+      slug,
+      canton: routeCanton,
+      localeSlugKey: routeKey,
+      emittedPath: emittedRouteKey(locale, slug, routeCanton),
+    });
+  }
+  return entries;
+}
+
+function emittedRouteKeys(job, options = {}) {
+  return new Set(emittedRouteEntries(job, options).map(({ emittedPath }) => emittedPath));
+}
+
+function suppressExpiredRoute(entry, { locale, slug }) {
+  if (!entry || !locale || !slug || slug === entry.slug) return false;
+
+  const previousByLocale = Object.fromEntries(Object.entries(entry.previousSlugsByLocale || {})
+    .filter(([, slugs]) => Array.isArray(slugs))
+    .map(([key, slugs]) => [key, [...slugs]]));
+  const previousSlugs = Array.isArray(entry.previousSlugs) ? [...entry.previousSlugs] : [];
+  const previousLocalesBefore = ACTIVE_JOB_PAGE_LOCALES.filter((supportedLocale) => (
+    previousByLocale[supportedLocale]?.includes(slug)
+  ));
+  const legacyGlobalAlias = previousSlugs.includes(slug) && previousLocalesBefore.length === 0;
+  let changed = false;
+
+  if (entry.slugByLocale?.[locale] === slug) {
+    const slugByLocale = { ...entry.slugByLocale };
+    delete slugByLocale[locale];
+    if (Object.keys(slugByLocale).length > 0) entry.slugByLocale = slugByLocale;
+    else delete entry.slugByLocale;
+    changed = true;
+  }
+
+  const localePrevious = previousByLocale[locale] || [];
+  const filteredLocalePrevious = localePrevious.filter((previousSlug) => previousSlug !== slug);
+  if (filteredLocalePrevious.length !== localePrevious.length) {
+    if (filteredLocalePrevious.length > 0) previousByLocale[locale] = filteredLocalePrevious;
+    else delete previousByLocale[locale];
+    changed = true;
+  }
+
+  if (legacyGlobalAlias) {
+    for (const supportedLocale of ACTIVE_JOB_PAGE_LOCALES) {
+      if (supportedLocale === locale) continue;
+      const aliases = previousByLocale[supportedLocale] || [];
+      if (!aliases.includes(slug)) previousByLocale[supportedLocale] = [...aliases, slug];
+    }
+    entry.previousSlugs = previousSlugs.filter((previousSlug) => previousSlug !== slug);
+    changed = true;
+  } else if (previousSlugs.includes(slug)
+    && !ACTIVE_JOB_PAGE_LOCALES.some((supportedLocale) => previousByLocale[supportedLocale]?.includes(slug))) {
+    entry.previousSlugs = previousSlugs.filter((previousSlug) => previousSlug !== slug);
+    changed = true;
+  }
+
+  if (changed) {
+    if (Object.keys(previousByLocale).length > 0) entry.previousSlugsByLocale = previousByLocale;
+    else delete entry.previousSlugsByLocale;
+
+    const previousCantons = Object.fromEntries(Object.entries(entry.previousSlugCantonByLocale || {})
+      .filter(([, cantons]) => cantons && typeof cantons === 'object' && !Array.isArray(cantons))
+      .map(([key, cantons]) => [key, { ...cantons }]));
+    if (previousCantons[locale]?.[slug]) {
+      delete previousCantons[locale][slug];
+      if (Object.keys(previousCantons[locale]).length === 0) delete previousCantons[locale];
+    }
+    if (Object.keys(previousCantons).length > 0) entry.previousSlugCantonByLocale = previousCantons;
+    else delete entry.previousSlugCantonByLocale;
+  }
+
+  return changed;
+}
+
+function addActiveFallbackAliases(routeEvidence, activeRoutes) {
+  const represented = localeRouteKeys(routeEvidence);
+  const previousByLocale = { ...(routeEvidence.previousSlugsByLocale || {}) };
+  let changed = false;
+  for (const { locale, slug } of activeRoutes) {
+    const localeSlugKey = `${locale}:${slug}`;
+    if (represented.has(localeSlugKey)) continue;
+    const previous = Array.isArray(previousByLocale[locale])
+      ? [...previousByLocale[locale]]
+      : [];
+    if (!previous.includes(slug)) {
+      previous.push(slug);
+      previousByLocale[locale] = previous;
+      changed = true;
+    }
+  }
+  if (changed) routeEvidence.previousSlugsByLocale = previousByLocale;
+  return routeEvidence;
+}
+
+function addExpiredFallbackAliases(survivor, historical) {
+  const routeEvidence = structuredClone(historical || {});
+  const previousByLocale = { ...(routeEvidence.previousSlugsByLocale || {}) };
+  const survivorRoutes = emittedRouteKeys(survivor);
+  let changed = false;
+  for (const locale of ACTIVE_JOB_PAGE_LOCALES) {
+    if (historical?.slugByLocale?.[locale]) continue;
+    const slug = historical?.slug;
+    if (!slug) continue;
+    const historicalCanton = resolveExpiredRouteCanton(historical, locale, slug)
+      || resolveJobCanton(historical || {});
+    const historicalPath = emittedRouteKey(locale, slug, historicalCanton);
+    if (survivorRoutes.has(historicalPath)) continue;
+    const survivorSlug = survivor?.slugByLocale?.[locale] || survivor?.slug;
+    // A locale bucket cannot store two canton-qualified paths for one slug.
+    if (slug === survivorSlug) continue;
+    const previous = Array.isArray(previousByLocale[locale])
+      ? [...previousByLocale[locale]]
+      : [];
+    if (!previous.includes(slug)) {
+      previous.push(slug);
+      previousByLocale[locale] = previous;
+      changed = true;
+    }
+    if (historicalCanton) {
+      changed = setExpiredRouteCanton(routeEvidence, locale, slug, historicalCanton) || changed;
+    }
+  }
+  if (changed) routeEvidence.previousSlugsByLocale = previousByLocale;
+  return routeEvidence;
+}
+
+function sharesProvenPostingIdentity(left, right, isAmbiguousIdentity = () => false) {
+  const leftIdentities = archiveRecordSourceIdentities(left || {});
+  const rightIdentities = archiveRecordSourceIdentities(right || {});
+  const sharedSpecificIdentity = [...leftIdentities].some((identity) => (
+    rightIdentities.has(identity)
+    && namesOnePosting(identity)
+    && !isAmbiguousIdentity(identity)
+  ));
+  return sharedSpecificIdentity && archiveRecordNamesPosting(left || {}, right || {});
+}
+
+function declaredPostingIdentities(job) {
+  return new Set([
+    job?.sourceIdentity,
+    ...(Array.isArray(job?.sourceIdentityHistory)
+      ? job.sourceIdentityHistory.map((entry) => entry?.sourceIdentity)
+      : []),
+  ].filter((identity) => typeof identity === 'string' && identity.trim()));
+}
+
+/**
+ * A shared identity token is a sufficient proof for every pair in a group.
+ * If there is no token shared by the whole group, retain the owners separately
+ * and refuse their route overlap; pairwise links through different tokens are
+ * not transitive evidence that all rows describe one posting.
+ */
+function ownersShareOneProvenPosting(jobs, isAmbiguousIdentity) {
+  const uniqueJobs = [...new Set(jobs)];
+  if (uniqueJobs.length <= 1) return true;
+  let commonPostingIdentities = null;
+  let commonDeclaredIdentities = null;
+  let hasDeclaredIdentities = false;
+  for (const job of uniqueJobs) {
+    const postingIdentities = new Set([...archiveRecordSourceIdentities(job)].filter((identity) => (
+      namesOnePosting(identity) && !isAmbiguousIdentity(identity)
+    )));
+    if (commonPostingIdentities === null) commonPostingIdentities = postingIdentities;
+    else {
+      for (const identity of commonPostingIdentities) {
+        if (!postingIdentities.has(identity)) commonPostingIdentities.delete(identity);
+      }
+    }
+    if (commonPostingIdentities.size === 0) return false;
+
+    const declared = declaredPostingIdentities(job);
+    if (declared.size > 0) {
+      if (!hasDeclaredIdentities) {
+        commonDeclaredIdentities = declared;
+        hasDeclaredIdentities = true;
+      } else {
+        for (const identity of commonDeclaredIdentities) {
+          if (!declared.has(identity)) commonDeclaredIdentities.delete(identity);
+        }
+        if (commonDeclaredIdentities.size === 0) return false;
+      }
+    }
+  }
+  return true;
+}
+
+function hasUnprovenCrossOwnerPair(leftOwners, rightOwners, isAmbiguousIdentity) {
+  const leftJobs = [...new Set(leftOwners.map(({ job }) => job))];
+  const rightJobs = [...new Set(rightOwners.map(({ job }) => job))];
+  if (leftJobs.length === 0 || rightJobs.length === 0) return false;
+  if (leftJobs.length === 1) {
+    const [single] = leftJobs;
+    const manySide = rightJobs.filter((job) => job !== single);
+    if (manySide.length === 0) return false;
+    return manySide.some((job) => !sharesProvenPostingIdentity(single, job, isAmbiguousIdentity));
+  }
+  if (rightJobs.length === 1) {
+    const [single] = rightJobs;
+    const manySide = leftJobs.filter((job) => job !== single);
+    if (manySide.length === 0) return false;
+    return manySide.some((job) => !sharesProvenPostingIdentity(single, job, isAmbiguousIdentity));
+  }
+  return !ownersShareOneProvenPosting([...leftJobs, ...rightJobs], isAmbiguousIdentity);
+}
+
+function uniqueRouteOwners(owners) {
+  const seen = new Set();
+  return owners.filter(({ job }) => {
+    if (seen.has(job)) return false;
+    seen.add(job);
+    return true;
+  });
 }
 
 function parseSlice(blob) {
@@ -162,6 +1040,62 @@ function buildExpiredEntry(job) {
 }
 
 /**
+ * Posting identity for a historical row that has no `id`. Use only a URL or
+ * declared identity that names one posting; a shared listing URL falls back
+ * to route-only slug evidence. A generated title/company fallback is not
+ * enough evidence to decide that an old route belongs to one posting.
+ */
+function idlessBackfillIdentity(job, listingIdentities) {
+  const identities = archiveRecordSourceIdentities(job);
+  const declared = String(job?.sourceIdentity || '').trim();
+  const stableJobIdentity = buildStableJobIdentity(job || {});
+  const postingIdentities = [...identities].filter((identity) => namesOnePosting(identity));
+  const usableSourceIdentities = postingIdentities.filter((candidate) => (
+    !listingIdentities.isAmbiguous(candidate)
+  ));
+  const ambiguousListingIdentities = [...identities].filter((candidate) => (
+    !namesOnePosting(candidate) && listingIdentities.isAmbiguous(candidate)
+  ));
+  const declaredIsUsable = declared
+    && namesOnePosting(declared)
+    && !listingIdentities.isAmbiguous(declared);
+  const stableIsUsable = /^(?:url|id):/u.test(stableJobIdentity)
+    && namesOnePosting(stableJobIdentity)
+    && !listingIdentities.isAmbiguous(stableJobIdentity);
+  const identity = (declaredIsUsable ? declared : '')
+    || (stableIsUsable ? stableJobIdentity : '')
+    || (usableSourceIdentities.length === 1 ? usableSourceIdentities[0] : '');
+
+  if (identity) {
+    return {
+      identity,
+      sourceIdentities: usableSourceIdentities,
+      ambiguousSourceIdentities: postingIdentities.filter((candidate) => (
+        listingIdentities.isAmbiguous(candidate)
+      )),
+      routeOnly: false,
+    };
+  }
+
+  // A listing URL is not a posting identity. Keep its demonstrated route
+  // under the shared slug fallback, without carrying or matching that URL as
+  // source provenance. A truly ambiguous posting identity remains unknown.
+  if (ambiguousListingIdentities.length > 0) return null;
+  if (postingIdentities.length > 0) return null;
+  const slug = String(job?.slug || job?.slugByLocale?.it || '').trim();
+  const slugIdentity = slug ? buildStableJobIdentity({ slug }) : '';
+  if (!slugIdentity.startsWith('slug:')) return null;
+
+  return {
+    identity: slugIdentity,
+    sourceIdentities: [],
+    ambiguousSourceIdentities: [],
+    listingIdentities: [...identities].filter((candidate) => !namesOnePosting(candidate)),
+    routeOnly: identities.size > 0,
+  };
+}
+
+/**
  * Pick an expiredAt timestamp from job metadata. Prefer the most recent
  * timestamp we have (crawledAt is when we last saw it alive — close enough
  * to "expired right after" without lying about the actual upstream removal
@@ -180,21 +1114,94 @@ function listSliceFiles() {
     .filter((f) => (onlyKeys.size === 0 ? true : onlyKeys.has(path.basename(f, '.json'))));
 }
 
-function listHistoryCommits(relPath, cwd) {
+function listHistoryCommits(relPath, cwd, maxCommits = MAX_COMMITS) {
+  let output;
   try {
-    return git(['log', '--all', '--follow', ...historySinceArgs(), '--format=%ct %H', '--', relPath], { cwd })
-      .trim()
-      .split('\n')
-      .filter(Boolean)
-      .map((line) => {
-        const [timestamp, sha] = line.split(/\s+/);
-        return { sha, timestamp: Number(timestamp) || 0 };
-      })
-      .filter(({ sha }) => sha);
-  } catch (err) {
-    console.error(`⚠️  git log failed for ${relPath}: ${err.message}`);
-    return [];
+    output = git(
+      ['log', '--all', '--follow', ...historySinceArgs(), '--format=%ct %H', '--', relPath],
+      { quiet: true, cwd },
+    );
+  } catch {
+    throw new Error(`Unable to read Git history for ${relPath}`);
   }
+  const commits = output
+    .trim()
+    .split('\n')
+    .filter(Boolean)
+    .map((line) => {
+      const [timestamp, sha] = line.split(/\s+/);
+      return { sha, timestamp: Number(timestamp) || 0 };
+    })
+    .filter(({ sha }) => sha);
+  return maxCommits > 0 ? commits.slice(0, maxCommits) : commits;
+}
+
+/**
+ * Read a path from one commit without treating every `git show` failure as an
+ * absent path. `ls-tree` proves absence only with a successful empty result;
+ * once the tree names the blob, `cat-file` must be able to read that object.
+ */
+function readHistoricalArchiveBlob(sha, relPath, cwd) {
+  let listing;
+  try {
+    listing = git([
+      'ls-tree', '-z', '--full-tree', sha, '--', `:(literal)${relPath}`,
+    ], { quiet: true, cwd });
+  } catch {
+    throw new Error(`Unable to inspect historical archive path ${relPath}`);
+  }
+
+  const entries = listing.split('\0').filter(Boolean);
+  if (entries.length === 0) return null;
+  const entry = entries.map((raw) => {
+    const separator = raw.indexOf('\t');
+    if (separator < 0) return null;
+    const [mode, type, oid] = raw.slice(0, separator).split(' ');
+    return { mode, type, oid, path: raw.slice(separator + 1) };
+  }).find((candidate) => candidate?.path === relPath);
+  if (!entry) {
+    throw new Error(`Unable to verify historical archive path ${relPath}`);
+  }
+  if (entry.type !== 'blob' || !entry.oid) {
+    throw new Error(`Historical archive path is not a readable file: ${relPath}`);
+  }
+
+  try {
+    return git(['cat-file', 'blob', entry.oid], { quiet: true, cwd });
+  } catch {
+    throw new Error(`Historical archive path exists but is unreadable: ${relPath}`);
+  }
+}
+
+function listHistoricalExpiredRelPaths(crawlerKey, cwd, currentFiles = []) {
+  const archiveDir = 'data/jobs/expired/by-crawler';
+  const monolithPath = `${archiveDir}/${crawlerKey}.json`;
+  const shardPathspec = `${archiveDir}/${crawlerKey}.shard-*.json`;
+  const changedPaths = git([
+    'log', '--all', '--no-renames', '--name-only', '--format=',
+    ...historySinceArgs(), '--', monolithPath, shardPathspec,
+  ], { quiet: true, cwd });
+  const names = new Set([`${crawlerKey}.json`, ...currentFiles]);
+  for (const changedPath of changedPaths.split('\n')) {
+    const name = path.basename(changedPath.trim());
+    if (parseExpiredSliceFileName(name)?.key === crawlerKey) names.add(name);
+  }
+  return [...names]
+    .map((name) => ({ name, index: parseExpiredSliceFileName(name)?.index ?? -1 }))
+    .filter(({ index }) => index >= 0)
+    .sort((left, right) => left.index - right.index || left.name.localeCompare(right.name))
+    .map(({ name }) => `${archiveDir}/${name}`);
+}
+
+function expiredPrimaryMergeScopeKey(job) {
+  const primaryItalianSlug = job?.slugByLocale?.it || job?.slug;
+  return job?.companyKey && primaryItalianSlug
+    ? `${job.companyKey}::it:${primaryItalianSlug}`
+    : '';
+}
+
+function sameArchiveCompanyNamespace(left, right) {
+  return String(left?.companyKey || '') === String(right?.companyKey || '');
 }
 
 /**
@@ -226,11 +1233,33 @@ function namesOnePosting(identity) {
  * A URL that names one posting needs no link, so a rename that also changes the
  * id is still recognised.
  */
-function createListingIdentityCollector() {
+export function createListingIdentityCollector() {
   const ambiguous = new Set();
   const fragmentByIdentity = new Map();
-  const groupsByIdentity = new Map(); // identity -> disjoint Set<id/slug key>[]
+  const groupsByIdentity = new Map(); // identity -> disjoint-set component index
   const seenSightings = new Set();
+
+  const find = (components, item) => {
+    let root = item;
+    while (components.parent[root] !== root) root = components.parent[root];
+    while (components.parent[item] !== item) {
+      const next = components.parent[item];
+      components.parent[item] = root;
+      item = next;
+    }
+    return root;
+  };
+
+  const union = (components, left, right) => {
+    let leftRoot = find(components, left);
+    let rightRoot = find(components, right);
+    if (leftRoot === rightRoot) return;
+    if (components.rank[leftRoot] < components.rank[rightRoot]) {
+      [leftRoot, rightRoot] = [rightRoot, leftRoot];
+    }
+    components.parent[rightRoot] = leftRoot;
+    if (components.rank[leftRoot] === components.rank[rightRoot]) components.rank[leftRoot] += 1;
+  };
 
   const addSighting = (identity, record) => {
     if (!identity || namesOnePosting(identity)) return;
@@ -240,27 +1269,50 @@ function createListingIdentityCollector() {
       ...(record.previousSlugs || []),
       ...Object.values(record.previousSlugsByLocale || {}).flat(),
     ].filter(Boolean);
-    const keys = [
+    const keys = [...new Set([
       ...(record.id ? [`id:${record.id}`] : []),
       ...slugs.map((slug) => `slug:${slug}`),
-    ];
+    ])];
     if (keys.length === 0) return;
     // Most versions repeat the previous one.
     const signature = JSON.stringify([identity, keys]);
     if (seenSightings.has(signature)) return;
     seenSightings.add(signature);
-    const merged = new Set(keys);
-    const apart = [];
-    for (const group of groupsByIdentity.get(identity) || []) {
-      if (keys.some((key) => group.has(key))) for (const key of group) merged.add(key);
-      else apart.push(group);
+    let components = groupsByIdentity.get(identity);
+    if (!components) {
+      components = {
+        parent: [],
+        rank: [],
+        nodeByKey: new Map(),
+        componentCount: 0,
+      };
+      groupsByIdentity.set(identity, components);
     }
-    groupsByIdentity.set(identity, [...apart, merged]);
+    const existingRoots = new Set();
+    const nodes = [];
+    for (const key of keys) {
+      let node = components.nodeByKey.get(key);
+      if (node === undefined) {
+        node = components.parent.length;
+        components.parent.push(node);
+        components.rank.push(0);
+        components.nodeByKey.set(key, node);
+        nodes.push(node);
+      } else {
+        existingRoots.add(find(components, node));
+      }
+    }
+    const touched = [...existingRoots, ...nodes];
+    if (existingRoots.size === 0) components.componentCount += 1;
+    else components.componentCount -= existingRoots.size - 1;
+    for (let index = 1; index < touched.length; index += 1) {
+      union(components, touched[0], touched[index]);
+    }
   };
 
   return {
     isAmbiguous: (identity) => ambiguous.has(identity)
-      || (groupsByIdentity.get(identity)?.length || 0) > 1,
+      || (groupsByIdentity.get(identity)?.componentCount || 0) > 1,
     addArchiveRow(row) {
       for (const identity of archiveRecordSourceIdentities(row)) {
         addSighting(identity, row || {});
@@ -297,17 +1349,19 @@ export function processSlice(sliceFile, {
   rootDir = ROOT,
   byCrawlerDir = path.join(rootDir, 'data', 'jobs', 'by-crawler'),
   expiredDir = path.join(rootDir, 'data', 'jobs', 'expired', 'by-crawler'),
+  maxCommits = MAX_COMMITS,
+  stagingDir = null,
+  dryRun = DRY_RUN,
 } = {}) {
   const crawlerKey = path.basename(sliceFile, '.json');
   const currentRel = `data/jobs/by-crawler/${sliceFile}`;
   // The archive is the monolith plus its `<key>.shard-NNN.json` files
-  // (scripts/lib/expired-slice-store.mjs): walk the history of each of them.
-  const expiredRels = [
-    `data/jobs/expired/by-crawler/${sliceFile}`,
-    ...listExpiredSliceFiles(crawlerKey, { dir: expiredDir })
-      .filter((file) => file.index > 0)
-      .map((file) => `data/jobs/expired/by-crawler/${file.name}`),
-  ];
+  // (scripts/lib/expired-slice-store.mjs). Include paths found in Git history,
+  // not only files still present in this checkout: deleted and compacted
+  // shards can be the only remaining owners of an indexed route.
+  const currentExpiredFiles = listExpiredSliceFiles(crawlerKey, { dir: expiredDir })
+    .map((file) => file.name);
+  const expiredRels = listHistoricalExpiredRelPaths(crawlerKey, rootDir, currentExpiredFiles);
   const currentPath = path.join(byCrawlerDir, sliceFile);
   if (!fs.existsSync(currentPath)) return null;
 
@@ -316,6 +1370,33 @@ export function processSlice(sliceFile, {
   const currentJobs = readJobsFromSlice(currentBlob);
   const currentIds = new Set(currentJobs.map((j) => j.id).filter(Boolean));
   const currentSlugs = new Set(currentJobs.map((j) => j.slug).filter(Boolean));
+  const currentSourceIdentities = new Set(currentJobs.flatMap((job) => (
+    [...archiveRecordSourceIdentities(job)]
+  )));
+  const currentOwnersBySpecificSourceIdentity = new Map();
+  const currentRouteOwners = new Map();
+  for (const job of currentJobs) {
+    for (const identity of archiveRecordSourceIdentities(job)) {
+      if (!namesOnePosting(identity)) continue;
+      const owners = currentOwnersBySpecificSourceIdentity.get(identity) || new Set();
+      owners.add(job);
+      currentOwnersBySpecificSourceIdentity.set(identity, owners);
+    }
+    for (const routeKey of emittedRouteKeys(job, { active: true })) {
+      const owners = currentRouteOwners.get(routeKey) || new Set();
+      owners.add(job);
+      currentRouteOwners.set(routeKey, owners);
+    }
+  }
+  const currentSlugIdentities = new Set(currentJobs.flatMap((job) => {
+    const localizedSlugs = job?.slugByLocale && typeof job.slugByLocale === 'object'
+      ? Object.values(job.slugByLocale)
+      : [];
+    return [job?.slug, ...localizedSlugs]
+      .filter((slug) => typeof slug === 'string' && slug.trim())
+      .map((slug) => buildStableJobIdentity({ slug }));
+  }));
+  const currentRouteKeys = new Set(currentJobs.flatMap((job) => [...emittedRouteKeys(job, { active: true })]));
 
   // Walk commits that touched this file. --follow handles renames; the
   // tradeoff is git ignores merge commits' textual diff, which is fine —
@@ -329,8 +1410,8 @@ export function processSlice(sliceFile, {
   // entry even though its source posting remains recoverable in Git.
   const commitBySha = new Map();
   for (const commit of [
-    ...listHistoryCommits(currentRel, rootDir),
-    ...expiredRels.flatMap((expiredRel) => listHistoryCommits(expiredRel, rootDir)),
+    ...listHistoryCommits(currentRel, rootDir, maxCommits),
+    ...expiredRels.flatMap((expiredRel) => listHistoryCommits(expiredRel, rootDir, maxCommits)),
   ]) {
     const prior = commitBySha.get(commit.sha);
     if (!prior || commit.timestamp > prior.timestamp) commitBySha.set(commit.sha, commit);
@@ -339,90 +1420,733 @@ export function processSlice(sliceFile, {
     .sort((a, b) => b.timestamp - a.timestamp || (a.sha < b.sha ? -1 : a.sha > b.sha ? 1 : 0))
     .map(({ sha }) => sha);
   if (commits.length === 0) return null;
-  const sliceCommits = MAX_COMMITS > 0 ? commits.slice(0, MAX_COMMITS) : commits;
+  const sliceCommits = commits;
 
   // Walk commits NEWEST → OLDEST (git log default order). First time we see
   // a lost id wins — that's the most recent version of the job. The compact
   // metadata index sees every historical version, including jobs that are
   // active today, so legacy archive entries can recover firstSeenAt too.
   const lostById = new Map();
+  const lostByStableIdentity = new Map();
+  const activeRouteEvidenceByKey = new Map();
+  const routeOnlyCandidates = new WeakSet();
+  const routeOnlyListingIdentities = new WeakMap();
+  const unresolvedIdlessRouteKeys = new Set();
+  const unresolvedIdlessRouteReasons = new Map();
+  const historicalSnapshotRoutesByStableIdentity = new Map();
   // Ids whose most recent historical version was held out of publication for
   // translation: never public, so never archived (no expired soft-landing).
   const heldLostIds = new Set();
-  const historicalExpiredBySlug = new Map();
+  const heldLostStableIdentities = new Set();
+  const historicalExpiredOwners = createHistoricalExpiredOwnerCollector();
+  const historicalActiveOwners = new Map();
+  const historicalExpiredRoutePaths = new Set();
+  const historicalActiveRoutePaths = new Set();
   const historicalIndex = createFirstSeenMetadataIndex();
   const listingIdentities = createListingIdentityCollector();
   listingIdentities.addVersion(currentJobs);
+  const noteUncoveredRouteKeys = (routeKeys, coveredRoutes, reason = '') => {
+    for (const routeKey of routeKeys) {
+      if (coveredRoutes.has(routeKey)) continue;
+      unresolvedIdlessRouteKeys.add(routeKey);
+      if (reason) unresolvedIdlessRouteReasons.set(routeKey, reason);
+    }
+  };
+  const noteUncoveredIdlessRoutes = (job, coveredRoutes = currentRouteKeys) => {
+    noteUncoveredRouteKeys(emittedRouteKeys(job, { active: true }), coveredRoutes);
+  };
+  const refuseIdlessRoutes = (job, reason, routeKeys = emittedRouteKeys(job, { active: true })) => {
+    for (const routeKey of routeKeys) {
+      if (currentRouteKeys.has(routeKey)) continue;
+      unresolvedIdlessRouteKeys.add(routeKey);
+      unresolvedIdlessRouteReasons.set(routeKey, reason);
+    }
+  };
   let previousActiveBlob = null;
   for (const sha of sliceCommits) {
-    let blob = null;
-    try {
-      blob = git(['show', `${sha}:${currentRel}`], { quiet: true, cwd: rootDir });
-    } catch {
-      // File didn't exist at that commit (rename predecessor) — skip
-    }
+    const blob = readHistoricalArchiveBlob(sha, currentRel, rootDir);
     if (blob != null) {
-      const jobs = readJobsFromSlice(blob);
+      const jobs = readHistoricalJobs(blob, currentRel, sha, 'active crawler slice');
       // Most commits touch only the archive: do not re-scan an unchanged slice.
       if (blob !== previousActiveBlob) listingIdentities.addVersion(jobs);
       previousActiveBlob = blob;
       for (const job of jobs) {
         historicalIndex.add(job);
-        if (!job?.id || !job?.slug) continue;
-        if (currentIds.has(job.id)) continue;
-        if (currentSlugs.has(job.slug)) continue; // same slug, different id — treat as kept
-        if (lostById.has(job.id) || heldLostIds.has(job.id)) continue;
-        if (isHeldFromPublication(job)) {
-          heldLostIds.add(job.id);
+        if (!isHeldFromPublication(job)) {
+          const activeRoutes = emittedRouteEntries(job, { active: true });
+          if (activeRoutes.length > 0) {
+            addHistoricalOwnerSighting(historicalActiveOwners, job, { active: true });
+            for (const { emittedPath } of activeRoutes) historicalActiveRoutePaths.add(emittedPath);
+          }
+        }
+        if (!job?.slug) continue;
+        if (job?.id) {
+          if (currentIds.has(job.id)) continue;
+          if (currentSlugs.has(job.slug)) continue; // same slug, different id — treat as kept
+          if (lostById.has(job.id) || heldLostIds.has(job.id)) continue;
+          if (isHeldFromPublication(job)) {
+            heldLostIds.add(job.id);
+            continue;
+          }
+          lostById.set(job.id, job);
           continue;
         }
-        lostById.set(job.id, job);
+
+        const stable = idlessBackfillIdentity(job, listingIdentities);
+        if (!stable) {
+          if (isHeldFromPublication(job)) {
+            const heldIdentity = buildStableJobIdentity(job);
+            if (heldIdentity && !heldIdentity.startsWith('fallback:')) {
+              heldLostStableIdentities.add(heldIdentity);
+            }
+            continue;
+          }
+          const matchingSpecificIdentities = [...archiveRecordSourceIdentities(job)].filter((identity) => (
+            namesOnePosting(identity) && currentSourceIdentities.has(identity)
+          ));
+          if (matchingSpecificIdentities.length > 0) {
+            refuseIdlessRoutes(
+              job,
+              'source identity or active owner is ambiguous; no route target was selected',
+            );
+            continue;
+          }
+          noteUncoveredIdlessRoutes(job);
+          continue; // unknown identity is refused below if its route would be lost
+        }
+        if (heldLostStableIdentities.has(stable.identity)) continue;
+        if (isHeldFromPublication(job)) {
+          heldLostStableIdentities.add(stable.identity);
+          continue;
+        }
+        if (stable.routeOnly) {
+          const jobRoutes = [...emittedRouteKeys(job, { active: true })];
+          if (jobRoutes.every((routeKey) => currentRouteKeys.has(routeKey))) continue;
+        } else {
+          const matchingSourceIdentities = stable.sourceIdentities.filter((identity) => (
+            currentSourceIdentities.has(identity)
+          ));
+          const sourceIdentityAlreadyActive = matchingSourceIdentities.length > 0;
+          const jobRoutes = [...emittedRouteKeys(job, { active: true })];
+          const matchingActiveOwners = new Set(matchingSourceIdentities.flatMap((identity) => (
+            [...(currentOwnersBySpecificSourceIdentity.get(identity) || [])]
+          )));
+          const everyRouteOwnedByMatchingPosting = jobRoutes.every((routeKey) => {
+            const routeOwners = currentRouteOwners.get(routeKey);
+            return routeOwners?.size > 0
+              && [...routeOwners].every((owner) => matchingActiveOwners.has(owner));
+          });
+          if (sourceIdentityAlreadyActive
+            && everyRouteOwnedByMatchingPosting) continue;
+          if (stable.ambiguousSourceIdentities.some((identity) => currentSourceIdentities.has(identity))) {
+            refuseIdlessRoutes(
+              job,
+              'source identity is ambiguous while the posting appears active',
+              jobRoutes,
+            );
+            continue;
+          }
+          if (sourceIdentityAlreadyActive) {
+            const routePayload = compactActiveRoutePayload(job);
+            const ownerEvidence = compactOwnerEvidence(job, { active: true });
+            const evidenceKey = stableStringify({ ownerEvidence, routePayload });
+            const previousEvidence = activeRouteEvidenceByKey.get(evidenceKey);
+            if (previousEvidence) {
+              for (const identity of matchingSourceIdentities) previousEvidence.matchingSourceIdentities.add(identity);
+            } else {
+              activeRouteEvidenceByKey.set(evidenceKey, {
+                ownerEvidence,
+                routePayload,
+                routeEntries: emittedRouteEntries(job, { active: true }),
+                matchingSourceIdentities: new Set(matchingSourceIdentities),
+              });
+            }
+            continue;
+          }
+          if (!sourceIdentityAlreadyActive
+            && stable.identity.startsWith('slug:')
+            && currentSlugIdentities.has(stable.identity)) continue;
+        }
+
+        const snapshotRouteKeys = new Set(emittedRouteKeys(job, { active: true }));
+        if (!stable.routeOnly) {
+          const historicalSnapshotRoutes = historicalSnapshotRoutesByStableIdentity.get(stable.identity) || new Set();
+          for (const routeKey of snapshotRouteKeys) historicalSnapshotRoutes.add(routeKey);
+          historicalSnapshotRoutesByStableIdentity.set(stable.identity, historicalSnapshotRoutes);
+        }
+
+        const previousCandidate = lostByStableIdentity.get(stable.identity);
+        if (previousCandidate) {
+          if (stable.routeOnly || routeOnlyCandidates.has(previousCandidate)) {
+            const coveredRoutes = new Set([
+              ...currentRouteKeys,
+              ...emittedRouteKeys(previousCandidate, { active: true }),
+            ]);
+            noteUncoveredIdlessRoutes(job, coveredRoutes);
+            continue;
+          }
+
+          let routeCapRefused = false;
+          mergeExpiredRouteEvidence(
+            previousCandidate,
+            addExpiredFallbackAliases(previousCandidate, job),
+            `backfill-expired-from-history/${sliceFile}`,
+            { onLegacyRouteCapRefusal: () => { routeCapRefused = true; } },
+          );
+          const coveredRoutes = new Set([
+            ...currentRouteKeys,
+            ...emittedRouteKeys(previousCandidate),
+          ]);
+          const historicalSnapshotRoutes = historicalSnapshotRoutesByStableIdentity.get(stable.identity) || snapshotRouteKeys;
+          noteUncoveredRouteKeys(
+            historicalSnapshotRoutes,
+            coveredRoutes,
+            routeCapRefused
+              ? 'historical routes cannot be represented after archive route-cap refusal'
+              : 'historical routes cannot be represented by the merged archive candidate',
+          );
+          continue;
+        }
+
+        const candidate = stable.routeOnly
+          ? {
+            ...job,
+            url: '',
+            sourceIdentity: '',
+            sourceIdentityHistory: undefined,
+          }
+          : { ...job, sourceIdentity: stable.identity };
+        if (stable.routeOnly) {
+          routeOnlyCandidates.add(candidate);
+          routeOnlyListingIdentities.set(candidate, stable.listingIdentities);
+        }
+        lostByStableIdentity.set(stable.identity, candidate);
       }
     }
 
     for (const expiredRel of expiredRels) {
-      let expiredBlob = null;
-      try {
-        expiredBlob = git(['show', `${sha}:${expiredRel}`], { quiet: true, cwd: rootDir });
-      } catch {
-        // The per-crawler archive (or this shard) did not exist at that commit.
-      }
+      const expiredBlob = readHistoricalArchiveBlob(sha, expiredRel, rootDir);
       if (expiredBlob == null) continue;
-      for (const entry of readJobsFromSlice(expiredBlob)) {
-        if (!entry?.slug) continue;
-        const previous = historicalExpiredBySlug.get(entry.slug);
-        if (!previous || compareExpiredAt(previous.expiredAt, entry.expiredAt) < 0) {
-          historicalExpiredBySlug.set(entry.slug, entry);
-        }
+      for (const entry of readHistoricalJobs(expiredBlob, expiredRel, sha, 'expired archive slice')) {
+        const owner = historicalExpiredOwners.add(entry);
+        for (const { emittedPath } of owner.evidence.routeEntries) historicalExpiredRoutePaths.add(emittedPath);
+        listingIdentities.addArchiveRow(entry);
       }
     }
   }
 
-  // No early return on an empty `lostById`: the existing slice still gets its
+  // No early return on an empty lost set: the existing slice still gets its
   // ingress repair below, which is the whole point of reading it.
 
-  // Read any existing expired slice, merge by slug. We keep entries whose
-  // expiredAt is newer (the existing slice may already have entries from
-  // PR #703 or earlier cleanup-jobs runs that we shouldn't downgrade).
+  // Read all existing expired rows. Recovery indexes by the archive's
+  // company-and-primary-route scope, never by a bare slug.
   // Monolith + shards through the store. An unreadable file fails the run:
   // starting fresh would rewrite it with only the recovered rows.
   const existingShards = readExpiredSliceShards(crawlerKey, { dir: expiredDir });
   const existing = existingShards.flatMap((shard) => shard.rows);
 
-  const bySlug = new Map();
-  for (const ej of existing) {
-    if (ej?.slug) bySlug.set(ej.slug, ej);
+  const archiveEntries = [];
+  const archiveEntriesByMergeScope = new Map();
+  const archiveEntriesByIdentity = new Map();
+  const archiveIdentityKey = (companyKey, identity) => JSON.stringify([
+    String(companyKey || ''),
+    identity,
+  ]);
+  const addToSetIndex = (index, key, row) => {
+    const rows = index.get(key) || new Set();
+    rows.add(row);
+    index.set(key, rows);
+  };
+  const removeFromSetIndex = (index, key, row) => {
+    const rows = index.get(key);
+    if (!rows) return;
+    rows.delete(row);
+    if (rows.size === 0) index.delete(key);
+  };
+  const indexArchiveEntry = (row) => {
+    const mergeScope = expiredPrimaryMergeScopeKey(row);
+    if (mergeScope) addToSetIndex(archiveEntriesByMergeScope, mergeScope, row);
+    for (const identity of archiveRecordSourceIdentities(row)) {
+      addToSetIndex(archiveEntriesByIdentity, archiveIdentityKey(row?.companyKey, identity), row);
+    }
+  };
+  const unindexArchiveEntry = (row) => {
+    const mergeScope = expiredPrimaryMergeScopeKey(row);
+    if (mergeScope) removeFromSetIndex(archiveEntriesByMergeScope, mergeScope, row);
+    for (const identity of archiveRecordSourceIdentities(row)) {
+      removeFromSetIndex(archiveEntriesByIdentity, archiveIdentityKey(row?.companyKey, identity), row);
+    }
+  };
+  for (const row of existing) {
+    archiveEntries.push(row);
+    indexArchiveEntry(row);
   }
 
-  // Every sighting is in before the first identity lookup. Archive rows count
-  // too: a bounded history may know a departed posting only from them.
-  for (const row of [...existing, ...historicalExpiredBySlug.values()]) {
+  const archiveOwnershipOwners = new Map();
+  const currentArchivePayloads = new Set(existing.map((row) => payloadFingerprint(row)));
+  for (const row of existing) {
+    const owner = addHistoricalOwnerSighting(archiveOwnershipOwners, row, { retainPayload: true });
+    owner.kinds ||= new Set();
+    owner.kinds.add('existing-expired');
     listingIdentities.addArchiveRow(row);
   }
+  for (const historicalOwner of historicalExpiredOwners.values()) {
+    mergeHistoricalOwnerAccumulator(archiveOwnershipOwners, historicalOwner);
+    const owner = archiveOwnershipOwners.get(historicalOwnerAccumulatorKey(
+      historicalOwner.identityEvidence,
+      historicalOwner.firstPayloadFingerprint,
+    ));
+    owner.kinds ||= new Set();
+    owner.kinds.add('historical-expired');
+  }
+  const archiveOwnershipRows = [];
+  for (const [key, owner] of archiveOwnershipOwners) {
+    const kind = owner.kinds?.has('existing-expired') ? 'existing-expired' : 'historical-expired';
+    for (const job of expandOwnerEvidence(new Map([[key, owner]]), listingIdentities)) {
+      archiveOwnershipRows.push({ job, kind });
+    }
+  }
+  // The full history and archive are now represented. A URL identity can only
+  // become ambiguous after a later-discovered listing sibling, so fail closed
+  // for candidates collected before that evidence arrived.
+  for (const [identity, candidate] of lostByStableIdentity) {
+    const candidateSourceIdentities = routeOnlyCandidates.has(candidate)
+      ? routeOnlyListingIdentities.get(candidate) || []
+      : [...archiveRecordSourceIdentities(candidate)];
+    const ambiguousActiveOverlap = candidateSourceIdentities
+      .filter((sourceIdentity) => namesOnePosting(sourceIdentity))
+      .some((sourceIdentity) => (
+        listingIdentities.isAmbiguous(sourceIdentity) && currentSourceIdentities.has(sourceIdentity)
+      ));
+    const ambiguousListingIdentity = candidateSourceIdentities.some((sourceIdentity) => (
+      !namesOnePosting(sourceIdentity) && listingIdentities.isAmbiguous(sourceIdentity)
+    ));
+    if (listingIdentities.isAmbiguous(identity) || ambiguousActiveOverlap || ambiguousListingIdentity) {
+      noteUncoveredIdlessRoutes(candidate);
+      lostByStableIdentity.delete(identity);
+    }
+  }
+
+  // Snapshot exact emitted-path ownership before route transfer, recovery, or
+  // archive collapse can mutate any row. Active rows use the production slug
+  // fallback; archive rows use the expired renderer's route-canton map.
+  const routeOwnersByEmittedPath = new Map();
+  const archiveMergeScopeGroups = new Map();
+  const archiveExactPathGroups = new Map();
+  const addRouteOwnerToGroup = (groups, key, owner) => {
+    let group = groups.get(key);
+    if (!group) {
+      group = { owners: [], proofKeys: new Set() };
+      groups.set(key, group);
+    }
+    if (owner.proofKey && group.proofKeys.has(owner.proofKey)) return;
+    if (owner.proofKey) group.proofKeys.add(owner.proofKey);
+    group.owners.push(owner);
+  };
+  const routeOwnersAtPath = (routeKey) => routeOwnersByEmittedPath.get(routeKey)?.owners || [];
+  const activePageOwnersAtPath = (routeKey) => {
+    const owners = new Set(currentRouteOwners.get(routeKey) || []);
+    for (const owner of routeOwnersAtPath(routeKey)) {
+      if (owner.kind === 'planned-active-alias') owners.add(owner.job);
+    }
+    return [...owners];
+  };
+  const indexRouteOwners = (
+    row,
+    kind,
+    { active = false, archiveParticipant = false, pathOwner = true } = {},
+  ) => {
+    const job = Array.isArray(row?.routeEntries) ? row : compactOwnerEvidence(row, { active });
+    for (const route of job.routeEntries) {
+      const owner = {
+        ...route,
+        job,
+        kind,
+        proofKey: routeOwnerProofKey(job, kind, route, listingIdentities.isAmbiguous),
+      };
+      if (pathOwner) {
+        addRouteOwnerToGroup(routeOwnersByEmittedPath, route.emittedPath, owner);
+      }
+      if (!archiveParticipant) continue;
+      addRouteOwnerToGroup(archiveExactPathGroups, route.emittedPath, owner);
+      if (!job?.companyKey) continue; // the archive writer never merges unnamespaced rows
+      const mergeScope = `${job.companyKey}::${route.localeSlugKey}`;
+      addRouteOwnerToGroup(archiveMergeScopeGroups, mergeScope, owner);
+    }
+  };
+  for (const job of currentJobs) indexRouteOwners(job, 'current-active', { active: true });
+  for (const job of expandOwnerEvidence(historicalActiveOwners, listingIdentities)) {
+    indexRouteOwners(job, 'historical-active-snapshot', { active: true });
+  }
+  for (const job of [...lostById.values(), ...lostByStableIdentity.values()]) {
+    indexRouteOwners(job, 'historical-active-candidate', {
+      active: true,
+      archiveParticipant: true,
+      // The corresponding historical snapshot already owns these active
+      // paths. The candidate participates in archive-collapse checks only.
+      pathOwner: false,
+    });
+  }
+  for (const evidence of activeRouteEvidenceByKey.values()) {
+    indexRouteOwners(evidence.ownerEvidence, 'active-route-evidence', { active: true });
+  }
+  for (const { job, kind } of archiveOwnershipRows) {
+    indexRouteOwners(job, kind, { archiveParticipant: true });
+  }
+
+  // The archive writer merges only within companyKey::locale:slug. A proven
+  // same-posting pair still cannot merge if one locale slug emitted two
+  // different canton-qualified paths.
+  const refusedArchiveRoutePaths = new Set();
+  for (const owner of historicalExpiredOwners.values()) {
+    const stillProven = [...owner.commonPostingIdentities].some((identity) => (
+      namesOnePosting(identity) && !listingIdentities.isAmbiguous(identity)
+    ));
+    if (owner.hasDistinctPayload && !stillProven) {
+      for (const { emittedPath } of owner.routeEvidenceByPath.values()) {
+        refusedArchiveRoutePaths.add(emittedPath);
+      }
+    }
+  }
+  for (const { owners } of archiveMergeScopeGroups.values()) {
+    const uniqueOwners = uniqueRouteOwners(owners);
+    const emittedPaths = new Set(owners.map(({ emittedPath }) => emittedPath));
+    if (emittedPaths.size > 1
+      || (uniqueOwners.length > 1
+        && !ownersShareOneProvenPosting(uniqueOwners.map(({ job }) => job), listingIdentities.isAmbiguous))) {
+      for (const emittedPath of emittedPaths) refusedArchiveRoutePaths.add(emittedPath);
+    }
+  }
+  // Company namespaces do not apply to URLs: distinct archive companies may
+  // not both claim one exact public path. Missing companyKey also means no
+  // writer merge scope exists for colliding rows.
+  for (const [emittedPath, { owners }] of archiveExactPathGroups) {
+    const uniqueOwners = uniqueRouteOwners(owners);
+    const companyNamespaces = new Set(uniqueOwners
+      .map(({ job }) => String(job?.companyKey || ''))
+      .filter(Boolean));
+    const hasUnnamespacedOwner = uniqueOwners.some(({ job }) => !job?.companyKey);
+    if (uniqueOwners.length > 1
+      && (hasUnnamespacedOwner || companyNamespaces.size > 1)) {
+      refusedArchiveRoutePaths.add(emittedPath);
+    }
+  }
+  const activeOwnerKinds = new Set([
+    'current-active',
+    'historical-active-snapshot',
+  ]);
+  const expiredOwnerKinds = new Set([
+    'existing-expired',
+    'historical-expired',
+    'historical-active-candidate',
+  ]);
+  for (const [emittedPath, { owners }] of routeOwnersByEmittedPath) {
+    const activeOwners = owners.filter(({ kind }) => activeOwnerKinds.has(kind));
+    const expiredOwners = owners.filter(({ kind }) => expiredOwnerKinds.has(kind));
+    if (hasUnprovenCrossOwnerPair(activeOwners, expiredOwners, listingIdentities.isAmbiguous)) {
+      refusedArchiveRoutePaths.add(emittedPath);
+    }
+    const currentOwners = owners.filter(({ kind }) => kind === 'current-active');
+    const historicalActiveOwners = owners.filter(({ kind }) => kind === 'historical-active-snapshot');
+    if (hasUnprovenCrossOwnerPair(currentOwners, historicalActiveOwners, listingIdentities.isAmbiguous)) {
+      refusedArchiveRoutePaths.add(emittedPath);
+    }
+  }
+  if (refusedArchiveRoutePaths.size > 0) {
+    console.error(
+      `::error::backfill-expired-from-history/${sliceFile}: refusing to write the slice; `
+      + `${refusedArchiveRoutePaths.size} emitted route(s) have archive ownership or canton history `
+      + 'that the archive cannot represent safely',
+    );
+    return {
+      crawlerKey,
+      scannedCommits: sliceCommits.length,
+      lost: lostById.size + lostByStableIdentity.size,
+      added: 0,
+      recovered: 0,
+      enriched: 0,
+      activeEnriched: 0,
+      refusedRoutes: refusedArchiveRoutePaths.size,
+    };
+  }
+
+  // Source identity evidence proves that an id-less historical row is still
+  // active only when every matching specific identity has one active owner.
+  // Plan route transfers first so an ambiguous identity or a route already
+  // claimed by another active page refuses the whole slice before either file
+  // can be written.
+  const activeRouteMergePlans = [];
+  const recoveredCandidateOwnersByPath = new Map();
+  const recoveredCandidates = new Set([
+    ...lostById.values(),
+    ...lostByStableIdentity.values(),
+  ]);
+  const recoveredCandidateEntries = new Map();
+  for (const candidate of recoveredCandidates) {
+    const archiveCandidate = buildExpiredEntry(candidate);
+    recoveredCandidateEntries.set(candidate, archiveCandidate);
+    for (const { emittedPath } of emittedRouteEntries(archiveCandidate)) {
+      const owners = recoveredCandidateOwnersByPath.get(emittedPath) || [];
+      owners.push(archiveCandidate);
+      recoveredCandidateOwnersByPath.set(emittedPath, owners);
+    }
+  }
+  for (const evidence of activeRouteEvidenceByKey.values()) {
+    const matchingIdentities = [...new Set(evidence.matchingSourceIdentities)];
+    const owners = new Set();
+    let ambiguous = matchingIdentities.length === 0;
+    for (const identity of matchingIdentities) {
+      const identityOwners = currentOwnersBySpecificSourceIdentity.get(identity);
+      if (listingIdentities.isAmbiguous(identity) || identityOwners?.size !== 1) {
+        ambiguous = true;
+      }
+      for (const owner of identityOwners || []) owners.add(owner);
+    }
+    if (ambiguous || owners.size !== 1) {
+      refuseIdlessRoutes(
+        evidence.ownerEvidence,
+        'source identity or active owner is ambiguous; no route target was selected',
+        evidence.routeEntries.map(({ emittedPath }) => emittedPath),
+      );
+      continue;
+    }
+
+    const [owner] = owners;
+    const ownerCanton = resolveJobCanton(owner || {});
+    const historicalRoutes = evidence.routeEntries;
+    const ownerRouteKeys = emittedRouteKeys(owner, { active: true });
+    const unrepresentableHistoricalRoutes = historicalRoutes.filter(({ emittedPath, locale, slug }) => (
+      !ownerRouteKeys.has(emittedPath)
+      && emittedPath !== emittedRouteKey(locale, slug, ownerCanton)
+    ));
+    if (unrepresentableHistoricalRoutes.length > 0) {
+      for (const { emittedPath } of unrepresentableHistoricalRoutes) {
+        unresolvedIdlessRouteKeys.add(emittedPath);
+        unresolvedIdlessRouteReasons.set(
+          emittedPath,
+          'historical active route cannot be emitted by its current owner without changing its canton-qualified path',
+        );
+      }
+      continue;
+    }
+    const missingOwnerRoutes = historicalRoutes.map(({ locale, slug }) => (
+      emittedRouteKey(
+        locale,
+        slug,
+        ownerCanton,
+      )
+    )).filter((routeKey) => routeKey && !ownerRouteKeys.has(routeKey));
+    const collisions = missingOwnerRoutes.filter((routeKey) => (
+      [...(currentRouteOwners.get(routeKey) || [])].some((activeOwner) => activeOwner !== owner)
+    ));
+    if (collisions.length > 0) {
+      for (const routeKey of collisions) {
+        unresolvedIdlessRouteKeys.add(routeKey);
+        unresolvedIdlessRouteReasons.set(
+          routeKey,
+          'historical route collides with another active route; no active owner was changed',
+        );
+      }
+      continue;
+    }
+    const plannedAliasCollisions = missingOwnerRoutes.filter((routeKey) => (
+      routeOwnersAtPath(routeKey).some(({ job: plannedOwner, kind }) => (
+        kind === 'planned-active-alias' && plannedOwner !== owner
+      ))
+    ));
+    if (plannedAliasCollisions.length > 0) {
+      for (const routeKey of plannedAliasCollisions) {
+        unresolvedIdlessRouteKeys.add(routeKey);
+        unresolvedIdlessRouteReasons.set(
+          routeKey,
+          'historical active alias collides with a different planned active owner',
+        );
+      }
+      continue;
+    }
+    const expiredCollisions = missingOwnerRoutes.filter((routeKey) => (
+      routeOwnersAtPath(routeKey).some(({ job: expiredOwner, kind }) => (
+        (kind === 'existing-expired' || kind === 'historical-expired')
+        && !sharesProvenPostingIdentity(owner, expiredOwner, listingIdentities.isAmbiguous)
+      ))
+    ));
+    if (expiredCollisions.length > 0) {
+      for (const routeKey of expiredCollisions) {
+        unresolvedIdlessRouteKeys.add(routeKey);
+        unresolvedIdlessRouteReasons.set(
+          routeKey,
+          'historical active alias collides with an expired route of unknown or different posting identity',
+        );
+      }
+      continue;
+    }
+    const recoveredCandidateCollisions = missingOwnerRoutes.filter((routeKey) => (
+      (recoveredCandidateOwnersByPath.get(routeKey) || []).some((candidate) => (
+        !sharesProvenPostingIdentity(owner, candidate, listingIdentities.isAmbiguous)
+      ))
+    ));
+    if (recoveredCandidateCollisions.length > 0) {
+      for (const routeKey of recoveredCandidateCollisions) {
+        unresolvedIdlessRouteKeys.add(routeKey);
+        unresolvedIdlessRouteReasons.set(
+          routeKey,
+          'historical active alias collides with a recovered candidate of unknown or different posting identity',
+        );
+      }
+      continue;
+    }
+    if (missingOwnerRoutes.length > 0) {
+      for (const routeKey of missingOwnerRoutes) {
+        const ownersAtPath = routeOwnersAtPath(routeKey);
+        if (!ownersAtPath.some(({ job: activeOwner, kind }) => (
+          kind === 'planned-active-alias' && activeOwner === owner
+        ))) {
+          addRouteOwnerToGroup(routeOwnersByEmittedPath, routeKey, {
+            emittedPath: routeKey,
+            job: owner,
+            kind: 'planned-active-alias',
+          });
+        }
+      }
+      activeRouteMergePlans.push({
+        owner,
+        historical: evidence.routePayload,
+        historicalRoutes,
+        ownerCanton,
+      });
+    }
+  }
+
+  // The expired renderer uses recorded canton history; active pages use the
+  // current owner's canton. Compare the candidate's complete expired output
+  // with routes the current slice or a planned active alias will actually emit.
+  // Historical snapshots and active-route evidence are ownership evidence,
+  // not output by themselves; transferred aliases enter the map as planned.
+  const recoveredExpiredRouteCollisions = new Set();
+  for (const [candidate, archiveCandidate] of recoveredCandidateEntries) {
+    let suppressedRoute = true;
+    while (suppressedRoute) {
+      suppressedRoute = false;
+      for (const route of emittedRouteEntries(archiveCandidate)) {
+        const activeOwners = activePageOwnersAtPath(route.emittedPath);
+        if (activeOwners.length === 0) continue;
+        const samePostingOwners = activeOwners.every((activeOwner) => (
+          sharesProvenPostingIdentity(candidate, activeOwner, listingIdentities.isAmbiguous)
+        ));
+        if (samePostingOwners && suppressExpiredRoute(archiveCandidate, route)) {
+          suppressedRoute = true;
+          break;
+        }
+        recoveredExpiredRouteCollisions.add(route.emittedPath);
+      }
+    }
+  }
+  if (recoveredExpiredRouteCollisions.size > 0) {
+    console.error(
+      `::error::backfill-expired-from-history/${sliceFile}: refusing to write the slice; `
+      + `${recoveredExpiredRouteCollisions.size} recovered expired route(s) would duplicate an active route`,
+    );
+    return {
+      crawlerKey,
+      scannedCommits: sliceCommits.length,
+      lost: lostById.size + lostByStableIdentity.size,
+      added: 0,
+      recovered: 0,
+      enriched: 0,
+      activeEnriched: 0,
+      refusedRoutes: recoveredExpiredRouteCollisions.size,
+    };
+  }
+
+  // A route-only row has no posting identity to transfer. Any exact route
+  // overlap with an active owner or a planned active alias is ambiguous, even
+  // when the overlapping path is already served by that active posting.
+  for (const candidate of lostByStableIdentity.values()) {
+    if (!routeOnlyCandidates.has(candidate)) continue;
+    const activeCollisions = [...emittedRouteKeys(candidate, { active: true })]
+      .filter((routeKey) => routeOwnersAtPath(routeKey).some(({ kind }) => (
+        kind === 'current-active'
+        || kind === 'planned-active-alias'
+        || kind === 'active-route-evidence'
+      )));
+    for (const routeKey of activeCollisions) {
+      unresolvedIdlessRouteKeys.add(routeKey);
+      unresolvedIdlessRouteReasons.set(
+        routeKey,
+        'route-only candidate overlaps an active route with unknown posting identity',
+      );
+    }
+  }
+
+  const alreadyServedRouteKeys = new Set([
+    ...currentRouteKeys,
+    ...existing.flatMap((entry) => [...emittedRouteKeys(entry || {})]),
+    ...historicalExpiredRoutePaths,
+  ]);
+  for (const routeKey of unresolvedIdlessRouteKeys) {
+    if (alreadyServedRouteKeys.has(routeKey) && !unresolvedIdlessRouteReasons.has(routeKey)) {
+      unresolvedIdlessRouteKeys.delete(routeKey);
+    }
+  }
+  if (unresolvedIdlessRouteKeys.size > 0) {
+    const reasons = [...new Set(unresolvedIdlessRouteReasons.values())];
+    const reasonText = reasons.length > 0 ? ` (${reasons.join('; ')})` : '';
+    console.error(
+      `::error::backfill-expired-from-history/${sliceFile}: refusing to write the slice; `
+      + `${unresolvedIdlessRouteKeys.size} historical route(s) have unresolved posting identity${reasonText}`,
+    );
+    return {
+      crawlerKey,
+      scannedCommits: sliceCommits.length,
+      lost: lostById.size + lostByStableIdentity.size,
+      added: 0,
+      recovered: 0,
+      enriched: 0,
+      activeEnriched: 0,
+      refusedRoutes: unresolvedIdlessRouteKeys.size,
+    };
+  }
+
+  const lostCount = lostById.size + lostByStableIdentity.size;
+
+  const activeRouteUpdatedOwners = new Set();
+  for (const { owner, historical, historicalRoutes, ownerCanton } of activeRouteMergePlans) {
+    const routeEvidence = addActiveFallbackAliases(
+      { ...historical },
+      historicalRoutes,
+    );
+    // mergeExpiredRouteEvidence can fill missing content context from its
+    // historical input. This transfer is route history only, so preserve every
+    // active content field exactly as the current slice supplied it.
+    delete routeEvidence.canton;
+    delete routeEvidence.location;
+    const routesChanged = mergeExpiredRouteEvidence(
+      owner,
+      routeEvidence,
+      `backfill-expired-from-history/${sliceFile}/active-route-history`,
+    );
+    let routeCantonsChanged = false;
+    for (const routeKey of localeRouteKeys(routeEvidence)) {
+      const separator = routeKey.indexOf(':');
+      if (separator < 0) continue;
+      const locale = routeKey.slice(0, separator);
+      const slug = routeKey.slice(separator + 1);
+      const activeSlug = owner.slugByLocale?.[locale] || (locale === 'it' ? owner.slug : '');
+      if (!slug || slug === activeSlug) continue;
+      routeCantonsChanged = setExpiredRouteCanton(owner, locale, slug, ownerCanton)
+        || routeCantonsChanged;
+    }
+    if (routesChanged || routeCantonsChanged) activeRouteUpdatedOwners.add(owner);
+  }
+  const activeRouteUpdates = activeRouteUpdatedOwners.size;
 
   // What the archive serves before this run: none of it may disappear below.
-  const routesServedBefore = existing.flatMap((entry) => [...localeRouteKeys(entry || {})]);
-  const indexArchive = () => createSameIdentityArchiveIndex([...bySlug.values()], {
+  const routesServedBefore = [
+    ...existing.flatMap((entry) => [...emittedRouteKeys(entry || {})]),
+    ...historicalExpiredRoutePaths,
+    ...historicalActiveRoutePaths,
+  ];
+  const indexArchive = () => createSameIdentityArchiveIndex(archiveEntries, {
     activeJobs: currentJobs,
     isAmbiguousIdentity: listingIdentities.isAmbiguous,
   });
@@ -436,44 +2160,84 @@ export function processSlice(sliceFile, {
    * @returns {boolean} whether `entry` became a new record
    */
   const recover = (entry, identityIndex) => {
-    const previous = bySlug.get(entry.slug);
-    // The slug alone is not the posting. Unless its holder declares this source
-    // posting, look for the record that does (a rename or a collision alias).
-    if (!previous || !archiveRecordSourceIdentities(previous).has(entry.sourceIdentity)) {
-      const absorbed = identityIndex.absorb(entry);
-      if (absorbed) {
-        if (absorbed.changed) recoveredFromHistory++;
+    const source = `backfill-expired-from-history/${sliceFile}`;
+    const scopeKey = expiredPrimaryMergeScopeKey(entry);
+    const sameScopeRows = scopeKey ? [...(archiveEntriesByMergeScope.get(scopeKey) || [])] : [];
+    const previous = sameScopeRows.length === 1
+      && sharesProvenPostingIdentity(sameScopeRows[0], entry, listingIdentities.isAmbiguous)
+      ? sameScopeRows[0]
+      : null;
+    const identityOwners = new Set();
+    for (const identity of archiveRecordSourceIdentities(entry)) {
+      for (const candidate of archiveEntriesByIdentity.get(
+        archiveIdentityKey(entry?.companyKey, identity),
+      ) || []) identityOwners.add(candidate);
+    }
+    const matchingIdentityOwners = [...identityOwners].filter((candidate) => (
+      sameArchiveCompanyNamespace(candidate, entry)
+      && sharesProvenPostingIdentity(candidate, entry, listingIdentities.isAmbiguous)
+    ));
+
+    if (!previous && matchingIdentityOwners.length === 1) {
+      const [owner] = matchingIdentityOwners;
+      let routeCapRefused = false;
+      let changed = false;
+      identityIndex.update(owner, () => {
+        unindexArchiveEntry(owner);
+        const routesChanged = mergeExpiredRouteEvidence(
+          owner,
+          addExpiredFallbackAliases(owner, entry),
+          source,
+          { onLegacyRouteCapRefusal: () => { routeCapRefused = true; } },
+        );
+        const identitiesChanged = mergeSourceIdentityHistory(owner, entry);
+        changed = routesChanged || identitiesChanged;
+        indexArchiveEntry(owner);
+      });
+      if (!routeCapRefused) {
+        if (changed) recoveredFromHistory++;
         return false;
       }
     }
+
     if (!previous) {
-      bySlug.set(entry.slug, entry);
+      archiveEntries.push(entry);
+      indexArchiveEntry(entry);
       identityIndex.add(entry);
       return true;
     }
-    const source = `backfill-expired-from-history/${sliceFile}`;
     if (compareExpiredAt(previous.expiredAt, entry.expiredAt) < 0) {
       let routeCapRefused = false;
       mergeExpiredRouteEvidence(
         entry,
-        previous,
+        addExpiredFallbackAliases(entry, previous),
         source,
         { onLegacyRouteCapRefusal: () => { routeCapRefused = true; } },
       );
       // The existing record remains the proven owner of its older routes;
       // replacing it would turn a cap refusal into an archive 404.
       if (routeCapRefused) return false;
+      const previousIndex = archiveEntries.indexOf(previous);
       identityIndex.remove(previous);
+      unindexArchiveEntry(previous);
       mergeSourceIdentityHistory(entry, previous);
-      bySlug.set(entry.slug, entry);
+      if (previousIndex >= 0) archiveEntries.splice(previousIndex, 1, entry);
+      else archiveEntries.push(entry);
+      indexArchiveEntry(entry);
       identityIndex.add(entry);
       recoveredFromHistory++;
       return false;
     }
     identityIndex.update(previous, () => {
-      const routeEvidenceChanged = mergeExpiredRouteEvidence(previous, entry, source);
+      unindexArchiveEntry(previous);
+      const routeEvidenceChanged = mergeExpiredRouteEvidence(
+        previous,
+        addExpiredFallbackAliases(previous, entry),
+        source,
+      );
       const sourceIdentityChanged = mergeSourceIdentityHistory(previous, entry);
       if (routeEvidenceChanged || sourceIdentityChanged) recoveredFromHistory++;
+      indexArchiveEntry(previous);
     });
     return false;
   };
@@ -483,34 +2247,76 @@ export function processSlice(sliceFile, {
   const newestFirst = (a, b) => compareExpiredAt(b.expiredAt, a.expiredAt);
   let recoveredFromHistory = 0;
   const historicalIdentityIndex = indexArchive();
-  // Rows whose slug the archive still holds go first, so that their routes count
-  // as served when the vanished slugs are examined.
-  const historicalEntries = [...historicalExpiredBySlug.values()].sort(newestFirst);
-  for (const entry of [
-    ...historicalEntries.filter((candidate) => bySlug.has(candidate.slug)),
-    ...historicalEntries.filter((candidate) => !bySlug.has(candidate.slug)),
-  ]) {
+  // Identical payload snapshots are deduplicated, but every distinct historical
+  // row is recovered. Ownership is resolved by company scope and posting
+  // identity rather than by a bare primary slug.
+  const historicalEntries = mergeHistoricalRecoveryRepresentatives(
+    [...historicalExpiredOwners.values()].map(materializeHistoricalOwnerRoutes),
+    listingIdentities.isAmbiguous,
+  )
+    .filter((entry) => entry?.slug && !currentArchivePayloads.has(payloadFingerprint(entry)))
+    .sort(newestFirst);
+  for (const entry of historicalEntries) {
     if (recover(entry, historicalIdentityIndex)) recoveredFromHistory++;
+  }
+
+  // A route-only candidate has no posting identity to match against an archive
+  // row. A same-company primary route scope cannot represent both payloads
+  // without transferring identity, so only that merge scope is considered.
+  const coveredRouteKeys = new Set([
+    ...currentRouteKeys,
+    ...archiveEntries.flatMap((entry) => [...emittedRouteKeys(entry || {})]),
+  ]);
+  const alreadyServedRouteOnlyCandidates = new WeakSet();
+  const refusedRouteOnlyCollisionKeys = new Set();
+  for (const candidate of lostByStableIdentity.values()) {
+    const scopeKey = expiredPrimaryMergeScopeKey(candidate);
+    if (!routeOnlyCandidates.has(candidate)
+      || !scopeKey
+      || !archiveEntriesByMergeScope.has(scopeKey)) continue;
+    const uncovered = [...emittedRouteKeys(candidate, { active: true })]
+      .filter((routeKey) => !coveredRouteKeys.has(routeKey));
+    if (uncovered.length === 0) {
+      // The existing archive/current generation already serves every route.
+      // Do not send this identity-less payload through the slug merge anyway:
+      // that could still replace or enrich the known archive row.
+      alreadyServedRouteOnlyCandidates.add(candidate);
+      continue;
+    }
+    for (const routeKey of uncovered) refusedRouteOnlyCollisionKeys.add(routeKey);
+  }
+  if (refusedRouteOnlyCollisionKeys.size > 0) {
+    console.error(
+      `::error::backfill-expired-from-history/${sliceFile}: refusing to write the slice; `
+      + `${refusedRouteOnlyCollisionKeys.size} route(s) from route-only candidate(s) collide with an archived slug `
+      + 'and cannot be represented without guessing identity',
+    );
+    return {
+      crawlerKey,
+      scannedCommits: sliceCommits.length,
+      lost: lostById.size + lostByStableIdentity.size,
+      added: 0,
+      recovered: 0,
+      enriched: 0,
+      activeEnriched: 0,
+      refusedRoutes: refusedRouteOnlyCollisionKeys.size,
+    };
   }
 
   // Older archives predate sourceIdentity/firstSeenAt. Enrich them from the
   // complete Git history before merging newly recovered drops. This also
   // handles a vacancy that is active again today: it need not be absent from
   // the current slice to have a durable first-seen date in the archive.
-  const metadata = historicalIndex.enrich([...bySlug.values()]);
+  const metadata = historicalIndex.enrich(archiveEntries);
   const activeMetadata = historicalIndex.enrichActive(currentJobs);
-
-  if (activeMetadata.enrichedEntries > 0 && !DRY_RUN) {
-    const nextPayload = Array.isArray(currentPayload)
-      ? currentJobs
-      : { ...(currentPayload || {}), jobs: currentJobs };
-    writeJsonAtomic(currentPath, nextPayload);
-  }
 
   let added = 0;
   // Indexed after the enrichment, which gives legacy rows their sourceIdentity.
   const lostIdentityIndex = indexArchive();
-  for (const entry of [...lostById.values()].map(buildExpiredEntry).sort(newestFirst)) {
+  for (const entry of [...lostById.values(), ...lostByStableIdentity.values()]
+    .filter((candidate) => !alreadyServedRouteOnlyCandidates.has(candidate))
+    .map((candidate) => recoveredCandidateEntries.get(candidate) || buildExpiredEntry(candidate))
+    .sort(newestFirst)) {
     if (recover(entry, lostIdentityIndex)) added++;
   }
 
@@ -520,7 +2326,7 @@ export function processSlice(sliceFile, {
   // soft landing — the comparator inverts, instead of the entry losing as it
   // does with an unorderable value.
   const repaired = normalizeExpiredAtEntries(
-    [...bySlug.values()],
+    archiveEntries,
     { source: `backfill-expired-from-history/${sliceFile}` },
   );
 
@@ -532,11 +2338,12 @@ export function processSlice(sliceFile, {
     && repaired === 0
     && metadata.enrichedEntries === 0
     && activeMetadata.enrichedEntries === 0
+    && activeRouteUpdates === 0
   ) {
     return {
       crawlerKey,
       scannedCommits: sliceCommits.length,
-      lost: lostById.size,
+      lost: lostCount,
       added: 0,
       recovered: 0,
       enriched: 0,
@@ -544,27 +2351,30 @@ export function processSlice(sliceFile, {
     };
   }
 
-  // Same slug-keyed dedup as the pipeline writers: `bySlug` keeps the CURRENT
-  // slug, so two entries whose histories overlap on a locale route both
-  // survive it. Collapse by route before writing.
+  // Collapse by the archive writer's company-scoped route ownership before
+  // writing. The preflight above already refused any exact public-path overlap
+  // or unrepresentable canton history.
   const archived = collapseDuplicateRouteEntries(
-    [...bySlug.values()].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
+    [...archiveEntries].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
     { source: 'backfill-expired-from-history' },
   ).entries;
   // Last boundary before the write: whatever step caused it, a route the
   // archive served on entry and nobody serves now would become a 404. Keep the
   // archive on disk untouched and say which routes were at stake.
-  const servedAfter = new Set([...archived, ...currentJobs].flatMap((entry) => [...localeRouteKeys(entry)]));
+  const servedAfter = new Set([
+    ...archived.flatMap((entry) => [...emittedRouteKeys(entry || {})]),
+    ...currentJobs.flatMap((entry) => [...emittedRouteKeys(entry || {}, { active: true })]),
+  ]);
   const droppedRoutes = [...new Set(routesServedBefore)].filter((routeKey) => !servedAfter.has(routeKey));
   if (droppedRoutes.length > 0) {
     console.error(
       `::error::backfill-expired-from-history/${sliceFile}: refusing to write the archive, `
-      + `${droppedRoutes.length} served route(s) would be lost (${droppedRoutes.slice(0, 10).join(', ')})`,
+      + `${droppedRoutes.length} previously served route(s) would be lost; route details are omitted`,
     );
     return {
       crawlerKey,
       scannedCommits: sliceCommits.length,
-      lost: lostById.size,
+      lost: lostCount,
       added: 0,
       recovered: 0,
       enriched: 0,
@@ -572,19 +2382,336 @@ export function processSlice(sliceFile, {
       refusedRoutes: droppedRoutes.length,
     };
   }
-  if (!DRY_RUN) {
+  if (!dryRun) {
+    if (activeMetadata.enrichedEntries > 0 || activeRouteUpdates > 0) {
+      const nextPayload = Array.isArray(currentPayload)
+        ? currentJobs
+        : { ...(currentPayload || {}), jobs: currentJobs };
+      const activeOutputPath = stagingDir
+        ? path.join(stagingDir, 'active', sliceFile)
+        : currentPath;
+      fs.mkdirSync(path.dirname(activeOutputPath), { recursive: true });
+      writeJsonAtomic(activeOutputPath, nextPayload);
+    }
     // Shard placement + the 90 MB ceiling on every file.
-    writeExpiredSliceRows(crawlerKey, archived, { dir: expiredDir, existing: existingShards });
+    if (
+      added > 0
+      || recoveredFromHistory > 0
+      || repaired > 0
+      || metadata.enrichedEntries > 0
+    ) {
+      if (stagingDir) {
+        const stagedExpiredDir = path.join(stagingDir, 'expired');
+        fs.mkdirSync(stagedExpiredDir, { recursive: true });
+        for (const shard of existingShards) {
+          const stagedPath = path.join(stagedExpiredDir, shard.name);
+          if (!fs.existsSync(stagedPath)) {
+            fs.symlinkSync(path.resolve(shard.path), stagedPath);
+          }
+        }
+        writeExpiredSliceRows(crawlerKey, archived, {
+          dir: stagedExpiredDir,
+          existing: existingShards,
+        });
+      } else {
+        writeExpiredSliceRows(crawlerKey, archived, { dir: expiredDir, existing: existingShards });
+      }
+    }
   }
   return {
     crawlerKey,
     scannedCommits: sliceCommits.length,
-    lost: lostById.size,
+    lost: lostCount,
     added: added + recoveredFromHistory,
     recovered: recoveredFromHistory,
     enriched: metadata.enrichedEntries,
-    activeEnriched: activeMetadata.enrichedEntries,
+    activeEnriched: activeMetadata.enrichedEntries + activeRouteUpdates,
   };
+}
+
+function emptyBackfillSummary() {
+  return {
+    crawlers: 0,
+    withDrops: 0,
+    withMetadata: 0,
+    addedTotal: 0,
+    recoveredTotal: 0,
+    enrichedTotal: 0,
+    activeEnrichedTotal: 0,
+    lostTotal: 0,
+    scannedTotal: 0,
+    refusedArchives: 0,
+    refusedRoutesTotal: 0,
+    applySkippedDueToRefusals: false,
+  };
+}
+
+function addSliceResultToSummary(summary, result) {
+  summary.crawlers++;
+  summary.scannedTotal += result.scannedCommits;
+  if (result.lost > 0) summary.withDrops++;
+  summary.lostTotal += result.lost;
+  if (result.refusedRoutes > 0) summary.refusedArchives++;
+  summary.refusedRoutesTotal += result.refusedRoutes || 0;
+  summary.addedTotal += result.added;
+  summary.recoveredTotal += result.recovered;
+  summary.enrichedTotal += result.enriched;
+  summary.activeEnrichedTotal += result.activeEnriched || 0;
+  if (result.enriched > 0 || result.activeEnriched > 0) summary.withMetadata++;
+}
+
+function collectStagedOutputs(stagingDir, byCrawlerDir, expiredDir) {
+  const outputs = [];
+  for (const [kind, targetDir] of [['active', byCrawlerDir], ['expired', expiredDir]]) {
+    const stagedDir = path.join(stagingDir, kind);
+    if (!fs.existsSync(stagedDir)) continue;
+    for (const name of fs.readdirSync(stagedDir)) {
+      const stagedPath = path.join(stagedDir, name);
+      const info = fs.lstatSync(stagedPath);
+      if (!info.isFile()) continue;
+      outputs.push({ stagedPath, targetPath: path.join(targetDir, name) });
+    }
+  }
+  return outputs.sort((left, right) => left.targetPath.localeCompare(right.targetPath));
+}
+
+function lstatOrNull(filePath) {
+  try {
+    return fs.lstatSync(filePath);
+  } catch (error) {
+    if (error?.code === 'ENOENT') return null;
+    throw error;
+  }
+}
+
+function hashFileSync(filePath) {
+  const hash = createHash('sha256');
+  const descriptor = fs.openSync(filePath, 'r');
+  const chunk = Buffer.allocUnsafe(64 * 1024);
+  try {
+    let bytesRead;
+    do {
+      bytesRead = fs.readSync(descriptor, chunk, 0, chunk.length, null);
+      if (bytesRead > 0) hash.update(chunk.subarray(0, bytesRead));
+    } while (bytesRead > 0);
+  } finally {
+    fs.closeSync(descriptor);
+  }
+  return hash.digest('hex');
+}
+
+function removeApplyTemporaryDirectories(
+  prepared,
+  removeTemporaryDirectory = (directory) => fs.rmSync(directory, { recursive: true, force: true }),
+) {
+  const errors = [];
+  for (const item of prepared) {
+    if (!item.temporaryDir) continue;
+    try {
+      removeTemporaryDirectory(item.temporaryDir);
+    } catch (error) {
+      errors.push(error);
+    }
+  }
+  return errors;
+}
+
+function rollbackStagedOutputs(outputs) {
+  const errors = [];
+  for (const item of [...outputs].reverse()) {
+    let rollbackDir;
+    try {
+      if (item.existed) {
+        rollbackDir = fs.mkdtempSync(path.join(
+          item.targetDir,
+          `.${path.basename(item.targetPath)}.backfill-rollback-`,
+        ));
+        const restorePath = path.join(rollbackDir, path.basename(item.targetPath));
+        const backupInfo = lstatOrNull(item.rollbackPath);
+        if (!backupInfo) {
+          throw new Error(`Missing rollback backup at ${item.rollbackPath}`);
+        }
+        if (!backupInfo.isFile() || backupInfo.isSymbolicLink()) {
+          throw new Error(`Refusing unsafe rollback backup type at ${item.rollbackPath}`);
+        }
+        fs.copyFileSync(item.rollbackPath, restorePath);
+        fs.chmodSync(restorePath, item.mode);
+        fs.renameSync(restorePath, item.targetPath);
+      } else {
+        const current = lstatOrNull(item.targetPath);
+        if (current) {
+          if (!current.isFile() || current.isSymbolicLink()) {
+            throw new Error(`Refusing to remove an unsafe rollback target type at ${item.targetPath}`);
+          }
+          fs.rmSync(item.targetPath);
+        }
+      }
+    } catch (error) {
+      errors.push(error);
+    } finally {
+      if (rollbackDir) {
+        try {
+          fs.rmSync(rollbackDir, { recursive: true, force: true });
+        } catch (error) {
+          errors.push(error);
+        }
+      }
+    }
+  }
+  return errors;
+}
+
+function stagedApplyFailure(primaryError, rollbackErrors = [], cleanupErrors = []) {
+  if (rollbackErrors.length === 0 && cleanupErrors.length === 0) return primaryError;
+  const detail = [
+    `original: ${primaryError?.message || String(primaryError)}`,
+    ...rollbackErrors.map((error) => `rollback: ${error?.message || String(error)}`),
+    ...cleanupErrors.map((error) => `cleanup: ${error?.message || String(error)}`),
+  ].join('; ');
+  return new AggregateError(
+    [primaryError, ...rollbackErrors, ...cleanupErrors],
+    `Staged output transaction failed (${detail})`,
+    { cause: primaryError },
+  );
+}
+
+/** Replace all staged targets as one recoverable filesystem transaction. */
+export function applyStagedOutputs(outputs, {
+  replaceStagedFile = (stagedPath, targetPath) => fs.renameSync(stagedPath, targetPath),
+  removeTemporaryDirectory = (directory) => fs.rmSync(directory, { recursive: true, force: true }),
+} = {}) {
+  const prepared = [];
+  const attempted = [];
+  let primaryError = null;
+  try {
+    const targetPaths = new Set();
+    for (const output of outputs) {
+      const stagedPath = path.resolve(output.stagedPath);
+      const targetPath = path.resolve(output.targetPath);
+      if (targetPaths.has(targetPath)) throw new Error(`Duplicate staged target path: ${targetPath}`);
+      targetPaths.add(targetPath);
+      const stagedInfo = fs.lstatSync(stagedPath);
+      if (!stagedInfo.isFile() || stagedInfo.isSymbolicLink()) {
+        throw new Error(`Refusing unsafe staged output type at ${stagedPath}`);
+      }
+
+      const targetDir = path.dirname(targetPath);
+      fs.mkdirSync(targetDir, { recursive: true });
+      const targetDirInfo = fs.lstatSync(targetDir);
+      if (!targetDirInfo.isDirectory() || targetDirInfo.isSymbolicLink()) {
+        throw new Error(`Refusing unsafe destination directory type at ${targetDir}`);
+      }
+      const originalStat = lstatOrNull(targetPath);
+      if (originalStat && (!originalStat.isFile() || originalStat.isSymbolicLink())) {
+        throw new Error(`Refusing unsafe destination target type at ${targetPath}`);
+      }
+
+      const originalHash = originalStat ? hashFileSync(targetPath) : null;
+      const temporaryDir = fs.mkdtempSync(path.join(
+        targetDir,
+        `.${path.basename(targetPath)}.backfill-apply-`,
+      ));
+      const item = {
+        stagedPath,
+        targetPath,
+        targetDir,
+        temporaryDir,
+        temporaryPath: path.join(temporaryDir, 'replacement'),
+        rollbackPath: path.join(temporaryDir, 'original'),
+        existed: Boolean(originalStat),
+        originalHash,
+        originalStat,
+        mode: (originalStat || stagedInfo).mode & 0o7777,
+      };
+      prepared.push(item);
+      fs.copyFileSync(stagedPath, item.temporaryPath);
+      fs.chmodSync(item.temporaryPath, item.mode);
+      if (item.existed) {
+        fs.copyFileSync(targetPath, item.rollbackPath);
+        fs.chmodSync(item.rollbackPath, item.mode);
+        if (hashFileSync(item.rollbackPath) !== item.originalHash) {
+          throw new Error(`Destination changed while preparing staged-output backup: ${targetPath}`);
+        }
+      }
+    }
+
+    for (const item of prepared) {
+      const current = lstatOrNull(item.targetPath);
+      if (item.existed) {
+        if (!current || !current.isFile() || current.isSymbolicLink()
+          || current.dev !== item.originalStat.dev
+          || current.ino !== item.originalStat.ino
+          || current.mode !== item.originalStat.mode
+          || hashFileSync(item.targetPath) !== item.originalHash) {
+          throw new Error(`Destination changed during staged-output preflight: ${item.targetPath}`);
+        }
+      } else if (current) {
+        throw new Error(`Destination appeared during staged-output preflight: ${item.targetPath}`);
+      }
+      attempted.push(item);
+      replaceStagedFile(item.temporaryPath, item.targetPath);
+    }
+  } catch (error) {
+    primaryError = error;
+  }
+
+  if (primaryError) {
+    const rollbackErrors = rollbackStagedOutputs(attempted);
+    const cleanupErrors = removeApplyTemporaryDirectories(prepared, removeTemporaryDirectory);
+    throw stagedApplyFailure(primaryError, rollbackErrors, cleanupErrors);
+  }
+
+  const cleanupErrors = removeApplyTemporaryDirectories(prepared, removeTemporaryDirectory);
+  if (cleanupErrors.length > 0) {
+    const detail = cleanupErrors.map((error) => error?.message || String(error)).join('; ');
+    throw new AggregateError(
+      cleanupErrors,
+      `All staged outputs were applied successfully, but transaction cleanup failed: ${detail}`,
+    );
+  }
+  return outputs.length;
+}
+
+/**
+ * Prepare every selected crawler against repository state before applying any
+ * staged output. A thrown history read, validation, or planning error leaves
+ * all active and expired repository files untouched.
+ */
+export function prepareAndApplySlices(files, {
+  rootDir = ROOT,
+  byCrawlerDir = path.join(rootDir, 'data', 'jobs', 'by-crawler'),
+  expiredDir = path.join(rootDir, 'data', 'jobs', 'expired', 'by-crawler'),
+  maxCommits = MAX_COMMITS,
+  dryRun = DRY_RUN,
+  stagingParentDir = tmpdir(),
+  onSliceResult = null,
+} = {}) {
+  fs.mkdirSync(stagingParentDir, { recursive: true });
+  const stagingDir = fs.mkdtempSync(path.join(stagingParentDir, 'backfill-expired-from-history-'));
+  const summary = emptyBackfillSummary();
+  try {
+    for (const file of files) {
+      const result = processSlice(file, {
+        rootDir,
+        byCrawlerDir,
+        expiredDir,
+        maxCommits,
+        dryRun,
+        stagingDir,
+      });
+      if (!result) continue;
+      addSliceResultToSummary(summary, result);
+      onSliceResult?.(result);
+    }
+    if (!dryRun && summary.refusedArchives > 0) {
+      summary.applySkippedDueToRefusals = true;
+    } else if (!dryRun) {
+      applyStagedOutputs(collectStagedOutputs(stagingDir, byCrawlerDir, expiredDir));
+    }
+    return summary;
+  } finally {
+    fs.rmSync(stagingDir, { recursive: true, force: true });
+  }
 }
 
 function main() {
@@ -600,45 +2727,42 @@ function main() {
   console.log(`🧮 Backfilling expired slices from history${DRY_RUN ? ' (DRY RUN)' : ''}`);
   console.log(`   crawlers: ${files.length}, history cap: ${MAX_COMMITS || 'unbounded'}`);
 
-  const summary = {
-    crawlers: 0,
-    withDrops: 0,
-    withMetadata: 0,
-    addedTotal: 0,
-    recoveredTotal: 0,
-    enrichedTotal: 0,
-    activeEnrichedTotal: 0,
-    lostTotal: 0,
-    scannedTotal: 0,
-    refusedArchives: 0,
-  };
-  for (const file of files) {
-    const result = processSlice(file);
-    if (!result) continue;
-    summary.crawlers++;
-    summary.scannedTotal += result.scannedCommits;
-    if (result.lost > 0) summary.withDrops++;
-    summary.lostTotal += result.lost;
-    if (result.refusedRoutes > 0) summary.refusedArchives++;
-    summary.addedTotal += result.added;
-    summary.recoveredTotal += result.recovered;
-    summary.enrichedTotal += result.enriched;
-    summary.activeEnrichedTotal += result.activeEnriched || 0;
-    if (result.enriched > 0 || result.activeEnriched > 0) summary.withMetadata++;
-    if (result.lost > 0 || result.enriched > 0 || result.activeEnriched > 0 || process.env.VERBOSE === '1') {
-      console.log(
-        `  ${result.crawlerKey}: scanned=${result.scannedCommits} lost=${result.lost} added=${result.added} recovered=${result.recovered} metadata=${result.enriched} activeMetadata=${result.activeEnriched || 0}`,
-      );
-    }
-  }
+  const summary = prepareAndApplySlices(files, {
+    onSliceResult: (result) => {
+      if (result.lost > 0 || result.enriched > 0 || result.activeEnriched > 0
+        || result.refusedRoutes > 0 || process.env.VERBOSE === '1') {
+        console.log(
+          `  ${result.crawlerKey}: scanned=${result.scannedCommits} lost=${result.lost} added=${result.added} recovered=${result.recovered} metadata=${result.enriched} activeMetadata=${result.activeEnriched || 0} refusedRoutes=${result.refusedRoutes || 0}`,
+        );
+      }
+    },
+  });
   console.log('');
-  console.log(`✅ Done. Crawlers: ${summary.crawlers}, with drops: ${summary.withDrops}`);
+  const exitCode = backfillExitCode(summary);
+  if (exitCode === 0) {
+    console.log(`✅ Done. Crawlers: ${summary.crawlers}, with drops: ${summary.withDrops}`);
+  } else {
+    console.log(`⚠️  Backfill incomplete: ${summary.refusedArchives} archive slice(s) were refused.`);
+  }
   console.log(`   Total lost: ${summary.lostTotal}, newly archived: ${summary.addedTotal}`);
   console.log(`   Recovered historical archive entries: ${summary.recoveredTotal}`);
   console.log(`   Archives enriched: ${summary.enrichedTotal} entries across ${summary.withMetadata} crawlers`);
   console.log(`   Active slices enriched: ${summary.activeEnrichedTotal} jobs`);
   console.log(`   Total commits scanned: ${summary.scannedTotal}`);
-  console.log(`   Archives left untouched (route loss refused): ${summary.refusedArchives}`);
+  console.log(`   Refused archive slices: ${summary.refusedArchives}; refused routes: ${summary.refusedRoutesTotal}`);
+  if (summary.applySkippedDueToRefusals) {
+    console.log('   No staged outputs were applied because at least one archive slice was refused.');
+  }
+  if (exitCode !== 0) {
+    console.error(
+      `::error::Backfill refused ${summary.refusedRoutesTotal} route(s) across ${summary.refusedArchives} archive slice(s); returning non-zero so the workflow can retry them`,
+    );
+    process.exitCode = exitCode;
+  }
+}
+
+export function backfillExitCode(summary) {
+  return summary?.refusedArchives > 0 ? 1 : 0;
 }
 
 // Importing the module (tests) must not start a repository-wide backfill.
