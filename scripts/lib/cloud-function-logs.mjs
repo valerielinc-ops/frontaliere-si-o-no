@@ -82,4 +82,4 @@ export async function fetchFunctionErrors({ token, projectId = DEFAULT_PROJECT_I
   };
 }
 
-export const getLoggingToken = () => getServiceAccountToken([LOGGING_READ_SCOPE], { logInfo: () => {}, logError: () => {} });
+export const getLoggingToken = () => getServiceAccountToken([LOGGING_READ_SCOPE], { logInfo: () => {}, logError: console.error });
