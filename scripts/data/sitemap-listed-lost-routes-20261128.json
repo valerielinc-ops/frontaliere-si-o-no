@@ -1,6 +1,6 @@
 {
  "analysedCommit": "511f26f2cbd",
- "evidence": "routes the cleaner removed at e473151d71b that a deployed sitemap listed under their own locale (data/url-first-seen), whose holder identity names exactly one record today. Routes whose only trace is the four-locale fan-out of a flat previousSlugs entry (known-slug registry, 404 compat accumulator) are not in this manifest.",
+ "evidence": "routes the cleaner removed at e473151d71b that a deployed sitemap listed under their own locale (data/url-first-seen; proof.sitemapFirstSeen is keyed by that locale, the listed URL being its Ticino job-board page for the slug in routes), whose holder identity names exactly one record today. Routes whose only trace is the four-locale fan-out of a flat previousSlugs entry (known-slug registry, 404 compat accumulator) are not in this manifest.",
  "targets": [
   {
    "crawlerKey": "eoc-ente-ospedaliero-cantonale",
@@ -9,8 +9,8 @@
    "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/955/description/4",
    "proof": {
     "sitemapFirstSeen": {
-     "/en/find-jobs-ticino/sachbearbeiter-in-verwaltung-eoc-ente-ospedaliero-cantonale-novaggio": "2026-11-19",
-     "/fr/trouver-emploi-tessin/sachbearbeiter-in-verwaltung-eoc-ente-ospedaliero-cantonale-novaggio": "2026-11-19"
+     "en": "2026-11-19",
+     "fr": "2026-11-19"
     }
    },
    "routes": {
