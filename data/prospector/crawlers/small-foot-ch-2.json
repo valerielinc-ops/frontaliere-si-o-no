@@ -1,0 +1,23 @@
+{
+  "companyKey": "small-foot-ch-2",
+  "companyName": "small Foot AG - Die Kinderkrippe Root",
+  "companyHost": "krippenstellen.ch",
+  "verifiedEmployerDomain": "small-foot.ch",
+  "platform": "krippenstellen.ch",
+  "mode": "microdata",
+  "seedUrls": [
+    "https://krippenstellen.ch/de/frontend/inserate/72327"
+  ],
+  "detailTemplate": "/de/inserate",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Krippenleitung"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-28T14:29:24.533Z",
+  "candidateKey": "small-foot-die-kinderkrippe-root"
+}
