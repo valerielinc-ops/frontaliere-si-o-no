@@ -257,7 +257,9 @@
     "sector": "Altro",
     "expiredAt": "2026-11-27T21:20:23.751Z",
     "previousSlugs": [
-      "praktischer-arzt-allgemeinmedizinerin-mit-attraktiver-umsatzbeteiligung-region-bern-berner"
+      "praktischer-arzt-allgemeinmedizinerin-mit-attraktiver-umsatzbeteiligung-region-bern-berner",
+      "practical-doctor-general-practitioner-with-an-attractive-turnover-share-medimeo-ag-region-bern-berner-oberland-emmental",
+      "medecin-pratique-omnipraticien-avec-une-part-de-chiffre-d-affaires-attrayante-medimeo-ag-region-bern-berner-oberland"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -5996,7 +5998,8 @@
     "expiredAt": "2026-11-03T09:21:34.431Z",
     "previousSlugs": [
       "facharzt-facharztin-per-allgemeine-innere-medizin-komplementarmedizin-e-spannende-entwicklungschancen-medimeo-ag-bern",
-      "facharzt-facharztin-fur-allgemeine-innere-medizin-komplementarmedizin-und-spannende"
+      "facharzt-facharztin-fur-allgemeine-innere-medizin-komplementarmedizin-und-spannende",
+      "specialist-for-general-internal-medicine-complementary-medicine-and-exciting-development-opportunities-medimeo-ag-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -6183,7 +6186,11 @@
       "de": {
         "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-stationare-krisenintervention-im-6924cdaa": "BS"
       }
-    }
+    },
+    "previousSlugs": [
+      "oberarztin-oberarzt-psychiatrie-e-psychotherapie-80-100-stationare-krisenintervention-im-modernen-neubau-bbe14c46",
+      "oberarztin-oberarzt-psychiatrie-e-psychotherapie-80-100-stationare-krisenintervention-im-modernen-neubau-medimeo-ag-basel"
+    ]
   },
   {
     "slug": "medica-responsabile-medico-responsabile-psichiatria-e-psicoterapia-80-100-medimeo-ag-region-bern-berner-oberland",
@@ -6271,16 +6278,14 @@
     "slugByLocale": {
       "it": "medico-senior-senior-tossicodipendenza-psichiatria-80-100-nella-regione-di-basilea-medimeo-ag-region-basel",
       "en": "senior-physician-senior-physician-addiction-psychiatry-80-100-in-the-basel-region-medimeo-ag-region-basel",
-      "de": "oberarztin-oberarzt-suchtpsychiatrie-80-100-in-der-region-basel-region-basel-medimeo-ch",
+      "de": "oberarztin-oberarzt-suchtpsychiatrie-80-100-in-der-region-basel-region-basel-medimeo-ch-c53027ba",
       "fr": "medecin-senior-medecin-senior-psychiatrie-de-la-toxicomanie-80-100-dans-la-region-de-bale-medimeo-ag-region-basel"
     },
     "sector": "Altro",
     "expiredAt": "2026-10-31T09:21:16.073Z",
-    "previousSlugs": [
-      "oberarztin-oberarzt-suchtpsychiatrie-80-100-in-der-region-basel-region-basel-medimeo-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "oberarztin-oberarzt-suchtpsychiatrie-80-100-in-der-region-basel-region-basel-medimeo-ch-c53027ba",
         "oberarztin-oberarzt-suchtpsychiatrie-80-100-in-der-region-basel-region-basel-medimeo-ch"
       ],
       "en": [
@@ -6288,6 +6293,9 @@
       ],
       "fr": [
         "oberarztin-oberarzt-suchtpsychiatrie-80-100-in-der-region-basel-region-basel-medimeo-ch"
+      ],
+      "de": [
+        "oberarztin-oberarzt-suchtpsychiatrie-80-100-in-der-region-basel-region-basel-medimeo-ch-c53027ba"
       ]
     },
     "postalCode": "4001",
@@ -6300,15 +6308,21 @@
     "canton": "BS",
     "previousSlugCantonByLocale": {
       "it": {
-        "oberarztin-oberarzt-suchtpsychiatrie-80-100-in-der-region-basel-region-basel-medimeo-ch": "BS"
+        "oberarztin-oberarzt-suchtpsychiatrie-80-100-in-der-region-basel-region-basel-medimeo-ch-c53027ba": "BS"
       },
       "en": {
         "oberarztin-oberarzt-suchtpsychiatrie-80-100-in-der-region-basel-region-basel-medimeo-ch": "BS"
       },
       "fr": {
         "oberarztin-oberarzt-suchtpsychiatrie-80-100-in-der-region-basel-region-basel-medimeo-ch": "BS"
+      },
+      "de": {
+        "oberarztin-oberarzt-suchtpsychiatrie-80-100-in-der-region-basel-region-basel-medimeo-ch-c53027ba": "BS"
       }
-    }
+    },
+    "previousSlugs": [
+      "oberarztin-oberarzt-suchtpsychiatrie-80-100-in-der-region-basel-region-basel-medimeo-ch"
+    ]
   },
   {
     "slug": "medica-senior-medico-senior-psichiatria-e-psicoterapia-80-100-psichiatria-ambulatoriale-dell-eta-adulta-e-della-terza",
@@ -6376,7 +6390,11 @@
       "de": {
         "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-ambulante-erwachsenen-und-ac3ed707": "BS"
       }
-    }
+    },
+    "previousSlugs": [
+      "oberarztin-oberarzt-psychiatrie-e-psychotherapie-80-100-ambulante-erwachsenen-e-alterspsychiatrie-con-option-776d2eda",
+      "oberarztin-oberarzt-psychiatrie-e-psychotherapie-80-100-ambulante-erwachsenen-e-alterspsychiatrie-con-option-auf-den-schwerpunkttitel-medimeo-ag-basel"
+    ]
   },
   {
     "slug": "medica-specialista-medico-specialista-in-medicina-interna-generale-o-medicina-generale-80-100-medico-di-famiglia-con",
@@ -6492,7 +6510,10 @@
     "sourceIdentity": "url:https://medimeo.ch/job/kinderaerztin-kinderarzt-60-100-etablierte-paediatrie-in-moderner-gruppenpraxis-3670",
     "firstSeenAt": "2026-10-27T21:19:51.402Z",
     "previousSlugs": [
-      "kinderarztin-kinderarzt-60-100-etablierte-padiatrie-in-moderner-gruppenpraxis-olten-aargau"
+      "kinderarztin-kinderarzt-60-100-etablierte-padiatrie-in-moderner-gruppenpraxis-olten-aargau",
+      "pediatriciano-60-100-pediatria-consolidata-nella-pratica-di-gruppo-moderna-medimeo-ag-olten",
+      "pediatrician-60-100-established-pediatrics-in-modern-group-practice-medimeo-ag-olten",
+      "pediatrie-60-100-pediatrie-etablie-dans-la-pratique-de-groupe-moderne-medimeo-ag-olten"
     ],
     "sourceIdentityHistory": [
       {
