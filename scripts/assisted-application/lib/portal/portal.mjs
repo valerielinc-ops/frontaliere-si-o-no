@@ -5508,7 +5508,9 @@ const isAgencyTradeWord = (word) => STAFFING_AGENCY_WORDS.has(word) || AGENCY_ST
 // With an agency as the order's employer, these words next to its name, and its legal form, are the same
 // agency's variants. For any other employer «Partners» next to the name stays another name.
 const AGENCY_VARIANT_WORDS = new Set(['partner', 'partners', 'jobs', 'job', 'services', 'service', 'consulting', 'group', 'gruppe', 'holding', 'solutions', 'suisse', 'schweiz', 'switzerland', 'svizzera']);
-const isAgencyVariantWord = (word) => isAgencyTradeWord(word) || AGENCY_VARIANT_WORDS.has(word);
+// Compounds of the trade by stem (stellenpartner, jobpartner, staffline, tempforce, recruitpoint, *partner).
+const AGENCY_VARIANT_STEM_RE = /^(?:stellen|job|staff|temp|recruit)|.partner$/;
+const isAgencyVariantWord = (word) => isAgencyTradeWord(word) || AGENCY_VARIANT_WORDS.has(word) || AGENCY_VARIANT_STEM_RE.test(word);
 const isStaffingAgencyCompany = (company) => normalizeWords(company).split(' ').some(isAgencyTradeWord);
 
 // «S.p.A.», «S.A.», «S.à r.l.» written with dots: collapse them before the line is cut at its full stops.
@@ -5651,6 +5653,11 @@ function foreignEmployerEvidence(line, { neutral, job, ownSegment = () => false 
   return null;
 }
 
+// A copyright or legal-notice line of a page footer («Damiani Group Valenza 2019 © All rights reserved», «Impressum»)
+// names the site's publisher, the place of its seat and a year: never evidence of another employer.
+const LEGAL_NOTICE_LINE_RE = /©|\(c\)\s*\d{4}|\bcopyright\b|all rights reserved|alle rechte vorbehalten|tous droits r[ée]serv|tutti i diritti riservati|\bimpressum\b/iu;
+const withoutLegalNoticeLines = (text) => String(text || '').split(/\r?\n/).map((line) => (LEGAL_NOTICE_LINE_RE.test(line) ? '' : line)).join('\n');
+
 export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation = false, evidence = null } = {}) {
   // With an `evidence` object the call also says which line and entity made it a conflict (run diagnostics only).
   const hit = (reason, entity, line) => {
@@ -5672,7 +5679,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   const ours = new Set(identityWords.filter((word) => word.length > 1));
   if (!ours.size) return false;
   const ourKinds = employerKindsOf([...ours]);
-  const text = String(formText || '').replace(EMAIL_ADDRESS_RE, ' ');
+  const text = withoutLegalNoticeLines(formText).replace(EMAIL_ADDRESS_RE, ' ');
   const postingLocationWords = allowPostingLocation
     ? new Set([
       ...nameWords(job.location),

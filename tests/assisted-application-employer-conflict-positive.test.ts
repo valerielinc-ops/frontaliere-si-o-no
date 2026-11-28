@@ -205,3 +205,39 @@ describe('a placement agency\'s name variants are one employer', () => {
     expect(namesAnotherEmployer('Welcome\nSTA Partners', { title, company: 'STA AG' })).toBe(true);
   });
 });
+
+// Sixth and seventh real cases (live proofs 2026-11-28): the agency's «STA Stellenpartner AG» (a compound of the
+// trade) and the copyright line of a SuccessFactors footer «Damiani Group Valenza 2019 © All rights reserved»
+// (the place of the seat next to the employer's name).
+describe('trade compounds and legal-notice lines are no other employer', () => {
+  const sta = { title: 'Metallbauer', company: 'STA Personal AG' };
+  const damiani = { title: 'Group CFO', company: 'Damiani Group' };
+
+  it.each(['STA Stellenpartner AG', 'STA Jobpartner AG', 'STA Staffline AG', 'STA Tempforce AG', 'STA Recruitpoint AG', 'STA Personalpartner AG'])(
+    'reads «%s» as the order\'s agency', (name) => {
+      expect(namesAnotherEmployer(`Willkommen\n${name}\n© ${name}`, sta)).toBe(false);
+    });
+
+  it('still reads another agency, or another name next to the agency\'s, as a conflict', () => {
+    expect(namesAnotherEmployer('Willkommen\nMuster Stellenpartner AG', sta)).toBe(false); // body: no legal-form evidence far from the name
+    expect(namesAnotherEmployer('Bewerbung bei Muster Personalpartner AG', sta)).toBe(true);
+    expect(namesAnotherEmployer('Bewerbung bei Muster Stellenpartner AG', sta)).toBe(true);
+    expect(namesAnotherEmployer('Willkommen\nSTA Muster Stellenpartner AG', sta)).toBe(true);
+  });
+
+  it.each([
+    'Damiani Group Valenza 2019 © All rights reserved',
+    'Damiani Group Valenza 2019 Alle Rechte vorbehalten',
+    'Damiani Group Valenza 2019 Tous droits réservés',
+    'Damiani Group Valenza 2019 Tutti i diritti riservati',
+    '© 2019 Damiani Group Valenza',
+    'Impressum Damiani Group Valenza',
+  ])('does not read the footer line «%s» as another employer', (line) => {
+    expect(namesAnotherEmployer(`Group CFO\nSign Out\n${line}`, damiani)).toBe(false);
+    expect(namesAnotherEmployer(`${line}\nGroup CFO`, damiani)).toBe(false);
+  });
+
+  it('keeps the same name next to the employer a conflict outside a legal notice', () => {
+    expect(namesAnotherEmployer('Group CFO\nDamiani Group Valenza', damiani)).toBe(true);
+  });
+});
