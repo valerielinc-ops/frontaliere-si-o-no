@@ -40,7 +40,7 @@ const CANTON_MARKER_WORDS = ['canton', 'cantone', 'cantoni', 'cantons', 'kanton'
  */
 const CONTEXT_WORDS = [
   'frontaliere', 'frontalieri', 'frontaliera', 'frontaliers', 'frontaliere', 'frontalier', 'frontal',
-  'grenzganger', 'grenzgangerin', 'grenzgangers', 'grenzgaenger', 'cross', 'border', 'crossborder',
+  'grenzganger', 'grenzgangerin', 'grenzgangers', 'grenzgaenger', 'grenzgaengerin', 'grenzgaengerinnen', 'grenzgangerinnen', 'grenzgaengers', 'cross', 'border', 'crossborder',
 ];
 
 /**

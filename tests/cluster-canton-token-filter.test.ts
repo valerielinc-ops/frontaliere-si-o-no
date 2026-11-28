@@ -79,6 +79,7 @@ describe('clusterQueryTokens', () => {
     expect(classifyClusterToken('Zürich')).toEqual({ kind: 'canton', codes: ['ZH'] });
     expect(classifyClusterToken('valais')).toEqual({ kind: 'canton', codes: ['VS'] });
     expect(classifyClusterToken('infermiere')).toBeNull();
+    expect(splitClusterTokens(['grenzgaengerin', 'grenzgaengerinnen'])).toEqual({ content: [], cantonCodes: [], removed: true });
     // An employer word that merely starts like the marker stays content.
     expect(classifyClusterToken('cantonale')).toBeNull();
   });
