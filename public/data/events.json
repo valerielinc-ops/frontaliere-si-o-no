@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-28T19:54:49.380Z",
-  "totalEvents": 18844,
+  "generatedAt": "2026-11-28T20:37:36.659Z",
+  "totalEvents": 18880,
   "events": [
     {
       "id": "guidle:A8HAZc6",
@@ -45717,6 +45717,36 @@
       "imageProvider": "openai-codex"
     },
     {
+      "id": "guidle:AcjQjaq",
+      "title": "Khatia Buniatishvili",
+      "titleByLocale": {
+        "it": "Khatia Buniatishvili",
+        "en": "Khatia Buniatishvili",
+        "de": "Khatia Buniatishvili",
+        "fr": "Khatia Buniatishvili"
+      },
+      "startDate": "2026-08-23",
+      "endDate": "2026-08-23",
+      "startTime": "18:00",
+      "category": "Musica classica",
+      "venue": "Festivalzelt Gstaad",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/gstaad/khatia-buniatishvili_AcjQjaq",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "recoveryEvidence": {
+        "sourceSnapshot": "e6f8832cf878a7f384848f61a88a50b3d0a3011d",
+        "sourceGeneratedAt": "2026-08-23T06:48:30.957Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-musica-svizzera-urbana-primavera-estate.webp",
+      "imageAssetId": "event-musica-svizzera-urbana-primavera-estate",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
       "id": "myswitzerland:06d49d8c1aa34f66854da5730ba836a7",
       "title": "Klettersteig Pinut",
       "titleByLocale": {
@@ -52121,6 +52151,37 @@
       ],
       "imageUrl": "/images/events/library/event-mostra-museo-alpi-montagna-primavera-estate.webp",
       "imageAssetId": "event-mostra-museo-alpi-montagna-primavera-estate",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
+      "id": "myswitzerland:9d0e4edb4526454b938ce428fd9f1e83",
+      "title": "Campus Lunchtime-Konzert",
+      "titleByLocale": {
+        "it": "Campus Lunchtime-Konzert",
+        "en": "Campus Lunchtime-Konzert",
+        "de": "Campus Lunchtime-Konzert",
+        "fr": "Campus Lunchtime-Konzert"
+      },
+      "startDate": "2026-08-27",
+      "endDate": "2026-08-27",
+      "startTime": "12:50",
+      "category": "Music",
+      "venue": "Campus Aula",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/campus-lunchtime-konzert-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "3f1a7eaf13ea487f7bce926fd4b00f98d87d4f40",
+        "sourceGeneratedAt": "2026-08-26T06:55:35.922Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-musica-laghi-primavera-estate-v03.webp",
+      "imageAssetId": "event-musica-laghi-primavera-estate-v03",
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
@@ -60689,6 +60750,28 @@
       "descriptionRewriteValidated": true
     },
     {
+      "id": "ge-agenda:soiree-forro-0",
+      "title": "Soirée Forró",
+      "startDate": "2026-09-03",
+      "category": "Danse",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/soiree-forro-0",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "recoveryEvidence": {
+        "sourceSnapshot": "9806ab1b65777e5c4251741435588adccd517519",
+        "sourceGeneratedAt": "2026-09-02T10:44:23.545Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-generico-svizzera-urbana-autunno-inverno.webp",
+      "imageAssetId": "event-generico-svizzera-urbana-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
       "id": "myswitzerland:c0c646b38804485c8f780130fbc60fb9",
       "title": "Sprachenbeiz",
       "titleByLocale": {
@@ -61913,6 +61996,37 @@
       ],
       "imageUrl": "/images/events/library/event-generico-svizzera-urbana-autunno-inverno.webp",
       "imageAssetId": "event-generico-svizzera-urbana-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
+      "id": "myswitzerland:4e1ecb0d396e4c6aad736ee29559016f",
+      "title": "Theatervirus Buchs präsentiert \"Die Schweizermacher\"",
+      "titleByLocale": {
+        "it": "Theatervirus Buchs präsentiert \"Die Schweizermacher\"",
+        "en": "Theatervirus Buchs präsentiert \"Die Schweizermacher\"",
+        "de": "Theatervirus Buchs präsentiert \"Die Schweizermacher\"",
+        "fr": "Theatervirus Buchs präsentiert \"Die Schweizermacher\""
+      },
+      "startDate": "2026-09-04",
+      "endDate": "2026-09-12",
+      "startTime": "20:00",
+      "category": "Theater",
+      "venue": "Alte Turnhalle",
+      "comune": "Buchs (AG)",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/theatervirus-buchs-praesentiert-die-schweizermacher/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "ce95d63798265a857a39631deaa901f73b47f64c",
+        "sourceGeneratedAt": "2026-09-12T10:12:16.748Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-teatro-spettacolo-svizzera-urbana-autunno-inverno.webp",
+      "imageAssetId": "event-teatro-spettacolo-svizzera-urbana-autunno-inverno",
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
@@ -63534,6 +63648,37 @@
       "comune": "Payerne",
       "imageUrl": "/images/events/library/event-mercato-natale-svizzera-urbana-autunno-inverno-v03.webp",
       "imageAssetId": "event-mercato-natale-svizzera-urbana-autunno-inverno-v03",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
+      "id": "myswitzerland:9e7d016fcedb4c179ae3232e8e717040",
+      "title": "Vesti’bulle",
+      "titleByLocale": {
+        "it": "Vesti’bulle",
+        "en": "Vesti’bulle",
+        "de": "Vesti’bulle",
+        "fr": "Vesti’bulle"
+      },
+      "startDate": "2026-09-05",
+      "endDate": "2026-09-05",
+      "startTime": "12:00",
+      "category": "Event",
+      "venue": "Espace Gruyère",
+      "comune": "Bulle",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/vestibulle/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "9806ab1b65777e5c4251741435588adccd517519",
+        "sourceGeneratedAt": "2026-09-02T10:44:23.545Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-generico-laghi-autunno-inverno.webp",
+      "imageAssetId": "event-generico-laghi-autunno-inverno",
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
@@ -68160,6 +68305,37 @@
       "descriptionRewriteValidated": true
     },
     {
+      "id": "myswitzerland:86a3e33fdcf34c76b295c3df3ce89954",
+      "title": "Dinner Concert auf dem Stadtplatz Kloten",
+      "titleByLocale": {
+        "it": "Dinner Concert auf dem Stadtplatz Kloten",
+        "en": "Dinner Concert auf dem Stadtplatz Kloten",
+        "de": "Dinner Concert auf dem Stadtplatz Kloten",
+        "fr": "Dinner Concert auf dem Stadtplatz Kloten"
+      },
+      "startDate": "2026-09-09",
+      "endDate": "2026-09-09",
+      "startTime": "18:00",
+      "category": "Food",
+      "venue": "Stadtplatz",
+      "comune": "Kloten",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/dinner-concert-auf-dem-stadtplatz-kloten/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "b91088a6e1b2e513b8621c652a1a129072466996",
+        "sourceGeneratedAt": "2026-09-08T10:42:40.660Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-gastronomia-svizzera-urbana-autunno-inverno-v02.webp",
+      "imageAssetId": "event-gastronomia-svizzera-urbana-autunno-inverno-v02",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
       "id": "myswitzerland:161afa01d20e40e8b323ee013c7fd237",
       "title": "EMILY KAM KNGWARRAY exhibition",
       "titleByLocale": {
@@ -70392,6 +70568,37 @@
       "descriptionRewriteValidated": true
     },
     {
+      "id": "myswitzerland:4c7ab0b968704d9ebd82bb5bf619dd31",
+      "title": "Sugita Exhibition (Paintings)",
+      "titleByLocale": {
+        "it": "Sugita Exhibition (Paintings)",
+        "en": "Sugita Exhibition (Paintings)",
+        "de": "Sugita-Ausstellung (Gemälde)",
+        "fr": "Exposition Sugita - Peintures"
+      },
+      "startDate": "2026-09-10",
+      "endDate": "2026-09-26",
+      "startTime": "02:00",
+      "category": "Exhibition",
+      "venue": "Galerie ArteFact",
+      "comune": "Villeneuve (VD)",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/fr-ch/decouvrir/manifestations/exposition-sugita-peintures/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "0f454a9196b7e1923057874ed8499dbd5c82ec62",
+        "sourceGeneratedAt": "2026-09-26T11:04:31.511Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-mostra-museo-svizzera-urbana-autunno-inverno.webp",
+      "imageAssetId": "event-mostra-museo-svizzera-urbana-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
       "id": "myswitzerland:fa9bc7dd35ba4562bd3ada132b6c4d02",
       "title": "Susan Hefuna",
       "titleByLocale": {
@@ -71718,6 +71925,36 @@
       "sourceDescriptionHash": "b9448c92c8b9faccab6c5c91eca92b58944ba02d2d59a2d24b72dbf27b4a274a",
       "imageUrl": "/images/events/library/event-mostra-museo-laghi-autunno-inverno-v03.webp",
       "imageAssetId": "event-mostra-museo-laghi-autunno-inverno-v03",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
+      "id": "guidle:Ai1HwM5",
+      "title": "Risk Day 2026",
+      "titleByLocale": {
+        "it": "Risk Day 2026",
+        "en": "Risk Day 2026",
+        "de": "Risk Day 2026",
+        "fr": "Risk Day 2026"
+      },
+      "startDate": "2026-09-11",
+      "endDate": "2026-09-11",
+      "startTime": "14:00",
+      "category": "Congresso: Affari / Amministrazione",
+      "venue": "ETH Hauptgebäude",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/risk-day-2026_Ai1HwM5",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "recoveryEvidence": {
+        "sourceSnapshot": "d55c41295375ef268a90ec3d2e90b1546fad677f",
+        "sourceGeneratedAt": "2026-09-11T10:41:05.658Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-generico-svizzera-urbana-autunno-inverno.webp",
+      "imageAssetId": "event-generico-svizzera-urbana-autunno-inverno",
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
@@ -74374,6 +74611,37 @@
       "imageProvider": "openai-codex"
     },
     {
+      "id": "myswitzerland:43cf71c6a23942cba2b110ca487ee424",
+      "title": "Präsentation des Kinderbuches von Daniel Fehr und Malin Widen zu Hans Erni",
+      "titleByLocale": {
+        "it": "Präsentation des Kinderbuches von Daniel Fehr und Malin Widen zu Hans Erni",
+        "en": "Präsentation des Kinderbuches von Daniel Fehr und Malin Widen zu Hans Erni",
+        "de": "Präsentation des Kinderbuches von Daniel Fehr und Malin Widen zu Hans Erni",
+        "fr": "Präsentation des Kinderbuches von Daniel Fehr und Malin Widen zu Hans Erni"
+      },
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-12",
+      "startTime": "14:00",
+      "category": "Theater",
+      "venue": "Hans Erni Museum",
+      "comune": "Widen",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/praesentation-des-kinderbuches-von-daniel-fehr-und-malin-widen-zu-hans-erni/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "ce95d63798265a857a39631deaa901f73b47f64c",
+        "sourceGeneratedAt": "2026-09-12T10:12:16.748Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-teatro-spettacolo-svizzera-urbana-autunno-inverno.webp",
+      "imageAssetId": "event-teatro-spettacolo-svizzera-urbana-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
       "id": "myswitzerland:5630dfcbab824363be46d28ef0290567",
       "title": "Printing Museum Stamparia Strada - guided tour",
       "titleByLocale": {
@@ -74706,6 +74974,37 @@
         "otherIds": [
           "myswitzerland:bbbf681277584a969da6f3dc8f47987c"
         ]
+      },
+      "imageUrl": "/images/events/library/event-festa-sagra-tradizione-alpi-montagna-autunno-inverno-v03.webp",
+      "imageAssetId": "event-festa-sagra-tradizione-alpi-montagna-autunno-inverno-v03",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
+      "id": "myswitzerland:f4c511edc29c4f0b8037f5fdfa283a0b",
+      "title": "Shepherds’ Festival in Randa",
+      "titleByLocale": {
+        "it": "Shepherds’ Festival in Randa",
+        "en": "Shepherds’ Festival in Randa",
+        "de": "Schäferfest in Randa",
+        "fr": "Fête des Bergers à Randa"
+      },
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-12",
+      "startTime": "11:00",
+      "category": "Festival",
+      "venue": "Schwarznasenschaf-Zuchtgenossenschaft Randa",
+      "comune": "Randa",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/shepherds-festival-in-randa/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "ce95d63798265a857a39631deaa901f73b47f64c",
+        "sourceGeneratedAt": "2026-09-12T10:12:16.748Z",
+        "verifiedOn": "2026-11-28"
       },
       "imageUrl": "/images/events/library/event-festa-sagra-tradizione-alpi-montagna-autunno-inverno-v03.webp",
       "imageAssetId": "event-festa-sagra-tradizione-alpi-montagna-autunno-inverno-v03",
@@ -76839,6 +77138,37 @@
       "descriptionRewriteValidated": true
     },
     {
+      "id": "myswitzerland:775d0be2f4f24c00a134cccff2fc860a",
+      "title": "Konzert Chor 50 Basel",
+      "titleByLocale": {
+        "it": "Konzert Chor 50 Basel",
+        "en": "Konzert Chor 50 Basel",
+        "de": "Konzert Chor 50 Basel",
+        "fr": "Konzert Chor 50 Basel"
+      },
+      "startDate": "2026-09-14",
+      "endDate": "2026-09-14",
+      "startTime": "15:00",
+      "category": "Event",
+      "venue": "Allschwil",
+      "comune": "Allschwil",
+      "canton": "BL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/konzert-chor-50-basel/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "1d67b6d1de63ac7a27682744e45b031a72c2df8c",
+        "sourceGeneratedAt": "2026-09-14T11:36:34.465Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-generico-svizzera-urbana-autunno-inverno.webp",
+      "imageAssetId": "event-generico-svizzera-urbana-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
       "id": "myswitzerland:5d6632437478477c9ba0bf2192c6ec88",
       "title": "Montags-Töggel",
       "titleByLocale": {
@@ -78885,6 +79215,36 @@
       "imageProvider": "openai-codex"
     },
     {
+      "id": "tio-agenda:63819",
+      "title": "Donazione di sangue",
+      "titleByLocale": {
+        "it": "Donazione di sangue",
+        "en": "Blood donation",
+        "de": "Blutspende",
+        "fr": "Don de sang"
+      },
+      "startDate": "2026-09-16",
+      "startTime": "13:30",
+      "category": "altro",
+      "venue": "Aula di musica, scuole comunali",
+      "comune": "Mendrisio",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260916/63819",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-musica-ticino-confine-autunno-inverno.webp",
+      "imageAssetId": "event-musica-ticino-confine-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
       "id": "myswitzerland:cf4c63813a27403e871f5c792703057e",
       "title": "Erlebnisweg \"Lea und Ben bei den Mutterkühen\"",
       "titleByLocale": {
@@ -78934,6 +79294,28 @@
         "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Luther-Lädeli; commune: Luthern; canton: LU; catégorie: Sports; date: 2026-09-16; heure: 02:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
       },
       "descriptionRewriteValidated": true
+    },
+    {
+      "id": "ge-agenda:festival-piano-2026-orchestre-concertus-dirige-matthieu-schweyer-lucas-chiche-nathalia-milstein",
+      "title": "Festival de piano 2026: Orchestre Concertus, dirigé par Matthieu Schweyer, Lucas Chiche et Nathalia Milstein",
+      "startDate": "2026-09-16",
+      "category": "Concert",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/festival-piano-2026-orchestre-concertus-dirige-matthieu-schweyer-lucas-chiche-nathalia-milstein",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-festa-sagra-tradizione-svizzera-urbana-autunno-inverno-v02.webp",
+      "imageAssetId": "event-festa-sagra-tradizione-svizzera-urbana-autunno-inverno-v02",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
     },
     {
       "id": "ge-agenda:formation-gratuite-savoir-defendre-idees",
@@ -79328,6 +79710,36 @@
       "sourceDescriptionHash": "4a300eac10948e2a7ba8c19e430e10cc590f174b2f0997c7cfa941730fd48506",
       "imageUrl": "/images/events/library/event-mostra-museo-ticino-confine-autunno-inverno-v02.webp",
       "imageAssetId": "event-mostra-museo-ticino-confine-autunno-inverno-v02",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
+      "id": "tio-agenda:63842",
+      "title": "Io, Daiana Crivelli",
+      "titleByLocale": {
+        "it": "Io, Daiana Crivelli",
+        "en": "I, Daiana Crivelli",
+        "de": "Ich, Daiana Crivelli",
+        "fr": "Moi, Daiana Crivelli"
+      },
+      "startDate": "2026-09-16",
+      "startTime": "15:00",
+      "category": "conferenze",
+      "venue": "Biblioteca Cantonale",
+      "comune": "Locarno",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260916/63842",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-conferenza-formazione-ticino-confine-autunno-inverno.webp",
+      "imageAssetId": "event-conferenza-formazione-ticino-confine-autunno-inverno",
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
@@ -80661,6 +81073,28 @@
         "fr": "À Bürglen TG, l’événement associe une visite de brasserie à une dégustation de bière. Il s’adresse aux personnes qui apprécient une bière présentée comme sincère, artisanale et pleine de caractère."
       },
       "descriptionRewriteValidated": true
+    },
+    {
+      "id": "ge-agenda:cine-relax-amelie-metaphysique-tubes",
+      "title": "Ciné-relax: Amélie et la métaphysique des tubes",
+      "startDate": "2026-09-17",
+      "category": "Projection",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/cine-relax-amelie-metaphysique-tubes",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-generico-svizzera-urbana-autunno-inverno.webp",
+      "imageAssetId": "event-generico-svizzera-urbana-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
     },
     {
       "id": "myswitzerland:fe73c494aac340e0ba93bb9bd9defe22",
@@ -82522,6 +82956,29 @@
       "imageProvider": "openai-codex"
     },
     {
+      "id": "ge-agenda:rift-vernissage-performance-diner-exploratoire-solo-severin-guelpa",
+      "title": "RIFT – Vernissage, performance & dîner exploratoire – Solo de Séverin Guelpa",
+      "startDate": "2026-09-18",
+      "endDate": "2026-09-19",
+      "category": "Festival",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/rift-vernissage-performance-diner-exploratoire-solo-severin-guelpa",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-festa-sagra-tradizione-svizzera-urbana-autunno-inverno-v03.webp",
+      "imageAssetId": "event-festa-sagra-tradizione-svizzera-urbana-autunno-inverno-v03",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
       "id": "myswitzerland:6380a10d038d4438bf2f7b44dde5b2d8",
       "title": "Saisoneröffnung mit Paavo Järvi & Khatia Buniatishvili",
       "titleByLocale": {
@@ -82697,6 +83154,37 @@
       "sourceDescriptionHash": "9aa61758bf47d4c069904c7143ffd142eb0b132ae8fdde4ac0a19af7b248d36c",
       "imageUrl": "/images/events/library/event-generico-svizzera-urbana-autunno-inverno.webp",
       "imageAssetId": "event-generico-svizzera-urbana-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
+      "id": "myswitzerland:71cba1db2b324a738eaee425af49d2eb",
+      "title": "„CHUM INÄ“  Architektur für alle in Glarus",
+      "titleByLocale": {
+        "it": "„CHUM INÄ“  Architektur für alle in Glarus",
+        "en": "„CHUM INÄ“  Architektur für alle in Glarus",
+        "de": "„CHUM INÄ“  Architektur für alle in Glarus",
+        "fr": "„CHUM INÄ“  Architektur für alle in Glarus"
+      },
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-19",
+      "startTime": "09:00",
+      "category": "Event",
+      "venue": "8750 Glarus",
+      "comune": "Glarus",
+      "canton": "GL",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/chum-inae-architektur-fuer-alle-in-glarus/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-generico-alpi-montagna-autunno-inverno.webp",
+      "imageAssetId": "event-generico-alpi-montagna-autunno-inverno",
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
@@ -83823,6 +84311,37 @@
       "sourceDescriptionHash": "e1f5bbdabee5bd3a1ed220f0f7d02fe7bb78101207e7127cc5b4602768cd1542",
       "imageUrl": "/images/events/library/event-musica-ticino-confine-autunno-inverno.webp",
       "imageAssetId": "event-musica-ticino-confine-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
+      "id": "myswitzerland:a2dc9dd7804843b2b0460ae9b3323265",
+      "title": "Jagdgesellschaft Chutzenkopf am Trüffelmarkt",
+      "titleByLocale": {
+        "it": "Jagdgesellschaft Chutzenkopf am Trüffelmarkt",
+        "en": "Jagdgesellschaft Chutzenkopf am Trüffelmarkt",
+        "de": "Jagdgesellschaft Chutzenkopf am Trüffelmarkt",
+        "fr": "Jagdgesellschaft Chutzenkopf am Trüffelmarkt"
+      },
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-19",
+      "startTime": "08:00",
+      "category": "Event",
+      "venue": "Liestal",
+      "comune": "Liestal",
+      "canton": "BL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/jagdgesellschaft-chutzenkopf-am-trueffelmarkt/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-generico-svizzera-urbana-autunno-inverno.webp",
+      "imageAssetId": "event-generico-svizzera-urbana-autunno-inverno",
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
@@ -85683,6 +86202,37 @@
       "imageProvider": "openai-codex"
     },
     {
+      "id": "myswitzerland:e5e7aa2ceabb4a1e9ec8e5c6000adc2f",
+      "title": "CONFEDERAL DAY OF THANKSGIVING, REPENTANCE, AND PRAYERAG",
+      "titleByLocale": {
+        "it": "CONFEDERAL DAY OF THANKSGIVING, REPENTANCE, AND PRAYERAG",
+        "en": "CONFEDERAL DAY OF THANKSGIVING, REPENTANCE, AND PRAYERAG",
+        "de": "EIDGENÖSSISCHER DANK-, BUSS- UND BETTAG",
+        "fr": "FÊTE FÉDÉRALE DE REMERCIEMENT, DE PÉNITENCE ET DE PRIÈREAG"
+      },
+      "startDate": "2026-09-20",
+      "endDate": "2026-09-20",
+      "startTime": "10:30",
+      "category": "Event",
+      "venue": "Kapelle Aletschji",
+      "comune": "Blatten",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/eidgenoessischer-dank-buss-und-bettag/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-generico-alpi-montagna-autunno-inverno.webp",
+      "imageAssetId": "event-generico-alpi-montagna-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
       "id": "tio-agenda:62258",
       "title": "Costellazione giovani | Next Generation II",
       "startDate": "2026-09-20",
@@ -85880,6 +86430,36 @@
       ],
       "imageUrl": "/images/events/library/event-generico-alpi-montagna-autunno-inverno.webp",
       "imageAssetId": "event-generico-alpi-montagna-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
+      "id": "myswitzerland:185c4e2e356347c4b96e73bec35d5cfe",
+      "title": "FRIDOLIN TANZT",
+      "titleByLocale": {
+        "it": "FRIDOLIN TANZT",
+        "en": "FRIDOLIN TANZT",
+        "de": "FRIDOLIN TANZT",
+        "fr": "FRIDOLIN TANZT"
+      },
+      "startDate": "2026-09-20",
+      "endDate": "2026-09-20",
+      "startTime": "10:30",
+      "category": "Theater",
+      "venue": "Anna Göldi Museum",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/fridolin-tanzt/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-teatro-spettacolo-laghi-autunno-inverno-v03.webp",
+      "imageAssetId": "event-teatro-spettacolo-laghi-autunno-inverno-v03",
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
@@ -86086,6 +86666,44 @@
         "fr": "Cette exposition de Claude Bühler présente une œuvre multimédia élaborée sur plusieurs années. Elle est accueillie au PASQUART, à Bühler."
       },
       "descriptionRewriteValidated": true
+    },
+    {
+      "id": "myswitzerland:e50db4f56bfd4c568da05afc47b78d17",
+      "title": "INFLAGRANTI - Tag der offenen Tür bei der Kantonspolizei Aargau",
+      "titleByLocale": {
+        "it": "INFLAGRANTI - Tag der offenen Tür bei der Kantonspolizei Aargau",
+        "en": "INFLAGRANTI - Tag der offenen Tür bei der Kantonspolizei Aargau",
+        "de": "INFLAGRANTI - Tag der offenen Tür bei der Kantonspolizei Aargau",
+        "fr": "INFLAGRANTI - Tag der offenen Tür bei der Kantonspolizei Aargau"
+      },
+      "startDate": "2026-09-20",
+      "endDate": "2026-09-20",
+      "startTime": "09:00",
+      "category": "Event",
+      "venue": "5503 Schafisheim",
+      "comune": "Schafisheim",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/inflagranti-tag-der-offenen-tuer-bei-der-kantonspolizei-aargau/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "AG",
+          "comune": "Schafisheim",
+          "slug": "inflagranti-tag-der-offenen-tur-bei-der-kantonspolizei-2026-09-20"
+        }
+      ],
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-generico-svizzera-urbana-autunno-inverno.webp",
+      "imageAssetId": "event-generico-svizzera-urbana-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
     },
     {
       "id": "guidle:AsCJCtD",
@@ -87216,6 +87834,35 @@
       "descriptionRewriteValidated": true
     },
     {
+      "id": "tio-agenda:63869",
+      "title": "Denise Gordon & the Ticino Gang",
+      "titleByLocale": {
+        "it": "Denise Gordon & the Ticino Gang",
+        "de": "Denise Gordon & die Tessiner Bande",
+        "fr": "Denise Gordon & la bande du Tessin"
+      },
+      "startDate": "2026-09-21",
+      "startTime": "20:30",
+      "category": "musica",
+      "venue": "Lux",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260921/63869",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-musica-ticino-confine-autunno-inverno-v02.webp",
+      "imageAssetId": "event-musica-ticino-confine-autunno-inverno-v02",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
       "id": "myswitzerland:db2a3b00b3f848e2bc6246258f6da82f",
       "title": "Gilgamesch, mein Sternenschiff",
       "titleByLocale": {
@@ -87291,6 +87938,37 @@
       "comune": "Genève",
       "imageUrl": "/images/events/library/event-generico-svizzera-urbana-autunno-inverno.webp",
       "imageAssetId": "event-generico-svizzera-urbana-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
+      "id": "myswitzerland:20439a36b79a44c28e451bc2f064d4f3",
+      "title": "Swisscom Football Camp Meiringen",
+      "titleByLocale": {
+        "it": "Swisscom Football Camp Meiringen",
+        "en": "Swisscom Football Camp Meiringen",
+        "de": "Swisscom Football Camp Meiringen",
+        "fr": "Swisscom Football Camp Meiringen"
+      },
+      "startDate": "2026-09-21",
+      "endDate": "2026-09-25",
+      "startTime": "02:00",
+      "category": "Sports",
+      "venue": "Fussballplatz Wiltschen",
+      "comune": "Hasliberg",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/swisscom-football-camp-meiringen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "c488a896e759739c2cb5a1d968f6188b1f5e97a6",
+        "sourceGeneratedAt": "2026-09-25T11:50:45.994Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-sport-svizzera-urbana-autunno-inverno.webp",
+      "imageAssetId": "event-sport-svizzera-urbana-autunno-inverno",
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
@@ -87773,6 +88451,36 @@
       "descriptionRewriteValidated": true
     },
     {
+      "id": "tio-agenda:63695",
+      "title": "L'educazione accogliente",
+      "titleByLocale": {
+        "it": "L'educazione accogliente",
+        "en": "Welcoming education",
+        "de": "Die freundliche Erziehung",
+        "fr": "L'éducation accueillante"
+      },
+      "startDate": "2026-09-22",
+      "startTime": "18:00",
+      "category": "conferenze",
+      "venue": "Biblioteca cantonale",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260922/63695",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-conferenza-formazione-ticino-confine-autunno-inverno.webp",
+      "imageAssetId": "event-conferenza-formazione-ticino-confine-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
       "id": "guidle:AvUgpBe",
       "title": "Lute (Dreamville/US)",
       "titleByLocale": {
@@ -87792,6 +88500,74 @@
       "sourceName": "Guidle",
       "imageUrl": "/images/events/library/event-generico-svizzera-urbana-autunno-inverno.webp",
       "imageAssetId": "event-generico-svizzera-urbana-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
+      "id": "tio-agenda:63702",
+      "title": "Mondonatura: mostra fotografica di Daniela Poletti - Vernissage",
+      "titleByLocale": {
+        "it": "Mondonatura: mostra fotografica di Daniela Poletti - Vernissage",
+        "en": "Mondonatura: photographic exhibition by Daniela Poletti - Vernissage",
+        "de": "Mondonatura: Fotoausstellung von Daniela Poletti - Vernissage",
+        "fr": "Mondonatura : exposition photographique de Daniela Poletti - Vernissage"
+      },
+      "startDate": "2026-09-22",
+      "startTime": "16:30",
+      "category": "appuntamenti",
+      "venue": "Spazio Sociale ManoVella",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260922/63702",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "mondonatura-mostra-fotografica-di-daniela-poletti-vernissage-2026-09-22"
+        }
+      ],
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-mostra-museo-ticino-confine-autunno-inverno-v02.webp",
+      "imageAssetId": "event-mostra-museo-ticino-confine-autunno-inverno-v02",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
+      "id": "myswitzerland:5a179696d761483cb8a181dbb2e491fd",
+      "title": "Mostra del bestiame di Herisau",
+      "titleByLocale": {
+        "it": "Mostra del bestiame di Herisau",
+        "en": "Herisau cattle show",
+        "de": "Viehschau Herisau",
+        "fr": "Exposition de bétail à Herisau"
+      },
+      "startDate": "2026-09-22",
+      "endDate": "2026-09-22",
+      "startTime": "09:30",
+      "category": "Event",
+      "venue": "9100 Herisau",
+      "comune": "Herisau",
+      "canton": "AR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/mostra-del-bestiame-di-herisau/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-mostra-museo-alpi-montagna-autunno-inverno-v02.webp",
+      "imageAssetId": "event-mostra-museo-alpi-montagna-autunno-inverno-v02",
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
@@ -90179,6 +90955,37 @@
       "descriptionRewriteValidated": true
     },
     {
+      "id": "myswitzerland:98118e18d831497abdb5cda194ed2325",
+      "title": "\"WENN DER BERG KOMMT\"",
+      "titleByLocale": {
+        "it": "\"WENN DER BERG KOMMT\"",
+        "en": "\"WENN DER BERG KOMMT\"",
+        "de": "\"WENN DER BERG KOMMT\"",
+        "fr": "\"WENN DER BERG KOMMT\""
+      },
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-25",
+      "startTime": "19:30",
+      "category": "Event",
+      "venue": "Brig",
+      "comune": "Brig-Glis",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/wenn-der-berg-kommt/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "c488a896e759739c2cb5a1d968f6188b1f5e97a6",
+        "sourceGeneratedAt": "2026-09-25T11:50:45.994Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-generico-alpi-montagna-autunno-inverno.webp",
+      "imageAssetId": "event-generico-alpi-montagna-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
       "id": "myswitzerland:ab88d2808ae34a739ddeb99ccbd34d2a",
       "title": "«MalRaum» – Fortlaufender Gruppenkurs",
       "titleByLocale": {
@@ -90363,6 +91170,68 @@
       ],
       "imageUrl": "/images/events/library/event-musica-svizzera-urbana-autunno-inverno.webp",
       "imageAssetId": "event-musica-svizzera-urbana-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
+      "id": "myswitzerland:89d9806072734aa69873aa2f01b5b488",
+      "title": "Cena di beneficenza al Fairmont Montreux Palace a favore di Morija",
+      "titleByLocale": {
+        "it": "Cena di beneficenza al Fairmont Montreux Palace a favore di Morija",
+        "en": "Charity dinner at the Fairmont Montreux Palace in aid of Morija",
+        "de": "Charity-Dinner im Fairmont Montreux Palace zugunsten von Morija",
+        "fr": "Golf caritatif - 2ème OPEN Morija Au Golf Les Bois"
+      },
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-25",
+      "startTime": "09:00",
+      "category": "Music",
+      "venue": "Golf Les Bois",
+      "comune": "Les Bois",
+      "canton": "JU",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/charity-dinner-im-fairmont-montreux-palace-zugunsten-von-morija-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "c488a896e759739c2cb5a1d968f6188b1f5e97a6",
+        "sourceGeneratedAt": "2026-09-25T11:50:45.994Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-musica-laghi-autunno-inverno-v03.webp",
+      "imageAssetId": "event-musica-laghi-autunno-inverno-v03",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
+      "id": "myswitzerland:7ca78dda19b146eaae9a750b8506cbc7",
+      "title": "CES PETITS RIENS",
+      "titleByLocale": {
+        "it": "CES PETITS RIENS",
+        "en": "CES PETITS RIENS",
+        "de": "CES PETITS RIENS",
+        "fr": "CES PETITS RIENS"
+      },
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-26",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Sierre",
+      "comune": "Sierre",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/ces-petits-riens/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "0f454a9196b7e1923057874ed8499dbd5c82ec62",
+        "sourceGeneratedAt": "2026-09-26T11:04:31.511Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-generico-alpi-montagna-autunno-inverno.webp",
+      "imageAssetId": "event-generico-alpi-montagna-autunno-inverno",
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
@@ -91061,6 +91930,37 @@
       "descriptionRewriteValidated": true
     },
     {
+      "id": "guidle:AM8YUVC",
+      "title": "Intelligenza artificiale: La mente sotto assedio",
+      "titleByLocale": {
+        "it": "Intelligenza artificiale: La mente sotto assedio",
+        "en": "Intelligenza artificiale: La mente sotto assedio",
+        "de": "Intelligenza artificiale: La mente sotto assedio",
+        "fr": "Intelligenza artificiale: La mente sotto assedio"
+      },
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-25",
+      "startTime": "20:00",
+      "category": "Media nuove",
+      "venue": "Aula riformata Poschiavo",
+      "comune": "Poschiavo",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/eventi/conoscenza/poschiavo/intelligenza-artificiale-la-mente-sotto-assedio_AM8YUVC",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "recoveryEvidence": {
+        "sourceSnapshot": "c488a896e759739c2cb5a1d968f6188b1f5e97a6",
+        "sourceGeneratedAt": "2026-09-25T11:50:45.994Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-generico-alpi-montagna-autunno-inverno.webp",
+      "imageAssetId": "event-generico-alpi-montagna-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
       "id": "myswitzerland:c9cf60583bd54d7d8c5975c2294fda71",
       "title": "Jassen am Freitag",
       "titleByLocale": {
@@ -91675,6 +92575,28 @@
       "imageProvider": "openai-codex"
     },
     {
+      "id": "ge-agenda:pulse-oxmo-puccino-caroline-meng-orchestre-geca",
+      "title": "PULSE Oxmo Puccino, Caroline Meng & Orchestre GECA",
+      "startDate": "2026-09-25",
+      "category": "Concert",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/pulse-oxmo-puccino-caroline-meng-orchestre-geca",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "recoveryEvidence": {
+        "sourceSnapshot": "c488a896e759739c2cb5a1d968f6188b1f5e97a6",
+        "sourceGeneratedAt": "2026-09-25T11:50:45.994Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-generico-svizzera-urbana-autunno-inverno.webp",
+      "imageAssetId": "event-generico-svizzera-urbana-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
       "id": "ge-agenda:rencontres-internationales-geneve",
       "title": "Rencontres Internationales de Genève",
       "startDate": "2026-09-25",
@@ -92038,6 +92960,37 @@
         "fr": "Cette manifestation théâtrale a lieu au Kloster Kappel, à Kappel am Albis. Le programme s’inspire de poèmes sur les arbres et comprend l’écriture de textes personnels autour du changement, de l’espoir et de la force intérieure."
       },
       "descriptionRewriteValidated": true
+    },
+    {
+      "id": "myswitzerland:b7978a6b2c4943c9925ad610d668bcbf",
+      "title": "Vernissage: zwei künstlerische Resonanzen aus dem Landesplattenberg",
+      "titleByLocale": {
+        "it": "Vernissage: zwei künstlerische Resonanzen aus dem Landesplattenberg",
+        "en": "Vernissage: zwei künstlerische Resonanzen aus dem Landesplattenberg",
+        "de": "Vernissage: zwei künstlerische Resonanzen aus dem Landesplattenberg",
+        "fr": "Vernissage: zwei künstlerische Resonanzen aus dem Landesplattenberg"
+      },
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-25",
+      "startTime": "18:00",
+      "category": "Event",
+      "venue": "Landesbibliothek des Kantons Glarus",
+      "comune": "Glarus",
+      "canton": "GL",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/vernissage-zwei-kuenstlerische-resonanzen-aus-dem-landesplattenberg/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "c488a896e759739c2cb5a1d968f6188b1f5e97a6",
+        "sourceGeneratedAt": "2026-09-25T11:50:45.994Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-generico-alpi-montagna-autunno-inverno.webp",
+      "imageAssetId": "event-generico-alpi-montagna-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
     },
     {
       "id": "myswitzerland:1b20c89cd52841e8b0cf2bcf448dbc5e",
@@ -92531,6 +93484,37 @@
       "imageProvider": "openai-codex"
     },
     {
+      "id": "myswitzerland:64e35de2a73647238e9ced1abaf2d080",
+      "title": "Bärencup 2026",
+      "titleByLocale": {
+        "it": "Bärencup 2026",
+        "en": "Bärencup 2026",
+        "de": "Bärencup 2026",
+        "fr": "Bärencup 2026"
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Cham",
+      "comune": "Cham",
+      "canton": "ZG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/baerencup-2026/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "0f454a9196b7e1923057874ed8499dbd5c82ec62",
+        "sourceGeneratedAt": "2026-09-26T11:04:31.511Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-generico-svizzera-urbana-autunno-inverno.webp",
+      "imageAssetId": "event-generico-svizzera-urbana-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
       "id": "myswitzerland:5fa960c6c06544bda0bc2f7d91b11808",
       "title": "BASALTTHEATER BASEL Szenische Lesung mit Piano: Arthur Schnitzler, Fräulein Else",
       "titleByLocale": {
@@ -92623,6 +93607,37 @@
       "sourceDescriptionHash": "c5be79e38da12e76c647a1871cce7f85f6251e0834a49402c0b5a2dc36f6725b",
       "imageUrl": "/images/events/library/event-generico-svizzera-urbana-autunno-inverno.webp",
       "imageAssetId": "event-generico-svizzera-urbana-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
+      "id": "myswitzerland:bdf8d697a38f4956a7e786746ec14e40",
+      "title": "Big Autumn Market",
+      "titleByLocale": {
+        "it": "Big Autumn Market",
+        "en": "Big Autumn Market",
+        "de": "Grosser Herbstmarkt",
+        "fr": "Grand marché d'automne"
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "08:00",
+      "category": "Event",
+      "venue": "Centre ville",
+      "comune": "Morges",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/grosser-herbstmarkt/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "0f454a9196b7e1923057874ed8499dbd5c82ec62",
+        "sourceGeneratedAt": "2026-09-26T11:04:31.511Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-mercato-natale-svizzera-urbana-autunno-inverno-v03.webp",
+      "imageAssetId": "event-mercato-natale-svizzera-urbana-autunno-inverno-v03",
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
@@ -94288,6 +95303,37 @@
       "imageProvider": "openai-codex"
     },
     {
+      "id": "myswitzerland:1e71d2f8ffa54b15a9ba10fa0bc81b71",
+      "title": "Maman Sort Danser",
+      "titleByLocale": {
+        "it": "Maman Sort Danser",
+        "en": "Maman Sort Danser",
+        "de": "Maman Sort Danser",
+        "fr": "Maman Sort Danser"
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "L'After",
+      "comune": "Nyon",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/maman-sort-danser-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "0f454a9196b7e1923057874ed8499dbd5c82ec62",
+        "sourceGeneratedAt": "2026-09-26T11:04:31.511Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-generico-svizzera-urbana-autunno-inverno.webp",
+      "imageAssetId": "event-generico-svizzera-urbana-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
       "id": "myswitzerland:ece73dd93d4c40dfa66414a0e403cada",
       "title": "Mercato delle pulci Flumserei",
       "titleByLocale": {
@@ -95653,6 +96699,37 @@
       "sourceDescriptionHash": "31a77189e4575c4f1a31e6a7f713e3a0e394891c62da9afa2afef95a8e9e18a9",
       "imageUrl": "/images/events/library/event-sport-svizzera-urbana-autunno-inverno.webp",
       "imageAssetId": "event-sport-svizzera-urbana-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
+      "id": "myswitzerland:b398374cd8d44516b3124bb9bf139e1a",
+      "title": "Ursy’s Autumn Market",
+      "titleByLocale": {
+        "it": "Ursy’s Autumn Market",
+        "en": "Ursy’s Autumn Market",
+        "de": "Herbstmarkt in Ursy",
+        "fr": "Marché d’automne d’Ursy"
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Ursy s'anime",
+      "comune": "Ursy",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/ursys-autumn-market/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "0f454a9196b7e1923057874ed8499dbd5c82ec62",
+        "sourceGeneratedAt": "2026-09-26T11:04:31.511Z",
+        "verifiedOn": "2026-11-28"
+      },
+      "imageUrl": "/images/events/library/event-mercato-natale-laghi-autunno-inverno-v02.webp",
+      "imageAssetId": "event-mercato-natale-laghi-autunno-inverno-v02",
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
@@ -147960,6 +149037,13 @@
         "fr": "Train historique - Le pain des Centovalli"
       },
       "sourceDescriptionHash": "5bd2d9e6d30b98b43f09cdf9dbb12e1131ceb0f70c453c4782d27a4fe0f2477f",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Centovalli",
+          "slug": "treno-storico-il-pane-delle-centovalli-2026-10-04"
+        }
+      ],
       "italianFrontierComuni": [
         "Valle Cannobina",
         "Re",
@@ -641060,7 +642144,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il festival si svolge ogni anno in onore di uno scrittore argentino. È legato al quarantesimo anniversario della sua morte a Ginevra.",
+      "descriptionByLocale": {
+        "it": "Il festival si svolge ogni anno in onore di uno scrittore argentino. È legato al quarantesimo anniversario della sua morte a Ginevra.",
+        "en": "The festival is held annually in tribute to an Argentine writer. It is linked to the 40th anniversary of his death in Geneva.",
+        "de": "Das Festival findet jährlich statt und würdigt einen argentinischen Schriftsteller. Anlass ist der vierzigste Jahrestag seines Todes in Genf.",
+        "fr": "Ce festival annuel rend hommage à un écrivain argentin. Il est lié au quarantième anniversaire de son décès à Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:9750da165e3344a8aefd82a0c598ca1f",
@@ -645025,7 +646117,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "ICDL Workforce Base è un percorso di informatica per amatori a Zurigo, dedicato all’uso pratico degli strumenti digitali. Si occupa delle competenze di base per computer e servizi online, oltre che delle funzioni essenziali di Word, Excel e PowerPoint per lavorare con documenti, calcoli e presentazioni.",
+      "descriptionByLocale": {
+        "it": "ICDL Workforce Base è un percorso di informatica per amatori a Zurigo, dedicato all’uso pratico degli strumenti digitali. Si occupa delle competenze di base per computer e servizi online, oltre che delle funzioni essenziali di Word, Excel e PowerPoint per lavorare con documenti, calcoli e presentazioni.",
+        "en": "ICDL Workforce Base is an introductory computing course for hobbyists in Zurich, focused on practical digital skills. It covers computer and online fundamentals, along with core Word, Excel and PowerPoint functions for working with documents, calculations and presentations.",
+        "de": "ICDL Workforce Base ist ein Informatikkurs für Amateure in Zürich mit Schwerpunkt auf praktischen digitalen Kompetenzen. Behandelt werden Computer- und Online-Grundlagen sowie zentrale Funktionen von Word, Excel und PowerPoint für Dokumente, Berechnungen und Präsentationen.",
+        "fr": "ICDL Workforce Base est un cours d’informatique pour amateurs à Zurich, axé sur les compétences numériques pratiques. Il aborde les bases de l’informatique et des services en ligne, ainsi que les fonctions essentielles de Word, Excel et PowerPoint pour créer des documents, effectuer des calculs et préparer des présentations."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a0b96fb896f04c08a60b5cf4a8a54211",
@@ -652797,7 +653897,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Langenthal, l’OldCapitol ospita un quiz a tema mondiale. Le squadre si affrontano in una gara di domande condotta da un moderatore.",
+      "descriptionByLocale": {
+        "it": "A Langenthal, l’OldCapitol ospita un quiz a tema mondiale. Le squadre si affrontano in una gara di domande condotta da un moderatore.",
+        "en": "OldCapitol in Langenthal hosts a quiz with a world theme. Teams compete by answering questions in a format led by a moderator.",
+        "de": "Im OldCapitol in Langenthal findet ein Quiz mit Weltthema statt. Teams treten in einem von einer Moderation geleiteten Fragenwettbewerb gegeneinander an.",
+        "fr": "L’OldCapitol, à Langenthal, accueille un quiz sur le thème du monde. Les équipes s’affrontent lors d’un jeu de questions animé par un modérateur."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:3fdfa24e46404f61b7484cfc5cfd0eee",
@@ -667394,7 +668502,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Al Lindenhof si tiene un laboratorio dedicato alla distillazione del gin. I partecipanti possono preparare il proprio gin e portarlo a casa.",
+      "descriptionByLocale": {
+        "it": "Al Lindenhof si tiene un laboratorio dedicato alla distillazione del gin. I partecipanti possono preparare il proprio gin e portarlo a casa.",
+        "en": "Lindenhof hosts a workshop focused on gin distillation. Participants can make their own gin and take it home.",
+        "de": "Im Lindenhof findet ein Workshop zur Destillation von Gin statt. Die Teilnehmenden können ihren eigenen Gin herstellen und mit nach Hause nehmen.",
+        "fr": "Le Lindenhof accueille un atelier consacré à la distillation du gin. Les participants peuvent préparer leur propre gin et l’emporter chez eux."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:ab8fd213ac5a47c58caa4afd02b9bfcc",
@@ -795482,7 +796598,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento si svolge ad Appenzello e prevede un servizio di ristorazione. La musica accompagnerà la festa fino alle prime ore del mattino; il programma dettagliato sarà comunicato in seguito.",
+      "descriptionByLocale": {
+        "it": "L’evento si svolge ad Appenzello e prevede un servizio di ristorazione. La musica accompagnerà la festa fino alle prime ore del mattino; il programma dettagliato sarà comunicato in seguito.",
+        "en": "This gathering in Appenzell includes food service. Music is planned to continue into the morning, while the detailed programme has not yet been provided.",
+        "de": "In Appenzell ist ein Fest mit Verpflegungsangebot vorgesehen. Musik soll bis in die frühen Morgenstunden zu hören sein; nähere Angaben zum Ablauf liegen noch nicht vor.",
+        "fr": "Cette fête à Appenzell prévoit une offre de restauration. La musique doit se poursuivre jusque dans la matinée, et le programme précis n’a pas encore été communiqué."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A75gbjF",

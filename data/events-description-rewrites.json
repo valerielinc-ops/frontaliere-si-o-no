@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-28T19:44:59.719Z",
+  "generatedAt": "2026-11-28T20:30:33.865Z",
   "model": "gpt-6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -34278,6 +34278,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-22T13:16:12.466Z"
     },
+    "guidle:AACCqNF::2b7ae56197cb5a895556d75b713310254e9c3a121502fda1a8fea9b398d0614e": {
+      "id": "guidle:AACCqNF",
+      "sourceDescriptionHash": "2b7ae56197cb5a895556d75b713310254e9c3a121502fda1a8fea9b398d0614e",
+      "description": "A Langenthal, l’OldCapitol ospita un quiz a tema mondiale. Le squadre si affrontano in una gara di domande condotta da un moderatore.",
+      "descriptionByLocale": {
+        "it": "A Langenthal, l’OldCapitol ospita un quiz a tema mondiale. Le squadre si affrontano in una gara di domande condotta da un moderatore.",
+        "en": "OldCapitol in Langenthal hosts a quiz with a world theme. Teams compete by answering questions in a format led by a moderator.",
+        "de": "Im OldCapitol in Langenthal findet ein Quiz mit Weltthema statt. Teams treten in einem von einer Moderation geleiteten Fragenwettbewerb gegeneinander an.",
+        "fr": "L’OldCapitol, à Langenthal, accueille un quiz sur le thème du monde. Les équipes s’affrontent lors d’un jeu de questions animé par un modérateur."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T20:19:18.619Z"
+    },
     "guidle:AacKXSx::0c3574b365c333a82ca81385f1d310e4d1a79cf937ece583977c95c53c418315": {
       "id": "guidle:AacKXSx",
       "sourceDescriptionHash": "0c3574b365c333a82ca81385f1d310e4d1a79cf937ece583977c95c53c418315",
@@ -53542,6 +53556,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T14:16:47.532Z"
     },
+    "guidle:Am7AiMA::de01c7254d6b254df424f7d97264ceab470e88cff6bbde46d28fd187d74ea38a": {
+      "id": "guidle:Am7AiMA",
+      "sourceDescriptionHash": "de01c7254d6b254df424f7d97264ceab470e88cff6bbde46d28fd187d74ea38a",
+      "description": "Il festival si svolge ogni anno in onore di uno scrittore argentino. È legato al quarantesimo anniversario della sua morte a Ginevra.",
+      "descriptionByLocale": {
+        "it": "Il festival si svolge ogni anno in onore di uno scrittore argentino. È legato al quarantesimo anniversario della sua morte a Ginevra.",
+        "en": "The festival is held annually in tribute to an Argentine writer. It is linked to the 40th anniversary of his death in Geneva.",
+        "de": "Das Festival findet jährlich statt und würdigt einen argentinischen Schriftsteller. Anlass ist der vierzigste Jahrestag seines Todes in Genf.",
+        "fr": "Ce festival annuel rend hommage à un écrivain argentin. Il est lié au quarantième anniversaire de son décès à Genève."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T20:17:38.375Z"
+    },
     "guidle:Am7n5yM::bbf74719036cb9de26842b5278a9d104630aaf580d1e359eafb5631fa2efd914": {
       "id": "guidle:Am7n5yM",
       "sourceDescriptionHash": "bbf74719036cb9de26842b5278a9d104630aaf580d1e359eafb5631fa2efd914",
@@ -61396,6 +61424,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-16T10:44:28.429Z"
     },
+    "guidle:ARrvMSr::c53f88633b647972dae1d2917e72964f41f8b2814a26f13d8d7d7ff99c3c48c5": {
+      "id": "guidle:ARrvMSr",
+      "sourceDescriptionHash": "c53f88633b647972dae1d2917e72964f41f8b2814a26f13d8d7d7ff99c3c48c5",
+      "description": "ICDL Workforce Base è un percorso di informatica per amatori a Zurigo, dedicato all’uso pratico degli strumenti digitali. Si occupa delle competenze di base per computer e servizi online, oltre che delle funzioni essenziali di Word, Excel e PowerPoint per lavorare con documenti, calcoli e presentazioni.",
+      "descriptionByLocale": {
+        "it": "ICDL Workforce Base è un percorso di informatica per amatori a Zurigo, dedicato all’uso pratico degli strumenti digitali. Si occupa delle competenze di base per computer e servizi online, oltre che delle funzioni essenziali di Word, Excel e PowerPoint per lavorare con documenti, calcoli e presentazioni.",
+        "en": "ICDL Workforce Base is an introductory computing course for hobbyists in Zurich, focused on practical digital skills. It covers computer and online fundamentals, along with core Word, Excel and PowerPoint functions for working with documents, calculations and presentations.",
+        "de": "ICDL Workforce Base ist ein Informatikkurs für Amateure in Zürich mit Schwerpunkt auf praktischen digitalen Kompetenzen. Behandelt werden Computer- und Online-Grundlagen sowie zentrale Funktionen von Word, Excel und PowerPoint für Dokumente, Berechnungen und Präsentationen.",
+        "fr": "ICDL Workforce Base est un cours d’informatique pour amateurs à Zurich, axé sur les compétences numériques pratiques. Il aborde les bases de l’informatique et des services en ligne, ainsi que les fonctions essentielles de Word, Excel et PowerPoint pour créer des documents, effectuer des calculs et préparer des présentations."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T20:19:32.901Z"
+    },
     "guidle:ARs6hJP::5df20ed13a4139034b82677f0701ab0cfb0711869b04a0e61c0ae666d69bccbb": {
       "id": "guidle:ARs6hJP",
       "sourceDescriptionHash": "5df20ed13a4139034b82677f0701ab0cfb0711869b04a0e61c0ae666d69bccbb",
@@ -65343,6 +65385,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-14T17:28:14.742Z"
+    },
+    "guidle:AU44cSS::548c95215762d96c20f4d6356971f0efbe35cb3062a3b9bc5f5c109fe1916a10": {
+      "id": "guidle:AU44cSS",
+      "sourceDescriptionHash": "548c95215762d96c20f4d6356971f0efbe35cb3062a3b9bc5f5c109fe1916a10",
+      "description": "Al Lindenhof si tiene un laboratorio dedicato alla distillazione del gin. I partecipanti possono preparare il proprio gin e portarlo a casa.",
+      "descriptionByLocale": {
+        "it": "Al Lindenhof si tiene un laboratorio dedicato alla distillazione del gin. I partecipanti possono preparare il proprio gin e portarlo a casa.",
+        "en": "Lindenhof hosts a workshop focused on gin distillation. Participants can make their own gin and take it home.",
+        "de": "Im Lindenhof findet ein Workshop zur Destillation von Gin statt. Die Teilnehmenden können ihren eigenen Gin herstellen und mit nach Hause nehmen.",
+        "fr": "Le Lindenhof accueille un atelier consacré à la distillation du gin. Les participants peuvent préparer leur propre gin et l’emporter chez eux."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T20:20:56.187Z"
     },
     "guidle:AU4AmRU::4f116932278350f490ea6ead84b256ee170a5b67d262fa21d02eb6c322b23b27": {
       "id": "guidle:AU4AmRU",
@@ -106153,6 +106209,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-14T08:44:07.504Z"
+    },
+    "myswitzerland:43496dd02cbe4bb5990bb93b8122d6b8::2dad36e96464007e6d8f69a72d878ed2f7c38f87c141997d54fe8698cf70a772": {
+      "id": "myswitzerland:43496dd02cbe4bb5990bb93b8122d6b8",
+      "sourceDescriptionHash": "2dad36e96464007e6d8f69a72d878ed2f7c38f87c141997d54fe8698cf70a772",
+      "description": "L’evento si svolge ad Appenzello e prevede un servizio di ristorazione. La musica accompagnerà la festa fino alle prime ore del mattino; il programma dettagliato sarà comunicato in seguito.",
+      "descriptionByLocale": {
+        "it": "L’evento si svolge ad Appenzello e prevede un servizio di ristorazione. La musica accompagnerà la festa fino alle prime ore del mattino; il programma dettagliato sarà comunicato in seguito.",
+        "en": "This gathering in Appenzell includes food service. Music is planned to continue into the morning, while the detailed programme has not yet been provided.",
+        "de": "In Appenzell ist ein Fest mit Verpflegungsangebot vorgesehen. Musik soll bis in die frühen Morgenstunden zu hören sein; nähere Angaben zum Ablauf liegen noch nicht vor.",
+        "fr": "Cette fête à Appenzell prévoit une offre de restauration. La musique doit se poursuivre jusque dans la matinée, et le programme précis n’a pas encore été communiqué."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T20:20:17.606Z"
     },
     "myswitzerland:4358b247aa6c45d9b25bb89903402493::4fccd1e1142fae5ef05e1c495703f90b65867cfe385d159f635ed41a99c3f9c9": {
       "id": "myswitzerland:4358b247aa6c45d9b25bb89903402493",
@@ -208946,6 +209016,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "guidle:A32Bk1F::32a99b64242665fef43370df5590c2f93e550028b6b52ad10fccd510a6c57d24": {
+      "id": "guidle:A32Bk1F",
+      "sourceDescriptionHash": "32a99b64242665fef43370df5590c2f93e550028b6b52ad10fccd510a6c57d24",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-28T20:25:01.056Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "guidle:A3k8NWy::6cf70d470d7377de6168311a038c239176e8421b20cb5348b891189876e9723e": {
       "id": "guidle:A3k8NWy",
       "sourceDescriptionHash": "6cf70d470d7377de6168311a038c239176e8421b20cb5348b891189876e9723e",
@@ -209120,9 +209199,9 @@
     "guidle:A78Mcgs::3176e101f3469be481617fa724eb2fd2747de7e8291cb8e8f15e94263491e82e": {
       "id": "guidle:A78Mcgs",
       "sourceDescriptionHash": "3176e101f3469be481617fa724eb2fd2747de7e8291cb8e8f15e94263491e82e",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T18:18:25.915Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T20:20:14.015Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -209228,9 +209307,18 @@
     "guidle:A8YCjrf::008c31b9d6203aa8557f9a5b43860751efef3236daab1adf0783a2166f997d1c": {
       "id": "guidle:A8YCjrf",
       "sourceDescriptionHash": "008c31b9d6203aa8557f9a5b43860751efef3236daab1adf0783a2166f997d1c",
+      "code": "new-number",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T20:18:28.403Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:A8YEDVj::be07e5cd12b9c8fd8647d3208e89360804cfdc139db3dc430eb84e9d0ae12d04": {
+      "id": "guidle:A8YEDVj",
+      "sourceDescriptionHash": "be07e5cd12b9c8fd8647d3208e89360804cfdc139db3dc430eb84e9d0ae12d04",
       "code": "new-name",
       "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T18:26:13.312Z",
+      "lastAttemptAt": "2026-11-28T20:25:56.806Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -209258,15 +209346,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-13T14:48:26.115Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AACCqNF::2b7ae56197cb5a895556d75b713310254e9c3a121502fda1a8fea9b398d0614e": {
-      "id": "guidle:AACCqNF",
-      "sourceDescriptionHash": "2b7ae56197cb5a895556d75b713310254e9c3a121502fda1a8fea9b398d0614e",
-      "code": "sentence-count",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T18:26:59.814Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -209337,8 +209416,8 @@
       "id": "guidle:ABBiqdY",
       "sourceDescriptionHash": "bc8e4699a310e2d3897a853c862bd07a1ecea6518cb63607ce89eff8954ae8cb",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T18:36:52.800Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T20:25:23.059Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -209499,8 +209578,8 @@
       "id": "guidle:ADbcdwx",
       "sourceDescriptionHash": "b0f002305bebf14b7d98f45b233f47cce8ec2f1e2678f396c50521ce73f702d3",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T18:21:17.584Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T20:22:28.448Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -209967,8 +210046,8 @@
       "id": "guidle:AiXfEwW",
       "sourceDescriptionHash": "9c13b75e225dadbf83a2ed3ce08318e720a7d6796f5bf44da9d53148e7738483",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T18:30:04.513Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T20:21:32.313Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -210248,15 +210327,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-12T23:29:56.068Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:Am7AiMA::de01c7254d6b254df424f7d97264ceab470e88cff6bbde46d28fd187d74ea38a": {
-      "id": "guidle:Am7AiMA",
-      "sourceDescriptionHash": "de01c7254d6b254df424f7d97264ceab470e88cff6bbde46d28fd187d74ea38a",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T18:21:25.672Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -210764,15 +210834,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:ARrvMSr::c53f88633b647972dae1d2917e72964f41f8b2814a26f13d8d7d7ff99c3c48c5": {
-      "id": "guidle:ARrvMSr",
-      "sourceDescriptionHash": "c53f88633b647972dae1d2917e72964f41f8b2814a26f13d8d7d7ff99c3c48c5",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T18:23:45.090Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:ARutaww::5cb6da0afe8ca4856276e44c7703d6cc8b450b4a35233cc8f8153e1ed4274cce": {
       "id": "guidle:ARutaww",
       "sourceDescriptionHash": "5cb6da0afe8ca4856276e44c7703d6cc8b450b4a35233cc8f8153e1ed4274cce",
@@ -211061,15 +211122,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AU44cSS::548c95215762d96c20f4d6356971f0efbe35cb3062a3b9bc5f5c109fe1916a10": {
-      "id": "guidle:AU44cSS",
-      "sourceDescriptionHash": "548c95215762d96c20f4d6356971f0efbe35cb3062a3b9bc5f5c109fe1916a10",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T18:29:45.068Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:Au6PpUG::10f4ab4a896cf880fe45712b58e33edb641dd18b8f52a055b13c41fbe993aac4": {
       "id": "guidle:Au6PpUG",
       "sourceDescriptionHash": "10f4ab4a896cf880fe45712b58e33edb641dd18b8f52a055b13c41fbe993aac4",
@@ -211182,8 +211234,8 @@
       "id": "guidle:AV9YGvy",
       "sourceDescriptionHash": "9b0a7f8e384952b5fee39aee7349a784e773cab2f0ecc89fe32607b7b8cff54c",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T18:18:39.872Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T20:20:16.552Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -211209,8 +211261,8 @@
       "id": "guidle:AvdGe1G",
       "sourceDescriptionHash": "d8cb11a3cbfa6a96628cfcfc1f85262e7cd11576e4ab3aa027a782ffc20e60b0",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T18:19:19.661Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T20:21:24.435Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -212837,9 +212889,9 @@
     "myswitzerland:3ed6eb822d8a459ca1b4c74999b558a9::eb38fec23acc4e1ad7319f8392c50dc46fa9361784a013780decb02860ebccc0": {
       "id": "myswitzerland:3ed6eb822d8a459ca1b4c74999b558a9",
       "sourceDescriptionHash": "eb38fec23acc4e1ad7319f8392c50dc46fa9361784a013780decb02860ebccc0",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T18:35:56.597Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T20:24:28.205Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -212885,15 +212937,6 @@
       "code": "sentence-count",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-22T21:20:58.978Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:43496dd02cbe4bb5990bb93b8122d6b8::2dad36e96464007e6d8f69a72d878ed2f7c38f87c141997d54fe8698cf70a772": {
-      "id": "myswitzerland:43496dd02cbe4bb5990bb93b8122d6b8",
-      "sourceDescriptionHash": "2dad36e96464007e6d8f69a72d878ed2f7c38f87c141997d54fe8698cf70a772",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T18:28:59.040Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
