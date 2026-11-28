@@ -1,7 +1,7 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-11-28T09:19:58.116Z",
-  "runId": "46128824440",
+  "assembledAt": "2026-11-28T21:27:06.952Z",
+  "runId": "46189762859",
   "jobs": [
     {
       "id": "talan-68cff378c8b2",
@@ -35,7 +35,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:19:49.320Z",
+      "crawledAt": "2026-11-28T21:26:59.529Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -79,7 +79,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:19:49.320Z",
+      "validThrough": "2026-12-28T21:26:59.529Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -113,7 +113,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:19:49.319Z",
+      "crawledAt": "2026-11-28T21:26:59.528Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -157,7 +157,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:19:49.319Z",
+      "validThrough": "2026-12-28T21:26:59.528Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -192,7 +192,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:19:49.318Z",
+      "crawledAt": "2026-11-28T21:26:59.527Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -252,7 +252,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:19:49.318Z",
+      "validThrough": "2026-12-28T21:26:59.527Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -286,7 +286,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000160297069-technical-analyst-power-trading-systems?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:19:49.316Z",
+      "crawledAt": "2026-11-28T21:26:59.526Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -336,7 +336,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T09:19:49.316Z",
+      "validThrough": "2027-02-04T21:26:59.526Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -371,7 +371,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000161839349-sales-manager-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:19:49.315Z",
+      "crawledAt": "2026-11-28T21:26:59.524Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -418,95 +418,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T09:19:49.315Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "talan-c7318f803e71",
-      "slug": "senior-business-analista-orchestrade-talan-geneva",
-      "slugByLocale": {
-        "it": "senior-business-analista-orchestrade-talan-geneva",
-        "en": "senior-business-analyst-orchestra-talan-geneva",
-        "de": "senior-business-analyst-orchester-talan-geneva",
-        "fr": "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Senior Business Analyst – Orchestrade",
-      "titleByLocale": {
-        "it": "Senior Business Analista – Orchestrade",
-        "en": "Senior Business Analyst – Orchestra",
-        "de": "Senior Business Analyst – Orchester",
-        "fr": "Senior Business Analyst – Orchestrade"
-      },
-      "description": "Contexte du poste\n Dans le cadre de la transformation de son système d'information dédié au trading d'énergie, notre client recherche un Senior Business Analyst pour accompagner ses équipes métiers et IT dans la modernisation de ses applications.\n Un projet stratégique de migration vers une nouvelle plateforme ETRM est en cours afin de remplacer le système historique par une solution moderne et évolutive.\n Vous interviendrez à l'interface entre les équipes métiers, les développeurs et les éditeurs afin de recueillir les besoins, formaliser les exigences fonctionnelles et accompagner leur implémentation.\n Responsabilités\n Analyse métier et conception fonctionnelle\n\n• Recueillir, analyser et formaliser les besoins métiers.\n\n• Rédiger les spécifications fonctionnelles, fonctionnalités et User Stories.\n\n• Comprendre les processus de trading et proposer des solutions adaptées aux besoins opérationnels.\n\n• Participer au paramétrage de la plateforme ETRM : configurations, workflows, templates et pricing.\n\n• Collaborer avec les équipes techniques et les éditeurs pour assurer la bonne implémentation des solutions.\n Tests et migration\n\n• Préparer et exécuter les plans de tests fonctionnels.\n\n• Vérifier la conformité des développements avec les spécifications et besoins utilisateurs.\n\n• Participer aux phases de recette utilisateur (UAT).\n\n• Contribuer au projet de migration vers la nouvelle plateforme ETRM.\n\n• Collaborer avec les autres Business Analysts et équipes IT sur les activités de migration.\n Gestion de projet et support\n\n• Participer à la gestion des évolutions applicatives et au suivi du backlog.\n\n• Identifier les opportunités d'amélioration des processus métiers.\n\n• Accompagner les utilisateurs dans la prise en main des solutions.\n\n• Assurer le support fonctionnel et contribuer à la résolution des incidents.\n\n• Documenter les processus et partager les connaissances avec les équipes.\n\n• Minimum 5 ans d'expérience dans le secteur de l'énergie ou du Commodity Trading.\n\n• Expérience sur la plateforme ETRM - Orchestrade obligatoire.\n\n• Bonne compréhension des marchés de l'énergie et du cycle de vie des transactions.\n\n• Connaissance des flux Front-to-Risk , des instruments physiques et financiers et des calculs de P&L .\n\n• Maîtrise du recueil des besoins, de la rédaction de spécifications fonctionnelles et des User Stories.\n\n• Expérience en tests fonctionnels, UAT et projets de migration ETRM.\n\n• Connaissance des méthodologies Agile et DevOps.\n\n• Une connaissance des processus Back-Office et Finance est un plus.\n\n• Formation supérieure en informatique ou ingénierie.\n\n• Français et anglais courants.",
-      "descriptionByLocale": {
-        "it": "Contesto\nNell'ambito della trasformazione del suo sistema di informazioni sul trading energetico, il nostro cliente sta cercando un Senior Business Analyst per supportare i suoi team di business e IT nella modernizzazione delle sue applicazioni.\nUn progetto strategico per migrare a una nuova piattaforma ETRM è in corso per sostituire il sistema storico con una soluzione moderna e scalabile.\nInterverrete all'interfaccia tra team aziendali, sviluppatori ed editori per raccogliere le esigenze, formalizzare i requisiti funzionali e supportare la loro implementazione.\nresponsabilità\nAnalisi aziendale e design funzionale\n\n• Raccogliere, analizzare e formalizzare le esigenze aziendali.\n\n• Scrivere specifiche funzionali, caratteristiche e Storie utente.\n\n• Comprendere i processi di trading e proporre soluzioni su misura per le esigenze operative.\n\n• Partecipa alle impostazioni della piattaforma ETRM: configurazioni, flussi di lavoro, modelli e prezzi.\n\n• Collabora con team tecnici ed editori per garantire la corretta implementazione delle soluzioni.\nTest e migrazione\n\n• Preparare ed eseguire piani di test funzionali.\n\n• Verificare la conformità degli sviluppi con le specifiche e i requisiti degli utenti.\n\n• Partecipa alle Fasi di Ricetta dell'Utente (UAT).\n\n• Contribuisci al progetto di migrazione alla nuova piattaforma ETRM.\n\n• Collabora con altri Business Analysts e team IT sulle attività di migrazione.\nGestione e supporto dei progetti\n\n• Partecipa alla gestione delle evoluzioni applicative e del monitoraggio backlog.\n\n• Identificare le opportunità per migliorare i processi aziendali.\n\n• Supporta gli utenti nella gestione delle soluzioni.\n\n• Fornire supporto funzionale e aiutare a risolvere gli incidenti.\n\n• Processi di documenti e condivisione delle conoscenze con i team.\n\n• Minimo 5 anni di esperienza nel settore energetico o nel Commodity Trading.\n\n• Esperienza sulle piattaforme ETRM (Orchestra, Calypso, Murex, Endur...).\n\n• Buona comprensione dei mercati energetici e del ciclo di vita delle transazioni.\n\n• Conoscenza dei flussi Front-to-Risk, strumenti fisici e finanziari e calcoli P&L.\n\n• Mastery di raccolta delle esigenze, scrittura delle specifiche funzionali e storie degli utenti.\n\n• Esperienza nei progetti di test funzionali, UAT e ETRM migrazione.\n\n• Conoscenza delle metodologie Agile e DevOps.\n\n• La conoscenza dei processi Back-Office e Finance è un plus.\n\n• Formazione avanzata di computer o ingegneria.\n\n• Inglese comune e francese.",
-        "en": "Background\nAs part of the transformation of its energy trading information system, our customer is looking for a Senior Business Analyst to support its business and IT teams in modernizing its applications.\nA strategic project to migrate to a new ETRM platform is underway to replace the historical system with a modern and scalable solution.\nYou will intervene at the interface between business teams, developers and publishers to collect needs, formalize functional requirements and support their implementation.\nResponsibilities\nBusiness analysis and functional design\n\n• Collect, analyse and formalize business needs.\n\n• Write functional specifications, features and User Stories.\n\n• Understand trading processes and propose solutions tailored to operational needs.\n\n• Participate in the ETRM platform settings: configurations, workflows, templates and pricing.\n\n• Collaborate with technical teams and publishers to ensure the correct implementation of solutions.\nTests and migration\n\n• Prepare and execute functional test plans.\n\n• Verify the compliance of developments with user specifications and requirements.\n\n• Participate in User Recipe Phases (UAT).\n\n• Contribute to the migration project to the new ETRM platform.\n\n• Collaborate with other Business Analysts and IT teams on migration activities.\nProject management and support\n\n• Participate in the management of application evolutions and backlog monitoring.\n\n• Identify opportunities for improving business processes.\n\n• Support users in the management of solutions.\n\n• Provide functional support and help resolve incidents.\n\n• Document processes and share knowledge with teams.\n\n• Minimum 5 years of experience in the energy sector or the Commodity Trading.\n\n• Experience on ETRM platforms ( Orchestra, Calypso, Murex, Endur...).\n\n• Good understanding of energy markets and transaction life cycle.\n\n• Knowledge of Front-to-Risk flows, physical and financial instruments and P&L calculations.\n\n• Mastery of needs collection, functional specification writing and User Stories.\n\n• Experience in functional testing, UAT and ETRM migration projects.\n\n• Knowledge of Agile and DevOps methodologies.\n\n• Knowledge of the Back-Office and Finance processes is a plus.\n\n• Advanced computer or engineering training.\n\n• Common English and French.",
-        "de": "Hintergrund\nIm Rahmen der Transformation seines Energiehandelsinformationssystems sucht unser Kunde einen Senior Business Analysten, der seine Geschäfts- und IT-Teams bei der Modernisierung seiner Anwendungen unterstützt.\nEin strategisches Projekt zur Migration auf eine neue ETRM-Plattform ist im Gange, um das historische System durch eine moderne und skalierbare Lösung zu ersetzen.\nSie intervenieren an der Schnittstelle zwischen Business-Teams, Entwicklern und Publishern, um Bedürfnisse zu sammeln, funktionale Anforderungen zu formalisieren und deren Umsetzung zu unterstützen.\nZuständigkeiten\nBusiness Analyse und Functional Design\n\n• Sammeln, Analysieren und Formalisieren von Geschäftsanforderungen.\n\n• Schreiben Sie funktionale Spezifikationen, Features und User Stories.\n\n• Verstehen Sie Handelsprozesse und schlagen Sie Lösungen vor, die auf die operativen Bedürfnisse zugeschnitten sind.\n\n• Nehmen Sie an den ETRM-Plattformeinstellungen teil: Konfigurationen, Workflows, Vorlagen und Preise.\n\n• Arbeiten Sie mit technischen Teams und Publishern zusammen, um die korrekte Implementierung von Lösungen sicherzustellen.\nTests und Migration\n\n• Erstellen und Ausführen von Funktionstestplänen.\n\n• Überprüfung der Übereinstimmung der Entwicklungen mit den Benutzerspezifikationen und -anforderungen.\n\n• Nehmen Sie an User Recipe Phasen (UAT) teil.\n\n• Tragen Sie zum Migrationsprojekt zur neuen ETRM-Plattform bei.\n\n• Arbeiten Sie mit anderen Business Analysten und IT-Teams bei Migrationsaktivitäten zusammen.\nProjektmanagement und Support\n\n• Beteiligen Sie sich am Management von Anwendungsentwicklungen und Backlog-Monitoring.\n\n• Identifizieren Sie Möglichkeiten zur Verbesserung von Geschäftsprozessen.\n\n• Unterstützen Sie Benutzer beim Management von Lösungen.\n\n• Bieten Sie funktionale Unterstützung und helfen Sie, Vorfälle zu lösen.\n\n• Prozesse dokumentieren und Wissen mit Teams teilen.\n\n• Mindestens 5 Jahre Erfahrung im Energiesektor oder im Rohstoffhandel.\n\n• Erfahrung auf ETRM-Plattformen (Orchester, Calypso, Murex, Endur...).\n\n• Gutes Verständnis der Energiemärkte und des Transaktionslebenszyklus.\n\n• Kenntnis von Front-to-Risk-Flows, physischen und Finanzinstrumenten und P&L-Berechnungen.\n\n• Beherrschung der Bedürfnisse Sammlung, funktionale Spezifikation Schreiben und User Stories.\n\n• Erfahrung in Funktionstests, UAT- und ETRM-Migrationsprojekten.\n\n• Kenntnisse der Agile- und DevOps-Methoden.\n\n• Die Kenntnis der Back-Office- und Finanzprozesse ist ein Plus.\n\n• Fortgeschrittene Computer- oder Ingenieurausbildung.\n\n• Englisch und Französisch.",
-        "fr": "Contexte du poste\nDans le cadre de la transformation de son système d'information dédié au trading d'énergie, notre client recherche un Senior Business Analyst pour accompagner ses équipes métiers et IT dans la modernisation de ses applications.\nUn projet stratégique de migration vers une nouvelle plateforme ETRM est en cours afin de remplacer le système historique par une solution moderne et évolutive.\nVous interviendrez à l'interface entre les équipes métiers, les développeurs et les éditeurs afin de recueillir les besoins, formaliser les exigences fonctionnelles et accompagner leur implémentation.\nResponsabilités\nAnalyse métier et conception fonctionnelle\n\n• Recueillir, analyser et formaliser les besoins métiers.\n\n• Rédiger les spécifications fonctionnelles, fonctionnalités et User Stories.\n\n• Comprendre les processus de trading et proposer des solutions adaptées aux besoins opérationnels.\n\n• Participer au paramétrage de la plateforme ETRM : configurations, workflows, templates et pricing.\n\n• Collaborer avec les équipes techniques et les éditeurs pour assurer la bonne implémentation des solutions.\nTests et migration\n\n• Préparer et exécuter les plans de tests fonctionnels.\n\n• Vérifier la conformité des développements avec les spécifications et besoins utilisateurs.\n\n• Participer aux phases de recette utilisateur (UAT).\n\n• Contribuer au projet de migration vers la nouvelle plateforme ETRM.\n\n• Collaborer avec les autres Business Analysts et équipes IT sur les activités de migration.\nGestion de projet et support\n\n• Participer à la gestion des évolutions applicatives et au suivi du backlog.\n\n• Identifier les opportunités d'amélioration des processus métiers.\n\n• Accompagner les utilisateurs dans la prise en main des solutions.\n\n• Assurer le support fonctionnel et contribuer à la résolution des incidents.\n\n• Documenter les processus et partager les connaissances avec les équipes.\n\n• Minimum 5 ans d'expérience dans le secteur de l'énergie ou du Commodity Trading.\n\n• Expérience sur la plateforme ETRM - Orchestrade obligatoire.\n\n• Bonne compréhension des marchés de l'énergie et du cycle de vie des transactions.\n\n• Connaissance des flux Front-to-Risk , des instruments physiques et financiers et des calculs de P&L .\n\n• Maîtrise du recueil des besoins, de la rédaction de spécifications fonctionnelles et des User Stories.\n\n• Expérience en tests fonctionnels, UAT et projets de migration ETRM.\n\n• Connaissance des méthodologies Agile et DevOps.\n\n• Une connaissance des processus Back-Office et Finance est un plus.\n\n• Formation supérieure en informatique ou ingénierie.\n\n• Français et anglais courants."
-      },
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000164051558-senior-business-analyst-orchestrade?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:19:49.313Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-27T14:52:07.539Z",
-      "postedDate": "2026-11-27T14:52:07.539Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000164051558-senior-business-analyst-orchestrade?oga=true",
-      "jobReqId": "744000164051558",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland",
-        "senior-business-analista-orchestrade-talan-geneva-4b8f4554ad",
-        "senior-business-analista-orchestrade-talan-geneva-0d82f93a1b"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland",
-          "senior-business-analista-orchestrade-talan-geneva-4b8f4554ad",
-          "senior-business-analista-orchestrade-talan-geneva-0d82f93a1b"
-        ],
-        "en": [
-          "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland"
-        ],
-        "de": [
-          "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-11-06T21:21:13.160Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-26T09:19:49.313Z",
+      "validThrough": "2027-02-14T21:26:59.524Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -540,7 +452,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000163400415-senior-business-analyst-pricing-modelling?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:19:49.311Z",
+      "crawledAt": "2026-11-28T21:26:59.522Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -596,7 +508,95 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-22T09:19:49.311Z",
+      "validThrough": "2027-02-22T21:26:59.522Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "talan-c7318f803e71",
+      "slug": "senior-business-analista-orchestrade-talan-geneva",
+      "slugByLocale": {
+        "it": "senior-business-analista-orchestrade-talan-geneva",
+        "en": "senior-business-analyst-orchestra-talan-geneva",
+        "de": "senior-business-analyst-orchester-talan-geneva",
+        "fr": "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Senior Business Analyst – Orchestrade",
+      "titleByLocale": {
+        "it": "Senior Business Analista – Orchestrade",
+        "en": "Senior Business Analyst – Orchestra",
+        "de": "Senior Business Analyst – Orchester",
+        "fr": "Senior Business Analyst – Orchestrade"
+      },
+      "description": "Contexte du poste\n Dans le cadre de la transformation de son système d'information dédié au trading d'énergie, notre client recherche un Senior Business Analyst pour accompagner ses équipes métiers et IT dans la modernisation de ses applications.\n Un projet stratégique de migration vers une nouvelle plateforme ETRM est en cours afin de remplacer le système historique par une solution moderne et évolutive.\n Vous interviendrez à l'interface entre les équipes métiers, les développeurs et les éditeurs afin de recueillir les besoins, formaliser les exigences fonctionnelles et accompagner leur implémentation.\n Responsabilités\n Analyse métier et conception fonctionnelle\n\n• Recueillir, analyser et formaliser les besoins métiers.\n\n• Rédiger les spécifications fonctionnelles, fonctionnalités et User Stories.\n\n• Comprendre les processus de trading et proposer des solutions adaptées aux besoins opérationnels.\n\n• Participer au paramétrage de la plateforme ETRM : configurations, workflows, templates et pricing.\n\n• Collaborer avec les équipes techniques et les éditeurs pour assurer la bonne implémentation des solutions.\n Tests et migration\n\n• Préparer et exécuter les plans de tests fonctionnels.\n\n• Vérifier la conformité des développements avec les spécifications et besoins utilisateurs.\n\n• Participer aux phases de recette utilisateur (UAT).\n\n• Contribuer au projet de migration vers la nouvelle plateforme ETRM.\n\n• Collaborer avec les autres Business Analysts et équipes IT sur les activités de migration.\n Gestion de projet et support\n\n• Participer à la gestion des évolutions applicatives et au suivi du backlog.\n\n• Identifier les opportunités d'amélioration des processus métiers.\n\n• Accompagner les utilisateurs dans la prise en main des solutions.\n\n• Assurer le support fonctionnel et contribuer à la résolution des incidents.\n\n• Documenter les processus et partager les connaissances avec les équipes.\n\n• Minimum 5 ans d'expérience dans le secteur de l'énergie ou du Commodity Trading.\n\n• Expérience sur la plateforme ETRM - Orchestrade obligatoire.\n\n• Bonne compréhension des marchés de l'énergie et du cycle de vie des transactions.\n\n• Connaissance des flux Front-to-Risk , des instruments physiques et financiers et des calculs de P&L .\n\n• Maîtrise du recueil des besoins, de la rédaction de spécifications fonctionnelles et des User Stories.\n\n• Expérience en tests fonctionnels, UAT et projets de migration ETRM.\n\n• Connaissance des méthodologies Agile et DevOps.\n\n• Une connaissance des processus Back-Office et Finance est un plus.\n\n• Formation supérieure en informatique ou ingénierie.\n\n• Français et anglais courants.",
+      "descriptionByLocale": {
+        "it": "Contesto\nNell'ambito della trasformazione del suo sistema di informazioni sul trading energetico, il nostro cliente sta cercando un Senior Business Analyst per supportare i suoi team di business e IT nella modernizzazione delle sue applicazioni.\nUn progetto strategico per migrare a una nuova piattaforma ETRM è in corso per sostituire il sistema storico con una soluzione moderna e scalabile.\nInterverrete all'interfaccia tra team aziendali, sviluppatori ed editori per raccogliere le esigenze, formalizzare i requisiti funzionali e supportare la loro implementazione.\nresponsabilità\nAnalisi aziendale e design funzionale\n\n• Raccogliere, analizzare e formalizzare le esigenze aziendali.\n\n• Scrivere specifiche funzionali, caratteristiche e Storie utente.\n\n• Comprendere i processi di trading e proporre soluzioni su misura per le esigenze operative.\n\n• Partecipa alle impostazioni della piattaforma ETRM: configurazioni, flussi di lavoro, modelli e prezzi.\n\n• Collabora con team tecnici ed editori per garantire la corretta implementazione delle soluzioni.\nTest e migrazione\n\n• Preparare ed eseguire piani di test funzionali.\n\n• Verificare la conformità degli sviluppi con le specifiche e i requisiti degli utenti.\n\n• Partecipa alle Fasi di Ricetta dell'Utente (UAT).\n\n• Contribuisci al progetto di migrazione alla nuova piattaforma ETRM.\n\n• Collabora con altri Business Analysts e team IT sulle attività di migrazione.\nGestione e supporto dei progetti\n\n• Partecipa alla gestione delle evoluzioni applicative e del monitoraggio backlog.\n\n• Identificare le opportunità per migliorare i processi aziendali.\n\n• Supporta gli utenti nella gestione delle soluzioni.\n\n• Fornire supporto funzionale e aiutare a risolvere gli incidenti.\n\n• Processi di documenti e condivisione delle conoscenze con i team.\n\n• Minimo 5 anni di esperienza nel settore energetico o nel Commodity Trading.\n\n• Esperienza sulle piattaforme ETRM (Orchestra, Calypso, Murex, Endur...).\n\n• Buona comprensione dei mercati energetici e del ciclo di vita delle transazioni.\n\n• Conoscenza dei flussi Front-to-Risk, strumenti fisici e finanziari e calcoli P&L.\n\n• Mastery di raccolta delle esigenze, scrittura delle specifiche funzionali e storie degli utenti.\n\n• Esperienza nei progetti di test funzionali, UAT e ETRM migrazione.\n\n• Conoscenza delle metodologie Agile e DevOps.\n\n• La conoscenza dei processi Back-Office e Finance è un plus.\n\n• Formazione avanzata di computer o ingegneria.\n\n• Inglese comune e francese.",
+        "en": "Background\nAs part of the transformation of its energy trading information system, our customer is looking for a Senior Business Analyst to support its business and IT teams in modernizing its applications.\nA strategic project to migrate to a new ETRM platform is underway to replace the historical system with a modern and scalable solution.\nYou will intervene at the interface between business teams, developers and publishers to collect needs, formalize functional requirements and support their implementation.\nResponsibilities\nBusiness analysis and functional design\n\n• Collect, analyse and formalize business needs.\n\n• Write functional specifications, features and User Stories.\n\n• Understand trading processes and propose solutions tailored to operational needs.\n\n• Participate in the ETRM platform settings: configurations, workflows, templates and pricing.\n\n• Collaborate with technical teams and publishers to ensure the correct implementation of solutions.\nTests and migration\n\n• Prepare and execute functional test plans.\n\n• Verify the compliance of developments with user specifications and requirements.\n\n• Participate in User Recipe Phases (UAT).\n\n• Contribute to the migration project to the new ETRM platform.\n\n• Collaborate with other Business Analysts and IT teams on migration activities.\nProject management and support\n\n• Participate in the management of application evolutions and backlog monitoring.\n\n• Identify opportunities for improving business processes.\n\n• Support users in the management of solutions.\n\n• Provide functional support and help resolve incidents.\n\n• Document processes and share knowledge with teams.\n\n• Minimum 5 years of experience in the energy sector or the Commodity Trading.\n\n• Experience on ETRM platforms ( Orchestra, Calypso, Murex, Endur...).\n\n• Good understanding of energy markets and transaction life cycle.\n\n• Knowledge of Front-to-Risk flows, physical and financial instruments and P&L calculations.\n\n• Mastery of needs collection, functional specification writing and User Stories.\n\n• Experience in functional testing, UAT and ETRM migration projects.\n\n• Knowledge of Agile and DevOps methodologies.\n\n• Knowledge of the Back-Office and Finance processes is a plus.\n\n• Advanced computer or engineering training.\n\n• Common English and French.",
+        "de": "Hintergrund\nIm Rahmen der Transformation seines Energiehandelsinformationssystems sucht unser Kunde einen Senior Business Analysten, der seine Geschäfts- und IT-Teams bei der Modernisierung seiner Anwendungen unterstützt.\nEin strategisches Projekt zur Migration auf eine neue ETRM-Plattform ist im Gange, um das historische System durch eine moderne und skalierbare Lösung zu ersetzen.\nSie intervenieren an der Schnittstelle zwischen Business-Teams, Entwicklern und Publishern, um Bedürfnisse zu sammeln, funktionale Anforderungen zu formalisieren und deren Umsetzung zu unterstützen.\nZuständigkeiten\nBusiness Analyse und Functional Design\n\n• Sammeln, Analysieren und Formalisieren von Geschäftsanforderungen.\n\n• Schreiben Sie funktionale Spezifikationen, Features und User Stories.\n\n• Verstehen Sie Handelsprozesse und schlagen Sie Lösungen vor, die auf die operativen Bedürfnisse zugeschnitten sind.\n\n• Nehmen Sie an den ETRM-Plattformeinstellungen teil: Konfigurationen, Workflows, Vorlagen und Preise.\n\n• Arbeiten Sie mit technischen Teams und Publishern zusammen, um die korrekte Implementierung von Lösungen sicherzustellen.\nTests und Migration\n\n• Erstellen und Ausführen von Funktionstestplänen.\n\n• Überprüfung der Übereinstimmung der Entwicklungen mit den Benutzerspezifikationen und -anforderungen.\n\n• Nehmen Sie an User Recipe Phasen (UAT) teil.\n\n• Tragen Sie zum Migrationsprojekt zur neuen ETRM-Plattform bei.\n\n• Arbeiten Sie mit anderen Business Analysten und IT-Teams bei Migrationsaktivitäten zusammen.\nProjektmanagement und Support\n\n• Beteiligen Sie sich am Management von Anwendungsentwicklungen und Backlog-Monitoring.\n\n• Identifizieren Sie Möglichkeiten zur Verbesserung von Geschäftsprozessen.\n\n• Unterstützen Sie Benutzer beim Management von Lösungen.\n\n• Bieten Sie funktionale Unterstützung und helfen Sie, Vorfälle zu lösen.\n\n• Prozesse dokumentieren und Wissen mit Teams teilen.\n\n• Mindestens 5 Jahre Erfahrung im Energiesektor oder im Rohstoffhandel.\n\n• Erfahrung auf ETRM-Plattformen (Orchester, Calypso, Murex, Endur...).\n\n• Gutes Verständnis der Energiemärkte und des Transaktionslebenszyklus.\n\n• Kenntnis von Front-to-Risk-Flows, physischen und Finanzinstrumenten und P&L-Berechnungen.\n\n• Beherrschung der Bedürfnisse Sammlung, funktionale Spezifikation Schreiben und User Stories.\n\n• Erfahrung in Funktionstests, UAT- und ETRM-Migrationsprojekten.\n\n• Kenntnisse der Agile- und DevOps-Methoden.\n\n• Die Kenntnis der Back-Office- und Finanzprozesse ist ein Plus.\n\n• Fortgeschrittene Computer- oder Ingenieurausbildung.\n\n• Englisch und Französisch.",
+        "fr": "Contexte du poste\nDans le cadre de la transformation de son système d'information dédié au trading d'énergie, notre client recherche un Senior Business Analyst pour accompagner ses équipes métiers et IT dans la modernisation de ses applications.\nUn projet stratégique de migration vers une nouvelle plateforme ETRM est en cours afin de remplacer le système historique par une solution moderne et évolutive.\nVous interviendrez à l'interface entre les équipes métiers, les développeurs et les éditeurs afin de recueillir les besoins, formaliser les exigences fonctionnelles et accompagner leur implémentation.\nResponsabilités\nAnalyse métier et conception fonctionnelle\n\n• Recueillir, analyser et formaliser les besoins métiers.\n\n• Rédiger les spécifications fonctionnelles, fonctionnalités et User Stories.\n\n• Comprendre les processus de trading et proposer des solutions adaptées aux besoins opérationnels.\n\n• Participer au paramétrage de la plateforme ETRM : configurations, workflows, templates et pricing.\n\n• Collaborer avec les équipes techniques et les éditeurs pour assurer la bonne implémentation des solutions.\nTests et migration\n\n• Préparer et exécuter les plans de tests fonctionnels.\n\n• Vérifier la conformité des développements avec les spécifications et besoins utilisateurs.\n\n• Participer aux phases de recette utilisateur (UAT).\n\n• Contribuer au projet de migration vers la nouvelle plateforme ETRM.\n\n• Collaborer avec les autres Business Analysts et équipes IT sur les activités de migration.\nGestion de projet et support\n\n• Participer à la gestion des évolutions applicatives et au suivi du backlog.\n\n• Identifier les opportunités d'amélioration des processus métiers.\n\n• Accompagner les utilisateurs dans la prise en main des solutions.\n\n• Assurer le support fonctionnel et contribuer à la résolution des incidents.\n\n• Documenter les processus et partager les connaissances avec les équipes.\n\n• Minimum 5 ans d'expérience dans le secteur de l'énergie ou du Commodity Trading.\n\n• Expérience sur la plateforme ETRM - Orchestrade obligatoire.\n\n• Bonne compréhension des marchés de l'énergie et du cycle de vie des transactions.\n\n• Connaissance des flux Front-to-Risk , des instruments physiques et financiers et des calculs de P&L .\n\n• Maîtrise du recueil des besoins, de la rédaction de spécifications fonctionnelles et des User Stories.\n\n• Expérience en tests fonctionnels, UAT et projets de migration ETRM.\n\n• Connaissance des méthodologies Agile et DevOps.\n\n• Une connaissance des processus Back-Office et Finance est un plus.\n\n• Formation supérieure en informatique ou ingénierie.\n\n• Français et anglais courants."
+      },
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000164051558-senior-business-analyst-orchestrade?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-28T21:26:59.520Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-27T14:52:07.539Z",
+      "postedDate": "2026-11-27T14:52:07.539Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000164051558-senior-business-analyst-orchestrade?oga=true",
+      "jobReqId": "744000164051558",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland",
+        "senior-business-analista-orchestrade-talan-geneva-4b8f4554ad",
+        "senior-business-analista-orchestrade-talan-geneva-0d82f93a1b"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland",
+          "senior-business-analista-orchestrade-talan-geneva-4b8f4554ad",
+          "senior-business-analista-orchestrade-talan-geneva-0d82f93a1b"
+        ],
+        "en": [
+          "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland"
+        ],
+        "de": [
+          "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-11-06T21:21:13.160Z",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-25T21:26:59.520Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -631,7 +631,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000163154284-expert-e-atlassian?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:19:49.309Z",
+      "crawledAt": "2026-11-28T21:26:59.518Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -678,7 +678,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-21T09:19:49.309Z",
+      "validThrough": "2027-02-21T21:26:59.518Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -713,7 +713,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000164051729-tech-lead-fullstack-net-c-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:19:49.302Z",
+      "crawledAt": "2026-11-28T21:26:59.512Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -763,182 +763,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-26T09:19:49.302Z",
+      "validThrough": "2027-02-25T21:26:59.512Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "talan-dbc24b5b3f3c",
-      "slug": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
-      "slugByLocale": {
-        "it": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
-        "en": "tech-lead-fullstack-net-c-talan-geneve-switzerland",
-        "de": "technischer-leiter-net-c-talan-geneve-switzerland",
-        "fr": "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Tech Lead Fullstack .NET / C#",
-      "titleByLocale": {
-        "it": "Responsabile tecnico Fullstack .NET / C#",
-        "en": "Fullstack Technical Manager .NET / C#",
-        "de": "Technischer Leiter.NET / C#",
-        "fr": "Tech Lead Fullstack .NET / C#"
-      },
-      "description": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\n En tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\n Responsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\n Compétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée.",
-      "descriptionByLocale": {
-        "it": "All'interno del team di sviluppo digitale, si sta guidando tecnicamente il design, lo sviluppo e l'evoluzione delle applicazioni digitali dedicate alla gestione della ricchezza.\nCome Tech Lead Fullstack, sei il riferimento tecnico del tuo perimetro. Interviene in tutta la catena di sviluppo, da frontend a backend, garantendo al contempo la qualità, la sicurezza e le prestazioni delle applicazioni. Supporti gli sviluppatori, contribuisci alle scelte architettoniche e partecipi attivamente al supporto di produzione e applicazione.\nResponsabilità chiave\n\n• Definire gli orientamenti tecnici e le architetture applicative.\n\n• Partecipare allo sviluppo completo e risolvere problemi tecnici complessi.\n\n• Sostenere gli sviluppatori, condurre le recensioni dei codici e promuovere buone pratiche.\n\n• Assicurare la qualità, la sicurezza, le prestazioni e la manutenzione delle applicazioni.\n\n• Contribuire all'industrializzazione degli sviluppi, delle tubazioni CI/CD e delle distribuzioni.\n\n• Partecipazione alla produzione\nCompetenza tecnica\n\n• Backend: C#, .NET, REST API e architetture microservices.\n\n• Fronte: Angolare, React o Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Contenitore: Docker, Kubernetes, OpenShift.\n\n• Distribuzione: Helm, Kustomize, Argo CD.\n\n• Infrastrutture: Windows Server e IIS.\n\n• Sensibilità alle questioni di sicurezza e riservatezza dei dati.\n\n• Esperienza confermata in pieno sviluppo e solida esperienza .NET / C#.\n\n• Capacità di prendere decisioni tecniche, sostenere un team e lavorare in modo indipendente.\n\n• Analisi eccellente, pragmatismo, rigore e senso di responsabilità.\n\n• Eccellente resistenza allo stress, capacità di gestire le priorità, emergenze e vincoli di tempo in un ambiente esigente.\n\n• Buona relazione, comunicazione costruttiva e capacità di collaborare con vari interlocutori.\n\n• Inglese comune e francese, sia orale che scritta.\n\n• L'esperienza nel settore bancario o bancario privato è un bene.\n\nPosizione: Residence in Svizzera.",
-        "en": "Within the Digital Development team, you are technically leading the design, development and evolution of digital applications dedicated to wealth management.\nAs Tech Lead Fullstack, you are the technical reference of your perimeter. You intervene throughout the development chain, from frontend to backend, while guaranteeing the quality, security and performance of applications. You support developers, contribute to architectural choices and actively participate in production and application support.\nKey responsibilities\n\n• Define technical orientations and application architectures.\n\n• Participate in fullstack development and solving complex technical issues.\n\n• Support developers, conduct code reviews and promote good practices.\n\n• Ensure the quality, security, performance and maintenance of applications.\n\n• Contribute to the industrialization of developments, CI/CD pipelines and deployments.\n\n• Participate in production\nTechnical expertise\n\n• Backend : C#, .NET, REST API and microservices architectures.\n\n• Frontend : Angular, React or Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Deployment: Helm, Kustomize, Argo CD.\n\n• Infrastructure: Windows Server and IIS.\n\n• Sensitivity to application security and data confidentiality issues.\n\n• Experience confirmed in fullstack development and solid .NET / C# expertise.\n\n• Ability to make technical decisions, support a team and work independently.\n\n• Excellent analysis, pragmatism, rigour and sense of responsibility.\n\n• Excellent stress resistance, ability to manage priorities, emergencies and time constraints in a demanding environment.\n\n• Good relationship, constructive communication and ability to collaborate with various interlocutors.\n\n• Common English and French, both oral and written.\n\n• Experience in banking or private banking is an asset.\n\nLocation: Residence in Switzerland.",
-        "de": "Innerhalb des Digital Development Teams leiten Sie technisch das Design, die Entwicklung und die Weiterentwicklung von digitalen Anwendungen, die sich dem Vermögensmanagement widmen.\nAls Tech Lead Fullstack sind Sie die technische Referenz Ihres Perimeters. Sie intervenieren in der gesamten Entwicklungskette, vom Frontend bis zum Backend, und garantieren gleichzeitig die Qualität, Sicherheit und Leistung von Anwendungen. Sie unterstützen Entwickler, tragen zu architektonischen Entscheidungen bei und beteiligen sich aktiv an der Produktions- und Anwendungsunterstützung.\nHauptzuständigkeiten\n\n• Definieren Sie technische Ausrichtungen und Anwendungsarchitekturen.\n\n• Beteiligen Sie sich an der Fullstack-Entwicklung und der Lösung komplexer technischer Probleme.\n\n• Unterstützen Sie Entwickler, führen Sie Code Reviews durch und fördern Sie gute Praktiken.\n\n• Gewährleistung der Qualität, Sicherheit, Leistung und Wartung von Anwendungen.\n\n• Beitrag zur Industrialisierung von Entwicklungen, CI/CD-Pipelines und Deployments.\n\n• Teilnahme an der Produktion\nTechnische Expertise\n\n• Backend: C#, .NET, REST API und Microservices-Architekturen.\n\n• Frontend: Angular, React oder Vue.js.\n\n• Datenbanken: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Einsatz: Helm, Kustomize, Argo CD.\n\n• Infrastruktur: Windows Server und IIS.\n\n• Sensitivität für die Anwendungssicherheit und Datenschutzprobleme.\n\n• Erfahrung bestätigt in Fullstack-Entwicklung und solide .NET / C# Expertise.\n\n• Fähigkeit, technische Entscheidungen zu treffen, ein Team zu unterstützen und unabhängig zu arbeiten.\n\n• Ausgezeichnete Analyse, Pragmatismus, Strenge und Verantwortungsbewusstsein.\n\n• Hervorragende Stressresistenz, Fähigkeit, Prioritäten, Notfälle und Zeitbeschränkungen in einer anspruchsvollen Umgebung zu verwalten.\n\n• Gute Beziehung, konstruktive Kommunikation und die Fähigkeit, mit verschiedenen Gesprächspartnern zusammenzuarbeiten.\n\n• Englisch und Französisch, sowohl mündlich als auch schriftlich.\n\n• Erfahrung im Banking oder Private Banking ist ein Asset.\n\nStandort: Wohnsitz in der Schweiz.",
-        "fr": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\nEn tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\nResponsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\nCompétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée."
-      },
-      "needsRetranslation": false,
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:19:59.128Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-23T13:35:09.147Z",
-      "postedDate": "2026-10-23T13:35:09.147Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
-      "jobReqId": "744000157480029",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-        ],
-        "de": [
-          "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-23T21:11:18.471Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-22T09:19:59.128Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "talan-93d9eeb858b2",
-      "slug": "senior-business-analista-orchestrade-talan-geneva-0d82f93a1b",
-      "slugByLocale": {
-        "it": "senior-business-analista-orchestrade-talan-geneva-0d82f93a1b",
-        "en": "senior-business-analyst-orchestra-talan-geneva",
-        "de": "senior-business-analyst-orchester-talan-geneva",
-        "fr": "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Senior Business Analyst – Orchestrade",
-      "titleByLocale": {
-        "it": "Senior Business Analista – Orchestrade",
-        "en": "Senior Business Analyst – Orchestra",
-        "de": "Senior Business Analyst – Orchester",
-        "fr": "Senior Business Analyst – Orchestrade"
-      },
-      "description": "Contexte du poste\n Dans le cadre de la transformation de son système d'information dédié au trading d'énergie, notre client recherche un Senior Business Analyst pour accompagner ses équipes métiers et IT dans la modernisation de ses applications.\n Un projet stratégique de migration vers une nouvelle plateforme ETRM est en cours afin de remplacer le système historique par une solution moderne et évolutive.\n Vous interviendrez à l'interface entre les équipes métiers, les développeurs et les éditeurs afin de recueillir les besoins, formaliser les exigences fonctionnelles et accompagner leur implémentation.\n Responsabilités\n Analyse métier et conception fonctionnelle\n\n• Recueillir, analyser et formaliser les besoins métiers.\n\n• Rédiger les spécifications fonctionnelles, fonctionnalités et User Stories.\n\n• Comprendre les processus de trading et proposer des solutions adaptées aux besoins opérationnels.\n\n• Participer au paramétrage de la plateforme ETRM : configurations, workflows, templates et pricing.\n\n• Collaborer avec les équipes techniques et les éditeurs pour assurer la bonne implémentation des solutions.\n Tests et migration\n\n• Préparer et exécuter les plans de tests fonctionnels.\n\n• Vérifier la conformité des développements avec les spécifications et besoins utilisateurs.\n\n• Participer aux phases de recette utilisateur (UAT).\n\n• Contribuer au projet de migration vers la nouvelle plateforme ETRM.\n\n• Collaborer avec les autres Business Analysts et équipes IT sur les activités de migration.\n Gestion de projet et support\n\n• Participer à la gestion des évolutions applicatives et au suivi du backlog.\n\n• Identifier les opportunités d'amélioration des processus métiers.\n\n• Accompagner les utilisateurs dans la prise en main des solutions.\n\n• Assurer le support fonctionnel et contribuer à la résolution des incidents.\n\n• Documenter les processus et partager les connaissances avec les équipes.\n\n• Minimum 5 ans d'expérience dans le secteur de l'énergie ou du Commodity Trading.\n\n• Expérience sur la plateforme ETRM - Orchestrade obligatoire.\n\n• Bonne compréhension des marchés de l'énergie et du cycle de vie des transactions.\n\n• Connaissance des flux Front-to-Risk , des instruments physiques et financiers et des calculs de P&L .\n\n• Maîtrise du recueil des besoins, de la rédaction de spécifications fonctionnelles et des User Stories.\n\n• Expérience en tests fonctionnels, UAT et projets de migration ETRM.\n\n• Connaissance des méthodologies Agile et DevOps.\n\n• Une connaissance des processus Back-Office et Finance est un plus.\n\n• Formation supérieure en informatique ou ingénierie.\n\n• Français et anglais courants.",
-      "descriptionByLocale": {
-        "it": "Contesto\nNell'ambito della trasformazione del suo sistema di informazioni sul trading energetico, il nostro cliente sta cercando un Senior Business Analyst per supportare i suoi team di business e IT nella modernizzazione delle sue applicazioni.\nUn progetto strategico per migrare a una nuova piattaforma ETRM è in corso per sostituire il sistema storico con una soluzione moderna e scalabile.\nInterverrete all'interfaccia tra team aziendali, sviluppatori ed editori per raccogliere le esigenze, formalizzare i requisiti funzionali e supportare la loro implementazione.\nresponsabilità\nAnalisi aziendale e design funzionale\n\n• Raccogliere, analizzare e formalizzare le esigenze aziendali.\n\n• Scrivere specifiche funzionali, caratteristiche e Storie utente.\n\n• Comprendere i processi di trading e proporre soluzioni su misura per le esigenze operative.\n\n• Partecipa alle impostazioni della piattaforma ETRM: configurazioni, flussi di lavoro, modelli e prezzi.\n\n• Collabora con team tecnici ed editori per garantire la corretta implementazione delle soluzioni.\nTest e migrazione\n\n• Preparare ed eseguire piani di test funzionali.\n\n• Verificare la conformità degli sviluppi con le specifiche e i requisiti degli utenti.\n\n• Partecipa alle Fasi di Ricetta dell'Utente (UAT).\n\n• Contribuisci al progetto di migrazione alla nuova piattaforma ETRM.\n\n• Collabora con altri Business Analysts e team IT sulle attività di migrazione.\nGestione e supporto dei progetti\n\n• Partecipa alla gestione delle evoluzioni applicative e del monitoraggio backlog.\n\n• Identificare le opportunità per migliorare i processi aziendali.\n\n• Supporta gli utenti nella gestione delle soluzioni.\n\n• Fornire supporto funzionale e aiutare a risolvere gli incidenti.\n\n• Processi di documenti e condivisione delle conoscenze con i team.\n\n• Minimo 5 anni di esperienza nel settore energetico o nel Commodity Trading.\n\n• Esperienza sulle piattaforme ETRM (Orchestra, Calypso, Murex, Endur...).\n\n• Buona comprensione dei mercati energetici e del ciclo di vita delle transazioni.\n\n• Conoscenza dei flussi Front-to-Risk, strumenti fisici e finanziari e calcoli P&L.\n\n• Mastery di raccolta delle esigenze, scrittura delle specifiche funzionali e storie degli utenti.\n\n• Esperienza nei progetti di test funzionali, UAT e ETRM migrazione.\n\n• Conoscenza delle metodologie Agile e DevOps.\n\n• La conoscenza dei processi Back-Office e Finance è un plus.\n\n• Formazione avanzata di computer o ingegneria.\n\n• Inglese comune e francese.",
-        "en": "Background\nAs part of the transformation of its energy trading information system, our customer is looking for a Senior Business Analyst to support its business and IT teams in modernizing its applications.\nA strategic project to migrate to a new ETRM platform is underway to replace the historical system with a modern and scalable solution.\nYou will intervene at the interface between business teams, developers and publishers to collect needs, formalize functional requirements and support their implementation.\nResponsibilities\nBusiness analysis and functional design\n\n• Collect, analyse and formalize business needs.\n\n• Write functional specifications, features and User Stories.\n\n• Understand trading processes and propose solutions tailored to operational needs.\n\n• Participate in the ETRM platform settings: configurations, workflows, templates and pricing.\n\n• Collaborate with technical teams and publishers to ensure the correct implementation of solutions.\nTests and migration\n\n• Prepare and execute functional test plans.\n\n• Verify the compliance of developments with user specifications and requirements.\n\n• Participate in User Recipe Phases (UAT).\n\n• Contribute to the migration project to the new ETRM platform.\n\n• Collaborate with other Business Analysts and IT teams on migration activities.\nProject management and support\n\n• Participate in the management of application evolutions and backlog monitoring.\n\n• Identify opportunities for improving business processes.\n\n• Support users in the management of solutions.\n\n• Provide functional support and help resolve incidents.\n\n• Document processes and share knowledge with teams.\n\n• Minimum 5 years of experience in the energy sector or the Commodity Trading.\n\n• Experience on ETRM platforms ( Orchestra, Calypso, Murex, Endur...).\n\n• Good understanding of energy markets and transaction life cycle.\n\n• Knowledge of Front-to-Risk flows, physical and financial instruments and P&L calculations.\n\n• Mastery of needs collection, functional specification writing and User Stories.\n\n• Experience in functional testing, UAT and ETRM migration projects.\n\n• Knowledge of Agile and DevOps methodologies.\n\n• Knowledge of the Back-Office and Finance processes is a plus.\n\n• Advanced computer or engineering training.\n\n• Common English and French.",
-        "de": "Hintergrund\nIm Rahmen der Transformation seines Energiehandelsinformationssystems sucht unser Kunde einen Senior Business Analysten, der seine Geschäfts- und IT-Teams bei der Modernisierung seiner Anwendungen unterstützt.\nEin strategisches Projekt zur Migration auf eine neue ETRM-Plattform ist im Gange, um das historische System durch eine moderne und skalierbare Lösung zu ersetzen.\nSie intervenieren an der Schnittstelle zwischen Business-Teams, Entwicklern und Publishern, um Bedürfnisse zu sammeln, funktionale Anforderungen zu formalisieren und deren Umsetzung zu unterstützen.\nZuständigkeiten\nBusiness Analyse und Functional Design\n\n• Sammeln, Analysieren und Formalisieren von Geschäftsanforderungen.\n\n• Schreiben Sie funktionale Spezifikationen, Features und User Stories.\n\n• Verstehen Sie Handelsprozesse und schlagen Sie Lösungen vor, die auf die operativen Bedürfnisse zugeschnitten sind.\n\n• Nehmen Sie an den ETRM-Plattformeinstellungen teil: Konfigurationen, Workflows, Vorlagen und Preise.\n\n• Arbeiten Sie mit technischen Teams und Publishern zusammen, um die korrekte Implementierung von Lösungen sicherzustellen.\nTests und Migration\n\n• Erstellen und Ausführen von Funktionstestplänen.\n\n• Überprüfung der Übereinstimmung der Entwicklungen mit den Benutzerspezifikationen und -anforderungen.\n\n• Nehmen Sie an User Recipe Phasen (UAT) teil.\n\n• Tragen Sie zum Migrationsprojekt zur neuen ETRM-Plattform bei.\n\n• Arbeiten Sie mit anderen Business Analysten und IT-Teams bei Migrationsaktivitäten zusammen.\nProjektmanagement und Support\n\n• Beteiligen Sie sich am Management von Anwendungsentwicklungen und Backlog-Monitoring.\n\n• Identifizieren Sie Möglichkeiten zur Verbesserung von Geschäftsprozessen.\n\n• Unterstützen Sie Benutzer beim Management von Lösungen.\n\n• Bieten Sie funktionale Unterstützung und helfen Sie, Vorfälle zu lösen.\n\n• Prozesse dokumentieren und Wissen mit Teams teilen.\n\n• Mindestens 5 Jahre Erfahrung im Energiesektor oder im Rohstoffhandel.\n\n• Erfahrung auf ETRM-Plattformen (Orchester, Calypso, Murex, Endur...).\n\n• Gutes Verständnis der Energiemärkte und des Transaktionslebenszyklus.\n\n• Kenntnis von Front-to-Risk-Flows, physischen und Finanzinstrumenten und P&L-Berechnungen.\n\n• Beherrschung der Bedürfnisse Sammlung, funktionale Spezifikation Schreiben und User Stories.\n\n• Erfahrung in Funktionstests, UAT- und ETRM-Migrationsprojekten.\n\n• Kenntnisse der Agile- und DevOps-Methoden.\n\n• Die Kenntnis der Back-Office- und Finanzprozesse ist ein Plus.\n\n• Fortgeschrittene Computer- oder Ingenieurausbildung.\n\n• Englisch und Französisch.",
-        "fr": "Contexte du poste\nDans le cadre de la transformation de son système d'information dédié au trading d'énergie, notre client recherche un Senior Business Analyst pour accompagner ses équipes métiers et IT dans la modernisation de ses applications.\nUn projet stratégique de migration vers une nouvelle plateforme ETRM est en cours afin de remplacer le système historique par une solution moderne et évolutive.\nVous interviendrez à l'interface entre les équipes métiers, les développeurs et les éditeurs afin de recueillir les besoins, formaliser les exigences fonctionnelles et accompagner leur implémentation.\nResponsabilités\nAnalyse métier et conception fonctionnelle\n\n• Recueillir, analyser et formaliser les besoins métiers.\n\n• Rédiger les spécifications fonctionnelles, fonctionnalités et User Stories.\n\n• Comprendre les processus de trading et proposer des solutions adaptées aux besoins opérationnels.\n\n• Participer au paramétrage de la plateforme ETRM : configurations, workflows, templates et pricing.\n\n• Collaborer avec les équipes techniques et les éditeurs pour assurer la bonne implémentation des solutions.\nTests et migration\n\n• Préparer et exécuter les plans de tests fonctionnels.\n\n• Vérifier la conformité des développements avec les spécifications et besoins utilisateurs.\n\n• Participer aux phases de recette utilisateur (UAT).\n\n• Contribuer au projet de migration vers la nouvelle plateforme ETRM.\n\n• Collaborer avec les autres Business Analysts et équipes IT sur les activités de migration.\nGestion de projet et support\n\n• Participer à la gestion des évolutions applicatives et au suivi du backlog.\n\n• Identifier les opportunités d'amélioration des processus métiers.\n\n• Accompagner les utilisateurs dans la prise en main des solutions.\n\n• Assurer le support fonctionnel et contribuer à la résolution des incidents.\n\n• Documenter les processus et partager les connaissances avec les équipes.\n\n• Minimum 5 ans d'expérience dans le secteur de l'énergie ou du Commodity Trading.\n\n• Expérience sur la plateforme ETRM - Orchestrade obligatoire.\n\n• Bonne compréhension des marchés de l'énergie et du cycle de vie des transactions.\n\n• Connaissance des flux Front-to-Risk , des instruments physiques et financiers et des calculs de P&L .\n\n• Maîtrise du recueil des besoins, de la rédaction de spécifications fonctionnelles et des User Stories.\n\n• Expérience en tests fonctionnels, UAT et projets de migration ETRM.\n\n• Connaissance des méthodologies Agile et DevOps.\n\n• Une connaissance des processus Back-Office et Finance est un plus.\n\n• Formation supérieure en informatique ou ingénierie.\n\n• Français et anglais courants."
-      },
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000163402869-senior-business-analyst-orchestrade?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:19:59.122Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-24T08:26:50.215Z",
-      "postedDate": "2026-11-24T08:26:50.215Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000163402869-senior-business-analyst-orchestrade?oga=true",
-      "jobReqId": "744000163402869",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland",
-        "senior-business-analista-orchestrade-talan-geneva",
-        "senior-business-analista-orchestrade-talan-geneva-4b8f4554ad"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland",
-          "senior-business-analista-orchestrade-talan-geneva",
-          "senior-business-analista-orchestrade-talan-geneva-4b8f4554ad"
-        ],
-        "en": [
-          "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland"
-        ],
-        "de": [
-          "senior-business-analyst-orchestrade-talan-geneva-ge-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-11-06T21:21:13.160Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-22T09:19:59.122Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000163402869-senior-business-analyst-orchestrade?oga=true",
-      "crawlerMissStreak": 2
     }
   ]
 }
