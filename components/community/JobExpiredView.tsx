@@ -576,7 +576,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </p>
  </div>
  </div>
- <JobDetailMetadataRow>
+ <JobDetailMetadataRow reserveRows={2}>
  {job.sector && <JobDetailMetaPill tone="neutral">{job.sector}</JobDetailMetaPill>}
  {jobContract && <JobDetailMetaPill tone="accent">{jobContract}</JobDetailMetaPill>}
  {jobPosted && <JobDetailMetaPill tone="success" icon={<Clock className="w-3 h-3" aria-hidden="true" />}>{jobPosted}</JobDetailMetaPill>}
