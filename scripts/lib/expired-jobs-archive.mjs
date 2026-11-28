@@ -833,10 +833,14 @@ export function createSameIdentityArchiveIndex(records, { activeJobs, isAmbiguou
    * existing record stays the owner of the posting; routes it no longer serves are
    * merged into its history, so no URL stops resolving. A route counts as served when
    *   - the record holds it, or
-   *   - the record holds one of its deterministic aliases (the repair already
-   *     moved it, and the idempotent repair will move it there again), or
    *   - an active posting (when the caller knows them) or ANOTHER record of the
    *     slice holds it.
+   * A collision alias is a DIFFERENT URL: holding `<route>-<hex8>` does not serve
+   * `<route>`. With no known holder the route comes back into the record. If an
+   * active posting the caller did not pass still owns it, the next repair moves
+   * it to the alias the record already holds (deterministic, so none is minted).
+   * The payload's master `slug` is one of its URLs too, also when
+   * `slugByLocale.it` differs and `localeRouteKeys` therefore leaves it out.
    *
    * @returns {null | {record: object, changed: boolean}} `null` when no record
    *   is proven to be this posting: the caller keeps `entry` as it did before.
@@ -850,10 +854,11 @@ export function createSameIdentityArchiveIndex(records, { activeJobs, isAmbiguou
       : owners[0];
     if (!record) return null;
     const held = localeRouteKeys(record);
-    const unserved = [...localeRouteKeys(entry)].filter((routeKey) => {
+    const incoming = localeRouteKeys(entry);
+    if (entry.slug) incoming.add(`it:${entry.slug}`); // even when it is also the record's master
+    const unserved = [...incoming].filter((routeKey) => {
       if (held.has(routeKey) || activeRouteKeys.has(routeKey)) return false;
-      if ((routeHolders.get(routeKey) || 0) > 0) return false; // held by another record (not this one: `held` is checked above)
-      return !holdsDeterministicAlias(record, routeKey, held);
+      return (routeHolders.get(routeKey) || 0) === 0; // else another record holds it (not this one: `held` is checked above)
     });
     if (unserved.length === 0) return { record, changed: false };
     // Merge on a copy first: a route the record cannot represent must not be
@@ -967,20 +972,6 @@ export function readExpiredSlice(crawlerKey, opts = {}) {
   }
 }
 
-/** How many deterministic aliases of a route are probed (the repair picks the lowest free attempt). */
-const MAX_ALIAS_PROBE = 256;
-
-/** Whether `record` already holds a deterministic collision alias of `routeKey`. */
-function holdsDeterministicAlias(record, routeKey, heldKeys = localeRouteKeys(record)) {
-  const locale = localeFromRouteKey(routeKey);
-  const route = rawRouteFromLocaleKey(routeKey);
-  for (let attempt = 0; attempt < MAX_ALIAS_PROBE; attempt += 1) {
-    const alias = appendSlugDisambiguator(route, collisionRouteSuffix(record, route, attempt));
-    if (heldKeys.has(`${locale}:${alias}`)) return true;
-  }
-  return false;
-}
-
 /**
  * Merge routes an existing record no longer serves into ITS history through the journal
  * primitive `addPreviousSlugRoutesKeepAll`, which never trims: `transferSlugHistory` goes
@@ -999,6 +990,7 @@ function mergeUnservedRoutesIntoRecord(record, routeKeys, sourceRecord) {
   addPreviousSlugRoutesKeepAll(record, byLocale, {
     source: 'expired-jobs-archive.archiveRemovedJobsToSlice/same-identity',
     cap: DEFAULT_PREV_SLUG_CAP,
+    keepMasterSlug: true,
   });
   for (const routeKey of routeKeys) {
     const locale = localeFromRouteKey(routeKey);

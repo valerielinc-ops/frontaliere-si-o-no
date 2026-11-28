@@ -3,6 +3,25 @@ const MAIN_SEED_WORKFLOW_PATHS = new Set([
   '.github/workflows/hourly-test-assemble-snapshot.yml',
 ]);
 
+const defaultKeyInputsChanged = async (baseSha) => {
+  const { execFile } = await import('node:child_process');
+  const { fileURLToPath } = await import('node:url');
+  const nodePath = await import('node:path');
+  const repoRoot = nodePath.resolve(nodePath.dirname(fileURLToPath(import.meta.url)), '..', '..');
+  // Un sotto-processo con il `node` del PATH: github-script gira su un altro Node
+  // e non deve importare l'assemblatore. Timeout 20 s: nel caso peggiore (tree
+  // pigri del checkout tree:0) l'attesa non raddoppia rispetto ai 60 s di oggi.
+  const stdout = await new Promise((resolve, reject) => {
+    execFile(
+      'node',
+      [nodePath.join(repoRoot, 'scripts', 'ci', 'assemble-key-inputs-changed.mjs'), baseSha],
+      { cwd: repoRoot, timeout: 20_000, encoding: 'utf8', maxBuffer: 1024 * 1024 },
+      (error, out) => (error ? reject(error) : resolve(out)),
+    );
+  });
+  return JSON.parse(String(stdout).trim().split('\n').pop());
+};
+
 const defaultSleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 
 const FULL_SHA = /^[0-9a-f]{40}$/i;
@@ -24,6 +43,7 @@ export async function waitForMainAssembleCache({
   intervalMs = 10_000,
   now = Date.now,
   sleep = defaultSleep,
+  keyInputsChanged = defaultKeyInputsChanged,
 }) {
   const setReady = (value) => core.setOutput('cache_ready', String(value));
   if (!cacheKey) {
@@ -58,6 +78,20 @@ export async function waitForMainAssembleCache({
       setReady(false);
       core.info('No trusted main assemble-cache seed is in flight for the merge base; continuing with the cold path.');
       return false;
+    }
+
+    // La chiave hasha gli input dell'albero di merge: se la PR ne tocca uno,
+    // nessuna run di main puo' pubblicare la stessa chiave. La sonda costa solo
+    // quando una run e' davvero in corso; se fallisce si attende come prima.
+    try {
+      const probe = await keyInputsChanged(expectedSha);
+      if (probe && probe.changed === true) {
+        setReady(false);
+        core.info(`The PR changes ${probe.path}, an input of the assemble cache key; main cannot publish the same key, skipping the wait.`);
+        return false;
+      }
+    } catch (error) {
+      core.info(`Could not tell whether the PR changes assemble key inputs (${error.message}); waiting as usual.`);
     }
 
     const deadline = now() + timeoutMs;

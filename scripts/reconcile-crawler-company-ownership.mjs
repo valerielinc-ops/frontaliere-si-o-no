@@ -230,9 +230,6 @@ export function mergeRetiredCrawlerArchive(canonicalJobs, retiredJobs, canonical
   });
   let repairedRoutes = routeRepair.repairedRoutes;
   let capRefused = 0;
-  // A cap refusal belongs to the component that failed, not to every
-  // same-identity collision in this archive merge.
-  const capRefusedScopes = [];
 
   const rebuildRouteOwners = () => {
     routeOwners = new Map();
@@ -277,10 +274,6 @@ export function mergeRetiredCrawlerArchive(canonicalJobs, retiredJobs, canonical
       if (!isLegacyRouteCapRefusal(error)) throw error;
       merged = false;
       capRefused += 1;
-      capRefusedScopes.push({
-        entries: new Set(component),
-        routes: new Set(component.flatMap((member) => [...localeRouteKeys(member)])),
-      });
     }
     if (!merged) {
       // Keep the ambiguous component separate. A final route-repair pass below
@@ -309,13 +302,15 @@ export function mergeRetiredCrawlerArchive(canonicalJobs, retiredJobs, canonical
   const finalRouteRepair = repairExpiredRoutesWithinArchive(out, {
     source: `${canonicalKey}.archive-route-repair-final`,
     repairUnprovenCollisions: true,
-    // A shared source identity normally means the records should merge. If
-    // the legacy-history cap refused that merge, the route still needs one
-    // owner; retain both records and move only the duplicate to its
-    // deterministic alias instead of leaving the reconciler's invariant
-    // false.
-    repairSharedIdentityCollisions: capRefused > 0,
-    repairSharedIdentityCollisionScopes: capRefusedScopes,
+    // A shared source identity normally means the records should merge. The
+    // merge pass above has already had that chance: two records that still
+    // share a route here were not merged, whether the legacy-history cap
+    // refused them or their identity histories only overlap through an earlier
+    // merge that was later split again (hoch-health, 2026-11-28: routes owned
+    // twice outside every cap-refused scope; a survivor cloned after a refusal
+    // is outside it by construction). The route still needs one owner; retain
+    // both records and move only the duplicate to its deterministic alias.
+    repairSharedIdentityCollisions: true,
   });
   repairedRoutes += finalRouteRepair.repairedRoutes;
 
