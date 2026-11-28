@@ -3,7 +3,7 @@
   "sourceKey": "lu-stadt-agenda",
   "sourceName": "Stadt Luzern — Termine",
   "canton": "LU",
-  "assembledAt": "2026-11-27T16:09:25.731Z",
+  "assembledAt": "2026-11-28T15:07:04.874Z",
   "events": [
     {
       "id": "lu-stadt-agenda:6840391",
@@ -1058,7 +1058,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7186733",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-27T16:09:25.731Z",
+      "crawledAt": "2026-11-28T15:07:04.874Z",
       "sourceDescriptionHash": "f88408e85aa7fe5374aa3f17583435810bcb2cf09506962b6410e67985166460"
     },
     {
@@ -1142,7 +1142,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7626931",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-27T16:09:25.731Z",
+      "crawledAt": "2026-11-28T15:07:04.874Z",
       "sourceDescriptionHash": "1808794764a98baf5b150f9e06f0793238e7532fe8f0938d4ed21728c670edfd"
     },
     {
@@ -1154,7 +1154,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7801246",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-27T16:09:25.731Z",
+      "crawledAt": "2026-11-28T15:07:04.874Z",
       "sourceDescriptionHash": "126a9b2b0c9e1b029a251593b368779bd08c5aae7c383867608c5c3bceb5562e"
     },
     {
@@ -1167,7 +1167,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/6773767",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-27T16:09:25.731Z",
+      "crawledAt": "2026-11-28T15:07:04.874Z",
       "sourceDescriptionHash": "4818067e1d52c756eadaaa78da14d3494a2e7a4f99f9f7789c7b90c68a092c76"
     },
     {
@@ -1179,7 +1179,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7648423",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-27T16:09:25.731Z",
+      "crawledAt": "2026-11-28T15:07:04.874Z",
       "sourceDescriptionHash": "dff0875b060cfca098356fcdd5fa50863d79a09f66b8c44bf2f9c1c3d18fe074"
     },
     {
@@ -1193,7 +1193,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7694125",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-27T16:09:25.731Z",
+      "crawledAt": "2026-11-28T15:07:04.874Z",
       "sourceDescriptionHash": "a4ab323c5cae39e242333889135f8cd2702640684a8b1a48191a69a22c17cce6"
     },
     {
@@ -1207,8 +1207,48 @@
       "url": "https://www.stadtluzern.ch/sitzung/7694314",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-27T16:09:25.731Z",
+      "crawledAt": "2026-11-28T15:07:04.874Z",
       "sourceDescriptionHash": "b6133a698317df676e7b25bd0ae9f00cf9a7aef222171fe5566253d8165837f0"
+    },
+    {
+      "id": "lu-stadt-agenda:7648426",
+      "title": "Bewegung und Begegnung - Feldenkrais",
+      "startDate": "2026-12-07",
+      "startTime": "14:00",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7648426",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-28T15:07:04.874Z",
+      "sourceDescriptionHash": "dff0875b060cfca098356fcdd5fa50863d79a09f66b8c44bf2f9c1c3d18fe074"
+    },
+    {
+      "id": "lu-stadt-agenda:7694128",
+      "title": "Winter Qi Gong Inseli",
+      "startDate": "2026-12-08",
+      "startTime": "09:00",
+      "comune": "Ebikon",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7694128",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-28T15:07:04.874Z",
+      "sourceDescriptionHash": "a4ab323c5cae39e242333889135f8cd2702640684a8b1a48191a69a22c17cce6"
+    },
+    {
+      "id": "lu-stadt-agenda:6363325",
+      "title": "FUKA KIOSK - Kultur zum Abholen",
+      "startDate": "2026-12-10",
+      "startTime": "17:00",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/6363325",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-28T15:07:04.874Z",
+      "sourceDescriptionHash": "7a35bbc923c150dade1a7e9d52c4c393f0a431ad10dc3086c4d154f11fbcf129"
     }
   ]
 }
