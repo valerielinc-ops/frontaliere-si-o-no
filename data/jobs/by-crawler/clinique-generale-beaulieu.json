@@ -1,7 +1,7 @@
 {
   "crawlerKey": "clinique-generale-beaulieu",
-  "assembledAt": "2026-11-28T09:25:42.798Z",
-  "runId": "46129810600",
+  "assembledAt": "2026-11-28T21:59:29.821Z",
+  "runId": "46190874826",
   "jobs": [
     {
       "id": "clinique-generale-beaulieu-e6b8261c79ac",
@@ -35,7 +35,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000164012592-assistante-et-preparatrice-en-pharmacie-oncologie-ambulatoire",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:24:53.542Z",
+      "crawledAt": "2026-11-28T21:59:21.127Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -53,7 +53,9 @@
       "postingDateSource": "reported",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-27T21:32:39.377Z",
+      "previousSlugs": [
+        "assistante-et-preparatrice-en-pharmacie-oncologie-ambulatoire-clinique-generale-beaulieu"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "assistante-et-preparatrice-en-pharmacie-oncologie-ambulatoire-clinique-generale-beaulieu"
@@ -65,9 +67,7 @@
           "assistante-et-preparatrice-en-pharmacie-oncologie-ambulatoire-clinique-generale-beaulieu"
         ]
       },
-      "previousSlugs": [
-        "assistante-et-preparatrice-en-pharmacie-oncologie-ambulatoire-clinique-generale-beaulieu"
-      ],
+      "firstSeenAt": "2026-11-27T21:32:39.377Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -82,7 +82,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-26T09:24:53.542Z",
+      "validThrough": "2027-02-25T21:59:21.127Z",
       "validThroughSource": "last-observed-window"
     }
   ]
