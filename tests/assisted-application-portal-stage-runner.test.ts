@@ -75,9 +75,18 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
           },
         };
       }
+      const controlId = /^\[data-aa-id="([^"]+)"\]$/.exec(selector)?.[1] || '';
       return {
         count: async () => 0,
         first: () => ({
+          // Playwright's Locator.getAttribute is async and resolves null for an absent attribute; the
+          // runner reads a link's href and target through it before and after the click.
+          getAttribute: async (name: string, _options?: unknown) => {
+            const control: any = [...(state.snapshot.links || []), ...(state.snapshot.buttons || [])]
+              .find((candidate: any) => candidate.id === controlId);
+            const value = control?.[name];
+            return typeof value === 'string' ? value : null;
+          },
           click: (_options?: unknown) => {
             const transition = buttonTransitions[selector];
             if (transition) return transition();

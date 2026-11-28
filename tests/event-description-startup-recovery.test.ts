@@ -153,8 +153,8 @@ describe('bounded event-description startup recovery', () => {
     const loadRecoveryToken = steps.find((step: any) => step.name === 'Load recovery API token from Remote Config');
     expect(loadRecoveryToken?.run).toContain('node scripts/load-rc-env.mjs --only-env=GITHUB_PAT');
     const recovery = steps.at(-1).with.script;
-    expect(recovery).toContain("const { getOctokit: createOctokit } = require('@actions/github');");
-    expect(recovery).toContain('createOctokit(recoveryToken)');
+    expect(recovery).not.toContain("require('@actions/github')");
+    expect(recovery).toContain('const recoveryGithub = getOctokit(recoveryToken);');
     expect(recovery).toContain('process.env.GITHUB_PAT');
     expect(recovery).toContain('recoveryGithub.rest.actions.listJobsForWorkflowRunAttempt');
     expect(recovery).toContain('recoveryGithub.rest.actions.reRunWorkflow');

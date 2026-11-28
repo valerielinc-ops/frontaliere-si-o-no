@@ -109,6 +109,107 @@ function attributedNode(a: Record<string, unknown>, isCls: boolean): unknown {
   return firstAvailable;
 }
 
+/**
+ * Recent-interaction buffer. web-vitals only fills `interactionTarget` when the
+ * entry's `target` is still set at report time; on the job board a click
+ * re-renders the list, the node is gone and ~77% of the INP events (GA4,
+ * 20-26/11/2026) went out as `unknown`. Passive capture listeners (installed by
+ * `services/webVitals.ts`) therefore remember the target of the last few
+ * interactions at the moment they happen, and `buildCwvAttributionEvent` falls
+ * back to the entry closest to `attribution.interactionTime`.
+ *
+ * Cost contract (INP must not get worse because of its own telemetry): O(1)
+ * per event, bounded buffer, only `closest()` on the target and a string slice;
+ * no I/O, no layout read, no `querySelector` on the document.
+ */
+export const INTERACTION_BUFFER_SIZE = 8;
+/**
+ * The INP `interactionTime` is the `startTime` of the first event of the
+ * interaction (pointerdown/keydown), and the capture listener reads
+ * `event.timeStamp` of the same event on the same timeline: they normally
+ * coincide. 50 ms absorbs rounding and the pointerdown/click pairing without
+ * reaching the neighbouring interaction (INP interactions are >= ~100 ms apart).
+ */
+export const INTERACTION_MATCH_TOLERANCE_MS = 50;
+export const INTERACTION_EVENT_TYPES = ['pointerdown', 'keydown', 'click'] as const;
+const BUFFER_SELECTOR_MAX_LENGTH = 60;
+
+export type RecordedInteraction = {
+  timeStamp: number;
+  component: CwvAttributionComponent;
+  selector: string;
+  pagePath: string;
+};
+
+const interactionBuffer: RecordedInteraction[] = [];
+
+/** Compact `tag#id.class.class` (first two classes), bounded; never throws. */
+function compactSelector(node: unknown): string {
+  const el = node as { tagName?: unknown; id?: unknown; classList?: ArrayLike<string> | undefined };
+  const tag = typeof el?.tagName === 'string' ? el.tagName.toLowerCase() : '';
+  if (!tag) return '';
+  const id = typeof el.id === 'string' && el.id ? `#${el.id}` : '';
+  const classes = el.classList ? Array.prototype.slice.call(el.classList, 0, 2).map((c: string) => `.${c}`).join('') : '';
+  return `${tag}${id}${classes}`.slice(0, BUFFER_SELECTOR_MAX_LENGTH);
+}
+
+/** Passive capture listener body. Exported for the wiring and for tests. */
+export function recordInteraction(event: { target?: unknown; timeStamp?: number }, pagePath = ''): void {
+  try {
+    const el = toElement(event?.target);
+    if (!el || typeof event.timeStamp !== 'number') return;
+    interactionBuffer.push({
+      timeStamp: event.timeStamp,
+      component: classifyElement(el),
+      selector: compactSelector(el),
+      pagePath,
+    });
+    if (interactionBuffer.length > INTERACTION_BUFFER_SIZE) interactionBuffer.shift();
+  } catch {
+    // Telemetry only: never interfere with the interaction being measured.
+  }
+}
+
+export function getRecordedInteractions(): readonly RecordedInteraction[] {
+  return interactionBuffer;
+}
+
+export function resetRecordedInteractions(): void {
+  interactionBuffer.length = 0;
+}
+
+function nearestInteraction(time: unknown): RecordedInteraction | null {
+  if (typeof time !== 'number' || !Number.isFinite(time)) return null;
+  let best: RecordedInteraction | null = null;
+  let bestDelta = INTERACTION_MATCH_TOLERANCE_MS + 1;
+  for (const entry of interactionBuffer) {
+    const delta = Math.abs(entry.timeStamp - time);
+    if (delta < bestDelta) { best = entry; bestDelta = delta; }
+  }
+  return best;
+}
+
+/** `interactionTime`, else the start of the first processed event entry. */
+function interactionStart(a: Record<string, unknown>): unknown {
+  if (typeof a.interactionTime === 'number') return a.interactionTime;
+  const entries = a.processedEventEntries;
+  return Array.isArray(entries) ? (entries[0] as { startTime?: unknown } | undefined)?.startTime : undefined;
+}
+
+/** Newer web-vitals expose a WeakRef to the target; absent on older builds. */
+function derefInteractionElement(a: Record<string, unknown>): unknown {
+  try {
+    return (a.interactionTargetElement as { deref?: () => unknown } | undefined)?.deref?.();
+  } catch {
+    return undefined;
+  }
+}
+
+/** web-vitals builds selectors from the raw classList: escape what CSS rejects. */
+function escapeTailwindSelector(selector: string): string {
+  return selector.replace(/[:/[\]%@!()]/g, (ch) => (typeof CSS !== 'undefined' && typeof CSS.escape === 'function' ? CSS.escape(ch) : `\\${ch}`));
+}
+
 function classifyElement(el: ClosestCapable): CwvAttributionComponent {
   for (const [component, ancestor] of COMPONENT_CLASSIFIERS) {
     if (el.closest(ancestor)) return component;
@@ -131,7 +232,13 @@ function classifyTarget(
     // matches nothing. It is also anchored at the nearest id ancestor and can
     // point elsewhere after an SPA navigation. Hence the node reference first.
     if (!selector) return unavailableComponent;
-    const found = toElement(doc.querySelector(selector));
+    let found = null;
+    try {
+      found = toElement(doc.querySelector(selector));
+    } catch {
+      // Unescaped Tailwind token (`md:pb-8`): retry once with CSS escapes.
+    }
+    if (!found) found = toElement(doc.querySelector(escapeTailwindSelector(selector)));
     return found ? classifyElement(found) : unavailableComponent;
   } catch {
     // Invalid selector, or a document without querySelector: the event still
@@ -183,13 +290,28 @@ export function buildCwvAttributionEvent(
   const a = (metric.attribution ?? {}) as Record<string, unknown>;
   const isCls = section === clsSection;
   const rawSelector = String((isCls ? a.largestShiftTarget : a.interactionTarget) ?? '');
-  const selector = rawSelector || (isCls ? '' : UNKNOWN_COMPONENT);
-  const component = classifyTarget(
+  let selector = rawSelector || (isCls ? '' : UNKNOWN_COMPONENT);
+  let component = classifyTarget(
     attributedNode(a, isCls),
     rawSelector,
     doc,
     isCls ? FALLBACK_COMPONENT : UNKNOWN_COMPONENT,
   );
+  if (!isCls && (component === UNKNOWN_COMPONENT || !rawSelector)) {
+    // The target node was gone at report time: use what the capture listeners
+    // saw, then the WeakRef, and keep `unknown` only if both are missing.
+    const recorded = nearestInteraction(interactionStart(a));
+    const dereferenced = recorded ? null : toElement(derefInteractionElement(a));
+    if (component === UNKNOWN_COMPONENT) {
+      if (recorded) component = recorded.component;
+      else if (dereferenced) component = classifyElement(dereferenced);
+    }
+    if (!rawSelector) {
+      selector = recorded?.selector
+        || (dereferenced ? compactSelector(dereferenced) : '')
+        || UNKNOWN_COMPONENT;
+    }
+  }
   const action = sanitizeAction(isCls ? a.loadState : a.interactionType);
   const autoAds = countMatches(doc, AUTO_AD_SELECTOR);
   const collapsedAutoAds = countMatches(doc, AUTO_AD_COLLAPSED_SELECTOR);

@@ -36,6 +36,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { isAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { fetchPersonioJobs } from './ats-clients/personio-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -198,6 +199,8 @@ export async function fetchAllYapealJobs() {
 
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
+    // Keep the source-proven-empty stamp (non-enumerable) intact.
+    if (isAuthoritativeEmptySnapshot(listings)) return listings;
     return [];
   }
 

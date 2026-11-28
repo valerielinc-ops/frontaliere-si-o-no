@@ -2156,7 +2156,13 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       selectLike: false,
     }], [{ fieldId: 'nationality', action: 'select', value: 'francese' }], {}, { pause: async () => {} });
 
-    expect(result).toEqual([{ fieldId: 'nationality', ok: false, error: 'option_not_found' }]);
+    // Every option_* failure reports the field's own option list (this one has none read) next to the error.
+    expect(result).toEqual([{
+      fieldId: 'nationality',
+      ok: false,
+      error: 'option_not_found',
+      optionDiagnostics: { label: '* Nationalité', kind: 'combobox', optionCount: 0, offered: [] },
+    }]);
     expect(fallbackOptions.nth).not.toHaveBeenCalled();
     expect(selected).toBe('');
   });

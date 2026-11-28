@@ -25,11 +25,16 @@ import {
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
-  parseSwissShortDate,
 } from './hospital-custom-html-helpers.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { hasPotentialJobData } from './jobcloud-empty-state.mjs';
+import {
+  extractJobCloudDescriptionHtml,
+  extractJobCloudKeyInfo,
+  extractJobCloudApplyUrl,
+  parseJobCloudDate,
+} from './jobcloud-company-detail.mjs';
 
 export const CIC_KEY = 'clinique-cic';
 export const CIC_COMPANY_NAME = 'Clinique CIC (Saxon & Clarens)';
@@ -129,83 +134,16 @@ function inferLocalityFromSite(site = '', title = '') {
   return { city: 'Saxon', postalCode: '1907', canton: 'VS' };
 }
 
-function extractKeyInfoValue(html, labelPattern) {
-  const re = new RegExp(
-    `<div[^>]*>\\s*(?:${labelPattern}):?\\s*</div>\\s*<div[^>]*class=["'][^"']*\\btext-size-small\\b[^"']*["'][^>]*>([\\s\\S]*?)</div>`,
-    'i',
-  );
-  const match = String(html || '').match(re);
-  return match ? normalizeSpace(htmlToText(match[1])) : '';
-}
-
-function extractRichTextBlock(html = '') {
-  const startMatch = String(html || '').match(/class\s*=\s*(["'])[^"']*\b(?:text-rich-text[^"']*\bw-richtext|w-richtext[^"']*\btext-rich-text)[^"']*\1[^>]*>/i);
-  if (!startMatch) return '';
-  const contentStart = startMatch.index + startMatch[0].length;
-  const endMatch = String(html).slice(contentStart).match(/<[^>]*\bjob_details_content-right\b[^>]*>/i);
-  const endIdx = endMatch ? contentStart + endMatch.index : -1;
-  return String(html).slice(contentStart, endIdx === -1 ? undefined : endIdx);
-}
-
-function extractApplyUrl(html = '', detailUrl = LISTING_URL) {
-  const tags = String(html || '').match(/<a\b[^>]*>/gi) || [];
-  for (const tag of tags) {
-    if (!/\bid\s*=\s*(["'])job-ad-apply-btn\1/i.test(tag)) continue;
-    const href = tag.match(/\bhref\s*=\s*(["'])([^"']+)\1/i);
-    if (href) {
-      const value = decodeNumericEntities(decodeEntities(href[2])).replace(/&amp;/g, '&');
-      try {
-        return new URL(value, detailUrl).toString();
-      } catch {
-        return '';
-      }
-    }
-  }
-  return '';
-}
-
-const MONTHS = new Map([
-  ['january', 1], ['janvier', 1], ['januar', 1], ['jan', 1],
-  ['february', 2], ['fevrier', 2], ['februar', 2], ['feb', 2],
-  ['march', 3], ['mars', 3], ['marz', 3], ['maerz', 3], ['mar', 3],
-  ['april', 4], ['avril', 4], ['apr', 4],
-  ['may', 5], ['mai', 5],
-  ['june', 6], ['juin', 6], ['juni', 6], ['jun', 6],
-  ['july', 7], ['juillet', 7], ['juli', 7], ['jul', 7],
-  ['august', 8], ['aout', 8], ['aug', 8],
-  ['september', 9], ['septembre', 9], ['sep', 9], ['sept', 9],
-  ['october', 10], ['octobre', 10], ['oktober', 10], ['oct', 10],
-  ['november', 11], ['novembre', 11], ['nov', 11],
-  ['december', 12], ['decembre', 12], ['dezember', 12], ['dec', 12],
-]);
-
-function normalizePostedDate(rawDate = '') {
-  const value = normalizeSpace(decodeNumericEntities(rawDate));
-  const shortDate = parseSwissShortDate(value);
-  if (shortDate) return shortDate;
-  const match = value.match(/^(\d{1,2})\.\s*([\p{L}.]+)\s+(\d{4})$/u);
-  if (!match) return '';
-  const monthName = match[2]
-    .replace(/\.$/, '')
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase();
-  const month = MONTHS.get(monthName);
-  if (!month) return '';
-  const iso = `${match[3]}-${String(month).padStart(2, '0')}-${match[1].padStart(2, '0')}`;
-  return sourcePostingDateFields(iso).postedDate;
-}
-
 async function fetchDetailData(detailUrl) {
   const html = await fetchHtml(detailUrl);
   const titleMatch = String(html).match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i);
   const title = titleMatch ? normalizeSpace(htmlToText(titleMatch[1])) : '';
-  const description = normalizeSpace(htmlToText(extractRichTextBlock(html)));
-  const datePosted = normalizePostedDate(extractKeyInfoValue(html, 'Date de publication|Publication date|Veröffentlichungsdatum'));
-  const occupationRange = extractKeyInfoValue(html, "Taux d[’']activité|Taux d[’']occupation|Workload|Pensum");
-  const contractTypeRaw = extractKeyInfoValue(html, 'Type de contrat|Contract type|Vertragsart');
-  const lieuDeTravail = extractKeyInfoValue(html, 'Lieu de travail|Work location|Arbeitsort');
-  const applyUrl = extractApplyUrl(html, detailUrl);
+  const description = normalizeSpace(htmlToText(extractJobCloudDescriptionHtml(html)));
+  const datePosted = parseJobCloudDate(extractJobCloudKeyInfo(html, 'Date de publication|Publication date|Veröffentlichungsdatum'));
+  const occupationRange = extractJobCloudKeyInfo(html, "Taux d[’']activité|Taux d[’']occupation|Workload|Pensum");
+  const contractTypeRaw = extractJobCloudKeyInfo(html, 'Type de contrat|Contract type|Vertragsart');
+  const lieuDeTravail = extractJobCloudKeyInfo(html, 'Lieu de travail|Work location|Arbeitsort');
+  const applyUrl = extractJobCloudApplyUrl(html, detailUrl);
   return { title, description, datePosted, occupationRange, contractTypeRaw, lieuDeTravail, applyUrl };
 }
 

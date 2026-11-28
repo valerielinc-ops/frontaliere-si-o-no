@@ -700,8 +700,10 @@ jobs:
       # `deploy-host/<locale>`. Campi e lettura nello script. Il token resta
       # nell'ambiente di questo step: gli step di build non lo vedono.
       # Spegnimento: variabile di repository DEPLOY_HOST_HEARTBEAT=0.
+      # format() confronta stringhe: con `vars.X != '0'` una variabile assente
+      # (null → 0, come '0') faceva saltare lo step (run 46169147819).
       - name: Start off-runner host heartbeat
-        if: vars.DEPLOY_HOST_HEARTBEAT != '0'
+        if: format('{0}', vars.DEPLOY_HOST_HEARTBEAT) != '0'
         continue-on-error: true
         env:
           HEARTBEAT_TOKEN: ${{ github.token }}
@@ -860,6 +862,15 @@ jobs:
           key: og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}-${{ github.run_id }}
           restore-keys: |
             og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-
+
+      # actions/cache shares 10 GB with far larger caches and evicts this one
+      # (a miss costs the whole JOB_OG_RENDER_BUDGET_S). R2 is the
+      # second tier, used only on a miss. Rationale in the script.
+      - name: Hydrate per-job OG images from R2 on cache miss
+        if: matrix.locale == 'it' && steps.job_og_images_cache.outputs.cache-matched-key == ''
+        timeout-minutes: 10
+        continue-on-error: true
+        run: node scripts/ci/job-og-cache-r2.mjs restore
 
       # This compact manifest records the OG bytes from the last successful
       # R2 copy of that prefix. A failure in a later, unrelated prefix does not
@@ -1454,6 +1465,12 @@ jobs:
         with:
           path: .cache/og-jobs
           key: og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}-${{ github.run_id }}
+
+      - name: Persist per-job OG images to R2
+        if: ${{ always() && matrix.locale == 'it' && steps.job_og_images_cache.outcome == 'success' && hashFiles('.cache/og-jobs/.complete') != '' && (steps.build_step.outcome == 'success' || steps.build_step.outcome == 'failure') }}
+        timeout-minutes: 10
+        continue-on-error: true
+        run: node scripts/ci/job-og-cache-r2.mjs save
 
       # Non-IT publisher tails and section-shard staging run in separate
       # directories/runners. Hand off the exact list the IT renderer deferred

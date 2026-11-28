@@ -10,6 +10,7 @@
  * Source: https://fusalp.welcomekit.co/
  */
 import { createHash } from 'node:crypto';
+import { JSDOM } from 'jsdom';
 import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -32,6 +33,66 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+/* ── Country recognition ───────────────────────────────────── */
+
+function foldCountry(value = '') {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+// ISO alpha-3 codes WelcomeKit boards are likely to emit besides alpha-2.
+const FOREIGN_ALPHA3 = ['fra', 'deu', 'ita', 'lux', 'aut', 'bel', 'esp', 'gbr', 'usa', 'nld', 'prt', 'lie'];
+
+// Every recognised non-Swiss country: ISO alpha-2 codes plus their English,
+// French, German and Italian names (ICU), so "Allemagne", "Deutschland" and
+// "Germania" are all known. Anything outside this set stays unrecognised.
+const FOREIGN_COUNTRY_LABELS = (() => {
+  const labels = new Set(FOREIGN_ALPHA3);
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let namers = [];
+  try {
+    namers = ['en', 'fr', 'de', 'it'].map((locale) => new Intl.DisplayNames([locale], { type: 'region' }));
+  } catch {
+    namers = [];
+  }
+  for (const a of letters) {
+    for (const b of letters) {
+      const code = `${a}${b}`;
+      if (code === 'CH') continue;
+      let known = false;
+      for (const namer of namers) {
+        let name;
+        try { name = namer.of(code); } catch { name = undefined; }
+        if (name && name !== code) {
+          labels.add(foldCountry(name));
+          known = true;
+        }
+      }
+      if (known) labels.add(code.toLowerCase());
+    }
+  }
+  return labels;
+})();
+
+/**
+ * Classify a JSON-LD `addressCountry` value.
+ * `CH` for any Swiss spelling, `foreign` only for a recognised non-Swiss
+ * country, `unknown` otherwise (empty or unrecognised): an unknown value must
+ * never be read as "outside Switzerland".
+ */
+export function classifyFusalpCountry(value) {
+  const raw = value && typeof value === 'object' ? (value.name || value['@id'] || '') : value;
+  const country = foldCountry(raw);
+  if (!country) return 'unknown';
+  if (country === 'ch' || country === 'che'
+    || /\b(switzerland|schweiz|suisse|svizzera|svizra|swiss)\b/.test(country)) return 'CH';
+  return FOREIGN_COUNTRY_LABELS.has(country) ? 'foreign' : 'unknown';
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -131,25 +192,38 @@ async function fetchPage(url) {
 
 /**
  * Parse the listing page HTML to extract job URLs and titles.
+ *
+ * WelcomeKit serves `<li class="jobs-list-item" data-office=...>` with extra
+ * attributes and double quotes (a regex on `class='jobs-list-item'` matched
+ * zero cards). A real HTML parser is independent of quote style, attribute
+ * order and nested `<li>` details. Contract comes from
+ * `.jobs-list-item-contract-type`.
  */
-function parseListingPage(html) {
-  const items = html.match(/<li\s+class='jobs-list-item'[\s\S]*?<\/li>/g) || [];
+export function parseListingPage(html = '') {
+  const document = new JSDOM(String(html || '')).window.document;
   const jobs = [];
+  const items = document.querySelectorAll('li.jobs-list-item');
 
   for (const item of items) {
-    const hrefMatch = item.match(/href="([^"]+)"/);
-    const titleMatch = item.match(/<h3[^>]*>([\s\S]*?)<\/h3>/);
-    const contractMatch = item.match(/jobs-list-item-contract['"]\s*>([\s\S]*?)</);
-
-    if (hrefMatch && titleMatch) {
-      jobs.push({
-        path: hrefMatch[1],
-        title: normalizeSpace(stripHtml(titleMatch[1])),
-        contract: contractMatch ? normalizeSpace(stripHtml(contractMatch[1])) : '',
-      });
-    }
+    const href = item.querySelector('a[href]')?.getAttribute('href') || '';
+    const title = normalizeSpace(item.querySelector('.jobs-list-item-title, h3')?.textContent || '');
+    const contract = normalizeSpace(item.querySelector('.jobs-list-item-contract-type')?.textContent || '');
+    if (href && title) jobs.push({ path: href, title, contract });
   }
 
+  // Raw card nodes in the markup, so a card dropped above (no href/title)
+  // stays visible to callers that must prove a complete scan.
+  Object.defineProperty(jobs, 'cardCount', { value: items.length, enumerable: false, configurable: true });
+  return jobs;
+}
+
+function attachFetchMetadata(jobs, { discoveredCount, fetchOutcome } = {}) {
+  if (Number.isFinite(discoveredCount)) {
+    Object.defineProperty(jobs, 'discoveredCount', { value: discoveredCount, enumerable: false, configurable: true });
+  }
+  if (fetchOutcome) {
+    Object.defineProperty(jobs, 'fetchOutcome', { value: fetchOutcome, enumerable: false, configurable: true });
+  }
   return jobs;
 }
 
@@ -248,13 +322,16 @@ export async function fetchAllFusalpJobs() {
 
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings found on WelcomeKit page.');
-    return [];
+    return attachFetchMetadata([], { discoveredCount: 0, fetchOutcome: 'selector_miss' });
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
 
   // Step 2: Fetch each detail page for JSON-LD
   const jobs = [];
+  // Every card node must be parsed, its detail fetched and its country
+  // recognised as non-Swiss before an empty result may claim `filtered_empty`.
+  let nonSwissObserved = 0;
   for (const listing of listings) {
     const detailUrl = `${CAREER_URL}${listing.path}`;
     console.log(`  📄 Fetching detail: ${listing.title}`);
@@ -275,16 +352,15 @@ export async function fetchAllFusalpJobs() {
       const city = addressLocality || (urlLocMatch ? normalizeSpace(urlLocMatch[1].replace(/-/g, ' ')) : '');
 
       // Determine country from JSON-LD
-      const country = normalize(addressCountry).includes('swi') ? 'CH' :
-        normalize(addressCountry).includes('france') ? 'FR' :
-          normalize(addressCountry).includes('luxem') ? 'LU' :
-            addressCountry === 'CH' ? 'CH' : '';
+      const countryClass = classifyFusalpCountry(addressCountry);
+      const country = countryClass === 'CH' ? 'CH' : '';
 
       const canton = country === 'CH' ? (inferAnyCanton(city) || 'VS') : '';
 
       // Skip non-Swiss jobs — this is a Swiss frontaliere board
       if (country !== 'CH') {
-        console.log(`  ⏭️  Skipped non-Swiss: ${listing.title} in ${city}, ${country || '?'}`);
+        console.log(`  ⏭️  Skipped non-Swiss: ${listing.title} in ${city}, ${countryClass === 'foreign' ? 'foreign' : '?'}`);
+        if (countryClass === 'foreign') nonSwissObserved += 1;
         await new Promise((r) => setTimeout(r, 500));
         continue;
       }
@@ -357,5 +433,12 @@ export async function fetchAllFusalpJobs() {
   }
 
   console.log(`\n📋 Total Fusalp jobs discovered: ${jobs.length}`);
-  return jobs;
+  const cardCount = Number.isFinite(listings.cardCount) ? listings.cardCount : listings.length;
+  const allFiltered = jobs.length === 0
+    && cardCount === listings.length
+    && nonSwissObserved === listings.length;
+  return attachFetchMetadata(jobs, {
+    discoveredCount: listings.length,
+    ...(allFiltered ? { fetchOutcome: 'filtered_empty' } : {}),
+  });
 }
