@@ -648,7 +648,9 @@ jobs:
             batch_crawler_keys=''
             printf -v batch_crawler_keys '%s,' "${batch_keys[@]}"
             batch_crawler_keys="${batch_crawler_keys%,}"
+            prefetch_started_at="$(date +%s)"
             CRAWLER_KEYS="$batch_crawler_keys" node scripts/ci/prefetch-history-blobs.mjs
+            echo "[timing] prefetch_seconds=$(( $(date +%s) - prefetch_started_at )) keys=$batch_crawler_keys" | tee -a "$log"
             for key in "${batch_keys[@]}"; do
               [ -n "$key" ] || continue
               if [ "$(( $(date +%s) - started_at ))" -ge "$run_budget_seconds" ]; then

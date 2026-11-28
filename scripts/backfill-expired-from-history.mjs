@@ -37,6 +37,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { tmpdir } from 'node:os';
 import { createHash } from 'node:crypto';
+import { performance } from 'node:perf_hooks';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -1074,33 +1075,46 @@ function listHistoryCommits(relPath, cwd, maxCommits = MAX_COMMITS) {
  * absent path. `ls-tree` proves absence only with a successful empty result;
  * once the tree names the blob, `cat-file` must be able to read that object.
  */
-function readHistoricalArchiveBlob(sha, relPath, cwd) {
+/**
+ * Blob OIDs of `relPaths` at commit `sha`, from ONE `git ls-tree`. A missing
+ * path maps to null; a path that is not a regular blob is an error, as before.
+ * Comparing OIDs tells whether a path changed between two commits without
+ * reading or parsing it (a 90 MB archive is identical across most commits).
+ */
+function resolveHistoricalOids(sha, relPaths, cwd) {
   let listing;
   try {
     listing = git([
-      'ls-tree', '-z', '--full-tree', sha, '--', `:(literal)${relPath}`,
+      'ls-tree', '-z', '--full-tree', sha, '--', ...relPaths.map((relPath) => `:(literal)${relPath}`),
     ], { quiet: true, cwd });
   } catch {
-    throw new Error(`Unable to inspect historical archive path ${relPath}`);
+    throw new Error(`Unable to inspect historical archive paths at ${sha}`);
   }
-
-  const entries = listing.split('\0').filter(Boolean);
-  if (entries.length === 0) return null;
-  const entry = entries.map((raw) => {
+  const found = new Map();
+  for (const raw of listing.split('\0').filter(Boolean)) {
     const separator = raw.indexOf('\t');
-    if (separator < 0) return null;
+    if (separator < 0) continue;
     const [mode, type, oid] = raw.slice(0, separator).split(' ');
-    return { mode, type, oid, path: raw.slice(separator + 1) };
-  }).find((candidate) => candidate?.path === relPath);
-  if (!entry) {
-    throw new Error(`Unable to verify historical archive path ${relPath}`);
+    found.set(raw.slice(separator + 1), { mode, type, oid });
   }
-  if (entry.type !== 'blob' || !entry.oid) {
-    throw new Error(`Historical archive path is not a readable file: ${relPath}`);
+  const oids = new Map();
+  for (const relPath of relPaths) {
+    const entry = found.get(relPath);
+    if (!entry) {
+      oids.set(relPath, null);
+      continue;
+    }
+    if (entry.type !== 'blob' || !entry.oid) {
+      throw new Error(`Historical archive path is not a readable file: ${relPath}`);
+    }
+    oids.set(relPath, entry.oid);
   }
+  return oids;
+}
 
+function readHistoricalBlobByOid(oid, relPath, cwd) {
   try {
-    return git(['cat-file', 'blob', entry.oid], { quiet: true, cwd });
+    return git(['cat-file', 'blob', oid], { quiet: true, cwd });
   } catch {
     throw new Error(`Historical archive path exists but is unreadable: ${relPath}`);
   }
@@ -1328,7 +1342,17 @@ export function processSlice(sliceFile, {
   stagingDir = null,
   dryRun = DRY_RUN,
   report = null,
+  // Skip reading/parsing/walking a path whose blob OID equals the one just
+  // processed. Off only to prove equivalence in tests.
+  dedupHistoricalBlobs = true,
 } = {}) {
+  const walkStats = { activeWalkMs: 0, expiredWalkMs: 0, distinctOids: {}, parses: {} };
+  const noteOid = (relPath, oid) => {
+    (walkStats.distinctOids[relPath] ||= new Set()).add(oid);
+  };
+  const noteParse = (relPath) => {
+    walkStats.parses[relPath] = (walkStats.parses[relPath] || 0) + 1;
+  };
   const crawlerKey = path.basename(sliceFile, '.json');
   const currentRel = `data/jobs/by-crawler/${sliceFile}`;
   // The archive is the monolith plus its `<key>.shard-NNN.json` files
@@ -1441,15 +1465,35 @@ export function processSlice(sliceFile, {
       unresolvedIdlessRouteReasons.set(routeKey, reason);
     }
   };
-  let previousActiveBlob = null;
+  let previousActiveOid = null;
+  // Parsed jobs of the last active blob and how many consecutive commits
+  // carried it. The first two sightings run the full per-job loop (the second
+  // can add refusals the first cannot, via the merge branch); from the third
+  // on the loop is a no-op by construction (sets and first-wins maps only).
+  let activeRun = null;
+  const previousExpiredOids = new Map();
   for (const sha of sliceCommits) {
-    const blob = readHistoricalArchiveBlob(sha, currentRel, rootDir);
-    if (blob != null) {
-      const jobs = readHistoricalJobs(blob, currentRel, sha, 'active crawler slice');
+    const oids = resolveHistoricalOids(sha, [currentRel, ...expiredRels], rootDir);
+    const activeStartedAt = performance.now();
+    const activeOid = oids.get(currentRel);
+    if (activeOid != null) {
+      noteOid(currentRel, activeOid);
+      let jobs;
+      let skipActiveLoop = false;
+      if (dedupHistoricalBlobs && activeRun?.oid === activeOid) {
+        activeRun.count += 1;
+        skipActiveLoop = activeRun.count >= 3;
+        jobs = activeRun.jobs;
+      } else {
+        const blob = readHistoricalBlobByOid(activeOid, currentRel, rootDir);
+        noteParse(currentRel);
+        jobs = readHistoricalJobs(blob, currentRel, sha, 'active crawler slice');
+        activeRun = { oid: activeOid, jobs, count: 1 };
+      }
       // Most commits touch only the archive: do not re-scan an unchanged slice.
-      if (blob !== previousActiveBlob) listingIdentities.addVersion(jobs);
-      previousActiveBlob = blob;
-      for (const job of jobs) {
+      if (activeOid !== previousActiveOid) listingIdentities.addVersion(jobs);
+      previousActiveOid = activeOid;
+      if (!skipActiveLoop) for (const job of jobs) {
         historicalIndex.add(job);
         if (!isHeldFromPublication(job)) {
           const activeRoutes = emittedRouteEntries(job, { active: true });
@@ -1610,15 +1654,38 @@ export function processSlice(sliceFile, {
       }
     }
 
+    walkStats.activeWalkMs += performance.now() - activeStartedAt;
+
+    const expiredStartedAt = performance.now();
     for (const expiredRel of expiredRels) {
-      const expiredBlob = readHistoricalArchiveBlob(sha, expiredRel, rootDir);
-      if (expiredBlob == null) continue;
+      const expiredOid = oids.get(expiredRel);
+      if (expiredOid == null) continue;
+      noteOid(expiredRel, expiredOid);
+      // Same OID as the commit just before: every call below only adds to sets
+      // and first-wins maps keyed by the entry content, so re-reading and
+      // re-adding the identical archive changes nothing.
+      if (dedupHistoricalBlobs && previousExpiredOids.get(expiredRel) === expiredOid) continue;
+      previousExpiredOids.set(expiredRel, expiredOid);
+      const expiredBlob = readHistoricalBlobByOid(expiredOid, expiredRel, rootDir);
+      noteParse(expiredRel);
       for (const entry of readHistoricalJobs(expiredBlob, expiredRel, sha, 'expired archive slice')) {
         const owner = historicalExpiredOwners.add(entry);
         for (const { emittedPath } of owner.evidence.routeEntries) historicalExpiredRoutePaths.add(emittedPath);
         listingIdentities.addArchiveRow(entry);
       }
     }
+    walkStats.expiredWalkMs += performance.now() - expiredStartedAt;
+  }
+  const walkFinishedAt = performance.now();
+  if (report) {
+    report.timings = {
+      activeWalkMs: Math.round(walkStats.activeWalkMs),
+      expiredWalkMs: Math.round(walkStats.expiredWalkMs),
+    };
+    report.distinctOids = Object.fromEntries(
+      Object.entries(walkStats.distinctOids).map(([relPath, oids]) => [relPath, oids.size]),
+    );
+    report.parses = { ...walkStats.parses };
   }
 
   // No early return on an empty lost set: the existing slice still gets its
@@ -1641,6 +1708,7 @@ export function processSlice(sliceFile, {
           if (!snapshotBefore.has(routeKey)) unrestored.add(routeKey);
         }
       }
+      report.timings.collisionChecksMs = Math.round(performance.now() - walkFinishedAt);
       report.refused = true;
       report.unrestoredLegitimateRoutes = unrestored.size;
       report.unrestoredLegitimateRouteKeys = [...unrestored].sort().slice(0, 100);
@@ -2436,6 +2504,7 @@ export function processSlice(sliceFile, {
     };
   }
   if (report) {
+    report.timings.collisionChecksMs = Math.round(performance.now() - walkFinishedAt);
     const snapshotAfter = routeOwnerSnapshot(archived, routeOwnerSnapshot(currentJobs));
     const { lost, ownerChanged, restoredByLocale } = compareRouteSnapshots(snapshotBefore, snapshotAfter);
     report.refused = false;
@@ -2465,6 +2534,7 @@ export function processSlice(sliceFile, {
       activeEnriched: 0,
     };
   }
+  const stagingStartedAt = performance.now();
   if (!dryRun) {
     if (activeMetadata.enrichedEntries > 0 || activeRouteUpdates > 0) {
       const nextPayload = Array.isArray(currentPayload)
@@ -2501,6 +2571,7 @@ export function processSlice(sliceFile, {
       }
     }
   }
+  if (report) report.timings.stagingMs = Math.round(performance.now() - stagingStartedAt);
   return {
     crawlerKey,
     scannedCommits: sliceCommits.length,

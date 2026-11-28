@@ -624,6 +624,71 @@ describe('history backfill: served expired routes', () => {
     expect(beta.restoredByLocale).toEqual({});
   });
 
+  it('walks history by blob OID: identical output with and without dedup, one parse per distinct blob', () => {
+    const keep = activeJob('acme-oid-keep', 'synthetic-oid-keep', 700);
+    const lostB = activeJob('acme-oid-lost-b', 'synthetic-oid-lost-b', 701);
+    const lostC = activeJob('acme-oid-lost-c', 'synthetic-oid-lost-c', 702);
+    const idless = { ...activeJob('', 'synthetic-oid-idless', 703), id: undefined };
+    const archive = (count: number) => Array.from({ length: count }, (_, index) => (
+      record(`synthetic-oid-archived-${index}`, 710 + index)
+    ));
+
+    // The walk visits commits that touch the active slice or the archive, so
+    // identical blobs repeat whenever only the OTHER path changed: the active
+    // slice is the same in four consecutive commits, the archive in two.
+    commit({ active: [keep, lostB, idless], expired: archive(1) });
+    commit({ expired: archive(2) });
+    commit({ expired: archive(3) });
+    commit({ expired: archive(4) });
+    commit({ active: [keep, lostB, lostC, idless] });
+    commit({ active: [keep] });
+    commit({ expired: archive(5) });
+    commit({ expired: archive(6) });
+
+    const stagingDirs = [mkdtempSync(path.join(root, 'stage-plain-')), mkdtempSync(path.join(root, 'stage-dedup-'))];
+    const reports: Array<Record<string, any>> = [{}, {}];
+    const results = [false, true].map((dedupHistoricalBlobs, index) => processSlice(FILE, {
+      rootDir: root,
+      dryRun: false,
+      stagingDir: stagingDirs[index],
+      report: reports[index],
+      dedupHistoricalBlobs,
+    }));
+
+    expect(results[1]).toEqual(results[0]);
+    const comparable = (report: Record<string, any>) => {
+      const { timings, parses, ...rest } = report;
+      return rest;
+    };
+    expect(comparable(reports[1])).toEqual(comparable(reports[0]));
+    const stagedFiles = (dir: string) => Object.fromEntries(
+      ['active', 'expired']
+        .filter((kind) => existsSync(path.join(dir, kind)))
+        .flatMap((kind) => readdirSync(path.join(dir, kind)).map((name) => [
+          `${kind}/${name}`,
+          readFileSync(path.join(dir, kind, name), 'utf8'),
+        ])),
+    );
+    expect(stagedFiles(stagingDirs[1])).toEqual(stagedFiles(stagingDirs[0]));
+    // Something was actually recovered, so the equivalence is not vacuous.
+    expect(results[0]?.recovered).toBeGreaterThan(0);
+
+    const activeRel = 'data/jobs/by-crawler/acme.json';
+    const distinct = reports[1].distinctOids[activeRel];
+    expect(distinct).toBe(3);
+    // Parses fall from one per commit to one per distinct OID.
+    expect(reports[1].parses[activeRel]).toBe(distinct);
+    expect(reports[0].parses[activeRel]).toBeGreaterThan(distinct);
+    expect(reports[1].distinctOids).toEqual(reports[0].distinctOids);
+    const expiredRel = 'data/jobs/expired/by-crawler/acme.json';
+    expect(reports[1].parses[expiredRel]).toBe(reports[1].distinctOids[expiredRel]);
+    expect(reports[0].parses[expiredRel]).toBeGreaterThan(reports[1].parses[expiredRel]);
+    expect(reports[1].timings.activeWalkMs).toBeGreaterThanOrEqual(0);
+    expect(reports[1].timings).toHaveProperty('expiredWalkMs');
+    expect(reports[1].timings).toHaveProperty('collisionChecksMs');
+    expect(reports[1].timings).toHaveProperty('stagingMs');
+  });
+
   it('coalesces crawl-metadata snapshots of one posting but refuses a distinct posting reusing its route', () => {
     const sharedSlug = 'synthetic-repeated-crawl-route';
     const first = activeJob('acme-repeated-crawl-route', sharedSlug, 612, { crawledAt: daysAgo(6) });
