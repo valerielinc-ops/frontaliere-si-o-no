@@ -141,8 +141,7 @@ gh workflow run audit-dist-from-run.yml -f deploy_run_id=<run_id> -f audits=<aud
 
 CI required job `tests.yml` (`vitest (unit + integration)`): `npm ci`, source guards, `node scripts/assemble-jobs-dataset.mjs --stats`, `node scripts/migrate-all-known-job-slugs-canton-aware.mjs`, test correlati/Vitest e, per le PR, review Codex Luna Max + `Require approving Codex review`, tutto sulla stessa HEAD.
 
-- **Required check unico**: `tests.yml` si attiva sull'evento `pull_request` e mantiene test e review nello stesso job. L'opt-in al native auto-merge richiede l'approvazione Codex sulla HEAD esatta.
-- **Gate test:** i test locali sono facoltativi e non sono un prerequisito per aprire la PR. Correggi gli esiti rossi di `tests.yml` prima dell'auto-merge.
+- **Gate test:** i test locali sono facoltativi e non sono un prerequisito per aprire la PR. Il workflow required `tests.yml` (`pull_request`, un solo job) verifica source guards, typecheck, test correlati/Vitest e review Codex sulla stessa HEAD; correggi gli esiti rossi prima dell'auto-merge, che richiede l'approvazione Codex sulla HEAD esatta. Non saltare o ridurre il gate.
 - **Un test non scrive MAI in un file tracciato.** Redirigi in `os.tmpdir()` e parametrizza il path via env (modello `GSC_ORPHAN_CLUSTERS_OUT`); il cron mantiene il path canonico. Lo impone `tests/tracked-files-guard.global.ts`.
 - **I file gestiti dai cron NON si committano né si pushano da locale.** Elenco in `scripts/dev/local-ignore-cron.sh`; controlla `git status` prima di `git add -A`, togli quei path dallo stage: `--skip-worktree` non si eredita nei worktree.
 - **Test fixture: mai date assolute.** Usa `daysAgo(n)` per `crawledAt`/`datePosted`; dettaglio: `docs/AGENTS-HISTORY.md#test-fixture-relative-dates`.
