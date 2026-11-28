@@ -466,6 +466,41 @@ export function accountsRefFor(db, orderId) {
 export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = () => Date.now(), sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms)) }) {
   const ref = accountsRefFor(db, orderId);
   const inbox = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId)).collection('inbox');
+  /** The first not-yet-used reset message of this exact recovery request (bound by its request id), or null. */
+  const unusedResetMessage = async (account, normalizedHost, since) => {
+    const used = new Set(Array.isArray(account?.recoveryConsumedMessageIds) ? account.recoveryConsumedMessageIds.map(String) : []);
+    const snapshot = await inbox.where('receivedAt', '>=', since).get();
+    for (const doc of snapshot.docs) {
+      const message = doc.data();
+      if (used.has(doc.id) || String(message.passwordResetHost || '').toLowerCase() !== normalizedHost
+        || message.passwordResetRequestId !== account.recoveryRequestId) continue;
+      const receivedAt = Number(message.receivedAt);
+      if (!Number.isFinite(receivedAt) || receivedAt <= since) continue;
+      let url = '';
+      let temporaryPassword = '';
+      try {
+        const payload = decryptJson(message.passwordResetLinkEnc, key);
+        url = payload?.url || '';
+        if (typeof payload?.temporaryPassword === 'string' && !/[\r\n]/.test(payload.temporaryPassword)) {
+          temporaryPassword = payload.temporaryPassword;
+        }
+      } catch {
+        url = '';
+        temporaryPassword = '';
+      }
+      url = exactPortalVerificationUrl(url, normalizedHost);
+      if (!url && !temporaryPassword) continue;
+      if (url) mask(url);
+      if (temporaryPassword) mask(temporaryPassword);
+      return {
+        ...(url ? { url } : {}),
+        ...(temporaryPassword ? { temporaryPassword } : {}),
+        messageId: doc.id,
+        receivedAt,
+      };
+    }
+    return null;
+  };
   return {
     /** A password typed but never stored (a dry run's) is masked in the log all the same. */
     mask,
@@ -690,39 +725,39 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
       while (nowMs() < deadline) {
         const account = (await ref.get()).data()?.[hostKey(normalizedHost)];
         if (account?.status !== 'recovering' || Number(account.recoveryRequestedAt) !== since) return null;
-        const snapshot = await inbox.where('receivedAt', '>=', since).get();
-        for (const doc of snapshot.docs) {
-          const message = doc.data();
-          if (String(message.passwordResetHost || '').toLowerCase() !== normalizedHost
-            || message.passwordResetRequestId !== account.recoveryRequestId) continue;
-          const receivedAt = Number(message.receivedAt);
-          if (!Number.isFinite(receivedAt) || receivedAt <= since) continue;
-          let url = '';
-          let temporaryPassword = '';
-          try {
-            const payload = decryptJson(message.passwordResetLinkEnc, key);
-            url = payload?.url || '';
-            if (typeof payload?.temporaryPassword === 'string' && !/[\r\n]/.test(payload.temporaryPassword)) {
-              temporaryPassword = payload.temporaryPassword;
-            }
-          } catch {
-            url = '';
-            temporaryPassword = '';
-          }
-          url = exactPortalVerificationUrl(url, normalizedHost);
-          if (!url && !temporaryPassword) continue;
-          if (url) mask(url);
-          if (temporaryPassword) mask(temporaryPassword);
-          return {
-            ...(url ? { url } : {}),
-            ...(temporaryPassword ? { temporaryPassword } : {}),
-            messageId: doc.id,
-            receivedAt,
-          };
-        }
+        const found = await unusedResetMessage(account, normalizedHost, since);
+        if (found) return found;
         await sleep(VERIFICATION_POLL_MS);
       }
       return null;
+    },
+    /**
+     * The portal's reset e-mail of the recovery in progress, when it already arrived and nobody used its link:
+     * no waiting. A run that died after the request left (or read the e-mail and failed before the new password
+     * was set) finds it here, whatever the cooldown on a NEW request says.
+     */
+    async pendingPasswordReset(host) {
+      const normalizedHost = String(host || '').toLowerCase();
+      const account = (await ref.get()).data()?.[hostKey(normalizedHost)];
+      const since = Number(account?.recoveryRequestedAt);
+      if (!normalizedHost || account?.status !== 'recovering' || !Number.isFinite(since) || since <= 0) return null;
+      return unusedResetMessage(account, normalizedHost, since);
+    },
+    /** A reset link is used once: recorded before it is opened, so a retry never opens it again. */
+    async consumePasswordReset(host, messageId) {
+      const entryKey = hostKey(host);
+      const id = String(messageId || '').slice(0, 200);
+      if (!id) return false;
+      let result = false;
+      await db.runTransaction(async (transaction) => {
+        const current = ((await transaction.get(ref)).data() || {})[entryKey];
+        if (!current) return;
+        const used = Array.isArray(current.recoveryConsumedMessageIds) ? current.recoveryConsumedMessageIds.map(String) : [];
+        if (used.includes(id)) return;
+        transaction.set(ref, { [entryKey]: { ...current, recoveryConsumedMessageIds: [...used, id].slice(-10) } }, { merge: true });
+        result = true;
+      });
+      return result;
     },
     /** One-shot reuse of a fresh exact-host activation link from the recovery window. */
     async recoveryActivation({ host, sinceMs }) {

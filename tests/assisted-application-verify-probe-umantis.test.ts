@@ -308,6 +308,24 @@ describe('the reset e-mail\'s link and the errors of an inspection', () => {
     expect(JSON.stringify(proof)).not.toContain('SECRETTOKEN');
   });
 
+  it('the link of a reset e-mail that already arrived (the pending one) is allowed exactly, like the one waited for', async () => {
+    const store = makeStore({ ...account, password: 'rejected-one', status: 'recovering', recoveryRequestedAt: 1 });
+    store.pendingPasswordReset = vi.fn(async () => ({ url: resetLink, messageId: 'm1', receivedAt: 2 }));
+    let fireIn: any;
+    const recover = vi.fn(async ({ ctx, host }: any) => {
+      expect(await fireIn(resetLink)).toBe(false);
+      await ctx.accounts.pendingPasswordReset(host);
+      expect(await fireIn(resetLink)).toBe(true);
+      expect(await fireIn(`${resetLink}&extra=1`)).toBe(false);
+      return { handoff: 'account_recovery_timeout', accountFailure: { code: 'account_recovery_timeout', stage: 'login' } };
+    });
+    const h = harness({ accepted: [], store, recover, allowRecovery: true, aliasEmail: alias });
+    fireIn = h.fire;
+    await h.run();
+    expect(recover).toHaveBeenCalledTimes(1);
+    expect(store.pendingPasswordReset).toHaveBeenCalledWith(HOST);
+  });
+
   it('refuses a reset link on another host, or with a mutation key', async () => {
     for (const link of [`https://other.example/?PasswordResetToken=x`, `https://${HOST}/?PasswordResetToken=x&action=submit`]) {
       const store = makeStore({ ...account, password: 'rejected-one' });

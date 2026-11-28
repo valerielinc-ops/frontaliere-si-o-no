@@ -10827,7 +10827,117 @@ export async function recoverAccountPassword({ page, snapshot, ctx, host, accoun
   let resetMessage = null;
   let requestAcknowledged = false;
   let resolvedSignInUrl = authPageKind(snapshot) === 'sign_in' ? page.url() : '';
-  const existingRequestActive = account?.status === 'recovering' && requestAt > 0
+  // The rest of a recovery once the portal's reset message is in hand: its link or its temporary password.
+  const finishWithReset = async (resetMessage) => {
+    const resetUrl = exactHttpsPortalHostUrl(resetMessage?.url, host);
+    const temporaryPassword = typeof resetMessage?.temporaryPassword === 'string'
+      ? resetMessage.temporaryPassword : '';
+    if (!resetUrl && !temporaryPassword) {
+      return recoveryHandoff('account_recovery_timeout', requestAcknowledged ? 'reset_mail_not_received_acknowledged' : 'reset_mail_not_received');
+    }
+    let resetView = null;
+    if (resetUrl) {
+      await page.goto(resetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      await settle(page);
+      resetView = await extractFields(page, NAVIGATION);
+    }
+    const pageUrl = new URL(page.url());
+    const resetFields = resetView ? resetPasswordFields(resetView) : null;
+    if (temporaryPassword && !resetFields) {
+      if (pageUrl.protocol !== 'https:' || pageUrl.hostname.toLowerCase() !== host.toLowerCase()
+        || !resetView || authPageKind(resetView) !== 'sign_in') {
+        if (!resolvedSignInUrl && authPageKind(snapshot) === 'create' && await openVerifiedSignInNavigation(page, snapshot)) {
+          const signInSnapshot = await awaitAuthView(page, snapshot);
+          if (authPageKind(signInSnapshot) === 'sign_in') {
+            resolvedSignInUrl = page.url();
+            resetView = signInSnapshot;
+          }
+        } else if (resolvedSignInUrl) {
+          await page.goto(resolvedSignInUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+          await settle(page);
+          resetView = await extractFields(page, NAVIGATION);
+        }
+      }
+      if (!resetView || authPageKind(resetView) !== 'sign_in') {
+        const refused = PASSWORD_RESET_REFUSED_RE.test(resetView?.errors?.join(' ') || resetView?.text || '');
+        return recoveryHandoff(refused ? 'account_recovery_rejected' : 'account_recovery_timeout', 'sign_in_view_missing_after_reset');
+      }
+      typedSecrets?.add(temporaryPassword);
+      if (!await ctx.accounts.completeRecovery(host, { password: temporaryPassword })) {
+        return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+      }
+      const signedIn = await signInAfterRecovery(resetView);
+      return { ...signedIn, accountRecovered: true };
+    }
+    const resetContext = /[?&](?:password_?)?reset_?token=/i.test(pageUrl.search || '')
+      || /(?:reset|change|update|set).{0,30}(?:password|passwort|kennwort)|(?:password|passwort|kennwort).{0,30}(?:reset|change|update|set|setzen|vergeben|festlegen)|neues?\s+(?:passwort|kennwort)|mot de passe.{0,30}(?:réinitial|reinitial|chang|d[ée]finir)|password.{0,30}(?:reimpost|cambi|impost)/i
+        .test(`${pageUrl.pathname} ${pageUrl.search || ''} ${resetView.title || ''} ${resetView.heading || ''} ${resetView.text || ''}`);
+    if (pageUrl.protocol !== 'https:' || pageUrl.hostname !== host || !resetContext || !resetFields) {
+      return recoveryHandoff(PASSWORD_RESET_REFUSED_RE.test(resetView.errors?.join(' ') || resetView.text || '')
+        ? 'account_recovery_rejected' : 'account_recovery_timeout', 'reset_page_unrecognized');
+    }
+    const staged = (await ctx.accounts.load(host))?.password || account?.password || '';
+    if (!staged) return recoveryHandoff('account_recovery_timeout', 'staged_password_missing');
+    typedSecrets?.add(staged);
+    await applyActions(page, resetView.fields, [
+      { fieldId: resetFields.password.id, action: 'fill', value: staged },
+      { fieldId: resetFields.confirmation.id, action: 'fill', value: staged },
+    ], {});
+    resetView = await extractFields(page, NAVIGATION);
+    const filled = resetPasswordFields(resetView);
+    if (!filled || !await passwordControlMatches(page, filled.password, staged)
+      || !await passwordControlMatches(page, filled.confirmation, staged)) {
+      return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+    }
+    const confirm = (resetView.buttons || []).find((button) => String(button.formId || '') === filled.formId
+      && PASSWORD_RESET_CONFIRM_RE.test(String(button.text || button.label || '')) && button.disabled !== true);
+    if (!confirm || !await clickButton(page, confirm)) return recoveryHandoff('account_recovery_timeout', 'reset_confirm_unpressed');
+    let afterReset = await awaitAuthOutcome(page, 'create', resetView.errors || [], resetView.fields);
+    const resetRejected = PASSWORD_RESET_REFUSED_RE.test([afterReset.text, ...(afterReset.errors || [])].join(' '));
+    if (resetRejected) {
+      await ctx.accounts.abortRecovery(host, { requestSubmitted: true, reason: 'reset_rejected' });
+      return recoveryHandoff('account_recovery_rejected', 'reset_confirm_refused');
+    }
+    if (authPageKind(afterReset) !== 'sign_in' && !resetPasswordFields(afterReset) && !(afterReset.errors || []).length) {
+      if (await openVerifiedSignInNavigation(page, afterReset)) {
+        afterReset = await awaitAuthView(page, afterReset);
+      }
+      if (authPageKind(afterReset) !== 'sign_in' && resolvedSignInUrl && !signedInApplicationSurface(afterReset)) {
+        await page.goto(resolvedSignInUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+        await settle(page);
+        afterReset = await extractFields(page, NAVIGATION);
+      }
+    }
+    if (authPageKind(afterReset) !== 'sign_in') {
+      if (!resetPasswordFields(afterReset) && !(afterReset.errors || []).length && signedInApplicationSurface(afterReset)) {
+        if (!await ctx.accounts.completeRecovery(host)) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+        return { snapshot: afterReset, reopen: true, accountRecovered: true };
+      }
+      return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+    }
+    if (!await ctx.accounts.completeRecovery(host)) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+    const signedIn = await signInAfterRecovery(afterReset);
+    return { ...signedIn, accountRecovered: true };
+  };
+  // A reset e-mail of the recovery in progress that already arrived and was never used (the run that asked died, or
+  // failed before the new password was set): completed first, whatever the cooldown on a NEW request says. A link
+  // is used once; if it is expired or refused the normal path follows, with its cooldown.
+  let triedPending = false;
+  if (account?.status === 'recovering' && typeof ctx.accounts.pendingPasswordReset === 'function') {
+    const pending = await ctx.accounts.pendingPasswordReset(host).catch(() => null);
+    if (pending) {
+      triedPending = true;
+      await ctx.accounts.consumePasswordReset?.(host, pending.messageId);
+      const resumed = await finishWithReset(pending);
+      if (resumed?.accountRecovered === true) return resumed;
+      if (resolvedSignInUrl && page.url() !== resolvedSignInUrl) {
+        await page.goto(resolvedSignInUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+        await settle(page);
+        snapshot = await extractFields(page, NAVIGATION);
+      }
+    }
+  }
+  const existingRequestActive = !triedPending && account?.status === 'recovering' && requestAt > 0
     && Date.now() - requestAt < 15 * 60 * 1000 && Boolean(account.password);
   if (existingRequestActive) {
     resetMessage = await ctx.accounts.waitForPasswordReset({ host, sinceMs: requestAt });
@@ -10887,95 +10997,7 @@ export async function recoverAccountPassword({ page, snapshot, ctx, host, accoun
     requestAcknowledged = passwordResetRequestAcknowledged(await pageText(page).catch(() => ''));
     resetMessage = await ctx.accounts.waitForPasswordReset({ host, sinceMs: requestAt });
   }
-  const resetUrl = exactHttpsPortalHostUrl(resetMessage?.url, host);
-  const temporaryPassword = typeof resetMessage?.temporaryPassword === 'string'
-    ? resetMessage.temporaryPassword : '';
-  if (!resetUrl && !temporaryPassword) {
-    return recoveryHandoff('account_recovery_timeout', requestAcknowledged ? 'reset_mail_not_received_acknowledged' : 'reset_mail_not_received');
-  }
-  let resetView = null;
-  if (resetUrl) {
-    await page.goto(resetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
-    await settle(page);
-    resetView = await extractFields(page, NAVIGATION);
-  }
-  const pageUrl = new URL(page.url());
-  const resetFields = resetView ? resetPasswordFields(resetView) : null;
-  if (temporaryPassword && !resetFields) {
-    if (pageUrl.protocol !== 'https:' || pageUrl.hostname.toLowerCase() !== host.toLowerCase()
-      || !resetView || authPageKind(resetView) !== 'sign_in') {
-      if (!resolvedSignInUrl && authPageKind(snapshot) === 'create' && await openVerifiedSignInNavigation(page, snapshot)) {
-        const signInSnapshot = await awaitAuthView(page, snapshot);
-        if (authPageKind(signInSnapshot) === 'sign_in') {
-          resolvedSignInUrl = page.url();
-          resetView = signInSnapshot;
-        }
-      } else if (resolvedSignInUrl) {
-        await page.goto(resolvedSignInUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
-        await settle(page);
-        resetView = await extractFields(page, NAVIGATION);
-      }
-    }
-    if (!resetView || authPageKind(resetView) !== 'sign_in') {
-      const refused = PASSWORD_RESET_REFUSED_RE.test(resetView?.errors?.join(' ') || resetView?.text || '');
-      return recoveryHandoff(refused ? 'account_recovery_rejected' : 'account_recovery_timeout', 'sign_in_view_missing_after_reset');
-    }
-    typedSecrets?.add(temporaryPassword);
-    if (!await ctx.accounts.completeRecovery(host, { password: temporaryPassword })) {
-      return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
-    }
-    const signedIn = await signInAfterRecovery(resetView);
-    return { ...signedIn, accountRecovered: true };
-  }
-  const resetContext = /[?&](?:password_?)?reset_?token=/i.test(pageUrl.search || '')
-    || /(?:reset|change|update|set).{0,30}(?:password|passwort|kennwort)|(?:password|passwort|kennwort).{0,30}(?:reset|change|update|set|setzen|vergeben|festlegen)|neues?\s+(?:passwort|kennwort)|mot de passe.{0,30}(?:réinitial|reinitial|chang|d[ée]finir)|password.{0,30}(?:reimpost|cambi|impost)/i
-      .test(`${pageUrl.pathname} ${pageUrl.search || ''} ${resetView.title || ''} ${resetView.heading || ''} ${resetView.text || ''}`);
-  if (pageUrl.protocol !== 'https:' || pageUrl.hostname !== host || !resetContext || !resetFields) {
-    return recoveryHandoff(PASSWORD_RESET_REFUSED_RE.test(resetView.errors?.join(' ') || resetView.text || '')
-      ? 'account_recovery_rejected' : 'account_recovery_timeout', 'reset_page_unrecognized');
-  }
-  const staged = (await ctx.accounts.load(host))?.password || account?.password || '';
-  if (!staged) return recoveryHandoff('account_recovery_timeout', 'staged_password_missing');
-  typedSecrets?.add(staged);
-  await applyActions(page, resetView.fields, [
-    { fieldId: resetFields.password.id, action: 'fill', value: staged },
-    { fieldId: resetFields.confirmation.id, action: 'fill', value: staged },
-  ], {});
-  resetView = await extractFields(page, NAVIGATION);
-  const filled = resetPasswordFields(resetView);
-  if (!filled || !await passwordControlMatches(page, filled.password, staged)
-    || !await passwordControlMatches(page, filled.confirmation, staged)) {
-    return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
-  }
-  const confirm = (resetView.buttons || []).find((button) => String(button.formId || '') === filled.formId
-    && PASSWORD_RESET_CONFIRM_RE.test(String(button.text || button.label || '')) && button.disabled !== true);
-  if (!confirm || !await clickButton(page, confirm)) return recoveryHandoff('account_recovery_timeout', 'reset_confirm_unpressed');
-  let afterReset = await awaitAuthOutcome(page, 'create', resetView.errors || [], resetView.fields);
-  const resetRejected = PASSWORD_RESET_REFUSED_RE.test([afterReset.text, ...(afterReset.errors || [])].join(' '));
-  if (resetRejected) {
-    await ctx.accounts.abortRecovery(host, { requestSubmitted: true, reason: 'reset_rejected' });
-    return recoveryHandoff('account_recovery_rejected', 'reset_confirm_refused');
-  }
-  if (authPageKind(afterReset) !== 'sign_in' && !resetPasswordFields(afterReset) && !(afterReset.errors || []).length) {
-    if (await openVerifiedSignInNavigation(page, afterReset)) {
-      afterReset = await awaitAuthView(page, afterReset);
-    }
-    if (authPageKind(afterReset) !== 'sign_in' && resolvedSignInUrl && !signedInApplicationSurface(afterReset)) {
-      await page.goto(resolvedSignInUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
-      await settle(page);
-      afterReset = await extractFields(page, NAVIGATION);
-    }
-  }
-  if (authPageKind(afterReset) !== 'sign_in') {
-    if (!resetPasswordFields(afterReset) && !(afterReset.errors || []).length && signedInApplicationSurface(afterReset)) {
-      if (!await ctx.accounts.completeRecovery(host)) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
-      return { snapshot: afterReset, reopen: true, accountRecovered: true };
-    }
-    return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
-  }
-  if (!await ctx.accounts.completeRecovery(host)) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
-  const signedIn = await signInAfterRecovery(afterReset);
-  return { ...signedIn, accountRecovered: true };
+  return finishWithReset(resetMessage);
 }
 
 const SECURITY_SECTION_RE = /(?:security\s*questions?|domande\s+di\s+sicurezza|questions?\s+de\s+s[eé]curit[eé]|sicherheitsfragen)/i;
