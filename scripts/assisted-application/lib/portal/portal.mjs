@@ -5557,9 +5557,14 @@ const ORGANISATION_NOUNS = new Set(['employer', 'employers', 'arbeitgeber', 'unt
 const CORPORATE_GROUP_WORDS = new Set(['groupe', 'gruppe', 'gruppo', 'group', 'konzern', 'holding', 'unternehmensgruppe', 'groupement', 'firmengruppe', 'gruppen']);
 // The months of a date next to the employer's name (read only beside a number, never as a general neutral word) («Société coopérative Migros Genève20 novembre 2026»).
 const DATE_MONTH_WORDS = new Set([
+  // French
   'janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre',
-  'januar', 'februar', 'marz', 'juli', 'dezember', 'gennaio', 'febbraio', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'dicembre',
-  'january', 'february', 'march', 'april', 'june', 'july', 'august', 'september', 'october', 'november', 'december',
+  // German (March also as «März» / «Maerz»)
+  'januar', 'februar', 'marz', 'maerz', 'april', 'mai', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'dezember',
+  // Italian
+  'gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre',
+  // English
+  'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december',
 ]);
 const CORPORATE_DESCRIPTOR_WORDS = new Set(['consulting', 'advisory', 'services']);
 // Calls to action and sentence openers that stand next to the employer's name in its own marketing copy

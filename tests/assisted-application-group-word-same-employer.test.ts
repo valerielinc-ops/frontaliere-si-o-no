@@ -113,3 +113,34 @@ describe('a group word next to the order\'s own name, as a title or heading', ()
   });
 });
 
+describe('every month of the four languages reads as a date only beside a number', () => {
+  const months = {
+    fr: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
+    de: ['Januar', 'Februar', 'März', 'Maerz', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+    it: ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'],
+    en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+  };
+  const acme = { company: 'Acme Genève', title: 'Koch' };
+  it('binds a date line with the month, and still reads the month as a name without a number', () => {
+    for (const month of Object.values(months).flat()) {
+      for (const line of [`Acme Genève 20 ${month} 2026`, `Acme Genève20 ${month} 2026`, `Acme Genève, ${month} 2026`]) {
+        expect(namesAnotherEmployer(`Welcome\n${line}`, acme)).toBe(false);
+      }
+      const capitalised = month.charAt(0).toUpperCase() + month.slice(1);
+      expect(namesAnotherEmployer(`${capitalised} GmbH`, { company: 'Acme', title: 'Koch' })).toBe(true);
+      expect(namesAnotherEmployer(`Bewerbung bei ${capitalised} AG`, { company: 'Acme', title: 'Koch' })).toBe(true);
+    }
+  });
+
+  it('binds the page whose date line carries May, and keeps «May GmbH» another employer', () => {
+    const url = 'https://x.test/job/1';
+    const diagnostics: Record<string, any> = {};
+    expect(formPostingMatch(['Acme Genève 20 May 2026', 'Koch', url].join('\n'), acme, {
+      pageUrl: url, postingUrl: url, postingMatched: true, pageHeading: 'Koch', pageHeadings: ['Koch'], diagnostics,
+    })).toBe('match');
+    expect(diagnostics).toEqual({});
+    expect(namesAnotherEmployer('May GmbH', { company: 'Acme', title: 'Koch' })).toBe(true);
+    expect(namesAnotherEmployer('Concierge | May GmbH', { company: 'Acme', title: 'Concierge' })).toBe(true);
+  });
+});
+
