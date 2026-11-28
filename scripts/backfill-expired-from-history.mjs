@@ -467,8 +467,8 @@ export function resetHistoricalEntryMemo() {
 /** Sizes of the per-entry memo generations, for the dry-run memory diagnostics. */
 function entryMemoSizes() {
   let stableChars = 0;
-  for (const derived of entryDerivedCurrent.values()) stableChars += derived.stable.length;
-  for (const derived of entryDerivedPrevious.values()) stableChars += derived.stable.length;
+  for (const derived of entryDerivedCurrent.values()) stableChars += derived.stable?.length || 0;
+  for (const derived of entryDerivedPrevious.values()) stableChars += derived.stable?.length || 0;
   return {
     current: entryDerivedCurrent.size,
     previous: entryDerivedPrevious.size,
