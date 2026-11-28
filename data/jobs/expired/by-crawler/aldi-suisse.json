@@ -2515,7 +2515,10 @@
       "vendeur-se-m-w-d-aldi-suisse-monthey-23a92f45",
       "vendeur-se-m-w-d-aldi-suisse-turbenthal-47b20ea1",
       "vendeur-se-m-w-d-aldi-suisse-gerlafingen-6e32fe57",
-      "collaborateur-de-vente-m-f-d-aldi-suisse"
+      "collaborateur-de-vente-m-f-d-aldi-suisse",
+      "collaborateur-de-vente-m-w-d-aldi-suisse-crans-montana",
+      "sales-collaborator-m-f-d-aldi-suisse-crans-montana",
+      "vertriebsmitarbeiter-m-w-d-aldi-suisse-crans-montana"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2549,7 +2552,8 @@
         "sales-associate-m-w-d-aldi-suisse-gerlafingen",
         "vendeur-se-m-w-d-aldi-suisse-monthey",
         "vendeur-se-m-w-d-aldi-suisse-turbenthal",
-        "vendeur-se-m-w-d-aldi-suisse-gerlafingen"
+        "vendeur-se-m-w-d-aldi-suisse-gerlafingen",
+        "collaborateur-de-vente-m-w-d-aldi-suisse-crans-montana"
       ],
       "en": [
         "sales-associate-m-w-d-aldi-suisse-monthey-14398097",
@@ -2579,7 +2583,8 @@
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-monthey",
         "vendeur-se-m-w-d-aldi-suisse-monthey",
         "vendeur-se-m-w-d-aldi-suisse-turbenthal",
-        "vendeur-se-m-w-d-aldi-suisse-gerlafingen"
+        "vendeur-se-m-w-d-aldi-suisse-gerlafingen",
+        "sales-collaborator-m-f-d-aldi-suisse-crans-montana"
       ],
       "de": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2-2dfce42c",
@@ -2601,7 +2606,8 @@
         "sales-associate-m-w-d-aldi-suisse-gerlafingen",
         "vendeur-se-m-w-d-aldi-suisse-monthey",
         "vendeur-se-m-w-d-aldi-suisse-turbenthal",
-        "vendeur-se-m-w-d-aldi-suisse-gerlafingen"
+        "vendeur-se-m-w-d-aldi-suisse-gerlafingen",
+        "vertriebsmitarbeiter-m-w-d-aldi-suisse-crans-montana"
       ],
       "fr": [
         "vendeur-se-m-w-d-aldi-suisse-monthey-23a92f45",
@@ -2889,7 +2895,18 @@
         "firstSeenAt": "2026-07-31T12:10:55.197Z",
         "title": "Mitarbeiter Verkauf (m/w/d)"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaborateur-de-vente-m-w-d-aldi-suisse-crans-montana": "VS"
+      },
+      "en": {
+        "sales-collaborator-m-f-d-aldi-suisse-crans-montana": "VS"
+      },
+      "de": {
+        "vertriebsmitarbeiter-m-w-d-aldi-suisse-crans-montana": "VS"
+      }
+    }
   },
   {
     "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-glattbrugg-237d4b7d",

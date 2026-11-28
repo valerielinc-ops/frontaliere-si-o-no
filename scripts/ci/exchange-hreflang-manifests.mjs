@@ -29,7 +29,12 @@
  * exception is a sibling that already succeeded in an earlier attempt: "Re-run
  * failed jobs" does not run it again, and its shard is the one that shipped, so
  * its manifest is the correct one. Reading only the current attempt would leave a
- * rerun waiting for a file nobody will ever write.
+ * rerun waiting for a file nobody will ever write. The job list does not name
+ * that earlier attempt by itself: GitHub lists such a leg again under the new
+ * attempt, with a new job id and `run_attempt` of the rerun. Only its times and
+ * runner are those of the execution it copies, so the whole history is read
+ * (`filter=all`) and a copy is traced to the lowest attempt with the same ones.
+ * Run 46080670242 waited 111 minutes for en under attempt 2 until the deadline.
  *
  * Failure model
  *   - Listing or download errors are transient: retried inside a bounded budget.
@@ -78,6 +83,7 @@ const API_TIMEOUT_MS = 30_000;
 // A throttled transfer stalls instead of failing, so each try needs its own end.
 const DOWNLOAD_TIMEOUT_MS = 3 * 60_000;
 const GH_MAX_BUFFER_BYTES = 16 * 1024 * 1024;
+const JOBS_PAGE_SIZE = 100;
 const TERMINAL_FAILURE_CONCLUSIONS = new Set(['failure', 'cancelled', 'timed_out']);
 
 export class ManifestExchangeError extends Error {}
@@ -170,15 +176,23 @@ async function isPublished({ gh, repo, runId, name, onRateLimit }) {
   return artifacts.some((artifact) => artifact?.name === name && artifact?.expired === false);
 }
 
+// Every attempt of every job, because a copy is only recognisable next to the
+// entry it copies. A short list could hide that entry, so it counts as a failed
+// poll and is never used.
 async function readJobs({ gh, repo, runId, onRateLimit }) {
-  const url = `repos/${repo}/actions/runs/${runId}/jobs?filter=latest&per_page=100`;
-  const { jobs = [] } = await readGhJson({
-    gh,
-    args: ['api', '-X', 'GET', url],
-    timeoutMs: API_TIMEOUT_MS,
-    onRateLimit,
-  });
-  return jobs;
+  const all = [];
+  for (let page = 1; ; page += 1) {
+    const url = `repos/${repo}/actions/runs/${runId}/jobs?filter=all&per_page=${JOBS_PAGE_SIZE}&page=${page}`;
+    const { jobs = [], total_count: total = 0 } = await readGhJson({
+      gh,
+      args: ['api', '-X', 'GET', url],
+      timeoutMs: API_TIMEOUT_MS,
+      onRateLimit,
+    });
+    all.push(...jobs);
+    if (all.length >= total && jobs.length < JOBS_PAGE_SIZE) return all;
+    if (jobs.length === 0) throw new Error(`incomplete job list: ${all.length} of ${total}`);
+  }
 }
 
 // The newest attempt decides, whatever order the API lists the job entries in.
@@ -190,12 +204,26 @@ function latestLocaleJob(locale, jobs) {
     ), null);
 }
 
+// The attempt in which a successful job really ran. A job that "Re-run failed
+// jobs" did not execute keeps name, times and runner of the original entry. An
+// entry without both times proves nothing and keeps its own attempt.
+function executedAttempt(job, jobs) {
+  const attempts = jobs
+    .filter((candidate) => job.started_at && job.completed_at
+      && candidate?.name === job.name
+      && candidate.conclusion === 'success'
+      && candidate.started_at === job.started_at
+      && candidate.completed_at === job.completed_at
+      && candidate.runner_id === job.runner_id)
+    .map((candidate) => Number(candidate.run_attempt));
+  return Math.min(Number(job.run_attempt), ...attempts);
+}
+
 function manifestAttemptOf(locale, jobs, runAttempt) {
   const job = latestLocaleJob(locale, jobs);
-  const attempt = Number(job?.run_attempt);
-  return job?.conclusion === 'success' && attempt >= 1 && attempt < Number(runAttempt)
-    ? String(attempt)
-    : String(runAttempt);
+  if (job?.conclusion !== 'success') return String(runAttempt);
+  const attempt = executedAttempt(job, jobs);
+  return attempt >= 1 && attempt < Number(runAttempt) ? String(attempt) : String(runAttempt);
 }
 
 async function firstMissingLocale({ gh, repo, runId, runAttempt, jobs, published, onRateLimit }) {

@@ -83,7 +83,19 @@
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-27T21:24:15.975Z",
     "previousSlugs": [
-      "fachfrau-fachmann-gesundheit-50-100-urologie-szb-chb-biel-bienne"
+      "fachfrau-fachmann-gesundheit-50-100-urologie-szb-chb-biel-bienne",
+      "fachfrau-fachmann-gesundheit-notfall-80-szb-chb-biel-bienne",
+      "professional-health-urology-50-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "urologia-della-salute-professionale-50-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "urologie-en-sante-professionnelle-50-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "medicina-sanitaria-professionale-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "fachfrau-fachmann-gesundheit-akutmedizin-60-90-szb-chb-biel-bienne",
+      "professional-health-urology-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "fachfrau-fachmann-gesundheit-urologie-80-100-szb-chb-biel-bienne",
+      "urologie-de-sante-professionnelle-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "professional-health-acute-medicine-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "fachfrau-fachmann-gesundheit-akutmedizin-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "sante-professionnelle-medecine-aigue-60-a-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1856,7 +1868,12 @@
       "medizinische-r-praxisassistent-in-efz-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne-d97e01e5",
       "medizinische-r-praxisassistent-in-efz-80-100-szb-chb-biel-bienne-ed041965",
       "lehrestelle-impiegato-a-in-logistica-cfc-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne-e6cdace7",
-      "medizinische-r-praxisassistent-in-efz-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne-a681d7dc"
+      "medizinische-r-praxisassistent-in-efz-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne-a681d7dc",
+      "lehrestelle-logistiker-in-efz-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "lehrestelle-logistiker-in-efz-szb-chb-biel-bienne",
+      "medizinische-r-praxisassistent-in-efz-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "medizinische-r-praxisassistent-in-efz-80-100-szb-chb-biel-bienne",
+      "lehrestelle-impiegato-a-in-logistica-cfc-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -3693,7 +3710,10 @@
       "lehrestelle-impiegato-a-in-logistica-cfc-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne-682f716a",
       "medizinische-r-praxisassistent-in-efz-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne-6395f5f7",
       "medizinische-r-praxisassistent-in-efz-80-100-szb-chb-biel-bienne-757e030d",
-      "lehrestelle-impiegato-a-in-logistica-cfc-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne-ee93d559"
+      "lehrestelle-impiegato-a-in-logistica-cfc-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne-ee93d559",
+      "medizinische-r-praxisassistent-in-efz-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "medizinische-r-praxisassistent-in-efz-80-100-szb-chb-biel-bienne",
+      "lehrestelle-impiegato-a-in-logistica-cfc-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -5070,7 +5090,10 @@
     "previousSlugCantonByLocale": {
       "it": {
         "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-spitalzentrum-biel-centre-hospitalier": "BE",
-        "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-szb-chb-biel": "BE"
+        "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-szb-chb-biel": "BE",
+        "medizinische-r-praxisassistent-in-efz-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne-344257d3": "BE",
+        "medizinische-r-praxisassistent-in-efz-80-100-szb-chb-biel-bienne-044e4d7b": "BE",
+        "lehrestelle-impiegato-a-in-logistica-cfc-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne-768ad737": "BE"
       },
       "en": {
         "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-spitalzentrum-biel-centre-hospitalier": "BE",
@@ -5081,7 +5104,8 @@
       "de": {
         "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-szb-chb-biel": "BE",
         "medizinische-r-praxisassistent-in-efz-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne-c4f41c0a": "BE",
-        "lehrestelle-impiegato-a-in-logistica-cfc-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne-e79474c6": "BE"
+        "lehrestelle-impiegato-a-in-logistica-cfc-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne-e79474c6": "BE",
+        "medizinische-r-praxisassistent-in-efz-80-100-szb-chb-biel-bienne-044e4d7b": "BE"
       },
       "fr": {
         "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-spitalzentrum-biel-centre-hospitalier": "BE",
@@ -6017,7 +6041,11 @@
       "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-spitalzentrum-biel-centre-hospitalier-bienne-462319c8",
       "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-szb-chb-biel-bienne-7bd0f3e6",
       "diplomierte-r-pflegefachfrau-mann-60-100-multi-disziplinare-privat-e-halbprivatstation-spitalzentrum-biel-a011597f",
-      "diplomierte-r-pflegefachfrau-mann-60-100-multi-disziplinare-privat-und-halbprivatstation-905d4e66"
+      "diplomierte-r-pflegefachfrau-mann-60-100-multi-disziplinare-privat-und-halbprivatstation-905d4e66",
+      "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-szb-chb-biel-bienne",
+      "diplomierte-r-pflegefachfrau-mann-60-100-multi-disziplinare-privat-e-halbprivatstation-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "diplomierte-r-pflegefachfrau-mann-60-100-multi-disziplinare-privat-und-halbprivatstation"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -10786,7 +10814,14 @@
       "pneumologie-chez-le-medecin-principal-ou-le-medecin-principal-50-100-part-de-travail-possible-spitalzentrum-5c9d8788",
       "oberarztin-oberarzt-kinderchirurgie-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne-25de0caa",
       "senior-physician-or-senior-physician-pneumology-50-100-job-sharing-possible-spitalzentrum-biel-centre-hospitalier-bienne",
-      "pneumologie-chez-le-medecin-principal-ou-le-medecin-principal-50-100-part-de-travail-possible-spitalzentrum-biel-centre"
+      "pneumologie-chez-le-medecin-principal-ou-le-medecin-principal-50-100-part-de-travail-possible-spitalzentrum-biel-centre",
+      "senior-physician-senior-physician-paediatric-surgery-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "medecin-superieur-medecin-superieur-chirurgie-pediatrique-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel",
+      "medico-senior-chirurgia-pediatrica-superiore-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "oberarztin-oberarzt-kinderchirurgie-80-100-szb-chb-biel-bienne",
+      "oberarztin-o-oberarzt-pneumologie-50-100-jobsharing-moglich-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "oberarztin-oder-oberarzt-pneumologie-50-100-jobsharing-moglich-szb-chb-biel-bienne",
+      "oberarztin-oberarzt-kinderchirurgie-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
     ],
     "previousSlugsByLocale": {
       "it": [

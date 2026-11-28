@@ -38,7 +38,7 @@ export function parseCantonGenerationSchedule(document) {
     throw new TypeError('invalid canton generation schedule');
   }
   const sections = new Set();
-  return document.entries.map(({ section, workflow, cron } = {}) => {
+  return document.entries.map(({ section, workflow, cron, baseSlotHours } = {}) => {
     const expectedWorkflow = typeof section === 'string' && section.startsWith('canton-')
       ? generationSlotWorkflow(section) : null;
     const schedule = /^(\d{1,2}) (\*|\d{1,2}(?:,\d{1,2})*) \* \* \*$/u.exec(cron ?? '');
@@ -50,6 +50,16 @@ export function parseCantonGenerationSchedule(document) {
     if (slotMinute > 59 || slotHours?.some((hour, index) => hour > 23 || (index > 0 && hour <= slotHours[index - 1]))) {
       throw new TypeError('invalid canton generation schedule time');
     }
+    // Optional: hours (UTC) of the base cadence. Absent = every slot is a base slot.
+    let base = null;
+    if (baseSlotHours !== undefined) {
+      if (!Array.isArray(baseSlotHours) || baseSlotHours.length === 0
+        || baseSlotHours.some((hour, index) => !Number.isInteger(hour) || hour < 0 || hour > 23
+          || baseSlotHours.indexOf(hour) !== index)) {
+        throw new TypeError('invalid canton generation schedule base slot hours');
+      }
+      base = [...baseSlotHours];
+    }
     sections.add(section);
     return {
       id: `corpus-generation-slot-${section}`,
@@ -58,8 +68,38 @@ export function parseCantonGenerationSchedule(document) {
       generationSlot: section,
       slotMinute,
       slotHours,
+      baseSlotHours: base,
     };
   });
+}
+
+/**
+ * Parse CANTON_HIGH_CADENCE_SECTIONS like the corpus does (codes, ids, `all`;
+ * separated by commas, semicolons or whitespace). Unknown tokens are ignored,
+ * an empty or missing value is an empty set: never "all".
+ */
+export function parseHighCadenceSections(raw, knownSections) {
+  const known = new Set(knownSections);
+  const out = new Set();
+  for (const token of String(raw ?? '').split(/[\s,;]+/u).map((t) => t.trim()).filter(Boolean)) {
+    const lower = token.toLowerCase();
+    if (lower === 'all' || lower === '*') {
+      for (const section of known) out.add(section);
+      continue;
+    }
+    const id = lower.startsWith('canton-') ? lower : `canton-${lower}`;
+    if (known.has(id)) out.add(id);
+  }
+  return out;
+}
+
+/**
+ * Keep a slot when the section is high-cadence, the entry carries no base
+ * cadence (old calendar), or the nominal UTC hour is a base-cadence hour.
+ */
+export function cantonSlotIsKept(entry, nominalSlot, highCadence) {
+  if (!entry.baseSlotHours) return true;
+  return highCadence.has(entry.generationSlot) || entry.baseSlotHours.includes(nominalSlot.getUTCHours());
 }
 
 /**

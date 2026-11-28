@@ -2,7 +2,13 @@ import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { dispatchGenerationSlot } from './generationSlotDispatch.js';
-import { dueGenerationSlotEntries, generationSlotDateForEntry, parseCantonGenerationSchedule } from './generationSlotSchedule.js';
+import {
+  cantonSlotIsKept,
+  dueGenerationSlotEntries,
+  generationSlotDateForEntry,
+  parseCantonGenerationSchedule,
+  parseHighCadenceSections,
+} from './generationSlotSchedule.js';
 import {
   LOOP_CLOCK_CORPUS_REPOSITORY,
   LOOP_CLOCK_ENTRIES,
@@ -266,7 +272,19 @@ export async function dispatchLoopClock({
   if (includeGenerationSlots && corpusToken) {
     try {
       const cantonSchedule = await readCantonGenerationSchedule(corpusToken, fetchImpl);
-      due.push(...cantonSchedule.filter((entry) => generationSlotDateForEntry(entry, tick)));
+      // Slots outside the base cadence are only for CANTON_HIGH_CADENCE_SECTIONS;
+      // read it only when the calendar carries a base cadence. A failed read is
+      // an empty list, never "all".
+      const highCadence = cantonSchedule.some((entry) => entry.baseSlotHours)
+        ? parseHighCadenceSections(
+          await readRemoteConfig('CANTON_HIGH_CADENCE_SECTIONS', getRemoteConfigValueImpl, warnings),
+          cantonSchedule.map((entry) => entry.generationSlot),
+        )
+        : new Set();
+      due.push(...cantonSchedule.filter((entry) => {
+        const nominal = generationSlotDateForEntry(entry, tick);
+        return nominal && cantonSlotIsKept(entry, nominal, highCadence);
+      }));
     } catch {
       warnings.push('canton_generation_schedule_unavailable');
     }

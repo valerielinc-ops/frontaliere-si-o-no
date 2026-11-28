@@ -48,6 +48,15 @@ How the order gets there:
 Nothing personal or secret is logged. The agent's `::add-mask::` lines are consumed by the runner, and every
 value they name is struck out of the log, together with every Remote Config value.
 
+**Preferred, not required.** The retry of a portal that answered HTTP 429 (`portal:portal_rate_limited`, retried at
+30 min, 2 h and 6 h) prefers this runner: the dispatch effect queues the run here, with `preferred: true`, while a
+Swiss runner has a fresh, eligible heartbeat, and otherwise dispatches to GitHub as before. The order carries no
+`flow.egress` mark, so nothing is forced. A preferred request nobody leased within 20 minutes while no runner is
+alive is claimed in a transaction (`fallback_claimed`, with an owner and a `dispatchKey`) and the same run is dispatched
+on GitHub once per request key (`fallback_dispatched`); from the claim on it never returns to `pending` and no runner
+leases it, and a claim with no outcome after 10 minutes is closed as `fallback_unconfirmed`, never dispatched again
+(the watchdog covers a run that never reports). It never holds the order for the owner (`swiss_runner_offline`). Evidence: STA, 2026-11-28, five 429 runs, all with a GitHub run id.
+
 ### Install (on the Swiss Mac)
 
 ```bash

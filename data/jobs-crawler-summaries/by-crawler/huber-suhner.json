@@ -1,29 +1,82 @@
 {
   "key": "huber-suhner",
   "label": "Huber+Suhner AG",
-  "generatedAt": "2026-11-27T21:39:00.407Z",
-  "total": 4,
+  "generatedAt": "2026-11-28T09:45:09.413Z",
+  "total": 5,
   "discovered": 50,
-  "parsed": 4,
+  "parsed": 5,
   "lastFetchOutcome": null,
   "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 4,
+  "written": 5,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
-  "updatedCount": 1,
+  "newCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 44161,
-  "avgDurationMs": 44161,
+  "unchangedCount": 4,
+  "durationMs": 10442,
+  "avgDurationMs": 10442,
   "durationHistory": [
-    44161
+    10442
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
+    {
+      "id": "huber-suhner-870176e735ad",
+      "slug": "apprendistato-anlagenfuhrer-in-pfaffikon-zh-2027-huber-suhner-ag-pfaffikon",
+      "company": "Huber+Suhner AG",
+      "companyKey": "huber-suhner",
+      "companyDomain": "hubersuhner.com",
+      "title": "Lehrstelle Anlagenführer/in in Pfäffikon (ZH) 2027",
+      "needsRetranslation": true,
+      "location": "Pfäffikon",
+      "canton": "ZH",
+      "url": "https://recruiting.hubersuhner.com/Vacancies/7312/Description/1",
+      "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-28T09:44:44.168Z",
+      "addressLocality": "Pfäffikon",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8330",
+      "streetAddress": "Tumbelenstrasse 20",
+      "category": "Produzione",
+      "contract": "full-time",
+      "contractDuration": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Manifattura",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-02-03",
+      "postedDate": "2026-02-03",
+      "postingDateSource": "reported",
+      "applyUrl": "https://recruiting.hubersuhner.com/Vacancies/7312/Application/CheckLogin/1",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "salaryMin": 55000,
+      "salaryMax": 74500,
+      "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-28T09:44:44.168Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-28T09:44:44.168Z",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 19,
+        "completeness": 25
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "huber-suhner-5235574bd4ee",
       "slug": "apprendistato-come-kunststofftechnologe-in-herisau-ar-2027-huber-suhner-ag-herisau",
@@ -37,7 +90,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7265/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:37:56.697Z",
+      "crawledAt": "2026-11-28T09:44:43.246Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -64,7 +117,7 @@
       "salaryMax": 65500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:37:56.697Z",
+      "validThrough": "2026-12-28T09:44:43.246Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -73,10 +126,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "huber-suhner-53c90476a44e",
       "slug": "apprendistato-oberflachenbeschichter-in-herisau-ar-2027-huber-suhner-ag-herisau",
@@ -90,7 +140,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7256/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:37:55.529Z",
+      "crawledAt": "2026-11-28T09:44:42.295Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -117,7 +167,7 @@
       "salaryMax": 65500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:37:55.529Z",
+      "validThrough": "2026-12-28T09:44:42.295Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -140,7 +190,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7251/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:37:54.419Z",
+      "crawledAt": "2026-11-28T09:44:41.344Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -167,7 +217,7 @@
       "salaryMax": 65500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:37:54.419Z",
+      "validThrough": "2026-12-28T09:44:41.344Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -190,7 +240,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/6478/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:37:53.266Z",
+      "crawledAt": "2026-11-28T09:44:40.387Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -217,7 +267,7 @@
       "salaryMax": 65500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:37:53.266Z",
+      "validThrough": "2026-12-28T09:44:40.387Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -228,5 +278,5 @@
       }
     }
   ],
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
 }

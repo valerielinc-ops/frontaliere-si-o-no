@@ -18,7 +18,7 @@
  * outcome (never in a public CI log: this repository is public).
  */
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
-import { getFirestoreDb } from '../lib/firestore-admin.mjs';
+import { getFunctionsFirestoreDb } from './lib/functions-admin.mjs';
 import { OWNER_SUBMITTED_STATES, transition } from '../../functions/src/assistedApplicationFlow.js';
 import { recordOwnerSubmission } from '../../functions/src/assistedApplicationAutomationAdmin.js';
 import { runAutomationEffect } from '../../functions/src/assistedApplicationAutomationEffects.js';
@@ -81,6 +81,6 @@ if (isInvokedDirectly(import.meta.url)) {
   if (args.some((arg) => !known.includes(arg)) || (args.includes('--apply') && args.includes('--dry-run'))) {
     throw new Error('Usage: reconcile-owner-submitted-flows.mjs [--dry-run | --apply] [--list]');
   }
-  const { orders, ...counts } = await reconcileOwnerSubmittedFlows({ db: await getFirestoreDb(), apply: args.includes('--apply') });
+  const { orders, ...counts } = await reconcileOwnerSubmittedFlows({ db: await getFunctionsFirestoreDb(), apply: args.includes('--apply') });
   console.log(JSON.stringify(args.includes('--list') ? { ...counts, orders } : counts));
 }

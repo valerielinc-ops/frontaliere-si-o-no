@@ -1318,9 +1318,10 @@ _carry_forward_pages_job_canon() { # <previous-pages-clone> <new-stage> [current
 }
 
 # _validate_pages_job_canon_release <release-dir> <build-id>
-# The Worker and browser 404 consumer accept v1 root shards named
-# [a-z0-9_]{2}.json and v2 shards under v2/[0-9a-f]{3}.json. The plugin emits
-# both layouts from the same current entries. Check the staged release itself
+# The Worker and browser 404 consumer read only v2 shards under
+# v2/[0-9a-f]{3}.json; manifest schema 3 carries no v1 section and the release
+# directory holds no root v1 shards. Previous releases (schema 2, with v1
+# shards) are only copied forward, never parsed. Check the staged release itself
 # (after copying dist/job-canon) so a previous release carried forward from
 # Pages can never make the current build marker appear complete.
 _validate_pages_job_canon_release() {
@@ -1504,11 +1505,6 @@ function aliasCount(entry) {
   return entry.alias ? Object.keys(entry.alias).length : 0;
 }
 
-function v1ShardKey(slug) {
-  const value = slug.slice(0, 2).toLowerCase().replace(/[^a-z0-9]/g, '_');
-  return value.length === 2 ? value : (value + '__').slice(0, 2);
-}
-
 function v2ShardKey(slug) {
   let hash = 5381;
   for (let index = 0; index < slug.length; index += 1) hash = ((hash * 33) ^ slug.charCodeAt(index)) >>> 0;
@@ -1588,34 +1584,29 @@ if (!manifest || !isRecord(manifest)) {
   reportFailures();
   process.exit(1);
 }
-if (!hasExactKeys(manifest, ['schemaVersion', 'logical', 'v1', 'v2'])) fail('manifest has missing or unknown top-level fields');
-if (manifest.schemaVersion !== 1) fail('manifest schemaVersion is unknown');
+if (!hasExactKeys(manifest, ['schemaVersion', 'logical', 'v2'])) fail('manifest has missing or unknown top-level fields');
+if (manifest.schemaVersion !== 3) fail('manifest schemaVersion is unknown');
 if (!hasExactKeys(manifest.logical, ['entries', 'aliases', 'canonicalEntriesSha256'])) fail('manifest logical section has missing or unknown fields');
-if (!hasExactKeys(manifest.v1, ['files'])) fail('manifest v1 section has missing or unknown fields');
 if (!hasExactKeys(manifest.v2, ['files'])) fail('manifest v2 section has missing or unknown fields');
 if (!Number.isSafeInteger(manifest.logical?.entries) || manifest.logical.entries <= 0) fail('manifest logical.entries is invalid');
 if (!Number.isSafeInteger(manifest.logical?.aliases) || manifest.logical.aliases < 0) fail('manifest logical.aliases is invalid');
 if (!SHA256.test(manifest.logical?.canonicalEntriesSha256 ?? '')) fail('manifest logical canonical SHA-256 is invalid');
 
-const v1Files = manifest.v1?.files;
 const v2Files = manifest.v2?.files;
-validateFileManifest(v1Files, /^[a-z0-9_]{2}\.json$/, 'v1');
 validateFileManifest(v2Files, /^[0-9a-f]{3}\.json$/, 'v2');
 if (failures.length > 0) {
   reportFailures();
   process.exit(1);
 }
 
-const v1Names = Object.keys(v1Files).sort();
 const v2Names = Object.keys(v2Files).sort();
 try {
   const rootEntries = fs.readdirSync(releaseDir, { withFileTypes: true });
-  const expectedRootNames = new Set(['manifest.json', 'v2', ...v1Names]);
+  const expectedRootNames = new Set(['manifest.json', 'v2']);
   for (const entry of rootEntries) {
     if (!expectedRootNames.has(entry.name)) fail(`unexpected job-canon root payload ${entry.name}`);
     if (entry.name === 'manifest.json' && !entry.isFile()) fail('manifest.json is not a regular file');
     if (entry.name === 'v2' && !entry.isDirectory()) fail('v2 payload is not a directory');
-    if (v1Names.includes(entry.name) && !entry.isFile()) fail(`v1 map ${entry.name} is not a regular file`);
   }
   for (const name of expectedRootNames) {
     if (!rootEntries.some((entry) => entry.name === name)) fail(`declared job-canon root payload ${name} is missing`);
@@ -1631,37 +1622,6 @@ try {
   }
 } catch (error) {
   fail(`job-canon payload directory is missing or unreadable: ${error instanceof Error ? error.message : String(error)}`);
-}
-
-const v1BySlug = new Map();
-for (const filename of v1Names) {
-  const spec = v1Files[filename];
-  const map = readDeclaredMap(releaseDir, filename, spec, 'v1');
-  if (!map) continue;
-  const slugs = Object.keys(map).sort();
-  const canonicalDigest = createHash('sha256');
-  let aliases = 0;
-  for (const slug of slugs) {
-    if (!slug) {
-      fail(`v1 map ${filename} contains an empty slug`);
-      continue;
-    }
-    if (`${v1ShardKey(slug)}.json` !== filename) fail(`v1 slug ${JSON.stringify(slug)} is in the wrong shard`);
-    let entry;
-    try {
-      entry = canonicalEntry(map[slug], slug, `v1 map ${filename}`);
-    } catch (error) {
-      fail(error instanceof Error ? error.message : String(error));
-      continue;
-    }
-    aliases += aliasCount(entry);
-    hashCanonicalEntry(canonicalDigest, slug, entry);
-    if (v1BySlug.has(slug)) fail(`v1 slug ${JSON.stringify(slug)} is duplicated across shards`);
-    else v1BySlug.set(slug, JSON.stringify(entry));
-  }
-  if (slugs.length !== spec.entries) fail(`v1 map ${filename} entry count does not match manifest`);
-  if (aliases !== spec.aliases) fail(`v1 map ${filename} alias count does not match manifest`);
-  if (canonicalDigest.digest('hex') !== spec.canonicalEntriesSha256) fail(`v1 map ${filename} canonical digest does not match manifest`);
 }
 
 const logicalDigest = createHash('sha256');
@@ -1690,11 +1650,6 @@ for (const filename of v2Names) {
     }
     if (seenV2.has(slug)) fail(`v2 slug ${JSON.stringify(slug)} is duplicated across shards`);
     seenV2.add(slug);
-    const serializedEntry = JSON.stringify(entry);
-    const v1Entry = v1BySlug.get(slug);
-    if (v1Entry === undefined) fail(`v2 slug ${JSON.stringify(slug)} is absent from v1`);
-    else if (v1Entry !== serializedEntry) fail(`v1/v2 entry mismatch for slug ${JSON.stringify(slug)}`);
-    else v1BySlug.delete(slug);
     aliases += aliasCount(entry);
     logicalAliases += aliasCount(entry);
     logicalEntries += 1;
@@ -1705,7 +1660,6 @@ for (const filename of v2Names) {
   if (aliases !== spec.aliases) fail(`v2 map ${filename} alias count does not match manifest`);
   if (canonicalDigest.digest('hex') !== spec.canonicalEntriesSha256) fail(`v2 map ${filename} canonical digest does not match manifest`);
 }
-if (v1BySlug.size > 0) fail(`v1 contains ${v1BySlug.size} slug(s) missing from v2`);
 if (logicalEntries !== manifest.logical.entries) fail('manifest logical entry count does not match v2');
 if (logicalAliases !== manifest.logical.aliases) fail('manifest logical alias count does not match v2');
 if (logicalDigest.digest('hex') !== manifest.logical.canonicalEntriesSha256) fail('manifest logical digest does not match v2');
@@ -1713,7 +1667,7 @@ if (logicalDigest.digest('hex') !== manifest.logical.canonicalEntriesSha256) fai
 if (failures.length > 0) {
   reportFailures();
 } else {
-  console.log(`[pages] validated current job-canon release: v1=${v1Names.length}, v2=${v2Names.length}, entries=${logicalEntries}, aliases=${logicalAliases}`);
+  console.log(`[pages] validated current job-canon release: v2=${v2Names.length}, entries=${logicalEntries}, aliases=${logicalAliases}`);
 }
 NODE
   then

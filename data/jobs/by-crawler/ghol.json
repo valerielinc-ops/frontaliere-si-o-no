@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-11-27T21:22:37.950Z",
-  "runId": "46069309156",
+  "assembledAt": "2026-11-28T09:37:16.188Z",
+  "runId": "46129730939",
   "jobs": [
     {
       "id": "ghol-52354c0ae92c",
@@ -50,7 +50,7 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:22:29.291Z",
+      "crawledAt": "2026-11-28T09:37:09.101Z",
       "needsRetranslation": false,
       "requirementsByLocale": {
         "it": [
@@ -110,7 +110,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:22:29.291Z",
+      "validThrough": "2026-12-28T09:37:09.101Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -160,7 +160,7 @@
       "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:22:29.290Z",
+      "crawledAt": "2026-11-28T09:37:09.100Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
@@ -186,7 +186,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:22:29.290Z",
+      "validThrough": "2026-12-28T09:37:09.100Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -236,7 +236,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:22:29.290Z",
+      "crawledAt": "2026-11-28T09:37:09.100Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -268,7 +268,7 @@
       },
       "streetAddress": "Rolle",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:22:29.290Z",
+      "validThrough": "2026-12-28T09:37:09.100Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -318,7 +318,7 @@
       "applyUrl": "https://app.beehire.com/invite/tGAb_cui0",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:22:29.289Z",
+      "crawledAt": "2026-11-28T09:37:09.099Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "infirmier-ere-chef-fe-des-urgences-adultes-groupement-hospitalier-de-l-ouest-lemanique"
@@ -350,7 +350,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:22:29.289Z",
+      "validThrough": "2026-12-28T09:37:09.099Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -400,7 +400,7 @@
       "applyUrl": "https://app.beehire.com/invite/I_TEMIvLa",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:22:29.288Z",
+      "crawledAt": "2026-11-28T09:37:09.098Z",
       "previousSlugs": [
         "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
       ],
@@ -425,89 +425,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T21:22:29.288Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "ghol-05bfa91fa669",
-      "slug": "collaboratore-di-fatturazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "collaboratore-di-fatturazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "invoicing-collaborator-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "fakturierungsmitarbeiter-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Collaborateur-trice facturation",
-      "titleByLocale": {
-        "it": "Collaboratore di fatturazione",
-        "en": "Invoicing Collaborator",
-        "de": "Fakturierungsmitarbeiter",
-        "fr": "Collaborateur-trice facturation"
-      },
-      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Saisir les prestations médicales ambulatoires et stationnaires, médicaments et autres prestations non-médicales\n\n• Contrôler des données administratives des dossiers patients\n\n• S’assurer de la saisie de l’intégralité des honoraires médicaux\n\n• S’assurer l’exhaustivité des prestations saisies des dossiers\n\n• Générer les factures ambulatoire et stationnaire de l’ensemble des disciplines médicales du GHOL\n\n• Traiter les retours de factures et leur justification auprès de nos partenaires payeurs en défendant au mieux les intérêts de l’Institution\n\n• Se tenir au courant des nouveautés relatives à son secteur d’activité\n\n• Traiter les demandes complémentaires des patients et tiers\n\n• Répondre aux appels téléphoniques\n\n• Collaborer étroitement avec les autres services de la Gestion Patient et médico-soignants.\n\n• Participer à la mise à jour des procédures de travail et à l’amélioration continue des pratiques\n\n• Participer activement aux bouclements mensuels, trimestriels et annuels de la facturation\n\n• Anticiper les nouveautés des catalogues tarifaires dans leur globalité\n Profil requis :\n Nous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience minimum de 3 ans dans le milieu hospitalier ou dans le domaine des assurances maladie/accident\n\n• Connaissances approfondies des structures tarifaires (CPTMA, Tarmed, SwissDRG)\n\n• Bonnes connaissances du système assuranciel suisse (LAMal, LAA, LCA)\n\n• Capacité d’analyse et force de proposition\n\n• Flexibilité et bonne gestion du stresse\n\n• Très bonne maitrise des outils informatiques (Opale, MOffice, Excel)\n\n• Intérêt pour l’innovation et les nouveautés se rattachant à votre secteur\n\n• Bonne connaissance en anglais, allemand un atout\n Niveau de formation :\n CFC employé d’administration ou titre jugé équivalent\n Avantages :\n Un cadre de travail agréable avec des horaires flexible et la possibilité de travail à domicile ;\n Une équipe à taille humaine favorisant les échanges et votre progression ;\n Collaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\n L’opportunité de mener des projets de développer dans un secteur stratégique ;\n Participer au développement d’outils d’intelligence artificielle, dans le cadre de la mise en œuvre de la data science au sein de l’établissement\n Le fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé.",
-      "descriptionByLocale": {
-        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle. Domani, proponiamo di continuare il vostro sviluppo professionale coinvolgendovi nelle vostre nuove missioni e partecipando allo sviluppo di GHOL, nel suo nuovo edificio ospedaliero presso il sito Nyon.\n\nDescrizione della posizione:\nNei vostri nuovi doveri, le vostre missioni hanno un impatto sulla qualità della cura del paziente. Il tuo ruolo includerà:\n\n• Prevedere servizi medici ambulatoriale e stazionario, farmaci e altri servizi non medici\n\n• Controllare i dati amministrativi dei record dei pazienti\n\n• Assicurare il pieno sequestro delle spese mediche\n\n• Assicurare la completezza dei benefici inseriti dai file\n\n• Generare fatture ambulatoriale e stazionarie da tutte le discipline mediche GHOL\n\n• Procedimento delle fatture e la loro giustificazione con i nostri partner paganti difendendo i migliori interessi dell'istituzione\n\n• Tenere aggiornato sugli sviluppi nel settore delle imprese\n\n• Elaborare richieste aggiuntive da pazienti e terze parti\n\n• Rispondere alle telefonate\n\n• Lavorare a stretto contatto con altri servizi nella gestione delle cure mediche e dei pazienti.\n\n• Partecipazione all'aggiornamento delle procedure di lavoro e al miglioramento continuo delle pratiche\n\n• Partecipa attivamente a cicli di fatturazione mensili, trimestrali e annuali\n\n• Anticipazione delle nuove caratteristiche dei cataloghi tariffari nel suo complesso\nProfilo richiesto:\nSiamo convinti della vostra rapida integrazione nelle vostre funzioni future attraverso la vostra:\n\n• Esperienza minima di 3 anni in ospedale o nel campo dell'assicurazione malattia/incidente\n\n• Conoscenza approfondita delle strutture tariffarie (CPTMA, Tarmed, SwissDRG)\n\n• Buona conoscenza del sistema aereo svizzero (LAMal, LAA, LCA)\n\n• Capacità di analisi e forza della proposta\n\n• Flessibilità e buona gestione dello stress\n\n• Ottima padronanza degli strumenti per computer (Opale, MOY, Excel)\n\n• Interesse per l'innovazione e nuovi sviluppi relativi al vostro settore\n\n• Buona conoscenza in inglese, tedesco un bene\nLivello di formazione:\nDipendente amministrativo SWC o equivalente\nVantaggi:\nUn ambiente di lavoro piacevole con orari di lavoro flessibili e la possibilità di lavorare a casa;\nUn team di dimensioni umane che promuove scambi e progressi;\nCollabora con manager innovativi, attivi nel loro ambiente e creativi per affrontare sfide attuali e future;\nL'opportunità di realizzare progetti da sviluppare in un settore strategico;\nPartecipare allo sviluppo di strumenti di intelligenza artificiale nell'attuazione della scienza dei dati all'interno dell'istituzione\nIl funzionamento dinamico di una società privata il cui riconoscimento dell'interesse pubblico garantisce i benefici del CTC applicabile nel settore della sanità pubblica.",
-        "en": "GHOL is the reference hospital for the German West with its structures on Nyon and Rolle. Tomorrow, we propose to continue your professional development by involving you in your new missions and by participating in the development of GHOL, in its new hospital building at the Nyon site.\n\nDescription of position:\nIn your new duties, your missions have an impact on the quality of patient care. Your role will include:\n\n• Seizing outpatient and stationary medical services, drugs and other non-medical services\n\n• Control administrative data of patient records\n\n• Ensure full seizure of medical fees\n\n• Ensure completeness of benefits entered from files\n\n• Generate outpatient and stationary invoices from all GHOL medical disciplines\n\n• Process returns of invoices and their justification with our paying partners by defending the best interests of the Institution\n\n• Keep up to date on developments in its business sector\n\n• Process additional requests from patients and third parties\n\n• Answering telephone calls\n\n• Work closely with other services in Patient and Medical Care Management.\n\n• Participate in updating work procedures and continuous improvement of practices\n\n• Actively participate in monthly, quarterly and annual billing loops\n\n• Anticipating the new features of tariff catalogues as a whole\nProfile required:\nWe are convinced of your rapid integration into your future functions through your:\n\n• Minimum experience of 3 years in hospital or in the field of sickness/accident insurance\n\n• In-depth knowledge of tariff structures (CPTMA, Tarmed, SwissDRG)\n\n• Good knowledge of the Swiss airframe system (LAMal, LAA, LCA)\n\n• Analysis capacity and proposal strength\n\n• Flexibility and good stress management\n\n• Very good computer tools mastery (Opale, MOY, Excel)\n\n• Interest in innovation and new developments related to your sector\n\n• Good knowledge in English, German an asset\nLevel of training:\nSWC administrative employee or equivalent\nBenefits:\nA pleasant working environment with flexible working hours and the possibility of working at home;\nA human-sized team that promotes exchanges and your progress;\nCollaborate with innovative managers, active in their environment and creative to meet current and future challenges;\nThe opportunity to carry out projects to develop in a strategic sector;\nParticipate in the development of artificial intelligence tools in the implementation of data science within the institution\nThe dynamic operation of a private company whose recognition of the public interest guarantees the benefits of the CTC applicable in the parapublic health sector.",
-        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle. Morgen schlagen wir vor, Ihre berufliche Entwicklung fortzusetzen, indem wir Sie in Ihre neuen Missionen einbeziehen und an der Entwicklung von GHOL in seinem neuen Krankenhausgebäude am Standort Nyon teilnehmen.\n\nBeschreibung der Position:\nIn Ihren neuen Aufgaben haben Ihre Missionen einen Einfluss auf die Qualität der Patientenversorgung. Ihre Rolle umfasst:\n\n• Beschlagnahme ambulanter und stationärer medizinischer Dienstleistungen, Arzneimittel und anderer nichtmedizinischer Dienstleistungen\n\n• Verwaltungsdaten der Kontrolle von Patientenakten\n\n• Gewährleistung der vollständigen Beschlagnahme von Arztgebühren\n\n• Vollständigkeit der aus den Akten eingegebenen Vorteile\n\n• Generieren Sie ambulante und stationäre Rechnungen aus allen medizinischen Disziplinen von GHOL\n\n• Rückgabe von Rechnungen und deren Rechtfertigung mit unseren zahlenden Partnern durch die Verteidigung der besten Interessen der Institution\n\n• Bleiben Sie auf dem Laufenden über die Entwicklungen im Geschäftsbereich\n\n• Zusätzliche Anfragen von Patienten und Dritten bearbeiten\n\n• Beantwortung von Telefonanrufen\n\n• Arbeiten Sie eng mit anderen Diensten im Patienten- und Gesundheitsmanagement zusammen.\n\n• Beteiligen Sie sich an der Aktualisierung von Arbeitsabläufen und der kontinuierlichen Verbesserung von Praktiken\n\n• Aktive Teilnahme an monatlichen, vierteljährlichen und jährlichen Abrechnungsschleifen\n\n• Antizipieren der neuen Merkmale von Tarifkatalogen als Ganzes\nProfil erforderlich:\nWir sind überzeugt von Ihrer schnellen Integration in Ihre zukünftigen Funktionen durch Ihre:\n\n• Mindesterfahrung von 3 Jahren im Krankenhaus oder im Bereich der Kranken-/Unfallversicherung\n\n• Vertiefte Kenntnis der Tarifstrukturen (CPTMA, Tarmed, SwissDRG)\n\n• Gute Kenntnisse des Schweizer Flugzeugzellensystems (LAMal, LAA, LCA)\n\n• Analysekapazität und Vorschlagsstärke\n\n• Flexibilität und gutes Stressmanagement\n\n• Sehr gute Computer-Tools Beherrschung (Opale, MOY, Excel)\n\n• Interesse an Innovationen und neuen Entwicklungen in Ihrer Branche\n\n• Gute Englischkenntnisse, Deutsch ein Asset\nAusbildungsniveau:\nSWC Verwaltungsangestellte oder gleichwertige\nLeistungen:\nEin angenehmes Arbeitsumfeld mit flexiblen Arbeitszeiten und der Möglichkeit, zu Hause zu arbeiten;\nEin Team in menschlicher Größe, das den Austausch und Ihren Fortschritt fördert;\nZusammenarbeit mit innovativen Managern, die in ihrem Umfeld aktiv und kreativ sind, um aktuelle und zukünftige Herausforderungen zu meistern;\nDie Möglichkeit, Projekte durchzuführen, um sich in einem strategischen Sektor zu entwickeln;\nBeteiligen Sie sich an der Entwicklung von Tools für künstliche Intelligenz bei der Implementierung von Data Science innerhalb der Institution\nDer dynamische Betrieb eines privaten Unternehmens, dessen Anerkennung des öffentlichen Interesses die Vorteile des CTC garantiert, die im paraöffentlichen Gesundheitssektor gelten.",
-        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\nDans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Saisir les prestations médicales ambulatoires et stationnaires, médicaments et autres prestations non-médicales\n\n• Contrôler des données administratives des dossiers patients\n\n• S’assurer de la saisie de l’intégralité des honoraires médicaux\n\n• S’assurer l’exhaustivité des prestations saisies des dossiers\n\n• Générer les factures ambulatoire et stationnaire de l’ensemble des disciplines médicales du GHOL\n\n• Traiter les retours de factures et leur justification auprès de nos partenaires payeurs en défendant au mieux les intérêts de l’Institution\n\n• Se tenir au courant des nouveautés relatives à son secteur d’activité\n\n• Traiter les demandes complémentaires des patients et tiers\n\n• Répondre aux appels téléphoniques\n\n• Collaborer étroitement avec les autres services de la Gestion Patient et médico-soignants.\n\n• Participer à la mise à jour des procédures de travail et à l’amélioration continue des pratiques\n\n• Participer activement aux bouclements mensuels, trimestriels et annuels de la facturation\n\n• Anticiper les nouveautés des catalogues tarifaires dans leur globalité\nProfil requis :\nNous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience minimum de 3 ans dans le milieu hospitalier ou dans le domaine des assurances maladie/accident\n\n• Connaissances approfondies des structures tarifaires (CPTMA, Tarmed, SwissDRG)\n\n• Bonnes connaissances du système assuranciel suisse (LAMal, LAA, LCA)\n\n• Capacité d’analyse et force de proposition\n\n• Flexibilité et bonne gestion du stresse\n\n• Très bonne maitrise des outils informatiques (Opale, MOffice, Excel)\n\n• Intérêt pour l’innovation et les nouveautés se rattachant à votre secteur\n\n• Bonne connaissance en anglais, allemand un atout\nNiveau de formation :\nCFC employé d’administration ou titre jugé équivalent\nAvantages :\nUn cadre de travail agréable avec des horaires flexible et la possibilité de travail à domicile ;\nUne équipe à taille humaine favorisant les échanges et votre progression ;\nCollaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\nL’opportunité de mener des projets de développer dans un secteur stratégique ;\nParticiper au développement d’outils d’intelligence artificielle, dans le cadre de la mise en œuvre de la data science au sein de l’établissement\nLe fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé."
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare",
-      "sector": "Salute / Ospedale",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://app.beehire.com/invite/5d21Gnrjl",
-      "applyUrl": "https://app.beehire.com/invite/5d21Gnrjl",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:22:29.287Z",
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "en": [
-          "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "de": [
-          "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ]
-      },
-      "firstSeenAt": "2026-10-19T21:29:33.210Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Nyon",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T21:22:29.287Z",
+      "validThrough": "2026-12-31T09:37:09.098Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -557,7 +475,7 @@
       "applyUrl": "https://app.beehire.com/invite/yxQoAFzqJ",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:22:29.286Z",
+      "crawledAt": "2026-11-28T09:37:09.097Z",
       "previousSlugs": [
         "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -588,34 +506,34 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:22:29.286Z",
+      "validThrough": "2026-12-28T09:37:09.097Z",
       "validThroughSource": "last-observed-window"
     },
     {
-      "id": "ghol-3ca0cca0700b",
-      "slug": "segretario-medico-ufficio-privato-del-dr-ramadani-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "id": "ghol-05bfa91fa669",
+      "slug": "collaboratore-di-fatturazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
-        "it": "segretario-medico-ufficio-privato-del-dr-ramadani-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "medical-secretary-private-office-of-dr-ramadani-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "medical-secretary-private-office-von-dr-ramadani-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "assistante-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
+        "it": "collaboratore-di-fatturazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "invoicing-collaborator-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "fakturierungsmitarbeiter-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
       "companyDomain": "ghol.ch",
-      "title": "Assistante médicale cabinet privé du Dr Ramadani",
+      "title": "Collaborateur-trice facturation",
       "titleByLocale": {
-        "it": "Segretario medico Ufficio privato del Dr. Ramadani",
-        "en": "Medical Secretary Private Office of Dr. Ramadani",
-        "de": "Medical Secretary Private Office von Dr. Ramadani",
-        "fr": "Assistante médicale cabinet privé du Dr Ramadani"
+        "it": "Collaboratore di fatturazione",
+        "en": "Invoicing Collaborator",
+        "de": "Fakturierungsmitarbeiter",
+        "fr": "Collaborateur-trice facturation"
       },
-      "description": "Cabinet d'urologie – Nyon\n Pour renforcer notre équipe au sein de notre cabinet d'urologie à Nyon, nous recherchons une assistante médicale motivée, organisée et consciencieuse pour un poste à 40 %.\n Vos principales responsabilités:\n\n• Assistance pour les cystoscopies\n\n• Changements de sondes vésicales\n\n• Prises de sang et instillations vésicales\n\n• Gestion des appels téléphoniques et accueil des patients.\n\n• Gestion des courriels et de la correspondance.\n\n• Frappe, mise en page et suivi des rapports médicaux.\n\n• Gestion administrative des dossiers patients.\n\n• Classement et archivage des documents.\n\n• Diverses tâches administratives liées à l'activité du cabinet.\n Votre profil\n\n• Vous êtes titulaire d'un CFC d'assistante médicale ou d'une formation de secrétaire médicale ou disposez d'une expérience équivalente.\n\n• Première expérience dans le domaine médical, idéalement en urologie.\n\n• Connaissance du logiciel Axenita, un atout.\n\n• Vous avez une excellente maîtrise du français, tant à l'oral qu'à l'écrit.\n\n• Vous êtes à l'aise avec les outils informatiques.\n\n• Vous êtes organisée, autonome, polyvalente et avez le sens des responsabilités.\n\n• Vous appréciez le contact avec les patients et faites preuve d'empathie et de discrétion.\n\n• Vous respectez strictement la confidentialité des informations médicales.\n Nous vous proposons\n\n• Un poste à 40 % au sein d'un cabinet médical spécialisé en urologie.\n\n• Un environnement de travail professionnel et agréable.\n\n• Une activité variée avec des responsabilités administratives diversifiées.\n Nous nous réjouissons de faire votre connaissance !",
+      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Saisir les prestations médicales ambulatoires et stationnaires, médicaments et autres prestations non-médicales\n\n• Contrôler des données administratives des dossiers patients\n\n• S’assurer de la saisie de l’intégralité des honoraires médicaux\n\n• S’assurer l’exhaustivité des prestations saisies des dossiers\n\n• Générer les factures ambulatoire et stationnaire de l’ensemble des disciplines médicales du GHOL\n\n• Traiter les retours de factures et leur justification auprès de nos partenaires payeurs en défendant au mieux les intérêts de l’Institution\n\n• Se tenir au courant des nouveautés relatives à son secteur d’activité\n\n• Traiter les demandes complémentaires des patients et tiers\n\n• Répondre aux appels téléphoniques\n\n• Collaborer étroitement avec les autres services de la Gestion Patient et médico-soignants.\n\n• Participer à la mise à jour des procédures de travail et à l’amélioration continue des pratiques\n\n• Participer activement aux bouclements mensuels, trimestriels et annuels de la facturation\n\n• Anticiper les nouveautés des catalogues tarifaires dans leur globalité\n Profil requis :\n Nous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience minimum de 3 ans dans le milieu hospitalier ou dans le domaine des assurances maladie/accident\n\n• Connaissances approfondies des structures tarifaires (CPTMA, Tarmed, SwissDRG)\n\n• Bonnes connaissances du système assuranciel suisse (LAMal, LAA, LCA)\n\n• Capacité d’analyse et force de proposition\n\n• Flexibilité et bonne gestion du stresse\n\n• Très bonne maitrise des outils informatiques (Opale, MOffice, Excel)\n\n• Intérêt pour l’innovation et les nouveautés se rattachant à votre secteur\n\n• Bonne connaissance en anglais, allemand un atout\n Niveau de formation :\n CFC employé d’administration ou titre jugé équivalent\n Avantages :\n Un cadre de travail agréable avec des horaires flexible et la possibilité de travail à domicile ;\n Une équipe à taille humaine favorisant les échanges et votre progression ;\n Collaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\n L’opportunité de mener des projets de développer dans un secteur stratégique ;\n Participer au développement d’outils d’intelligence artificielle, dans le cadre de la mise en œuvre de la data science au sein de l’établissement\n Le fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé.",
       "descriptionByLocale": {
-        "it": "Governo di Urologia – Nyon\nPer rafforzare il nostro team all'interno del nostro studio di urologia a Nyon, stiamo cercando un assistente medico motivato, organizzato e coscienzioso per una posizione del 40%.\nLe vostre principali responsabilità:\n\n• Assistenza alla cistoscopia\n\n• Modifiche delle sonde vesiche\n\n• Instillazioni di sangue e vescica\n\n• Gestione delle chiamate telefoniche e accoglienza dei pazienti.\n\n• Gestione e-mail e corrispondenza.\n\n• Strike, layout e follow-up dei rapporti medici.\n\n• Gestione amministrativa dei registri dei pazienti.\n\n• Documento di archiviazione e archiviazione.\n\n• Vari compiti amministrativi relativi all'attività dell'impresa.\nIl tuo profilo\n\n• Hai un assistente medico CFC o un'esperienza equivalente.\n\n• Prima esperienza nel campo medico, idealmente in urologia.\n\n• Conoscenza del software Axenita, un bene.\n\n• Hai un ottimo comando del francese, sia orale che scritto.\n\n• Sei a tuo agio con strumenti informatici.\n\n• Siete organizzati, autonomi, versatili e avete un senso di responsabilità.\n\n• Apprezzi il contatto con i pazienti e mostra empatia e discrezione.\n\n• Lei rispetta rigorosamente la riservatezza delle informazioni mediche.\nVi offriamo\n\n• Una posizione del 40% in una ditta medica specializzata in urologia.\n\n• Un ambiente di lavoro professionale e piacevole.\n\n• Una variegata attività con diverse responsabilità amministrative.\nNon vediamo l'ora di incontrarvi!",
-        "en": "Urology Cabinet – Nyon\nTo strengthen our team within our urology firm in Nyon, we are looking for a motivated, organized and conscientious medical assistant for a 40% position.\nYour main responsibilities:\n\n• Assistance for cystoscopy\n\n• Changes in vesical probes\n\n• Blood and bladder instillations\n\n• Telephone call management and patient reception.\n\n• Email and correspondence management.\n\n• Strike, layout and follow-up of medical reports.\n\n• Administrative management of patient records.\n\n• Document filing and archiving.\n\n• Various administrative tasks related to the activity of the firm.\nYour profile\n\n• You have a medical assistant CFC or medical secretary training or equivalent experience.\n\n• First experience in the medical field, ideally in urology.\n\n• Knowledge of Axenita software, an asset.\n\n• You have excellent command of French, both oral and written.\n\n• You're comfortable with computer tools.\n\n• You are organized, autonomous, versatile and have a sense of responsibility.\n\n• You appreciate contact with patients and show empathy and discretion.\n\n• You strictly respect the confidentiality of medical information.\nWe offer you\n\n• A 40% position in a medical firm specializing in urology.\n\n• A professional and pleasant working environment.\n\n• A varied activity with diverse administrative responsibilities.\nWe look forward to meeting you!",
-        "de": "Urologiekabinett – Nyon\nUm unser Team in unserer Urologiefirma in Nyon zu stärken, suchen wir einen motivierten, organisierten und gewissenhaften medizinischen Assistenten für eine Position von 40%.\nIhre Hauptaufgaben:\n\n• Unterstützung bei der Zystoskopie\n\n• Veränderungen der vesikalen Sonden\n\n• Blut- und Blaseninstillationen\n\n• Telefonanrufmanagement und Patientenempfang.\n\n• E-Mail- und Korrespondenzmanagement.\n\n• Streik, Layout und Follow-up von medizinischen Berichten.\n\n• Verwaltung der Patientenakten.\n\n• Archivierung und Archivierung von Dokumenten.\n\n• Verschiedene Verwaltungsaufgaben im Zusammenhang mit der Tätigkeit des Unternehmens.\nDein Profil\n\n• Sie haben eine medizinische Assistentin CFC oder medizinische Sekretärin Ausbildung oder gleichwertige Erfahrung.\n\n• Erste Erfahrungen im medizinischen Bereich, idealerweise in der Urologie.\n\n• Wissen über Axenita Software, ein Asset.\n\n• Sie beherrschen Französisch hervorragend, sowohl mündlich als auch schriftlich.\n\n• Sie fühlen sich wohl mit Computer-Tools.\n\n• Sie sind organisiert, autonom, vielseitig und haben Verantwortungsbewusstsein.\n\n• Sie schätzen den Kontakt zu Patienten und zeigen Empathie und Diskretion.\n\n• Sie respektieren strikt die Vertraulichkeit der medizinischen Informationen.\nWir bieten Ihnen\n\n• Eine Position von 40% in einer auf Urologie spezialisierten medizinischen Firma.\n\n• Ein professionelles und angenehmes Arbeitsumfeld.\n\n• Eine abwechslungsreiche Tätigkeit mit unterschiedlichen administrativen Verantwortlichkeiten.\nWir freuen uns auf Sie!",
-        "fr": "Cabinet d'urologie – Nyon\nPour renforcer notre équipe au sein de notre cabinet d'urologie à Nyon, nous recherchons une assistante médicale motivée, organisée et consciencieuse pour un poste à 40 %.\nVos principales responsabilités:\n\n• Assistance pour les cystoscopies\n\n• Changements de sondes vésicales\n\n• Prises de sang et instillations vésicales\n\n• Gestion des appels téléphoniques et accueil des patients.\n\n• Gestion des courriels et de la correspondance.\n\n• Frappe, mise en page et suivi des rapports médicaux.\n\n• Gestion administrative des dossiers patients.\n\n• Classement et archivage des documents.\n\n• Diverses tâches administratives liées à l'activité du cabinet.\nVotre profil\n\n• Vous êtes titulaire d'un CFC d'assistante médicale ou d'une formation de secrétaire médicale ou disposez d'une expérience équivalente.\n\n• Première expérience dans le domaine médical, idéalement en urologie.\n\n• Connaissance du logiciel Axenita, un atout.\n\n• Vous avez une excellente maîtrise du français, tant à l'oral qu'à l'écrit.\n\n• Vous êtes à l'aise avec les outils informatiques.\n\n• Vous êtes organisée, autonome, polyvalente et avez le sens des responsabilités.\n\n• Vous appréciez le contact avec les patients et faites preuve d'empathie et de discrétion.\n\n• Vous respectez strictement la confidentialité des informations médicales.\nNous vous proposons\n\n• Un poste à 40 % au sein d'un cabinet médical spécialisé en urologie.\n\n• Un environnement de travail professionnel et agréable.\n\n• Une activité variée avec des responsabilités administratives diversifiées.\nNous nous réjouissons de faire votre connaissance !"
+        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle. Domani, proponiamo di continuare il vostro sviluppo professionale coinvolgendovi nelle vostre nuove missioni e partecipando allo sviluppo di GHOL, nel suo nuovo edificio ospedaliero presso il sito Nyon.\n\nDescrizione della posizione:\nNei vostri nuovi doveri, le vostre missioni hanno un impatto sulla qualità della cura del paziente. Il tuo ruolo includerà:\n\n• Prevedere servizi medici ambulatoriale e stazionario, farmaci e altri servizi non medici\n\n• Controllare i dati amministrativi dei record dei pazienti\n\n• Assicurare il pieno sequestro delle spese mediche\n\n• Assicurare la completezza dei benefici inseriti dai file\n\n• Generare fatture ambulatoriale e stazionarie da tutte le discipline mediche GHOL\n\n• Procedimento delle fatture e la loro giustificazione con i nostri partner paganti difendendo i migliori interessi dell'istituzione\n\n• Tenere aggiornato sugli sviluppi nel settore delle imprese\n\n• Elaborare richieste aggiuntive da pazienti e terze parti\n\n• Rispondere alle telefonate\n\n• Lavorare a stretto contatto con altri servizi nella gestione delle cure mediche e dei pazienti.\n\n• Partecipazione all'aggiornamento delle procedure di lavoro e al miglioramento continuo delle pratiche\n\n• Partecipa attivamente a cicli di fatturazione mensili, trimestrali e annuali\n\n• Anticipazione delle nuove caratteristiche dei cataloghi tariffari nel suo complesso\nProfilo richiesto:\nSiamo convinti della vostra rapida integrazione nelle vostre funzioni future attraverso la vostra:\n\n• Esperienza minima di 3 anni in ospedale o nel campo dell'assicurazione malattia/incidente\n\n• Conoscenza approfondita delle strutture tariffarie (CPTMA, Tarmed, SwissDRG)\n\n• Buona conoscenza del sistema aereo svizzero (LAMal, LAA, LCA)\n\n• Capacità di analisi e forza della proposta\n\n• Flessibilità e buona gestione dello stress\n\n• Ottima padronanza degli strumenti per computer (Opale, MOY, Excel)\n\n• Interesse per l'innovazione e nuovi sviluppi relativi al vostro settore\n\n• Buona conoscenza in inglese, tedesco un bene\nLivello di formazione:\nDipendente amministrativo SWC o equivalente\nVantaggi:\nUn ambiente di lavoro piacevole con orari di lavoro flessibili e la possibilità di lavorare a casa;\nUn team di dimensioni umane che promuove scambi e progressi;\nCollabora con manager innovativi, attivi nel loro ambiente e creativi per affrontare sfide attuali e future;\nL'opportunità di realizzare progetti da sviluppare in un settore strategico;\nPartecipare allo sviluppo di strumenti di intelligenza artificiale nell'attuazione della scienza dei dati all'interno dell'istituzione\nIl funzionamento dinamico di una società privata il cui riconoscimento dell'interesse pubblico garantisce i benefici del CTC applicabile nel settore della sanità pubblica.",
+        "en": "GHOL is the reference hospital for the German West with its structures on Nyon and Rolle. Tomorrow, we propose to continue your professional development by involving you in your new missions and by participating in the development of GHOL, in its new hospital building at the Nyon site.\n\nDescription of position:\nIn your new duties, your missions have an impact on the quality of patient care. Your role will include:\n\n• Seizing outpatient and stationary medical services, drugs and other non-medical services\n\n• Control administrative data of patient records\n\n• Ensure full seizure of medical fees\n\n• Ensure completeness of benefits entered from files\n\n• Generate outpatient and stationary invoices from all GHOL medical disciplines\n\n• Process returns of invoices and their justification with our paying partners by defending the best interests of the Institution\n\n• Keep up to date on developments in its business sector\n\n• Process additional requests from patients and third parties\n\n• Answering telephone calls\n\n• Work closely with other services in Patient and Medical Care Management.\n\n• Participate in updating work procedures and continuous improvement of practices\n\n• Actively participate in monthly, quarterly and annual billing loops\n\n• Anticipating the new features of tariff catalogues as a whole\nProfile required:\nWe are convinced of your rapid integration into your future functions through your:\n\n• Minimum experience of 3 years in hospital or in the field of sickness/accident insurance\n\n• In-depth knowledge of tariff structures (CPTMA, Tarmed, SwissDRG)\n\n• Good knowledge of the Swiss airframe system (LAMal, LAA, LCA)\n\n• Analysis capacity and proposal strength\n\n• Flexibility and good stress management\n\n• Very good computer tools mastery (Opale, MOY, Excel)\n\n• Interest in innovation and new developments related to your sector\n\n• Good knowledge in English, German an asset\nLevel of training:\nSWC administrative employee or equivalent\nBenefits:\nA pleasant working environment with flexible working hours and the possibility of working at home;\nA human-sized team that promotes exchanges and your progress;\nCollaborate with innovative managers, active in their environment and creative to meet current and future challenges;\nThe opportunity to carry out projects to develop in a strategic sector;\nParticipate in the development of artificial intelligence tools in the implementation of data science within the institution\nThe dynamic operation of a private company whose recognition of the public interest guarantees the benefits of the CTC applicable in the parapublic health sector.",
+        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle. Morgen schlagen wir vor, Ihre berufliche Entwicklung fortzusetzen, indem wir Sie in Ihre neuen Missionen einbeziehen und an der Entwicklung von GHOL in seinem neuen Krankenhausgebäude am Standort Nyon teilnehmen.\n\nBeschreibung der Position:\nIn Ihren neuen Aufgaben haben Ihre Missionen einen Einfluss auf die Qualität der Patientenversorgung. Ihre Rolle umfasst:\n\n• Beschlagnahme ambulanter und stationärer medizinischer Dienstleistungen, Arzneimittel und anderer nichtmedizinischer Dienstleistungen\n\n• Verwaltungsdaten der Kontrolle von Patientenakten\n\n• Gewährleistung der vollständigen Beschlagnahme von Arztgebühren\n\n• Vollständigkeit der aus den Akten eingegebenen Vorteile\n\n• Generieren Sie ambulante und stationäre Rechnungen aus allen medizinischen Disziplinen von GHOL\n\n• Rückgabe von Rechnungen und deren Rechtfertigung mit unseren zahlenden Partnern durch die Verteidigung der besten Interessen der Institution\n\n• Bleiben Sie auf dem Laufenden über die Entwicklungen im Geschäftsbereich\n\n• Zusätzliche Anfragen von Patienten und Dritten bearbeiten\n\n• Beantwortung von Telefonanrufen\n\n• Arbeiten Sie eng mit anderen Diensten im Patienten- und Gesundheitsmanagement zusammen.\n\n• Beteiligen Sie sich an der Aktualisierung von Arbeitsabläufen und der kontinuierlichen Verbesserung von Praktiken\n\n• Aktive Teilnahme an monatlichen, vierteljährlichen und jährlichen Abrechnungsschleifen\n\n• Antizipieren der neuen Merkmale von Tarifkatalogen als Ganzes\nProfil erforderlich:\nWir sind überzeugt von Ihrer schnellen Integration in Ihre zukünftigen Funktionen durch Ihre:\n\n• Mindesterfahrung von 3 Jahren im Krankenhaus oder im Bereich der Kranken-/Unfallversicherung\n\n• Vertiefte Kenntnis der Tarifstrukturen (CPTMA, Tarmed, SwissDRG)\n\n• Gute Kenntnisse des Schweizer Flugzeugzellensystems (LAMal, LAA, LCA)\n\n• Analysekapazität und Vorschlagsstärke\n\n• Flexibilität und gutes Stressmanagement\n\n• Sehr gute Computer-Tools Beherrschung (Opale, MOY, Excel)\n\n• Interesse an Innovationen und neuen Entwicklungen in Ihrer Branche\n\n• Gute Englischkenntnisse, Deutsch ein Asset\nAusbildungsniveau:\nSWC Verwaltungsangestellte oder gleichwertige\nLeistungen:\nEin angenehmes Arbeitsumfeld mit flexiblen Arbeitszeiten und der Möglichkeit, zu Hause zu arbeiten;\nEin Team in menschlicher Größe, das den Austausch und Ihren Fortschritt fördert;\nZusammenarbeit mit innovativen Managern, die in ihrem Umfeld aktiv und kreativ sind, um aktuelle und zukünftige Herausforderungen zu meistern;\nDie Möglichkeit, Projekte durchzuführen, um sich in einem strategischen Sektor zu entwickeln;\nBeteiligen Sie sich an der Entwicklung von Tools für künstliche Intelligenz bei der Implementierung von Data Science innerhalb der Institution\nDer dynamische Betrieb eines privaten Unternehmens, dessen Anerkennung des öffentlichen Interesses die Vorteile des CTC garantiert, die im paraöffentlichen Gesundheitssektor gelten.",
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\nDans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Saisir les prestations médicales ambulatoires et stationnaires, médicaments et autres prestations non-médicales\n\n• Contrôler des données administratives des dossiers patients\n\n• S’assurer de la saisie de l’intégralité des honoraires médicaux\n\n• S’assurer l’exhaustivité des prestations saisies des dossiers\n\n• Générer les factures ambulatoire et stationnaire de l’ensemble des disciplines médicales du GHOL\n\n• Traiter les retours de factures et leur justification auprès de nos partenaires payeurs en défendant au mieux les intérêts de l’Institution\n\n• Se tenir au courant des nouveautés relatives à son secteur d’activité\n\n• Traiter les demandes complémentaires des patients et tiers\n\n• Répondre aux appels téléphoniques\n\n• Collaborer étroitement avec les autres services de la Gestion Patient et médico-soignants.\n\n• Participer à la mise à jour des procédures de travail et à l’amélioration continue des pratiques\n\n• Participer activement aux bouclements mensuels, trimestriels et annuels de la facturation\n\n• Anticiper les nouveautés des catalogues tarifaires dans leur globalité\nProfil requis :\nNous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience minimum de 3 ans dans le milieu hospitalier ou dans le domaine des assurances maladie/accident\n\n• Connaissances approfondies des structures tarifaires (CPTMA, Tarmed, SwissDRG)\n\n• Bonnes connaissances du système assuranciel suisse (LAMal, LAA, LCA)\n\n• Capacité d’analyse et force de proposition\n\n• Flexibilité et bonne gestion du stresse\n\n• Très bonne maitrise des outils informatiques (Opale, MOffice, Excel)\n\n• Intérêt pour l’innovation et les nouveautés se rattachant à votre secteur\n\n• Bonne connaissance en anglais, allemand un atout\nNiveau de formation :\nCFC employé d’administration ou titre jugé équivalent\nAvantages :\nUn cadre de travail agréable avec des horaires flexible et la possibilité de travail à domicile ;\nUne équipe à taille humaine favorisant les échanges et votre progression ;\nCollaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\nL’opportunité de mener des projets de développer dans un secteur stratégique ;\nParticiper au développement d’outils d’intelligence artificielle, dans le cadre de la mise en œuvre de la data science au sein de l’établissement\nLe fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé."
       },
       "location": "Nyon",
       "canton": "VD",
@@ -634,31 +552,27 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "url": "https://app.beehire.com/invite/Vom0mKPyO",
-      "applyUrl": "https://app.beehire.com/invite/Vom0mKPyO",
+      "url": "https://app.beehire.com/invite/5d21Gnrjl",
+      "applyUrl": "https://app.beehire.com/invite/5d21Gnrjl",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:22:29.285Z",
+      "crawledAt": "2026-11-28T09:37:09.097Z",
+      "needsRetranslation": false,
       "previousSlugs": [
-        "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest",
-        "assistante-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
+        "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest",
-          "assistante-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
+          "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
+          "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
-        ],
-        "fr": [
-          "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
+          "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
-      "firstSeenAt": "2026-11-10T21:51:18.880Z",
+      "firstSeenAt": "2026-10-19T21:29:33.210Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -674,7 +588,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:22:29.285Z",
+      "validThrough": "2027-01-18T09:37:09.097Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -724,7 +638,7 @@
       "applyUrl": "https://app.beehire.com/invite/NVFf6OQjf",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:22:29.285Z",
+      "crawledAt": "2026-11-28T09:37:09.096Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "stagiaire-maturite-professionnelle-commerciale-3-1-groupement-hospitalier-de-l-ouest"
@@ -756,7 +670,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-16T21:22:29.285Z",
+      "validThrough": "2027-01-16T09:37:09.096Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -806,7 +720,7 @@
       "applyUrl": "https://app.beehire.com/invite/991xXK1-6",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:22:29.285Z",
+      "crawledAt": "2026-11-28T09:37:09.096Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "ambulancier-ere-es-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -832,34 +746,34 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:22:29.285Z",
+      "validThrough": "2027-01-03T09:37:09.096Z",
       "validThroughSource": "last-observed-window"
     },
     {
-      "id": "ghol-a56d8de8120f",
-      "slug": "chief-medical-officer-servizio-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "id": "ghol-3ca0cca0700b",
+      "slug": "segretario-medico-ufficio-privato-del-dr-ramadani-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
-        "it": "chief-medical-officer-servizio-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "chief-medical-officer-emergency-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "chief-medical-officer-notdienst-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "medecin-chef-fe-de-clinique-service-des-urgences-groupement-hospitalier-de-l-ouest"
+        "it": "segretario-medico-ufficio-privato-del-dr-ramadani-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "medical-secretary-private-office-of-dr-ramadani-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "medical-secretary-private-office-von-dr-ramadani-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "assistante-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
       "companyDomain": "ghol.ch",
-      "title": "Médecin chef·fe de clinique - Service des urgences",
+      "title": "Assistante médicale cabinet privé du Dr Ramadani",
       "titleByLocale": {
-        "it": "Chief Medical Officer - Servizio di emergenza",
-        "en": "Chief Medical Officer - Emergency Service",
-        "de": "Chief Medical Officer - Notdienst",
-        "fr": "Médecin chef·fe de clinique - Service des urgences"
+        "it": "Segretario medico Ufficio privato del Dr. Ramadani",
+        "en": "Medical Secretary Private Office of Dr. Ramadani",
+        "de": "Medical Secretary Private Office von Dr. Ramadani",
+        "fr": "Assistante médicale cabinet privé du Dr Ramadani"
       },
-      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n Description du service :\n L’Hôpital de Nyon draine un bassin de population de 100'000 habitantes et habitants, et le service des urgences accueille une patientèle adulte de plus de 25'000 personnes par année, chiffre en augmentation constante.\n Description du poste:\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Assurer la supervision clinique des médecins assistants pour la prise en charge des patients des urgences\n\n• Contribuer à la gestion de flux des patients des urgences\n\n• Contribuer à la formation pré et post-graduée des stagiaires et médecins assistants des urgences\n\n• Contribuer aux projets de développement du service, notamment la création d’une filière rapide\n Profil requis:\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience de chef·fe de clinique ou cadre en milieu universitaire ;\n\n• Excellentes compétences dans les urgences hospitalières médico-chirurgicales ;\n\n• Attrait pour une activité pré-hospitalière ;\n\n• Expérience en ultrasonographie : un atout ;\n\n• Collégialité, sens des responsabilités et de l’organisation ;\n\n• Esprit vif, entrepreneurial, novateur et tourné vers le futur ;\n\n• Fort intérêt pour la formation ;\n\n• Volonté d’intégrer une structure en pleine expansion et de travailler dans un esprit de collégialité et d’interdisciplinarité notamment médico-soignante.\n Niveau de formation:\n\n• Diplôme de médecin suisse ou équivalent\n\n• Titre de spécialiste FMH en médecine interne, ou formation équivalente et titre en voie d’obtention pour les CDC\n\n• Formation approfondie de médecine d’urgence hospitalière SSMUS ou en cours d’obtention pour les CDC\n Avantages:\n\n• Un cadre de travail dynamique dans un service en expansion\n\n• Une casuistique variée\n\n• Un plateau technique performant (soins intensifs, stroke unit, bloc opératoire, maternité, nombreux spécialistes)\n\n• La possibilité d’exercer une activité pré-hospitalière en SMUR\n\n• La possibilité de participer aux projets de développement du service\n Renseignements:\n Dr Sagara Wijayasinghe, Dre Joëlle Hausser, Dre Muriel Abi-Khalil, Dr Gioele Ongaro, médecin-chefs co-responsables du service des urgences, 022 994 60 98, 022 994 64 47, 022 994 61 42, 022 994 63 44\n Candidatures:\n Les candidatures doivent comporter un dossier complet, comprenant lettre de motivation, curriculum vitae, diplômes, certificats de formations et lettres de recommandations à l’attention des médecins chefs des urgences",
+      "description": "Cabinet d'urologie – Nyon\n Pour renforcer notre équipe au sein de notre cabinet d'urologie à Nyon, nous recherchons une assistante médicale motivée, organisée et consciencieuse pour un poste à 40 %.\n Vos principales responsabilités:\n\n• Assistance pour les cystoscopies\n\n• Changements de sondes vésicales\n\n• Prises de sang et instillations vésicales\n\n• Gestion des appels téléphoniques et accueil des patients.\n\n• Gestion des courriels et de la correspondance.\n\n• Frappe, mise en page et suivi des rapports médicaux.\n\n• Gestion administrative des dossiers patients.\n\n• Classement et archivage des documents.\n\n• Diverses tâches administratives liées à l'activité du cabinet.\n Votre profil\n\n• Vous êtes titulaire d'un CFC d'assistante médicale ou d'une formation de secrétaire médicale ou disposez d'une expérience équivalente.\n\n• Première expérience dans le domaine médical, idéalement en urologie.\n\n• Connaissance du logiciel Axenita, un atout.\n\n• Vous avez une excellente maîtrise du français, tant à l'oral qu'à l'écrit.\n\n• Vous êtes à l'aise avec les outils informatiques.\n\n• Vous êtes organisée, autonome, polyvalente et avez le sens des responsabilités.\n\n• Vous appréciez le contact avec les patients et faites preuve d'empathie et de discrétion.\n\n• Vous respectez strictement la confidentialité des informations médicales.\n Nous vous proposons\n\n• Un poste à 40 % au sein d'un cabinet médical spécialisé en urologie.\n\n• Un environnement de travail professionnel et agréable.\n\n• Une activité variée avec des responsabilités administratives diversifiées.\n Nous nous réjouissons de faire votre connaissance !",
       "descriptionByLocale": {
-        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle. Domani, proponiamo di continuare il vostro sviluppo professionale coinvolgendovi nelle vostre nuove missioni e partecipando allo sviluppo di GHOL, nel suo nuovo edificio ospedaliero presso il sito Nyon.\nDescrizione del servizio:\nL'ospedale di Nyon drena un pool di popolazione di 100.000 abitanti, e il dipartimento di emergenza ospita una donna paziente adulta di oltre 25.000 all'anno, un aumento costante.\nDescrizione della posizione:\nNei vostri nuovi doveri, le vostre missioni hanno un impatto sulla qualità della cura del paziente. Il tuo ruolo includerà:\n\n• supervisione clinica dei medici assistenti per la gestione dei pazienti di emergenza\n\n• Contribuisci alla gestione del flusso dei pazienti di emergenza\n\n• Contribuire alla formazione pre- e post-laurea per tirocinanti e assistenti medici in emergenze\n\n• Contribuire a progetti di sviluppo di servizi, tra cui la creazione di una pista veloce\nProfilo richiesto:\nSiamo convinti del vostro rapido successo nelle vostre funzioni future attraverso il vostro:\n\n• Esperienza come capo della clinica o esecutivo in un ambiente universitario;\n\n• Eccellenti competenze nelle emergenze ospedaliere medico-chirurgiche;\n\n• Attratto per attività pre-ospedale;\n\n• Esperienza di ultrasonografia: un bene;\n\n• Collegialità, senso di responsabilità e organizzazione;\n\n• Uno spirito vivace, imprenditoriale, innovativo e all'avanguardia;\n\n• forte interesse per la formazione;\n\n• Volendo integrare una struttura in espansione e lavorare in uno spirito di collegialità e interdisciplinarità, tra cui la cura medico.\nLivello di formazione:\n\n• Diploma di medico svizzero o equivalente\n\n• Grado FMH in medicina interna, o formazione equivalente e grado nel processo di ottenere per CDC\n\n• Formazione approfondita in medicina di emergenza ospedaliera SSMUS o in corso per CDC\nVantaggi:\n\n• Un ambiente di lavoro dinamico in un servizio in espansione\n\n• Un vario casuistico\n\n• Una piattaforma tecnica ad alte prestazioni (assistenza intensiva, unità di corsa, unità operativa, maternità, molti specialisti)\n\n• La possibilità di attività pre-ospedale in SMUR\n\n• La possibilità di partecipare a progetti di sviluppo dei servizi\nInformazioni:\nDr. Sagara Wijayasinghe, Dr. Joëlle Hausser, Dr. Muriel Abi-Khalil, Dr. Gioele Ongaro, Chief Medical Officer del Dipartimento di Emergenza, 022 994 60 98, 022 994 64 47, 022 994 42 61, 022 994 63 44\nApplicazioni:\nLe domande devono includere un dossier completo, tra cui lettera di copertura, curriculum vitae, diplomi, certificati di formazione e lettere di raccomandazione per l'attenzione di medici di emergenza.",
-        "en": "GHOL is the reference hospital for the German West with its structures on Nyon and Rolle. Tomorrow, we propose to continue your professional development by involving you in your new missions and by participating in the development of GHOL, in its new hospital building at the Nyon site.\nDescription of service:\nNyon Hospital drains a population pool of 100,000 inhabitants, and the emergency department hosts an adult patient woman of more than 25,000 per year, a constant increase.\nDescription of position:\nIn your new duties, your missions have an impact on the quality of patient care. Your role will include:\n\n• Clinical supervision of assistant physicians for the management of emergency patients\n\n• Contribute to emergency patient flow management\n\n• Contribute to pre- and post-graduate training for trainees and medical assistants in emergencies\n\n• Contribute to service development projects, including the creation of a fast track\nRequired profile:\nWe are convinced of your rapid success in your future functions through your:\n\n• Experience as head of clinic or executive in a university setting;\n\n• Excellent skills in medical-surgical hospital emergencies;\n\n• Attracted for pre-hospital activity;\n\n• Ultrasonography experience: an asset;\n\n• Collegiality, sense of responsibility and organization;\n\n• A lively, entrepreneurial, innovative and forward-looking spirit;\n\n• Strong interest in training;\n\n• Willing to integrate an expanding structure and work in a spirit of collegiality and interdisciplinarity, including medico-care.\nLevel of training:\n\n• Diploma of Swiss doctor or equivalent\n\n• FMH degree in internal medicine, or equivalent training and degree in the process of obtaining for CDCs\n\n• In-depth training in hospital emergency medicine SSMUS or in progress for CDCs\nBenefits:\n\n• A dynamic working environment in an expanding service\n\n• A varied casuistic\n\n• A high-performance technical platform (intensive care, stroke unit, operating unit, maternity, many specialists)\n\n• The possibility of pre-hospital activity in SMUR\n\n• The possibility of participating in service development projects\nInformation:\nDr. Sagara Wijayasinghe, Dr. Joëlle Hausser, Dr. Muriel Abi-Khalil, Dr. Gioele Ongaro, Chief Medical Officer of the Emergency Department, 022 994 60 98, 022 994 64 47, 022 994 61 42, 022 994 63 44\nApplications:\nApplications must include a complete dossier, including cover letter, curriculum vitae, diplomas, training certificates and letters of recommendation for the attention of emergency medical officers.",
-        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle. Morgen schlagen wir vor, Ihre berufliche Entwicklung fortzusetzen, indem wir Sie in Ihre neuen Missionen einbeziehen und an der Entwicklung von GHOL in seinem neuen Krankenhausgebäude am Standort Nyon teilnehmen.\nBeschreibung des Dienstes:\nDas Nyon Hospital entwässert einen Bevölkerungspool von 100.000 Einwohnern, und die Notaufnahme beherbergt eine erwachsene Patientin von mehr als 25.000 pro Jahr, eine konstante Zunahme.\nBeschreibung der Position:\nIn Ihren neuen Aufgaben haben Ihre Missionen einen Einfluss auf die Qualität der Patientenversorgung. Ihre Rolle umfasst:\n\n• Klinische Betreuung von Assistenzärzten für das Management von Notfallpatienten\n\n• Beitrag zum Notfall-Patientenflussmanagement\n\n• Beitrag zur Vor- und Nachschulung von Auszubildenden und medizinischen Assistenten in Notfällen\n\n• Beitrag zu Serviceentwicklungsprojekten, einschließlich der Schaffung eines Fast Tracks\nErforderliches Profil\nWir sind von Ihrem schnellen Erfolg in Ihren zukünftigen Funktionen überzeugt durch Ihre:\n\n• Erfahrung als Leiter der Klinik oder Exekutive in einer Universität;\n\n• Ausgezeichnete Fähigkeiten in medizinisch-chirurgischen Krankenhaus Notfälle;\n\n• Angezogen für vorklinische Aktivitäten;\n\n• Ultraschallerfahrung: ein Vermögenswert;\n\n• Kollegialität, Verantwortungsbewusstsein und Organisation;\n\n• Ein lebendiger, unternehmerischer, innovativer und vorausschauender Geist;\n\n• Starkes Interesse an Ausbildung;\n\n• Bereit, eine expandierende Struktur zu integrieren und im Geiste der Kollegialität und Interdisziplinarität zu arbeiten, einschließlich der medizinischen Versorgung.\nAusbildungsniveau:\n\n• Diplom eines Schweizer Arztes oder Äquivalents\n\n• FMH-Abschluss in Innerer Medizin oder gleichwertige Ausbildung und Grad in den Prozess der Erlangung für CDCs\n\n• Vertiefte Ausbildung in Krankenhaus-Notmedizin SSMUS oder in Vorbereitung für CDCs\nLeistungen:\n\n• Ein dynamisches Arbeitsumfeld in einem expandierenden Service\n\n• Eine abwechslungsreiche Kasuistik\n\n• Eine leistungsstarke technische Plattform (Intensivpflege, Schlaganfalleinheit, Operationseinheit, Mutterschaft, viele Spezialisten)\n\n• Die Möglichkeit der präklinischen Aktivität in SMUR\n\n• Die Möglichkeit, an Dienstleistungsentwicklungsprojekten teilzunehmen\nInformationen:\nDr. Sagara Wijayasinghe, Dr. Joëlle Hausser, Dr. Muriel Abi-Khalil, Dr. Gioele Ongaro, Chief Medical Officer der Notaufnahme, 022 994 60 98, 022 994 64 47, 022 994 61 42, 022 994 63 44\nAnträge:\nDie Anträge müssen ein vollständiges Dossier enthalten, einschließlich Anschreiben, Lebenslauf, Diplome, Ausbildungsnachweise und Empfehlungsschreiben für Notärzte.",
-        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\nDescription du service :\nL’Hôpital de Nyon draine un bassin de population de 100'000 habitantes et habitants, et le service des urgences accueille une patientèle adulte de plus de 25'000 personnes par année, chiffre en augmentation constante.\nDescription du poste:\nDans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Assurer la supervision clinique des médecins assistants pour la prise en charge des patients des urgences\n\n• Contribuer à la gestion de flux des patients des urgences\n\n• Contribuer à la formation pré et post-graduée des stagiaires et médecins assistants des urgences\n\n• Contribuer aux projets de développement du service, notamment la création d’une filière rapide\nProfil requis:\nNous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience de chef·fe de clinique ou cadre en milieu universitaire ;\n\n• Excellentes compétences dans les urgences hospitalières médico-chirurgicales ;\n\n• Attrait pour une activité pré-hospitalière ;\n\n• Expérience en ultrasonographie : un atout ;\n\n• Collégialité, sens des responsabilités et de l’organisation ;\n\n• Esprit vif, entrepreneurial, novateur et tourné vers le futur ;\n\n• Fort intérêt pour la formation ;\n\n• Volonté d’intégrer une structure en pleine expansion et de travailler dans un esprit de collégialité et d’interdisciplinarité notamment médico-soignante.\nNiveau de formation:\n\n• Diplôme de médecin suisse ou équivalent\n\n• Titre de spécialiste FMH en médecine interne, ou formation équivalente et titre en voie d’obtention pour les CDC\n\n• Formation approfondie de médecine d’urgence hospitalière SSMUS ou en cours d’obtention pour les CDC\nAvantages:\n\n• Un cadre de travail dynamique dans un service en expansion\n\n• Une casuistique variée\n\n• Un plateau technique performant (soins intensifs, stroke unit, bloc opératoire, maternité, nombreux spécialistes)\n\n• La possibilité d’exercer une activité pré-hospitalière en SMUR\n\n• La possibilité de participer aux projets de développement du service\nRenseignements:\nDr Sagara Wijayasinghe, Dre Joëlle Hausser, Dre Muriel Abi-Khalil, Dr Gioele Ongaro, médecin-chefs co-responsables du service des urgences, 022 994 60 98, 022 994 64 47, 022 994 61 42, 022 994 63 44\nCandidatures:\nLes candidatures doivent comporter un dossier complet, comprenant lettre de motivation, curriculum vitae, diplômes, certificats de formations et lettres de recommandations à l’attention des médecins chefs des urgences"
+        "it": "Governo di Urologia – Nyon\nPer rafforzare il nostro team all'interno del nostro studio di urologia a Nyon, stiamo cercando un assistente medico motivato, organizzato e coscienzioso per una posizione del 40%.\nLe vostre principali responsabilità:\n\n• Assistenza alla cistoscopia\n\n• Modifiche delle sonde vesiche\n\n• Instillazioni di sangue e vescica\n\n• Gestione delle chiamate telefoniche e accoglienza dei pazienti.\n\n• Gestione e-mail e corrispondenza.\n\n• Strike, layout e follow-up dei rapporti medici.\n\n• Gestione amministrativa dei registri dei pazienti.\n\n• Documento di archiviazione e archiviazione.\n\n• Vari compiti amministrativi relativi all'attività dell'impresa.\nIl tuo profilo\n\n• Hai un assistente medico CFC o un'esperienza equivalente.\n\n• Prima esperienza nel campo medico, idealmente in urologia.\n\n• Conoscenza del software Axenita, un bene.\n\n• Hai un ottimo comando del francese, sia orale che scritto.\n\n• Sei a tuo agio con strumenti informatici.\n\n• Siete organizzati, autonomi, versatili e avete un senso di responsabilità.\n\n• Apprezzi il contatto con i pazienti e mostra empatia e discrezione.\n\n• Lei rispetta rigorosamente la riservatezza delle informazioni mediche.\nVi offriamo\n\n• Una posizione del 40% in una ditta medica specializzata in urologia.\n\n• Un ambiente di lavoro professionale e piacevole.\n\n• Una variegata attività con diverse responsabilità amministrative.\nNon vediamo l'ora di incontrarvi!",
+        "en": "Urology Cabinet – Nyon\nTo strengthen our team within our urology firm in Nyon, we are looking for a motivated, organized and conscientious medical assistant for a 40% position.\nYour main responsibilities:\n\n• Assistance for cystoscopy\n\n• Changes in vesical probes\n\n• Blood and bladder instillations\n\n• Telephone call management and patient reception.\n\n• Email and correspondence management.\n\n• Strike, layout and follow-up of medical reports.\n\n• Administrative management of patient records.\n\n• Document filing and archiving.\n\n• Various administrative tasks related to the activity of the firm.\nYour profile\n\n• You have a medical assistant CFC or medical secretary training or equivalent experience.\n\n• First experience in the medical field, ideally in urology.\n\n• Knowledge of Axenita software, an asset.\n\n• You have excellent command of French, both oral and written.\n\n• You're comfortable with computer tools.\n\n• You are organized, autonomous, versatile and have a sense of responsibility.\n\n• You appreciate contact with patients and show empathy and discretion.\n\n• You strictly respect the confidentiality of medical information.\nWe offer you\n\n• A 40% position in a medical firm specializing in urology.\n\n• A professional and pleasant working environment.\n\n• A varied activity with diverse administrative responsibilities.\nWe look forward to meeting you!",
+        "de": "Urologiekabinett – Nyon\nUm unser Team in unserer Urologiefirma in Nyon zu stärken, suchen wir einen motivierten, organisierten und gewissenhaften medizinischen Assistenten für eine Position von 40%.\nIhre Hauptaufgaben:\n\n• Unterstützung bei der Zystoskopie\n\n• Veränderungen der vesikalen Sonden\n\n• Blut- und Blaseninstillationen\n\n• Telefonanrufmanagement und Patientenempfang.\n\n• E-Mail- und Korrespondenzmanagement.\n\n• Streik, Layout und Follow-up von medizinischen Berichten.\n\n• Verwaltung der Patientenakten.\n\n• Archivierung und Archivierung von Dokumenten.\n\n• Verschiedene Verwaltungsaufgaben im Zusammenhang mit der Tätigkeit des Unternehmens.\nDein Profil\n\n• Sie haben eine medizinische Assistentin CFC oder medizinische Sekretärin Ausbildung oder gleichwertige Erfahrung.\n\n• Erste Erfahrungen im medizinischen Bereich, idealerweise in der Urologie.\n\n• Wissen über Axenita Software, ein Asset.\n\n• Sie beherrschen Französisch hervorragend, sowohl mündlich als auch schriftlich.\n\n• Sie fühlen sich wohl mit Computer-Tools.\n\n• Sie sind organisiert, autonom, vielseitig und haben Verantwortungsbewusstsein.\n\n• Sie schätzen den Kontakt zu Patienten und zeigen Empathie und Diskretion.\n\n• Sie respektieren strikt die Vertraulichkeit der medizinischen Informationen.\nWir bieten Ihnen\n\n• Eine Position von 40% in einer auf Urologie spezialisierten medizinischen Firma.\n\n• Ein professionelles und angenehmes Arbeitsumfeld.\n\n• Eine abwechslungsreiche Tätigkeit mit unterschiedlichen administrativen Verantwortlichkeiten.\nWir freuen uns auf Sie!",
+        "fr": "Cabinet d'urologie – Nyon\nPour renforcer notre équipe au sein de notre cabinet d'urologie à Nyon, nous recherchons une assistante médicale motivée, organisée et consciencieuse pour un poste à 40 %.\nVos principales responsabilités:\n\n• Assistance pour les cystoscopies\n\n• Changements de sondes vésicales\n\n• Prises de sang et instillations vésicales\n\n• Gestion des appels téléphoniques et accueil des patients.\n\n• Gestion des courriels et de la correspondance.\n\n• Frappe, mise en page et suivi des rapports médicaux.\n\n• Gestion administrative des dossiers patients.\n\n• Classement et archivage des documents.\n\n• Diverses tâches administratives liées à l'activité du cabinet.\nVotre profil\n\n• Vous êtes titulaire d'un CFC d'assistante médicale ou d'une formation de secrétaire médicale ou disposez d'une expérience équivalente.\n\n• Première expérience dans le domaine médical, idéalement en urologie.\n\n• Connaissance du logiciel Axenita, un atout.\n\n• Vous avez une excellente maîtrise du français, tant à l'oral qu'à l'écrit.\n\n• Vous êtes à l'aise avec les outils informatiques.\n\n• Vous êtes organisée, autonome, polyvalente et avez le sens des responsabilités.\n\n• Vous appréciez le contact avec les patients et faites preuve d'empathie et de discrétion.\n\n• Vous respectez strictement la confidentialité des informations médicales.\nNous vous proposons\n\n• Un poste à 40 % au sein d'un cabinet médical spécialisé en urologie.\n\n• Un environnement de travail professionnel et agréable.\n\n• Une activité variée avec des responsabilités administratives diversifiées.\nNous nous réjouissons de faire votre connaissance !"
       },
       "location": "Nyon",
       "canton": "VD",
@@ -868,53 +782,57 @@
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "1260",
-      "category": "healthcare-medical",
+      "category": "healthcare",
       "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
       "currency": "CHF",
       "featured": false,
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "url": "https://app.beehire.com/invite/z7t0fy8gS",
-      "applyUrl": "https://app.beehire.com/invite/z7t0fy8gS",
+      "url": "https://app.beehire.com/invite/Vom0mKPyO",
+      "applyUrl": "https://app.beehire.com/invite/Vom0mKPyO",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:22:29.284Z",
-      "needsRetranslation": false,
+      "crawledAt": "2026-11-28T09:37:09.095Z",
       "previousSlugs": [
-        "medecin-chef-fe-de-clinique-service-des-urgences-groupement-hospitalier-de-l-ouest"
+        "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest",
+        "assistante-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-chef-fe-de-clinique-service-des-urgences-groupement-hospitalier-de-l-ouest"
+          "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest",
+          "assistante-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
         ],
         "en": [
-          "medecin-chef-fe-de-clinique-service-des-urgences-groupement-hospitalier-de-l-ouest"
+          "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
         ],
         "de": [
-          "medecin-chef-fe-de-clinique-service-des-urgences-groupement-hospitalier-de-l-ouest"
+          "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
+        ],
+        "fr": [
+          "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
         ]
       },
-      "firstSeenAt": "2026-11-17T09:32:21.363Z",
-      "salaryMin": 116500,
-      "salaryMax": 162500,
+      "firstSeenAt": "2026-11-10T21:51:18.880Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 116500,
-          "maxValue": 162500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:22:29.284Z",
+      "validThrough": "2027-02-09T09:37:09.095Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -964,7 +882,7 @@
       "applyUrl": "https://app.beehire.com/invite/6NMbh5sJz",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:22:29.283Z",
+      "crawledAt": "2026-11-28T09:37:09.094Z",
       "previousSlugs": [
         "sous-chef-de-cuisine-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -995,7 +913,89 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:22:29.283Z",
+      "validThrough": "2027-02-15T09:37:09.094Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "ghol-a56d8de8120f",
+      "slug": "chief-medical-officer-servizio-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "chief-medical-officer-servizio-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "chief-medical-officer-emergency-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "chief-medical-officer-notdienst-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "medecin-chef-fe-de-clinique-service-des-urgences-groupement-hospitalier-de-l-ouest"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Médecin chef·fe de clinique - Service des urgences",
+      "titleByLocale": {
+        "it": "Chief Medical Officer - Servizio di emergenza",
+        "en": "Chief Medical Officer - Emergency Service",
+        "de": "Chief Medical Officer - Notdienst",
+        "fr": "Médecin chef·fe de clinique - Service des urgences"
+      },
+      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n Description du service :\n L’Hôpital de Nyon draine un bassin de population de 100'000 habitantes et habitants, et le service des urgences accueille une patientèle adulte de plus de 25'000 personnes par année, chiffre en augmentation constante.\n Description du poste:\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Assurer la supervision clinique des médecins assistants pour la prise en charge des patients des urgences\n\n• Contribuer à la gestion de flux des patients des urgences\n\n• Contribuer à la formation pré et post-graduée des stagiaires et médecins assistants des urgences\n\n• Contribuer aux projets de développement du service, notamment la création d’une filière rapide\n Profil requis:\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience de chef·fe de clinique ou cadre en milieu universitaire ;\n\n• Excellentes compétences dans les urgences hospitalières médico-chirurgicales ;\n\n• Attrait pour une activité pré-hospitalière ;\n\n• Expérience en ultrasonographie : un atout ;\n\n• Collégialité, sens des responsabilités et de l’organisation ;\n\n• Esprit vif, entrepreneurial, novateur et tourné vers le futur ;\n\n• Fort intérêt pour la formation ;\n\n• Volonté d’intégrer une structure en pleine expansion et de travailler dans un esprit de collégialité et d’interdisciplinarité notamment médico-soignante.\n Niveau de formation:\n\n• Diplôme de médecin suisse ou équivalent\n\n• Titre de spécialiste FMH en médecine interne, ou formation équivalente et titre en voie d’obtention pour les CDC\n\n• Formation approfondie de médecine d’urgence hospitalière SSMUS ou en cours d’obtention pour les CDC\n Avantages:\n\n• Un cadre de travail dynamique dans un service en expansion\n\n• Une casuistique variée\n\n• Un plateau technique performant (soins intensifs, stroke unit, bloc opératoire, maternité, nombreux spécialistes)\n\n• La possibilité d’exercer une activité pré-hospitalière en SMUR\n\n• La possibilité de participer aux projets de développement du service\n Renseignements:\n Dr Sagara Wijayasinghe, Dre Joëlle Hausser, Dre Muriel Abi-Khalil, Dr Gioele Ongaro, médecin-chefs co-responsables du service des urgences, 022 994 60 98, 022 994 64 47, 022 994 61 42, 022 994 63 44\n Candidatures:\n Les candidatures doivent comporter un dossier complet, comprenant lettre de motivation, curriculum vitae, diplômes, certificats de formations et lettres de recommandations à l’attention des médecins chefs des urgences",
+      "descriptionByLocale": {
+        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle. Domani, proponiamo di continuare il vostro sviluppo professionale coinvolgendovi nelle vostre nuove missioni e partecipando allo sviluppo di GHOL, nel suo nuovo edificio ospedaliero presso il sito Nyon.\nDescrizione del servizio:\nL'ospedale di Nyon drena un pool di popolazione di 100.000 abitanti, e il dipartimento di emergenza ospita una donna paziente adulta di oltre 25.000 all'anno, un aumento costante.\nDescrizione della posizione:\nNei vostri nuovi doveri, le vostre missioni hanno un impatto sulla qualità della cura del paziente. Il tuo ruolo includerà:\n\n• supervisione clinica dei medici assistenti per la gestione dei pazienti di emergenza\n\n• Contribuisci alla gestione del flusso dei pazienti di emergenza\n\n• Contribuire alla formazione pre- e post-laurea per tirocinanti e assistenti medici in emergenze\n\n• Contribuire a progetti di sviluppo di servizi, tra cui la creazione di una pista veloce\nProfilo richiesto:\nSiamo convinti del vostro rapido successo nelle vostre funzioni future attraverso il vostro:\n\n• Esperienza come capo della clinica o esecutivo in un ambiente universitario;\n\n• Eccellenti competenze nelle emergenze ospedaliere medico-chirurgiche;\n\n• Attratto per attività pre-ospedale;\n\n• Esperienza di ultrasonografia: un bene;\n\n• Collegialità, senso di responsabilità e organizzazione;\n\n• Uno spirito vivace, imprenditoriale, innovativo e all'avanguardia;\n\n• forte interesse per la formazione;\n\n• Volendo integrare una struttura in espansione e lavorare in uno spirito di collegialità e interdisciplinarità, tra cui la cura medico.\nLivello di formazione:\n\n• Diploma di medico svizzero o equivalente\n\n• Grado FMH in medicina interna, o formazione equivalente e grado nel processo di ottenere per CDC\n\n• Formazione approfondita in medicina di emergenza ospedaliera SSMUS o in corso per CDC\nVantaggi:\n\n• Un ambiente di lavoro dinamico in un servizio in espansione\n\n• Un vario casuistico\n\n• Una piattaforma tecnica ad alte prestazioni (assistenza intensiva, unità di corsa, unità operativa, maternità, molti specialisti)\n\n• La possibilità di attività pre-ospedale in SMUR\n\n• La possibilità di partecipare a progetti di sviluppo dei servizi\nInformazioni:\nDr. Sagara Wijayasinghe, Dr. Joëlle Hausser, Dr. Muriel Abi-Khalil, Dr. Gioele Ongaro, Chief Medical Officer del Dipartimento di Emergenza, 022 994 60 98, 022 994 64 47, 022 994 42 61, 022 994 63 44\nApplicazioni:\nLe domande devono includere un dossier completo, tra cui lettera di copertura, curriculum vitae, diplomi, certificati di formazione e lettere di raccomandazione per l'attenzione di medici di emergenza.",
+        "en": "GHOL is the reference hospital for the German West with its structures on Nyon and Rolle. Tomorrow, we propose to continue your professional development by involving you in your new missions and by participating in the development of GHOL, in its new hospital building at the Nyon site.\nDescription of service:\nNyon Hospital drains a population pool of 100,000 inhabitants, and the emergency department hosts an adult patient woman of more than 25,000 per year, a constant increase.\nDescription of position:\nIn your new duties, your missions have an impact on the quality of patient care. Your role will include:\n\n• Clinical supervision of assistant physicians for the management of emergency patients\n\n• Contribute to emergency patient flow management\n\n• Contribute to pre- and post-graduate training for trainees and medical assistants in emergencies\n\n• Contribute to service development projects, including the creation of a fast track\nRequired profile:\nWe are convinced of your rapid success in your future functions through your:\n\n• Experience as head of clinic or executive in a university setting;\n\n• Excellent skills in medical-surgical hospital emergencies;\n\n• Attracted for pre-hospital activity;\n\n• Ultrasonography experience: an asset;\n\n• Collegiality, sense of responsibility and organization;\n\n• A lively, entrepreneurial, innovative and forward-looking spirit;\n\n• Strong interest in training;\n\n• Willing to integrate an expanding structure and work in a spirit of collegiality and interdisciplinarity, including medico-care.\nLevel of training:\n\n• Diploma of Swiss doctor or equivalent\n\n• FMH degree in internal medicine, or equivalent training and degree in the process of obtaining for CDCs\n\n• In-depth training in hospital emergency medicine SSMUS or in progress for CDCs\nBenefits:\n\n• A dynamic working environment in an expanding service\n\n• A varied casuistic\n\n• A high-performance technical platform (intensive care, stroke unit, operating unit, maternity, many specialists)\n\n• The possibility of pre-hospital activity in SMUR\n\n• The possibility of participating in service development projects\nInformation:\nDr. Sagara Wijayasinghe, Dr. Joëlle Hausser, Dr. Muriel Abi-Khalil, Dr. Gioele Ongaro, Chief Medical Officer of the Emergency Department, 022 994 60 98, 022 994 64 47, 022 994 61 42, 022 994 63 44\nApplications:\nApplications must include a complete dossier, including cover letter, curriculum vitae, diplomas, training certificates and letters of recommendation for the attention of emergency medical officers.",
+        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle. Morgen schlagen wir vor, Ihre berufliche Entwicklung fortzusetzen, indem wir Sie in Ihre neuen Missionen einbeziehen und an der Entwicklung von GHOL in seinem neuen Krankenhausgebäude am Standort Nyon teilnehmen.\nBeschreibung des Dienstes:\nDas Nyon Hospital entwässert einen Bevölkerungspool von 100.000 Einwohnern, und die Notaufnahme beherbergt eine erwachsene Patientin von mehr als 25.000 pro Jahr, eine konstante Zunahme.\nBeschreibung der Position:\nIn Ihren neuen Aufgaben haben Ihre Missionen einen Einfluss auf die Qualität der Patientenversorgung. Ihre Rolle umfasst:\n\n• Klinische Betreuung von Assistenzärzten für das Management von Notfallpatienten\n\n• Beitrag zum Notfall-Patientenflussmanagement\n\n• Beitrag zur Vor- und Nachschulung von Auszubildenden und medizinischen Assistenten in Notfällen\n\n• Beitrag zu Serviceentwicklungsprojekten, einschließlich der Schaffung eines Fast Tracks\nErforderliches Profil\nWir sind von Ihrem schnellen Erfolg in Ihren zukünftigen Funktionen überzeugt durch Ihre:\n\n• Erfahrung als Leiter der Klinik oder Exekutive in einer Universität;\n\n• Ausgezeichnete Fähigkeiten in medizinisch-chirurgischen Krankenhaus Notfälle;\n\n• Angezogen für vorklinische Aktivitäten;\n\n• Ultraschallerfahrung: ein Vermögenswert;\n\n• Kollegialität, Verantwortungsbewusstsein und Organisation;\n\n• Ein lebendiger, unternehmerischer, innovativer und vorausschauender Geist;\n\n• Starkes Interesse an Ausbildung;\n\n• Bereit, eine expandierende Struktur zu integrieren und im Geiste der Kollegialität und Interdisziplinarität zu arbeiten, einschließlich der medizinischen Versorgung.\nAusbildungsniveau:\n\n• Diplom eines Schweizer Arztes oder Äquivalents\n\n• FMH-Abschluss in Innerer Medizin oder gleichwertige Ausbildung und Grad in den Prozess der Erlangung für CDCs\n\n• Vertiefte Ausbildung in Krankenhaus-Notmedizin SSMUS oder in Vorbereitung für CDCs\nLeistungen:\n\n• Ein dynamisches Arbeitsumfeld in einem expandierenden Service\n\n• Eine abwechslungsreiche Kasuistik\n\n• Eine leistungsstarke technische Plattform (Intensivpflege, Schlaganfalleinheit, Operationseinheit, Mutterschaft, viele Spezialisten)\n\n• Die Möglichkeit der präklinischen Aktivität in SMUR\n\n• Die Möglichkeit, an Dienstleistungsentwicklungsprojekten teilzunehmen\nInformationen:\nDr. Sagara Wijayasinghe, Dr. Joëlle Hausser, Dr. Muriel Abi-Khalil, Dr. Gioele Ongaro, Chief Medical Officer der Notaufnahme, 022 994 60 98, 022 994 64 47, 022 994 61 42, 022 994 63 44\nAnträge:\nDie Anträge müssen ein vollständiges Dossier enthalten, einschließlich Anschreiben, Lebenslauf, Diplome, Ausbildungsnachweise und Empfehlungsschreiben für Notärzte.",
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\nDescription du service :\nL’Hôpital de Nyon draine un bassin de population de 100'000 habitantes et habitants, et le service des urgences accueille une patientèle adulte de plus de 25'000 personnes par année, chiffre en augmentation constante.\nDescription du poste:\nDans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Assurer la supervision clinique des médecins assistants pour la prise en charge des patients des urgences\n\n• Contribuer à la gestion de flux des patients des urgences\n\n• Contribuer à la formation pré et post-graduée des stagiaires et médecins assistants des urgences\n\n• Contribuer aux projets de développement du service, notamment la création d’une filière rapide\nProfil requis:\nNous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience de chef·fe de clinique ou cadre en milieu universitaire ;\n\n• Excellentes compétences dans les urgences hospitalières médico-chirurgicales ;\n\n• Attrait pour une activité pré-hospitalière ;\n\n• Expérience en ultrasonographie : un atout ;\n\n• Collégialité, sens des responsabilités et de l’organisation ;\n\n• Esprit vif, entrepreneurial, novateur et tourné vers le futur ;\n\n• Fort intérêt pour la formation ;\n\n• Volonté d’intégrer une structure en pleine expansion et de travailler dans un esprit de collégialité et d’interdisciplinarité notamment médico-soignante.\nNiveau de formation:\n\n• Diplôme de médecin suisse ou équivalent\n\n• Titre de spécialiste FMH en médecine interne, ou formation équivalente et titre en voie d’obtention pour les CDC\n\n• Formation approfondie de médecine d’urgence hospitalière SSMUS ou en cours d’obtention pour les CDC\nAvantages:\n\n• Un cadre de travail dynamique dans un service en expansion\n\n• Une casuistique variée\n\n• Un plateau technique performant (soins intensifs, stroke unit, bloc opératoire, maternité, nombreux spécialistes)\n\n• La possibilité d’exercer une activité pré-hospitalière en SMUR\n\n• La possibilité de participer aux projets de développement du service\nRenseignements:\nDr Sagara Wijayasinghe, Dre Joëlle Hausser, Dre Muriel Abi-Khalil, Dr Gioele Ongaro, médecin-chefs co-responsables du service des urgences, 022 994 60 98, 022 994 64 47, 022 994 61 42, 022 994 63 44\nCandidatures:\nLes candidatures doivent comporter un dossier complet, comprenant lettre de motivation, curriculum vitae, diplômes, certificats de formations et lettres de recommandations à l’attention des médecins chefs des urgences"
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare-medical",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://app.beehire.com/invite/z7t0fy8gS",
+      "applyUrl": "https://app.beehire.com/invite/z7t0fy8gS",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-28T09:37:09.094Z",
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "medecin-chef-fe-de-clinique-service-des-urgences-groupement-hospitalier-de-l-ouest"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-chef-fe-de-clinique-service-des-urgences-groupement-hospitalier-de-l-ouest"
+        ],
+        "en": [
+          "medecin-chef-fe-de-clinique-service-des-urgences-groupement-hospitalier-de-l-ouest"
+        ],
+        "de": [
+          "medecin-chef-fe-de-clinique-service-des-urgences-groupement-hospitalier-de-l-ouest"
+        ]
+      },
+      "firstSeenAt": "2026-11-17T09:32:21.363Z",
+      "salaryMin": 116500,
+      "salaryMax": 162500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 116500,
+          "maxValue": 162500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Nyon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-15T09:37:09.094Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1045,7 +1045,7 @@
       "applyUrl": "https://app.beehire.com/invite/mINV-Y_jl",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:22:29.281Z",
+      "crawledAt": "2026-11-28T09:37:09.092Z",
       "previousSlugs": [
         "sous-chef-de-cuisine-junior-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -1076,7 +1076,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:22:29.281Z",
+      "validThrough": "2027-02-15T09:37:09.092Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1126,7 +1126,7 @@
       "applyUrl": "https://app.beehire.com/invite/giDi1CNGz",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:22:29.279Z",
+      "crawledAt": "2026-11-28T09:37:09.090Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "referent-e-de-secretariat-des-consultations-specialisees-groupement-hospitalier-de-l-ouest"
@@ -1158,92 +1158,8 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:22:29.279Z",
+      "validThrough": "2027-02-16T09:37:09.090Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "ghol-774d8bfb2c88",
-      "slug": "logistica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "logistica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "logisticsian-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "logistiker-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "logisticien-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Logisticien",
-      "titleByLocale": {
-        "it": "Logistica",
-        "en": "Logisticsian",
-        "de": "Logistiker",
-        "fr": "Logisticien"
-      },
-      "description": "À propos de nous :\n Rejoindre le Groupement Hospitalier de l’Ouest Lémanique (GHOL), c’est intégrer un hôpital régional à taille humaine, reconnu pour la qualité de sa prise en charge et l’attention portée au bien-être des patients.\n À Nyon, nos équipes conjuguent exigence professionnelle, proximité et esprit de collaboration. Dans ce cadre, nous renforçons notre équipe et recherchons un-e Logisticien-ne 50% au bloc opératoire et 50% au magasin central.\n Votre mission :\n Au sein de notre magasin central, vous assurez la gestion opérationnelle et physique des flux de marchandises du magasin central de l'hôpital, depuis la réception des produits jusqu'à leur mise à disposition des services utilisateurs.\n Vous garantissez la disponibilité des produits, la fiabilité des stocks, le respect des conditions de stockage, la qualité des préparations et la ponctualité des livraisons.\n Enfin, vous contribuez à l'optimisation des processus logistiques afin de garantir la continuité des activités hospitalières et la maîtrise des coûts.\n Concrètement, vous serez en charge des principales missions suivantes :\n\n• Assurer la réception des marchandises, contrôler leur conformité (quantités, références, qualité) et signaler les éventuelles anomalies.\n\n• Garantir la bonne gestion des stocks, le rangement et le stockage des produits dans le respect des procédures et des règles de traçabilité.\n\n• Participer au suivi des stocks, aux inventaires et à la gestion des dates de péremption afin de prévenir les ruptures et les surstocks.\n\n• Préparer les commandes destinées aux différents services hospitaliers en veillant à l'exactitude des références et des quantités.\n\n• Assurer la distribution et la livraison des marchandises auprès des services de l'hôpital, avec une attention particulière aux besoins du bloc opératoire.\n\n• Garantir la fiabilité des mouvements de stocks et la qualité des opérations logistiques, dans le respect des procédures en vigueur.\n Profil requis :\n\n• Titulaire d'un CFC de logisticien, idéalement orientation stockage, ou d'une formation jugée équivalente.\n\n• Au bénéfice de 2 à 3 ans d'expérience dans le domaine de la logistique ; une expérience en milieu hospitalier ou médical constitue un atout.\n\n• Bonnes connaissances en gestion des stocks et des flux logistiques (réception, stockage, préparation et distribution des commandes).\n\n• À l'aise avec les outils informatiques et les logiciels de gestion des stocks (la connaissance d'OPALE est un plus), et maîtrise des règles FIFO/FEFO.\n\n• Organisé, rigoureux et capable de gérer les priorités et les imprévus avec réactivité.\n\n• Doté d'un bon esprit d'équipe et d'un sens développé du service, vous faites preuve d'aisance relationnelle et de diplomatie dans vos échanges.\n\n• Permis cariste reconnu et permis de conduire.\n Ce que nous offrons :\n Un poste diversifié, au cœur du fonctionnement des établissements de soins.\n Un encadrement de proximité et le soutien d’une équipe expérimentée.\n Un hôpital régional à taille humaine, où la proximité et l’esprit de collaboration comptent.",
-      "descriptionByLocale": {
-        "it": "Su di noi:\nUnire il Groupement Hospitalier de l'Ouest Lémanique (GHOL) è integrare un ospedale regionale di dimensione umana, riconosciuto per la qualità della sua cura e attenzione al benessere dei pazienti.\nIn Nyon, i nostri team combinano requisiti professionali, prossimità e spirito di collaborazione. In questo contesto, rafforziamo il nostro team e cerchiamo un logistico-ne 50% nella sala operatoria e 50% nel negozio centrale.\nLa vostra missione:\nAll'interno del nostro negozio centrale, si assicura la gestione operativa e fisica del flusso di merci dal negozio ospedaliero centrale, dal ricevimento dei prodotti alla loro fornitura di servizi utente.\nGarantisci la disponibilità di prodotti, l'affidabilità delle scorte, il rispetto delle condizioni di stoccaggio, la qualità dei preparati e la tempestività delle consegne.\nInfine, aiuta a ottimizzare i processi logistici per garantire la continuitÃ delle operazioni ospedaliere e il controllo dei costi.\nIn termini concreti, sarete responsabili dei seguenti compiti principali:\n\n• Assicurare il ricevimento delle merci, verificare la loro conformità (quantità, riferimenti, qualità) e segnalare eventuali anomalie.\n\n• Assicurare una corretta gestione delle scorte, stoccaggio e stoccaggio dei prodotti in conformità alle procedure e regole di tracciabilità.\n\n• Partecipano al monitoraggio delle scorte, agli inventari e alla gestione delle date di scadenza per prevenire rotture e sovrapposti.\n\n• Preparare gli ordini per i vari servizi ospedalieri, assicurando che i riferimenti e le quantità siano accurati.\n\n• Assicurare la distribuzione e la consegna delle merci ai servizi ospedalieri, con particolare attenzione alle esigenze dell'unità operativa.\n\n• Assicurare l'affidabilità dei movimenti azionari e la qualità delle operazioni logistiche, secondo le procedure esistenti.\nProfilo richiesto:\n\n• Titolare di un CFC Logisticista, orientamento idealmente storage, o formazione equivalente.\n\n• Per beneficiare da 2 a 3 anni di esperienza nel campo della logistica; un'esperienza in un ospedale o in un ambiente medico è un bene.\n\n• Buona conoscenza nella gestione delle scorte e flussi logistici (ricezione, stoccaggio, preparazione e distribuzione degli ordini).\n\n• A suo agio con strumenti informatici e software di gestione delle scorte (la conoscenza di OPALE è un plus), e il controllo delle regole FIFO/FEFO.\n\n• Organizzato, rigoroso e in grado di gestire le priorità e gli eventi imprevisti con reattività.\n\n• Con un buon spirito di squadra e un senso di servizio sviluppato, si dimostra la facilità di relazione e la diplomazia nei vostri scambi.\n\n• Riconosciuto patente e patente di guida.\nCosa offriamo:\nUna posizione diversa, nel cuore del funzionamento delle strutture di cura.\nAllenamento di prossimità e il supporto di una squadra esperta.\nUn ospedale regionale di dimensioni umane dove la prossimità e lo spirito di collaborazione conta.",
-        "en": "About us:\nJoining the Groupement Hospitalier de l'Ouest Lémanique (GHOL) is to integrate a regional hospital of human size, recognized for the quality of its care and attention to the well-being of patients.\nIn Nyon, our teams combine professional requirements, proximity and spirit of collaboration. In this context, we strengthen our team and look for a logisticsian-ne 50% in the operating room and 50% in the central store.\nYour mission:\nWithin our central store, you ensure the operational and physical management of the flow of goods from the central hospital store, from the receipt of the products to their provision of user services.\nYou guarantee the availability of products, the reliability of stocks, compliance with storage conditions, the quality of preparations and the timeliness of deliveries.\nFinally, you help optimize logistics processes to ensure continuity of hospital operations and cost control.\nIn concrete terms, you will be responsible for the following main tasks:\n\n• Ensure receipt of goods, check their conformity (quantities, references, quality) and report any anomalies.\n\n• Ensure proper stock management, storage and storage of products in accordance with traceability procedures and rules.\n\n• Participate in stock monitoring, inventories and the management of expiry dates to prevent ruptures and overstocks.\n\n• Prepare orders for the various hospital services, ensuring that references and quantities are accurate.\n\n• Ensure the distribution and delivery of goods to hospital services, with particular attention to the needs of the operating unit.\n\n• Ensure the reliability of stock movements and the quality of logistics operations, in accordance with existing procedures.\nProfile required:\n\n• Holder of a Logistician CFC, ideally storage orientation, or equivalent training.\n\n• To benefit from 2 to 3 years of experience in the field of logistics; an experience in a hospital or medical setting is an asset.\n\n• Good knowledge in inventory management and logistics flows (receipt, storage, preparation and distribution of orders).\n\n• At ease with computer tools and inventory management software (OPALE's knowledge is a plus), and control of FIFO/FEFO rules.\n\n• Organized, rigorous and able to manage priorities and unforeseen events with reactivity.\n\n• With a good team spirit and a developed sense of service, you demonstrate relationship ease and diplomacy in your exchanges.\n\n• Recognized driver's license and driver's license.\nWhat we offer:\nA diverse position, at the heart of the operation of care facilities.\nCloseness coaching and the support of an experienced team.\nA human-sized regional hospital where proximity and spirit of collaboration count.",
-        "de": "Über uns:\nDer Beitritt zum Groupement Hospitalier de l'Ouest Lémanique (GHOL) ist die Integration eines regionalen Krankenhauses von menschlicher Größe, das für die Qualität seiner Pflege und die Aufmerksamkeit für das Wohlbefinden der Patienten anerkannt ist.\nIn Nyon vereinen unsere Teams professionelle Anforderungen, Nähe und Zusammenarbeit. In diesem Zusammenhang verstärken wir unser Team und suchen einen Logistiker-ne 50% im Operationssaal und 50% im Zentralladen.\nIhre Mission:\nIn unserem Zentralgeschäft gewährleisten Sie die operative und physische Verwaltung des Warenflusses vom zentralen Krankenhausgeschäft, vom Empfang der Produkte bis zur Erbringung von Benutzerdienstleistungen.\nSie garantieren die Verfügbarkeit der Produkte, die Zuverlässigkeit der Lagerbestände, die Einhaltung der Lagerbedingungen, die Qualität der Zubereitungen und die Pünktlichkeit der Lieferungen.\nSchließlich helfen Sie, Logistikprozesse zu optimieren, um die Kontinuität des Krankenhausbetriebs und die Kostenkontrolle zu gewährleisten.\nKonkret sind Sie für folgende Hauptaufgaben verantwortlich:\n\n• Sicherstellung des Wareneingangs, Überprüfung ihrer Konformität (Mengenangaben, Referenzen, Qualität) und Meldung etwaiger Anomalien.\n\n• Gewährleistung einer ordnungsgemäßen Bestandsverwaltung, Lagerung und Lagerung der Erzeugnisse gemäß den Verfahren und Vorschriften für die Rückverfolgbarkeit.\n\n• Beteiligen Sie sich an der Bestandsüberwachung, den Lagerbeständen und der Verwaltung von Verfallsdaten, um Risse und Überbestände zu vermeiden.\n\n• Bereiten Sie Bestellungen für die verschiedenen Krankenhausdienste vor und stellen Sie sicher, dass Referenzen und Mengen korrekt sind.\n\n• Gewährleistung der Verteilung und Lieferung von Waren an Krankenhausdienste unter besonderer Berücksichtigung der Bedürfnisse der operativen Einheit.\n\n• Gewährleistung der Zuverlässigkeit der Bestandsbewegungen und der Qualität der Logistikvorgänge gemäß den bestehenden Verfahren.\nProfil erforderlich:\n\n• Inhaber eines Logistikers CFC, idealerweise Lagerung Orientierung, oder gleichwertige Ausbildung.\n\n• Profitieren Sie von 2 bis 3 Jahren Erfahrung im Bereich der Logistik; eine Erfahrung in einem Krankenhaus oder medizinischen Umfeld ist ein Gewinn.\n\n• Gute Kenntnisse in der Bestandsverwaltung und den Logistikflüssen (Eingang, Lagerung, Vorbereitung und Verteilung von Aufträgen).\n\n• Bequem mit Computer-Tools und Inventarverwaltungssoftware (OPALEs Wissen ist ein Plus) und Kontrolle der FIFO / FEFO-Regeln.\n\n• Organisiert, streng und in der Lage, Prioritäten und unvorhergesehene Ereignisse mit Reaktivität zu verwalten.\n\n• Mit einem guten Teamgeist und einem entwickelten Sinn für Service, zeigen Sie Beziehung Leichtigkeit und Diplomatie in Ihrem Austausch.\n\n• Anerkannter Führerschein und Führerschein.\nWas wir anbieten:\nEine vielfältige Position, im Herzen des Betriebs von Pflegeeinrichtungen.\nCloseness Coaching und die Unterstützung eines erfahrenen Teams.\nEin menschliches regionales Krankenhaus, in dem Nähe und Geist der Zusammenarbeit zählen.",
-        "fr": "À propos de nous :\nRejoindre le Groupement Hospitalier de l’Ouest Lémanique (GHOL), c’est intégrer un hôpital régional à taille humaine, reconnu pour la qualité de sa prise en charge et l’attention portée au bien-être des patients.\nÀ Nyon, nos équipes conjuguent exigence professionnelle, proximité et esprit de collaboration. Dans ce cadre, nous renforçons notre équipe et recherchons un-e Logisticien-ne 50% au bloc opératoire et 50% au magasin central.\nVotre mission :\nAu sein de notre magasin central, vous assurez la gestion opérationnelle et physique des flux de marchandises du magasin central de l'hôpital, depuis la réception des produits jusqu'à leur mise à disposition des services utilisateurs.\nVous garantissez la disponibilité des produits, la fiabilité des stocks, le respect des conditions de stockage, la qualité des préparations et la ponctualité des livraisons.\nEnfin, vous contribuez à l'optimisation des processus logistiques afin de garantir la continuité des activités hospitalières et la maîtrise des coûts.\nConcrètement, vous serez en charge des principales missions suivantes :\n\n• Assurer la réception des marchandises, contrôler leur conformité (quantités, références, qualité) et signaler les éventuelles anomalies.\n\n• Garantir la bonne gestion des stocks, le rangement et le stockage des produits dans le respect des procédures et des règles de traçabilité.\n\n• Participer au suivi des stocks, aux inventaires et à la gestion des dates de péremption afin de prévenir les ruptures et les surstocks.\n\n• Préparer les commandes destinées aux différents services hospitaliers en veillant à l'exactitude des références et des quantités.\n\n• Assurer la distribution et la livraison des marchandises auprès des services de l'hôpital, avec une attention particulière aux besoins du bloc opératoire.\n\n• Garantir la fiabilité des mouvements de stocks et la qualité des opérations logistiques, dans le respect des procédures en vigueur.\nProfil requis :\n\n• Titulaire d'un CFC de logisticien, idéalement orientation stockage, ou d'une formation jugée équivalente.\n\n• Au bénéfice de 2 à 3 ans d'expérience dans le domaine de la logistique ; une expérience en milieu hospitalier ou médical constitue un atout.\n\n• Bonnes connaissances en gestion des stocks et des flux logistiques (réception, stockage, préparation et distribution des commandes).\n\n• À l'aise avec les outils informatiques et les logiciels de gestion des stocks (la connaissance d'OPALE est un plus), et maîtrise des règles FIFO/FEFO.\n\n• Organisé, rigoureux et capable de gérer les priorités et les imprévus avec réactivité.\n\n• Doté d'un bon esprit d'équipe et d'un sens développé du service, vous faites preuve d'aisance relationnelle et de diplomatie dans vos échanges.\n\n• Permis cariste reconnu et permis de conduire.\nCe que nous offrons :\nUn poste diversifié, au cœur du fonctionnement des établissements de soins.\nUn encadrement de proximité et le soutien d’une équipe expérimentée.\nUn hôpital régional à taille humaine, où la proximité et l’esprit de collaboration comptent."
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://app.beehire.com/invite/M56bNKLh6",
-      "applyUrl": "https://app.beehire.com/invite/M56bNKLh6",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:40:46.905Z",
-      "needsRetranslation": true,
-      "previousSlugs": [
-        "logisticien-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "logisticien-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "en": [
-          "logisticien-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "de": [
-          "logisticien-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ]
-      },
-      "firstSeenAt": "2026-11-20T09:37:19.614Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Nyon",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:40:46.905Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://app.beehire.com/invite/m56bnklh6",
-      "crawlerMissStreak": 2
     }
   ]
 }

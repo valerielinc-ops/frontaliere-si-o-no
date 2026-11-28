@@ -1,7 +1,7 @@
 {
   "crawlerKey": "servicekuhn-ch",
-  "assembledAt": "2026-11-27T21:19:42.390Z",
-  "runId": "46068835630",
+  "assembledAt": "2026-11-28T09:26:02.940Z",
+  "runId": "46129400156",
   "jobs": [
     {
       "id": "servicekuhn-ch-efe18a462422",
@@ -34,7 +34,7 @@
       "url": "https://servicekuhn.ch/jobs/automobil-diagnostiker/",
       "source": "servicekuhn Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:19:35.472Z",
+      "crawledAt": "2026-11-28T09:25:57.775Z",
       "addressLocality": "Thalwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:19:35.472Z",
+      "validThrough": "2026-12-28T09:25:57.775Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +117,7 @@
       "url": "https://servicekuhn.ch/jobs/automobil-mechatroniker/",
       "source": "servicekuhn Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:19:35.470Z",
+      "crawledAt": "2026-11-28T09:25:57.773Z",
       "addressLocality": "Thalwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -160,7 +160,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:19:35.470Z",
+      "validThrough": "2026-12-28T09:25:57.773Z",
       "validThroughSource": "last-observed-window"
     }
   ]

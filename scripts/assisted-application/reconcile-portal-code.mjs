@@ -1,7 +1,7 @@
 /** Queue certainly unsent technical holds once per published portal-engine version. */
 import { createHash } from 'node:crypto';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
-import { getFirestoreDb } from '../lib/firestore-admin.mjs';
+import { getFunctionsFirestoreDb } from './lib/functions-admin.mjs';
 import { currentPortalCodeVersion } from './lib/portal-code-version.mjs';
 import { evaluateRedFlags, roundWasSent, transition } from '../../functions/src/assistedApplicationFlow.js';
 import { loadRunnerAnswerContext } from '../../functions/src/assistedApplicationAnswerEvidence.js';
@@ -344,5 +344,5 @@ if (isInvokedDirectly(import.meta.url)) {
   if (args.some(arg => !['--apply', '--dry-run'].includes(arg)) || (args.includes('--apply') && args.includes('--dry-run'))) {
     throw new Error('Usage: reconcile-portal-code.mjs [--dry-run | --apply]');
   }
-  console.log(JSON.stringify(await reconcilePortalCode({ db: await getFirestoreDb(), version: currentPortalCodeVersion(), apply: args.includes('--apply') })));
+  console.log(JSON.stringify(await reconcilePortalCode({ db: await getFunctionsFirestoreDb(), version: currentPortalCodeVersion(), apply: args.includes('--apply') })));
 }

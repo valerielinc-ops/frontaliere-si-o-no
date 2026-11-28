@@ -110831,6 +110831,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salario-minimo-ticino-compromesso': {
+    title: 'Salario minimo in Ticino circa 4\'000 franchi lordi al mese',
+    description: 'Il Gran Consiglio ha approvato il compromesso ticinese. L\'aumento è progressivo e dal 2030 segue il rincaro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, minimo, circa, franchi',
+    ogTitle: 'Salario minimo Ticino circa 4\'000 franchi lordi',
+    ogDescription: 'Il Gran Consiglio ha approvato il compromesso ticinese. L\'aumento è progressivo e dal 2030 segue il rincaro.',
+    canonicalPath: '/articoli-svizzera/salario-minimo-ticino-compromesso/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario minimo in Ticino circa 4'000 franchi lordi al mese",
+      "description": "Il Gran Consiglio ha approvato il compromesso ticinese. L'aumento è progressivo e dal 2030 segue il rincaro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-salario-minimo-ticino-compromesso.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-28T09:02:02+00:00",
+      "dateModified": "2026-11-28T09:02:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salario-minimo-ticino-compromesso/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-minimo-obvaldo-contratti': {
+    title: 'Obvaldo senza salario minimo cantonale generale',
+    description: 'Obvaldo non ha un salario minimo cantonale legale generale. Minimi possono essere previsti da CCL o GAV pertinenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, obvaldo, senza, salario, minimo',
+    ogTitle: 'Obvaldo senza un minimo salariale cantonale generale',
+    ogDescription: 'Obvaldo non ha un salario minimo cantonale legale generale. Minimi possono essere previsti da CCL o GAV pertinenti.',
+    canonicalPath: '/articoli-svizzera/minimo-obvaldo-contratti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Obvaldo senza salario minimo cantonale generale",
+      "description": "Obvaldo non ha un salario minimo cantonale legale generale. Minimi possono essere previsti da CCL o GAV pertinenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-minimo-obvaldo-contratti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-28T14:07:41+00:00",
+      "dateModified": "2026-11-28T14:07:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/minimo-obvaldo-contratti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -2670,12 +2670,23 @@ export function agencyNoOption(field) {
 const PLACEHOLDER = /^[-–—\s]*(select( one| an option)?|choose( one)?|please (select|choose)( one)?|bitte (aus)?wählen|auswählen|seleziona(re)?|scegli|sélectionne[rz]?|choisi(r|ssez)|aucune\s+(sélection|selection)(née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)?[-–—\s.…]*$/i;
 
 /** The field already has an answer on the page (filled before, or prefilled by the portal). */
+/** A complete numeric day-month-year shown in a date box, valid as DD/MM/YYYY or as MM/DD/YYYY; never a placeholder. */
+export function isShownDate(value) {
+  const match = /^(\d{1,2})([./-])(\d{1,2})\2(\d{4})$/.exec(String(value || '').trim());
+  if (!match) return false;
+  const [first, second, year] = [Number(match[1]), Number(match[3]), Number(match[4])];
+  const valid = (month, day) => month >= 1 && month <= 12 && day >= 1 && day <= new Date(Date.UTC(year, month, 0)).getUTCDate();
+  return valid(second, first) || valid(first, second);
+}
+
 export function holdsValue(field) {
   if (field.kind === 'checkbox') return Boolean(field.checked);
   if (field.kind === 'file') return false;
   const value = String(field.value || '').trim();
   if (!value) return false;
-  if (isDateField(field)) return Boolean(normalizeDateAnswer(field, value));
+  // A date shown in the portal's own format counts as held when it reads as a date in either order: «01/13/1968» (MM/DD)
+  // is no DD/MM date, and was counted empty for ever (Damiani «Date of Birth», 2026-11-28).
+  if (isDateField(field)) return Boolean(normalizeDateAnswer(field, value)) || isShownDate(value);
   if (field.kind === 'date') return /^\d{4}-\d{1,2}-\d{1,2}$/.test(value);
   if (field.kind === 'select') {
     const chosen = (field.options || []).find((option) => option.value === field.value);

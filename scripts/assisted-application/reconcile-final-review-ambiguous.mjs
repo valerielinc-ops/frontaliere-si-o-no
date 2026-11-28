@@ -8,7 +8,7 @@ import { promisify } from 'node:util';
 import { getRemoteConfig } from 'firebase-admin/remote-config';
 import { getStorage } from 'firebase-admin/storage';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
-import { getFirestoreDb } from '../lib/firestore-admin.mjs';
+import { getFunctionsFirestoreDb } from './lib/functions-admin.mjs';
 import { ASSISTED_APPLICATION_ORDER_ID_RE } from '../../functions/src/assistedApplicationConstants.js';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from '../../functions/src/assistedApplicationCvCheck.js';
 import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from '../../functions/src/assistedApplicationAutomationFlag.js';
@@ -283,7 +283,7 @@ if (isInvokedDirectly(import.meta.url)) {
     throw new Error('Usage: reconcile-final-review-ambiguous.mjs [--dry-run | --apply]');
   }
   try {
-    const db = await getFirestoreDb();
+    const db = await getFunctionsFirestoreDb();
     const bucket = getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET);
     const results = await reconcileFinalReviewAmbiguous({ db, bucket, apply: args.includes('--apply') });
     for (const result of results) console.log(JSON.stringify(result));

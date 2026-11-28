@@ -1,7 +1,7 @@
 {
   "key": "hermes",
   "label": "Hermès",
-  "generatedAt": "2026-11-27T21:18:05.093Z",
+  "generatedAt": "2026-11-28T09:21:17.602Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -15,7 +15,7 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 4,
   "durationMs": 15982,
   "avgDurationMs": 15982,
@@ -24,55 +24,7 @@
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "hermes-b27da2909ac4",
-      "slug": "evento-di-attivazione-interna-m-f-hermes-brugg-be-bern-switzerland",
-      "company": "Hermès",
-      "companyKey": "hermes",
-      "companyDomain": "hermes.com",
-      "title": "Stagiaire Activation Événementielle (H/F)",
-      "location": "Brügg BE, Bern, Switzerland",
-      "canton": "BE",
-      "url": "https://talents.hermes.com/en/sites/CX/job/24858",
-      "source": "Hermès Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:17:53.586Z",
-      "addressLocality": "Brügg BE",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Luxury goods / fashion / watchmaking",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-12",
-      "postedDate": "2026-11-12",
-      "postingDateSource": "reported",
-      "applyUrl": "https://talents.hermes.com/en/sites/CX/job/24858",
-      "firstSeenAt": "2026-11-12T09:17:47.978Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "postalCode": "3001",
-      "streetAddress": "Brügg BE",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:17:53.586Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/job/24858",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "hermes-d9d48120d0a2",
@@ -86,7 +38,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24713",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:17:43.775Z",
+      "crawledAt": "2026-11-28T09:20:56.250Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -109,7 +61,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:17:43.775Z",
+      "validThrough": "2027-02-01T09:20:56.250Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -131,7 +83,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24867",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:17:43.170Z",
+      "crawledAt": "2026-11-28T09:20:55.613Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -154,7 +106,7 @@
       "postalCode": "2340",
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:17:43.170Z",
+      "validThrough": "2027-02-14T09:20:55.613Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -176,7 +128,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24863",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:17:42.545Z",
+      "crawledAt": "2026-11-28T09:20:54.959Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -200,7 +152,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:17:42.545Z",
+      "validThrough": "2027-02-14T09:20:54.959Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -222,7 +174,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24851",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:17:41.897Z",
+      "crawledAt": "2026-11-28T09:20:54.286Z",
       "addressLocality": "Geneve",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -245,7 +197,7 @@
       "salarySource": "estimated",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T21:17:41.897Z",
+      "validThrough": "2027-02-21T09:20:54.286Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -256,5 +208,5 @@
       }
     }
   ],
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
 }

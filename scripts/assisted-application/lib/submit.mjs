@@ -130,7 +130,8 @@ export function portalNetworkFailureMetadata({ event, evidence = null, error = n
     ...(Array.isArray(stopReport.errors) ? stopReport.errors : []),
   ].filter(Boolean).map(String).join(' ');
   const portalAccessBlocked = event.reason === 'access_blocked';
-  const livenessAccessBlocked = liveness?.page?.code === 'access_blocked';
+  // A rate limit (429) is the site slowing us down, not a block of this runner: it never reroutes the order.
+  const livenessAccessBlocked = liveness?.page?.code === 'access_blocked' && liveness.page.rateLimited !== true;
   const accessBlocked = portalAccessBlocked || livenessAccessBlocked;
   const connectionError = navigationInfrastructureFailure(diagnostics);
   const kind = accessBlocked

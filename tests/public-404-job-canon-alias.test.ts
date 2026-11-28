@@ -24,7 +24,6 @@ describe('public/404.html job-canon alias locale validation', () => {
   ) => string | null;
   let source = '';
   let canonHelpers!: {
-    v1ShardKey: (slug: string) => string;
     v2ShardKey: (slug: string) => string;
     mapUrl: (path: string, buildId: string) => string | null;
     fetchBuildId: (fetcher: typeof fetch) => Promise<JobCanonMarker>;
@@ -48,14 +47,14 @@ describe('public/404.html job-canon alias locale validation', () => {
       `${source.slice(fallbackStart, fallbackEnd)}\nreturn jobCanonFallbackTarget;`,
     )() as typeof resolveFallback;
 
-    const canonStart = source.indexOf('function jobCanonV1ShardKey(');
+    const canonStart = source.indexOf('function jobCanonV2ShardKey(');
     const canonEnd = source.indexOf('// Request locale', canonStart);
     expect(canonStart).toBeGreaterThanOrEqual(0);
     expect(canonEnd).toBeGreaterThan(canonStart);
     const canonDeclarations = source.slice(canonStart, canonEnd);
     canonHelpers = new Function(
       'JOB_CANON_CDN',
-      `${canonDeclarations}\nreturn { v1ShardKey: jobCanonV1ShardKey, v2ShardKey: jobCanonV2ShardKey, mapUrl: jobCanonMapUrl, fetchBuildId: fetchJobCanonBuildId, fetchMap: fetchJobCanonMap };`,
+      `${canonDeclarations}\nreturn { v2ShardKey: jobCanonV2ShardKey, mapUrl: jobCanonMapUrl, fetchBuildId: fetchJobCanonBuildId, fetchMap: fetchJobCanonMap };`,
     )('https://cdn.example.test') as typeof canonHelpers;
   });
 
@@ -128,36 +127,21 @@ describe('public/404.html job-canon alias locale validation', () => {
     }
   });
 
-  it('reads v2 first and falls back to v1 only on 404 or 410', async () => {
-    const calls: string[] = [];
-    const fallbackFetch = async (url: string) => {
-      calls.push(url);
-      if (url.endsWith('/cdn-build-id.txt')) return new Response('1234567890123', { status: 200 });
-      return calls.filter((call) => call.includes('/job-canon/')).length === 1
-        ? new Response('missing', { status: 404 })
-        : Response.json({ v1: true });
-    };
-    await expect(canonHelpers.fetchMap('legacy-en-v1', fallbackFetch as typeof fetch))
-      .resolves.toEqual({ kind: 'map', value: { v1: true } });
-    expect(calls).toEqual([
-      'https://cdn.example.test/cdn-build-id.txt',
-      `https://cdn.example.test/job-canon/releases/1234567890123/v2/${sharedV2ShardKey('legacy-en-v1')}.json`,
-      `https://cdn.example.test/job-canon/releases/1234567890123/${canonHelpers.v1ShardKey('legacy-en-v1')}.json`,
-    ]);
-
+  it('reads only v2 and treats 404 or 410 as a genuine miss', async () => {
     for (const status of [404, 410]) {
-      const retryCalls: string[] = [];
-      await canonHelpers.fetchMap('old-slug', (async (url: string) => {
-        retryCalls.push(url);
+      const calls: string[] = [];
+      await expect(canonHelpers.fetchMap('legacy-en-v1', (async (url: string) => {
+        calls.push(url);
         if (url.endsWith('/cdn-build-id.txt')) return new Response('1234567890123');
-        return retryCalls.filter((call) => call.includes('/job-canon/')).length === 1
-          ? new Response('missing', { status })
-          : Response.json({ v1: true });
-      }) as typeof fetch);
-      expect(retryCalls).toHaveLength(3);
-      expect(new URL(retryCalls[1]).pathname).toContain('/job-canon/releases/1234567890123/v2/');
-      expect(new URL(retryCalls[2]).pathname).toContain('/job-canon/releases/1234567890123/');
+        return new Response('missing', { status });
+      }) as typeof fetch)).resolves.toEqual({ kind: 'missing' });
+      expect(calls).toEqual([
+        'https://cdn.example.test/cdn-build-id.txt',
+        `https://cdn.example.test/job-canon/releases/1234567890123/v2/${sharedV2ShardKey('legacy-en-v1')}.json`,
+      ]);
     }
+
+    expect(canonHelpers.mapUrl('/job-canon/ne.json', '1234567890123')).toBeNull();
 
     const errorCalls: string[] = [];
     await expect(canonHelpers.fetchMap('old-slug', (async (url: string) => {
@@ -241,27 +225,28 @@ describe('public/404.html job-canon alias locale validation', () => {
     vi.useRealTimers();
   });
 
-  it('confirms missing only after v2 and v1 both return 404 or 410', async () => {
-    const calls: string[] = [];
-    const missing = await canonHelpers.fetchMap('never-published-job', (async (input: string | URL) => {
-      const url = String(input);
-      calls.push(url);
-      if (url.endsWith('/cdn-build-id.txt')) return new Response('1001');
-      return new Response('missing', { status: calls.length === 2 ? 404 : 410 });
-    }) as typeof fetch);
-    expect(missing).toEqual({ kind: 'missing' });
-    expect(calls.map((url) => new URL(url).pathname)).toEqual([
-      '/cdn-build-id.txt',
-      expect.stringMatching(/^\/job-canon\/releases\/1001\/v2\/[0-9a-f]{3}\.json$/),
-      '/job-canon/releases/1001/ne.json',
-    ]);
+  it('confirms missing after a v2 404 or 410 and never asks for a v1 shard', async () => {
+    for (const status of [404, 410]) {
+      const calls: string[] = [];
+      const missing = await canonHelpers.fetchMap('never-published-job', (async (input: string | URL) => {
+        const url = String(input);
+        calls.push(url);
+        if (url.endsWith('/cdn-build-id.txt')) return new Response('1001');
+        return new Response('missing', { status });
+      }) as typeof fetch);
+      expect(missing).toEqual({ kind: 'missing' });
+      expect(calls.map((url) => new URL(url).pathname)).toEqual([
+        '/cdn-build-id.txt',
+        expect.stringMatching(/^\/job-canon\/releases\/1001\/v2\/[0-9a-f]{3}\.json$/),
+      ]);
+    }
 
-    const v1Failure = await canonHelpers.fetchMap('uncertain-job', (async (input: string | URL) => {
+    const v2Failure = await canonHelpers.fetchMap('uncertain-job', (async (input: string | URL) => {
       const url = String(input);
       if (url.endsWith('/cdn-build-id.txt')) return new Response('1001');
-      return new Response('upstream', { status: new URL(url).pathname.includes('/v2/') ? 404 : 500 });
+      return new Response('upstream', { status: 500 });
     }) as typeof fetch);
-    expect(v1Failure).toEqual({ kind: 'unavailable', reason: 'http-status' });
+    expect(v2Failure).toEqual({ kind: 'unavailable', reason: 'http-status' });
   });
 
   it('does not invoke company or cluster heuristics for unavailable lookups or map-owned slugs', () => {
@@ -299,7 +284,7 @@ describe('public/404.html job-canon alias locale validation', () => {
   it.each([
     { pathname: '/en/jobs-in-zurich/azienda-acme/', expected: '/en/jobs-in-zurich/company-acme/' },
     { pathname: '/en/jobs-in-zurich/search-role-city/', expected: '/en/find-jobs-switzerland/' },
-  ])('runs heuristics only after v2/v1 confirm a miss for $pathname', async ({ pathname, expected }) => {
+  ])('runs heuristics only after v2 confirms a miss for $pathname', async ({ pathname, expected }) => {
     const calls: string[] = [];
     const fetcher = (async (input: string | URL | Request) => {
       const url = String(input);
@@ -308,7 +293,7 @@ describe('public/404.html job-canon alias locale validation', () => {
       return new Response('missing', { status: calls.filter((call) => call.includes('/job-canon/')).length === 1 ? 404 : 410 });
     }) as typeof fetch;
     expect(await runBrowser404(pathname, fetcher)).toEqual([expected]);
-    expect(calls).toHaveLength(3);
+    expect(calls).toHaveLength(2);
   });
 
   it('keeps the canonical browser redirect for a valid map entry', async () => {

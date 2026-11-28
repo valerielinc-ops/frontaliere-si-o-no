@@ -1,7 +1,7 @@
 {
   "key": "clinique-generale-beaulieu",
   "label": "Clinique Générale-Beaulieu",
-  "generatedAt": "2026-11-27T21:33:06.952Z",
+  "generatedAt": "2026-11-28T09:25:53.149Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -13,31 +13,31 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6337,
-  "avgDurationMs": 6337,
+  "durationMs": 44680,
+  "avgDurationMs": 44680,
   "durationHistory": [
-    6337
+    44680
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "clinique-generale-beaulieu-e6b8261c79ac",
-      "slug": "assistante-et-preparatrice-en-pharmacie-oncologie-ambulatoire-clinique-generale-beaulieu",
+      "slug": "farmacia-ambulatorio-oncologia-assistente-e-preparatore-clinique-generale-beaulieu-geneve",
       "company": "Clinique Générale-Beaulieu",
       "companyKey": "clinique-generale-beaulieu",
       "companyDomain": "swissmedical.net",
       "title": "Assistante et préparatrice en pharmacie / oncologie ambulatoire",
-      "needsRetranslation": true,
       "location": "Genève",
       "canton": "GE",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000164012592-assistante-et-preparatrice-en-pharmacie-oncologie-ambulatoire",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000164012592-assistante-et-preparatrice-en-pharmacie-oncologie-ambulatoire",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:32:39.377Z",
+      "crawledAt": "2026-11-28T09:24:53.542Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -53,24 +53,23 @@
       "datePosted": "2026-11-27T11:15:57.235Z",
       "postedDate": "2026-11-27T11:15:57.235Z",
       "postingDateSource": "reported",
+      "firstSeenAt": "2026-11-27T21:32:39.377Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-25T21:32:39.377Z",
+      "validThrough": "2027-02-26T09:24:53.542Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-27T21:32:39.377Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
 }

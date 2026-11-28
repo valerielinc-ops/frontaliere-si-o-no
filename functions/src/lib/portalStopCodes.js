@@ -54,6 +54,9 @@ export const PORTAL_STOP_CODES = Object.freeze({
   rejected: {
     reason: 'invio rifiutato dal portale',
   },
+  portal_rate_limited: {
+    reason: 'il portale ha limitato temporaneamente le richieste (HTTP 429): nulla è stato inviato, la run si ferma e riprova dopo l’attesa',
+  },
   account_create_unanswered: { recoverable: true },
   privacy_not_accepted: { recoverable: true },
   question_label_unreadable: { recoverable: true, rediscover: true },
@@ -113,6 +116,14 @@ const TRANSPORT_STOP = Object.freeze({
   category: PORTAL_STOP_CLASSES.TRANSPORT,
   sourceRecovery: false,
   retryLane: 'transport',
+  automaticRetry: true,
+});
+// The portal answered the main document with HTTP 429 (or 503 with Retry-After): a transient limit of the site,
+// retried on its own, slower ladder (assistedApplicationPortalRetryPolicy.js) and then handed to the owner.
+const RATE_LIMIT_STOP = Object.freeze({
+  category: PORTAL_STOP_CLASSES.TRANSPORT,
+  sourceRecovery: false,
+  retryLane: 'rate_limit',
   automaticRetry: true,
 });
 const PORTAL_RETRY_STOP = Object.freeze({
@@ -176,6 +187,7 @@ const PORTAL_STOP_RECOVERY_CONTRACT = Object.freeze({
   'portal:question_localization_unavailable': TRANSPORT_STOP,
   'portal:application_region_unsupported': TRANSPORT_STOP,
   'portal:swiss_runner_offline': TRANSPORT_STOP,
+  'portal:portal_rate_limited': RATE_LIMIT_STOP,
 
   'portal:captcha': CAPTCHA_STOP,
   'portal:captcha_provider_unavailable': CAPTCHA_STOP,

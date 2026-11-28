@@ -1,5 +1,6 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { APPLICATION_EXISTS_REASON, applicationExistsRoute, vacancyBoundToOrder } from '../../../../functions/src/lib/applicationExistsReconciliation.js';
+import { isRateLimitStatus, parseRetryAfterMs } from '../../../../functions/src/lib/retryAfter.js';
 import { hasAddressContextOwnership } from '../../../../functions/src/lib/addressContextContract.js';
 import { isPhotoRequirement } from '../../../../functions/src/lib/assistedApplicationDocumentKind.js';
 import { PORTAL_QUESTION_PLACEHOLDERS, readablePortalQuestionText, portalQuestionText } from '../../../../functions/src/lib/portalQuestionText.js';
@@ -2980,6 +2981,43 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
       const target = comparablePortalRoute(control.href);
       return `${target.origin}${target.pathname}${target.search}`;
     })).size === 1) return unbound.slice(0, 1);
+  // The selected posting's own page, fieldless (no form, no file, no consent: `fields` is empty), with one
+  // application link to one route and nothing else that applies: STA's «Jetzt bewerben!» opens `/bewerbung/?job-id=…`
+  // (2026-11-28), a route that names neither the posting's URL id nor its role. The page is the one the order's posting
+  // binding already matched (`allowSingleExternalApplicationEntry`), so the sole link is the way into the form.
+  // Two routes, a social sign-in beside several, a final-send label, a dialog, a route proof that disagrees or a page
+  // that is not the posting itself stay unresolved. Nothing is sent: the form behind it is bound
+  // again before anything is typed.
+  if (context.allowSingleExternalApplicationEntry === true && !context.postingRouteProof
+    && posting && current && current.origin === posting.origin
+    && current.pathname === posting.pathname && current.search === posting.search
+    && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
+    && !(Array.isArray(snapshot.dialogs) && snapshot.dialogs.length)) {
+    const FINAL_LABEL_RE = /(?:absenden|abschicken|abschlie(?:ß|ss)en|senden|submit|send|invia|envoy|soumettre|finali[sz]e|fertig|complete|conclud|termina)/iu;
+    const ownEntries = allEntries.filter((control) => !socialApplicationEntry(control));
+    // Only the site's own application route qualifies: same origin and a path made of known entry words alone, with an
+    // optional locale prefix (`/bewerbung/`, `/de/apply/`). Any other segment (`/apply/job-b/`, `/Vacancies/2780/…`,
+    // `/jobs/apply/<id>`) may name a vacancy and needs its own proof of belonging to this posting. The reference to the
+    // posting can sit in the query only (`?job-id=…`). Another host is no entry here either.
+    const ENTRY_WORDS = new Set(['bewerbung', 'bewerben', 'apply', 'application', 'applications', 'candidature', 'candidatures',
+      'candidatura', 'candidature', 'candidati', 'candidarsi', 'postuler', 'postulation']);
+    const LOCALES = new Set(['de', 'fr', 'it', 'en']);
+    const isSiteApplicationRoute = (control) => {
+      const route = comparablePortalRoute(control?.href);
+      if (!route || route.origin !== posting.origin || !route.origin.startsWith('https://')) return false;
+      let segments = route.pathname.split('/').filter(Boolean).map((segment) => segment.toLowerCase());
+      if (segments.length > 1 && LOCALES.has(segments[0])) segments = segments.slice(1);
+      return segments.length > 0 && segments.length <= 2 && segments.every((segment) => ENTRY_WORDS.has(segment));
+    };
+    const ownUnbound = unbound.filter((control) => !socialApplicationEntry(control)
+      && !FINAL_LABEL_RE.test(String(control?.text || control?.label || ''))
+      && isSiteApplicationRoute(control));
+    const targets = new Set(ownUnbound.map((control) => {
+      const target = comparablePortalRoute(control.href);
+      return `${target.origin}${target.pathname}${target.search}`;
+    }));
+    if (ownUnbound.length > 0 && targets.size === 1 && ownEntries.length === ownUnbound.length) return ownUnbound.slice(0, 1);
+  }
   return [];
 }
 
@@ -3069,6 +3107,17 @@ export function hasApplicationSurface(snapshot, { pageUrl = '', postingUrl = '',
  * that the application belongs to a different posting. Challenges take the
  * CAPTCHA handoff; only the confirmed IP block takes the egress recovery lane.
  */
+/** `{ retryAfterMs }` when a main-document response is the site limiting the rate (429, or 503 with Retry-After). */
+export function portalRateLimitOf(response) {
+  try {
+    const status = Number(response?.status?.());
+    const retryAfter = response?.headers?.()?.['retry-after'];
+    return isRateLimitStatus(status, String(retryAfter ?? '')) ? { retryAfterMs: parseRetryAfterMs(retryAfter) } : null;
+  } catch {
+    return null;
+  }
+}
+
 export function initialPortalHandoffReason({ snapshot = {}, liveness = {} } = {}) {
   if (liveness?.code === 'runner_ip_blocked') return 'application_region_unsupported';
   return snapshot?.captcha || liveness?.code === 'bot_challenge' ? 'captcha' : null;
@@ -10815,7 +10864,127 @@ export async function recoverAccountPassword({ page, snapshot, ctx, host, accoun
   let resetMessage = null;
   let requestAcknowledged = false;
   let resolvedSignInUrl = authPageKind(snapshot) === 'sign_in' ? page.url() : '';
-  const existingRequestActive = account?.status === 'recovering' && requestAt > 0
+  // The rest of a recovery once the portal's reset message is in hand: its link or its temporary password.
+  const finishWithReset = async (resetMessage) => {
+    const resetUrl = exactHttpsPortalHostUrl(resetMessage?.url, host);
+    const temporaryPassword = typeof resetMessage?.temporaryPassword === 'string'
+      ? resetMessage.temporaryPassword : '';
+    if (!resetUrl && !temporaryPassword) {
+      return recoveryHandoff('account_recovery_timeout', requestAcknowledged ? 'reset_mail_not_received_acknowledged' : 'reset_mail_not_received');
+    }
+    let resetView = null;
+    if (resetUrl) {
+      await page.goto(resetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      await settle(page);
+      resetView = await extractFields(page, NAVIGATION);
+    }
+    const pageUrl = new URL(page.url());
+    const resetFields = resetView ? resetPasswordFields(resetView) : null;
+    if (temporaryPassword && !resetFields) {
+      if (pageUrl.protocol !== 'https:' || pageUrl.hostname.toLowerCase() !== host.toLowerCase()
+        || !resetView || authPageKind(resetView) !== 'sign_in') {
+        if (!resolvedSignInUrl && authPageKind(snapshot) === 'create' && await openVerifiedSignInNavigation(page, snapshot)) {
+          const signInSnapshot = await awaitAuthView(page, snapshot);
+          if (authPageKind(signInSnapshot) === 'sign_in') {
+            resolvedSignInUrl = page.url();
+            resetView = signInSnapshot;
+          }
+        } else if (resolvedSignInUrl) {
+          await page.goto(resolvedSignInUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+          await settle(page);
+          resetView = await extractFields(page, NAVIGATION);
+        }
+      }
+      if (!resetView || authPageKind(resetView) !== 'sign_in') {
+        const refused = PASSWORD_RESET_REFUSED_RE.test(resetView?.errors?.join(' ') || resetView?.text || '');
+        return recoveryHandoff(refused ? 'account_recovery_rejected' : 'account_recovery_timeout', 'sign_in_view_missing_after_reset');
+      }
+      typedSecrets?.add(temporaryPassword);
+      if (!await ctx.accounts.completeRecovery(host, { password: temporaryPassword })) {
+        return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+      }
+      const signedIn = await signInAfterRecovery(resetView);
+      return { ...signedIn, accountRecovered: true };
+    }
+    const resetContext = /[?&](?:password_?)?reset_?token=/i.test(pageUrl.search || '')
+      || /(?:reset|change|update|set).{0,30}(?:password|passwort|kennwort)|(?:password|passwort|kennwort).{0,30}(?:reset|change|update|set|setzen|vergeben|festlegen)|neues?\s+(?:passwort|kennwort)|mot de passe.{0,30}(?:réinitial|reinitial|chang|d[ée]finir)|password.{0,30}(?:reimpost|cambi|impost)/i
+        .test(`${pageUrl.pathname} ${pageUrl.search || ''} ${resetView.title || ''} ${resetView.heading || ''} ${resetView.text || ''}`);
+    if (pageUrl.protocol !== 'https:' || pageUrl.hostname !== host || !resetContext || !resetFields) {
+      return recoveryHandoff(PASSWORD_RESET_REFUSED_RE.test(resetView.errors?.join(' ') || resetView.text || '')
+        ? 'account_recovery_rejected' : 'account_recovery_timeout', 'reset_page_unrecognized');
+    }
+    const staged = (await ctx.accounts.load(host))?.password || account?.password || '';
+    if (!staged) return recoveryHandoff('account_recovery_timeout', 'staged_password_missing');
+    typedSecrets?.add(staged);
+    await applyActions(page, resetView.fields, [
+      { fieldId: resetFields.password.id, action: 'fill', value: staged },
+      { fieldId: resetFields.confirmation.id, action: 'fill', value: staged },
+    ], {});
+    resetView = await extractFields(page, NAVIGATION);
+    const filled = resetPasswordFields(resetView);
+    if (!filled || !await passwordControlMatches(page, filled.password, staged)
+      || !await passwordControlMatches(page, filled.confirmation, staged)) {
+      return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+    }
+    const confirm = (resetView.buttons || []).find((button) => String(button.formId || '') === filled.formId
+      && PASSWORD_RESET_CONFIRM_RE.test(String(button.text || button.label || '')) && button.disabled !== true);
+    if (!confirm || !await clickButton(page, confirm)) return recoveryHandoff('account_recovery_timeout', 'reset_confirm_unpressed');
+    let afterReset = await awaitAuthOutcome(page, 'create', resetView.errors || [], resetView.fields);
+    const resetRejected = PASSWORD_RESET_REFUSED_RE.test([afterReset.text, ...(afterReset.errors || [])].join(' '));
+    if (resetRejected) {
+      await ctx.accounts.abortRecovery(host, { requestSubmitted: true, reason: 'reset_rejected' });
+      return recoveryHandoff('account_recovery_rejected', 'reset_confirm_refused');
+    }
+    if (authPageKind(afterReset) !== 'sign_in' && !resetPasswordFields(afterReset) && !(afterReset.errors || []).length) {
+      if (await openVerifiedSignInNavigation(page, afterReset)) {
+        afterReset = await awaitAuthView(page, afterReset);
+      }
+      if (authPageKind(afterReset) !== 'sign_in' && resolvedSignInUrl && !signedInApplicationSurface(afterReset)) {
+        await page.goto(resolvedSignInUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+        await settle(page);
+        afterReset = await extractFields(page, NAVIGATION);
+      }
+    }
+    if (authPageKind(afterReset) !== 'sign_in') {
+      if (!resetPasswordFields(afterReset) && !(afterReset.errors || []).length && signedInApplicationSurface(afterReset)) {
+        if (!await ctx.accounts.completeRecovery(host)) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+        return { snapshot: afterReset, reopen: true, accountRecovered: true };
+      }
+      return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+    }
+    if (!await ctx.accounts.completeRecovery(host)) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+    const signedIn = await signInAfterRecovery(afterReset);
+    return { ...signedIn, accountRecovered: true };
+  };
+  // A reset e-mail of the recovery in progress that already arrived and was never used (the run that asked died, or
+  // failed before the new password was set): completed first, whatever the cooldown on a NEW request says. A link
+  // is used once; if it is expired or refused the normal path follows, with its cooldown.
+  let triedPending = false;
+  if (account?.status === 'recovering' && typeof ctx.accounts.pendingPasswordReset === 'function') {
+    const pending = await ctx.accounts.pendingPasswordReset(host).catch(() => null);
+    if (pending) {
+      triedPending = true;
+      // The exclusive, recoverable right to open this one-use link. Without it nothing is opened: another run holds
+      // it (stop here, before any navigation) or it was used already (the normal path follows).
+      const owner = `${process.env.GITHUB_RUN_ID || 'local'}:${randomUUID()}`;
+      const claim = typeof ctx.accounts.claimPasswordReset === 'function'
+        ? await ctx.accounts.claimPasswordReset(host, pending.messageId, { owner }) : { status: 'missing' };
+      if (claim?.status === 'held') return recoveryHandoff('account_recovery_timeout', 'reset_link_claimed_elsewhere');
+      if (claim?.status === 'claimed') {
+        const resumed = await finishWithReset(pending);
+        // The outcome is known (done, or refused by the portal): the link is consumed for good. A throw before this
+        // leaves the claim to expire and the link to be found again.
+        await ctx.accounts.settlePasswordReset?.(host, pending.messageId, owner);
+        if (resumed?.accountRecovered === true) return resumed;
+        if (resolvedSignInUrl && page.url() !== resolvedSignInUrl) {
+          await page.goto(resolvedSignInUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+          await settle(page);
+          snapshot = await extractFields(page, NAVIGATION);
+        }
+      }
+    }
+  }
+  const existingRequestActive = !triedPending && account?.status === 'recovering' && requestAt > 0
     && Date.now() - requestAt < 15 * 60 * 1000 && Boolean(account.password);
   if (existingRequestActive) {
     resetMessage = await ctx.accounts.waitForPasswordReset({ host, sinceMs: requestAt });
@@ -10875,95 +11044,7 @@ export async function recoverAccountPassword({ page, snapshot, ctx, host, accoun
     requestAcknowledged = passwordResetRequestAcknowledged(await pageText(page).catch(() => ''));
     resetMessage = await ctx.accounts.waitForPasswordReset({ host, sinceMs: requestAt });
   }
-  const resetUrl = exactHttpsPortalHostUrl(resetMessage?.url, host);
-  const temporaryPassword = typeof resetMessage?.temporaryPassword === 'string'
-    ? resetMessage.temporaryPassword : '';
-  if (!resetUrl && !temporaryPassword) {
-    return recoveryHandoff('account_recovery_timeout', requestAcknowledged ? 'reset_mail_not_received_acknowledged' : 'reset_mail_not_received');
-  }
-  let resetView = null;
-  if (resetUrl) {
-    await page.goto(resetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
-    await settle(page);
-    resetView = await extractFields(page, NAVIGATION);
-  }
-  const pageUrl = new URL(page.url());
-  const resetFields = resetView ? resetPasswordFields(resetView) : null;
-  if (temporaryPassword && !resetFields) {
-    if (pageUrl.protocol !== 'https:' || pageUrl.hostname.toLowerCase() !== host.toLowerCase()
-      || !resetView || authPageKind(resetView) !== 'sign_in') {
-      if (!resolvedSignInUrl && authPageKind(snapshot) === 'create' && await openVerifiedSignInNavigation(page, snapshot)) {
-        const signInSnapshot = await awaitAuthView(page, snapshot);
-        if (authPageKind(signInSnapshot) === 'sign_in') {
-          resolvedSignInUrl = page.url();
-          resetView = signInSnapshot;
-        }
-      } else if (resolvedSignInUrl) {
-        await page.goto(resolvedSignInUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
-        await settle(page);
-        resetView = await extractFields(page, NAVIGATION);
-      }
-    }
-    if (!resetView || authPageKind(resetView) !== 'sign_in') {
-      const refused = PASSWORD_RESET_REFUSED_RE.test(resetView?.errors?.join(' ') || resetView?.text || '');
-      return recoveryHandoff(refused ? 'account_recovery_rejected' : 'account_recovery_timeout', 'sign_in_view_missing_after_reset');
-    }
-    typedSecrets?.add(temporaryPassword);
-    if (!await ctx.accounts.completeRecovery(host, { password: temporaryPassword })) {
-      return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
-    }
-    const signedIn = await signInAfterRecovery(resetView);
-    return { ...signedIn, accountRecovered: true };
-  }
-  const resetContext = /[?&](?:password_?)?reset_?token=/i.test(pageUrl.search || '')
-    || /(?:reset|change|update|set).{0,30}(?:password|passwort|kennwort)|(?:password|passwort|kennwort).{0,30}(?:reset|change|update|set|setzen|vergeben|festlegen)|neues?\s+(?:passwort|kennwort)|mot de passe.{0,30}(?:réinitial|reinitial|chang|d[ée]finir)|password.{0,30}(?:reimpost|cambi|impost)/i
-      .test(`${pageUrl.pathname} ${pageUrl.search || ''} ${resetView.title || ''} ${resetView.heading || ''} ${resetView.text || ''}`);
-  if (pageUrl.protocol !== 'https:' || pageUrl.hostname !== host || !resetContext || !resetFields) {
-    return recoveryHandoff(PASSWORD_RESET_REFUSED_RE.test(resetView.errors?.join(' ') || resetView.text || '')
-      ? 'account_recovery_rejected' : 'account_recovery_timeout', 'reset_page_unrecognized');
-  }
-  const staged = (await ctx.accounts.load(host))?.password || account?.password || '';
-  if (!staged) return recoveryHandoff('account_recovery_timeout', 'staged_password_missing');
-  typedSecrets?.add(staged);
-  await applyActions(page, resetView.fields, [
-    { fieldId: resetFields.password.id, action: 'fill', value: staged },
-    { fieldId: resetFields.confirmation.id, action: 'fill', value: staged },
-  ], {});
-  resetView = await extractFields(page, NAVIGATION);
-  const filled = resetPasswordFields(resetView);
-  if (!filled || !await passwordControlMatches(page, filled.password, staged)
-    || !await passwordControlMatches(page, filled.confirmation, staged)) {
-    return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
-  }
-  const confirm = (resetView.buttons || []).find((button) => String(button.formId || '') === filled.formId
-    && PASSWORD_RESET_CONFIRM_RE.test(String(button.text || button.label || '')) && button.disabled !== true);
-  if (!confirm || !await clickButton(page, confirm)) return recoveryHandoff('account_recovery_timeout', 'reset_confirm_unpressed');
-  let afterReset = await awaitAuthOutcome(page, 'create', resetView.errors || [], resetView.fields);
-  const resetRejected = PASSWORD_RESET_REFUSED_RE.test([afterReset.text, ...(afterReset.errors || [])].join(' '));
-  if (resetRejected) {
-    await ctx.accounts.abortRecovery(host, { requestSubmitted: true, reason: 'reset_rejected' });
-    return recoveryHandoff('account_recovery_rejected', 'reset_confirm_refused');
-  }
-  if (authPageKind(afterReset) !== 'sign_in' && !resetPasswordFields(afterReset) && !(afterReset.errors || []).length) {
-    if (await openVerifiedSignInNavigation(page, afterReset)) {
-      afterReset = await awaitAuthView(page, afterReset);
-    }
-    if (authPageKind(afterReset) !== 'sign_in' && resolvedSignInUrl && !signedInApplicationSurface(afterReset)) {
-      await page.goto(resolvedSignInUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
-      await settle(page);
-      afterReset = await extractFields(page, NAVIGATION);
-    }
-  }
-  if (authPageKind(afterReset) !== 'sign_in') {
-    if (!resetPasswordFields(afterReset) && !(afterReset.errors || []).length && signedInApplicationSurface(afterReset)) {
-      if (!await ctx.accounts.completeRecovery(host)) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
-      return { snapshot: afterReset, reopen: true, accountRecovered: true };
-    }
-    return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
-  }
-  if (!await ctx.accounts.completeRecovery(host)) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
-  const signedIn = await signInAfterRecovery(afterReset);
-  return { ...signedIn, accountRecovered: true };
+  return finishWithReset(resetMessage);
 }
 
 const SECURITY_SECTION_RE = /(?:security\s*questions?|domande\s+di\s+sicurezza|questions?\s+de\s+s[eé]curit[eé]|sicherheitsfragen)/i;
@@ -11886,6 +11967,14 @@ export async function requiredEmptyFields(page, uploaded = new Set(), uploadedKe
     if (first) break;
   }
   return empty;
+}
+
+/** Why a required field counts as unfilled, without its value: the caption and a reason, for the run's evidence. */
+export function requiredEmptyDetail(field) {
+  const kind = field?.kind === 'file' || field?.inputType === 'file' ? 'file_not_attached'
+    : field?.inputType === 'password' ? 'password_empty'
+      : !String(field?.value || '').trim() ? 'empty' : 'value_not_recognised';
+  return { label: String(field?.label || field?.name || field?.id || '').replace(/\s+/g, ' ').trim().slice(0, 80), kind: String(field?.kind || ''), reason: kind };
 }
 
 export async function requiredLeftEmpty(page, uploaded = new Set(), uploadedKeyForField = null) {
@@ -13065,6 +13154,12 @@ export async function readPortalQuestions(ctx) {
 // stopped under four different reasons). handoff() reports them as the gate
 // when the page states it.
 const REGION_GATED_STOPS = new Set(['portal_control_click_unresolved', 'cookie_preferences_unresolved']);
+// The stops a page that never loaded produces (HTTP 429 on its main document): reported as the limit that caused
+// them, which the retry ladder clears, never as an unknown page (run of 2026-11-28: `application_stage_unknown`).
+const RATE_LIMITED_PAGE_STOPS = new Set([
+  'posting_mismatch', 'application_stage_unknown', 'posting_unbound', 'portal_reader_failed',
+  'portal_control_click_unresolved', 'cookie_preferences_unresolved', 'portal_needs_candidate', 'unclear_fields',
+]);
 // Stops that a posting closed meanwhile also produces: the page the portal shows after the registration or
 // a navigation is its own «this job can no longer be applied for», which reads as another posting, as no
 // application stage, or (with no form control left) as a page for the candidate. The closure is the cause
@@ -13233,6 +13328,14 @@ export async function submitViaPortal(ctx) {
     // banner. Report the cause, which another runner can clear, not its symptom.
     if (REGION_GATED_STOPS.has(reason) && page && evidence.steps.length === 0
       && isApplicationRegionUnsupported(await pageText(page).catch(() => ''))) reason = 'application_region_unsupported';
+    // The main document answered 429 (or 503 with Retry-After) and no later page loaded: that is why the page is
+    // unknown. Nothing was clicked, so it is a transient limit of the site, not a stop of the application.
+    const pageRateLimit = evidence.diagnostics?.rateLimit;
+    if (pageRateLimit && RATE_LIMITED_PAGE_STOPS.has(reason) && !Number.isSafeInteger(finalClickAttempt)) {
+      reason = 'portal_rate_limited';
+      if (!metadata.retryAfterMs && pageRateLimit.retryAfterMs) metadata = { ...metadata, retryAfterMs: pageRateLimit.retryAfterMs };
+      evidence.rateLimit = { host: pageRateLimit.host, path: pageRateLimit.path, status: pageRateLimit.status };
+    }
     reason = portalHandoffReason(reason, {
       diagnostics: evidence.diagnostics,
       attempt: diagnostics?.currentAttempt(),
@@ -13243,7 +13346,7 @@ export async function submitViaPortal(ctx) {
       // What a fixer needs to teach the runner this page (level 3); a CAPTCHA
       // is no code fix, nor is a regional gate on the runner's IP (#17112 and
       // #17132 tried to click through it): the retry ladder owns that one.
-      if (!['captcha', 'captcha_provider_unavailable', 'application_region_unsupported'].includes(reason)) {
+      if (!['captcha', 'captcha_provider_unavailable', 'application_region_unsupported', 'portal_rate_limited'].includes(reason)) {
         const seen = await extractFields(page, NAVIGATION).catch(() => null);
         // Only the stable name of the binding guard goes public; its inputs stay in the encrypted evidence.
         const bindingGuard = reason === 'posting_unbound'
@@ -13254,6 +13357,7 @@ export async function submitViaPortal(ctx) {
     }
     const failure = serializeAccountFailure(metadata.accountFailure);
     return { event: { type: 'submit_handoff', reason, ...(failure ? { accountFailure: failure } : {}),
+      ...(reason === 'portal_rate_limited' && metadata.retryAfterMs ? { retryAfterMs: metadata.retryAfterMs } : {}),
       ...(metadata.applicationExists ? { applicationExists: metadata.applicationExists } : {}) }, evidence };
   };
   // The portal's own «you already applied to this vacancy» route (lib/applicationExistsReconciliation.js). It says
@@ -13478,6 +13582,10 @@ export async function submitViaPortal(ctx) {
     await diagnostics.beginAttempt();
     let response = await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     workdayApplicationEntryProven = isWorkdayApplicationRouteBound(entryUrl, ctx.applyUrl);
+    // The entry page answered HTTP 429 (or 503 with Retry-After): the site is limiting us. Stop here, before any
+    // search, goto or click that would only lengthen the limit; the retry ladder comes back later.
+    const entryRateLimit = portalRateLimitOf(response);
+    if (entryRateLimit) return await handoff('portal_rate_limited', entryRateLimit);
     await settle(page);
     const initialChallenge = await passAssistedPortalChallenge(page, browser, log);
     if (!initialChallenge.passed) return await handoff('captcha');
@@ -14339,6 +14447,9 @@ export async function submitViaPortal(ctx) {
     };
 
     const runNavigationRecovery = async (current, hint, existingAgent = null, { diversionRetry = false } = {}) => {
+      // The page in front of the runner never loaded because of a rate limit: no agent step, search or goto
+      // may follow; it would only lengthen the limit.
+      if (evidence.diagnostics?.rateLimit && !Number.isSafeInteger(finalClickAttempt)) return { result: await handoff('portal_rate_limited') };
       const sourcePage = page;
       const sourceUrl = page.url();
       const agent = existingAgent || await runAgent(current, hint);
@@ -15643,8 +15754,11 @@ export async function submitViaPortal(ctx) {
       // A normal send button is not evidence that the portal form is complete.
       // Let the agent repair any required fields the deterministic fill missed;
       // never click Send while a required answer or upload is still empty.
-      if (await requiredLeftEmpty(page, uploaded, (field, fields, url) => uploadKeyForField(field.id, fields, url, pageEpoch))) {
+      const unfilledNow = await requiredEmptyFields(page, uploaded, (field, fields, url) => uploadKeyForField(field.id, fields, url, pageEpoch));
+      if (unfilledNow.length) {
+        // The flag and the named fields are this check's own reading of the page, never a value kept from a step before.
         evidence.steps.at(-1).requiredFieldsUnfilled = true;
+        evidence.steps.at(-1).requiredFieldsUnfilledFields = unfilledNow.slice(0, 12).map(requiredEmptyDetail);
         const repairUrl = page.url();
         // Required autocompletes whose suggestions were read and did not hold the answer go straight to the candidate: the
         // agent only retyped the same text for 24 rounds (Damiani «Major», 2026-11-28).
@@ -15677,7 +15791,10 @@ export async function submitViaPortal(ctx) {
           continue;
         }
         after = await extractFields(page, NAVIGATION);
-        if (await requiredLeftEmpty(page, uploaded, (field, fields, url) => uploadKeyForField(field.id, fields, url, pageEpoch))) {
+        const unfilledAfterRepair = await requiredEmptyFields(page, uploaded, (field, fields, url) => uploadKeyForField(field.id, fields, url, pageEpoch));
+        evidence.steps.at(-1).requiredFieldsUnfilled = unfilledAfterRepair.length > 0;
+        evidence.steps.at(-1).requiredFieldsUnfilledFields = unfilledAfterRepair.slice(0, 12).map(requiredEmptyDetail);
+        if (unfilledAfterRepair.length) {
           const recovered = await requiredEmptyRecovery(after);
           if (recovered?.result) return recovered.result;
           if (recovered?.snapshot) { snapshot = recovered.snapshot; step -= 1; continue; }

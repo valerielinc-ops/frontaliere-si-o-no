@@ -347,6 +347,7 @@
     "https://jobs.galenica.com/it/jobs/#job.id=12692443",
     "https://jobs.galenica.com/it/jobs/#job.id=12692498",
     "https://jobs.galenica.com/it/jobs/#job.id=12692383",
+    "https://jobs.galenica.com/it/jobs/#job.id=12692324",
     "https://jobs.galenica.com/it/jobs/#job.id=12692302",
     "https://jobs.galenica.com/it/jobs/#job.id=12692205",
     "https://jobs.galenica.com/it/jobs/#job.id=12692218",
@@ -356,7 +357,6 @@
     "https://jobs.galenica.com/it/jobs/#job.id=126923401",
     "https://jobs.galenica.com/it/jobs/#job.id=12692495",
     "https://jobs.galenica.com/it/jobs/#job.id=12692376",
-    "https://jobs.galenica.com/it/jobs/#job.id=12692191",
     "https://jobs.galenica.com/it/jobs/#job.id=12692249",
     "https://jobs.galenica.com/it/jobs/#job.id=12692391",
     "https://jobs.galenica.com/it/jobs/#job.id=12692472",
@@ -387,7 +387,7 @@
     "https://jobs.galenica.com/it/jobs/#job.id=12692215",
     "https://jobs.galenica.com/it/jobs/#job.id=12692476",
     "https://jobs.galenica.com/it/jobs/#job.id=12692254",
-    "https://jobs.galenica.com/it/jobs/#job.id=12692324",
+    "https://jobs.galenica.com/it/jobs/#job.id=12692191",
     "https://jobs.galenica.com/it/jobs/#job.id=12728307",
     "https://jobs.galenica.com/it/jobs/#job.id=12692258"
   ],
@@ -1748,6 +1748,10 @@
       "company": "Galenica AG",
       "companyDomain": "galenica.com"
     },
+    "https://jobs.galenica.com/it/jobs/#job.id=12692324": {
+      "company": "Galenica AG",
+      "companyDomain": "galenica.com"
+    },
     "https://jobs.galenica.com/it/jobs/#job.id=12692302": {
       "company": "Galenica AG",
       "companyDomain": "galenica.com"
@@ -1781,10 +1785,6 @@
       "companyDomain": "galenica.com"
     },
     "https://jobs.galenica.com/it/jobs/#job.id=12692376": {
-      "company": "Galenica AG",
-      "companyDomain": "galenica.com"
-    },
-    "https://jobs.galenica.com/it/jobs/#job.id=12692191": {
       "company": "Galenica AG",
       "companyDomain": "galenica.com"
     },
@@ -1908,7 +1908,7 @@
       "company": "Galenica AG",
       "companyDomain": "galenica.com"
     },
-    "https://jobs.galenica.com/it/jobs/#job.id=12692324": {
+    "https://jobs.galenica.com/it/jobs/#job.id=12692191": {
       "company": "Galenica AG",
       "companyDomain": "galenica.com"
     },
@@ -1922,5 +1922,5 @@
     }
   },
   "notes": "Solique data.json crawler — static national endpoint. Galenica AG healthcare group: Sun Store, Amavita, Coop Vitality and UFD subsidiaries across all 26 Swiss cantons. Each item keeps its source city, postal code and canton; foreign or unresolved locations are dropped.",
-  "updatedAt": "2026-11-27T21:16:12.837Z"
+  "updatedAt": "2026-11-28T09:18:10.193Z"
 }

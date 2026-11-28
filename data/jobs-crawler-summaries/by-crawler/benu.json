@@ -1,7 +1,7 @@
 {
   "key": "benu",
   "label": "benu",
-  "generatedAt": "2026-11-27T21:20:04.240Z",
+  "generatedAt": "2026-11-28T09:16:42.584Z",
   "total": 5,
   "discovered": 6,
   "parsed": 5,
@@ -62,10 +62,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 11884,
-  "avgDurationMs": 11884,
+  "durationMs": 11167,
+  "avgDurationMs": 11167,
   "durationHistory": [
-    11884
+    11167
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -83,7 +83,7 @@
       "url": "https://job.benu.ch/de/jobs/8505815-pharma-assistent-springer-w-m-60-80-benu-deutschschweiz",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:19:41.334Z",
+      "crawledAt": "2026-11-28T09:16:23.801Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:19:41.334Z",
+      "validThrough": "2027-01-05T09:16:23.801Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -128,7 +128,7 @@
       "url": "https://job.benu.ch/de/jobs/8673824-pharma-assistent-w-m-60-benu-schwerzenbach",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:19:41.333Z",
+      "crawledAt": "2026-11-28T09:16:23.800Z",
       "addressLocality": "Schwerzenbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -151,7 +151,7 @@
       "salaryMax": 66900,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:19:41.333Z",
+      "validThrough": "2027-02-04T09:16:23.800Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -173,7 +173,7 @@
       "url": "https://job.benu.ch/de/jobs/8780750-network-specialist-engineer-workplace-infrastructure-80-100-w-m-d",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:19:41.331Z",
+      "crawledAt": "2026-11-28T09:16:23.799Z",
       "addressLocality": "Köniz",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -197,7 +197,7 @@
       "salaryMax": 116500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T21:19:41.331Z",
+      "validThrough": "2027-02-22T09:16:23.799Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -219,7 +219,7 @@
       "url": "https://job.benu.ch/de/jobs/8786501-verantwortlicher-apotheker-w-m-80-100-benu-rotkreuz-arkadenhof",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:19:41.329Z",
+      "crawledAt": "2026-11-28T09:16:23.797Z",
       "addressLocality": "Risch",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -242,7 +242,7 @@
       "postalCode": "6343",
       "streetAddress": "Risch",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T21:19:41.329Z",
+      "validThrough": "2027-02-22T09:16:23.797Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -264,7 +264,7 @@
       "url": "https://job.benu.ch/de/jobs/8794703-space-planning-manager-w-m-d-mutterschaftsvertretung",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:19:41.325Z",
+      "crawledAt": "2026-11-28T09:16:23.794Z",
       "addressLocality": "Köniz",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -287,7 +287,7 @@
       "salaryMax": 143000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T21:19:41.325Z",
+      "validThrough": "2027-02-24T09:16:23.794Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -298,5 +298,5 @@
       }
     }
   ],
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
 }

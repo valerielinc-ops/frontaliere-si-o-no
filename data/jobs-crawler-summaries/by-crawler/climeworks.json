@@ -1,7 +1,7 @@
 {
   "key": "climeworks",
   "label": "Climeworks",
-  "generatedAt": "2026-11-27T21:19:38.270Z",
+  "generatedAt": "2026-11-28T09:16:23.933Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -13,16 +13,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 6462,
-  "avgDurationMs": 6462,
+  "durationMs": 27640,
+  "avgDurationMs": 27640,
   "durationHistory": [
-    6462
+    27640
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "climeworks-e0a512b8b849",
       "slug": "business-operations-manager-commercial-100-climeworks-zurich",
@@ -35,7 +36,7 @@
       "url": "https://climeworks.recruitee.com/o/business-operations-manager-commercial-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T21:19:11.662Z",
+      "crawledAt": "2026-11-28T09:15:40.744Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -52,6 +53,7 @@
       "applyUrl": "https://climeworks.recruitee.com/o/business-operations-manager-commercial-100",
       "remote": true,
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-27T21:19:11.662Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -59,19 +61,17 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-25T21:19:11.662Z",
+      "validThrough": "2027-02-26T09:15:40.744Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-27T21:19:11.662Z",
-      "_qualityScore": 85,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -86,7 +86,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-electrical-engineer-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T21:19:11.687Z",
+      "crawledAt": "2026-11-28T09:15:40.769Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -110,7 +110,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T21:19:11.687Z",
+      "validThrough": "2027-01-11T09:15:40.769Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -132,7 +132,7 @@
       "url": "https://climeworks.recruitee.com/o/filtration-module-product-owner-80-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T21:19:11.682Z",
+      "crawledAt": "2026-11-28T09:15:40.763Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -156,7 +156,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:19:11.682Z",
+      "validThrough": "2027-01-14T09:15:40.763Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -178,7 +178,7 @@
       "url": "https://climeworks.recruitee.com/o/science-manager-nature-based-solutions-80-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T21:19:11.678Z",
+      "crawledAt": "2026-11-28T09:15:40.754Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -202,7 +202,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:19:11.678Z",
+      "validThrough": "2027-02-11T09:15:40.754Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -224,7 +224,7 @@
       "url": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T21:19:11.675Z",
+      "crawledAt": "2026-11-28T09:15:40.752Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -248,7 +248,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:19:11.675Z",
+      "validThrough": "2026-12-28T09:15:40.752Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -270,7 +270,7 @@
       "url": "https://climeworks.recruitee.com/o/senior-konstruktionsingenieur-wmx-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:19:11.672Z",
+      "crawledAt": "2026-11-28T09:15:40.750Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -294,7 +294,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:19:11.672Z",
+      "validThrough": "2027-02-08T09:15:40.750Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -316,7 +316,7 @@
       "url": "https://climeworks.recruitee.com/o/human-resources-intern-recruiting-hr-projects-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T21:19:11.669Z",
+      "crawledAt": "2026-11-28T09:15:40.748Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -340,7 +340,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:19:11.669Z",
+      "validThrough": "2027-02-17T09:15:40.748Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -362,7 +362,7 @@
       "url": "https://climeworks.recruitee.com/o/development-specialist-sorbent-structures-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T21:19:11.666Z",
+      "crawledAt": "2026-11-28T09:15:40.747Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -386,7 +386,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T21:19:11.666Z",
+      "validThrough": "2027-02-22T09:15:40.747Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -397,5 +397,5 @@
       }
     }
   ],
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
 }

@@ -682,6 +682,64 @@ describe('runHreflangIndexManifest is byte-identical to the two-pass reference',
     expect(manifestBody(path.join(tmp, 'mb', `${leg}.json`))).toBe(manifestBody(path.join(tmp, 'ma', `${leg}.json`)));
   });
 
+  it('IT build leg (pre-barrier pass, then reused cache) matches the reference and re-reads only manifest-bound blocks', async () => {
+    const source = path.join(tmp, 'source');
+    emitEquivalenceCorpus(source);
+    const foreignDir = path.join(tmp, 'foreign');
+    await runHreflangIndexManifest({ distDir: source, manifestDir: foreignDir, runId: 'eq', dryRun: true, manifestOnly: true, log: quiet });
+    fs.rmSync(path.join(foreignDir, 'it.json'));
+
+    const a = path.join(tmp, 'a');
+    const b = path.join(tmp, 'b');
+    const c = path.join(tmp, 'c');
+    splitByLocale(source, a, 'it');
+    fs.cpSync(a, b, { recursive: true });
+    fs.cpSync(a, c, { recursive: true });
+    fs.cpSync(foreignDir, path.join(tmp, 'ma'), { recursive: true });
+    fs.cpSync(foreignDir, path.join(tmp, 'mc'), { recursive: true });
+    referenceTwoPass(a, path.join(tmp, 'ma'), ['it']);
+
+    // As deploy.yml runs it: no foreign manifest exists yet in the pre-pass.
+    const cache = path.join(tmp, 'mb', 'it.pages.jsonl');
+    const run = { distDir: b, manifestDir: path.join(tmp, 'mb'), ownedLocales: ['it'], runId: 'eq', log: quiet };
+    await runHreflangIndexManifest({ ...run, dryRun: true, manifestOnly: true, prepassCachePath: cache });
+    for (const l of ['en', 'de', 'fr']) fs.copyFileSync(path.join(foreignDir, `${l}.json`), path.join(tmp, 'mb', `${l}.json`));
+
+    const reused = await runHreflangIndexManifest({ ...run, requireForeignManifests: true, reusePrepassCachePath: cache });
+    const scanned = await runHreflangIndexManifest({
+      ...run, distDir: c, manifestDir: path.join(tmp, 'mc'), requireForeignManifests: true,
+    });
+
+    expect(reused.prepassCache).toBe('reused');
+    expect(snapshot(b)).toEqual(snapshot(a));
+    expect(snapshot(c)).toEqual(snapshot(a));
+    expect(manifestBody(path.join(tmp, 'mb', 'it.json'))).toBe(manifestBody(path.join(tmp, 'ma', 'it.json')));
+    for (const key of ['blocksByDecision', 'unknownMembers', 'pagesScanned', 'pagesByReason', 'pagesWithHreflang', 'filesRewritten'] as const) {
+      expect(reused[key], key).toEqual(scanned[key]);
+    }
+    // The noindex / canonical-elsewhere strips are settled by the pre-pass.
+    const settled = (reused.blocksByDecision['strip:page-noindex'] ?? 0) + (reused.blocksByDecision['strip:page-canonical-elsewhere'] ?? 0);
+    expect(settled).toBeGreaterThan(0);
+    expect(reused.pagesDeferred).toBeLessThanOrEqual(reused.pagesWithHreflang - settled);
+  });
+
+  it('falls back to a full scan when the cache carries an unknown strip reason', async () => {
+    const dist = path.join(tmp, 'dist');
+    emitEquivalenceCorpus(dist);
+    const expected = path.join(tmp, 'expected');
+    fs.cpSync(dist, expected, { recursive: true });
+    referenceTwoPass(expected, path.join(tmp, 'me'), [...LOCALES]);
+    const manifestDir = path.join(tmp, 'm');
+    const cache = path.join(manifestDir, 'pages.jsonl');
+    await runHreflangIndexManifest({ distDir: dist, manifestDir, runId: 'eq', dryRun: true, manifestOnly: true, prepassCachePath: cache, log: quiet });
+    const tampered = fs.readFileSync(cache, 'utf-8').replace('"pageOnlyStrip":"page-noindex"', '"pageOnlyStrip":"member-not-indexable"');
+    expect(tampered).toContain('"pageOnlyStrip":"member-not-indexable"');
+    fs.writeFileSync(cache, tampered);
+    const summary = await runHreflangIndexManifest({ distDir: dist, manifestDir, runId: 'eq', reusePrepassCachePath: cache, log: quiet });
+    expect(summary.prepassCache).toBe('fallback');
+    expect(snapshot(dist)).toEqual(snapshot(expected));
+  });
+
   it('records the directory index, not its flat twin, and keeps a flat page without a twin', async () => {
     const dist = path.join(tmp, 'dist');
     emitEquivalenceCorpus(dist);

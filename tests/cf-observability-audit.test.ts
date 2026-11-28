@@ -1,10 +1,17 @@
 import { describe, expect, it } from 'vitest';
+import { jobCanonV2ShardKey as workerJobCanonV2ShardKey } from '../infra/cloudflare-worker/locale-router.js';
 import {
   buildIssueBody,
   buildBlockedUaFilters,
   buildOriginFailureLogFilters,
   estimateMonthlyLogVolume,
   evaluateChecks,
+  estimateFallbackMissProbability,
+  evaluateJobCanonParity,
+  JOB_CANON_MAX_SAMPLE_INTERVAL,
+  JOB_CANON_WINDOW_LADDER_MS,
+  collectJobCanonDailyWindows,
+  jobCanonV2ShardKey,
   evaluateJobCanonV1Retirement,
   isCloudflareFullSamplingInterval,
   isOriginFailureLogEvent,
@@ -32,31 +39,23 @@ const before = new Date('2026-11-15T00:00:00Z');
 const failing = (snapshot: typeof healthy, now = before) =>
   evaluateChecks(snapshot, now).filter((check) => check.failed).map((check) => check.id);
 
-const retirementDays = Array.from({ length: 7 }, (_, index) => `day-${index + 1}`);
-const fullSamplingNoise = [
-  1.0000109306076446,
-  1.0000032,
-  1.0000008,
-  1.000019,
-  1.0000021,
-  1.000008,
-  1.0000001,
-];
+const retirementDays = Array.from({ length: 7 }, (_, index) => `2026-11-${String(20 + index).padStart(2, '0')}`);
+// Real Workers Logs shape: query-side sampling interval 10 on every day.
 const completeJobCanonRetirementSnapshot = () => ({
   queryWindowDays: 7,
-  jobCanonV2SuccessDays: [...retirementDays],
-  jobCanonV2SuccessLogs: 7,
+  jobCanonV2Daily: retirementDays.map((day) => ({ day, count: 1000, sampleInterval: 10 as number | null })),
+  jobCanonV2SuccessLogs: 7000,
+  jobCanonV1Daily: [] as { day: string; count: number; sampleInterval: number | null }[],
   jobCanonV1FallbackLogs: 0,
   samplingRate: 1,
-  samplingHistory: { complete: true, blockers: [] },
-  jobCanonV2SampleIntervals: [...fullSamplingNoise],
-  jobCanonV1SampleIntervals: [],
+  jobCanonParity: { v1SubsetOfV2: true, paritySource: 'test', buildId: '1', checkedV1Slugs: 3, mismatchCount: 0, mismatches: [] as { slug: string; reason: string }[], error: undefined as string | undefined },
+  samplingHistory: { complete: false, blockers: ['history:no-baseline'] },
   workerLogSamplingExpectedDays: [...retirementDays],
-  workerLogSamplingBuckets: retirementDays.map((day, index) => ({
+  workerLogSamplingBuckets: retirementDays.map((day) => ({
     day,
     rows: 1,
-    count: 100,
-    sampleInterval: fullSamplingNoise[index],
+    count: 5000,
+    sampleInterval: 10,
   })),
 });
 
@@ -69,47 +68,125 @@ describe('cf-observability-audit checks', () => {
     }
   });
 
-  it('readies a complete seven-day retirement receipt despite Cloudflare interval noise', () => {
+  it('readies seven UTC days of v2 with sampleInterval 10 and records the miss probability', () => {
     const receipt = evaluateJobCanonV1Retirement(completeJobCanonRetirementSnapshot());
-    expect(receipt.ready).toBe(true);
     expect(receipt.blockers).toEqual([]);
-    expect(receipt.v2SuccessLogs).toBeGreaterThan(0);
+    expect(receipt.ready).toBe(true);
+    expect(receipt.observedV2Days).toBe(7);
     expect(receipt.v1FallbackLogs).toBe(0);
+    expect(Object.values(receipt.sampleIntervalsByDay)).toEqual(Array(7).fill(10));
+    expect(receipt.fallbackMissProbability!.perEvent).toBeCloseTo(0.9, 6);
+    expect(receipt.fallbackMissProbability!.ifNEvents[10]).toBeCloseTo(0.9 ** 10, 6);
   });
 
-  it.each([
-    ['signal', (snapshot: ReturnType<typeof completeJobCanonRetirementSnapshot>) => {
-      snapshot.jobCanonV2SampleIntervals[0] = 0.5;
-    }, 'sampling-signal:'],
-    ['daily stream bucket', (snapshot: ReturnType<typeof completeJobCanonRetirementSnapshot>) => {
-      snapshot.workerLogSamplingBuckets[0].sampleInterval = 0.5;
-    }, 'sampling-stream:sample-interval:'],
-  ])('continues to block a materially partial %s interval', (_label, change, blockerPrefix) => {
+  it('weights the miss probability by per-day volume and returns null without usable intervals', () => {
+    const p = estimateFallbackMissProbability([
+      { day: 'a', count: 100, sampleInterval: 1 },
+      { day: 'b', count: 100, sampleInterval: 10 },
+    ]);
+    // volume 100 at p=0 and 1000 at p=0.9
+    expect(p!.perEvent).toBeCloseTo(900 / 1100, 5);
+    expect(estimateFallbackMissProbability([{ day: 'a', count: 5, sampleInterval: null }])).toBeNull();
+  });
+
+  it('admits partial sampling up to the threshold but blocks a malformed interval', () => {
     const snapshot = completeJobCanonRetirementSnapshot();
-    change(snapshot);
+    snapshot.jobCanonV2Daily[0].sampleInterval = JOB_CANON_MAX_SAMPLE_INTERVAL;
+    expect(evaluateJobCanonV1Retirement(snapshot).ready).toBe(true);
+    snapshot.jobCanonV2Daily[1].sampleInterval = null;
     const receipt = evaluateJobCanonV1Retirement(snapshot);
     expect(receipt.ready).toBe(false);
-    expect(receipt.blockers.some((blocker) => blocker.startsWith(blockerPrefix))).toBe(true);
+    expect(receipt.blockers.some((b) => b.startsWith('sampling-signal:invalid'))).toBe(true);
   });
 
-  it('keeps the seven-day v2 traffic and zero-v1-fallback requirements', () => {
-    const incompleteWeek = completeJobCanonRetirementSnapshot();
-    incompleteWeek.jobCanonV2SuccessDays = retirementDays.slice(1);
-    expect(evaluateJobCanonV1Retirement(incompleteWeek).blockers).toContain('v2-days:6/7');
+  it('is not ready with seven complete v2 days at sampleInterval 100 and no v1 observed', () => {
+    const snapshot = completeJobCanonRetirementSnapshot();
+    for (const d of snapshot.jobCanonV2Daily) d.sampleInterval = 100;
+    const receipt = evaluateJobCanonV1Retirement(snapshot);
+    expect(receipt.ready).toBe(false);
+    expect(receipt.blockers).toContain(`sampling-interval-too-coarse:${retirementDays[0]}:100`);
+    expect(receipt.fallbackMissProbability!.perEvent).toBeCloseTo(0.99, 6);
+  });
+
+  it('is not ready when v1 is not proven a subset of v2', () => {
+    const mismatch = completeJobCanonRetirementSnapshot();
+    mismatch.jobCanonParity = { ...mismatch.jobCanonParity, v1SubsetOfV2: false, mismatchCount: 1, mismatches: [{ slug: 'x', reason: 'v2-slug-missing:001' }] };
+    const receipt = evaluateJobCanonV1Retirement(mismatch);
+    expect(receipt.ready).toBe(false);
+    expect(receipt.blockers).toContain('v1-parity:mismatch:1');
+    expect(receipt.mismatches).toHaveLength(1);
+
+    const unverified = completeJobCanonRetirementSnapshot();
+    unverified.jobCanonParity = { ...unverified.jobCanonParity, v1SubsetOfV2: false, error: 'HTTP 503' };
+    expect(evaluateJobCanonV1Retirement(unverified).blockers).toContain('v1-parity:unverified:HTTP 503');
+    const missing = { ...completeJobCanonRetirementSnapshot(), jobCanonParity: undefined };
+    expect(evaluateJobCanonV1Retirement(missing).ready).toBe(false);
+  });
+
+  it('proves v1 subset of v2 structurally, with entry semantics and capped examples', () => {
+    const entry = { it: '/cerca-lavoro-zurigo', en: '/en/find-jobs-zurich' };
+    const slug = 'job-a';
+    const key = jobCanonV2ShardKey(slug);
+    const ok = evaluateJobCanonParity({
+      v1Shards: { jo: { [slug]: entry }, zz: null },
+      v2Shards: { [key]: { [slug]: { en: '/en/find-jobs-zurich', it: '/cerca-lavoro-zurigo' }, other: {} } },
+    });
+    expect(ok).toMatchObject({ v1SubsetOfV2: true, checkedV1Slugs: 1, mismatches: [] });
+    const differs = evaluateJobCanonParity({
+      v1Shards: { jo: { [slug]: entry } },
+      v2Shards: { [key]: { [slug]: { it: '/altro' } } },
+    });
+    expect(differs.v1SubsetOfV2).toBe(false);
+    expect(differs.mismatches[0].reason).toContain('entry-differs');
+    const many = Object.fromEntries(Array.from({ length: 50 }, (_, i) => [`s${i}`, entry]));
+    const missing = evaluateJobCanonParity({ v1Shards: { s_: many }, v2Shards: {} });
+    expect(missing.mismatchCount).toBe(50);
+    expect(missing.mismatches).toHaveLength(20);
+  });
+
+  it('keeps the shard-key mirror identical to the Worker', () => {
+    for (const slug of ['a', 'abteilungsleiter-in-molkerei-migros', 'élan-2026', '1-2-docente']) {
+      expect(jobCanonV2ShardKey(slug)).toBe(workerJobCanonV2ShardKey(slug));
+    }
+  });
+
+  it('is not ready when a v1 fallback was observed', () => {
+    const snapshot = completeJobCanonRetirementSnapshot();
+    snapshot.jobCanonV1FallbackLogs = 1;
+    snapshot.jobCanonV1Daily = [{ day: retirementDays[3], count: 1, sampleInterval: 10 }];
+    const receipt = evaluateJobCanonV1Retirement(snapshot);
+    expect(receipt.ready).toBe(false);
+    expect(receipt.blockers).toContain('v1-fallback:1');
+  });
+
+  it('is not ready when a day has no v2 event or no stream bucket', () => {
+    const noV2 = completeJobCanonRetirementSnapshot();
+    noV2.jobCanonV2Daily = noV2.jobCanonV2Daily.slice(1);
+    noV2.jobCanonV2SuccessLogs = 6000;
+    expect(evaluateJobCanonV1Retirement(noV2).blockers).toContain('v2-days:6/7');
+
+    const missingBucket = completeJobCanonRetirementSnapshot();
+    missingBucket.workerLogSamplingBuckets.splice(2, 1);
+    expect(evaluateJobCanonV1Retirement(missingBucket).blockers)
+      .toContain(`sampling-stream:coverage:${retirementDays[2]}:missing`);
+
+    const emptyBucket = completeJobCanonRetirementSnapshot();
+    emptyBucket.workerLogSamplingBuckets[4].count = 0;
+    expect(evaluateJobCanonV1Retirement(emptyBucket).ready).toBe(false);
 
     const noV2Success = completeJobCanonRetirementSnapshot();
     noV2Success.jobCanonV2SuccessLogs = 0;
     expect(evaluateJobCanonV1Retirement(noV2Success).blockers).toContain('v2-success:0');
-
-    const hasV1Fallback = completeJobCanonRetirementSnapshot();
-    hasV1Fallback.jobCanonV1FallbackLogs = 1;
-    expect(evaluateJobCanonV1Retirement(hasV1Fallback).blockers).toContain('v1-fallback:1');
   });
 
   it('separates request-line invocation events from structured origin_failure log events', () => {
     const invocation503 = {
       $metadata: { type: 'cf-worker-event', message: 'GET https://frontaliereticino.ch/calcola-stipendio/' },
       $workers: { event: { response: { status: 503 } } },
+    };
+    const realShapeOriginFailure = {
+      $metadata: { type: 'cf-worker', message: '' },
+      source: { level: 'info', event: 'origin_failure', reason: 'router-exception' },
     };
     const structuredOriginFailureLog = {
       $metadata: { type: 'cf-worker-log' },
@@ -126,6 +203,8 @@ describe('cf-observability-audit checks', () => {
     };
 
     expect(isOriginFailureLogEvent(invocation503)).toBe(false);
+    expect(isOriginFailureLogEvent(realShapeOriginFailure)).toBe(true);
+    expect(isOriginFailureLogEvent({ ...realShapeOriginFailure, source: { event: 'job_canon_v2_success' } })).toBe(false);
     expect(isOriginFailureLogEvent(structuredOriginFailureLog)).toBe(true);
     expect(isOriginFailureLogEvent(originFailureLog)).toBe(true);
     expect(isOriginFailureLogEvent({
@@ -133,7 +212,6 @@ describe('cf-observability-audit checks', () => {
       event: 'other_event',
     })).toBe(false);
     expect(buildOriginFailureLogFilters()).toEqual([
-      { key: '$metadata.type', operation: 'eq', value: 'cf-worker-log', type: 'string' },
       {
         kind: 'group',
         filterCombination: 'or',
@@ -241,5 +319,87 @@ describe('cf-observability-audit checks', () => {
     expect(issueTitle(check)).not.toMatch(/\d/);
     expect(buildIssueBody(check)).toContain('cf-observability-audit.mjs --dry-run');
     expect(buildIssueBody(check)).not.toContain('bin/rc-env.sh');
+  });
+});
+
+describe('job-canon retirement evidence in day windows', () => {
+  const DAY = 864e5;
+  const H = 36e5;
+  const base = Date.parse('2026-11-20T00:00:00Z');
+  const timeframe = { from: base, to: base + 2 * DAY };
+  const v2Filters = [{ key: 'v2' }];
+  const v1Filters = [{ key: 'v1' }];
+  // interval(length, from) decides what the fake API reports for a window.
+  const run = (interval: (len: number, from: number) => number, opts: { maxRequests?: number; v1?: number } = {}) => {
+    const calls: { key: string; len: number }[] = [];
+    const measure = async (filters: { key: string }[], from: number, to: number) => {
+      const key = filters[0].key;
+      calls.push({ key, len: to - from });
+      if (key === 'v1') return { count: opts.v1 ?? 0, sampleInterval: opts.v1 ? 1 : 0 };
+      return { count: 100, sampleInterval: interval(to - from, from) };
+    };
+    return collectJobCanonDailyWindows({ measure, v2Filters, v1Filters, timeframe, ...opts } as never)
+      .then((r) => ({ ...r, calls }));
+  };
+
+  it('keeps one query per day when the day window is already fine enough', async () => {
+    const r = await run(() => 10);
+    expect(r.v2Daily).toEqual([
+      { day: '2026-11-20', count: 100, sampleInterval: 10 },
+      { day: '2026-11-21', count: 100, sampleInterval: 10 },
+    ]);
+    expect(r.calls.filter((c) => c.key === 'v2')).toHaveLength(2);
+    expect(r.calls.filter((c) => c.key === 'v1')).toHaveLength(2);
+  });
+
+  it('splits a coarse day into 6 h windows and reports the max sub-window interval', async () => {
+    const r = await run((len) => (len === DAY ? 100 : 1));
+    expect(r.v2Daily[0]).toEqual({ day: '2026-11-20', count: 400, sampleInterval: 1 });
+    expect(r.calls.filter((c) => c.key === 'v2' && c.len === 6 * H)).toHaveLength(8);
+    // v1 absence is probed on the same fine windows.
+    expect(r.calls.filter((c) => c.key === 'v1' && c.len === 6 * H)).toHaveLength(8);
+  });
+
+  it('narrows to 1 h only where the 6 h window is still coarse', async () => {
+    const r = await run((len, from) => (len === DAY ? 100 : len === 6 * H ? (from === base ? 50 : 10) : 2));
+    expect(r.calls.filter((c) => c.key === 'v2' && c.len === H)).toHaveLength(6);
+    expect(r.v2Daily[0].sampleInterval).toBe(10);
+  });
+
+  it('keeps a day above the threshold as the max of its windows', async () => {
+    const r = await run(() => 100);
+    expect(r.v2Daily[0].sampleInterval).toBe(100);
+    expect(JOB_CANON_WINDOW_LADDER_MS).toEqual([DAY, 6 * H, H]);
+  });
+
+  it('turns an exhausted request budget into a blocking interval, not a clean day', async () => {
+    const r = await run(() => 100, { maxRequests: 3 });
+    expect(r.requests).toBeLessThanOrEqual(3);
+    expect(r.v2Daily.every((d) => (d.sampleInterval ?? 0) > JOB_CANON_MAX_SAMPLE_INTERVAL)).toBe(true);
+  });
+
+  it('records v1 fallbacks found in any window', async () => {
+    const r = await run(() => 10, { v1: 2 });
+    expect(r.v1Daily.map((d) => d.count)).toEqual([2, 2]);
+  });
+
+  it('flags v1 windows skipped by the budget and blocks the receipt', async () => {
+    // day 1 v2+v1, day 2 v2 = 3 requests: day 2 v1 is never queried.
+    const r = await run(() => 10, { maxRequests: 3 });
+    expect(r.v1UnscannedDays).toEqual(['2026-11-21']);
+    const snapshot = completeJobCanonRetirementSnapshot() as Record<string, unknown>;
+    snapshot.jobCanonV1UnscannedDays = r.v1UnscannedDays;
+    const receipt = evaluateJobCanonV1Retirement(snapshot as never);
+    expect(receipt.ready).toBe(false);
+    expect(receipt.blockers).toContain('v1-scan:incomplete:2026-11-21');
+  });
+
+  it('feeds the receipt: a day that stays coarse blocks it', async () => {
+    const r = await run((_len, from) => (from >= base + DAY ? 100 : 1));
+    const snapshot = completeJobCanonRetirementSnapshot();
+    snapshot.jobCanonV2Daily = r.v2Daily.map((d) => ({ ...d }));
+    const receipt = evaluateJobCanonV1Retirement(snapshot as never);
+    expect(receipt.blockers.some((b: string) => b.startsWith('sampling-interval-too-coarse:2026-11-21:100'))).toBe(true);
+    expect(receipt.blockers.some((b: string) => b.includes('2026-11-20:'))).toBe(false);
   });
 });

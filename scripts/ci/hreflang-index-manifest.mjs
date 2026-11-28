@@ -30,7 +30,9 @@
  *     `pagesDeferred` (heads read a second time), `phaseMs` (walk, pass1,
  *     pass2, write, manifest) and `memoryMB` at the end of the run.
  *
- * Reads: each owned page head is read ONCE. Pass 1 also decides every block
+ * Reads: each owned page head is read ONCE per run of this CLI. With a reused
+ * pre-pass cache, only the blocks that need a manifest are read again: a strip
+ * decided from the page alone travels in the cache. Pass 1 also decides every block
  * whose members are judged only by foreign manifests (the whole deferred
  * non-IT publish leg); only a block that needs this run's own manifest is
  * read again after the scan. Nothing extra is kept per page — see the pass-1
@@ -65,7 +67,19 @@ import {
 
 const SKIP_DIRS = new Set(['assets', 'data', 'images']);
 export const HREFLANG_REWRITE_BATCH_SIZE = 64;
-const HREFLANG_PREPASS_CACHE_VERSION = 1;
+const HREFLANG_PREPASS_CACHE_VERSION = 2;
+/**
+ * The strips `decideHreflangBlock` returns before it asks any manifest: they
+ * depend on the page alone, so the pre-barrier pass can settle them and the
+ * final pass need not read those heads again.
+ */
+const PAGE_ONLY_STRIP_REASONS = new Set([
+  'page-noindex',
+  'page-canonical-elsewhere',
+  'page-not-member',
+  'duplicate-hreflang',
+  'incomplete-locale-set',
+]);
 
 export function ownedLocalesFromEnv(raw = process.env.BUILD_LOCALE) {
   const wanted = String(raw || '')
@@ -161,6 +175,7 @@ async function writePrepassCache(cachePath, {
       const record = {
         file: path.relative(distDir, item.file),
         urlPath: item.urlPath,
+        ...(item.pageOnlyStrip ? { pageOnlyStrip: item.pageOnlyStrip } : {}),
       };
       if (!output.write(`${JSON.stringify(record)}\n`)) await once(output, 'drain');
     }
@@ -224,7 +239,11 @@ async function readPrepassCache(cachePath, {
     if (!owned.has(localeOfPath(record.urlPath))) {
       throw new Error(`hreflang prepass contains an unowned locale path: ${record.urlPath}`);
     }
-    withHreflang.push({ file, urlPath: record.urlPath });
+    const { pageOnlyStrip } = record;
+    if (pageOnlyStrip !== undefined && !PAGE_ONLY_STRIP_REASONS.has(pageOnlyStrip)) {
+      throw new Error(`invalid hreflang prepass strip reason: ${pageOnlyStrip}`);
+    }
+    withHreflang.push({ file, urlPath: record.urlPath, pageOnlyStrip });
   }
 
   if (
@@ -462,15 +481,22 @@ export async function runHreflangIndexManifest({
       }
       if (!page.hasHreflang) return;
       withHreflang.push(item);
-      if (manifestOnly) return;
+      let askedManifest = false;
       let needsOwnManifest = false;
       const decision = decideHreflangBlock(page, (locale, urlPath) => {
+        askedManifest = true;
         if (owned.has(locale)) {
           needsOwnManifest = true;
           return { status: 'unknown', reason: 'deferred' };
         }
         return lookup(locale, urlPath);
       });
+      if (manifestOnly) {
+        // No decision is final here unless it never asked a manifest: the
+        // foreign ones are not available before the barrier.
+        if (!askedManifest && decision.action === 'strip') item.pageOnlyStrip = decision.reason;
+        return;
+      }
       if (needsOwnManifest) deferred.push(item);
       else recordDecision(item, decision);
     });
@@ -480,7 +506,12 @@ export async function runHreflangIndexManifest({
     pagesScanned = files.length;
     phaseMs.pass1 = elapsed();
   } else {
-    deferred = withHreflang;
+    // Settled by the pre-pass from the page alone (see
+    // PAGE_ONLY_STRIP_REASONS); no step mutates dist in between.
+    for (const item of withHreflang) {
+      if (item.pageOnlyStrip === undefined) deferred.push(item);
+      else recordDecision(item, { action: 'strip', reason: item.pageOnlyStrip, xDefault: null, unknown: [] });
+    }
   }
 
   // ── Pass 2: decide the remaining blocks before touching any file ────────

@@ -52,7 +52,6 @@ const WELCOMED_UA_RE =
 
 const USER_AGENT = '$workers.event.request.headers.user-agent';
 const REQUEST_COUNTRY = '$workers.event.request.cf.country';
-const EVENT_TYPE = '$metadata.type';
 const LOG_MESSAGE = '$metadata.message';
 const STRUCTURED_EVENT = 'event';
 const ORIGIN_FAILURE_EVENT = 'origin_failure';
@@ -71,9 +70,16 @@ export function isCloudflareFullSamplingInterval(interval) {
     && interval <= 1 + FULL_SAMPLING_INTERVAL_MAX_NOISE;
 }
 
+// Workers Logs stores a structured `console.log({event, ...})` as an event of
+// `$metadata.type = "cf-worker"` with an empty `$metadata.message`; the payload
+// is indexed under the bare key `event` (probed live 2026-11-28: `event eq`
+// matches, `source.event eq` matches nothing, and `$metadata.type =
+// cf-worker-log` matches nothing). The type is therefore NOT filtered: the
+// structured key or the legacy JSON-string message identifies the signal.
+const STRUCTURED_LOG_EVENT_TYPES = new Set(['cf-worker', 'cf-worker-log']);
+
 function buildStructuredLogFilters(eventName, legacyMessageToken) {
   return [
-    filter(EVENT_TYPE, 'eq', 'cf-worker-log'),
     {
       kind: 'group',
       filterCombination: 'or',
@@ -105,7 +111,7 @@ export function buildJobCanonV1FallbackLogFilters() {
 }
 
 export function isOriginFailureLogEvent(event) {
-  if (event?.$metadata?.type !== 'cf-worker-log') return false;
+  if (!STRUCTURED_LOG_EVENT_TYPES.has(event?.$metadata?.type)) return false;
   const structuredNames = [
     event?.event,
     typeof event?.source === 'object' && event.source !== null ? event.source.event : undefined,
@@ -125,24 +131,183 @@ export function estimateMonthlyLogVolume({ events, avgEventBytes }) {
   return { ingestGb, storageGbMonth: (ingestGb / 30) * RETENTION_DAYS };
 }
 
+// Largest per-day sampleInterval at which "zero v1 fallbacks observed" still
+// counts as evidence. 10 covers the Worker head sampling of 0.1 (from
+// SAMPLING_CUTOVER) and the adaptive sampling Workers Observability applies to
+// queries. A coarser interval (the live 7-day grouped query returns 100) says
+// almost nothing about absence, so it blocks instead of being averaged away.
+export const JOB_CANON_MAX_SAMPLE_INTERVAL = 10;
+const JOB_CANON_CDN_BASE = 'https://cdn.frontaliereticino.ch';
+const JOB_CANON_V2_SHARD_COUNT = 4096;
+const PARITY_MISMATCH_EXAMPLES = 20;
+const PARITY_FETCH_CONCURRENCY = 16;
+const PARITY_FETCH_TIMEOUT_MS = 20_000;
+
+// Mirror of jobCanonV2ShardKey in infra/cloudflare-worker/locale-router.js
+// (a test pins the two together); the worker module is not imported because it
+// carries Cloudflare-only dependencies.
+export function jobCanonV2ShardKey(slug) {
+  let h = 5381;
+  for (let i = 0; i < slug.length; i++) h = ((h * 33) ^ slug.charCodeAt(i)) >>> 0;
+  return (h % JOB_CANON_V2_SHARD_COUNT).toString(16).padStart(3, '0');
+}
+
+const stableJson = (value) => {
+  if (Array.isArray(value)) return `[${value.map(stableJson).join(',')}]`;
+  if (value && typeof value === 'object') {
+    return `{${Object.keys(value).sort().map((k) => `${JSON.stringify(k)}:${stableJson(value[k])}`).join(',')}}`;
+  }
+  return JSON.stringify(value);
+};
+
+/**
+ * Structural proof that every slug of the published v1 shards is also in the v2
+ * shards with the same redirect semantics (same entry: section prefix per
+ * locale and `alias` paths). `v1Shards`/`v2Shards` map a shard key to the parsed
+ * object, or null when the shard does not exist. A v1 slug whose v2 shard is
+ * missing or lacks it, or holds a different entry, is a mismatch.
+ */
+export function evaluateJobCanonParity({ v1Shards, v2Shards, buildId = null, paritySource = null }) {
+  const mismatches = [];
+  let mismatchCount = 0;
+  let checkedV1Slugs = 0;
+  const note = (slug, reason) => {
+    mismatchCount += 1;
+    if (mismatches.length < PARITY_MISMATCH_EXAMPLES) mismatches.push({ slug, reason });
+  };
+  for (const [shardKey, shard] of Object.entries(v1Shards ?? {})) {
+    if (shard === null || shard === undefined) continue;
+    if (typeof shard !== 'object' || Array.isArray(shard)) {
+      note(`v1:${shardKey}`, 'v1-shard-malformed');
+      continue;
+    }
+    for (const [slug, entry] of Object.entries(shard)) {
+      checkedV1Slugs += 1;
+      const v2Key = jobCanonV2ShardKey(slug);
+      const v2Shard = v2Shards?.[v2Key];
+      if (v2Shard === null || v2Shard === undefined) note(slug, `v2-shard-missing:${v2Key}`);
+      else if (typeof v2Shard !== 'object' || !Object.hasOwn(v2Shard, slug)) note(slug, `v2-slug-missing:${v2Key}`);
+      else if (stableJson(v2Shard[slug]) !== stableJson(entry)) note(slug, `entry-differs:${v2Key}`);
+    }
+  }
+  return {
+    v1SubsetOfV2: mismatchCount === 0,
+    paritySource,
+    buildId,
+    checkedV1Slugs,
+    mismatchCount,
+    mismatches,
+  };
+}
+
+async function fetchShard(url, fetchImpl) {
+  const res = await fetchImpl(url, {
+    signal: AbortSignal.timeout(PARITY_FETCH_TIMEOUT_MS),
+    headers: { 'User-Agent': 'frontaliere-cf-observability-audit/1.0' },
+  });
+  if (res.status === 404 || res.status === 410) return null;
+  if (!res.ok) throw new Error(`HTTP ${res.status} ${url}`);
+  const json = await res.json();
+  if (!json || typeof json !== 'object' || Array.isArray(json)) throw new Error(`malformed shard ${url}`);
+  return json;
+}
+
+async function mapLimited(items, limit, task) {
+  const out = new Array(items.length);
+  let next = 0;
+  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, async () => {
+    while (next < items.length) {
+      const index = next++;
+      out[index] = await task(items[index]);
+    }
+  }));
+  return out;
+}
+
+/**
+ * Reads the job-canon release the Worker is serving (the `/cdn-build-id.txt`
+ * marker, then `/job-canon/releases/<buildId>/...`, exactly like the Worker)
+ * and compares v1 against v2. No durable v1/v2 parity receipt exists at publish
+ * time (the publish receipt/handshake prove identity and byte equality of the
+ * shards, not v1 vs v2), so the live release is read. Any read failure yields
+ * `v1SubsetOfV2: false` with `error`: absence of proof never reads as parity.
+ */
+export async function collectJobCanonParity({ fetchImpl = fetch, base = JOB_CANON_CDN_BASE } = {}) {
+  try {
+    const markerRes = await fetchImpl(`${base}/cdn-build-id.txt`, {
+      signal: AbortSignal.timeout(PARITY_FETCH_TIMEOUT_MS),
+      headers: { 'Cache-Control': 'no-cache', 'User-Agent': 'frontaliere-cf-observability-audit/1.0' },
+    });
+    if (!markerRes.ok) throw new Error(`build marker HTTP ${markerRes.status}`);
+    const buildId = (await markerRes.text()).trim();
+    if (!/^\d{1,20}$/.test(buildId)) throw new Error('build marker is not a numeric build id');
+    const root = `${base}/job-canon/releases/${buildId}`;
+    const alnum = [...'abcdefghijklmnopqrstuvwxyz0123456789_'];
+    const v1Keys = alnum.flatMap((a) => alnum.map((b) => `${a}${b}`));
+    const v1List = await mapLimited(v1Keys, PARITY_FETCH_CONCURRENCY, (key) => fetchShard(`${root}/${key}.json`, fetchImpl));
+    const v1Shards = Object.fromEntries(v1Keys.map((key, i) => [key, v1List[i]]));
+    const needed = new Set();
+    for (const shard of v1List) {
+      for (const slug of Object.keys(shard ?? {})) needed.add(jobCanonV2ShardKey(slug));
+    }
+    const v2Keys = [...needed].sort();
+    const v2List = await mapLimited(v2Keys, PARITY_FETCH_CONCURRENCY, (key) => fetchShard(`${root}/v2/${key}.json`, fetchImpl));
+    const v2Shards = Object.fromEntries(v2Keys.map((key, i) => [key, v2List[i]]));
+    return evaluateJobCanonParity({
+      v1Shards,
+      v2Shards,
+      buildId,
+      paritySource: `live-release:${base}/job-canon/releases/${buildId}`,
+    });
+  } catch (error) {
+    return {
+      v1SubsetOfV2: false,
+      paritySource: 'unavailable',
+      buildId: null,
+      checkedV1Slugs: 0,
+      mismatchCount: 0,
+      mismatches: [],
+      error: String(error?.message ?? error).slice(0, 200),
+    };
+  }
+}
+
+const isSampleInterval = (value) => Number.isFinite(value) && value >= 1;
+const round = (value, digits = 6) => Number(value.toFixed(digits));
+
+/**
+ * Probability that a v1 fallback that really happened would have gone unseen,
+ * given the per-day sample intervals of the v2 stream. Each stored event is one
+ * of `sampleInterval` real ones, so a single event is observed with probability
+ * 1/interval. A fallback is as likely on any request, so the per-event miss
+ * probability weights each day by its estimated v2 volume (count x interval).
+ * `ifNEvents` assumes independent sampling: n fallbacks all go unseen with
+ * probability p^n. This is a declared residual risk, never a proof of absence.
+ */
+export function estimateFallbackMissProbability(days) {
+  const usable = days.filter((d) => isSampleInterval(d.sampleInterval) && d.count > 0);
+  const volume = usable.reduce((sum, d) => sum + d.count * d.sampleInterval, 0);
+  if (usable.length === 0 || volume === 0) return null;
+  const perEvent = usable.reduce(
+    (sum, d) => sum + d.count * d.sampleInterval * (1 - 1 / d.sampleInterval),
+    0,
+  ) / volume;
+  return {
+    perEvent: round(perEvent),
+    ifNEvents: Object.fromEntries([1, 10, 100].map((n) => [n, round(perEvent ** n)])),
+    basis: 'v2-volume-weighted per-day sampleInterval; independent sampling assumed',
+  };
+}
+
 export function evaluateJobCanonV1Retirement(snapshot) {
-  const observedDays = [...new Set(snapshot.jobCanonV2SuccessDays ?? [])].sort();
-  const queryWindowDays = Number.isFinite(snapshot.queryWindowDays) ? snapshot.queryWindowDays : 0;
-  const windowComplete = queryWindowDays >= WINDOW_DAYS && observedDays.length >= WINDOW_DAYS;
-  const samplingHistoryBlockers = Array.isArray(snapshot.samplingHistory?.blockers)
-    ? snapshot.samplingHistory.blockers
-    : ['history:unavailable'];
-  const samplingHistoryComplete = snapshot.samplingHistory?.complete === true
-    && samplingHistoryBlockers.length === 0;
-  const v2SampleIntervals = snapshot.jobCanonV2SampleIntervals ?? [];
-  const v1SampleIntervals = snapshot.jobCanonV1SampleIntervals ?? [];
-  const signalSamplingComplete = v2SampleIntervals.length === observedDays.length
-    && v2SampleIntervals.length >= WINDOW_DAYS
-    && [...v2SampleIntervals, ...v1SampleIntervals]
-      .every(isCloudflareFullSamplingInterval);
   const expectedSamplingDays = Array.isArray(snapshot.workerLogSamplingExpectedDays)
     ? snapshot.workerLogSamplingExpectedDays
     : [];
+  const v2Daily = (Array.isArray(snapshot.jobCanonV2Daily) ? snapshot.jobCanonV2Daily : [])
+    .filter((d) => typeof d?.day === 'string' && d.count > 0);
+  const observedDays = [...new Set(v2Daily.map((d) => d.day))].sort();
+  const queryWindowDays = Number.isFinite(snapshot.queryWindowDays) ? snapshot.queryWindowDays : 0;
+  const windowComplete = queryWindowDays >= WINDOW_DAYS && observedDays.length >= WINDOW_DAYS;
   const streamSamplingBuckets = Array.isArray(snapshot.workerLogSamplingBuckets)
     ? snapshot.workerLogSamplingBuckets
     : [];
@@ -165,9 +330,6 @@ export function evaluateJobCanonV1Retirement(snapshot) {
     if (bucket.rows !== 1 || !Number.isFinite(bucket.count) || bucket.count <= 0) {
       streamSamplingBlockers.push(`coverage:${day}:empty-or-ambiguous`);
     }
-    if (!isCloudflareFullSamplingInterval(bucket.sampleInterval)) {
-      streamSamplingBlockers.push(`sample-interval:${day}:${bucket.sampleInterval ?? 'unknown'}`);
-    }
   }
   for (const day of bucketsByDay.keys()) {
     if (!expectedSamplingDays.includes(day)) streamSamplingBlockers.push(`coverage:${day}:unexpected`);
@@ -180,23 +342,41 @@ export function evaluateJobCanonV1Retirement(snapshot) {
     : 0;
   const blockers = [];
   if (!windowComplete) blockers.push(`v2-days:${observedDays.length}/${WINDOW_DAYS}`);
-  if (snapshot.samplingRate !== 1) blockers.push(`sampling-current:${snapshot.samplingRate ?? 'unknown'}`);
-  for (const blocker of samplingHistoryBlockers) blockers.push(`sampling-${blocker}`);
-  if (!samplingHistoryComplete && samplingHistoryBlockers.length === 0) {
-    blockers.push('sampling-history:incomplete');
+  // Partial sampling is admitted: the effective interval is recorded below.
+  // Only a missing or malformed interval is ambiguous and blocks.
+  const badV2Intervals = v2Daily.filter((d) => !isSampleInterval(d.sampleInterval));
+  if (badV2Intervals.length > 0) {
+    blockers.push(`sampling-signal:invalid:${badV2Intervals.map((d) => d.day).join(',')}`);
   }
-  if (!signalSamplingComplete) {
-    const intervals = [...v2SampleIntervals, ...v1SampleIntervals];
-    blockers.push(`sampling-signal:${intervals.length
-      ? intervals.map((interval) => interval ?? 'unknown').join(',')
-      : 'missing'}`);
+  // Partial sampling is admitted only up to JOB_CANON_MAX_SAMPLE_INTERVAL.
+  for (const d of v2Daily) {
+    if (isSampleInterval(d.sampleInterval) && d.sampleInterval > JOB_CANON_MAX_SAMPLE_INTERVAL) {
+      blockers.push(`sampling-interval-too-coarse:${d.day}:${d.sampleInterval}`);
+    }
+  }
+  const parity = snapshot.jobCanonParity ?? null;
+  if (parity?.v1SubsetOfV2 !== true) {
+    blockers.push(parity?.error || !parity
+      ? `v1-parity:unverified:${parity?.error ?? 'missing'}`
+      : `v1-parity:mismatch:${parity.mismatchCount ?? parity.mismatches?.length ?? 'unknown'}`);
+  }
+  const badStreamIntervals = streamSamplingBuckets.filter(
+    (bucket) => bucket?.count > 0 && !isSampleInterval(bucket.sampleInterval),
+  );
+  if (badStreamIntervals.length > 0) {
+    blockers.push(`sampling-stream:invalid:${badStreamIntervals.map((b) => b.day).join(',')}`);
   }
   for (const blocker of streamSamplingBlockers) blockers.push(`sampling-stream:${blocker}`);
   if (v2SuccessLogs === 0) blockers.push('v2-success:0');
   if (v1FallbackLogs !== 0) blockers.push(`v1-fallback:${v1FallbackLogs}`);
+  const v1Unscanned = Array.isArray(snapshot.jobCanonV1UnscannedDays) ? snapshot.jobCanonV1UnscannedDays : [];
+  if (v1Unscanned.length > 0) blockers.push(`v1-scan:incomplete:${v1Unscanned.join(',')}`);
 
+  const sampleIntervalsByDay = Object.fromEntries(
+    v2Daily.map((d) => [d.day, d.sampleInterval ?? null]),
+  );
   return {
-    schemaVersion: 2,
+    schemaVersion: 4,
     windowDays: WINDOW_DAYS,
     queryWindowDays,
     observedV2Days: observedDays.length,
@@ -205,8 +385,18 @@ export function evaluateJobCanonV1Retirement(snapshot) {
     v2SuccessLogs,
     v1FallbackLogs,
     samplingRate: snapshot.samplingRate ?? null,
-    v2SampleIntervals,
-    v1SampleIntervals,
+    // Informational: the receipt no longer requires full sampling.
+    sampleIntervalsByDay,
+    v2Daily,
+    v1Daily: Array.isArray(snapshot.jobCanonV1Daily) ? snapshot.jobCanonV1Daily : [],
+    maxSampleInterval: JOB_CANON_MAX_SAMPLE_INTERVAL,
+    fallbackMissProbability: estimateFallbackMissProbability(v2Daily),
+    v1SubsetOfV2: parity?.v1SubsetOfV2 === true,
+    paritySource: parity?.paritySource ?? null,
+    parityBuildId: parity?.buildId ?? null,
+    checkedV1Slugs: parity?.checkedV1Slugs ?? 0,
+    mismatches: Array.isArray(parity?.mismatches) ? parity.mismatches.slice(0, PARITY_MISMATCH_EXAMPLES) : [],
+    parityError: parity?.error ?? null,
     workerLogSamplingExpectedDays: expectedSamplingDays,
     workerLogSamplingBuckets: streamSamplingBuckets,
     samplingHistory: snapshot.samplingHistory ?? null,
@@ -402,6 +592,84 @@ function utcDaysInTimeframe(timeframe) {
     days.push(new Date(cursor).toISOString().slice(0, 10));
   }
   return days;
+}
+
+// The Workers Observability query API samples adaptively PER QUERY: the live
+// 7-day grouped query returned sampleInterval 100 while a 24 h query of the
+// same filter returned 10 and a 6 h one returned 1 (probed 2026-11-28). The
+// retirement evidence is therefore queried one UTC day at a time, narrowing a
+// day into 6 h and then 1 h windows while its interval stays above the
+// threshold. The day's interval is the maximum over its final windows, so a
+// coarse sub-window is never averaged away.
+export const JOB_CANON_WINDOW_LADDER_MS = [UTC_DAY_MS, 6 * 36e5, 36e5];
+// Declared request budget for both signals of one receipt: 8 UTC days at worst
+// 1 + 4 + 24 = 29 v2 queries and as many v1 queries each would be 464, so the
+// budget caps the total. When it runs out the day keeps its last (coarse)
+// interval and the receipt blocks on it; it never throws or claims precision.
+export const JOB_CANON_MAX_WINDOW_REQUESTS = 160;
+
+/**
+ * @param {(filters: object[], from: number, to: number) => Promise<{count: number, sampleInterval: number|null}>} measure
+ */
+export async function collectJobCanonDailyWindows({
+  measure,
+  v2Filters,
+  v1Filters,
+  timeframe,
+  maxInterval = JOB_CANON_MAX_SAMPLE_INTERVAL,
+  maxRequests = JOB_CANON_MAX_WINDOW_REQUESTS,
+}) {
+  let requests = 0;
+  const bounded = async (filters, from, to) => {
+    requests += 1;
+    return measure(filters, from, to);
+  };
+  const v2Daily = [];
+  const v1Daily = [];
+  const v1UnscannedDays = [];
+  const windowsByDay = {};
+  for (const day of utcDaysInTimeframe(timeframe)) {
+    const dayStart = Date.parse(`${day}T00:00:00.000Z`);
+    const from = Math.max(dayStart, timeframe.from);
+    const to = Math.min(dayStart + UTC_DAY_MS, timeframe.to);
+    // Returns the leaf windows with their measurement; splits while coarse.
+    const narrow = async (a, b, level) => {
+      if (requests >= maxRequests) return [{ from: a, to: b, count: 0, sampleInterval: null, exhausted: true }];
+      const m = await bounded(v2Filters, a, b);
+      const coarse = m.count > 0 && Number.isFinite(m.sampleInterval) && m.sampleInterval > maxInterval;
+      const nextSize = JOB_CANON_WINDOW_LADDER_MS[level + 1];
+      if (!coarse || nextSize === undefined) return [{ from: a, to: b, ...m }];
+      const leaves = [];
+      for (let t = a; t < b; t += nextSize) leaves.push(...await narrow(t, Math.min(t + nextSize, b), level + 1));
+      return leaves;
+    };
+    const leaves = await narrow(from, to, 0);
+    const count = leaves.reduce((sum, leaf) => sum + leaf.count, 0);
+    const exhausted = leaves.some((leaf) => leaf.exhausted);
+    // Budget exhaustion makes the day unmeasurable rather than silently clean.
+    const intervals = leaves.filter((leaf) => leaf.count > 0 || leaf.exhausted).map((leaf) => leaf.exhausted ? Infinity : leaf.sampleInterval);
+    const sampleInterval = exhausted
+      ? maxInterval * 10
+      : intervals.some((v) => !Number.isFinite(v)) ? null : Math.max(...intervals);
+    windowsByDay[day] = leaves.length;
+    if (count > 0 || exhausted) v2Daily.push({ day, count, sampleInterval });
+    // v1 is probed on exactly the windows v2 needed, so absence is claimed at
+    // the same granularity as presence.
+    let v1Count = 0;
+    let v1Interval = null;
+    for (const leaf of leaves) {
+      if (requests >= maxRequests) {
+        // A skipped window is unproven absence, never a zero.
+        if (!v1UnscannedDays.includes(day)) v1UnscannedDays.push(day);
+        break;
+      }
+      const m = await bounded(v1Filters, leaf.from, leaf.to);
+      v1Count += m.count;
+      if (m.count > 0 && Number.isFinite(m.sampleInterval)) v1Interval = Math.max(v1Interval ?? 0, m.sampleInterval);
+    }
+    if (v1Count > 0) v1Daily.push({ day, count: v1Count, sampleInterval: v1Interval });
+  }
+  return { v2Daily, v1Daily, v1UnscannedDays, requests, windowsByDay };
 }
 
 function workerLogSamplingBuckets(calculation) {
@@ -605,19 +873,40 @@ export async function collectSnapshot(now = Date.now()) {
   for (const ua of WAF_BLOCKED_UAS) blockedRequests[ua] = await count(...buildBlockedUaFilters(ua));
   let versionRequests = 0;
   for (const path of VERSION_PATHS) versionRequests += await count(filter(PATH, 'eq', path));
-  const jobCanonV2SuccessByDay = await query(
-    buildJobCanonV2SuccessLogFilters(),
-    LOG_MESSAGE,
-    WINDOW_DAYS + 2,
-  );
-  const jobCanonV2SuccessRows = jobCanonV2SuccessByDay.aggregates ?? [];
-  const jobCanonV2SuccessDays = jobCanonV2SuccessRows
-    .map((row) => typeof row.groupKey === 'string'
-      ? row.groupKey.match(/"day":"(\d{4}-\d{2}-\d{2})"/)?.[1]
-      : null)
-    .filter(Boolean);
-  const jobCanonV1Fallback = await query(buildJobCanonV1FallbackLogFilters());
-  const jobCanonV1FallbackRows = jobCanonV1Fallback.aggregates ?? [];
+  // Job-canon evidence is queried per UTC-day window (see
+  // collectJobCanonDailyWindows), not as one 7-day grouped query.
+  const windowMeasure = async (filters, from, to) => {
+    const result = await telemetry({
+      queryId: `cf-observability-audit-job-canon-window-${++id}`,
+      view: 'calculations',
+      limit: 1,
+      timeframe: { from, to },
+      parameters: {
+        datasets: [],
+        filters: [service, ...filters],
+        calculations: [{ operator: 'count' }],
+        limit: 1,
+        groupBys: [],
+      },
+    });
+    const row = result.calculations?.[0]?.aggregates?.[0];
+    return {
+      count: Number.isFinite(row?.value) ? row.value : 0,
+      sampleInterval: Number.isFinite(row?.sampleInterval) ? row.sampleInterval : null,
+    };
+  };
+  const {
+    v2Daily: jobCanonV2Daily,
+    v1Daily: jobCanonV1Daily,
+    v1UnscannedDays: jobCanonV1UnscannedDays,
+    requests: jobCanonWindowRequests,
+  } =
+    await collectJobCanonDailyWindows({
+      measure: windowMeasure,
+      v2Filters: buildJobCanonV2SuccessLogFilters(),
+      v1Filters: buildJobCanonV1FallbackLogFilters(),
+      timeframe,
+    });
   // Cloudflare accepts granularity as a millisecond bucket width and returns
   // these daily series aligned to 00:00:00 UTC. The aggregate is deliberately
   // ignored: each intersecting day must independently prove exact ingestion.
@@ -665,15 +954,15 @@ export async function collectSnapshot(now = Date.now()) {
     // therefore measures the structured signal only; it cannot claim a 1:1
     // relationship with the independently aggregated response-status rows.
     originFailureLogs: await count(...buildOriginFailureLogFilters()),
-    jobCanonV2SuccessLogs: jobCanonV2SuccessRows.reduce((sum, row) => sum + (row.value ?? 0), 0),
-    jobCanonV2SuccessDays,
-    jobCanonV2SampleIntervals: jobCanonV2SuccessRows.map((row) => row.sampleInterval ?? null),
-    jobCanonV1FallbackLogs: jobCanonV1FallbackRows.reduce((sum, row) => sum + (row.value ?? 0), 0),
-    jobCanonV1SampleIntervals: jobCanonV1FallbackRows
-      .filter((row) => (row.value ?? 0) > 0)
-      .map((row) => row.sampleInterval ?? null),
+    jobCanonV2SuccessLogs: jobCanonV2Daily.reduce((sum, row) => sum + row.count, 0),
+    jobCanonV2Daily,
+    jobCanonV1FallbackLogs: jobCanonV1Daily.reduce((sum, row) => sum + row.count, 0),
+    jobCanonV1Daily,
+    jobCanonWindowRequests,
+    jobCanonV1UnscannedDays,
     workerLogSamplingExpectedDays: utcDaysInTimeframe(timeframe),
     workerLogSamplingBuckets: workerLogSamplingBuckets(workerLogSamplingCalculation),
+    jobCanonParity: await collectJobCanonParity(),
     samplingHistory,
     queryWindowDays: (timeframe.to - timeframe.from) / 864e5,
     internalCrawlerRequests: await count(filter(USER_AGENT, 'includes', INTERNAL_CRAWLER_UA)),

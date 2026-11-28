@@ -1,6 +1,6 @@
 /** Protected inspection: existing-account sign-in, GET reads, no application actions. */
 import { isStealthBrowser, launchStealthOrChromium } from '../../../lib/stealth-browser.mjs';
-import { COOKIE_REJECT_RE, headedBrowser, recoverAccountPassword } from './portal.mjs';
+import { COOKIE_REJECT_RE, headedBrowser, recoverAccountPassword, signInEmailValue } from './portal.mjs';
 import { extractFields } from './fields.mjs';
 import { SIGN_IN_RE, authPageKind, loginFields } from './account.mjs';
 import { applyActions, findButton, locatorFor } from './fill.mjs';
@@ -28,6 +28,39 @@ const launchAssistedVerificationBrowser = ({ headless = !headedBrowser() } = {})
 };
 
 export { applicationExistsProbeNavigation };
+
+const SAFE_ERROR_MESSAGES = [
+  [/net::ERR_[A-Z_]{3,40}/, match => match[0]],
+  [/Timeout \d+ms exceeded/, () => 'timeout'],
+  [/Target page, context or browser has been closed|has been closed/i, () => 'target_closed'],
+  [/Couldn't serialize object of type/i, () => 'firestore_serialize'],
+  [/Execution context was destroyed/i, () => 'context_destroyed'],
+  [/frame was detached|Frame was detached/i, () => 'frame_detached'],
+  [/Navigation (?:failed|interrupted)|interrupted by another navigation/i, () => 'navigation_interrupted'],
+  [/Protocol error/i, () => 'protocol_error'],
+  [/strict mode violation/i, () => 'strict_mode_violation'],
+  [/Cannot read properties of (undefined|null)/, match => `read_of_${match[1]}`],
+  [/is not a function/, () => 'not_a_function'],
+  [/is not (?:defined|iterable)/, () => 'not_defined'],
+  [/decrypt|Unsupported state or unable to authenticate data/i, () => 'decrypt_failed'],
+];
+
+/**
+ * What an inspection error may say about itself: where it happened (our own stage names), the error's class and
+ * code when they look like identifiers, and one token from a short allowlist of known messages. Never the
+ * message text itself: it can carry portal pages, URLs, credentials or candidate data.
+ */
+export function safeErrorInfo(error, stage = 'unknown') {
+  const name = typeof error?.name === 'string' && /^[A-Za-z]{1,40}$/.test(error.name) ? error.name : 'Error';
+  const code = typeof error?.code === 'string' && /^[A-Za-z0-9_.:-]{1,60}$/.test(error.code) ? error.code : undefined;
+  const text = String(error?.message ?? '').slice(0, 400);
+  let messageCode;
+  for (const [pattern, token] of SAFE_ERROR_MESSAGES) {
+    const match = pattern.exec(text);
+    if (match) { messageCode = token(match); break; }
+  }
+  return { stage: String(stage).replace(/[^a-z_]/g, '').slice(0, 30) || 'unknown', name, ...(code ? { code } : {}), ...(messageCode ? { message: messageCode } : {}) };
+}
 
 export function verificationTarget({ applyUrl, evidence, sourceProtocol = null }) {
   try {
@@ -129,6 +162,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
     || Boolean(probe && applicationExistsProbeNavigation(action, probe) && /\/application\/login\/\d+\/?$/i.test(new URL(action).pathname));
   const browser = await launch({ headless: !headedBrowser() });
   let context;
+  let stage = 'launch';
   const proof = { ...(sourceProtocol ? { sourceProtocol } : {}), kind: 'portal_verification', version: 1, observedAt: Date.now(), pages: [], blockedRequests: 0, conclusion: 'unknown', trace: [] };
   // What the inspection saw and refused, without values: host, path and parameter NAMES of every page and of
   // every blocked request, with the reason. Without it a stop with no page recorded cannot be diagnosed.
@@ -162,6 +196,9 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
     // own /Password/ routes, at most two POSTs (the reset request and the new password).
     let recoveryOpen = false;
     let recoveryPosts = 0;
+    // True once the new password was posted to the portal's own set-password route: the portal then sends the browser on to
+    // its self-service sign-in (umantis: Password/CloseWindowApplicants -> /SelfService), the one page this allows.
+    let resetPasswordPosted = false;
     const navigationTargets = new Set([targetUrl]);
     for (const value of observedUrls) {
       try {
@@ -173,7 +210,9 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
     }
     // Passive GET resources are readable. Mutations are denied, except the
     // single owned sign-in form's request while its sign-in click is armed.
-    await context.route('**/*', async route => {
+    // A request that reaches the handler while the context is closing (the inspection may end on a page that is still
+    // loading) must never become an unhandled rejection: it would end the whole process before the verdict is written.
+    const fence = async route => {
       const request = route.request();
       const url = new URL(request.url());
       const method = request.method();
@@ -208,6 +247,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
           && !(probe && applicationExistsProbeNavigation(url.href, probe))
           && !(probe && isStaticSubframe(request, url))
           && !(recoveryOpen && url.origin === origin && /^\/password\//i.test(url.pathname))
+          && !(recoveryOpen && resetPasswordPosted && url.origin === origin && /^\/selfservice\/?$/i.test(url.pathname))
           && !(portalDirectory(url) === sourceDirectory(new URL(applyUrl), sourceProtocol) && /(?:^|\/)(?:home|index)\/?$/i.test(url.pathname) && !url.search)
           && !(!url.search && (url.pathname === '/' || url.pathname === sourceDirectory(new URL(applyUrl), sourceProtocol).replace(/\/$/, '')))) return block('navigation_not_allowed');
         if (request.isNavigationRequest()) note('navigation', request.url(), 'allowed', { method });
@@ -227,11 +267,16 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       }
       if (recoveryOpen && recoveryPosts < 2 && method === 'POST' && url.origin === origin && /^\/password\//i.test(url.pathname)) {
         recoveryPosts++;
+        if (/^\/password\/passwordsetnew\/?$/i.test(url.pathname)) resetPasswordPosted = true;
         note('recovery_post', request.url(), 'allowed', { method });
         return route.continue();
       }
       return block(!loginArmed ? 'mutation_not_armed' : loginPosted ? 'second_mutation' : method !== 'POST' ? 'method_not_allowed' : 'login_route_mismatch');
+    };
+    await context.route('**/*', async route => {
+      try { return await fence(route); } catch { await route.abort().catch(() => {}); return undefined; }
     });
+    stage = 'entry';
     const page = await context.newPage();
     if (typeof page.on === 'function') page.on('framenavigated', frame => { if (frame === page.mainFrame()) note('page', frame.url(), 'navigated'); });
     const stop = (reason, extra = {}) => {
@@ -269,9 +314,19 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       }
     };
     // One sign-in attempt with one password: null when the portal let the account through, else why not.
+    const reopenLogin = async () => {
+      await page.goto(targetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      snapshot = await extractFields(page, { listboxOptions: false });
+      await prepareLoginPage();
+    };
     let loadedAccount = null;
     const getAccount = async () => { loadedAccount ??= await accounts.load(new URL(page.url()).hostname); return loadedAccount; };
-    const attemptSignin = async (secretOverride = '') => {
+    // Whether the sign-in field cuts the account's address (umantis: maxlength 50 on UserName, the alias is 51 long).
+    let usernameClamped = false;
+    // The page the sign-in itself lands on, when it is the portal's «application exists» route: umantis sends an account
+    // that already applied there right after the login, and goes back to the entry form when asked for it again.
+    let landedOnExists = null;
+    const attemptSignin = async (secretOverride = '', { emailVariant = 'full' } = {}) => {
       // The trust is in the form's own action below (the vacancy's login route), on any page of the order's vacancy.
       if (!(signinOk(page.url()) || (probe && applicationExistsProbeNavigation(page.url(), probe)))) return { reason: 'login_page_not_trusted' };
       // A sign-in page can carry a registration form next to the sign-in one (two password fields): the sign-in
@@ -301,13 +356,39 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       loginAction = owned.action;
       loginPosted = false;
       navigationTargets.add(loginAction);
-      await applyActions(page, [email, password], [{ fieldId: email.id, action: 'fill', value: account.email }, { fieldId: password.id, action: 'fill', value: secret }], {});
+      // The address is typed in full by default (the runner's own sign-in does the same, `preserveFullValue`: the
+      // field's client-side cap is raised so the whole address reaches the portal, which holds the account under the
+      // full one); the cut variant is only the second try.
+      const fullAddress = String(account.email).trim();
+      const limit = Number(email.maxLength);
+      usernameClamped = Number.isFinite(limit) && limit >= 20 && fullAddress.length > limit;
+      const typedAddress = emailVariant === 'truncated' ? signInEmailValue(email, fullAddress) : fullAddress;
+      note('login_identity', page.url(), emailVariant, { length: typedAddress.length, ...(Number.isFinite(limit) && limit > 0 ? { limit } : {}) });
+      await applyActions(page, [email, password], [
+        { fieldId: email.id, action: 'fill', value: typedAddress, ...(emailVariant === 'full' ? { preserveFullValue: true } : {}) },
+        { fieldId: password.id, action: 'fill', value: secret },
+      ], {});
+      // What the field really holds, by its length only: a control that still cut the address is no sign-in.
+      const emailLocator = locatorFor(page, email);
+      if (emailVariant === 'full' && typeof emailLocator?.inputValue === 'function') {
+        // A value that cannot be read is as good as a cut one: nothing is clicked on an identity that may still be cut.
+        const held = await emailLocator.inputValue().catch(() => null);
+        if (typeof held !== 'string') return { reason: 'login_username_cut', extra: { readable: false, wanted: typedAddress.length } };
+        if (held.length !== typedAddress.length) return { reason: 'login_username_cut', extra: { typed: held.length, wanted: typedAddress.length } };
+      }
       loginArmed = true;
       await locatorFor(page, signin).click({ timeout: 6000 });
       await page.waitForLoadState('domcontentloaded').catch(() => {});
       await page.waitForTimeout(1500);
       loginArmed = false;
       note('page', page.url(), 'after_login');
+      // The landing is the evidence, read where it is: navigating on would replace it with the entry form.
+      const landed = applicationExistsRoute(page.url());
+      if (landed) {
+        landedOnExists = landed;
+        note('page', page.url(), 'application_exists_after_login');
+        return null;
+      }
       await page.goto(targetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
       note('page', page.url(), 'entry_after_login');
       snapshot = await extractFields(page, { listboxOptions: false });
@@ -317,7 +398,19 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
     // The portal rejected every stored password: ONE recovery of the order's alias account with the runner's own
     // flow (reset e-mail read from the alias inbox, new password stored as the runner stores it), under the fence
     // above, then one more sign-in with the new password. Nothing else is opened.
+    const allowResetLink = (message) => {
+      try {
+        const link = new URL(String(message?.url || ''));
+        if (link.protocol === 'https:' && link.origin === new URL(applyUrl).origin && !link.username && !link.password && !link.hash
+          && ![...link.searchParams.keys()].some(key => MUTATION_QUERY_KEY_RE.test(key))) {
+          navigationTargets.add(link.href);
+          note('reset_link', link.href, 'allowed');
+        }
+      } catch { /* No usable link: the flow decides what to do without it. */ }
+      return message;
+    };
     const recoverAndSignin = async () => {
+      stage = 'recovery';
       if (!allowRecovery || !probe?.loginUrl || !aliasEmail) return { reason: 'login_not_accepted', extra: { recovery: 'not_allowed' } };
       navigationTargets.add(probe.loginUrl);
       await page.goto(probe.loginUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
@@ -332,7 +425,13 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
           page, snapshot: { ...snapshot, fields: form.scoped },
           // The store's own answer to the request is the reason a recovery may end without a single click on the
           // portal (rate limit, cooldown, one still running): it goes in the trace.
-          ctx: { candidate: { identity: { email: aliasEmail } }, dryRun: false, accounts: { ...accounts, beginRecovery: async (...args) => {
+          ctx: { candidate: { identity: { email: aliasEmail } }, dryRun: false, accounts: { ...accounts,
+            // The reset e-mail's link (the portal's own token link, on this host) is the one navigation the run is
+            // told to make by the e-mail: it is allowed exactly, once known, and nothing else from the e-mail is.
+            waitForPasswordReset: async (...args) => allowResetLink(await accounts.waitForPasswordReset(...args)),
+            // The reset e-mail of the recovery in progress that already arrived (a run that died before using it).
+            ...(typeof accounts.pendingPasswordReset === 'function' ? { pendingPasswordReset: async (...args) => allowResetLink(await accounts.pendingPasswordReset(...args)) } : {}),
+            beginRecovery: async (...args) => {
             const begun = await accounts.beginRecovery(...args);
             proof.recovery = { ...(proof.recovery || {}), begin: String(begun?.status || '').slice(0, 30), ...(begun?.retryAt ? { retryAt: Number(begun.retryAt) } : {}) };
             note('recovery_begin', page.url(), String(begun?.status || '').slice(0, 30), begun?.retryAt ? { retryAt: Number(begun.retryAt) } : {});
@@ -342,7 +441,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
           registrationRestarts: new Map(), recoveryAttempts: new Set(),
           finishRecovery: async view => ({ snapshot: view }),
         });
-      } finally { recoveryOpen = false; }
+      } finally { recoveryOpen = false; resetPasswordPosted = false; }
       proof.recovery = { ...(proof.recovery || {}), attempted: true, accepted: result?.accountRecovered === true, ...(result?.accountFailure?.code ? { code: String(result.accountFailure.code).slice(0, 60) } : {}) };
       note('recovery', page.url(), result?.accountRecovered === true ? 'accepted' : 'refused');
       if (result?.accountRecovered !== true) return { reason: 'account_recovery_failed', extra: proof.recovery };
@@ -352,12 +451,31 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       await page.goto(targetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
       snapshot = await extractFields(page, { listboxOptions: false });
       await prepareLoginPage();
-      return (await attemptSignin()) || null;
+      const first = await attemptSignin('', { emailVariant: 'full' });
+      if (!first) return null;
+      if (usernameClamped && (first.reason === 'login_not_accepted' || first.reason === 'login_username_cut')) {
+        await reopenLogin();
+        return snapshot.passwordVisible ? attemptSignin('', { emailVariant: 'truncated' }) : null;
+      }
+      return first;
     };
+    stage = 'login';
     await prepareLoginPage();
     if (snapshot.passwordVisible) {
       const host = new URL(page.url()).hostname;
+      let emailVariant = 'full';
       let failure = await attemptSignin();
+      // The full address first, then (only when the field cuts it) the address as the field keeps it: both are
+      // identities the portal may hold the account under, and a rejected one says nothing about the password.
+      if ((failure?.reason === 'login_not_accepted' || failure?.reason === 'login_username_cut') && usernameClamped) {
+        await reopenLogin();
+        if (snapshot.passwordVisible) {
+          // The portal refused the whole address (or the field cut it): from here on the account is looked for under the
+          // address as the field keeps it, for this password and for every other candidate, before any recovery.
+          emailVariant = 'truncated';
+          failure = await attemptSignin('', { emailVariant });
+        } else failure = null;
+      }
       let adopted = '';
       if (failure?.reason === 'login_not_accepted') {
         // Every password the store or the alias inbox can still offer, once each (at most three more sign-ins): the
@@ -367,20 +485,27 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
         const emailed = typeof accounts.resetPasswordCandidates === 'function' ? await accounts.resetPasswordCandidates(host, { limit: 2 }).catch(() => []) : [];
         const tried = new Set([stored.password]);
         const candidates = [stored.previousPassword, ...emailed, stored.lastGoodPassword].filter(secret => secret && !tried.has(secret) && tried.add(secret)).slice(0, 3);
+        stage = 'candidates';
         note('candidates', page.url(), 'prepared', { count: candidates.length, emailed: emailed.length });
         for (const secret of candidates) {
           await page.goto(targetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           snapshot = await extractFields(page, { listboxOptions: false });
           await prepareLoginPage();
           if (!snapshot.passwordVisible) { failure = null; break; }
-          failure = await attemptSignin(secret);
+          failure = await attemptSignin(secret, { emailVariant });
           if (!failure) { adopted = secret; break; }
           if (failure.reason !== 'login_not_accepted') break;
         }
       }
       if (failure?.reason === 'login_not_accepted') failure = await recoverAndSignin();
       if (failure) return stop(failure.reason, failure.extra || {});
-      if (adopted && typeof accounts.adoptPassword === 'function') {
+      if (!adopted && !proof.recovery?.accepted && loadedAccount?.status === 'recovering' && typeof accounts.completeRecovery === 'function') {
+        // The staged password of an unconfirmed recovery is the one the portal now holds (the new password was set
+        // but the run died before saying so): the recovery is completed, the reset link consumed.
+        await accounts.completeRecovery(host).catch(() => {});
+        await accounts.mark?.(host, { status: 'created', verifiedAt: Date.now() }).catch(() => {});
+        note('account', page.url(), 'staged_password_confirmed');
+      } else if (adopted && typeof accounts.adoptPassword === 'function') {
         // A password the portal accepted is the account's from now on: nothing is lost again.
         await accounts.adoptPassword(host, adopted).catch(() => {});
         note('account', page.url(), 'password_adopted');
@@ -402,16 +527,18 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
         screenshot: (await page.screenshot({ fullPage: true })).toString('base64') });
       return current;
     };
+    stage = 'observe';
     snapshot = await observe();
     note('page', page.url(), 'observed');
     if (probe) {
       // What the portal did with the signed-in account on this vacancy: the live URL is the only evidence kept.
       const route = applicationExistsRoute(page.url());
-      proof.applicationExists = route ? { routeKind: route.routeKind, host: route.host, vacancyId: route.vacancyId, pagePath: route.pagePath } : null;
+      proof.applicationExists = route ? { routeKind: route.routeKind, host: route.host, vacancyId: route.vacancyId, pagePath: route.pagePath, source: landedOnExists ? 'after_login' : 'entry' } : null;
     }
     // An explicitly named application-history link is a read, never Apply or
     // an inferred route. Preserve its exact rows for a job/status review.
-    const links = await page.evaluate(applicationHistoryLinksInPage).catch(() => []);
+    // Proven already: nothing further is opened.
+    const links = proof.applicationExists ? [] : await page.evaluate(applicationHistoryLinksInPage).catch(() => []);
     const histories = [...new Map((Array.isArray(links) ? links : [])
       .map(link => ({ text: link.text, href: verificationHistoryTarget(link.href, applyUrl, sourceProtocol) }))
       .filter(link => link.href).map(link => [link.href, link])).values()];
@@ -421,7 +548,17 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       await observe();
     }
     return proof;
+  } catch (error) {
+    // The inspection of a probe keeps what it saw up to the failure: its trace, and where and what failed, as
+    // identifiers only. The other inspections keep their contract: the error goes to the caller.
+    if (!probe) throw error;
+    proof.stopReason = 'inspection_exception';
+    proof.error = safeErrorInfo(error, stage);
+    note('exception', proof.trace.at(-1)?.host ? `https://${proof.trace.at(-1).host}${proof.trace.at(-1).path || '/'}` : applyUrl, 'exception', proof.error);
+    return proof;
   } finally {
+    // Requests still in flight are let go without waiting for (or hearing from) their handlers.
+    if (typeof context?.unrouteAll === 'function') await context.unrouteAll({ behavior: 'ignoreErrors' }).catch(() => {});
     await context?.close().catch(() => {});
     await browser.close().catch(() => {});
   }

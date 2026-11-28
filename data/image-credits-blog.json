@@ -101316,6 +101316,376 @@
           "notes": "Generic synthetic residential scene with Alpine foothills; no visible text, signage, logos, people, or event-specific details."
         }
       }
+    },
+    "generated:article-bollettino-frontaliere-2026-11-28": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-28T14:01:02.118Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-28",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-bollettino-frontaliere-2026-11-28",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2",
+        "executorModel": "gpt-6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "a10b07d7a7428c38a9b5bf0f9fac6f3843327e3d82b64f418ff9e292e650f4ce",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "ce2390bc3b1c3f0bda7d2aaeedc032a509161fe55a833ff66070f93e9b177f91",
+        "bytes": 83116,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-28T14:01:02.118Z",
+        "verifiedAt": "2026-11-28T14:01:10.994Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-bollettino-frontaliere-2026-11-28.webp",
+        "area": "Ticino e pendolarismo transfrontaliero",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial still life of a travel wallet and unmarked coins on a train, with an Alpine lakeside view. No identifiable people, text, or branding."
+        }
+      }
+    },
+    "generated:article-einsiedeln-investimenti-netti-piano": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-28T10:23:17.199Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-28",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-einsiedeln-investimenti-netti-piano",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2",
+        "executorModel": "gpt-6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "69b343abd92617706a996b5825a63c85dd4a94a0aad5408b63122ebb51e5094f",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "bdb8e0c23b555a0fe8fb813fbd5a622ac8eeb7d8e7c2f4cc80d6cf325ae2f2b4",
+        "bytes": 78412,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-28T10:23:17.199Z",
+        "verifiedAt": "2026-11-28T10:23:26.608Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-einsiedeln-investimenti-netti-piano.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic illustration of an empty council meeting room with papers on a table; relevant to a public investment plan."
+        }
+      }
+    },
+    "generated:article-minimo-obvaldo-contratti": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-28T14:07:29.549Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-28",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-minimo-obvaldo-contratti",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2",
+        "executorModel": "gpt-6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "59af2cd4e3b701b57de1229bde3fac93006cc196e09d6f2e459226a42519ae3c",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "8604d0d7872181bd3f012fee42a51f6ace43d3c28034e969a1aa75793e1dbfeb",
+        "bytes": 155192,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-28T14:07:29.549Z",
+        "verifiedAt": "2026-11-28T14:07:40.130Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-minimo-obvaldo-contratti.webp",
+        "area": "Svizzera",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic photorealistic synthetic scene of a Swiss mountain-town storefront; no people, readable text, signage, or logos."
+        }
+      }
+    },
+    "generated:article-netstal-glarus-motion-proroga": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-28T07:17:14.280Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-28",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-netstal-glarus-motion-proroga",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2",
+        "executorModel": "gpt-6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "f9e381ff8d731628c0129773a2a192259fd05447447b47990a894a63122f9398",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "c68f1ae424c753d903912d277eddaddb9834b2234402bf9589addfbd50f96188",
+        "bytes": 194562,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-28T07:17:14.280Z",
+        "verifiedAt": "2026-11-28T07:17:25.448Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-netstal-glarus-motion-proroga.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic alpine road scene relevant to road planning; no readable text, signage, logos, or people."
+        }
+      }
+    },
+    "generated:article-salario-minimo-ticino-compromesso": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-28T09:01:47.602Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-28",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-salario-minimo-ticino-compromesso",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2",
+        "executorModel": "gpt-6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "899417d20d0bd8a1164babf44b9ef8b74d8757327e4a24cd194fbd3fab8df5cc",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "37139d523c1777c18f7b09746a545d424838cae9b42947e651da001019c76afe",
+        "bytes": 60340,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-28T09:01:47.602Z",
+        "verifiedAt": "2026-11-28T09:02:00.640Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-salario-minimo-ticino-compromesso.webp",
+        "area": "Svizzera",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic illustration of a Swiss business meeting; no readable text, logos, identifiable people, or specific real event."
+        }
+      }
     }
   },
   "covers": {
@@ -143135,6 +143505,26 @@
     },
     "article-coira-voto-alloggi-accessibili": {
       "file": "generated:article-coira-voto-alloggi-accessibili",
+      "modified": "resized"
+    },
+    "article-bollettino-frontaliere-2026-11-28": {
+      "file": "generated:article-bollettino-frontaliere-2026-11-28",
+      "modified": "resized"
+    },
+    "article-einsiedeln-investimenti-netti-piano": {
+      "file": "generated:article-einsiedeln-investimenti-netti-piano",
+      "modified": "resized"
+    },
+    "article-minimo-obvaldo-contratti": {
+      "file": "generated:article-minimo-obvaldo-contratti",
+      "modified": "resized"
+    },
+    "article-netstal-glarus-motion-proroga": {
+      "file": "generated:article-netstal-glarus-motion-proroga",
+      "modified": "resized"
+    },
+    "article-salario-minimo-ticino-compromesso": {
+      "file": "generated:article-salario-minimo-ticino-compromesso",
       "modified": "resized"
     }
   }

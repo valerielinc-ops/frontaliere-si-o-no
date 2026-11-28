@@ -1,7 +1,7 @@
 {
   "key": "suchtfachstelle-zuerich",
   "label": "Suchtfachstelle Zürich",
-  "generatedAt": "2026-11-27T21:38:05.126Z",
+  "generatedAt": "2026-11-28T09:39:24.091Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -13,16 +13,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 28872,
-  "avgDurationMs": 28872,
+  "durationMs": 7830,
+  "avgDurationMs": 7830,
   "durationHistory": [
-    28872
+    7830
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "suchtfachstelle-zuerich-145c3bc68404",
       "slug": "psychologie-praktikum-60-suchtfachstelle-zurich-zurich",
@@ -30,13 +31,13 @@
       "companyKey": "suchtfachstelle-zuerich",
       "companyDomain": "suchtfachstelle.zuerich",
       "title": "Psychologie-Praktikum (60 %)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.suchtfachstelle.zuerich/stellenausschreibung-psychologie-praktikum-60",
       "source": "Suchtfachstelle Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:37:25.782Z",
+      "crawledAt": "2026-11-28T09:39:02.505Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -53,25 +54,24 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.suchtfachstelle.zuerich/stellenausschreibung-psychologie-praktikum-60",
-      "salaryMin": 47400,
-      "salaryMax": 80700,
+      "firstSeenAt": "2026-11-27T21:37:25.782Z",
+      "salaryMin": 42600,
+      "salaryMax": 72300,
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-25T21:37:25.782Z",
+      "validThrough": "2027-02-26T09:39:02.505Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-27T21:37:25.782Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
 }
