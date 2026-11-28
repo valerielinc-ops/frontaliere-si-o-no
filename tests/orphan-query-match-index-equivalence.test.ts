@@ -251,7 +251,9 @@ function allClusters(): OrphanQueryCluster[] {
     ['pflegefachperson-tessin', ['pflegefachperson'], ['tessin']],
     ['infirmier-suisse', ['infirmier'], ['suisse']],
     ['no-role-broad-only', [], ['svizzera']],
-    ['software-zurich', ['software'], ['zurich']],
+    // A canton name (zurich) is a canton FILTER now, no longer a city: see
+    // tests/cluster-canton-token-filter.test.ts. winterthur stays a city.
+    ['software-winterthur', ['software'], ['winterthur']],
   ];
   const out: OrphanQueryCluster[] = [];
   for (const locale of ORPHAN_LANDING_LOCALES) {

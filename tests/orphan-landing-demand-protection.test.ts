@@ -150,7 +150,8 @@ describe('orphan landing 90-day GSC demand protection', () => {
       slug: `engineer-${index}`,
       title: `Engineer position ${index}`,
       location: 'Bern',
-      canton: 'ZH',
+      // Not ZH: `jobs-in-zurich` names a canton, which now filters by canton.
+      canton: 'BE',
     }));
     const supportEnPath = buildOrphanLandingPath('en', 'engineer-no-demand-control');
     const demandControlPath = buildOrphanLandingPath('en', 'engineer-demand-control');

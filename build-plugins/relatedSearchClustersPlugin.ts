@@ -123,8 +123,10 @@ import {
   AGGREGATE_KEY,
   resolveCantonSection,
   resolveJobCanton,
+  resolveKnownJobCanton,
   type CantonLocale,
 } from './shared/cantonSection';
+import { splitClusterTokens } from './shared/clusterQueryTokens';
 import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import type { Locale } from '../services/i18n';
 import {
@@ -324,6 +326,32 @@ function tokenizeQuery(query: string): string[] {
 }
 
 /**
+ * The matching view of a cluster query: boilerplate stripped, then canton
+ * names / "canton" markers / cross-border context words taken OUT of the
+ * content tokens (shared/clusterQueryTokens.ts). `tokens` are stemmed content
+ * words; `cantonCodes` filter the jobs; `removed` says something was taken out.
+ * The split runs on RAW words so multi-word names ("san gallo") are seen whole.
+ */
+export function normalizeClusterQuery(term: string): {
+  tokens: string[];
+  cantonCodes: ReadonlySet<string>;
+  removed: boolean;
+  /** Content words joined, for the occupation-role derivation. */
+  contentText: string;
+} {
+  const words = normalizeText(stripSearchQueryBoilerplate(term))
+    .split(/[^a-z0-9]+/)
+    .filter((tok) => tok.length >= 2);
+  const split = splitClusterTokens(words);
+  return {
+    tokens: split.content.map(stemSearchToken),
+    cantonCodes: new Set(split.cantonCodes),
+    removed: split.removed,
+    contentText: split.content.join(' '),
+  };
+}
+
+/**
  * Build the per-locale normalized + STEMMED haystack once and cache it on the
  * job. The haystack is stemmed identically to the query tokens (and to the SPA
  * and the off-thread postings worker, all via stemHaystack/stemSearchToken in
@@ -427,6 +455,9 @@ const CACHE_KEY_INPUTS = [
   'data/evidence-index.json',
   'build-plugins/shared/trafficEvidenceFilter.ts',
   'build-plugins/shared/searchSlugStopwords.ts',
+  'build-plugins/shared/clusterQueryTokens.ts',
+  'services/cantonList.ts',
+  'data/canton-url-slugs.json',
   'scripts/lib/related-search-cluster-path.mjs',
   'build-plugins/relatedSearchClustersPlugin.ts',
   'build-plugins/shared/jobDetailPath.ts',
@@ -1396,6 +1427,13 @@ interface OccupationLocaleIndex {
 
 type JobAcceptance = (job: RawJob, jobIdx: number) => boolean;
 
+/** Match options shared by every TokenIndex matcher. */
+interface ClusterMatchOptions {
+  readonly stopWhenAtLeast?: number;
+  /** Cantons the query names: a FILTER on the job's canton, never a content token. */
+  readonly cantonCodes?: ReadonlySet<string>;
+}
+
 export class TokenIndex {
   private occupationTermsByLocale = new Map<Locale, WeakMap<RawJob, readonly string[]>>();
   private occupationPostingsByLocale = new Map<Locale, OccupationLocaleIndex>();
@@ -1473,8 +1511,16 @@ export class TokenIndex {
     maxJobs: number,
     minOrScore = 1,
     accept: JobAcceptance = () => true,
-    options: { readonly stopWhenAtLeast?: number } = {},
+    options: ClusterMatchOptions = {},
   ): RawJob[] {
+    if (options.cantonCodes && options.cantonCodes.size > 0) {
+      const inner = accept;
+      const codes = options.cantonCodes;
+      accept = (job, idx) => {
+        const canton = resolveKnownJobCanton(job);
+        return canton !== null && codes.has(canton) && inner(job, idx);
+      };
+    }
     const __tPostings = profileStart();
     const lists = tokens.map((tok) => this.postings(locale, tok));
     profileRecord('bc:mj-postings-batch', __tPostings);
@@ -1525,7 +1571,7 @@ export class TokenIndex {
     maxJobs: number,
     minOrScore: number,
     roles: readonly string[],
-    options: { readonly stopWhenAtLeast?: number } = {},
+    options: ClusterMatchOptions = {},
   ): RawJob[] {
     if (roles.length === 0) return this.matchingJobs(locale, tokens, maxJobs, minOrScore, undefined, options);
     const rolePostings = roles.map((role) => this.occupationPostingForRole(locale, role));
@@ -1553,7 +1599,7 @@ export class TokenIndex {
     maxJobs: number,
     minOrScore: number,
     profile: JobSearchRoleProfile,
-    options: { readonly stopWhenAtLeast?: number } = {},
+    options: ClusterMatchOptions = {},
   ): RawJob[] {
     const qualifierTokens = new Set(profile.qualifierTokens);
     const probeTokens = tokens.filter((token) => !qualifierTokens.has(token));
@@ -1567,6 +1613,29 @@ export class TokenIndex {
       (job) => matchesJobSearchRoleProfile(job, locale, profile, { allowSemantic: false }),
       options,
     );
+  }
+
+  /**
+   * A query left with no content token (only canton names / markers / context
+   * words): the named cantons' jobs in corpus order, or every job when it names
+   * no canton.
+   */
+  matchingCantonJobs(
+    cantonCodes: ReadonlySet<string>,
+    maxJobs: number,
+    options: { readonly stopWhenAtLeast?: number } = {},
+  ): RawJob[] {
+    const limit = options.stopWhenAtLeast === undefined ? maxJobs : Math.min(maxJobs, options.stopWhenAtLeast);
+    const out: RawJob[] = [];
+    for (const job of this.jobs) {
+      if (cantonCodes.size > 0) {
+        const canton = resolveKnownJobCanton(job);
+        if (canton === null || !cantonCodes.has(canton)) continue;
+      }
+      out.push(job);
+      if (out.length >= limit) break;
+    }
+    return out;
   }
 
   /** Free the haystack + postings cache once index queries are complete. */
@@ -1971,9 +2040,15 @@ export function buildClusterContext(
   // any job mentioning "offerta"/"lavoro" in its description, diluting the page
   // with off-intent listings the hydrated board no longer shows. The displayed
   // keyword/H1 (and thus the canonical slug) are intentionally left untouched.
-  const tokens = tokenizeQuery(stripSearchQueryBoilerplate(sampleTerm));
+  // Canton names / "canton" markers / cross-border context words ("frontalieri")
+  // are not content: the canton filters the jobs, the rest never narrows them
+  // (normalizeClusterQuery). `legacyTokens` keep the pre-normalization matcher
+  // as a floor so a page that already had matches never gets fewer.
+  const query = normalizeClusterQuery(sampleTerm);
+  const tokens = query.tokens;
+  const legacyTokens = tokenizeQuery(stripSearchQueryBoilerplate(sampleTerm));
   profileRecord('bc:tokenize', __tTokenize);
-  if (tokens.length === 0) return null;
+  if (tokens.length === 0 && !query.removed) return null;
 
   // Two-phase matching:
   //   Phase 1 (best match — AND): jobs whose haystack contains EVERY token
@@ -2004,36 +2079,50 @@ export function buildClusterContext(
   // by +2 ("offerte","lavoro") → minOrScore=2 even when the post-strip content
   // is a single token, which would suppress the very city-drop recovery this
   // floor means to preserve (and re-diverge the static page from the SPA).
-  const keywordTokenCount = tokenizeQuery(stripSearchQueryBoilerplate(keyword)).length;
-  const minOrScore = keywordTokenCount >= 2 ? 2 : 1;
+  const runMatch = (
+    matchTokens: readonly string[],
+    keywordForRoles: string,
+    keywordTokenCount: number,
+    cantonCodes: ReadonlySet<string>,
+  ): RawJob[] => {
+    const maxJobs = options.maxJobs ?? MAX_JOBS_PER_PAGE;
+    const matchOptions = { stopWhenAtLeast: options.stopWhenAtLeast, cantonCodes };
+    if (matchTokens.length === 0) {
+      return index.matchingCantonJobs(cantonCodes, maxJobs, { stopWhenAtLeast: options.stopWhenAtLeast });
+    }
+    const minOrScore = keywordTokenCount >= 2 ? 2 : 1;
+    const roles = getJobSearchRoleTokens(keywordForRoles);
+    // Most harvested queries are ordinary occupation searches. Avoid running
+    // the qualifier classifier (which also scans the profession taxonomy) for
+    // those queries: `roles` is already the exact input the occupation matcher
+    // needs. Qualified queries still use the same profile predicate, while
+    // reusing these precomputed role tokens instead of tokenizing a second time.
+    const roleProfile = hasPotentialJobSearchQualifier(roles)
+      ? getJobSearchRoleProfile(keywordForRoles, roles)
+      : null;
+    return roleProfile?.qualifierTokens.length
+      ? index.matchingSearchIntentJobs(candidate.locale, matchTokens, maxJobs, minOrScore, roleProfile, matchOptions)
+      : index.matchingOccupationJobs(candidate.locale, matchTokens, maxJobs, minOrScore, roles, matchOptions);
+  };
 
   const __tMatch = profileStart();
-  const roles = getJobSearchRoleTokens(keyword);
-  // Most harvested queries are ordinary occupation searches. Avoid running
-  // the qualifier classifier (which also scans the profession taxonomy) for
-  // those queries: `roles` is already the exact input the occupation matcher
-  // needs. Qualified queries still use the same profile predicate, while
-  // reusing these precomputed role tokens instead of tokenizing a second time.
-  const roleProfile = hasPotentialJobSearchQualifier(roles)
-    ? getJobSearchRoleProfile(keyword, roles)
-    : null;
-  const matching = roleProfile?.qualifierTokens.length
-    ? index.matchingSearchIntentJobs(
-      candidate.locale,
-      tokens,
-      options.maxJobs ?? MAX_JOBS_PER_PAGE,
-      minOrScore,
-      roleProfile,
-      { stopWhenAtLeast: options.stopWhenAtLeast },
-    )
-    : index.matchingOccupationJobs(
-      candidate.locale,
-      tokens,
-      options.maxJobs ?? MAX_JOBS_PER_PAGE,
-      minOrScore,
-      roles,
-      { stopWhenAtLeast: options.stopWhenAtLeast },
+  // The OR-fill relevance floor (minOrScore inside runMatch) counts CONTENT
+  // tokens of the city-stripped keyword: boilerplate, canton names, markers and
+  // context words do not inflate it, so a single-content-token keyword keeps
+  // the city-drop recovery (minOrScore=1).
+  const normalizedKeyword = normalizeClusterQuery(keyword);
+  let matching = runMatch(tokens, query.removed ? query.contentText : keyword, normalizedKeyword.tokens.length, query.cantonCodes);
+  if (query.removed && matching.length < MIN_JOBS_FOR_INDEXABLE_CLUSTER) {
+    // Floor: the strict canton filter can hold fewer jobs than the legacy
+    // OR-fill that already earned a page its listing. Keep whichever is larger.
+    const legacy = runMatch(
+      legacyTokens,
+      keyword,
+      tokenizeQuery(stripSearchQueryBoilerplate(keyword)).length,
+      new Set<string>(),
     );
+    if (legacy.length > matching.length) matching = legacy;
+  }
   profileRecord('bc:match', __tMatch);
 
   if (matching.length < MIN_MATCHING_JOBS) return null;
@@ -5935,7 +6024,11 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
           // Seeding the raw term would build posting lists for the highest-
           // frequency boilerplate tokens ("lavoro"/"offerte"/"emploi"/"stellen")
           // — the most expensive cold builds — that the matcher never requests.
-          const tokens = tokenizeQuery(stripSearchQueryBoilerplate(sampleTerm));
+          // Both token sets: normalized (primary) and legacy (the floor).
+          const tokens = [
+            ...normalizeClusterQuery(sampleTerm).tokens,
+            ...tokenizeQuery(stripSearchQueryBoilerplate(sampleTerm)),
+          ];
           if (tokens.length === 0) continue;
           let set = tokensByLocale.get(cand.locale);
           if (!set) {
