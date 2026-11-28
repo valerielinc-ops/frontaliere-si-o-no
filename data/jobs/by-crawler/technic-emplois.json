@@ -1,7 +1,7 @@
 {
   "crawlerKey": "technic-emplois",
-  "assembledAt": "2026-11-27T21:34:05.886Z",
-  "runId": "46069421847",
+  "assembledAt": "2026-11-28T09:25:28.166Z",
+  "runId": "46129810600",
   "jobs": [
     {
       "id": "technic-emplois-fc576f94aed9",
@@ -38,7 +38,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/f6400f9f-bd2d-4834-bd35-53c7d8663f65/",
       "source": "Technic Emplois SA (Jobup employer search)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:33:20.918Z",
+      "crawledAt": "2026-11-28T09:24:37.891Z",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -86,7 +86,7 @@
       "postalCode": "1201",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T21:33:20.918Z",
+      "validThrough": "2027-02-17T09:24:37.891Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -124,7 +124,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/94117ad9-d70e-4924-950a-0df571e46b5c/",
       "source": "Technic Emplois SA (Jobup employer search)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:33:19.326Z",
+      "crawledAt": "2026-11-28T09:24:36.490Z",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -171,7 +171,7 @@
       "postalCode": "1003",
       "streetAddress": "Vaud",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T21:33:19.326Z",
+      "validThrough": "2027-02-17T09:24:36.490Z",
       "validThroughSource": "last-observed-window"
     }
   ]
