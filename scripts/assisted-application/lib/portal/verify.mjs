@@ -33,6 +33,7 @@ const SAFE_ERROR_MESSAGES = [
   [/net::ERR_[A-Z_]{3,40}/, match => match[0]],
   [/Timeout \d+ms exceeded/, () => 'timeout'],
   [/Target page, context or browser has been closed|has been closed/i, () => 'target_closed'],
+  [/Couldn't serialize object of type/i, () => 'firestore_serialize'],
   [/Execution context was destroyed/i, () => 'context_destroyed'],
   [/frame was detached|Frame was detached/i, () => 'frame_detached'],
   [/Navigation (?:failed|interrupted)|interrupted by another navigation/i, () => 'navigation_interrupted'],

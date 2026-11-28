@@ -38,8 +38,8 @@ export async function runOwnerTakeoverRelaunchCheck({ db, orderId, authorizedOrd
 
 async function main() {
   const { order, authorizedOrder } = parseRelaunchArgs();
-  const { getFirestoreDb } = await import('../lib/firestore-admin.mjs');
-  const db = await getFirestoreDb();
+  const { getFunctionsFirestoreDb } = await import('./lib/functions-admin.mjs');
+  const db = await getFunctionsFirestoreDb();
   const result = await runOwnerTakeoverRelaunchCheck({
     db,
     orderId: order,
