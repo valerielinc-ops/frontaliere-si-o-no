@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-27T15:40:08.784Z",
+  "updatedAt": "2026-11-28T14:36:29.217Z",
   "snapshots": {
     "teamtailor:mks-pamp-74eaacf6a62f:773e8366508c": {
       "provider": "teamtailor",
@@ -33951,6 +33951,130 @@
           }
         ]
       }
+    },
+    "recruitee:climeworks-e0a512b8b849:dda610e0d7cc": {
+      "provider": "recruitee",
+      "jobId": "climeworks-e0a512b8b849",
+      "jobSlug": "business-operations-manager-commercial-100-climeworks-zurich",
+      "jobUrl": "https://climeworks.recruitee.com/o/business-operations-manager-commercial-100",
+      "snapshot": {
+        "provider": "recruitee",
+        "sourceUrl": "https://climeworks.recruitee.com/o/business-operations-manager-commercial-100",
+        "jobUrl": "https://climeworks.recruitee.com/o/business-operations-manager-commercial-100",
+        "checkedAt": "2026-11-28T14:36:28.807Z",
+        "stage": "",
+        "fields": [
+          {
+            "label": "Full name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Email",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "CV",
+            "type": "file",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Cover letter",
+            "type": "file",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Phone",
+            "type": "tel",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "We’re very keen to learn more about your motivation. Why would you like to join Climeworks and what sparked your interest to apply for this position?",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Why do you think you are a good fit for this position?",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "As of when are you available / What is your notice period?",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "What would be your salary expectations for this position?",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "In which time zone is your place of residence located? (UTC+-?) In case we are looking for an interview date, this information will make our planning process easier.",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Degrees and Certificates",
+            "type": "file",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Further documents (cover letter, work certificates, etc.)",
+            "type": "file",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Citizens of EU and EFTA states are granted easier access to a Swiss work permit. Are you a) citizen of an EU / EFTA country or b) do you already have a Swiss work permit?",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "If you answered the previous question with \"b\" and already have a Swiss work permit, we kindly ask you to attach a copy.",
+            "type": "file",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Through which channel did you first learn about our job opportunity?",
+            "type": "select",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Company website (climeworks.com)",
+              "LinkedIn",
+              "Google",
+              "Indeed",
+              "Jobs.ch",
+              "Jobscout",
+              "Stepstone",
+              "Job fair or similar",
+              "Referral",
+              "Your network",
+              "Other"
+            ]
+          },
+          {
+            "label": "I confirm to have read the Privacy Notice.",
+            "type": "checkbox",
+            "required": true,
+            "kind": "consent"
+          }
+        ]
+      }
     }
   },
   "attempts": {
@@ -36323,6 +36447,14 @@
       "jobUrl": "https://ckw.teamtailor.com/jobs/8800543-sales-manager-in-flex-solar-w-m-d",
       "attemptedAt": "2026-11-27T15:40:07.570Z",
       "nextAttemptAt": "2026-12-27T15:40:08.782Z",
+      "attemptCount": 1,
+      "outcome": "captured"
+    },
+    "recruitee:climeworks-e0a512b8b849:dda610e0d7cc": {
+      "provider": "recruitee",
+      "jobUrl": "https://climeworks.recruitee.com/o/business-operations-manager-commercial-100",
+      "attemptedAt": "2026-11-28T14:36:28.807Z",
+      "nextAttemptAt": "2026-12-28T14:36:29.215Z",
       "attemptCount": 1,
       "outcome": "captured"
     }
