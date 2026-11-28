@@ -15325,6 +15325,8 @@ export async function submitViaPortal(ctx) {
       // The native form is bound before the durable send arm. The installed
       // capture listener compares it again synchronously before portal click
       // handlers can act.
+      // Kept in the encrypted evidence: the reconciliation binds a stored run to the round's click by it.
+      evidence.formBinding = formBinding;
       if (ctx.onBeforeSubmit) await ctx.onBeforeSubmit({ uploads: evidence.uploads, formBinding });
       if (ctx.portalReplay === true) {
         if (ctx.portalReplayMetrics && typeof ctx.portalReplayMetrics === 'object') {
