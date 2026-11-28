@@ -89,3 +89,27 @@ describe('months and portal words are neutral only in their own context', () => 
   });
 });
 
+describe('a group word next to the order\'s own name, as a title or heading', () => {
+  const migrosOrder = { company: 'Migros', title: 'Koch' };
+  const page = (...lines: string[]) => [...lines, 'Koch', 'https://x.test/job/1'].join('\n');
+
+  it.each(['Migros Group', 'Migros Gruppe', 'Migros Holding', 'Migros Konzern', 'Group Migros', 'Groupe Migros', 'Migros Group AG',
+    'Migros Group - My application', 'Migros Unternehmensgruppe', 'Acme Group Holding'])('binds the page headed «%s» for the order of Migros or Acme', (line) => {
+    const job = /Acme/.test(line) ? { company: 'Acme', title: 'Koch' } : migrosOrder;
+    expect(namesAnotherEmployer(line, job)).toBe(false);
+    const diagnostics: Record<string, any> = {};
+    expect(formPostingMatch(page(line), job, {
+      pageUrl: 'https://x.test/job/1', postingUrl: 'https://x.test/job/1', postingMatched: true, pageHeading: 'Koch', pageHeadings: ['Koch'], diagnostics,
+    })).toBe('match');
+    expect(diagnostics).toEqual({});
+  });
+
+  it('still reads a distinct name with the group word, in a title, a heading or a form, as another employer', () => {
+    for (const line of ['Migros Group Beta', 'Muster Group AG', 'Muster Gruppe', 'Beispiel Holding', 'Beispiel Konzern', 'Concierge | Muster Group', 'Group Muster']) {
+      expect(namesAnotherEmployer(line, migrosOrder)).toBe(true);
+    }
+    // The order's name only prefixes a distinct entity.
+    expect(namesAnotherEmployer('Migros Group Beta AG', migrosOrder)).toBe(true);
+  });
+});
+

@@ -5603,7 +5603,8 @@ function foreignEmployerEvidenceInSegment(segment, { neutral, job, agency, known
   const nameWord = (index) => {
     const word = norm[index];
     if (!word || word.includes(' ')) return Boolean(word) && capitalised(index);
-    return capitalised(index) && !neutral.has(word) && !filler(word) && !LEGAL_FORM_TOKENS.has(raw[index]) && !EMPLOYER_KIND_WORDS.has(word);
+    // A word of grouping is never itself the name next to another group word («Acme Group Holding»).
+    return capitalised(index) && !neutral.has(word) && !filler(word) && !LEGAL_FORM_TOKENS.has(raw[index]) && !EMPLOYER_KIND_WORDS.has(word) && !CORPORATE_GROUP_WORDS.has(word);
   };
   const companyWords = jobCompanyWords(job);
   // An entity is the order's own agency only when it carries the order's distinctive name («STA») and the rest of
@@ -5935,7 +5936,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
           // lower-case word of a sentence leave it the same group; a capitalised name there is someone else.
           const farAt = at + step;
           const far = words[farAt];
-          if (far === undefined || neutral.has(far) || filler(far) || NOT_A_NAME.has(far) || proseWord(farAt)) continue;
+          if (far === undefined || neutral.has(far) || filler(far) || NOT_A_NAME.has(far) || CORPORATE_GROUP_WORDS.has(far) || proseWord(farAt)) continue;
         }
         if (!neutral.has(words[at]) && !labels?.has(words[at])
           && !(EMPLOYER_KIND_CLASS.has(words[at]) && ourKinds.has(EMPLOYER_KIND_CLASS.get(words[at])))
