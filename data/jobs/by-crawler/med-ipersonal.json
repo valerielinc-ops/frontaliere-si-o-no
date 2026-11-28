@@ -1,7 +1,7 @@
 {
   "crawlerKey": "med-ipersonal",
-  "assembledAt": "2026-11-28T09:41:29.289Z",
-  "runId": "46130218074",
+  "assembledAt": "2026-11-28T21:46:40.238Z",
+  "runId": "46191345154",
   "jobs": [
     {
       "id": "med-ipersonal-eae14dd54039",
@@ -34,7 +34,7 @@
       "url": "https://www.ipersonal.ch/jobs/elektroinstallateur-100-fuer-die-region-beckenried-stellenangebot/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:18.746Z",
+      "crawledAt": "2026-11-28T21:46:25.161Z",
       "addressLocality": "Beckenried",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -96,7 +96,7 @@
       "postalCode": "6375",
       "streetAddress": "Beckenried",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:41:18.746Z",
+      "validThrough": "2026-12-28T21:46:25.161Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -130,7 +130,7 @@
       "url": "https://www.ipersonal.ch/jobs/elektroinstallateur-100-fuer-die-region-dallenwil-offene-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:18.444Z",
+      "crawledAt": "2026-11-28T21:46:24.860Z",
       "addressLocality": "Dallenwil",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -192,7 +192,7 @@
       "postalCode": "6383",
       "streetAddress": "Dallenwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:41:18.444Z",
+      "validThrough": "2026-12-28T21:46:24.860Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -226,7 +226,7 @@
       "url": "https://www.ipersonal.ch/jobs/elektroinstallateur-100-fuer-die-region-oberdorf-offene-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:18.143Z",
+      "crawledAt": "2026-11-28T21:46:24.560Z",
       "addressLocality": "Oberdorf",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -280,7 +280,7 @@
       },
       "streetAddress": "Oberdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:41:18.143Z",
+      "validThrough": "2026-12-28T21:46:24.560Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -314,7 +314,7 @@
       "url": "https://www.ipersonal.ch/jobs/elektroinstallateur-100-fuer-die-region-emmetten-temporaer-dauerstelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:17.842Z",
+      "crawledAt": "2026-11-28T21:46:24.258Z",
       "addressLocality": "Emmetten",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -376,7 +376,7 @@
       "postalCode": "6376",
       "streetAddress": "Emmetten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:41:17.842Z",
+      "validThrough": "2026-12-28T21:46:24.258Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -384,7 +384,7 @@
       "slug": "installatore-trice-elettrico-a-region-engelberg-ipersonal-ag-engelberg-und-umgebung",
       "slugByLocale": {
         "it": "installatore-trice-elettrico-a-region-engelberg-ipersonal-ag-engelberg-und-umgebung",
-        "en": "electrical-installer-engelberg-region-ipersonal-ag-engelberg-obwalden",
+        "en": "electrical-installer-engelberg-region-ipersonal-ag-engelberg-und-umgebung",
         "de": "elektroinstallateur-ipersonal-ag-engelberg-und-umgebung",
         "fr": "installation-electrique-region-d-engelberg-ipersonal-ag-engelberg-und-umgebung"
       },
@@ -410,7 +410,7 @@
       "url": "https://www.ipersonal.ch/jobs/elektroinstallateur-100-in-der-region-engelberg-stellenangebot/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:17.541Z",
+      "crawledAt": "2026-11-28T21:46:23.957Z",
       "addressLocality": "Engelberg",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -433,7 +433,7 @@
         "installation-electrique-region-d-engelberg-ipersonal-ag-engelberg-obwalden",
         "installatore-trice-elettrico-a-region-engelberg-ipersonal-ag-engelberg-obwalden",
         "elektroinstallateur-ipersonal-ag-engelberg",
-        "electrical-installer-engelberg-region-ipersonal-ag-engelberg-und-umgebung"
+        "electrical-installer-engelberg-region-ipersonal-ag-engelberg-obwalden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -444,7 +444,7 @@
         ],
         "en": [
           "elektroinstallateur-region-engelberg-ipersonal-ag-engelberg-obwalden",
-          "electrical-installer-engelberg-region-ipersonal-ag-engelberg-und-umgebung"
+          "electrical-installer-engelberg-region-ipersonal-ag-engelberg-obwalden"
         ],
         "de": [
           "elektroinstallateur-region-engelberg-ipersonal-ag-engelberg-obwalden",
@@ -472,7 +472,7 @@
       "postalCode": "6390",
       "streetAddress": "Engelberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:41:17.541Z",
+      "validThrough": "2026-12-28T21:46:23.957Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -506,7 +506,7 @@
       "url": "https://www.ipersonal.ch/jobs/elektroinstallateur-100-fuer-die-region-giswil-gesucht-jetzt-bewerben/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:17.241Z",
+      "crawledAt": "2026-11-28T21:46:23.656Z",
       "addressLocality": "Giswil",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -568,7 +568,7 @@
       "postalCode": "6074",
       "streetAddress": "Giswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:41:17.241Z",
+      "validThrough": "2026-12-28T21:46:23.656Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -602,7 +602,7 @@
       "url": "https://www.ipersonal.ch/jobs/elektroinstallateur-100-in-der-region-lungern-freie-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:16.940Z",
+      "crawledAt": "2026-11-28T21:46:23.356Z",
       "addressLocality": "Lungern",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -664,7 +664,7 @@
       "postalCode": "6078",
       "streetAddress": "Lungern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:41:16.940Z",
+      "validThrough": "2026-12-28T21:46:23.356Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -698,7 +698,7 @@
       "url": "https://www.ipersonal.ch/jobs/sanitaerinstallateur-100-fuer-die-region-salgesch-temporaer-dauerstelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:16.639Z",
+      "crawledAt": "2026-11-28T21:46:23.054Z",
       "addressLocality": "Salgesch",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -756,7 +756,7 @@
       "postalCode": "3970",
       "streetAddress": "Salgesch",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:41:16.639Z",
+      "validThrough": "2026-12-28T21:46:23.054Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -766,7 +766,7 @@
         "it": "installatore-trice-elettrico-a-region-st-gallen-ipersonal-ag-st-gallen-und-umgebung",
         "en": "electrical-installer-st-gallen-region-ipersonal-ag-st-gallen-und-umgebung",
         "de": "elektroinstallateur-ipersonal-ag-st-gallen-und-umgebung",
-        "fr": "installation-electrique-region-de-st-gallen-ipersonal-ag-st-gallen-st-gallen"
+        "fr": "installation-electrique-region-de-st-gallen-ipersonal-ag-st-gallen-und-umgebung"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -790,7 +790,7 @@
       "url": "https://www.ipersonal.ch/jobs/elektroinstallateur-100-in-der-region-st-gallen-temporaerbuero-ipersonal/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:16.338Z",
+      "crawledAt": "2026-11-28T21:46:22.753Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -813,7 +813,7 @@
         "electrical-installer-st-gallen-region-ipersonal-ag-st-gallen-st-gallen",
         "installatore-trice-elettrico-a-region-st-gallen-ipersonal-ag-st-gallen-st-gallen",
         "elektroinstallateur-ipersonal-ag-st-gallen",
-        "installation-electrique-region-de-st-gallen-ipersonal-ag-st-gallen-und-umgebung"
+        "installation-electrique-region-de-st-gallen-ipersonal-ag-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -832,7 +832,7 @@
         ],
         "fr": [
           "elektroinstallateur-region-st-gallen-ipersonal-ag-st-gallen-st-gallen",
-          "installation-electrique-region-de-st-gallen-ipersonal-ag-st-gallen-und-umgebung"
+          "installation-electrique-region-de-st-gallen-ipersonal-ag-st-gallen-st-gallen"
         ]
       },
       "firstSeenAt": "2026-09-28T03:44:38.519Z",
@@ -852,7 +852,7 @@
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:41:16.338Z",
+      "validThrough": "2026-12-28T21:46:22.753Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -886,7 +886,7 @@
       "url": "https://www.ipersonal.ch/jobs/immobilienbewerter-100-fuer-die-region-dietikon-offene-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:16.036Z",
+      "crawledAt": "2026-11-28T21:46:22.451Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -948,7 +948,7 @@
       "postalCode": "8953",
       "streetAddress": "Dietikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:41:16.036Z",
+      "validThrough": "2026-12-28T21:46:22.451Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -982,7 +982,7 @@
       "url": "https://www.ipersonal.ch/jobs/elektroinstallateur-service-100-in-der-region-buch-sh-direkte-festanstellung/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:15.735Z",
+      "crawledAt": "2026-11-28T21:46:22.150Z",
       "addressLocality": "Buch SH",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1036,7 +1036,7 @@
       },
       "streetAddress": "Buch SH",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:41:15.735Z",
+      "validThrough": "2026-12-29T21:46:22.150Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1070,7 +1070,7 @@
       "url": "https://www.ipersonal.ch/jobs/elektroinstallateur-service-100-fuer-die-region-hemmental-gesucht/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:15.434Z",
+      "crawledAt": "2026-11-28T21:46:21.848Z",
       "addressLocality": "Hemmental",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1124,7 +1124,7 @@
       },
       "streetAddress": "Hemmental",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:41:15.434Z",
+      "validThrough": "2026-12-29T21:46:21.848Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1158,7 +1158,7 @@
       "url": "https://www.ipersonal.ch/jobs/elektroinstallateur-service-100-fuer-die-region-gaechlingen-direkte-festanstellung/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:15.134Z",
+      "crawledAt": "2026-11-28T21:46:21.547Z",
       "addressLocality": "Gächlingen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1212,7 +1212,7 @@
       },
       "streetAddress": "Gächlingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:41:15.134Z",
+      "validThrough": "2026-12-29T21:46:21.547Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1246,7 +1246,7 @@
       "url": "https://www.ipersonal.ch/jobs/elektroinstallateur-service-100-in-der-region-buchberg-gesucht-jetzt-bewerben/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:14.832Z",
+      "crawledAt": "2026-11-28T21:46:21.246Z",
       "addressLocality": "Buchberg",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1300,7 +1300,7 @@
       },
       "streetAddress": "Buchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:41:14.832Z",
+      "validThrough": "2026-12-29T21:46:21.246Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1334,7 +1334,7 @@
       "url": "https://www.ipersonal.ch/jobs/elektroinstallateur-service-100-in-der-region-lohn-sh-direkte-festanstellung/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:14.531Z",
+      "crawledAt": "2026-11-28T21:46:20.945Z",
       "addressLocality": "Lohn SH",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1388,7 +1388,7 @@
       },
       "streetAddress": "Lohn SH",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:41:14.531Z",
+      "validThrough": "2026-12-29T21:46:20.945Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1422,7 +1422,7 @@
       "url": "https://www.ipersonal.ch/jobs/schreiner-100-in-der-region-waldstatt-offene-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:14.230Z",
+      "crawledAt": "2026-11-28T21:46:20.644Z",
       "addressLocality": "Waldstatt",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -1484,7 +1484,7 @@
       "postalCode": "9104",
       "streetAddress": "Waldstatt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:14.230Z",
+      "validThrough": "2027-01-09T21:46:20.644Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1518,7 +1518,7 @@
       "url": "https://www.ipersonal.ch/jobs/schreiner-100-fuer-die-region-schoenengrund-gesucht/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:13.929Z",
+      "crawledAt": "2026-11-28T21:46:20.342Z",
       "addressLocality": "Schönengrund",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -1576,7 +1576,7 @@
       "postalCode": "9105",
       "streetAddress": "Schönengrund",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:13.929Z",
+      "validThrough": "2027-01-09T21:46:20.342Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1610,7 +1610,7 @@
       "url": "https://www.ipersonal.ch/jobs/schreiner-100-fuer-die-region-lutzenberg-direkte-festanstellung/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:13.629Z",
+      "crawledAt": "2026-11-28T21:46:20.041Z",
       "addressLocality": "Lutzenberg",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -1668,7 +1668,7 @@
       "postalCode": "9426",
       "streetAddress": "Lutzenberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:13.629Z",
+      "validThrough": "2027-01-09T21:46:20.041Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1702,7 +1702,7 @@
       "url": "https://www.ipersonal.ch/jobs/schreiner-100-fuer-die-region-reute-ar-offene-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:13.328Z",
+      "crawledAt": "2026-11-28T21:46:19.740Z",
       "addressLocality": "Reute (AR)",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -1764,7 +1764,7 @@
       "postalCode": "9411",
       "streetAddress": "Reute (AR)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:13.328Z",
+      "validThrough": "2027-01-09T21:46:19.740Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1798,7 +1798,7 @@
       "url": "https://www.ipersonal.ch/jobs/schreiner-100-in-der-region-buehler-gesucht/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:13.027Z",
+      "crawledAt": "2026-11-28T21:46:19.439Z",
       "addressLocality": "Bühler",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -1860,7 +1860,7 @@
       "postalCode": "9055",
       "streetAddress": "Bühler",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:13.027Z",
+      "validThrough": "2027-01-09T21:46:19.439Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1894,7 +1894,7 @@
       "url": "https://www.ipersonal.ch/jobs/schreiner-100-in-der-region-appenzell-stellenangebot/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:12.726Z",
+      "crawledAt": "2026-11-28T21:46:19.138Z",
       "addressLocality": "Appenzell",
       "addressRegion": "AI",
       "addressCountry": "CH",
@@ -1956,7 +1956,7 @@
       "postalCode": "9050",
       "streetAddress": "Appenzell",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:12.726Z",
+      "validThrough": "2027-01-09T21:46:19.138Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1990,7 +1990,7 @@
       "url": "https://www.ipersonal.ch/jobs/schreiner-100-fuer-die-region-gonten-gesucht/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:12.425Z",
+      "crawledAt": "2026-11-28T21:46:18.837Z",
       "addressLocality": "Gonten",
       "addressRegion": "AI",
       "addressCountry": "CH",
@@ -2052,7 +2052,7 @@
       "postalCode": "9108",
       "streetAddress": "Gonten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:12.425Z",
+      "validThrough": "2027-01-09T21:46:18.837Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2086,7 +2086,7 @@
       "url": "https://www.ipersonal.ch/jobs/schreiner-100-in-der-region-schwende-ruete-gesucht-jetzt-bewerben/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:12.124Z",
+      "crawledAt": "2026-11-28T21:46:18.535Z",
       "addressLocality": "Schwende-Rüte",
       "addressRegion": "AI",
       "addressCountry": "CH",
@@ -2144,7 +2144,7 @@
       "postalCode": "9057",
       "streetAddress": "Schwende-Rüte",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:12.124Z",
+      "validThrough": "2027-01-09T21:46:18.535Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2178,7 +2178,7 @@
       "url": "https://www.ipersonal.ch/jobs/schreiner-100-in-der-region-oberegg-freie-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:11.823Z",
+      "crawledAt": "2026-11-28T21:46:18.235Z",
       "addressLocality": "Oberegg",
       "addressRegion": "AI",
       "addressCountry": "CH",
@@ -2236,7 +2236,7 @@
       "postalCode": "9413",
       "streetAddress": "Oberegg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:11.823Z",
+      "validThrough": "2027-01-09T21:46:18.235Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2270,7 +2270,7 @@
       "url": "https://www.ipersonal.ch/jobs/schreiner-100-fuer-die-region-haslen-gl-temporaerbuero-ipersonal/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:11.522Z",
+      "crawledAt": "2026-11-28T21:46:17.933Z",
       "addressLocality": "Glarus",
       "addressRegion": "GL",
       "addressCountry": "CH",
@@ -2324,7 +2324,7 @@
       "postalCode": "8750",
       "streetAddress": "Glarus",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:11.522Z",
+      "validThrough": "2027-01-09T21:46:17.933Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2358,7 +2358,7 @@
       "url": "https://www.ipersonal.ch/jobs/schreiner-100-fuer-die-region-obstalden-temporaerbuero-ipersonal/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:11.220Z",
+      "crawledAt": "2026-11-28T21:46:17.631Z",
       "addressLocality": "Obstalden",
       "addressRegion": "GL",
       "addressCountry": "CH",
@@ -2412,7 +2412,7 @@
       },
       "streetAddress": "Obstalden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:11.220Z",
+      "validThrough": "2027-01-09T21:46:17.631Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2446,7 +2446,7 @@
       "url": "https://www.ipersonal.ch/jobs/immobilienbewerter-100-fuer-die-region-thalwil-stellenangebot/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:10.919Z",
+      "crawledAt": "2026-11-28T21:46:17.330Z",
       "addressLocality": "Thalwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2508,7 +2508,7 @@
       "postalCode": "8800",
       "streetAddress": "Thalwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:41:10.919Z",
+      "validThrough": "2026-12-29T21:46:17.330Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2542,7 +2542,7 @@
       "url": "https://www.ipersonal.ch/jobs/polymechaniker-cam-programmieren-100-in-der-region-naefels-freie-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:10.619Z",
+      "crawledAt": "2026-11-28T21:46:17.029Z",
       "addressLocality": "Näfels",
       "addressRegion": "GL",
       "addressCountry": "CH",
@@ -2594,7 +2594,7 @@
       },
       "streetAddress": "Näfels",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:41:10.619Z",
+      "validThrough": "2026-12-30T21:46:17.029Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2628,7 +2628,7 @@
       "url": "https://www.ipersonal.ch/jobs/carrosserielackierer-100-in-der-region-glarus-gesucht/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:10.318Z",
+      "crawledAt": "2026-11-28T21:46:16.728Z",
       "addressLocality": "Glarus",
       "addressRegion": "GL",
       "addressCountry": "CH",
@@ -2690,7 +2690,7 @@
       "postalCode": "8750",
       "streetAddress": "Glarus",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:41:10.318Z",
+      "validThrough": "2026-12-30T21:46:16.728Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2724,7 +2724,7 @@
       "url": "https://www.ipersonal.ch/jobs/polymechaniker-montage-100-fuer-die-region-hoelstein-gesucht/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:10.017Z",
+      "crawledAt": "2026-11-28T21:46:16.427Z",
       "addressLocality": "Hölstein",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2776,7 +2776,7 @@
       },
       "streetAddress": "Hölstein",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:41:10.017Z",
+      "validThrough": "2026-12-30T21:46:16.427Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2810,7 +2810,7 @@
       "url": "https://www.ipersonal.ch/jobs/schreiner-100-fuer-die-region-sufers-temporaerbuero-ipersonal/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:09.716Z",
+      "crawledAt": "2026-11-28T21:46:16.125Z",
       "addressLocality": "Sufers",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2872,7 +2872,7 @@
       "postalCode": "7434",
       "streetAddress": "Sufers",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:09.716Z",
+      "validThrough": "2027-01-09T21:46:16.125Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2906,7 +2906,7 @@
       "url": "https://www.ipersonal.ch/jobs/schreiner-100-in-der-region-brusio-gesucht-jetzt-bewerben/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:09.415Z",
+      "crawledAt": "2026-11-28T21:46:15.824Z",
       "addressLocality": "Brusio",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2968,7 +2968,7 @@
       "postalCode": "7743",
       "streetAddress": "Brusio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:09.415Z",
+      "validThrough": "2027-01-09T21:46:15.824Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3002,7 +3002,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-thalwil-stellenangebot/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:09.114Z",
+      "crawledAt": "2026-11-28T21:46:15.522Z",
       "addressLocality": "Thalwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3062,7 +3062,7 @@
       "postalCode": "8800",
       "streetAddress": "Thalwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:09.114Z",
+      "validThrough": "2027-01-09T21:46:15.522Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3096,7 +3096,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-effretikon-gesucht-jetzt-bewerben/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:08.813Z",
+      "crawledAt": "2026-11-28T21:46:15.220Z",
       "addressLocality": "Effretikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3148,7 +3148,7 @@
       },
       "streetAddress": "Effretikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:08.813Z",
+      "validThrough": "2027-01-09T21:46:15.220Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3182,7 +3182,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-wallisellen-temporaerbuero-ipersonal/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:08.512Z",
+      "crawledAt": "2026-11-28T21:46:14.920Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3256,7 +3256,7 @@
       },
       "streetAddress": "Bahnhofplatz 1c",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-09T09:41:08.512Z",
+      "validThrough": "2027-01-09T21:46:14.920Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3290,7 +3290,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-steffisburg-freie-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:08.210Z",
+      "crawledAt": "2026-11-28T21:46:14.618Z",
       "addressLocality": "Steffisburg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3350,7 +3350,7 @@
       "postalCode": "3612",
       "streetAddress": "Steffisburg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:08.210Z",
+      "validThrough": "2027-01-09T21:46:14.618Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3384,7 +3384,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-langenthal-gesucht/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:07.909Z",
+      "crawledAt": "2026-11-28T21:46:14.316Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3444,7 +3444,7 @@
       "postalCode": "4900",
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:07.909Z",
+      "validThrough": "2027-01-09T21:46:14.316Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3478,7 +3478,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-lyss-gesucht-jetzt-bewerben/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:07.608Z",
+      "crawledAt": "2026-11-28T21:46:14.015Z",
       "addressLocality": "Lyss",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3538,7 +3538,7 @@
       "postalCode": "3250",
       "streetAddress": "Lyss",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:07.608Z",
+      "validThrough": "2027-01-09T21:46:14.015Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3572,7 +3572,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-spiez-stellenangebot/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:07.307Z",
+      "crawledAt": "2026-11-28T21:46:13.713Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3632,7 +3632,7 @@
       "postalCode": "3700",
       "streetAddress": "Spiez",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:07.307Z",
+      "validThrough": "2027-01-09T21:46:13.713Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3666,7 +3666,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-muensingen-direkte-festanstellung/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:07.006Z",
+      "crawledAt": "2026-11-28T21:46:13.412Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3726,7 +3726,7 @@
       "postalCode": "3110",
       "streetAddress": "Münsingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:07.006Z",
+      "validThrough": "2027-01-09T21:46:13.412Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3760,7 +3760,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-muri-bei-bern-offene-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:06.704Z",
+      "crawledAt": "2026-11-28T21:46:13.110Z",
       "addressLocality": "Muri bei Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3820,7 +3820,7 @@
       "postalCode": "3074",
       "streetAddress": "Muri bei Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:06.704Z",
+      "validThrough": "2027-01-09T21:46:13.110Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3854,7 +3854,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-luzern-gesucht-jetzt-bewerben/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:06.403Z",
+      "crawledAt": "2026-11-28T21:46:12.809Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3914,7 +3914,7 @@
       "postalCode": "6003",
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:06.403Z",
+      "validThrough": "2027-01-09T21:46:12.809Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3948,7 +3948,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-emmen-freie-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:06.103Z",
+      "crawledAt": "2026-11-28T21:46:12.507Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4008,7 +4008,7 @@
       "postalCode": "6032",
       "streetAddress": "Emmen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:06.103Z",
+      "validThrough": "2027-01-09T21:46:12.507Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4042,7 +4042,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-kriens-freie-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:05.802Z",
+      "crawledAt": "2026-11-28T21:46:12.205Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4102,7 +4102,7 @@
       "postalCode": "6010",
       "streetAddress": "Kriens",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:05.802Z",
+      "validThrough": "2027-01-09T21:46:12.205Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4136,7 +4136,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-horw-gesucht-jetzt-bewerben/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:05.501Z",
+      "crawledAt": "2026-11-28T21:46:11.904Z",
       "addressLocality": "Horw",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4196,7 +4196,7 @@
       "postalCode": "6048",
       "streetAddress": "Horw",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:05.501Z",
+      "validThrough": "2027-01-09T21:46:11.904Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4230,7 +4230,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-ebikon-direkte-festanstellung/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:05.200Z",
+      "crawledAt": "2026-11-28T21:46:11.602Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4290,7 +4290,7 @@
       "postalCode": "6030",
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:05.200Z",
+      "validThrough": "2027-01-09T21:46:11.602Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4324,7 +4324,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-sursee-temporaerbuero-ipersonal/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:04.899Z",
+      "crawledAt": "2026-11-28T21:46:11.300Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4384,7 +4384,7 @@
       "postalCode": "6210",
       "streetAddress": "Sursee",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:04.899Z",
+      "validThrough": "2027-01-09T21:46:11.300Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4418,7 +4418,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-altdorf-gesucht/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:04.598Z",
+      "crawledAt": "2026-11-28T21:46:10.999Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -4478,7 +4478,7 @@
       "postalCode": "6460",
       "streetAddress": "Altdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:04.598Z",
+      "validThrough": "2027-01-09T21:46:10.999Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4512,7 +4512,7 @@
       "url": "https://www.ipersonal.ch/jobs/allrounder-buero-100-in-der-region-dietlikon-temporaerbuero-ipersonal/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:04.297Z",
+      "crawledAt": "2026-11-28T21:46:10.697Z",
       "addressLocality": "Dietlikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4570,7 +4570,7 @@
       "postalCode": "8305",
       "streetAddress": "Dietlikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T09:41:04.297Z",
+      "validThrough": "2027-01-03T21:46:10.697Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4604,7 +4604,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-freienbach-direkte-festanstellung/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:03.996Z",
+      "crawledAt": "2026-11-28T21:46:10.396Z",
       "addressLocality": "Freienbach",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -4664,7 +4664,7 @@
       "postalCode": "8807",
       "streetAddress": "Freienbach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:03.996Z",
+      "validThrough": "2027-01-09T21:46:10.396Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4698,7 +4698,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-einsiedeln-gesucht/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:03.695Z",
+      "crawledAt": "2026-11-28T21:46:10.094Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -4758,7 +4758,7 @@
       "postalCode": "8840",
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:03.695Z",
+      "validThrough": "2027-01-09T21:46:10.094Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4792,7 +4792,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-schwyz-temporaerbuero-ipersonal/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:03.394Z",
+      "crawledAt": "2026-11-28T21:46:09.792Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -4852,7 +4852,7 @@
       "postalCode": "6430",
       "streetAddress": "Schwyz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:03.394Z",
+      "validThrough": "2027-01-09T21:46:09.792Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4886,7 +4886,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-kuessnacht-offene-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:03.092Z",
+      "crawledAt": "2026-11-28T21:46:09.491Z",
       "addressLocality": "Küssnacht",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -4938,7 +4938,7 @@
       "postalCode": "6403",
       "streetAddress": "Küssnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:03.092Z",
+      "validThrough": "2027-01-09T21:46:09.491Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4972,7 +4972,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-arth-direkte-festanstellung/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:02.791Z",
+      "crawledAt": "2026-11-28T21:46:09.189Z",
       "addressLocality": "Arth",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -5032,7 +5032,7 @@
       "postalCode": "6415",
       "streetAddress": "Arth",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:02.791Z",
+      "validThrough": "2027-01-09T21:46:09.189Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5066,7 +5066,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-sarnen-jobangebot/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:02.490Z",
+      "crawledAt": "2026-11-28T21:46:08.888Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -5126,7 +5126,7 @@
       "postalCode": "6060",
       "streetAddress": "Sarnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:02.490Z",
+      "validThrough": "2027-01-09T21:46:08.888Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5160,7 +5160,7 @@
       "url": "https://www.ipersonal.ch/jobs/schreiner-100-fuer-die-region-bettingen-temporaerbuero-ipersonal/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:02.189Z",
+      "crawledAt": "2026-11-28T21:46:08.587Z",
       "addressLocality": "Bettingen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5222,7 +5222,7 @@
       "postalCode": "4126",
       "streetAddress": "Bettingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:02.189Z",
+      "validThrough": "2027-01-09T21:46:08.587Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5256,7 +5256,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-stans-offene-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:01.888Z",
+      "crawledAt": "2026-11-28T21:46:08.285Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -5316,7 +5316,7 @@
       "postalCode": "6370",
       "streetAddress": "Stans",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:01.888Z",
+      "validThrough": "2027-01-09T21:46:08.285Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5350,7 +5350,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-glarus-gesucht/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:01.587Z",
+      "crawledAt": "2026-11-28T21:46:07.983Z",
       "addressLocality": "Glarus",
       "addressRegion": "GL",
       "addressCountry": "CH",
@@ -5410,7 +5410,7 @@
       "postalCode": "8750",
       "streetAddress": "Glarus",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:01.587Z",
+      "validThrough": "2027-01-09T21:46:07.983Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5444,7 +5444,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-naefels-temporaerbuero-ipersonal/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:01.285Z",
+      "crawledAt": "2026-11-28T21:46:07.683Z",
       "addressLocality": "Näfels",
       "addressRegion": "GL",
       "addressCountry": "CH",
@@ -5496,7 +5496,7 @@
       },
       "streetAddress": "Näfels",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:01.285Z",
+      "validThrough": "2027-01-09T21:46:07.683Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5530,7 +5530,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-baar-direkte-festanstellung/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:00.984Z",
+      "crawledAt": "2026-11-28T21:46:07.379Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -5590,7 +5590,7 @@
       "postalCode": "6340",
       "streetAddress": "Baar",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:00.984Z",
+      "validThrough": "2027-01-09T21:46:07.379Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5624,7 +5624,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-rotkreuz-stellenangebot/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:00.684Z",
+      "crawledAt": "2026-11-28T21:46:07.078Z",
       "addressLocality": "Rotkreuz",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -5676,7 +5676,7 @@
       },
       "streetAddress": "Rotkreuz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:00.684Z",
+      "validThrough": "2027-01-09T21:46:07.078Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5710,7 +5710,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-duedingen-offene-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:00.383Z",
+      "crawledAt": "2026-11-28T21:46:06.777Z",
       "addressLocality": "Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -5768,7 +5768,7 @@
       "postalCode": "3186",
       "streetAddress": "Düdingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:00.383Z",
+      "validThrough": "2027-01-09T21:46:06.777Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5802,7 +5802,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-olten-offene-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:00.082Z",
+      "crawledAt": "2026-11-28T21:46:06.477Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -5862,7 +5862,7 @@
       "postalCode": "4600",
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:41:00.082Z",
+      "validThrough": "2027-01-09T21:46:06.477Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5896,7 +5896,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-grenchen-jobangebot/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:59.781Z",
+      "crawledAt": "2026-11-28T21:46:06.175Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -5956,7 +5956,7 @@
       "postalCode": "2540",
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:59.781Z",
+      "validThrough": "2027-01-09T21:46:06.175Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5990,7 +5990,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-solothurn-temporaerbuero-ipersonal/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:59.480Z",
+      "crawledAt": "2026-11-28T21:46:05.874Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -6050,7 +6050,7 @@
       "postalCode": "4500",
       "streetAddress": "Solothurn",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:59.480Z",
+      "validThrough": "2027-01-09T21:46:05.874Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6084,7 +6084,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-riehen-offene-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:59.179Z",
+      "crawledAt": "2026-11-28T21:46:05.573Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6144,7 +6144,7 @@
       "postalCode": "4125",
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:59.179Z",
+      "validThrough": "2027-01-09T21:46:05.573Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6178,7 +6178,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-allschwil-freie-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:58.878Z",
+      "crawledAt": "2026-11-28T21:46:05.271Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -6236,7 +6236,7 @@
       "postalCode": "4123",
       "streetAddress": "Allschwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:58.878Z",
+      "validThrough": "2027-01-09T21:46:05.271Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6270,7 +6270,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-muttenz-direkte-festanstellung/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:58.577Z",
+      "crawledAt": "2026-11-28T21:46:04.970Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -6330,7 +6330,7 @@
       "postalCode": "4132",
       "streetAddress": "Muttenz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:58.577Z",
+      "validThrough": "2027-01-09T21:46:04.970Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6364,7 +6364,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-pratteln-gesucht/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:58.275Z",
+      "crawledAt": "2026-11-28T21:46:04.667Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -6424,7 +6424,7 @@
       "postalCode": "4133",
       "streetAddress": "Pratteln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:58.275Z",
+      "validThrough": "2027-01-09T21:46:04.667Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6458,7 +6458,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-binningen-offene-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:57.974Z",
+      "crawledAt": "2026-11-28T21:46:04.364Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -6518,7 +6518,7 @@
       "postalCode": "4102",
       "streetAddress": "Binningen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:57.974Z",
+      "validThrough": "2027-01-09T21:46:04.364Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6552,7 +6552,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-liestal-freie-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:57.673Z",
+      "crawledAt": "2026-11-28T21:46:04.062Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -6612,7 +6612,7 @@
       "postalCode": "4410",
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:57.673Z",
+      "validThrough": "2027-01-09T21:46:04.062Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6646,7 +6646,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-schaffhausen-gesucht/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:57.370Z",
+      "crawledAt": "2026-11-28T21:46:03.761Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -6706,7 +6706,7 @@
       "postalCode": "8200",
       "streetAddress": "Schaffhausen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:57.370Z",
+      "validThrough": "2027-01-09T21:46:03.761Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6740,7 +6740,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-herisau-jobangebot/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:57.069Z",
+      "crawledAt": "2026-11-28T21:46:03.459Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -6800,7 +6800,7 @@
       "postalCode": "9100",
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:57.069Z",
+      "validThrough": "2027-01-09T21:46:03.459Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6834,7 +6834,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-appenzell-gesucht-jetzt-bewerben/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:56.767Z",
+      "crawledAt": "2026-11-28T21:46:03.158Z",
       "addressLocality": "Appenzell",
       "addressRegion": "AI",
       "addressCountry": "CH",
@@ -6894,7 +6894,7 @@
       "postalCode": "9050",
       "streetAddress": "Appenzell",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:56.767Z",
+      "validThrough": "2027-01-09T21:46:03.158Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6928,7 +6928,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-buchs-offene-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:56.467Z",
+      "crawledAt": "2026-11-28T21:46:02.855Z",
       "addressLocality": "Buchs",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -6988,7 +6988,7 @@
       "postalCode": "9470",
       "streetAddress": "Buchs",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:56.467Z",
+      "validThrough": "2027-01-09T21:46:02.855Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7022,7 +7022,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-uzwil-gesucht/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:56.166Z",
+      "crawledAt": "2026-11-28T21:46:02.554Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -7082,7 +7082,7 @@
       "postalCode": "9240",
       "streetAddress": "Uzwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:56.166Z",
+      "validThrough": "2027-01-09T21:46:02.554Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7116,7 +7116,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-altstaetten-direkte-festanstellung/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:55.864Z",
+      "crawledAt": "2026-11-28T21:46:02.252Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -7174,7 +7174,7 @@
       "postalCode": "9450",
       "streetAddress": "Altstätten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:55.864Z",
+      "validThrough": "2027-01-09T21:46:02.252Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7183,7 +7183,7 @@
       "slugByLocale": {
         "it": "specialista-di-meccatronica-automobilistica-regione-di-flawil-ipersonal-ag-flawil-und-umgebung",
         "en": "automotive-mechatronics-specialist-flawil-region-ipersonal-ag-flawil-und-umgebung",
-        "de": "automobil-mechatroniker-region-flawil-ipersonal-ag-flawil-st-gallen",
+        "de": "automobil-mechatroniker-ipersonal-ag-flawil-und-umgebung",
         "fr": "specialiste-en-mecatronique-automobile-region-de-flawil-ipersonal-ag-flawil-und-umgebung"
       },
       "company": "iPersonal AG",
@@ -7208,7 +7208,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-flawil-jobangebot/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:55.563Z",
+      "crawledAt": "2026-11-28T21:46:01.948Z",
       "addressLocality": "Flawil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -7224,15 +7224,10 @@
       "postedDate": "2026-10-11",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-flawil-jobangebot/",
-      "previousSlugs": [
-        "automobil-mechatroniker-region-flawil-ipersonal-ag-flawil-st-gallen",
-        "automobil-mechatroniker-ipersonal-ag-flawil-und-umgebung",
-        "automotive-mechatronics-specialist-flawil-region-ipersonal-ag-flawil-st-gallen",
-        "specialiste-en-mecatronique-automobile-region-de-flawil-ipersonal-ag-flawil-st-gallen",
-        "specialista-di-meccatronica-automobilistica-regione-di-flawil-ipersonal-ag-flawil-st-gallen",
-        "specialista-di-meccatronica-automobilistica-regione-di-flawil-ipersonal-ag-flawil"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "automobil-mechatroniker-region-flawil-ipersonal-ag-flawil-st-gallen"
+        ],
         "it": [
           "automobil-mechatroniker-region-flawil-ipersonal-ag-flawil-st-gallen",
           "automobil-mechatroniker-ipersonal-ag-flawil-und-umgebung",
@@ -7243,14 +7238,19 @@
           "automobil-mechatroniker-region-flawil-ipersonal-ag-flawil-st-gallen",
           "automotive-mechatronics-specialist-flawil-region-ipersonal-ag-flawil-st-gallen"
         ],
-        "de": [
-          "automobil-mechatroniker-ipersonal-ag-flawil-und-umgebung"
-        ],
         "fr": [
           "automobil-mechatroniker-region-flawil-ipersonal-ag-flawil-st-gallen",
           "specialiste-en-mecatronique-automobile-region-de-flawil-ipersonal-ag-flawil-st-gallen"
         ]
       },
+      "previousSlugs": [
+        "automobil-mechatroniker-region-flawil-ipersonal-ag-flawil-st-gallen",
+        "automobil-mechatroniker-ipersonal-ag-flawil-und-umgebung",
+        "automotive-mechatronics-specialist-flawil-region-ipersonal-ag-flawil-st-gallen",
+        "specialiste-en-mecatronique-automobile-region-de-flawil-ipersonal-ag-flawil-st-gallen",
+        "specialista-di-meccatronica-automobilistica-regione-di-flawil-ipersonal-ag-flawil-st-gallen",
+        "specialista-di-meccatronica-automobilistica-regione-di-flawil-ipersonal-ag-flawil"
+      ],
       "firstSeenAt": "2026-11-01T21:37:31.729Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -7268,7 +7268,7 @@
       "postalCode": "9230",
       "streetAddress": "Flawil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:55.563Z",
+      "validThrough": "2027-01-09T21:46:01.948Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7302,7 +7302,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-landquart-direkte-festanstellung/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:55.262Z",
+      "crawledAt": "2026-11-28T21:46:01.646Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -7362,7 +7362,7 @@
       "postalCode": "7302",
       "streetAddress": "Landquart",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:55.262Z",
+      "validThrough": "2027-01-09T21:46:01.646Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7370,7 +7370,7 @@
       "slug": "specialista-di-meccatronica-automobilistica-regione-di-domat-ems-ipersonal-ag-domat-ems-und-umgebung",
       "slugByLocale": {
         "it": "specialista-di-meccatronica-automobilistica-regione-di-domat-ems-ipersonal-ag-domat-ems-und-umgebung",
-        "en": "automotive-mechatronics-specialist-domat-ems-region-ipersonal-ag-domat-ems-graubunden",
+        "en": "automotive-mechatronics-specialist-domat-ems-region-ipersonal-ag-domat-ems-und-umgebung",
         "de": "automobil-mechatroniker-ipersonal-ag-domat-ems-und-umgebung",
         "fr": "specialiste-mecatronique-automobile-region-domat-ems-ipersonal-ag-domat-ems-und-umgebung"
       },
@@ -7396,7 +7396,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-domat-ems-stellenangebot/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:54.961Z",
+      "crawledAt": "2026-11-28T21:46:01.342Z",
       "addressLocality": "Domat",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -7417,7 +7417,7 @@
         "automobil-mechatroniker-ipersonal-ag-domat-ems-und-umgebung",
         "specialiste-mecatronique-automobile-region-domat-ems-ipersonal-ag-domat-ems-graubunden",
         "specialista-di-meccatronica-automobilistica-regione-di-domat-ems-ipersonal-ag-domat-ems-graubunden",
-        "automotive-mechatronics-specialist-domat-ems-region-ipersonal-ag-domat-ems-und-umgebung"
+        "automotive-mechatronics-specialist-domat-ems-region-ipersonal-ag-domat-ems-graubunden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7427,7 +7427,7 @@
         ],
         "en": [
           "automobil-mechatroniker-region-domat-ems-ipersonal-ag-domat-ems-graubunden",
-          "automotive-mechatronics-specialist-domat-ems-region-ipersonal-ag-domat-ems-und-umgebung"
+          "automotive-mechatronics-specialist-domat-ems-region-ipersonal-ag-domat-ems-graubunden"
         ],
         "de": [
           "automobil-mechatroniker-region-domat-ems-ipersonal-ag-domat-ems-graubunden"
@@ -7454,7 +7454,7 @@
       "postalCode": "7000",
       "streetAddress": "Domat",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:54.961Z",
+      "validThrough": "2027-01-09T21:46:01.342Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7488,7 +7488,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-rheinfelden-jobangebot/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:54.660Z",
+      "crawledAt": "2026-11-28T21:46:01.040Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7548,7 +7548,7 @@
       "postalCode": "4310",
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:54.660Z",
+      "validThrough": "2027-01-09T21:46:01.040Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7582,7 +7582,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-frauenfeld-freie-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:54.145Z",
+      "crawledAt": "2026-11-28T21:46:00.429Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -7642,7 +7642,7 @@
       "postalCode": "8500",
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:54.145Z",
+      "validThrough": "2027-01-09T21:46:00.429Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7676,7 +7676,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-kreuzlingen-gesucht-jetzt-bewerben/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:53.844Z",
+      "crawledAt": "2026-11-28T21:46:00.128Z",
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -7736,7 +7736,7 @@
       "postalCode": "8280",
       "streetAddress": "Kreuzlingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:53.844Z",
+      "validThrough": "2027-01-09T21:46:00.128Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7770,7 +7770,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-amriswil-jobangebot/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:53.542Z",
+      "crawledAt": "2026-11-28T21:45:59.827Z",
       "addressLocality": "Amriswil",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -7830,7 +7830,7 @@
       "postalCode": "8580",
       "streetAddress": "Amriswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:53.542Z",
+      "validThrough": "2027-01-09T21:45:59.827Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7864,7 +7864,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-brig-gesucht-jetzt-bewerben/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:53.241Z",
+      "crawledAt": "2026-11-28T21:45:59.525Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -7924,7 +7924,7 @@
       "postalCode": "3900",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:53.241Z",
+      "validThrough": "2027-01-09T21:45:59.525Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7958,7 +7958,7 @@
       "url": "https://www.ipersonal.ch/jobs/schreiner-bankschreiner-100-fuer-die-region-kappel-so-gesucht-jetzt-bewerben/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:52.940Z",
+      "crawledAt": "2026-11-28T21:45:59.223Z",
       "addressLocality": "Kappel SO",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -8010,7 +8010,7 @@
       },
       "streetAddress": "Kappel SO",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:40:52.940Z",
+      "validThrough": "2027-01-21T21:45:59.223Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8044,7 +8044,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-zug-direkte-festanstellung/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:52.639Z",
+      "crawledAt": "2026-11-28T21:45:58.922Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -8104,7 +8104,7 @@
       "postalCode": "6300",
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:40:52.639Z",
+      "validThrough": "2027-01-10T21:45:58.922Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8138,7 +8138,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-cham-temporaerbuero-ipersonal/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:52.338Z",
+      "crawledAt": "2026-11-28T21:45:58.621Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -8198,7 +8198,7 @@
       "postalCode": "6330",
       "streetAddress": "Cham",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:40:52.338Z",
+      "validThrough": "2027-01-10T21:45:58.621Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8232,7 +8232,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-murten-offene-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:52.037Z",
+      "crawledAt": "2026-11-28T21:45:58.319Z",
       "addressLocality": "Murten",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -8292,7 +8292,7 @@
       "postalCode": "3280",
       "streetAddress": "Murten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:40:52.037Z",
+      "validThrough": "2027-01-10T21:45:58.319Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8326,7 +8326,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-basel-gesucht-jetzt-bewerben/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:51.736Z",
+      "crawledAt": "2026-11-28T21:45:58.018Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8386,7 +8386,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:40:51.736Z",
+      "validThrough": "2027-01-10T21:45:58.018Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8420,7 +8420,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-chur-gesucht-jetzt-bewerben/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:51.435Z",
+      "crawledAt": "2026-11-28T21:45:57.717Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -8480,7 +8480,7 @@
       "postalCode": "7000",
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:40:51.435Z",
+      "validThrough": "2027-01-10T21:45:57.717Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8514,7 +8514,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-davos-offene-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:51.134Z",
+      "crawledAt": "2026-11-28T21:45:57.410Z",
       "addressLocality": "Davos",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -8574,7 +8574,7 @@
       "postalCode": "7270",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:40:51.134Z",
+      "validThrough": "2027-01-10T21:45:57.410Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8608,7 +8608,7 @@
       "url": "https://www.ipersonal.ch/jobs/montageleiter-kuechenbau-100-in-der-region-neuheim-direkte-festanstellung/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:50.833Z",
+      "crawledAt": "2026-11-28T21:45:57.109Z",
       "addressLocality": "Neuheim",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -8668,7 +8668,7 @@
       "postalCode": "6345",
       "streetAddress": "Neuheim",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:40:50.833Z",
+      "validThrough": "2027-01-20T21:45:57.109Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8702,7 +8702,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-oftringen-freie-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:50.532Z",
+      "crawledAt": "2026-11-28T21:45:56.807Z",
       "addressLocality": "Oftringen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -8762,7 +8762,7 @@
       "postalCode": "4665",
       "streetAddress": "Oftringen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:40:50.532Z",
+      "validThrough": "2027-01-10T21:45:56.807Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8796,7 +8796,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-zofingen-offene-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:50.231Z",
+      "crawledAt": "2026-11-28T21:45:56.505Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -8856,7 +8856,7 @@
       "postalCode": "4800",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:40:50.231Z",
+      "validThrough": "2027-01-10T21:45:56.505Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8865,7 +8865,7 @@
       "slugByLocale": {
         "it": "automotive-meccatronica-specialista-regione-di-brugg-ipersonal-ag-brugg-und-umgebung",
         "en": "automotive-mechatronics-specialist-brugg-region-ipersonal-ag-brugg-und-umgebung",
-        "de": "automobil-mechatroniker-region-brugg-ipersonal-ag-brugg-aargau",
+        "de": "automobil-mechatroniker-ipersonal-ag-brugg-und-umgebung",
         "fr": "specialiste-mecatronique-automobile-region-de-brugg-ipersonal-ag-brugg-und-umgebung"
       },
       "company": "iPersonal AG",
@@ -8890,7 +8890,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-brugg-offene-stelle-2/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:49.930Z",
+      "crawledAt": "2026-11-28T21:45:56.204Z",
       "addressLocality": "Brugg",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -8906,15 +8906,10 @@
       "postedDate": "2026-10-12",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-brugg-offene-stelle-2/",
-      "previousSlugs": [
-        "automobil-mechatroniker-region-brugg-ipersonal-ag-brugg-aargau",
-        "automobil-mechatroniker-ipersonal-ag-brugg-und-umgebung",
-        "automotive-mechatronics-specialist-brugg-region-ipersonal-ag-brugg-aargau",
-        "specialiste-mecatronique-automobile-region-de-brugg-ipersonal-ag-brugg-aargau",
-        "automotive-meccatronica-specialista-regione-di-brugg-ipersonal-ag-brugg-aargau",
-        "automotive-meccatronica-specialista-regione-di-brugg-ipersonal-ag-brugg"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "automobil-mechatroniker-region-brugg-ipersonal-ag-brugg-aargau"
+        ],
         "it": [
           "automobil-mechatroniker-region-brugg-ipersonal-ag-brugg-aargau",
           "automobil-mechatroniker-ipersonal-ag-brugg-und-umgebung",
@@ -8925,14 +8920,19 @@
           "automobil-mechatroniker-region-brugg-ipersonal-ag-brugg-aargau",
           "automotive-mechatronics-specialist-brugg-region-ipersonal-ag-brugg-aargau"
         ],
-        "de": [
-          "automobil-mechatroniker-ipersonal-ag-brugg-und-umgebung"
-        ],
         "fr": [
           "automobil-mechatroniker-region-brugg-ipersonal-ag-brugg-aargau",
           "specialiste-mecatronique-automobile-region-de-brugg-ipersonal-ag-brugg-aargau"
         ]
       },
+      "previousSlugs": [
+        "automobil-mechatroniker-region-brugg-ipersonal-ag-brugg-aargau",
+        "automobil-mechatroniker-ipersonal-ag-brugg-und-umgebung",
+        "automotive-mechatronics-specialist-brugg-region-ipersonal-ag-brugg-aargau",
+        "specialiste-mecatronique-automobile-region-de-brugg-ipersonal-ag-brugg-aargau",
+        "automotive-meccatronica-specialista-regione-di-brugg-ipersonal-ag-brugg-aargau",
+        "automotive-meccatronica-specialista-regione-di-brugg-ipersonal-ag-brugg"
+      ],
       "firstSeenAt": "2026-11-01T21:37:23.033Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8950,7 +8950,7 @@
       "postalCode": "5200",
       "streetAddress": "Brugg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:40:49.930Z",
+      "validThrough": "2027-01-10T21:45:56.204Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8959,7 +8959,7 @@
       "slugByLocale": {
         "it": "automotive-meccatronica-specialista-regione-spreitenbach-ipersonal-ag-spreitenbach-und-umgebung",
         "en": "automotive-mechatronics-specialist-spreitenbach-region-ipersonal-ag-spreitenbach-und-umgebung",
-        "de": "automobil-mechatroniker-region-spreitenbach-ipersonal-ag-spreitenbach-aargau",
+        "de": "automobil-mechatroniker-ipersonal-ag-spreitenbach-und-umgebung",
         "fr": "specialiste-mecatronique-automobile-region-de-spreitenbach-ipersonal-ag-spreitenbach-und-umgebung"
       },
       "company": "iPersonal AG",
@@ -8984,7 +8984,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-spreitenbach-direkte-festanstellung/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:49.629Z",
+      "crawledAt": "2026-11-28T21:45:55.902Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -9000,15 +9000,10 @@
       "postedDate": "2026-10-12",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-spreitenbach-direkte-festanstellung/",
-      "previousSlugs": [
-        "automobil-mechatroniker-region-spreitenbach-ipersonal-ag-spreitenbach-aargau",
-        "automobil-mechatroniker-ipersonal-ag-spreitenbach-und-umgebung",
-        "automotive-mechatronics-specialist-spreitenbach-region-ipersonal-ag-spreitenbach-aargau",
-        "specialiste-mecatronique-automobile-region-de-spreitenbach-ipersonal-ag-spreitenbach-aargau",
-        "automotive-meccatronica-specialista-regione-spreitenbach-ipersonal-ag-spreitenbach-aargau",
-        "automotive-meccatronica-specialista-regione-spreitenbach-ipersonal-ag-spreitenbach"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "automobil-mechatroniker-region-spreitenbach-ipersonal-ag-spreitenbach-aargau"
+        ],
         "it": [
           "automobil-mechatroniker-region-spreitenbach-ipersonal-ag-spreitenbach-aargau",
           "automobil-mechatroniker-ipersonal-ag-spreitenbach-und-umgebung",
@@ -9019,14 +9014,19 @@
           "automobil-mechatroniker-region-spreitenbach-ipersonal-ag-spreitenbach-aargau",
           "automotive-mechatronics-specialist-spreitenbach-region-ipersonal-ag-spreitenbach-aargau"
         ],
-        "de": [
-          "automobil-mechatroniker-ipersonal-ag-spreitenbach-und-umgebung"
-        ],
         "fr": [
           "automobil-mechatroniker-region-spreitenbach-ipersonal-ag-spreitenbach-aargau",
           "specialiste-mecatronique-automobile-region-de-spreitenbach-ipersonal-ag-spreitenbach-aargau"
         ]
       },
+      "previousSlugs": [
+        "automobil-mechatroniker-region-spreitenbach-ipersonal-ag-spreitenbach-aargau",
+        "automobil-mechatroniker-ipersonal-ag-spreitenbach-und-umgebung",
+        "automotive-mechatronics-specialist-spreitenbach-region-ipersonal-ag-spreitenbach-aargau",
+        "specialiste-mecatronique-automobile-region-de-spreitenbach-ipersonal-ag-spreitenbach-aargau",
+        "automotive-meccatronica-specialista-regione-spreitenbach-ipersonal-ag-spreitenbach-aargau",
+        "automotive-meccatronica-specialista-regione-spreitenbach-ipersonal-ag-spreitenbach"
+      ],
       "firstSeenAt": "2026-11-01T21:37:21.829Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -9044,7 +9044,7 @@
       "postalCode": "8957",
       "streetAddress": "Spreitenbach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:40:49.629Z",
+      "validThrough": "2027-01-10T21:45:55.902Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9052,7 +9052,7 @@
       "slug": "automotive-meccatronica-specialista-regione-di-lenzburg-ipersonal-ag-lenzburg-und-umgebung",
       "slugByLocale": {
         "it": "automotive-meccatronica-specialista-regione-di-lenzburg-ipersonal-ag-lenzburg-und-umgebung",
-        "en": "automotive-mechatronics-specialist-lenzburg-region-ipersonal-ag-lenzburg-aargau",
+        "en": "automotive-mechatronics-specialist-lenzburg-region-ipersonal-ag-lenzburg-und-umgebung",
         "de": "automobil-mechatroniker-ipersonal-ag-lenzburg-und-umgebung",
         "fr": "specialiste-mecatronique-automobile-region-de-lenzburg-ipersonal-ag-lenzburg-und-umgebung"
       },
@@ -9078,7 +9078,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-lenzburg-jobangebot/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:49.328Z",
+      "crawledAt": "2026-11-28T21:45:55.601Z",
       "addressLocality": "Lenzburg",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -9100,7 +9100,7 @@
         "specialiste-mecatronique-automobile-region-de-lenzburg-ipersonal-ag-lenzburg-aargau",
         "automotive-meccatronica-specialista-regione-di-lenzburg-ipersonal-ag-lenzburg-aargau",
         "automotive-meccatronica-specialista-regione-di-lenzburg-ipersonal-ag-lenzburg",
-        "automotive-mechatronics-specialist-lenzburg-region-ipersonal-ag-lenzburg-und-umgebung"
+        "automotive-mechatronics-specialist-lenzburg-region-ipersonal-ag-lenzburg-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9111,7 +9111,7 @@
         ],
         "en": [
           "automobil-mechatroniker-region-lenzburg-ipersonal-ag-lenzburg-aargau",
-          "automotive-mechatronics-specialist-lenzburg-region-ipersonal-ag-lenzburg-und-umgebung"
+          "automotive-mechatronics-specialist-lenzburg-region-ipersonal-ag-lenzburg-aargau"
         ],
         "de": [
           "automobil-mechatroniker-region-lenzburg-ipersonal-ag-lenzburg-aargau"
@@ -9138,7 +9138,7 @@
       "postalCode": "5600",
       "streetAddress": "Lenzburg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:40:49.328Z",
+      "validThrough": "2027-01-10T21:45:55.601Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9172,7 +9172,7 @@
       "url": "https://www.ipersonal.ch/jobs/schreiner-bankschreiner-100-in-der-region-basel-freie-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:49.027Z",
+      "crawledAt": "2026-11-28T21:45:55.300Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9224,7 +9224,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-22T09:40:49.027Z",
+      "validThrough": "2027-01-22T21:45:55.300Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9258,7 +9258,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-arbon-temporaerbuero-ipersonal/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:48.726Z",
+      "crawledAt": "2026-11-28T21:45:54.998Z",
       "addressLocality": "Arbon",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -9318,7 +9318,7 @@
       "postalCode": "9320",
       "streetAddress": "Arbon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:40:48.726Z",
+      "validThrough": "2027-01-10T21:45:54.998Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9352,7 +9352,7 @@
       "url": "https://www.ipersonal.ch/jobs/schreiner-bankschreiner-100-fuer-die-region-riehen-gesucht-jetzt-bewerben/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:48.425Z",
+      "crawledAt": "2026-11-28T21:45:54.697Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9404,7 +9404,7 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-22T09:40:48.425Z",
+      "validThrough": "2027-01-22T21:45:54.697Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9438,7 +9438,7 @@
       "url": "https://www.ipersonal.ch/jobs/schreiner-bankschreiner-100-in-der-region-bettingen-temporaerbuero-ipersonal/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:48.124Z",
+      "crawledAt": "2026-11-28T21:45:54.396Z",
       "addressLocality": "Bettingen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9490,7 +9490,7 @@
       },
       "streetAddress": "Bettingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-22T09:40:48.124Z",
+      "validThrough": "2027-01-22T21:45:54.396Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9524,7 +9524,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-weinfelden-jobangebot/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:47.823Z",
+      "crawledAt": "2026-11-28T21:45:54.095Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -9584,7 +9584,7 @@
       "postalCode": "8570",
       "streetAddress": "Weinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:40:47.823Z",
+      "validThrough": "2027-01-10T21:45:54.095Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9618,7 +9618,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-in-der-region-romanshorn-temporaerbuero-ipersonal/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:47.522Z",
+      "crawledAt": "2026-11-28T21:45:53.794Z",
       "addressLocality": "Romanshorn",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -9678,7 +9678,7 @@
       "postalCode": "8590",
       "streetAddress": "Romanshorn",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:40:47.522Z",
+      "validThrough": "2027-01-10T21:45:53.794Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9712,7 +9712,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-100-fuer-die-region-visp-stellenangebot/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:47.221Z",
+      "crawledAt": "2026-11-28T21:45:53.492Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -9772,7 +9772,7 @@
       "postalCode": "3930",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:40:47.221Z",
+      "validThrough": "2027-01-10T21:45:53.492Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9806,7 +9806,7 @@
       "url": "https://www.ipersonal.ch/jobs/techniker-elektronik-100-fuer-die-region-zug-direkte-festanstellung/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:46.919Z",
+      "crawledAt": "2026-11-28T21:45:53.191Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -9866,7 +9866,7 @@
       "postalCode": "6300",
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:40:46.919Z",
+      "validThrough": "2027-01-10T21:45:53.191Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9900,7 +9900,7 @@
       "url": "https://www.ipersonal.ch/jobs/schreiner-bankschreiner-100-in-der-region-selzach-jobangebot/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:46.618Z",
+      "crawledAt": "2026-11-28T21:45:52.890Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -9952,7 +9952,7 @@
       },
       "streetAddress": "Selzach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-22T09:40:46.618Z",
+      "validThrough": "2027-01-22T21:45:52.890Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9986,7 +9986,7 @@
       "url": "https://www.ipersonal.ch/jobs/schreiner-bankschreiner-100-in-der-region-luterbach-offene-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:46.318Z",
+      "crawledAt": "2026-11-28T21:45:52.590Z",
       "addressLocality": "Luterbach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -10038,7 +10038,7 @@
       },
       "streetAddress": "Luterbach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-22T09:40:46.318Z",
+      "validThrough": "2027-01-22T21:45:52.590Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10072,7 +10072,7 @@
       "url": "https://www.ipersonal.ch/jobs/sanitaerinstallateur-in-efz-100-au-sg-i-2026-0012/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:46.017Z",
+      "crawledAt": "2026-11-28T21:45:52.289Z",
       "addressLocality": "Au SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -10121,7 +10121,7 @@
       },
       "streetAddress": "Au SG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:40:46.017Z",
+      "validThrough": "2027-02-02T21:45:52.289Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10155,7 +10155,7 @@
       "url": "https://www.ipersonal.ch/jobs/lastwagenchauffeur-euse-100-pratteln-i-2026-0016/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:45.716Z",
+      "crawledAt": "2026-11-28T21:45:51.988Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -10202,7 +10202,7 @@
       },
       "streetAddress": "Pratteln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:40:45.716Z",
+      "validThrough": "2027-02-03T21:45:51.988Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10236,7 +10236,7 @@
       "url": "https://www.ipersonal.ch/jobs/elektroinstallateur-in-efz-100-baden-i-2026-0015/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:45.414Z",
+      "crawledAt": "2026-11-28T21:45:51.687Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -10285,7 +10285,7 @@
       },
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:40:45.414Z",
+      "validThrough": "2027-02-03T21:45:51.687Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10319,7 +10319,7 @@
       "url": "https://www.ipersonal.ch/jobs/metallbauer-in-100-schenkon-i-2026-0021/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:45.113Z",
+      "crawledAt": "2026-11-28T21:45:51.386Z",
       "addressLocality": "Schenkon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -10366,7 +10366,7 @@
       },
       "streetAddress": "Schenkon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:40:45.113Z",
+      "validThrough": "2027-02-04T21:45:51.386Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10400,7 +10400,7 @@
       "url": "https://www.ipersonal.ch/jobs/konstrukteur-in-efz-100-meinisberg-i-2026-0023/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:44.812Z",
+      "crawledAt": "2026-11-28T21:45:51.085Z",
       "addressLocality": "Meinisberg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10460,7 +10460,7 @@
       "postalCode": "2554",
       "streetAddress": "Meinisberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:40:44.812Z",
+      "validThrough": "2027-02-04T21:45:51.085Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10494,7 +10494,7 @@
       "url": "https://www.ipersonal.ch/jobs/gaertner-in-efz-garten-und-landschaftsbau-100-stettlen-i-2026-0019/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:44.511Z",
+      "crawledAt": "2026-11-28T21:45:50.783Z",
       "addressLocality": "Stettlen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10558,7 +10558,7 @@
       "postalCode": "3066",
       "streetAddress": "Stettlen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:40:44.511Z",
+      "validThrough": "2027-02-04T21:45:50.783Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10592,7 +10592,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-mechatroniker-in-efz-100-eiken-i-2026-0020/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:44.210Z",
+      "crawledAt": "2026-11-28T21:45:50.482Z",
       "addressLocality": "Eiken",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -10652,7 +10652,7 @@
       "postalCode": "5074",
       "streetAddress": "Eiken",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:40:44.210Z",
+      "validThrough": "2027-02-04T21:45:50.482Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10686,7 +10686,7 @@
       "url": "https://www.ipersonal.ch/jobs/zimmermann-zimmerin-efz-100-allenwinden-i-2026-0034/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:43.909Z",
+      "crawledAt": "2026-11-28T21:45:50.180Z",
       "addressLocality": "Allenwinden",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -10733,7 +10733,7 @@
       },
       "streetAddress": "Allenwinden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T09:40:43.909Z",
+      "validThrough": "2027-02-06T21:45:50.180Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10767,7 +10767,7 @@
       "url": "https://www.ipersonal.ch/jobs/zimmermann-zimmerin-efz-100-zug-i-2026-0033/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:43.608Z",
+      "crawledAt": "2026-11-28T21:45:49.879Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -10814,7 +10814,7 @@
       },
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T09:40:43.608Z",
+      "validThrough": "2027-02-06T21:45:49.879Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10848,7 +10848,7 @@
       "url": "https://www.ipersonal.ch/jobs/lastwagenchauffeur-euse-60-wetzikon-zh-i-2026-0041/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:43.307Z",
+      "crawledAt": "2026-11-28T21:45:49.576Z",
       "addressLocality": "Wetzikon ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10895,7 +10895,7 @@
       },
       "streetAddress": "Wetzikon ZH",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:40:43.307Z",
+      "validThrough": "2027-02-09T21:45:49.576Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10929,7 +10929,7 @@
       "url": "https://www.ipersonal.ch/jobs/automatiker-in-efz-100-beringen-i-2026-0043/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:43.006Z",
+      "crawledAt": "2026-11-28T21:45:49.273Z",
       "addressLocality": "Beringen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -10980,7 +10980,7 @@
       },
       "streetAddress": "Beringen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:40:43.006Z",
+      "validThrough": "2027-02-09T21:45:49.273Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11014,7 +11014,7 @@
       "url": "https://www.ipersonal.ch/jobs/personalvermittler-in-100-personalberater-in-logistik-und-lager-wallisellen-i-2026-0037/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:42.705Z",
+      "crawledAt": "2026-11-28T21:45:48.971Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11090,7 +11090,7 @@
       },
       "streetAddress": "Bahnhofplatz 1c",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-10T09:40:42.705Z",
+      "validThrough": "2027-02-10T21:45:48.971Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11124,7 +11124,7 @@
       "url": "https://www.ipersonal.ch/jobs/personalvermittler-in-100-personalberater-in-kaufmaennische-berufe-wallisellen-i-2026-0038/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:42.403Z",
+      "crawledAt": "2026-11-28T21:45:48.667Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11196,7 +11196,7 @@
       },
       "streetAddress": "Bahnhofplatz 1c",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-10T09:40:42.403Z",
+      "validThrough": "2027-02-10T21:45:48.667Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11230,7 +11230,7 @@
       "url": "https://www.ipersonal.ch/jobs/personalvermittler-in-100-personalberater-in-elektro-und-haustechnik-wallisellen-i-2026-0036/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:42.102Z",
+      "crawledAt": "2026-11-28T21:45:48.366Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11306,7 +11306,7 @@
       },
       "streetAddress": "Bahnhofplatz 1c",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-10T09:40:42.102Z",
+      "validThrough": "2027-02-10T21:45:48.366Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11340,7 +11340,7 @@
       "url": "https://www.ipersonal.ch/jobs/personalvermittler-in-100-personalberater-in-bauhaupt-und-baunebengewerbe-i-2026-0035/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:41.801Z",
+      "crawledAt": "2026-11-28T21:45:48.065Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11416,7 +11416,7 @@
       },
       "streetAddress": "Bahnhofplatz 1c",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-10T09:40:41.801Z",
+      "validThrough": "2027-02-10T21:45:48.065Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11450,7 +11450,7 @@
       "url": "https://www.ipersonal.ch/jobs/techniker-in-hf-elektronik-100-huenenberg-i-2026-0051/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:41.499Z",
+      "crawledAt": "2026-11-28T21:45:47.764Z",
       "addressLocality": "Hünenberg",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -11497,7 +11497,7 @@
       "postalCode": "6331",
       "streetAddress": "Hünenberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T09:40:41.499Z",
+      "validThrough": "2027-02-14T21:45:47.764Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11531,7 +11531,7 @@
       "url": "https://www.ipersonal.ch/jobs/lastwagenchauffeur-euse-60-100-au-sg-i-2026-0050/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:41.198Z",
+      "crawledAt": "2026-11-28T21:45:47.462Z",
       "addressLocality": "Au SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -11578,7 +11578,7 @@
       },
       "streetAddress": "Au SG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T09:40:41.198Z",
+      "validThrough": "2027-02-14T21:45:47.462Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11612,7 +11612,7 @@
       "url": "https://www.ipersonal.ch/jobs/produktionsmechaniker-in-efz-100-benken-sg-i-2026-0057/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:40.897Z",
+      "crawledAt": "2026-11-28T21:45:47.161Z",
       "addressLocality": "Benken SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -11661,7 +11661,7 @@
       },
       "streetAddress": "Benken SG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:40:40.897Z",
+      "validThrough": "2027-02-15T21:45:47.161Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11695,7 +11695,7 @@
       "url": "https://www.ipersonal.ch/jobs/bauarbeiter-in-ausbaugewerbe-100-weggis-i-2026-0032/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:40.596Z",
+      "crawledAt": "2026-11-28T21:45:46.860Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -11742,7 +11742,7 @@
       },
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:40:40.596Z",
+      "validThrough": "2027-02-15T21:45:46.860Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11776,7 +11776,7 @@
       "url": "https://www.ipersonal.ch/jobs/automobil-fachmann-frau-efz-100-grosshoechstetten-i-2026-0063/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:40.292Z",
+      "crawledAt": "2026-11-28T21:45:46.560Z",
       "addressLocality": "Grosshöchstetten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -11827,7 +11827,7 @@
       },
       "streetAddress": "Grosshöchstetten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:40:40.292Z",
+      "validThrough": "2027-02-17T21:45:46.560Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11861,7 +11861,7 @@
       "url": "https://www.ipersonal.ch/jobs/metallbauer-in-efz-100-lyss-i-2026-0066/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:39.991Z",
+      "crawledAt": "2026-11-28T21:45:46.258Z",
       "addressLocality": "Lyss",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -11910,7 +11910,7 @@
       },
       "streetAddress": "Lyss",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:40:39.991Z",
+      "validThrough": "2027-02-18T21:45:46.258Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11944,7 +11944,7 @@
       "url": "https://www.ipersonal.ch/jobs/chauffeur-euse-100-kat-be-neuenhof-i-2026-0064/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:39.689Z",
+      "crawledAt": "2026-11-28T21:45:45.956Z",
       "addressLocality": "Neuenhof",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -11991,7 +11991,7 @@
       "postalCode": "5432",
       "streetAddress": "Neuenhof",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:40:39.689Z",
+      "validThrough": "2027-02-18T21:45:45.956Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -12025,7 +12025,7 @@
       "url": "https://www.ipersonal.ch/jobs/sanitaerinstallateur-in-efz-100-herisau-i-2026-0072/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:39.388Z",
+      "crawledAt": "2026-11-28T21:45:45.655Z",
       "addressLocality": "Region Herisau (AR)",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -12073,7 +12073,7 @@
       },
       "streetAddress": "Region Herisau (AR)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T09:40:39.388Z",
+      "validThrough": "2027-02-21T21:45:45.655Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -12107,7 +12107,7 @@
       "url": "https://www.ipersonal.ch/jobs/lastwagenchauffeur-euse-100-untersiggenthal-i-2026-0075/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:39.083Z",
+      "crawledAt": "2026-11-28T21:45:45.352Z",
       "addressLocality": "Untersiggenthal",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -12154,7 +12154,7 @@
       },
       "streetAddress": "Untersiggenthal",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T09:40:39.083Z",
+      "validThrough": "2027-02-23T21:45:45.352Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -12188,7 +12188,7 @@
       "url": "https://www.ipersonal.ch/jobs/allrounder-elektronik-100-benken-sg-i-2026-0054/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:38.781Z",
+      "crawledAt": "2026-11-28T21:45:45.050Z",
       "addressLocality": "Benken SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -12241,7 +12241,7 @@
       },
       "streetAddress": "Benken SG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T09:40:38.781Z",
+      "validThrough": "2027-02-24T21:45:45.050Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -12275,7 +12275,7 @@
       "url": "https://www.ipersonal.ch/jobs/schreiner-in-efz-dulliken-i-2026-0077/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:38.480Z",
+      "crawledAt": "2026-11-28T21:45:44.748Z",
       "addressLocality": "Dulliken",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -12324,7 +12324,7 @@
       },
       "streetAddress": "Dulliken",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-25T09:40:38.480Z",
+      "validThrough": "2027-02-25T21:45:44.748Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -12358,7 +12358,7 @@
       "url": "https://www.ipersonal.ch/jobs/projektleiter-in-schreinerei-100-dulliken-i-2026-0076/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:40:38.178Z",
+      "crawledAt": "2026-11-28T21:45:44.446Z",
       "addressLocality": "Dulliken",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -12413,7 +12413,7 @@
       },
       "streetAddress": "Dulliken",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-25T09:40:38.178Z",
+      "validThrough": "2027-02-25T21:45:44.446Z",
       "validThroughSource": "last-observed-window"
     }
   ]
