@@ -231,6 +231,22 @@ describe('Locarnese pharmacy duty parser', () => {
     ]);
   });
 
+  it('accepts a locality appended to the trade name, never as the only matching token', () => {
+    const record = (id: string, name: string) => ({
+      id, name, city: 'Tenero', canton: 'Ticino', country: 'CH',
+    });
+    const catalogue = [record('coop', 'Farmacia Coop Vitality'), record('caroni', 'Farmacia Caroni')];
+    const resolve = (name: string, entries = catalogue) =>
+      resolveLocarnesePharmacyIdentity({ name, city: 'Tenero' }, entries)?.id ?? null;
+
+    expect(resolve('Coop Vitality Tenero')).toBe('coop');
+    expect(resolve('Coop Vitality Centro Tenero')).toBeNull();
+    expect(resolve('Tenero')).toBeNull();
+    expect(resolve('Farmacia Tenero', [record('bare', 'Farmacia Caroni Tenero')])).toBeNull();
+    expect(resolve('Coop Vitality Tenero', [...catalogue, record('coop-2', 'Farmacia Coop Vitality Tenero')]))
+      .toBeNull();
+  });
+
   it('fails closed for an invalid fetch timestamp', () => {
     const result = buildLocarnesePharmacyDuties(
       LIVE_SHAPE_HTML,

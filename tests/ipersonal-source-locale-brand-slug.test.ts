@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { buildSlug, slugNeedsBrandRefresh } from '../scripts/lib/regenerate-slugs-helpers.mjs';
 import { normalizeJobLocale } from '../scripts/lib/job-locale-utils.mjs';
+import { readCanonicalGscAllowlist } from '../scripts/restore-first-served-slugs.mjs';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 const SLICE_DIR = path.resolve(__dirname, '..', 'data', 'jobs', 'by-crawler');
@@ -68,6 +69,11 @@ describe('#7722 source-locale brand refresh', () => {
   });
 
   it('rende canonico lo slug del source-locale includendo la company dichiarata', () => {
+    // Unica eccezione: gli slot che il ripristino approvato degli slug serviti
+    // per primi (#19625, #20543) riporta sull'URL con impression in Search
+    // Console. Vale per la sola coppia esatta slug rigenerato -> slug servito,
+    // provata dalla allowlist con ricevuta firmata (sha256).
+    const firstServed = readCanonicalGscAllowlist();
     for (const key of Object.keys(STALE_BRAND_BY_KEY)) {
       for (const job of readSlice(key)) {
         const locale = sourceLocale(job);
@@ -78,7 +84,12 @@ describe('#7722 source-locale brand refresh', () => {
           job.location || job.addressLocality || '',
           job.slugDisambiguator || '',
         );
-        expect(job.slugByLocale?.[locale], `${key}/${job.id}`).toBe(expected);
+        const approved = firstServed.get(`${key}.json\u0000${job.id}\u0000${locale}`);
+        const accepted = approved?.previousSlug === expected
+          && approved.nextSlug === job.slugByLocale?.[locale]
+          ? approved.nextSlug
+          : expected;
+        expect(job.slugByLocale?.[locale], `${key}/${job.id}`).toBe(accepted);
       }
     }
   });
