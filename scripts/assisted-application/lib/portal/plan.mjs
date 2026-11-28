@@ -2672,9 +2672,9 @@ const PLACEHOLDER = /^[-–—\s]*(select( one| an option)?|choose( one)?|please
 /** The field already has an answer on the page (filled before, or prefilled by the portal). */
 /** A complete numeric day-month-year shown in a date box, valid as DD/MM/YYYY or as MM/DD/YYYY; never a placeholder. */
 export function isShownDate(value) {
-  const match = /^(\d{1,2})[./-](\d{1,2})[./-](\d{4})$/.exec(String(value || '').trim());
+  const match = /^(\d{1,2})([./-])(\d{1,2})\2(\d{4})$/.exec(String(value || '').trim());
   if (!match) return false;
-  const [first, second, year] = [Number(match[1]), Number(match[2]), Number(match[3])];
+  const [first, second, year] = [Number(match[1]), Number(match[3]), Number(match[4])];
   const valid = (month, day) => month >= 1 && month <= 12 && day >= 1 && day <= new Date(Date.UTC(year, month, 0)).getUTCDate();
   return valid(second, first) || valid(first, second);
 }

@@ -44,8 +44,8 @@ describe('a required date shown in the portal\'s own format is held', () => {
   });
 
   it('reads a shown date as a date in either order, and only a whole one', () => {
-    for (const shown of ['01/13/1968', '13/01/1968', '12.31.1990', '31.12.1990', '2-3-2001']) expect(isShownDate(shown)).toBe(true);
-    for (const shown of ['', 'MM/DD/YYYY', '1968', '01/13', '31/04/2020', '13/13/2000']) expect(isShownDate(shown)).toBe(false);
+    for (const shown of ['01/13/1968', '13/01/1968', '12.31.1990', '31.12.1990', '2-3-2001', '13-01-1968']) expect(isShownDate(shown)).toBe(true);
+    for (const shown of ['', 'MM/DD/YYYY', '1968', '01/13', '31/04/2020', '13/13/2000', '01/13-1968', '01-13/1968', '01.13/1968']) expect(isShownDate(shown)).toBe(false);
   });
 
   it('names an unfilled required field by its caption and reason, never by its value', () => {
