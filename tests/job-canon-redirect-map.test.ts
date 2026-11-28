@@ -1087,7 +1087,8 @@ describe('staged job-canon ordering handoff', () => {
         const expectedPrefix = sectionPrefix(currentPath);
         expect(expectedPrefix).not.toBe(sectionPrefix(previousPath));
 
-        const v1Path = path.join(root, 'dist', 'job-canon', `${jobSlugShardKey(slug)}.json`);
+        const v1ShardKey = slug.slice(0, 2).toLowerCase().replace(/[^a-z0-9]/g, '_');
+        const v1Path = path.join(root, 'dist', 'job-canon', `${v1ShardKey}.json`);
         const v2Path = path.join(root, 'dist', 'job-canon', 'v2', `${jobCanonV2ShardKey(slug)}.json`);
         const v1 = JSON.parse(fs.readFileSync(v1Path, 'utf8')) as Record<string, Record<string, string>>;
         const v2 = JSON.parse(fs.readFileSync(v2Path, 'utf8')) as Record<string, Record<string, string>>;
