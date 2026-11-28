@@ -102,7 +102,7 @@
  *
  * 5. REDIRECT RULES — the managed entries in MANAGED_REDIRECT_RULES (keyed by
  *    `description`; foreign rules on the entrypoint — e.g. the image→CDN
- *    apex-404 recovery — preserved). Two today. First, trailing-slash-301 —
+ *    apex-404 recovery — preserved). Three today. First, trailing-slash-301 —
  *    301s every extensionless no-trailing-slash apex path to its slash form
  *    (#3472). Every canonical URL on the site is slash-terminated
  *    (buildPath()/sitemap/hreflang), but GitHub Pages' extensionless
@@ -123,6 +123,10 @@
  *    non-2xx by far). Measured as external scanning, not a broken link of ours
  *    — 99.4% HTTP/1.1, unrecognised UA, bursty, one country — so the fix is to
  *    stop paying for the answer, not to chase a referrer (#5176).
+ *    Also legacy-fr-subdomain-to-apex-301 — 301s `fr.frontaliereticino.ch/<path>`
+ *    to the apex with the same path. The label has no DNS record today, so the
+ *    rule is inert until a proxied record for it is added in the dashboard
+ *    (see the rule's own comment); www-to-apex is the other host-level rule.
  *
  * 6. RESPONSE HEADERS — the apex-security-headers entry in
  *    MANAGED_RESPONSE_HEADER_RULES. It upgrades the existing zone rule from
@@ -638,6 +642,32 @@ const MANAGED_REDIRECT_RULES = [
         status_code: 301,
         target_url: {
           expression: 'concat("https://", http.host, http.request.uri.path, "/")',
+        },
+        preserve_query_string: true,
+      },
+    },
+  },
+  {
+    // Legacy `fr.` host -> apex (2026-11-28). Google captured
+    // https://fr.frontaliereticino.ch/fr/trouver-emploi-jura/<job>/ (one click
+    // 21-09..04-10) although the site has no locale subdomain: locales live at
+    // /en|/de|/fr on the apex, and the `fr.` label has no DNS record today
+    // (NXDOMAIN, measured 2026-11-28), so that URL is a network error rather
+    // than a redirect. The path already carries the `/fr/` prefix, so the
+    // apex equivalent is the same path, exactly like www-to-apex above.
+    //
+    // This rule only fires once the hostname resolves to the zone: a PROXIED
+    // DNS record for `fr` (e.g. AAAA 100:: orange-cloud) must exist, and that
+    // lives in the Cloudflare dashboard, not in this repo. Until then the rule
+    // is inert by construction (no request can reach it) and harmless. Exact
+    // host match, so no apex or cdn/origin-* path can be caught by it.
+    description: 'legacy-fr-subdomain-to-apex-301 (managed by scripts/cf-locale-failover-setup.mjs)',
+    expression: '(http.host eq "fr.frontaliereticino.ch")',
+    action_parameters: {
+      from_value: {
+        status_code: 301,
+        target_url: {
+          expression: 'concat("https://frontaliereticino.ch", http.request.uri.path)',
         },
         preserve_query_string: true,
       },

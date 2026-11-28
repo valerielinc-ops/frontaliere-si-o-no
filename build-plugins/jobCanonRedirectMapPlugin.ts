@@ -78,6 +78,9 @@ const WORKER_ACTIVE_ROUTE_FLAG = 1 << 13;
 const WORKER_DIRECT_FACT_MASK = WORKER_LOCALE_MASK | (WORKER_LOCALE_MASK << 4);
 const WORKER_NATIVE_NON_TI_MASK = WORKER_LOCALE_MASK << 8;
 const WORKER_REPLACED_MAP_FACT_MASK = WORKER_DIRECT_FACT_MASK | WORKER_NATIVE_NON_TI_MASK;
+// Per-locale bit: this slug is the CURRENT slug, in that locale, of an active
+// job. Set once from the active input, never replaced by registry rows.
+const WORKER_CURRENT_IN_LOCALE_SHIFT = 16;
 
 type StageOperation = (typeof STAGE_OPERATIONS)[number];
 type LocaleEntry = Partial<Record<JobCanonLocale, string>> & {
@@ -958,9 +961,23 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
             for (const locale of JOB_CANON_LOCALES) {
               const currentSlug = localizedActiveJobSlug(job, locale);
               if (currentSlug) {
-                addWorkerSlugFlags(currentSlug, WORKER_CANDIDATE_FLAG | WORKER_ACTIVE_ROUTE_FLAG);
-                trackSlugBucket(currentSlug);
                 const currentPath = buildCanonicalJobDetailPath(locale, job, currentSlug, canton);
+                // The "served in this locale" bit needs the page to exist: a
+                // complete emitted-page manifest that omits the path means the
+                // build does not serve it, so it must not suppress an alias.
+                // Without a manifest (isolated or partial inventory) the
+                // active job keeps its self-contained contract.
+                const currentPageServed = activeJobPageLookup === null
+                  || activeJobPageLookup.has(currentPath);
+                addWorkerSlugFlags(
+                  currentSlug,
+                  WORKER_CANDIDATE_FLAG
+                    | WORKER_ACTIVE_ROUTE_FLAG
+                    | (currentPageServed
+                      ? 1 << (LOCALE_INDEX.get(locale)! + WORKER_CURRENT_IN_LOCALE_SHIFT)
+                      : 0),
+                );
+                trackSlugBucket(currentSlug);
                 const prefix = sectionPrefix(currentPath);
                 if (prefix) {
                   // A complete manifest may positively add or negatively
@@ -1116,20 +1133,38 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
                 const directExistsBit = 1 << localeBit;
                 const directIsTiBit = 1 << (localeBit + 4);
                 let flags = workerFlagsBySlug.get(key) ?? 0;
-                flags |= directExistsBit;
+                // A registry path whose last segment is another slug is served
+                // by the Worker as a verified same-locale alias, so the Worker
+                // really recovers it. A path that ends in this very slug is the
+                // requested URL itself: the Worker's prefix lookup lands on the
+                // same path (canonical === request, no redirect) and falls to
+                // the section hub, unless a page exists there. Nothing in this
+                // build guarantees that page for a candidate slug, so that
+                // shape is not recovery and the active alias must be emitted
+                // (it also replaces the stale identity prefix).
+                if (targetSlug !== key) flags |= directExistsBit;
+                else flags &= ~directExistsBit;
                 if (target === `${legacyRoots[locale]}/${key}`) flags |= directIsTiBit;
                 else flags &= ~directIsTiBit;
                 workerFlagsBySlug.set(key, flags);
               }
               const targetCandidateFlags = workerFlagsBySlug.get(targetSlug) ?? 0;
+              const targetLocaleBit = LOCALE_INDEX.get(locale)!;
               if (
                 (keyCandidateFlags & WORKER_ACTIVE_ROUTE_FLAG) !== 0
                 && (targetCandidateFlags & WORKER_CANDIDATE_FLAG) !== 0
+                // The Worker's 301 to this native path only helps when a page
+                // is served there: the target slug must be an active job's
+                // current slug in THIS locale. A registry path that still
+                // carries another locale's slug (or a retired one) is stale;
+                // treating it as recovery left the alias unemitted and the
+                // request ended on the section hub.
+                && (targetCandidateFlags & (1 << (targetLocaleBit + WORKER_CURRENT_IN_LOCALE_SHIFT))) !== 0
               ) {
                 // buildNativeJobPrefixIndex excludes IT, and skips only the
                 // exact one-slug legacy TI path. Its last non-TI prefix wins.
                 if (prefix !== legacyRoots[locale]) {
-                  const localeBit = LOCALE_INDEX.get(locale)!;
+                  const localeBit = targetLocaleBit;
                   changeNativeContribution(targetSlug, localeBit, 1);
                   nativeTargets.push([targetSlug, localeBit]);
                 }

@@ -646,6 +646,58 @@ describe('Pages artifact extraction disk lifetime', () => {
     expect(rehydrating.length).toBeGreaterThanOrEqual(8);
   });
 
+  // 2026-11-28 (#19102, #17161, #7421): after the cleanup the logical dist no
+  // longer fits the runner's ext4 root. Every job that assembles the whole
+  // site must put dist/ on the compressed volume while it is still empty.
+  it('every job that assembles the logical dist mounts the compressed volume before extracting', () => {
+    const workflowsDir = resolve(ROOT, '.github/workflows');
+    // Builds its own it-shard and compares it with the live one under
+    // tooling/dist; it does not run the audits on the whole logical site.
+    const partial = new Set(['matrix-equivalence-check.yml']);
+    const covered: string[] = [];
+    for (const file of readdirSync(workflowsDir).filter((f) => /\.ya?ml$/.test(f)).sort()) {
+      if (partial.has(file)) continue;
+      const workflow = YAML.parse(readFileSync(resolve(workflowsDir, file), 'utf-8')) as any;
+      for (const [jobName, job] of Object.entries<any>(workflow?.jobs ?? {})) {
+        const steps: any[] = Array.isArray(job?.steps) ? job.steps : [];
+        const runOf = (step: any) => (typeof step?.run === 'string' ? step.run : '');
+        const rehydrateIdx = steps.findIndex((step) => /rehydrate-section-shards\.sh/.test(runOf(step)));
+        if (rehydrateIdx === -1) continue;
+        const where = `${file} → ${jobName}`;
+        covered.push(where);
+        const mountIdx = steps.findIndex((step) => /mount-compressed-dist\.sh mount dist\b/.test(runOf(step)));
+        const extractIdx = steps.findIndex((step) => /\btar -xf\b[^\n]*-C dist\b/.test(runOf(step)));
+        const cleanupIdx = steps.findIndex((step) => /free-runner-disk\.sh\b/.test(runOf(step)));
+        expect(mountIdx, `${where}: no step mounts dist/ on the compressed volume`).toBeGreaterThan(cleanupIdx);
+        expect(extractIdx, `${where}: the volume must be mounted while dist/ is still empty`).toBeGreaterThan(mountIdx);
+        expect(rehydrateIdx).toBeGreaterThan(extractIdx);
+        for (const step of steps) {
+          // A mount point cannot be removed (EBUSY).
+          expect(runOf(step), `${where}: removes the dist/ mount point`).not.toMatch(/rm -rf +(\.\/)?dist\/?(\s|$)/m);
+        }
+        expect(
+          steps.some((step) => step?.if === 'always()' && /mount-compressed-dist\.sh report dist\b/.test(runOf(step))),
+          `${where}: no disk usage report that survives a failed rehydrate`,
+        ).toBe(true);
+        // A replay of an older build must not depend on that build shipping the
+        // script: the two replay workflows take it from their main checkout.
+        const mountPath = /bash (\S*)scripts\/ci\/mount-compressed-dist\.sh/.exec(runOf(steps[mountIdx]))?.[1] ?? '';
+        if (mountPath) {
+          const checkout = steps.find((step) => `${step?.with?.path}/` === mountPath);
+          expect(checkout?.with?.ref).toBe('refs/heads/main');
+          expect(checkout?.with?.['sparse-checkout']).toContain('/scripts/ci/mount-compressed-dist.sh');
+        } else {
+          expect(['audit-dist-from-run.yml', 'cathedral-seo-gates-check.yml']).not.toContain(file);
+        }
+      }
+    }
+    expect(covered).toEqual(expect.arrayContaining([
+      'cathedral-seo-gates-check.yml → check',
+      'audit-dist-from-run.yml → audit',
+    ]));
+    expect(covered.length).toBeGreaterThanOrEqual(7);
+  });
+
   it('the shared cleanup reports blocks AND inodes before and after, and keeps node in the tool cache', () => {
     const script = readFileSync(resolve(ROOT, 'scripts/ci/free-runner-disk.sh'), 'utf-8');
     const live = script.split('\n').filter((line) => !/^\s*#/.test(line)).join('\n');

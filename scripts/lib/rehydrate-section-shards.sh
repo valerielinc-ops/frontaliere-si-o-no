@@ -362,7 +362,8 @@ rehydrate_section() {
       continue
     fi
 
-    tmp="$RUNNER_TEMP/rehydrate-$section-$loc"
+    # Sul volume di dist/ quando c'e' (scripts/ci/mount-compressed-dist.sh).
+    tmp="${REHYDRATE_CLONE_ROOT:-$RUNNER_TEMP}/rehydrate-$section-$loc"
     rm -rf "$tmp"
     owner="$(jq -r --arg s "$section" '.[$s] // "valerielinc-ops"' scripts/lib/section-shard-owners.json 2>/dev/null || echo valerielinc-ops)"
     if [ -z "$owner" ] || [ "$owner" = "null" ]; then owner="valerielinc-ops"; fi

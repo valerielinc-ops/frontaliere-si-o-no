@@ -300,3 +300,45 @@ describe('locale-router canton-root-validity guard — expired job-detail slug (
     expect(calls.some((c) => String(c[0]).includes('/job-canon/'))).toBe(false);
   });
 });
+
+describe('locale-router canton-root-validity guard — pruned ITALIAN company hub', () => {
+  it('301s a pruned Italian hub to its canton section root when the root resolves 200', async () => {
+    mockFetch('/cerca-lavoro-vaud/', 200);
+
+    const res = await worker.fetch(
+      new Request(`${APEX}/cerca-lavoro-vaud/azienda-globex-pruned-lausanne/?utm_source=gsc`),
+      {},
+      ctx,
+    );
+
+    expect(res.status).toBe(301);
+    expect(res.headers.get('Location')).toBe('/cerca-lavoro-vaud/?utm_source=gsc');
+  });
+
+  it('falls through to the soft 404 when the Italian section root does not resolve', async () => {
+    mockFetch('/cerca-lavoro-vaud/', 404);
+
+    const res = await worker.fetch(
+      new Request(`${APEX}/cerca-lavoro-vaud/azienda-globex-pruned-lausanne/`),
+      {},
+      ctx,
+    );
+
+    expect(res.status).toBe(404);
+  });
+
+  it('does not treat a foreign company prefix on an Italian slug as a hub (no prefix swap, no redirect)', async () => {
+    // Italian job slugs can legitimately start with `company-`/`entreprise-`:
+    // only the Italian `azienda-` prefix identifies a pruned hub.
+    mockFetch('/cerca-lavoro-vaud/', 200);
+
+    const res = await worker.fetch(
+      new Request(`${APEX}/cerca-lavoro-vaud/company-controller-lausanne-globex/`),
+      {},
+      ctx,
+    );
+
+    expect(res.status).toBe(404);
+    expect(res.headers.get('Location')).toBeNull();
+  });
+});

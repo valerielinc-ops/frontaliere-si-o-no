@@ -534,6 +534,17 @@ describe('active job aliases in the IT /job-canon publishing leg', () => {
         ],
       },
     }),
+    // Original-title slug shared by DE only; the registry still holds the old
+    // identity path in en/fr (the era when every locale used that slug). The
+    // identity path is the requested URL itself, so it is not Worker recovery.
+    job('identity-shadow', 'ZH', {
+      it: 'identity-shadow-it', en: 'identity-shadow-en',
+      de: 'identity-shadow-original', fr: 'identity-shadow-fr',
+    }),
+    job('translated-direct', 'ZH', {
+      it: 'translated-direct-it', en: 'translated-direct-en',
+      de: 'translated-direct-de', fr: 'translated-direct-fr',
+    }, { previousSlugsByLocale: { it: ['translated-direct-old'] } }),
     job('worker-reset-route', 'ZH', {
       it: 'worker-reset-route-it', en: 'worker-reset-route-en',
       de: 'worker-reset-candidate', fr: 'worker-reset-route-fr',
@@ -602,6 +613,15 @@ describe('active job aliases in the IT /job-canon publishing leg', () => {
       },
       'worker-override-omitted-en': { de: '/de/jobs-im-tessin/worker-override-omitted-en' },
       'worker-effective-direct-en': { en: '/en/find-jobs-geneva/worker-effective-direct-en' },
+      'identity-shadow-original': {
+        it: '/cerca-lavoro-zurigo/identity-shadow-original',
+        en: '/en/find-jobs-zurich/identity-shadow-original',
+        de: '/de/jobs-in-zurich/identity-shadow-original',
+        fr: '/fr/trouver-emploi-zurich/identity-shadow-original',
+      },
+      'translated-direct-old': {
+        en: '/en/find-jobs-zurich/translated-direct-en',
+      },
       'worker-native-recovery-en': { de: '/de/jobs-im-tessin/worker-native-recovery-en' },
       'worker-override-claim-en': { en: '/en/find-jobs-zurich/worker-native-recovery-en' },
       'worker-duplicate-entry-en': { de: '/de/jobs-im-tessin/worker-duplicate-entry-en' },
@@ -753,18 +773,43 @@ ${duplicateShardEntries.join(',\n')}
       .toBe('/en/find-jobs-zurich/worker-override-claim-en');
     expect(readEntry('worker-duplicate-entry-en')?.alias?.en)
       .toBe('/en/find-jobs-zurich/worker-override-claim-en');
-    expect(readEntry('worker-effective-direct-en')?.alias?.en).toBeUndefined();
-    expect(readEntry('worker-native-recovery-en')?.alias?.en).toBeUndefined();
+    // The registry's "native" en path still carries the retired slug: it is
+    // stale, not a page, so the active alias replaces it.
+    expect(readEntry('worker-native-recovery-en')?.alias?.en)
+      .toBe('/en/find-jobs-zurich/worker-override-claim-en');
+  });
+
+  it('does not treat a registry identity path as Worker recovery: the active alias replaces the stale prefix', () => {
+    // The row's own en path ends in the requested slug, so the Worker's prefix
+    // lookup would land on the request itself and fall to the section hub.
+    expect(readEntry('worker-effective-direct-en')?.alias?.en)
+      .toBe('/en/find-jobs-zurich/worker-override-claim-en');
+    expect(readEntry('worker-effective-direct-en')?.en).toBeUndefined();
+    const shadow = readEntry('identity-shadow-original');
+    expect(shadow?.alias?.en).toBe('/en/find-jobs-zurich/identity-shadow-en');
+    expect(shadow?.alias?.fr).toBe('/fr/trouver-emploi-zurich/identity-shadow-fr');
+    expect(shadow?.en).toBeUndefined();
+    expect(shadow?.fr).toBeUndefined();
+    // DE is the real current slug of that job: the prefix stays, no alias.
+    expect(shadow?.de).toBe('/de/jobs-in-zurich');
+    expect(shadow?.alias?.de).toBeUndefined();
+  });
+
+  it('still resolves a registry path with a different last segment through the same-locale alias', () => {
+    const entry = readEntry('translated-direct-old');
+    expect(entry?.alias?.en).toBe('/en/find-jobs-zurich/translated-direct-en');
   });
 
   it('clears stale native recovery when a later store part replaces a candidate map', () => {
     expect(readEntry('worker-reset-candidate')?.alias?.en)
       .toBe('/en/find-jobs-zurich/worker-reset-route-en');
-    // The candidate and active-route identity bits survive both replacements:
-    // the final FR self-path remains direct recovery, and its DE target remains
-    // native recovery for the other active route.
-    expect(readEntry('worker-reset-candidate')?.alias?.fr).toBeUndefined();
-    expect(readEntry('worker-reset-native-target')?.alias?.de).toBeUndefined();
+    // The final FR row is the identity path of the requested slug, and the DE
+    // path of the other row ends in a slug that is current only in FR: neither
+    // is a page in its own locale, so both receive the active alias.
+    expect(readEntry('worker-reset-candidate')?.alias?.fr)
+      .toBe('/fr/trouver-emploi-zurich/worker-reset-route-fr');
+    expect(readEntry('worker-reset-native-target')?.alias?.de)
+      .toBe('/de/jobs-in-zurich/worker-reset-target-de');
   });
 
   it('uses the stable SEO job order when a cross-locale bridge path has multiple claimants', () => {

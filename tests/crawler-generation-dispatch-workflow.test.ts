@@ -142,6 +142,23 @@ function expectCurrentShadowContract(currentDocument: any, sourceDocument: any) 
     ));
 }
 
+describe('crawler generation dispatch quota fallback wiring', () => {
+  it('gives every dispatcher step the read fallback and posts translate-pending after a refused read', () => {
+    const workflow = YAML.parse(fs.readFileSync(orchestratorPath, 'utf8'));
+    const steps = workflow.jobs.dispatch.steps as Array<{ run?: string; env?: Record<string, string> }>;
+    const dispatcherSteps = steps.filter((step) => step.run?.includes('scripts/crawler-generation-dispatch.mjs'));
+    expect(dispatcherSteps).toHaveLength(4);
+    for (const step of dispatcherSteps) {
+      expect(step.env?.CRAWLER_GENERATION_READ_FALLBACK_TOKEN).toBe('${{ secrets.GITHUB_TOKEN }}');
+    }
+    const translate = steps.find((step) => step.run?.includes('gh workflow run translate-pending.yml'));
+    expect(translate?.run).toContain("grep -q 'HTTP 403: API rate limit exceeded'");
+    expect(translate?.run).toContain(
+      'repos/nanakokyobashi-rgb/frontaliere-articles/actions/workflows/translate-pending.yml/dispatches',
+    );
+  });
+});
+
 describe('crawler generation PR B workflow wiring', () => {
   it('keeps the current portable translation baseline and every generation group token/ref/hash-bound', () => {
     const base = execFileSync('git', ['show', `origin/main:${orchestratorPath}`], { encoding: 'utf8' });

@@ -203,7 +203,8 @@ rehydrate_locale() {
     fi
 
     echo "[rehydrate] $loc pre-clone disk: $(df -h / | tail -1)"
-    tmp="$RUNNER_TEMP/rehydrate-$loc"
+    # Sul volume di dist/ quando c'e' (scripts/ci/mount-compressed-dist.sh).
+    tmp="${REHYDRATE_CLONE_ROOT:-$RUNNER_TEMP}/rehydrate-$loc"
     clone_ok=1
     for attempt in 1 2; do
       rm -rf "$tmp"
