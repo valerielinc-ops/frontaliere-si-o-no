@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-28T14:49:04.618Z",
+  "updatedAt": "2026-11-28T14:49:57.283Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -1409680,7 +1409680,7 @@
         "web"
       ],
       "firstSeenAt": "2026-10-19T21:46:32.730Z",
-      "updatedAt": "2026-11-27T15:38:59.452Z",
+      "updatedAt": "2026-11-28T14:49:57.203Z",
       "name": "sintio",
       "domain": "sintio.ch",
       "careersUrl": "https://join.com/companies/sintio/16868238-technische-r-verkaufsberater-in-und-projektleiter-in-e-mobility",
@@ -1409901,7 +1409901,7 @@
       "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-27T09:53:26.267Z",
+      "firstCrawlerOutputAt": "2026-11-28T09:41:18.510Z",
       "firstCrawlerJobCount": 0,
       "firstCrawlerOutputAttentionAt": "2026-11-04T13:55:58.168Z"
     },
@@ -1630482,12 +1630482,12 @@
     },
     "vtm-dienstleistung@rothrist": {
       "key": "vtm-dienstleistung@rothrist",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T07:47:23.374Z",
-      "updatedAt": "2026-11-27T15:39:37.428Z",
+      "updatedAt": "2026-11-28T14:49:57.204Z",
       "name": "VTM Dienstleistung AG",
       "city": "Rothrist",
       "zip": "4852",
@@ -1632410,7 +1632410,13 @@
       ],
       "sourceAdapterVersion": "generic-runner-v1",
       "promotionPr": "20401",
-      "promotionBranch": "prospector/promote-2026-11-27"
+      "promotionBranch": "prospector/promote-2026-11-27",
+      "promotedAt": "2026-11-27T22:28:02Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-28T09:20:11.453Z",
+      "firstCrawlerJobCount": 20
     },
     "vtm-personal@rothrist": {
       "key": "vtm-personal@rothrist",
