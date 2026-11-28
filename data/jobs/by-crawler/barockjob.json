@@ -1,7 +1,7 @@
 {
   "crawlerKey": "barockjob",
-  "assembledAt": "2026-11-27T21:46:41.859Z",
-  "runId": "46070253957",
+  "assembledAt": "2026-11-28T09:45:23.548Z",
+  "runId": "46130382584",
   "jobs": [
     {
       "id": "barockjob-62794a403cfe",
@@ -34,7 +34,7 @@
       "url": "https://barockjob.ch/jobs/2026/08/28/betriebsmechaniker-unterhaltsmechaniker",
       "source": "Barock Job AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:46:24.420Z",
+      "crawledAt": "2026-11-28T09:45:18.497Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -86,7 +86,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "baumaschinenfuhrer-in-grossgerate-im-spezialtiefbau-solothurn-ch-so-barockjob-ch",
           "anlagen-und-apparatebauer-schweissfachmann-80-100-olten-ch-so-barockjob-ch",
           "bauzeichner-in-efz-ingenieurbau-solothurn-ch-so-barockjob-ch",
           "bauleiter-in-oder-techniker-in-hochbau-olten-ch-so-barockjob-ch",
@@ -106,7 +105,8 @@
           "aussendienstmitarbeiter-in-inventuren-medizinaltechnik-olten-ch-so-barockjob-ch",
           "anlagen-und-apparatebauer-80-100-langenthal-ch-be-barockjob-ch",
           "assistenz-der-geschaftsleitung-langenthal-ch-be-barockjob-ch",
-          "bereichsleiter-in-finanzen-und-verwaltung-olten-ch-so-barockjob-ch"
+          "bereichsleiter-in-finanzen-und-verwaltung-olten-ch-so-barockjob-ch",
+          "baumaschinenfuhrer-in-grossgerate-im-spezialtiefbau-solothurn-ch-so-barockjob-ch"
         ],
         "en": [
           "carrosserie-maler-lackierer-in-solothurn-ch-so-barockjob-ch",
@@ -158,7 +158,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:46:24.420Z",
+      "validThrough": "2026-12-28T09:45:18.497Z",
       "validThroughSource": "last-observed-window"
     }
   ]

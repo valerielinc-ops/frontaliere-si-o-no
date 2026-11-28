@@ -1,7 +1,7 @@
 {
   "key": "skan",
   "label": "Skan AG",
-  "generatedAt": "2026-11-27T21:47:11.419Z",
+  "generatedAt": "2026-11-28T09:43:53.294Z",
   "total": 3,
   "discovered": 8,
   "parsed": 8,
@@ -17,6 +17,14 @@
       {
         "status": 200,
         "url": "https://jobs.skan.com/go/Jobs-in-Allschwil-%28Switzerland%29/9780357/"
+      },
+      {
+        "status": 200,
+        "url": "https://jobs.skan.com/job/Allschwil-Technical-Complaint-&-Case-Manager%2C-80-100/1372037157/"
+      },
+      {
+        "status": 200,
+        "url": "https://jobs.skan.com/job/Allschwil-Commissioning-&-Qualification-Engineer-%28inhouse-&-onsite%29/1369906157/"
       },
       {
         "status": 200,
@@ -41,14 +49,6 @@
       {
         "status": 200,
         "url": "https://jobs.skan.com/job/Allschwil-Team-Lead-ICT-Engineering-&-Operations/1361640957/"
-      },
-      {
-        "status": 200,
-        "url": "https://jobs.skan.com/job/Allschwil-Commissioning-&-Qualification-Engineer-%28inhouse-&-onsite%29/1369906157/"
-      },
-      {
-        "status": 200,
-        "url": "https://jobs.skan.com/job/Allschwil-Technical-Complaint-&-Case-Manager%2C-80-100/1372037157/"
       }
     ],
     "listingTerminalStatus": 200,
@@ -66,19 +66,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 17980,
-  "avgDurationMs": 17980,
+  "durationMs": 77595,
+  "avgDurationMs": 77595,
   "durationHistory": [
-    17980
+    77595
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "skan-fa0448c44267",
-      "slug": "technical-complaint-case-manager-80-100-allschwil-skan-ch",
+      "slug": "reclami-tecnici-case-manager-80-100-skan-ag-allschwil",
       "company": "Skan AG",
       "companyKey": "skan",
       "companyDomain": "jobs.skan.com",
@@ -88,7 +89,7 @@
       "url": "https://jobs.skan.com/job/Allschwil-Technical-Complaint-&-Case-Manager%2C-80-100/1372037157/",
       "source": "Skan AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T21:46:08.988Z",
+      "crawledAt": "2026-11-28T09:42:02.869Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -104,7 +105,7 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.skan.com/job/Allschwil-Technical-Complaint-&-Case-Manager%2C-80-100/1372037157/",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-27T21:46:08.988Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -125,80 +126,19 @@
       },
       "streetAddress": "Kreuzstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-25T21:46:08.988Z",
+      "validThrough": "2027-02-26T09:42:02.869Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-27T21:46:08.988Z",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
-    {
-      "id": "skan-26be4c75137a",
-      "slug": "commissioning-qualification-ingegnere-inhouse-onsite-skan-ag-allschwil",
-      "company": "Skan AG",
-      "companyKey": "skan",
-      "companyDomain": "jobs.skan.com",
-      "title": "Commissioning & Qualification Engineer (inhouse & onsite)",
-      "location": "Allschwil",
-      "canton": "BL",
-      "url": "https://jobs.skan.com/job/Allschwil-Commissioning-&-Qualification-Engineer-%28inhouse-&-onsite%29/1369906157/",
-      "source": "Skan AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-27T21:46:08.983Z",
-      "addressLocality": "Allschwil",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.skan.com/job/Allschwil-Commissioning-&-Qualification-Engineer-%28inhouse-&-onsite%29/1369906157/",
-      "firstSeenAt": "2026-11-23T21:49:36.199Z",
-      "salaryMin": 72500,
-      "salaryMax": 110500,
-      "salarySource": "estimated",
-      "postalCode": "4123",
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "SKAN AG",
-        "streetAddress": "Kreuzstrasse 5",
-        "postalCode": "4123",
-        "registeredName": "Skan AG",
-        "matchType": "exact",
-        "streetAddressSource": "zefix-registry",
-        "jobPostalCode": "4123",
-        "addressLocality": "Allschwil",
-        "addressRegion": "BL",
-        "checkedAt": "2026-11-09T15:43:20.118Z"
-      },
-      "streetAddress": "Kreuzstrasse 5",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-22T21:46:08.983Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
     {
       "id": "skan-4ebca8c52ac9",
       "slug": "process-validation-ingegnere-skan-ag-allschwil",
@@ -211,7 +151,7 @@
       "url": "https://jobs.skan.com/job/Allschwil-Process-Validation-Engineer/1348986457/",
       "source": "Skan AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T21:46:08.966Z",
+      "crawledAt": "2026-11-28T09:42:02.875Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -248,7 +188,66 @@
       },
       "streetAddress": "Kreuzstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-14T21:46:08.966Z",
+      "validThrough": "2027-02-15T09:42:02.875Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 23
+      }
+    },
+    {
+      "id": "skan-26be4c75137a",
+      "slug": "commissioning-qualification-ingegnere-inhouse-onsite-skan-ag-allschwil",
+      "company": "Skan AG",
+      "companyKey": "skan",
+      "companyDomain": "jobs.skan.com",
+      "title": "Commissioning & Qualification Engineer (inhouse & onsite)",
+      "location": "Allschwil",
+      "canton": "BL",
+      "url": "https://jobs.skan.com/job/Allschwil-Commissioning-&-Qualification-Engineer-%28inhouse-&-onsite%29/1369906157/",
+      "source": "Skan AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-28T09:42:02.870Z",
+      "addressLocality": "Allschwil",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.skan.com/job/Allschwil-Commissioning-&-Qualification-Engineer-%28inhouse-&-onsite%29/1369906157/",
+      "firstSeenAt": "2026-11-23T21:49:36.199Z",
+      "salaryMin": 72500,
+      "salaryMax": 110500,
+      "salarySource": "estimated",
+      "postalCode": "4123",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "SKAN AG",
+        "streetAddress": "Kreuzstrasse 5",
+        "postalCode": "4123",
+        "registeredName": "Skan AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "4123",
+        "addressLocality": "Allschwil",
+        "addressRegion": "BL",
+        "checkedAt": "2026-11-09T15:43:20.118Z"
+      },
+      "streetAddress": "Kreuzstrasse 5",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-22T09:42:02.870Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -259,5 +258,5 @@
       }
     }
   ],
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
 }
