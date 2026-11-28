@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kellerhals-carrard",
-  "assembledAt": "2026-11-27T21:52:13.656Z",
-  "runId": "46069898153",
+  "assembledAt": "2026-11-28T09:37:38.159Z",
+  "runId": "46130136349",
   "jobs": [
     {
       "id": "kellerhals-carrard-e824b41bf862",
@@ -34,7 +34,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2907511",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:52:06.390Z",
+      "crawledAt": "2026-11-28T09:37:31.629Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       },
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T21:52:06.390Z",
+      "validThrough": "2027-02-24T09:37:31.629Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -114,7 +114,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2874128",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:52:06.131Z",
+      "crawledAt": "2026-11-28T09:37:31.075Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -161,7 +161,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:52:06.131Z",
+      "validThrough": "2027-02-07T09:37:31.075Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -195,7 +195,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2868809",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:52:05.810Z",
+      "crawledAt": "2026-11-28T09:37:30.882Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -244,7 +244,7 @@
       },
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:52:05.810Z",
+      "validThrough": "2027-01-28T09:37:30.882Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -278,7 +278,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2807915",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:52:05.537Z",
+      "crawledAt": "2026-11-28T09:37:30.667Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -297,6 +297,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2807915",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "research-assistant-research-assistant-50-kellerhals-carrard-basel",
         "assistant-de-recherche-assistant-de-recherche-50-kellerhals-carrard-basel",
@@ -327,7 +328,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:52:05.537Z",
+      "validThrough": "2026-12-28T09:37:30.667Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -361,7 +362,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2791565",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:52:05.273Z",
+      "crawledAt": "2026-11-28T09:37:30.476Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -405,7 +406,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T21:52:05.273Z",
+      "validThrough": "2026-12-28T09:37:30.476Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -439,7 +440,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T21:52:04.992Z",
+      "crawledAt": "2026-11-28T09:37:29.925Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -474,7 +475,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:52:04.992Z",
+      "validThrough": "2026-12-28T09:37:29.925Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -508,7 +509,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2437629",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:52:04.308Z",
+      "crawledAt": "2026-11-28T09:37:29.764Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -571,7 +572,7 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:52:04.308Z",
+      "validThrough": "2026-12-28T09:37:29.764Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -605,7 +606,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2397991",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:52:03.495Z",
+      "crawledAt": "2026-11-28T09:37:29.220Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -648,7 +649,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:52:03.495Z",
+      "validThrough": "2026-12-28T09:37:29.220Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -682,7 +683,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2331466",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:52:03.225Z",
+      "crawledAt": "2026-11-28T09:37:28.995Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -725,7 +726,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:52:03.225Z",
+      "validThrough": "2026-12-28T09:37:28.995Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -759,7 +760,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2303862",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:52:02.973Z",
+      "crawledAt": "2026-11-28T09:37:28.521Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -802,7 +803,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:52:02.973Z",
+      "validThrough": "2026-12-28T09:37:28.521Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -836,7 +837,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2303637",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:52:02.080Z",
+      "crawledAt": "2026-11-28T09:37:27.937Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -886,7 +887,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:52:02.080Z",
+      "validThrough": "2026-12-28T09:37:27.937Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -920,7 +921,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2301974",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:52:01.405Z",
+      "crawledAt": "2026-11-28T09:37:27.366Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -974,7 +975,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:52:01.405Z",
+      "validThrough": "2026-12-28T09:37:27.366Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1008,7 +1009,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2293818",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:52:00.556Z",
+      "crawledAt": "2026-11-28T09:37:26.822Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1051,7 +1052,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:52:00.556Z",
+      "validThrough": "2026-12-28T09:37:26.822Z",
       "validThroughSource": "last-observed-window"
     }
   ]
