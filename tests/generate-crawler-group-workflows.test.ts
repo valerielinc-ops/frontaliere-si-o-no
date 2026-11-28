@@ -4831,3 +4831,29 @@ describe('generated crawler workflows stay under the GitHub size budget', () => 
     }
   });
 });
+
+// A grouped step commits only the paths it names, plus the three of its own
+// JOBS_SLICE_FILE. An umbrella crawler writes sibling slices too: without
+// their expired archive in the list, the writer archives the retired rows and
+// the commit drops the archive (eta-sa-swatch-group, wave 10df597a2d5 of
+// 2026-11-28: 7 routes lost).
+describe('every committed sibling slice carries its expired archive', () => {
+  it('names the expired archive of each other slice a manifest commit step lists', () => {
+    const { manifest } = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-manifest.json'), 'utf8'));
+    const missing: string[] = [];
+    let siblings = 0;
+    for (const crawler of manifest) {
+      for (const step of crawler.postSteps || []) {
+        const run = String(step.run || '');
+        if (!run.includes('git-commit-data.sh')) continue;
+        for (const [, key] of run.matchAll(/data\/jobs\/by-crawler\/([a-z0-9-]+)\.json/g)) {
+          if (key === crawler.slug) continue;
+          siblings += 1;
+          if (!run.includes(`data/jobs/expired/by-crawler/${key}.json`)) missing.push(`${crawler.slug}: ${key}`);
+        }
+      }
+    }
+    expect(siblings).toBeGreaterThan(0);
+    expect(missing).toEqual([]);
+  });
+});
