@@ -60,8 +60,16 @@ PATHS=(
   /usr/local/aws-sam-cli
   /home/linuxbrew
   /usr/share/kotlinc
+  # 2026-11-28: toolchain native, build tool Java/Scala e Rust per-utente.
+  /usr/share/sbt
+  /usr/lib/postgresql
+  /usr/lib/mono
+  /etc/skel/.cargo
+  /etc/skel/.rustup
+  /home/runner/.cargo
+  /home/runner/.rustup
 )
-for p in "${PATHS[@]}" /usr/local/julia*; do
+for p in "${PATHS[@]}" /usr/local/julia* /usr/lib/llvm-* /usr/share/gradle* /usr/share/apache-maven*; do
   [ -e "$p" ] || continue
   sudo rm -rf "$p" 2>/dev/null &
 done

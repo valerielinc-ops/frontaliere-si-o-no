@@ -178,6 +178,40 @@ describe('history backfill: served expired routes', () => {
     expect(missing(routesOf([renamed]), rows)).toEqual([]);
   });
 
+  it('does not add back an unattributed historical row whose routes the archive already serves', () => {
+    const unattributed = (slug: string, extra: Row = {}) => {
+      const { sourceIdentity: _unused, ...row } = record(slug, 11, { expiredAt: daysAgo(60), ...extra });
+      return row;
+    };
+    const survivor = record('infermiere-chur', 11, {
+      previousSlugsByLocale: { it: ['curante-chur', 'assistente-chur'] },
+    });
+    // An earlier run merged this row into the survivor; history still has it.
+    commit({
+      active: [],
+      expired: [unattributed('curante-chur', { previousSlugsByLocale: { it: ['assistente-chur'] } })],
+    });
+    commit({ active: [unrelatedDrop()], expired: [survivor] });
+    commit({ active: [] });
+
+    run();
+
+    const rows = readArchive();
+    expect(rows.map((row) => row.slug).sort()).toEqual(['custode-airolo', 'infermiere-chur']);
+    expect(missing(routesOf([survivor]), rows)).toEqual([]);
+  });
+
+  it('still recovers an unattributed historical row that serves a route of its own', () => {
+    const { sourceIdentity: _unused, ...orphan } = record('portiere-davos', 12, { expiredAt: daysAgo(60) });
+    commit({ active: [], expired: [orphan] });
+    commit({ active: [unrelatedDrop()], expired: [record('barista-davos', 13)] });
+    commit({ active: [] });
+
+    run();
+
+    expect(routesOf(readArchive()).has('it:portiere-davos')).toBe(true);
+  });
+
   it('merges an unserved historical slug into the record of the same posting', () => {
     commit({ active: [activeJob('acme-old-id', 'cuoco-locarno', 7, { slugByLocale: { it: 'cuoco-locarno', de: 'koch-locarno' } })] });
     commit({ active: [], expired: [record('chef-locarno', 7)] });
