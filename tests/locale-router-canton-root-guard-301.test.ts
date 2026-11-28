@@ -161,7 +161,7 @@ describe('locale-router canton-root-validity guard — pruned company hub (#3015
 const EXPIRED = (prefix: string, locale: string) => ({ 'expired-old-job-slug': { [locale]: prefix } });
 
 describe('locale-router canton-root-validity guard — expired job-detail slug (#3015b)', () => {
-  it('counts v1 fallback for both canton recovery and the expired-job registry check', async () => {
+  it('reads only v2 shards for both canton recovery and the expired-job registry check', async () => {
     const target = '/de/jobs-im-tessin/';
     const map = EXPIRED('/de/jobs-im-tessin', 'de');
     const log = vi.spyOn(console, 'log').mockImplementation(() => {});
@@ -170,7 +170,6 @@ describe('locale-router canton-root-validity guard — expired job-detail slug (
         const u = typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
         const { pathname } = new URL(u);
         if (pathname === '/cdn-build-id.txt') return new Response('1001');
-        if (/^\/job-canon\/releases\/[0-9]{1,20}\/v2\//.test(pathname)) return new Response('not found', { status: 404 });
         if (pathname.startsWith('/job-canon/')) {
           return new Response(JSON.stringify(map), {
             status: 200,
@@ -194,13 +193,11 @@ describe('locale-router canton-root-validity guard — expired job-detail slug (
       const requestUrl = typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
       return new URL(requestUrl).pathname;
     }).filter((pathname) => pathname.startsWith('/job-canon/'));
-    expect(canonPaths).toHaveLength(4);
-    expect(canonPaths[0]).toMatch(/^\/job-canon\/releases\/1001\/v2\/[0-9a-f]{3}\.json$/);
-    expect(canonPaths[1]).toBe('/job-canon/releases/1001/ex.json');
-    expect(canonPaths[2]).toBe(canonPaths[0]);
-    expect(canonPaths[3]).toBe('/job-canon/releases/1001/ex.json');
-    expect(log).toHaveBeenCalledTimes(2);
-    expect(log).toHaveBeenCalledWith({ event: 'job_canon_v1_fallback' });
+    expect(canonPaths).toHaveLength(2);
+    for (const canonPath of canonPaths) {
+      expect(canonPath).toMatch(/^\/job-canon\/releases\/1001\/v2\/[0-9a-f]{3}\.json$/);
+    }
+    expect(log).not.toHaveBeenCalled();
   });
 
   it('301s a DE registry-known expired job (page gone) to a live section root', async () => {
