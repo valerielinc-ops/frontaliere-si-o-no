@@ -24,15 +24,13 @@ import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from '../../functions/src/assistedApplicationCvCheck.js';
 import { submissionGuard, submissionRefFor } from '../../functions/src/assistedApplicationSubmissionGuard.js';
 import { reconcileSubmissionReceipt } from '../../functions/src/assistedApplicationReceiptReconcile.js';
-import { applyAutomationEvent } from '../../functions/src/assistedApplicationAutomation.js';
+import { RUN_WATCHDOG_MS, applyAutomationEvent } from '../../functions/src/assistedApplicationAutomation.js';
 import { runAutomationEffect } from '../../functions/src/assistedApplicationAutomationEffects.js';
 import { decryptJson, runKeyFrom } from './lib/secure-run.mjs';
 import { inPageConfirmation } from './lib/portal/in-page-confirmation.mjs';
 
 export const INPAGE_RECONCILE_ACTOR = 'reconcile-inpage-confirmation';
 const PAGE = 100;
-// The evidence of the send run is written right after the click: a file much later belongs to another run.
-const EVIDENCE_WINDOW_MS = 30 * 60 * 1000;
 
 /** The same rule as the runner, on the fields a send run saved. Pure. */
 export function inPageConfirmationFromEvidence(payload = {}) {
@@ -70,16 +68,45 @@ async function runKey() {
   return runKeyFrom(template.parameters?.ASSISTED_APPLICATION_RUN_KEY?.defaultValue?.value);
 }
 
-/** The decrypted send-run evidence of the round that clicked at `clickedAt`, or null. */
-async function sendRunEvidence({ bucket, orderId, clickedAt, key }) {
+// The evidence of a run is written right after its click (outcome wait and diagnostics): a file created much later
+// belongs to another run.
+const EVIDENCE_AFTER_CLICK_MS = 30 * 60 * 1000;
+
+/**
+ * The ONE stored send run that can hold this click. A run is a candidate only when it started at or before
+ * `clickedAt` (the number in its name is its START, always before its click), no longer ago than the longest a run
+ * lives (the watchdog), AND its evidence file was written after the click and within the window that follows it:
+ * the evidence of an earlier attempt of the same round was written before this click and is never this click's.
+ * Of the candidates the closest start wins. Pure: `files` are `{ name, createdAt }` (createdAt in ms).
+ */
+export function sendRunCandidates(files = [], clickedAt = 0) {
+  return files
+    .map((file) => ({ ...file, at: Number(/\/run-(\d+)-submit-portal-submit_failed\.json\.enc$/.exec(file.name)?.[1]) }))
+    .filter(({ at, createdAt }) => Number.isFinite(at) && at <= clickedAt && clickedAt - at <= RUN_WATCHDOG_MS
+      && Number.isFinite(createdAt) && createdAt >= clickedAt && createdAt - clickedAt <= EVIDENCE_AFTER_CLICK_MS)
+    .sort((a, b) => b.at - a.at);
+}
+
+/**
+ * The evidence is the run that made THIS click: it reached the final click (outcomes and button on record) and,
+ * when it saved the form binding it armed the click with (runs since the one that added it), that binding is the
+ * one the round's record holds.
+ */
+export function evidenceHoldsTheClick(payload = {}, record = {}) {
+  const evidence = payload?.evidence || {};
+  if (!(Array.isArray(evidence.finalOutcomes) && evidence.finalOutcomes.length > 0 && Boolean(evidence.finalButton))) return false;
+  return typeof evidence.formBinding !== 'string' || evidence.formBinding === record?.formBinding;
+}
+
+/** The decrypted send-run evidence of the click on `record`, or null. No fallback to another run. */
+async function sendRunEvidence({ bucket, orderId, record, key }) {
   const [files] = await bucket.getFiles({ prefix: `assisted-application-uploads/${orderId}/run-` });
-  const candidates = files
-    .map((file) => ({ file, at: Number(/\/run-(\d+)-submit-portal-submit_failed\.json\.enc$/.exec(file.name)?.[1]) }))
-    .filter(({ at }) => Number.isFinite(at) && at >= clickedAt && at <= clickedAt + EVIDENCE_WINDOW_MS)
-    .sort((a, b) => a.at - b.at);
-  if (!candidates.length) return null;
-  const [content] = await candidates[0].file.download();
-  return decryptJson(JSON.parse(content.toString('utf8')), key);
+  const byName = new Map(files.map((file) => [file.name, file]));
+  const [closest] = sendRunCandidates(files.map((file) => ({ name: file.name, createdAt: Date.parse(file.metadata?.timeCreated || '') })), Number(record.clickedAt));
+  if (!closest) return null;
+  const [content] = await byName.get(closest.name).download();
+  const payload = decryptJson(JSON.parse(content.toString('utf8')), key);
+  return evidenceHoldsTheClick(payload, record) ? payload : null;
 }
 
 /**
@@ -105,7 +132,7 @@ export async function reconcileInPageConfirmation({ db, bucket, key, apply = fal
       const record = ((await submissionRefFor(db, doc.id).get()).data() || {})[`r${round}`] || null;
       const blocker = inPageReconcileBlocker({ order, flow, record });
       if (blocker) { skip(doc.id, blocker); continue; }
-      const payload = await sendRunEvidence({ bucket, orderId: doc.id, clickedAt: Number(record.clickedAt), key });
+      const payload = await sendRunEvidence({ bucket, orderId: doc.id, record, key });
       if (!payload) { skip(doc.id, 'no_send_run_evidence'); continue; }
       const verdict = inPageConfirmationFromEvidence(payload);
       if (!verdict.confirmed) { skip(doc.id, `not_proven:${verdict.reason}`); continue; }

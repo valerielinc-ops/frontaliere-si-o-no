@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { inPageConfirmation, inPageConfirmationText } from '../scripts/assisted-application/lib/portal/in-page-confirmation.mjs';
-import { inPageConfirmationFromEvidence, inPageReconcileBlocker } from '../scripts/assisted-application/reconcile-inpage-confirmation.mjs';
+import { evidenceHoldsTheClick, inPageConfirmationFromEvidence, inPageReconcileBlocker, sendRunCandidates } from '../scripts/assisted-application/reconcile-inpage-confirmation.mjs';
 import { createSubmissionReceipt, verifySubmissionReceipt } from '../functions/src/lib/submissionReceiptContract.js';
 
 const page = 'https://employer.example/it/lavora-con-noi/';
@@ -103,5 +103,32 @@ describe('reconciliation of orders stopped on portal_ambiguous', () => {
     expect(receipt).toMatchObject({ proofKind: 'portal_in_page_confirmation' });
     expect(verifySubmissionReceipt(receipt, { orderId: 'order-1', round: 1, attemptId: 'a1', channel: 'portal', sentRecord: {} })).toBe(true);
     expect(createSubmissionReceipt({ orderId: 'order-1', round: 1, attemptId: 'a1', channel: 'portal', proofKind: 'portal_in_page_confirmation', evidence: {}, sentRecord: {}, observedAt: 5 })).toBeNull();
+  });
+});
+
+describe('which stored run holds the click', () => {
+  const file = (at: number, createdAt: number) => ({ name: `assisted-application-uploads/order-1/run-${at}-submit-portal-submit_failed.json.enc`, createdAt });
+  const click = 1_000_000_000_000;
+  it('takes the run that started before the click and wrote its evidence after it, the closest first', () => {
+    expect(sendRunCandidates([file(click - 3_600_000, click + 5_000), file(click - 51_000, click + 20_000)], click).map((c) => c.at)).toEqual([click - 51_000, click - 3_600_000]);
+  });
+  it('drops a run that started after the click or too long before it', () => {
+    expect(sendRunCandidates([file(click + 1, click + 9)], click)).toEqual([]);
+    expect(sendRunCandidates([file(click - 151 * 60 * 1000, click + 9)], click)).toEqual([]);
+    expect(sendRunCandidates([{ name: 'assisted-application-uploads/order-1/run-5-other.json.enc', createdAt: click + 1 }], click)).toEqual([]);
+  });
+  it('never takes the evidence of an earlier attempt, written before this click', () => {
+    // click now at T; closest run (T-1) wrote nothing usable here, the older run (T-2) wrote its evidence before T
+    expect(sendRunCandidates([file(click - 2_000_000, click - 1_000_000)], click)).toEqual([]);
+    expect(sendRunCandidates([file(click - 51_000, click + 40 * 60 * 1000)], click)).toEqual([]);
+    expect(sendRunCandidates([file(click - 51_000, Number.NaN)], click)).toEqual([]);
+  });
+  it('accepts only evidence that reached the final click and carries the same form binding when it has one', () => {
+    const hit = { finalOutcomes: ['ambiguous'], finalButton: { by: 'runner' } };
+    expect(evidenceHoldsTheClick({ evidence: hit }, { formBinding: 'a' })).toBe(true);
+    expect(evidenceHoldsTheClick({ evidence: { ...hit, formBinding: 'a' } }, { formBinding: 'a' })).toBe(true);
+    expect(evidenceHoldsTheClick({ evidence: { ...hit, formBinding: 'b' } }, { formBinding: 'a' })).toBe(false);
+    expect(evidenceHoldsTheClick({ evidence: { finalOutcomes: [] } }, {})).toBe(false);
+    expect(evidenceHoldsTheClick({}, {})).toBe(false);
   });
 });
