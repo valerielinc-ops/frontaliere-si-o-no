@@ -2981,6 +2981,43 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
       const target = comparablePortalRoute(control.href);
       return `${target.origin}${target.pathname}${target.search}`;
     })).size === 1) return unbound.slice(0, 1);
+  // The selected posting's own page, fieldless (no form, no file, no consent: `fields` is empty), with one
+  // application link to one route and nothing else that applies: STA's «Jetzt bewerben!» opens `/bewerbung/?job-id=…`
+  // (2026-11-28), a route that names neither the posting's URL id nor its role. The page is the one the order's posting
+  // binding already matched (`allowSingleExternalApplicationEntry`), so the sole link is the way into the form.
+  // Two routes, a social sign-in beside several, a final-send label, a dialog, a route proof that disagrees or a page
+  // that is not the posting itself stay unresolved. Nothing is sent: the form behind it is bound
+  // again before anything is typed.
+  if (context.allowSingleExternalApplicationEntry === true && !context.postingRouteProof
+    && posting && current && current.origin === posting.origin
+    && current.pathname === posting.pathname && current.search === posting.search
+    && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
+    && !(Array.isArray(snapshot.dialogs) && snapshot.dialogs.length)) {
+    const FINAL_LABEL_RE = /(?:absenden|abschicken|abschlie(?:ß|ss)en|senden|submit|send|invia|envoy|soumettre|finali[sz]e|fertig|complete|conclud|termina)/iu;
+    const ownEntries = allEntries.filter((control) => !socialApplicationEntry(control));
+    // Only the site's own application route qualifies: same origin and a path made of known entry words alone, with an
+    // optional locale prefix (`/bewerbung/`, `/de/apply/`). Any other segment (`/apply/job-b/`, `/Vacancies/2780/…`,
+    // `/jobs/apply/<id>`) may name a vacancy and needs its own proof of belonging to this posting. The reference to the
+    // posting can sit in the query only (`?job-id=…`). Another host is no entry here either.
+    const ENTRY_WORDS = new Set(['bewerbung', 'bewerben', 'apply', 'application', 'applications', 'candidature', 'candidatures',
+      'candidatura', 'candidature', 'candidati', 'candidarsi', 'postuler', 'postulation']);
+    const LOCALES = new Set(['de', 'fr', 'it', 'en']);
+    const isSiteApplicationRoute = (control) => {
+      const route = comparablePortalRoute(control?.href);
+      if (!route || route.origin !== posting.origin || !route.origin.startsWith('https://')) return false;
+      let segments = route.pathname.split('/').filter(Boolean).map((segment) => segment.toLowerCase());
+      if (segments.length > 1 && LOCALES.has(segments[0])) segments = segments.slice(1);
+      return segments.length > 0 && segments.length <= 2 && segments.every((segment) => ENTRY_WORDS.has(segment));
+    };
+    const ownUnbound = unbound.filter((control) => !socialApplicationEntry(control)
+      && !FINAL_LABEL_RE.test(String(control?.text || control?.label || ''))
+      && isSiteApplicationRoute(control));
+    const targets = new Set(ownUnbound.map((control) => {
+      const target = comparablePortalRoute(control.href);
+      return `${target.origin}${target.pathname}${target.search}`;
+    }));
+    if (ownUnbound.length > 0 && targets.size === 1 && ownEntries.length === ownUnbound.length) return ownUnbound.slice(0, 1);
+  }
   return [];
 }
 
