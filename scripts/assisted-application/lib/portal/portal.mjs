@@ -3074,8 +3074,8 @@ export function hasApplicationSurface(snapshot, { pageUrl = '', postingUrl = '',
 export function portalRateLimitOf(response) {
   try {
     const status = Number(response?.status?.());
-    const retryAfterMs = parseRetryAfterMs(response?.headers?.()?.['retry-after']);
-    return isRateLimitStatus(status, retryAfterMs) ? { retryAfterMs } : null;
+    const retryAfter = response?.headers?.()?.['retry-after'];
+    return isRateLimitStatus(status, String(retryAfter ?? '')) ? { retryAfterMs: parseRetryAfterMs(retryAfter) } : null;
   } catch {
     return null;
   }

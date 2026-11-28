@@ -35,6 +35,11 @@ describe('Retry-After and the rate-limit status', () => {
     expect(isRateLimitStatus(429)).toBe(true);
     expect(isRateLimitStatus(503, 60_000)).toBe(true);
     expect(isRateLimitStatus(503)).toBe(false);
+    // The header's presence counts, not its delay: `Retry-After: 0` or a past date still says the site is limiting us.
+    expect(isRateLimitStatus(503, '0')).toBe(true);
+    expect(isRateLimitStatus(503, new Date(T0 - HOUR).toUTCString())).toBe(true);
+    expect(isRateLimitStatus(503, '')).toBe(false);
+    expect(isRateLimitStatus(503, 'soon')).toBe(false);
     expect(isRateLimitStatus(403)).toBe(false);
     expect(isRateLimitStatus(200)).toBe(false);
   });
@@ -42,6 +47,7 @@ describe('Retry-After and the rate-limit status', () => {
   it('marks the posting page that answered 429 without changing its liveness code', () => {
     expect(classifyLiveness({ status: 429, retryAfter: '600' })).toMatchObject({ result: 'uncertain', code: 'access_blocked', httpStatus: 429, rateLimited: true, retryAfterMs: 600_000 });
     expect(classifyLiveness({ status: 503, retryAfter: '30' })).toMatchObject({ code: 'access_blocked', rateLimited: true, retryAfterMs: 30_000 });
+    expect(classifyLiveness({ status: 503, retryAfter: '0' })).toMatchObject({ code: 'access_blocked', httpStatus: 503, rateLimited: true });
     expect(classifyLiveness({ status: 503 })).toEqual({ result: 'uncertain', code: 'access_blocked', reason: 'HTTP 503' });
     expect(classifyLiveness({ status: 403 })).toEqual({ result: 'uncertain', code: 'access_blocked', reason: 'HTTP 403' });
   });
@@ -53,6 +59,7 @@ describe('the runner stops on a rate-limited main document', () => {
     expect(portalRateLimitOf(response(429))).toEqual({ retryAfterMs: 0 });
     expect(portalRateLimitOf(response(429, { 'retry-after': '1800' }))).toEqual({ retryAfterMs: 1_800_000 });
     expect(portalRateLimitOf(response(503, { 'retry-after': '60' }))).toEqual({ retryAfterMs: 60_000 });
+    expect(portalRateLimitOf(response(503, { 'retry-after': '0' }))).toEqual({ retryAfterMs: 0 });
     expect(portalRateLimitOf(response(503))).toBeNull();
     expect(portalRateLimitOf(response(200))).toBeNull();
     expect(portalRateLimitOf(response(404))).toBeNull();
@@ -87,6 +94,23 @@ describe('the runner stops on a rate-limited main document', () => {
     context.emit('response', documentResponse(503, 'https://www.example-agency.test/stellen/job-1/'));
     expect(diagnostics.data.rateLimit).toBeUndefined();
   });
+
+  it('forgets the limit when a later main document answers with another error: a 429 then a 404 is a 404', () => {
+    for (const later of [404, 500, 502, 410, 403]) {
+      const context = fakeContext();
+      const diagnostics = startPortalDiagnostics(context as any);
+      context.emit('response', documentResponse(429, 'https://www.example-agency.test/stellen/job-1/'));
+      expect(diagnostics.data.rateLimit).toBeDefined();
+      context.emit('response', documentResponse(later, 'https://www.example-agency.test/stellen/job-2/'));
+      expect(diagnostics.data.rateLimit).toBeUndefined();
+    }
+    const context = fakeContext();
+    const diagnostics = startPortalDiagnostics(context as any);
+    context.emit('response', documentResponse(503, 'https://www.example-agency.test/a/', { 'retry-after': '0' }));
+    expect(diagnostics.data.rateLimit).toMatchObject({ status: 503 });
+    context.emit('response', documentResponse(429, 'https://www.example-agency.test/b/', { 'retry-after': '60' }));
+    expect(diagnostics.data.rateLimit).toMatchObject({ status: 429, retryAfterMs: 60_000 });
+  });
 });
 
 describe('the stop contract', () => {
@@ -106,6 +130,10 @@ describe('the retry ladder of a rate-limited portal', () => {
     expect(held.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['portal:portal_rate_limited'], portalAutoRetryAt: T0 + 30 * MIN });
     expect(held.effects).toEqual([]);
     expect(portalRetryDueAt(held.flow)).toBe(T0 + 30 * MIN);
+  });
+
+  it('a 503 with Retry-After: 0 still waits the first step of 30 minutes', () => {
+    expect(limited(submitting(), { retryAfterMs: 0 }).flow.portalAutoRetryAt).toBe(T0 + 30 * MIN);
   });
 
   it('waits at least the Retry-After of the site, never less than the step, never more than a day', () => {

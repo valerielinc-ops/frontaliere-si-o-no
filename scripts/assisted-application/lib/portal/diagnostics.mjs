@@ -150,10 +150,14 @@ export function startPortalDiagnostics(context, httpFailures = []) {
       const parent = typeof request.frame === 'function' ? request.frame()?.parentFrame?.() : null;
       if (parent) return;
       const status = response.status();
-      const retryAfterMs = parseRetryAfterMs(response.headers?.()?.['retry-after']);
-      if (isRateLimitStatus(status, retryAfterMs)) {
+      const retryAfter = response.headers?.()?.['retry-after'];
+      const retryAfterMs = parseRetryAfterMs(retryAfter);
+      // Every main-document response replaces the last one: the marker stands only while the page in front of
+      // the runner is the one that was rate limited (a later 404 or 5xx is another matter).
+      delete data.rateLimit;
+      if (isRateLimitStatus(status, String(retryAfter ?? ''))) {
         data.rateLimit = { ...diagnosticLocation(response.url()), status, ...(retryAfterMs ? { retryAfterMs } : {}), at: Date.now() };
-      } else if (status < 400) delete data.rateLimit;
+      }
     } catch { /* diagnostics never break the run */ }
   });
   listen(context, 'requestfailed', (request) => push(data.requestFailures, { ...metadata(request), error: diagnosticText(request.failure()?.errorText) }));

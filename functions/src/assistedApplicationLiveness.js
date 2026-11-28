@@ -296,7 +296,7 @@ export function classifyLiveness({ status = 0, requestedUrl = '', finalUrl = '',
     const retryAfterMs = parseRetryAfterMs(retryAfter);
     return {
       result: 'uncertain', code: 'access_blocked', reason: `HTTP ${status}`,
-      ...(isRateLimitStatus(status, retryAfterMs) ? { httpStatus: status, rateLimited: true, ...(retryAfterMs ? { retryAfterMs } : {}) } : {}),
+      ...(isRateLimitStatus(status, String(retryAfter ?? '')) ? { httpStatus: status, rateLimited: true, ...(retryAfterMs ? { retryAfterMs } : {}) } : {}),
     };
   }
   if (status >= 500) return { result: 'uncertain', code: 'server_error', reason: `HTTP ${status}` };
