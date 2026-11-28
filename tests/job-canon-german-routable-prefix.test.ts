@@ -5,12 +5,13 @@ describe('routableGermanJobCanonPrefix', () => {
   it('rewrites a known legacy German canton section to the canonical one', () => {
     expect(routableGermanJobCanonPrefix('/de/jobs-im-zurich')).toBe('/de/jobs-in-zurich');
     expect(routableGermanJobCanonPrefix('/de/jobs-im-basel')).toBe('/de/jobs-in-basel');
-    expect(routableGermanJobCanonPrefix('/de/jobs-im-aargau')).toBe('/de/jobs-in-aargau');
+    expect(routableGermanJobCanonPrefix('/de/jobs-im-genf')).toBe('/de/jobs-in-genf');
   });
 
   it('keeps routable prefixes unchanged', () => {
     expect(routableGermanJobCanonPrefix('/de/jobs-in-zurich')).toBe('/de/jobs-in-zurich');
     expect(routableGermanJobCanonPrefix('/de/jobs-im-tessin')).toBe('/de/jobs-im-tessin');
+    expect(routableGermanJobCanonPrefix('/de/jobs-im-aargau')).toBe('/de/jobs-im-aargau');
     expect(routableGermanJobCanonPrefix('/cerca-lavoro-zurigo')).toBe('/cerca-lavoro-zurigo');
   });
 

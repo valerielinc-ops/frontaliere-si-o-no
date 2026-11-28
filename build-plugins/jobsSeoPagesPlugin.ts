@@ -880,7 +880,7 @@ export function nativeJobPathRecoveredByWorker(
  if (!routeSlug) return false;
  const nativePrefix = nativeJobPrefixByLocaleAndSlug.nativePrefixFor(locale, routeSlug, tracking);
  if (nativePrefix === undefined) return false;
- return canonicalGermanRoutePath(locale, `${nativePrefix}/${routeSlug}/`)
+ return canonicalGermanRoutePath(locale, `${nativePrefix.replace(/\/+$/, '')}/${routeSlug}/`)
   !== canonicalGermanRoutePath(locale, normalized);
 }
 
