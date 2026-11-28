@@ -173,6 +173,19 @@ const BOT_CHALLENGE_PATTERNS = [
   /please complete the security check/i,
 ];
 const EXPIRED_URL_PATTERNS = [/[?&]error=true/i];
+// A portal's own error page as the FINAL path (SuccessFactors `/errorpage/?errortype=...`, `/jobs-404`): the path
+// is the whole segment, never a word inside a posting slug (`/job/error-analyst/123/`), never a home.
+const ERROR_PAGE_SEGMENT_RE = /^(?:errorpage|error|404|[a-z0-9_-]*-404)$/i;
+function isErrorPagePath(value = '') {
+  try {
+    const url = new URL(String(value || ''));
+    const segments = url.pathname.split('/').filter(Boolean);
+    return segments.length > 0 && segments.length <= 2 && ERROR_PAGE_SEGMENT_RE.test(segments[segments.length - 1])
+      && segments[0].toLowerCase() !== 'job';
+  } catch {
+    return false;
+  }
+}
 
 function isWorkdayCommunityInvalidUrl(value = '') {
   try {
@@ -301,7 +314,7 @@ export function classifyLiveness({ status = 0, requestedUrl = '', finalUrl = '',
   }
   if (status >= 500) return { result: 'uncertain', code: 'server_error', reason: `HTTP ${status}` };
   if (isWorkdayCommunityInvalidUrl(finalUrl)) return { result: 'expired', code: 'expired_url', reason: 'Workday Community invalid URL' };
-  if (firstMatch(EXPIRED_URL_PATTERNS, finalUrl)) return { result: 'expired', code: 'expired_url', reason: 'error redirect' };
+  if (firstMatch(EXPIRED_URL_PATTERNS, finalUrl) || isErrorPagePath(finalUrl)) return { result: 'expired', code: 'expired_url', reason: 'error redirect' };
   const expiredBody = firstUnconditionalHardExpiredStatement(rawBodyText, pageLocale);
   if (expiredBody) return { result: 'expired', code: 'expired_body', reason: `pattern matched: ${expiredBody.source}` };
   const filled = filledStatement(rawBodyText, { applyControlVisible: hasApplyControl(applyControls) });

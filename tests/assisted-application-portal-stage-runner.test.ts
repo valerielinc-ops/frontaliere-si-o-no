@@ -1238,6 +1238,67 @@ describe('runner final guard across three application stages', () => {
     expect(f.click).not.toHaveBeenCalled();
   });
 
+  describe('a page with no application field and no posting id', () => {
+    const postingUrl = 'https://jobs.example.test/job/synthetic-role/42/';
+    const entry = { id: 'posting-apply', text: 'Apply now', frame: 0 };
+    const selectedPosting = { ...snapshot(postingUrl, 'Career opportunities', [entry]), title: 'Careers', text: 'Career opportunities' };
+    const hub = { ...snapshot('https://jobs.example.test/', 'Please review the information below. Once you have reviewed, please select Submit to finalise your application.', [{ id: 'commit', text: 'Apply' }]), title: 'Jobs' };
+    const build = (afterEntry: (url: string) => any) => {
+      const f = fixture(hub, selectedPosting, review, null, { applyUrl: postingUrl, postingUrl, job: { company: 'Example Employer', title: 'Synthetic Role' }, portalReplay: true, portalReplayFenceInstalled: true, portalReplayMetrics: { finalClickAttempts: 0 } });
+      const initialGoto = f.page.goto.getMockImplementation()!;
+      let calls = 0;
+      f.page.goto.mockImplementation(async (url: string, opts: any) => {
+        calls += 1;
+        const response = await initialGoto(url, opts);
+        if (calls > 1) { const next = afterEntry(url); state.snapshot = next.snapshot; return { status: () => next.status }; }
+        return response;
+      });
+      return f;
+    };
+
+    it('ends as posting_closed when the order posting address is gone', async () => {
+      const gone = { ...snapshot('https://jobs.example.test/errorpage/?errortype=Exception', 'x', []), title: 'Error', text: 'x' };
+      const f = build(() => ({ snapshot: gone, status: 200 }));
+      const result = await f.run();
+      expect(result.event).toMatchObject({ type: 'posting_closed', reason: 'expired_url' });
+      expect(f.guard).not.toHaveBeenCalled();
+      expect(f.click).not.toHaveBeenCalled();
+    });
+
+    it('does not close on a hub that says another job is filled: the order address alone decides', async () => {
+      const filledHub = { ...snapshot('https://jobs.example.test/', 'This position has been filled. Other roles: Please review the information below. Once you have reviewed, please select Submit to finalise your application.', [{ id: 'commit', text: 'Apply' }]), title: 'Jobs', text: 'This position has been filled. Other roles: Please review the information below.' };
+      const live = { ...snapshot(postingUrl, `Synthetic Role ${'details '.repeat(200)}`, [{ id: 'x', text: 'Language' }]), title: 'Synthetic Role', text: `Synthetic Role ${'details '.repeat(200)}` };
+      const f = fixture(filledHub, selectedPosting, review, null, { applyUrl: postingUrl, postingUrl, job: { company: 'Example Employer', title: 'Synthetic Role' }, portalReplay: true, portalReplayFenceInstalled: true, portalReplayMetrics: { finalClickAttempts: 0 } });
+      const initialGoto = f.page.goto.getMockImplementation()!;
+      let calls = 0;
+      f.page.goto.mockImplementation(async (url: string, opts: any) => {
+        calls += 1;
+        const response = await initialGoto(url, opts);
+        if (calls > 1) { state.snapshot = live; return { status: () => 200 }; }
+        return response;
+      });
+      const result = await f.run();
+      expect(result.event.type).not.toBe('posting_closed');
+      expect(result.event.type).toBe('submit_handoff');
+      expect(result.evidence.unboundPostingRecheck).toMatchObject({ reentered: true });
+      expect(f.guard).not.toHaveBeenCalled();
+      expect(f.click).not.toHaveBeenCalled();
+    });
+
+    it('re-enters a live posting once, then keeps the stop with the diagnostic', async () => {
+      const live = { ...snapshot(postingUrl, `Synthetic Role ${'details '.repeat(200)}`, [{ id: 'x', text: 'Language' }]), title: 'Synthetic Role', text: `Synthetic Role ${'details '.repeat(200)}` };
+      const f = build(() => ({ snapshot: live, status: 200 }));
+      const result = await f.run();
+      expect(result.event.type).not.toBe('posting_closed');
+      const reentries = f.page.goto.mock.calls.filter((call: any[]) => call[0] === postingUrl).length;
+      expect(reentries).toBeLessThanOrEqual(2);
+      expect(result.event.type).toBe('submit_handoff');
+      expect(result.evidence.unboundPostingRecheck).toMatchObject({ reentered: true });
+      expect(f.guard).not.toHaveBeenCalled();
+      expect(f.click).not.toHaveBeenCalled();
+    });
+  });
+
   it('does not inherit posting identity from a selected posting Apply click into a talent pool', async () => {
     const postingUrl = 'https://jobs.example.test/job/synthetic-role/42/';
     const entry = { id: 'posting-apply', text: 'Apply now', frame: 0 };
