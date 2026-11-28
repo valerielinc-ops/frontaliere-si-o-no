@@ -78,3 +78,14 @@ describe('a group word next to the employer\'s name is the same group', () => {
     expect(namesAnotherEmployer('Welcome\nOther Migros Genève', migros)).toBe(true);
   });
 });
+
+describe('months and portal words are neutral only in their own context', () => {
+  it('reads another employer named like a month or a portal word as a conflict', () => {
+    for (const name of ['April GmbH', 'Mai AG', 'Juli SA', 'August Sagl', 'Stellenmarkt AG', 'Stellenportal GmbH', 'Jobboerse AG']) {
+      expect(namesAnotherEmployer(name, { company: 'Acme', title: 'Koch' })).toBe(true);
+      expect(namesAnotherEmployer(`Bewerbung bei ${name}`, { company: 'Acme', title: 'Koch' })).toBe(true);
+    }
+    expect(namesAnotherEmployer('Concierge | April GmbH', { company: 'Acme', title: 'Concierge' })).toBe(true);
+  });
+});
+

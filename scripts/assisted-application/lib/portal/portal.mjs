@@ -5301,7 +5301,7 @@ const FORM_VOCABULARY = new Set([
   'process', 'prozess', 'processo', 'processus', 'recruiting', 'recruitment', 'applicant', 'candidate', 'kandidat', 'candidato', 'candidat',
   'employee', 'employees', 'staff', 'dipendente', 'dipendenti', 'mitarbeiter', 'mitarbeiterin', 'mitarbeitende',
   'collaborator', 'collaborators', 'collaboratore', 'collaboratori', 'collaboratrice', 'collaborateur', 'collaborateurs', 'employe', 'employes',
-  'stellenangebot', 'stellenanzeige', 'stellenportal', 'stellenmarkt', 'jobboerse', 'jobborse', 'karriereportal', 'jobportal', 'bewerbungsformular', 'onlinebewerbung', 'page', 'seite', 'pagina',
+  'stellenangebot', 'stellenanzeige', 'karriereportal', 'jobportal', 'bewerbungsformular', 'onlinebewerbung', 'page', 'seite', 'pagina',
   // SuccessFactors titles every page with its careers section: «Opportunités de carrière : Créer un
   // compte» (Rolex, 2026-10-03), «Karrierechancen: Anmelden» (Coop), «Career Opportunities: …».
   'opportunity', 'opportunities', 'opportunite', 'opportunites', 'opportunita', 'karrierechancen', 'chancen',
@@ -5555,7 +5555,7 @@ const ORGANISATION_NOUNS = new Set(['employer', 'employers', 'arbeitgeber', 'unt
 // employer only when what stands on its far side is another name («Migros Group Beta», «Migros Gruppe Muster»), or
 // when it forms its own legal entity elsewhere (the title rules: «Muster Group AG»).
 const CORPORATE_GROUP_WORDS = new Set(['groupe', 'gruppe', 'gruppo', 'group', 'konzern', 'holding', 'unternehmensgruppe', 'groupement', 'firmengruppe', 'gruppen']);
-// The months of a date line next to the employer's name («Société coopérative Migros Genève20 novembre 2026»).
+// The months of a date next to the employer's name (read only beside a number, never as a general neutral word) («Société coopérative Migros Genève20 novembre 2026»).
 const DATE_MONTH_WORDS = new Set([
   'janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre',
   'januar', 'februar', 'marz', 'juli', 'dezember', 'gennaio', 'febbraio', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'dicembre',
@@ -5805,7 +5805,6 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     ...postingLocationSuffixWords(text, ours, postingLocationWords),
     ...NOT_A_NAME,
     ...CORPORATE_DESCRIPTOR_WORDS,
-    ...DATE_MONTH_WORDS,
     ...EMPLOYER_COPY_WORDS,
     // Vacancy cards can flatten their rows into one line («Coop Genossenschaft Standort Rickenbach»).
     // On an already-bound posting, the location-field label is metadata, not another employer name.
@@ -5929,6 +5928,8 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
         // «Teil der Migros-Gruppe», «Mitglied du groupe Migros»: a noun joined to the name by a preposition, with the group
         // word right after the name, describes the group's member and names nobody.
         if (step === -1 && separated && CORPORATE_GROUP_WORDS.has(words[index + 1])) continue;
+        // A month next to a number is a date («Genève20 novembre 2026»); a month on its own is a name («April GmbH»).
+        if (DATE_MONTH_WORDS.has(words[at]) && (/^\d+$/.test(words[at - 1] || '') || /^\d+$/.test(words[at + 1] || ''))) continue;
         if (CORPORATE_GROUP_WORDS.has(words[at])) {
           // The word on the far side of the group word: a function word, a legal form, the end of the phrase or a
           // lower-case word of a sentence leave it the same group; a capitalised name there is someone else.
