@@ -1,7 +1,7 @@
 {
   "key": "berner-montage",
   "label": "Montagetechnik BERNER AG",
-  "generatedAt": "2026-11-28T09:13:56.453Z",
+  "generatedAt": "2026-11-28T21:29:19.756Z",
   "total": 0,
   "discovered": null,
   "parsed": null,
@@ -21,13 +21,13 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64",
+  "codeCommit": "e60bb477e02fc78f2385473075e1dff5d9e2799a",
   "workdayRateLimit": {
     "tenant": "https://bernergroup.wd3.myworkdayjobs.com/wday/cxs/bernergroup/Careers_Berner_Group",
     "firstRateLimitedAt": "2026-11-27T21:15:19.336Z",
-    "lastRateLimitedAt": "2026-11-28T09:13:56.457Z",
-    "consecutiveRuns": 2,
-    "nextAttemptAfter": "2026-11-28T21:13:56.457Z",
+    "lastRateLimitedAt": "2026-11-28T21:29:19.761Z",
+    "consecutiveRuns": 3,
+    "nextAttemptAfter": "2026-11-29T21:29:19.761Z",
     "outcome": "rate-limited"
   }
 }

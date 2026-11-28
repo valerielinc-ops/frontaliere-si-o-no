@@ -1,11 +1,14 @@
 {
+  "detailCandidates": 28,
+  "detailGone": 28,
+  "detailRejected": 0,
   "key": "schweizerhof-flims",
   "label": "Schweizerhof",
-  "generatedAt": "2026-11-28T09:17:42.965Z",
-  "total": 2,
+  "generatedAt": "2026-11-28T21:32:54.333Z",
+  "total": 0,
   "discovered": 28,
-  "parsed": 1,
-  "lastFetchOutcome": null,
+  "parsed": 0,
+  "lastFetchOutcome": "selector_miss",
   "fetchReceipt": {
     "specKey": "schweizerhof-flims",
     "seedUrls": [
@@ -20,11 +23,11 @@
       },
       {
         "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/19369"
+        "url": "https://romantikhotels.hcm4all.de/list/7296"
       },
       {
         "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/18879"
+        "url": "https://romantikhotels.hcm4all.de/list/19369"
       },
       {
         "status": 200,
@@ -48,10 +51,6 @@
       },
       {
         "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/19217"
-      },
-      {
-        "status": 200,
         "url": "https://romantikhotels.hcm4all.de/list/16251"
       },
       {
@@ -61,10 +60,6 @@
       {
         "status": 200,
         "url": "https://romantikhotels.hcm4all.de/list/16248"
-      },
-      {
-        "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/7296"
       },
       {
         "status": 200,
@@ -129,129 +124,35 @@
       {
         "status": 200,
         "url": "https://romantikhotels.hcm4all.de/list/2320"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/8674"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/1594"
       }
     ],
     "listingTerminalStatus": 200,
     "listingCompletion": "complete",
     "proxiedBy": [],
     "fetchOutcome": null,
-    "fetchDetail": null
+    "fetchDetail": "[prospector:schweizerhof-flims] detail snapshot incompleto: 28/28 detail page(s) dropped (100% > 15%); refusing partial publication"
   },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 2,
-  "detailCandidates": 1,
-  "detailGone": 0,
-  "detailRejected": 0,
-  "resurrectedJobs": 0,
-  "resurrectedWindowDays": 7,
-  "authoritativeEmptySnapshot": false,
+  "abortKind": "source-extraction-failed",
+  "written": 0,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 54623,
-  "avgDurationMs": 54623,
-  "durationHistory": [
-    54623
-  ],
+  "unchangedCount": 0,
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "schweizerhof-flims-77e9fbaad8f1",
-      "slug": "addetto-a-alla-reception-m-f-d-schweizerhof-flims",
-      "company": "Schweizerhof",
-      "companyKey": "schweizerhof-flims",
-      "companyDomain": "romantikhotels.hcm4all.de",
-      "title": "Receptionist/in (m/w/d)",
-      "location": "Flims, Graubünden",
-      "canton": "GR",
-      "url": "https://romantikhotels.hcm4all.de/list/18879",
-      "source": "Schweizerhof Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:17:09.097Z",
-      "addressLocality": "Flims",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7017",
-      "streetAddress": "Rudi Dadens 1",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-03-09",
-      "postedDate": "2026-03-09",
-      "postingDateSource": "reported",
-      "applyUrl": "https://romantikhotels.hcm4all.de/list/18879",
-      "firstSeenAt": "2026-09-29T21:15:02.868Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:17:09.097Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "schweizerhof-flims-eb0413bcceba",
-      "slug": "porter-housekeeping-m-f-d-schweizerhof-flims-graubunden",
-      "company": "Schweizerhof",
-      "companyKey": "schweizerhof-flims",
-      "companyDomain": "romantikhotels.hcm4all.de",
-      "title": "Portier Housekeeping (m/w/d)",
-      "location": "Flims, Graubünden",
-      "canton": "GR",
-      "url": "https://romantikhotels.hcm4all.de/list/19839",
-      "source": "Schweizerhof Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:21:19.329Z",
-      "addressLocality": "Flims",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7017",
-      "streetAddress": "Rudi Dadens 1",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-20",
-      "postedDate": "2026-08-20",
-      "postingDateSource": "reported",
-      "applyUrl": "https://romantikhotels.hcm4all.de/list/19839",
-      "firstSeenAt": "2026-09-29T21:15:02.867Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:21:19.329Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://romantikhotels.hcm4all.de/list/19839",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0,
+  "codeCommit": "e60bb477e02fc78f2385473075e1dff5d9e2799a"
 }

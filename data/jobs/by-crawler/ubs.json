@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ubs",
-  "assembledAt": "2026-11-28T09:14:59.501Z",
-  "runId": "46128652334",
+  "assembledAt": "2026-11-28T21:36:15.291Z",
+  "runId": "46189575386",
   "jobs": [
     {
       "id": "ubs-adc396146796",
@@ -34,7 +34,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=351445&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:30.864Z",
+      "crawledAt": "2026-11-28T21:35:50.666Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -106,7 +106,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:14:30.864Z",
+      "validThrough": "2026-12-28T21:35:50.666Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -140,7 +140,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=351263&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:30.299Z",
+      "crawledAt": "2026-11-28T21:35:50.072Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -198,7 +198,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:14:30.299Z",
+      "validThrough": "2026-12-28T21:35:50.072Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -232,7 +232,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=351752&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:29.751Z",
+      "crawledAt": "2026-11-28T21:35:49.473Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -298,7 +298,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:14:29.751Z",
+      "validThrough": "2026-12-28T21:35:49.473Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -332,7 +332,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=351984&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:29.228Z",
+      "crawledAt": "2026-11-28T21:35:48.797Z",
       "addressLocality": "Valais",
       "addressCountry": "CH",
       "country": "CH",
@@ -390,7 +390,7 @@
       "addressRegion": "VS",
       "streetAddress": "Valais",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:14:29.228Z",
+      "validThrough": "2026-12-31T21:35:48.797Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -424,7 +424,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=352051&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:28.684Z",
+      "crawledAt": "2026-11-28T21:35:48.123Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -490,7 +490,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-04T09:14:28.684Z",
+      "validThrough": "2027-01-03T21:35:48.123Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -524,7 +524,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=352455&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:28.143Z",
+      "crawledAt": "2026-11-28T21:35:47.508Z",
       "addressLocality": "Aargau / Solothurn",
       "addressCountry": "CH",
       "country": "CH",
@@ -568,7 +568,7 @@
       "addressRegion": "SO",
       "streetAddress": "Aargau / Solothurn",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T09:14:28.143Z",
+      "validThrough": "2027-01-07T21:35:47.508Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -602,7 +602,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=353220&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:27.597Z",
+      "crawledAt": "2026-11-28T21:35:46.845Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -668,7 +668,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-27T09:14:27.597Z",
+      "validThrough": "2027-01-26T21:35:46.845Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -702,7 +702,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=353320&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:27.086Z",
+      "crawledAt": "2026-11-28T21:35:46.245Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -768,7 +768,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-29T09:14:27.086Z",
+      "validThrough": "2027-01-28T21:35:46.245Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -802,7 +802,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=352049&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:26.566Z",
+      "crawledAt": "2026-11-28T21:35:45.377Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -860,7 +860,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-04T09:14:26.566Z",
+      "validThrough": "2027-01-03T21:35:45.377Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -894,7 +894,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=351722&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:26.005Z",
+      "crawledAt": "2026-11-28T21:35:44.636Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -963,7 +963,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:14:26.005Z",
+      "validThrough": "2026-12-28T21:35:44.636Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -997,7 +997,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=351092&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:25.440Z",
+      "crawledAt": "2026-11-28T21:35:43.922Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1069,7 +1069,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:14:25.440Z",
+      "validThrough": "2026-12-28T21:35:43.922Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1103,7 +1103,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=353990&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:24.933Z",
+      "crawledAt": "2026-11-28T21:35:43.289Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1172,7 +1172,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T09:14:24.933Z",
+      "validThrough": "2027-02-10T21:35:43.289Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1206,7 +1206,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=351823&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:24.389Z",
+      "crawledAt": "2026-11-28T21:35:42.522Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1272,7 +1272,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:14:24.389Z",
+      "validThrough": "2026-12-28T21:35:42.522Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1306,7 +1306,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=353883&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:23.832Z",
+      "crawledAt": "2026-11-28T21:35:41.909Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1375,7 +1375,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T09:14:23.832Z",
+      "validThrough": "2027-02-10T21:35:41.909Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1409,7 +1409,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=353887&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:23.272Z",
+      "crawledAt": "2026-11-28T21:35:41.309Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1467,7 +1467,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T09:14:23.272Z",
+      "validThrough": "2027-02-10T21:35:41.309Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1501,7 +1501,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=353886&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:22.705Z",
+      "crawledAt": "2026-11-28T21:35:40.707Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1570,7 +1570,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T09:14:22.705Z",
+      "validThrough": "2027-02-10T21:35:40.707Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1604,7 +1604,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=353937&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:22.166Z",
+      "crawledAt": "2026-11-28T21:35:40.095Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1673,7 +1673,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T09:14:22.166Z",
+      "validThrough": "2027-02-10T21:35:40.095Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1707,7 +1707,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=354104&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:21.633Z",
+      "crawledAt": "2026-11-28T21:35:39.459Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1776,7 +1776,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-15T09:14:21.633Z",
+      "validThrough": "2027-02-14T21:35:39.459Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1810,7 +1810,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=354100&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:21.073Z",
+      "crawledAt": "2026-11-28T21:35:38.845Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1876,7 +1876,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-15T09:14:21.073Z",
+      "validThrough": "2027-02-14T21:35:38.845Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1910,7 +1910,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=354371&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:20.550Z",
+      "crawledAt": "2026-11-28T21:35:38.217Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1979,7 +1979,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-18T09:14:20.550Z",
+      "validThrough": "2027-02-17T21:35:38.217Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2013,7 +2013,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=354432&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:20.008Z",
+      "crawledAt": "2026-11-28T21:35:37.615Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2082,7 +2082,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-20T09:14:20.008Z",
+      "validThrough": "2027-02-19T21:35:37.615Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2116,7 +2116,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=351432&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:19.417Z",
+      "crawledAt": "2026-11-28T21:35:36.954Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2174,7 +2174,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:14:19.417Z",
+      "validThrough": "2026-12-28T21:35:36.954Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2208,7 +2208,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=354495&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:18.898Z",
+      "crawledAt": "2026-11-28T21:35:36.347Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2274,7 +2274,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-22T09:14:18.898Z",
+      "validThrough": "2027-02-21T21:35:36.347Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2308,7 +2308,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5131&jobid=354666&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:18.337Z",
+      "crawledAt": "2026-11-28T21:35:35.727Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2374,7 +2374,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-25T09:14:18.337Z",
+      "validThrough": "2027-02-24T21:35:35.727Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2408,7 +2408,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346594&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:14:17.821Z",
+      "crawledAt": "2026-11-28T21:35:35.117Z",
       "addressLocality": "Valais",
       "addressCountry": "CH",
       "country": "CH",
@@ -2460,7 +2460,7 @@
       "addressRegion": "VS",
       "streetAddress": "Valais",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:17.821Z",
+      "validThrough": "2026-12-28T21:35:35.117Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2494,7 +2494,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5055&jobid=346666&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:14:17.291Z",
+      "crawledAt": "2026-11-28T21:35:34.471Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -2546,7 +2546,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:17.291Z",
+      "validThrough": "2026-12-28T21:35:34.471Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2580,7 +2580,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5055&jobid=346701&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:14:16.720Z",
+      "crawledAt": "2026-11-28T21:35:33.699Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -2632,7 +2632,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:16.720Z",
+      "validThrough": "2026-12-28T21:35:33.699Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2666,7 +2666,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5055&jobid=346670&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:14:16.207Z",
+      "crawledAt": "2026-11-28T21:35:32.824Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -2718,7 +2718,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:16.207Z",
+      "validThrough": "2026-12-28T21:35:32.824Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2752,7 +2752,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5055&jobid=346669&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:14:15.687Z",
+      "crawledAt": "2026-11-28T21:35:32.226Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -2804,7 +2804,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:15.687Z",
+      "validThrough": "2026-12-28T21:35:32.226Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2838,7 +2838,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5056&jobid=347881&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-28T09:14:15.145Z",
+      "crawledAt": "2026-11-28T21:35:31.492Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2882,7 +2882,7 @@
       "addressRegion": "TI",
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:15.145Z",
+      "validThrough": "2026-12-28T21:35:31.492Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2916,7 +2916,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5055&jobid=346341&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:14:14.608Z",
+      "crawledAt": "2026-11-28T21:35:30.799Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -2974,7 +2974,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:14.608Z",
+      "validThrough": "2026-12-28T21:35:30.799Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3008,7 +3008,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=347876&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:14:14.060Z",
+      "crawledAt": "2026-11-28T21:35:30.167Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3080,7 +3080,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:14:14.060Z",
+      "validThrough": "2026-12-28T21:35:30.167Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3114,7 +3114,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5056&jobid=346347&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-28T09:14:13.515Z",
+      "crawledAt": "2026-11-28T21:35:29.487Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3158,7 +3158,7 @@
       "addressRegion": "TI",
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:13.515Z",
+      "validThrough": "2026-12-28T21:35:29.487Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3192,7 +3192,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5055&jobid=346345&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:14:12.997Z",
+      "crawledAt": "2026-11-28T21:35:28.689Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -3250,7 +3250,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:12.997Z",
+      "validThrough": "2026-12-28T21:35:28.689Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3284,7 +3284,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5055&jobid=346344&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:14:12.482Z",
+      "crawledAt": "2026-11-28T21:35:28.051Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -3342,7 +3342,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:12.482Z",
+      "validThrough": "2026-12-28T21:35:28.051Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3376,7 +3376,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5055&jobid=346342&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:14:11.930Z",
+      "crawledAt": "2026-11-28T21:35:27.282Z",
       "addressLocality": "Valais",
       "addressCountry": "CH",
       "country": "CH",
@@ -3428,7 +3428,7 @@
       "addressRegion": "VS",
       "streetAddress": "Valais",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:11.930Z",
+      "validThrough": "2026-12-28T21:35:27.282Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3462,7 +3462,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5055&jobid=346334&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:14:11.410Z",
+      "crawledAt": "2026-11-28T21:35:26.628Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -3520,7 +3520,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:11.410Z",
+      "validThrough": "2026-12-28T21:35:26.628Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3554,7 +3554,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=346324&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:14:10.869Z",
+      "crawledAt": "2026-11-28T21:35:25.969Z",
       "addressLocality": "Valais",
       "addressCountry": "CH",
       "country": "CH",
@@ -3606,7 +3606,7 @@
       "addressRegion": "VS",
       "streetAddress": "Valais",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:10.869Z",
+      "validThrough": "2026-12-28T21:35:25.969Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3640,7 +3640,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5055&jobid=346343&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:14:10.315Z",
+      "crawledAt": "2026-11-28T21:35:25.298Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -3698,7 +3698,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:10.315Z",
+      "validThrough": "2026-12-28T21:35:25.298Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3732,7 +3732,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5055&jobid=348469&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:14:09.773Z",
+      "crawledAt": "2026-11-28T21:35:24.678Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -3784,7 +3784,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:09.773Z",
+      "validThrough": "2026-12-28T21:35:24.678Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3818,7 +3818,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5056&jobid=348468&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-28T09:14:09.241Z",
+      "crawledAt": "2026-11-28T21:35:23.707Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3862,7 +3862,7 @@
       "addressRegion": "TI",
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:09.241Z",
+      "validThrough": "2026-12-28T21:35:23.707Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3896,7 +3896,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=348481&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:14:08.720Z",
+      "crawledAt": "2026-11-28T21:35:22.941Z",
       "addressLocality": "Valais",
       "addressCountry": "CH",
       "country": "CH",
@@ -3948,7 +3948,7 @@
       "addressRegion": "VS",
       "streetAddress": "Valais",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:08.720Z",
+      "validThrough": "2026-12-28T21:35:22.941Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3982,7 +3982,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5055&jobid=348479&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:14:08.175Z",
+      "crawledAt": "2026-11-28T21:35:22.091Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -4034,7 +4034,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:08.175Z",
+      "validThrough": "2026-12-28T21:35:22.091Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4068,7 +4068,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5055&jobid=348477&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:14:07.635Z",
+      "crawledAt": "2026-11-28T21:35:21.384Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -4120,7 +4120,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:07.635Z",
+      "validThrough": "2026-12-28T21:35:21.384Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4154,7 +4154,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5055&jobid=348474&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:14:07.125Z",
+      "crawledAt": "2026-11-28T21:35:20.735Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -4206,7 +4206,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:07.125Z",
+      "validThrough": "2026-12-28T21:35:20.735Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4240,7 +4240,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5055&jobid=348473&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:14:06.594Z",
+      "crawledAt": "2026-11-28T21:35:19.934Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -4292,7 +4292,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:06.594Z",
+      "validThrough": "2026-12-28T21:35:19.934Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4326,7 +4326,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5055&jobid=348472&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:14:06.020Z",
+      "crawledAt": "2026-11-28T21:35:18.955Z",
       "addressLocality": "Valais",
       "addressCountry": "CH",
       "country": "CH",
@@ -4378,7 +4378,7 @@
       "addressRegion": "VS",
       "streetAddress": "Valais",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:06.020Z",
+      "validThrough": "2026-12-28T21:35:18.955Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4412,7 +4412,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5054&jobid=348480&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:14:05.487Z",
+      "crawledAt": "2026-11-28T21:35:18.316Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4486,7 +4486,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:14:05.487Z",
+      "validThrough": "2026-12-28T21:35:18.316Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4520,7 +4520,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=339846&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:04.895Z",
+      "crawledAt": "2026-11-28T21:35:17.409Z",
       "addressLocality": "Aargau / Solothurn, Switzerland - Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4574,7 +4574,7 @@
       "addressRegion": "SO",
       "streetAddress": "Aargau / Solothurn, Switzerland - Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:04.895Z",
+      "validThrough": "2026-12-28T21:35:17.409Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4608,7 +4608,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=343604&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:14:04.316Z",
+      "crawledAt": "2026-11-28T21:35:16.338Z",
       "addressLocality": "Ostschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -4660,7 +4660,7 @@
       "addressRegion": "SG",
       "streetAddress": "Ostschweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:04.316Z",
+      "validThrough": "2026-12-28T21:35:16.338Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4694,7 +4694,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=343612&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:14:03.736Z",
+      "crawledAt": "2026-11-28T21:35:15.399Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4763,7 +4763,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:14:03.736Z",
+      "validThrough": "2026-12-28T21:35:15.399Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4797,7 +4797,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=339843&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:03.205Z",
+      "crawledAt": "2026-11-28T21:35:14.627Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4881,7 +4881,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:14:03.205Z",
+      "validThrough": "2026-12-28T21:35:14.627Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4915,7 +4915,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=339845&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:02.670Z",
+      "crawledAt": "2026-11-28T21:35:13.348Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4982,7 +4982,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:14:02.670Z",
+      "validThrough": "2026-12-28T21:35:13.348Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5016,7 +5016,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=339844&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:02.119Z",
+      "crawledAt": "2026-11-28T21:35:12.479Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5074,7 +5074,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:14:02.119Z",
+      "validThrough": "2026-12-28T21:35:12.479Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5108,7 +5108,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346866&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:14:01.544Z",
+      "crawledAt": "2026-11-28T21:35:11.152Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5174,7 +5174,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:14:01.544Z",
+      "validThrough": "2026-12-28T21:35:11.152Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5208,7 +5208,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=348927&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:14:01.004Z",
+      "crawledAt": "2026-11-28T21:35:10.478Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5282,7 +5282,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:14:01.004Z",
+      "validThrough": "2026-12-28T21:35:10.478Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5316,7 +5316,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=340734&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:14:00.466Z",
+      "crawledAt": "2026-11-28T21:35:09.701Z",
       "addressLocality": "Valais",
       "addressCountry": "CH",
       "country": "CH",
@@ -5379,7 +5379,7 @@
       "addressRegion": "VS",
       "streetAddress": "Valais",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:14:00.466Z",
+      "validThrough": "2026-12-28T21:35:09.701Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5413,7 +5413,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=347461&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:59.904Z",
+      "crawledAt": "2026-11-28T21:35:09.014Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5485,7 +5485,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:13:59.904Z",
+      "validThrough": "2026-12-28T21:35:09.014Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5519,7 +5519,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=351487&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:59.339Z",
+      "crawledAt": "2026-11-28T21:35:08.287Z",
       "addressLocality": "Gstaad",
       "addressCountry": "CH",
       "country": "CH",
@@ -5564,7 +5564,7 @@
       "addressRegion": "BE",
       "streetAddress": "Gstaad",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:13:59.339Z",
+      "validThrough": "2026-12-28T21:35:08.287Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5598,7 +5598,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=350816&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:58.770Z",
+      "crawledAt": "2026-11-28T21:35:07.426Z",
       "addressLocality": "Ostschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -5653,7 +5653,7 @@
       "addressRegion": "SG",
       "streetAddress": "Ostschweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:13:58.770Z",
+      "validThrough": "2027-01-18T21:35:07.426Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5687,7 +5687,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=350953&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:58.172Z",
+      "crawledAt": "2026-11-28T21:35:06.656Z",
       "addressLocality": "Grosshöchstetten",
       "addressCountry": "CH",
       "country": "CH",
@@ -5752,7 +5752,7 @@
       "addressRegion": "BE",
       "streetAddress": "Grosshöchstetten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:13:58.172Z",
+      "validThrough": "2026-12-30T21:35:06.656Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5786,7 +5786,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347460&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:57.612Z",
+      "crawledAt": "2026-11-28T21:35:06.023Z",
       "addressLocality": "Zürich, United Kingdom",
       "addressCountry": "CH",
       "country": "CH",
@@ -5840,7 +5840,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich, United Kingdom",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-26T09:13:57.612Z",
+      "validThrough": "2027-02-26T21:35:06.023Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5874,7 +5874,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=339987&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:56.950Z",
+      "crawledAt": "2026-11-28T21:35:05.262Z",
       "addressLocality": "Genève",
       "addressCountry": "CH",
       "country": "CH",
@@ -5936,7 +5936,7 @@
       "addressRegion": "GE",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:13:56.950Z",
+      "validThrough": "2027-01-04T21:35:05.262Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5970,7 +5970,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=351232&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:13:56.366Z",
+      "crawledAt": "2026-11-28T21:35:04.547Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -6014,7 +6014,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:13:56.366Z",
+      "validThrough": "2027-01-12T21:35:04.547Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6048,7 +6048,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=352646&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:55.705Z",
+      "crawledAt": "2026-11-28T21:35:03.909Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6120,7 +6120,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T09:13:55.705Z",
+      "validThrough": "2027-01-12T21:35:03.909Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6154,7 +6154,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=348828&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:55.128Z",
+      "crawledAt": "2026-11-28T21:35:03.224Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6223,7 +6223,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:13:55.128Z",
+      "validThrough": "2026-12-28T21:35:03.224Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6257,7 +6257,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347642&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:54.555Z",
+      "crawledAt": "2026-11-28T21:35:02.605Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6327,7 +6327,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-22T09:13:54.555Z",
+      "validThrough": "2027-01-21T21:35:02.605Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6361,7 +6361,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=346337&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:54.008Z",
+      "crawledAt": "2026-11-28T21:35:01.538Z",
       "addressLocality": "Ostschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -6415,7 +6415,7 @@
       "addressRegion": "SG",
       "streetAddress": "Ostschweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:13:54.008Z",
+      "validThrough": "2026-12-28T21:35:01.538Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6449,7 +6449,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=352530&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:53.426Z",
+      "crawledAt": "2026-11-28T21:35:00.901Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6526,7 +6526,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-22T09:13:53.426Z",
+      "validThrough": "2027-01-21T21:35:00.901Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6560,7 +6560,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=351372&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:13:52.867Z",
+      "crawledAt": "2026-11-28T21:35:00.214Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -6618,7 +6618,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:13:52.867Z",
+      "validThrough": "2027-01-25T21:35:00.214Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6652,7 +6652,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=352033&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:13:52.242Z",
+      "crawledAt": "2026-11-28T21:34:59.540Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -6695,7 +6695,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-26T09:13:52.242Z",
+      "validThrough": "2027-02-26T21:34:59.540Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6729,7 +6729,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=349423&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:13:51.682Z",
+      "crawledAt": "2026-11-28T21:34:58.829Z",
       "addressLocality": "Valais",
       "addressCountry": "CH",
       "country": "CH",
@@ -6787,7 +6787,7 @@
       "addressRegion": "VS",
       "streetAddress": "Valais",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:13:51.682Z",
+      "validThrough": "2026-12-29T21:34:58.829Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6821,7 +6821,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=352630&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:51.133Z",
+      "crawledAt": "2026-11-28T21:34:58.187Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6888,7 +6888,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-26T09:13:51.133Z",
+      "validThrough": "2027-01-25T21:34:58.187Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6922,7 +6922,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=352631&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:50.596Z",
+      "crawledAt": "2026-11-28T21:34:57.461Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6980,7 +6980,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-26T09:13:50.596Z",
+      "validThrough": "2027-01-25T21:34:57.461Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7014,7 +7014,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=351249&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:50.040Z",
+      "crawledAt": "2026-11-28T21:34:56.745Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7072,7 +7072,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:13:50.040Z",
+      "validThrough": "2026-12-28T21:34:56.745Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7106,7 +7106,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=349039&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:49.490Z",
+      "crawledAt": "2026-11-28T21:34:56.076Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7176,7 +7176,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:13:49.490Z",
+      "validThrough": "2026-12-28T21:34:56.076Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7210,7 +7210,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=350099&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:48.855Z",
+      "crawledAt": "2026-11-28T21:34:55.320Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7282,7 +7282,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T09:13:48.855Z",
+      "validThrough": "2027-01-27T21:34:55.320Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7316,7 +7316,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=350064&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:48.309Z",
+      "crawledAt": "2026-11-28T21:34:54.665Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7385,7 +7385,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T09:13:48.309Z",
+      "validThrough": "2027-01-27T21:34:54.665Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7419,7 +7419,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=353377&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:47.703Z",
+      "crawledAt": "2026-11-28T21:34:53.839Z",
       "addressLocality": "Ostschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -7464,7 +7464,7 @@
       "addressRegion": "SG",
       "streetAddress": "Ostschweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:13:47.703Z",
+      "validThrough": "2027-02-01T21:34:53.839Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7498,7 +7498,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=349648&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:47.143Z",
+      "crawledAt": "2026-11-28T21:34:53.136Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7564,7 +7564,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-20T09:13:47.143Z",
+      "validThrough": "2027-02-19T21:34:53.136Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7598,7 +7598,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=350067&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:46.605Z",
+      "crawledAt": "2026-11-28T21:34:52.180Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7668,7 +7668,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:13:46.605Z",
+      "validThrough": "2026-12-28T21:34:52.180Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7702,7 +7702,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=349635&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:46.073Z",
+      "crawledAt": "2026-11-28T21:34:51.538Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7768,7 +7768,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:13:46.073Z",
+      "validThrough": "2026-12-28T21:34:51.538Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7802,7 +7802,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=353338&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:13:45.450Z",
+      "crawledAt": "2026-11-28T21:34:50.879Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -7846,7 +7846,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:13:45.450Z",
+      "validThrough": "2027-02-01T21:34:50.879Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7880,7 +7880,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=347490&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:44.873Z",
+      "crawledAt": "2026-11-28T21:34:49.998Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7947,7 +7947,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T09:13:44.873Z",
+      "validThrough": "2027-02-01T21:34:49.998Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7981,7 +7981,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=352354&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:13:44.323Z",
+      "crawledAt": "2026-11-28T21:34:49.341Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -8039,7 +8039,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:13:44.323Z",
+      "validThrough": "2027-02-02T21:34:49.341Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8073,7 +8073,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=346632&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:43.725Z",
+      "crawledAt": "2026-11-28T21:34:48.425Z",
       "addressLocality": "Soletta",
       "addressCountry": "CH",
       "country": "CH",
@@ -8126,7 +8126,7 @@
       "addressRegion": "SO",
       "streetAddress": "Soletta",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:13:43.725Z",
+      "validThrough": "2027-02-09T21:34:48.425Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8160,7 +8160,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=352862&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:13:43.175Z",
+      "crawledAt": "2026-11-28T21:34:47.678Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -8218,7 +8218,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:13:43.175Z",
+      "validThrough": "2027-02-09T21:34:47.678Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8252,7 +8252,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=353086&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:13:42.482Z",
+      "crawledAt": "2026-11-28T21:34:46.660Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -8295,7 +8295,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-26T09:13:42.482Z",
+      "validThrough": "2027-02-26T21:34:46.660Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8329,7 +8329,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=350624&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:41.918Z",
+      "crawledAt": "2026-11-28T21:34:46.029Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8395,7 +8395,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-09T09:13:41.918Z",
+      "validThrough": "2027-02-09T21:34:46.029Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8429,7 +8429,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=350556&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:41.271Z",
+      "crawledAt": "2026-11-28T21:34:45.207Z",
       "addressLocality": "Ostschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -8487,7 +8487,7 @@
       "addressRegion": "SG",
       "streetAddress": "Ostschweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:13:41.271Z",
+      "validThrough": "2027-02-09T21:34:45.207Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8521,7 +8521,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=350027&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:40.656Z",
+      "crawledAt": "2026-11-28T21:34:44.478Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8579,7 +8579,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-10T09:13:40.656Z",
+      "validThrough": "2027-02-09T21:34:44.478Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8613,7 +8613,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=353313&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:13:39.833Z",
+      "crawledAt": "2026-11-28T21:34:43.833Z",
       "addressLocality": "Valais",
       "addressCountry": "CH",
       "country": "CH",
@@ -8668,7 +8668,7 @@
       "addressRegion": "VS",
       "streetAddress": "Valais",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:13:39.833Z",
+      "validThrough": "2027-02-10T21:34:43.833Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8702,7 +8702,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=352581&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:39.290Z",
+      "crawledAt": "2026-11-28T21:34:43.193Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8774,7 +8774,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T09:13:39.290Z",
+      "validThrough": "2027-02-10T21:34:43.193Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8808,7 +8808,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=354020&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:38.713Z",
+      "crawledAt": "2026-11-28T21:34:42.561Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8866,7 +8866,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-15T09:13:38.713Z",
+      "validThrough": "2027-02-14T21:34:42.561Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8900,7 +8900,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=354019&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:38.191Z",
+      "crawledAt": "2026-11-28T21:34:41.944Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8972,7 +8972,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-15T09:13:38.191Z",
+      "validThrough": "2027-02-14T21:34:41.944Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9006,7 +9006,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=354083&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:13:37.448Z",
+      "crawledAt": "2026-11-28T21:34:41.315Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -9058,7 +9058,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-13T09:13:37.448Z",
+      "validThrough": "2027-02-12T21:34:41.315Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9092,7 +9092,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=340088&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:36.888Z",
+      "crawledAt": "2026-11-28T21:34:40.619Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -9170,7 +9170,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:13:36.888Z",
+      "validThrough": "2026-12-28T21:34:40.619Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9204,7 +9204,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=352302&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:13:36.323Z",
+      "crawledAt": "2026-11-28T21:34:39.984Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -9259,7 +9259,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:13:36.323Z",
+      "validThrough": "2027-02-16T21:34:39.984Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9293,7 +9293,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=354315&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:35.768Z",
+      "crawledAt": "2026-11-28T21:34:39.333Z",
       "addressLocality": "Plateau suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -9351,7 +9351,7 @@
       "addressRegion": "BE",
       "streetAddress": "Plateau suisse",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:13:35.768Z",
+      "validThrough": "2027-02-16T21:34:39.333Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9385,7 +9385,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=353804&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:13:35.173Z",
+      "crawledAt": "2026-11-28T21:34:38.679Z",
       "addressLocality": "Valais",
       "addressCountry": "CH",
       "country": "CH",
@@ -9429,7 +9429,7 @@
       "addressRegion": "VS",
       "streetAddress": "Valais",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:13:35.173Z",
+      "validThrough": "2027-02-16T21:34:38.679Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9463,7 +9463,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=353336&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:13:34.629Z",
+      "crawledAt": "2026-11-28T21:34:37.992Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -9521,7 +9521,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:13:34.629Z",
+      "validThrough": "2027-02-16T21:34:37.992Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9555,7 +9555,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=353342&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:13:34.075Z",
+      "crawledAt": "2026-11-28T21:34:37.355Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -9607,7 +9607,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:13:34.075Z",
+      "validThrough": "2027-02-16T21:34:37.355Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9641,7 +9641,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=353249&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:13:33.538Z",
+      "crawledAt": "2026-11-28T21:34:36.698Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -9685,7 +9685,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:13:33.538Z",
+      "validThrough": "2027-02-16T21:34:36.698Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9719,7 +9719,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=354260&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:13:32.967Z",
+      "crawledAt": "2026-11-28T21:34:36.058Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -9772,7 +9772,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:13:32.967Z",
+      "validThrough": "2026-12-28T21:34:36.058Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9806,7 +9806,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=350592&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:32.384Z",
+      "crawledAt": "2026-11-28T21:34:35.439Z",
       "addressLocality": "Valais",
       "addressCountry": "CH",
       "country": "CH",
@@ -9851,7 +9851,7 @@
       "addressRegion": "VS",
       "streetAddress": "Valais",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:13:32.384Z",
+      "validThrough": "2026-12-28T21:34:35.439Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9885,7 +9885,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=350625&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:31.813Z",
+      "crawledAt": "2026-11-28T21:34:34.793Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -9944,7 +9944,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T09:13:31.813Z",
+      "validThrough": "2027-01-27T21:34:34.793Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9978,7 +9978,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5048&jobid=353481&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-28T09:13:31.165Z",
+      "crawledAt": "2026-11-28T21:34:33.879Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -10037,7 +10037,7 @@
       "addressRegion": "TI",
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:13:31.165Z",
+      "validThrough": "2027-02-16T21:34:33.879Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10071,7 +10071,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=354410&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:30.598Z",
+      "crawledAt": "2026-11-28T21:34:33.243Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -10135,7 +10135,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-19T09:13:30.598Z",
+      "validThrough": "2027-02-18T21:34:33.243Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10169,7 +10169,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=352907&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:30.026Z",
+      "crawledAt": "2026-11-28T21:34:32.561Z",
       "addressLocality": "Western Switzerland, Switzerland - Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -10227,7 +10227,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Western Switzerland, Switzerland - Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T09:13:30.026Z",
+      "validThrough": "2027-02-19T21:34:32.561Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10261,7 +10261,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=353008&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:29.472Z",
+      "crawledAt": "2026-11-28T21:34:31.913Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -10319,7 +10319,7 @@
       "addressRegion": "TI",
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T09:13:29.472Z",
+      "validThrough": "2027-02-21T21:34:31.913Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10353,7 +10353,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=352965&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:28.934Z",
+      "crawledAt": "2026-11-28T21:34:31.269Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -10411,7 +10411,7 @@
       "addressRegion": "TI",
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T09:13:28.934Z",
+      "validThrough": "2027-02-21T21:34:31.269Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10445,7 +10445,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=352964&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:28.396Z",
+      "crawledAt": "2026-11-28T21:34:30.619Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -10504,7 +10504,7 @@
       "addressRegion": "TI",
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T09:13:28.396Z",
+      "validThrough": "2027-02-21T21:34:30.619Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10538,7 +10538,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=350609&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:27.843Z",
+      "crawledAt": "2026-11-28T21:34:29.957Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -10604,7 +10604,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-04T09:13:27.843Z",
+      "validThrough": "2027-01-03T21:34:29.957Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10638,7 +10638,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=351421&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:13:27.300Z",
+      "crawledAt": "2026-11-28T21:34:29.284Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -10696,7 +10696,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:13:27.300Z",
+      "validThrough": "2027-02-09T21:34:29.284Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10730,7 +10730,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=353841&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:26.731Z",
+      "crawledAt": "2026-11-28T21:34:28.635Z",
       "addressLocality": "Ostschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -10788,7 +10788,7 @@
       "addressRegion": "SG",
       "streetAddress": "Ostschweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T09:13:26.731Z",
+      "validThrough": "2027-02-22T21:34:28.635Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10822,7 +10822,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=353166&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:26.188Z",
+      "crawledAt": "2026-11-28T21:34:27.959Z",
       "addressLocality": "Valais",
       "addressCountry": "CH",
       "country": "CH",
@@ -10880,7 +10880,7 @@
       "addressRegion": "VS",
       "streetAddress": "Valais",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T09:13:26.188Z",
+      "validThrough": "2027-02-22T21:34:27.959Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10914,7 +10914,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=354545&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:13:25.544Z",
+      "crawledAt": "2026-11-28T21:34:27.312Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -10972,7 +10972,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T09:13:25.544Z",
+      "validThrough": "2027-02-22T21:34:27.312Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11006,7 +11006,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=350560&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:25.008Z",
+      "crawledAt": "2026-11-28T21:34:26.580Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -11064,7 +11064,7 @@
       "addressRegion": "TI",
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T09:13:25.008Z",
+      "validThrough": "2027-02-22T21:34:26.580Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11098,7 +11098,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=353618&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:13:24.460Z",
+      "crawledAt": "2026-11-28T21:34:25.849Z",
       "addressLocality": "Valais",
       "addressCountry": "CH",
       "country": "CH",
@@ -11142,7 +11142,7 @@
       "addressRegion": "VS",
       "streetAddress": "Valais",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T09:13:24.460Z",
+      "validThrough": "2027-02-22T21:34:25.849Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11176,7 +11176,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=352959&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:23.886Z",
+      "crawledAt": "2026-11-28T21:34:25.201Z",
       "addressLocality": "Western Switzerland, Switzerland - Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -11231,7 +11231,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Western Switzerland, Switzerland - Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T09:13:23.886Z",
+      "validThrough": "2027-02-23T21:34:25.201Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11265,7 +11265,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=352908&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:23.303Z",
+      "crawledAt": "2026-11-28T21:34:24.562Z",
       "addressLocality": "Western Switzerland, Switzerland - Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -11323,7 +11323,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Western Switzerland, Switzerland - Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T09:13:23.303Z",
+      "validThrough": "2027-02-19T21:34:24.562Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11357,7 +11357,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=353935&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:22.737Z",
+      "crawledAt": "2026-11-28T21:34:23.915Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -11402,7 +11402,7 @@
       "addressRegion": "BS",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T09:13:22.737Z",
+      "validThrough": "2027-02-23T21:34:23.915Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11436,7 +11436,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=354649&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:13:22.112Z",
+      "crawledAt": "2026-11-28T21:34:23.259Z",
       "addressLocality": "Suisse romande",
       "addressCountry": "CH",
       "country": "CH",
@@ -11494,7 +11494,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse romande",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:13:22.112Z",
+      "validThrough": "2026-12-29T21:34:23.259Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11528,7 +11528,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=353471&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:21.559Z",
+      "crawledAt": "2026-11-28T21:34:22.614Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -11602,7 +11602,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:13:21.559Z",
+      "validThrough": "2026-12-28T21:34:22.614Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11636,7 +11636,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=353470&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:13:20.982Z",
+      "crawledAt": "2026-11-28T21:34:21.974Z",
       "addressLocality": "Plateau suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -11694,7 +11694,7 @@
       "addressRegion": "BE",
       "streetAddress": "Plateau suisse",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:13:20.982Z",
+      "validThrough": "2027-02-02T21:34:21.974Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11728,7 +11728,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=353404&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:20.408Z",
+      "crawledAt": "2026-11-28T21:34:21.229Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -11794,7 +11794,7 @@
       },
       "streetAddress": "Bahnhofstrasse 45",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-03T09:13:20.408Z",
+      "validThrough": "2027-01-02T21:34:21.229Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11828,7 +11828,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5050&jobid=351443&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:19.865Z",
+      "crawledAt": "2026-11-28T21:34:20.589Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -11887,7 +11887,7 @@
       "addressRegion": "BE",
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:13:19.865Z",
+      "validThrough": "2027-01-04T21:34:20.589Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11991,7 +11991,7 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-04T21:18:11.090Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "ubs-446a77bb2610",
@@ -12096,7 +12096,7 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-26T21:18:02.018Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "ubs-a08e120445ee",
@@ -12203,98 +12203,6 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-26T21:18:01.415Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "ubs-ab49582261d7",
-      "slug": "responsabile-regionale-vendite-personal-banking-regione-vallese-80-100-ubs-valais",
-      "slugByLocale": {
-        "it": "responsabile-regionale-vendite-personal-banking-regione-vallese-80-100-ubs-valais",
-        "en": "regional-sales-manager-personal-banking-region-valais-80-100-ubs-valais",
-        "de": "regionaler-verkaufsleiter-personal-banking-region-wallis-80-100-ubs-valais",
-        "fr": "regional-sales-manager-personal-banking-region-valais-80-100-ubs-valais"
-      },
-      "company": "UBS",
-      "companyKey": "ubs",
-      "companyDomain": "ubs.com",
-      "title": "Regional Sales Manager Personal Banking Région Valais (80-100%)",
-      "titleByLocale": {
-        "it": "Regional Sales Manager Personal Banking Regione Vallese (80-100%)",
-        "en": "Regional Sales Manager Personal Banking Region Valais (80-100%)",
-        "de": "Regionale Vertriebsleiterin Personal Banking Region Wallis (80-100%)",
-        "fr": "Regional Sales Manager Personal Banking Région Valais (80-100%)"
-      },
-      "description": "Key responsibilities\nTu as une passion pour la vente ? Tu comprends les besoins de notre clientèle Affluent et Retail et tu souhaites aider notre team à développer et à mettre en œuvre des opportunités de vente optimales ? Tu veux contribuer à ce que nos clients vivent une expérience de vente exceptionnelle ?\n\nAlors tu es la personne que nous recherchons pour le poste de Regional Sales Manager PB pour la région Valais. Tes tâches:\n\n• lancer les campagnes de vente : tu mets en œuvre nos campagnes PB centralisées dans ta région et tu t’assures qu’elles soient un succès\n• saisir les opportunités : tu identifies des opportunités de vente régionales, développes des mesures intelligentes pour les réaliser et accompagnes leur succès\n• soutenir et coacher : tu assures un rôle de sparring-partner auprès de nos conseillers à la clientèle et de l’équipe de conduite régionale, tu leur donnes un précieux feedback et tu les aides à donner le meilleur d’eux-mêmes\n• travailler avec des chiffres : tu analyses les succès dans ta région et mets en œuvre des améliorations ciblées\n\nYour Career Comeback\nNous sommes ouverts aux candidatures de personnes qui reviennent sur le marché du travail. Voici plus d'informations sur notre programme: ubs.com/careercomeback .\n\nThe team\nTu travailles en étroite collaboration avec le Head PB de ta région et tu as accès à toutes les agences, aux collaborateurs du front ainsi qu’au reporting régional. Ton lieu de travail est dans la région. Tu rapportes directement au Head Sales Development PB (central) et as ainsi un lien direct avec la direction du Personal Banking. En échangeant régulièrement les best practices avec d’autres sales managers régionaux, tu fais progresser le succès dans ta région et au-delà – le travail d’équipe est important pour nous.\n\nYour skills and experience\n• Diplôme universitaire, HES ou formation équivalente, complété par plusieurs années d’expérience dans le secteur bancaire, idéalement dans le conseil à la clientèle ou le front.\n• Forte orientation résultats, esprit d’initiative développé et véritable passion pour la vente.\n• Excellentes capacités d’organisation, d’analyse et de résolution de problèmes, avec une approche à la fois créative et pragmatique.\n• Leadership naturel avec le goût du changement, de la motivation et du coaching des équipes.\n• Intérêt marqué pour les marchés locaux et disponibilité pour se déplacer régulièrement dans la région.\n• Excellentes compétences en communication en allemand et en anglais.\n\nAbout us\nUBS est un leader mondial de la gestion de fortune et la principale banque universelle en Suisse. Nous offrons également des solutions diversifiées de gestion d'actifs et des services de banque d'investissement spécialisés. Basée à Zurich, en Suisse, UBS est présente dans plus de 50 marchés à travers le monde.\nNous savons que les grandes réalisations ne se font jamais seules. C'est pourquoi nous plaçons la collaboration au cœur de toutes nos actions. Ensemble, nous sommes plus que la somme de nos individualités. Vous souhaitez en savoir plus ? Rendez-vous sur ubs.com/careers .\n\nHow we hire\nIl se peut que nous vous demandions de compléter une ou plusieurs évaluations au cours du processus de candidature. En savoir plus (EN)\n\nJoin us\nChez UBS, nous savons que ce sont nos collaborateurs, avec leurs compétences, leurs expériences et leurs parcours divers, qui sont à l'origine de notre succès continu. Nous sommes passionnés par le fait de donner la priorité à nos employés, en leur offrant de nouveaux défis, une équipe solidaire, des opportunités de développement et, lorsque cela est possible, des conditions de travail flexibles. Notre culture inclusive fait ressortir le meilleur de nos employés, où qu'ils en soient dans leur parcours professionnel. Aussi, nous intégrons l’intelligence artificielle (IA) pour travailler de manière plus intelligente et plus efficace. Nous savons également qu'un excellent travail n'est jamais réalisé seul. C'est pourquoi la collaboration est au cœur de tout ce que nous faisons. Car ensemble, nous sommes plus forts.\nNous nous engageons en faveur de l'inclusion des personnes en situation de handicap, et nous mettons tout en œuvre pour rendre notre processus de candidature accessible à tous et à toutes. Par conséquent, si vous avez besoin de soutien pendant notre processus de recrutement, vous pouvez nous contacter en tout temps (EN).\n\nContact Details\nUBS International Recruiting\n\nDisclaimer / Policy statements\nUBS offre à tous les mêmes opportunités professionnelles. Nous respectons ainsi la culture de chacun et favorisons le développement, les perspectives, les compétences ainsi que l'expérience de nos collaborateurs.",
-      "descriptionByLocale": {
-        "it": "Key responsibilities\nHai una passione per le vendite? Comprendi le esigenze della nostra clientela Affluent e Retail e desideri aiutare il nostro team a sviluppare e implementare opportunità di vendita ottimali? Vuoi contribuire a far sì che i nostri clienti vivano un'esperienza di vendita eccezionale?\n\nAllora sei la persona che stiamo cercando per la posizione di Regional Sales Manager PB per la regione Vallese. I tuoi compiti:\n\n- lanciare le campagne di vendita: implementi le nostre campagne PB centralizzate nella tua regione e ti assicuri che siano un successo\n- cogliere le opportunità: identifichi opportunità di vendita regionali, sviluppi misure intelligenti per realizzarle e ne accompagni il successo\n- sostenere e fare coaching: svolgi un ruolo di sparring-partner per i nostri consulenti alla clientela e per il team di gestione regionale, fornisci loro preziosi feedback e li aiuti a dare il meglio di sé\n- lavorare con i numeri: analizzi i successi nella tua regione e implementi miglioramenti mirati\n\nYour Career Comeback\nSiamo aperti a candidature di persone che rientrano nel mercato del lavoro. Ecco maggiori informazioni sul nostro programma: ubs.com/careercomeback .\n\nThe team\nLavori a stretto contatto con l'Head PB della tua regione e hai accesso a tutte le agenzie, ai collaboratori del front office e al reporting regionale. Il tuo luogo di lavoro si trova nella regione. Riporti direttamente all'Head Sales Development PB (centrale) e hai così un legame diretto con la direzione del Personal Banking. Attraverso un regolare scambio di best practices con altri sales managers regionali, promuovi il successo nella tua regione e oltre: il lavoro di squadra è importante per noi.\n\nYour skills and experience\n- Diploma universitario, SUPSI/HES o formazione equivalente, completato da diversi anni di esperienza nel settore bancario, idealmente nella consulenza alla clientela o nel front office.\n- Forte orientamento ai risultati, spiccato spirito d'iniziativa e vera passione per la vendita.\n- Eccellenti capacità organizzative, analitiche e di risoluzione dei problemi, con un approccio al contempo creativo e pragmatico.\n- Leadership naturale con una propensione al cambiamento, alla motivazione e al coaching dei team.\n- Spiccato interesse per i mercati locali e disponibilità a viaggiare regolarmente nella regione.\n- Eccellenti competenze di comunicazione in tedesco e inglese.\n\nAbout us\nUBS è un leader globale nella gestione patrimoniale e la principale banca universale in Svizzera. Offriamo inoltre soluzioni diversificate di gestione patrimoniale (asset management) e servizi di investment banking specializzati. Con sede a Zurigo, in Svizzera, UBS è presente in oltre 50 mercati in tutto il mondo.\nSappiamo che i grandi traguardi non si raggiungono mai da soli. Per questo mettiamo la collaborazione al centro di tutte le nostre azioni. Insieme siamo più della somma delle nostre individualità. Vuoi saperne di più? Visita ubs.com/careers .\n\nHow we hire\nPotremmo chiederti di completare una o più valutazioni durante il processo di candidatura. Scopri di più (EN)\n\nJoin us\nIn UBS sappiamo che sono i nostri collaboratori, con le loro competenze, esperienze e percorsi diversi, a essere all'origine del nostro successo continuativo. Siamo appassionati nel dare priorità ai nostri dipendenti, offrendo loro nuove sfide, un team solidale, opportunità di sviluppo e, ove possibile, condizioni di lavoro flessibili. La nostra cultura inclusiva fa emergere il meglio dei nostri dipendenti, ovunque si trovino nel loro percorso professionale. Inoltre, integriamo l'intelligenza artificiale (IA) per lavorare in modo più intelligente ed efficiente. Sappiamo anche che un ottimo lavoro non viene mai realizzato da soli. Per questo la collaborazione è al centro di tutto ciò che facciamo. Perché insieme siamo più forti.\nCi impegniamo a favore dell'inclusione delle persone con disabilità e facciamo tutto il possibile per rendere il nostro processo di candidatura accessibile a tutti e a tutte. Pertanto, se hai bisogno di supporto durante il nostro processo di reclutamento, puoi contattarci in qualsiasi momento (EN).\n\nContact Details\nUBS International Recruiting\n\nDisclaimer / Policy statements\nUBS offre a tutti le stesse opportunità professionali. Rispettiamo quindi la cultura di ciascuno e favoriamo lo sviluppo, le prospettive, le competenze e l'esperienza dei nostri collaboratori.",
-        "en": "Key responsibilities\nAre you passionate about sales? Do you understand the needs of our Affluent and Retail client base and want to help our team develop and implement optimal sales opportunities? Do you want to contribute to ensuring our clients experience an exceptional sales journey?\n\nThen you are the person we are looking for for the position of Regional Sales Manager PB for the Valais region. Your tasks:\n\n- launching sales campaigns: you implement our centralized PB campaigns in your region and ensure they are a success\n- seizing opportunities: you identify regional sales opportunities, develop intelligent measures to realize them, and accompany their success\n- supporting and coaching: you act as a sparring partner for our client advisors and the regional management team, provide them with valuable feedback, and help them give their best\n- working with figures: you analyze successes in your region and implement targeted improvements\n\nYour Career Comeback\nWe are open to applications from people returning to the workforce. Here is more information about our program: ubs.com/careercomeback.\n\nThe team\nYou work in close collaboration with the Regional Head PB and have access to all branches, front-office employees, and regional reporting. Your workplace is located within the region. You report directly to the Head Sales Development PB (central) and thus have a direct link to the Personal Banking management. By regularly exchanging best practices with other regional sales managers, you drive success forward in your region and beyond – teamwork is important to us.\n\nYour skills and experience\n- University degree, UAS (HES), or equivalent education, supplemented by several years of experience in the banking sector, ideally in client advisory or front-office roles.\n- Strong results orientation, a developed sense of initiative, and a genuine passion for sales.\n- Excellent organizational, analytical, and problem-solving skills, with both a creative and pragmatic approach.\n- Natural leadership with a zest for change, motivation, and team coaching.\n- Marked interest in local markets and availability to travel regularly within the region.\n- Excellent communication skills in German and English.\n\nAbout us\nUBS is a global wealth management leader and the premier universal bank in Switzerland. We also offer diversified asset management solutions and specialized investment banking services. Headquartered in Zurich, Switzerland, UBS is present in more than 50 markets worldwide.\nWe know that great achievements are never accomplished alone. That is why we place collaboration at the heart of everything we do. Together, we are more than the sum of our individualities. Would you like to know more? Visit ubs.com/careers.\n\nHow we hire\nWe may ask you to complete one or more assessments during the application process. Learn more (EN)\n\nJoin us\nAt UBS, we know that it is our employees, with their diverse skills, experiences, and backgrounds, who drive our continued success. We are passionate about putting our employees first, offering them new challenges, a supportive team, development opportunities, and, where possible, flexible working conditions. Our inclusive culture brings out the best in our employees, wherever they are in their professional journey. Furthermore, we integrate artificial intelligence (AI) to work smarter and more efficiently. We also know that great work is never done alone. That is why collaboration is at the core of everything we do. Because together, we are stronger.\nWe are committed to the inclusion of people with disabilities, and we make every effort to make our application process accessible to everyone. Therefore, if you need support during our recruitment process, you can contact us at any time (EN).\n\nContact Details\nUBS International Recruiting\n\nDisclaimer / Policy statements\nUBS provides equal employment opportunities for all. We respect everyone's culture and promote the development, perspectives, skills, and experience of our employees.",
-        "de": "Key responsibilities\nHast du eine Leidenschaft für den Verkauf? Verstehst du die Bedürfnisse unserer Affluent- und Retail-Kundschaft und möchtest du unser Team dabei unterstützen, optimale Vertriebschancen zu entwickeln und umzusetzen? Möchtest du dazu beitragen, dass unsere Kundinnen und Kunden ein außergewöhnliches Verkaufserlebnis haben?\n\nDann bist du die Person, die wir für die Position als Regional Sales Manager PB für die Region Wallis suchen. Deine Aufgaben:\n\n- Vertriebskampagnen starten: Du setzt unsere zentralisierten PB-Kampagnen in deiner Region um und stellst sicher, dass sie ein Erfolg werden\n- Chancen nutzen: Du identifizierst regionale Vertriebschancen, entwickelst intelligente Massnahmen zu deren Realisierung und begeleitest deren Erfolg\n- Unterstützen und Coachen: Du nimmst eine Sparringspartner-Rolle gegenüber unseren Kundenberaterinnen und -beratern sowie dem regionalen Führungsteam ein, gibst ihnen wertvolles Feedback und hilfst ihnen, ihr Bestes zu geben\n- Mit Zahlen arbeiten: Du analysierst die Erfolge in deiner Region und setzt gezielte Verbesserungen um\n\nYour Career Comeback\nWir sind offen für Bewerbungen von Personen, die auf den Arbeitsmarkt zurückkehren. Hier findest du weitere Informationen zu unserem Programm: ubs.com/careercomeback.\n\nThe team\nDu arbeitest eng mit dem Head PB deiner Region zusammen und hast Zugang zu allen Geschäftsstellen, den Front-Mitarbeitenden sowie dem regionalen Reporting. Dein Arbeitsort befindet sich in der Region. Du berichtest direkt an den Head Sales Development PB (zentral) und hast somit einen direkten Draht zur Leitung des Personal Banking. Durch den regelmässigen Austausch von Best Practices mit anderen regionalen Sales Managern treibst du den Erfolg in deiner Region und darüber hinaus voran – Teamarbeit wird bei uns gross geschrieben.\n\nYour skills and experience\n- Universitätsabschluss, Fachhochschulabschluss oder eine gleichwertige Ausbildung, ergänzt durch mehrjährige Erfahrung im Bankensektor, idealerweise in der Kundenberatung oder an der Front.\n- Ausgeprägte Resultatorientierung, ausgeprägter Initiativsinn und echte Leidenschaft für den Verkauf.\n- Hervorragende Organisations-, Analyse- und Problemlösungsfähigkeiten mit einem sowohl kreativen als auch pragmatischen Ansatz.\n- Natürliches Leadership mit Freude an Veränderung, Motivation und Coaching von Teams.\n- Ausgeprägtes Interesse an den lokalen Märkten und Bereitschaft zu regelmässigen Reisen in der Region.\n- Hervorragende Kommunikationsfähigkeiten auf Deutsch und Englisch.\n\nAbout us\nUBS ist ein weltweit führender Vermögensverwalter und die führende Universalbank in der Schweiz. Wir bieten zudem diversifizierte Asset-Management-Lösungen und spezialisierte Investment-Banking-Dienstleistungen an. UBS hat ihren Hauptsitz in Zürich, Schweiz, und ist in über 50 Märkten weltweit präsent.\nWir wissen, dass Grosses niemals alleine erreicht wird. Deshalb stellen wir die Zusammenarbeit ins Zentrum all unseres Tuns. Gemeinsam sind wir mehr als die Summe unserer Einzelteile. Möchtest du mehr erfahren? Besuche ubs.com/careers.\n\nHow we hire\nEs kann sein, dass wir dich bitten, im Laufe des Bewerbungsprozesses einen oder mehrere Tests zu absolvieren. Mehr erfahren (EN)\n\nJoin us\nBei UBS wissen wir, dass es unsere Mitarbeitenden mit ihren Fähigkeiten, Erfahrungen und unterschiedlichen Hintergründen sind, die unseren anhaltenden Erfolg ausmachen. Wir setzen uns mit Leidenschaft dafür ein, unsere Mitarbeitenden an die erste Stelle zu setzen, indem wir ihnen neue Herausforderungen, ein unterstützendes Team, Entwicklungsmöglichkeiten und – wo immer möglich – flexible Arbeitsbedingungen bieten. Unsere inklusive culture bringt das Beste aus unseren Mitarbeitenden hervor, unabhängig davon, wo sie auf ihrem beruflichen Weg stehen. Zudem integrieren wir künstliche Intelligenz (KI), um klüger und effizienter zu arbeiten. Wir wissen auch, dass hervorragende Arbeit niemals alleine geleistet wird. Deshalb steht die Zusammenarbeit im Zentrum von allem, was wir tun. Denn gemeinsam sind wir stärker.\nWir setzen uns für die Inklusion von Menschen mit Behinderungen ein und tun alles in unserer Macht Stehende, um unseren Bewerbungsprozess für alle zugänglich zu machen. Wenn du daher während unseres Rekrutierungsprozesses Unterstützung benötigst, kannst du uns jederzeit kontaktieren (EN).\n\nContact Details\nUBS International Recruiting\n\nDisclaimer / Policy statements\nUBS bietet allen dieselben beruflichen Chancen. Wir respektieren dabei die Kultur jedes Einzelnen und fördern die Entwicklung, die Perspektiven, die Fähigkeiten sowie die Erfahrung unserer Mitarbeitenden.",
-        "fr": "Key responsibilities\nTu as une passion pour la vente ? Tu comprends les besoins de notre clientèle Affluent et Retail et tu souhaites aider notre team à développer et à mettre en œuvre des opportunités de vente optimales ? Tu veux contribuer à ce que nos clients vivent une expérience de vente exceptionnelle ?\n\nAlors tu es la personne que nous recherchons pour le poste de Regional Sales Manager PB pour la région Valais. Tes tâches:\n\n• lancer les campagnes de vente : tu mets en œuvre nos campagnes PB centralisées dans ta région et tu t’assures qu’elles soient un succès\n• saisir les opportunités : tu identifies des opportunités de vente régionales, développes des mesures intelligentes pour les réaliser et accompagnes leur succès\n• soutenir et coacher : tu assures un rôle de sparring-partner auprès de nos conseillers à la clientèle et de l’équipe de conduite régionale, tu leur donnes un précieux feedback et tu les aides à donner le meilleur d’eux-mêmes\n• travailler avec des chiffres : tu analyses les succès dans ta région et mets en œuvre des améliorations ciblées\n\nYour Career Comeback\nNous sommes ouverts aux candidatures de personnes qui reviennent sur le marché du travail. Voici plus d'informations sur notre programme: ubs.com/careercomeback .\n\nThe team\nTu travailles en étroite collaboration avec le Head PB de ta région et tu as accès à toutes les agences, aux collaborateurs du front ainsi qu’au reporting régional. Ton lieu de travail est dans la région. Tu rapportes directement au Head Sales Development PB (central) et as ainsi un lien direct avec la direction du Personal Banking. En échangeant régulièrement les best practices avec d’autres sales managers régionaux, tu fais progresser le succès dans ta région et au-delà – le travail d’équipe est important pour nous.\n\nYour skills and experience\n• Diplôme universitaire, HES ou formation équivalente, complété par plusieurs années d’expérience dans le secteur bancaire, idéalement dans le conseil à la clientèle ou le front.\n• Forte orientation résultats, esprit d’initiative développé et véritable passion pour la vente.\n• Excellentes capacités d’organisation, d’analyse et de résolution de problèmes, avec une approche à la fois créative et pragmatique.\n• Leadership naturel avec le goût du changement, de la motivation et du coaching des équipes.\n• Intérêt marqué pour les marchés locaux et disponibilité pour se déplacer régulièrement dans la région.\n• Excellentes compétences en communication en allemand et en anglais.\n\nAbout us\nUBS est un leader mondial de la gestion de fortune et la principale banque universelle en Suisse. Nous offrons également des solutions diversifiées de gestion d'actifs et des services de banque d'investissement spécialisés. Basée à Zurich, en Suisse, UBS est présente dans plus de 50 marchés à travers le monde.\nNous savons que les grandes réalisations ne se font jamais seules. C'est pourquoi nous plaçons la collaboration au cœur de toutes nos actions. Ensemble, nous sommes plus que la somme de nos individualités. Vous souhaitez en savoir plus ? Rendez-vous sur ubs.com/careers .\n\nHow we hire\nIl se peut que nous vous demandions de compléter une ou plusieurs évaluations au cours du processus de candidature. En savoir plus (EN)\n\nJoin us\nChez UBS, nous savons que ce sont nos collaborateurs, avec leurs compétences, leurs expériences et leurs parcours divers, qui sont à l'origine de notre succès continu. Nous sommes passionnés par le fait de donner la priorité à nos employés, en leur offrant de nouveaux défis, une équipe solidaire, des opportunités de développement et, lorsque cela est possible, des conditions de travail flexibles. Notre culture inclusive fait ressortir le meilleur de nos employés, où qu'ils en soient dans leur parcours professionnel. Aussi, nous intégrons l’intelligence artificielle (IA) pour travailler de manière plus intelligente et plus efficace. Nous savons également qu'un excellent travail n'est jamais réalisé seul. C'est pourquoi la collaboration est au cœur de tout ce que nous faisons. Car ensemble, nous sommes plus forts.\nNous nous engageons en faveur de l'inclusion des personnes en situation de handicap, et nous mettons tout en œuvre pour rendre notre processus de candidature accessible à tous et à toutes. Par conséquent, si vous avez besoin de soutien pendant notre processus de recrutement, vous pouvez nous contacter en tout temps (EN).\n\nContact Details\nUBS International Recruiting\n\nDisclaimer / Policy statements\nUBS offre à tous les mêmes opportunités professionnelles. Nous respectons ainsi la culture de chacun et favorisons le développement, les perspectives, les compétences ainsi que l'expérience de nos collaborateurs."
-      },
-      "location": "Valais",
-      "canton": "VS",
-      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=350112&PageType=jobdetails",
-      "source": "UBS Dedicated Parser (Taleo API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:17:42.743Z",
-      "addressLocality": "Valais",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5049&jobid=350112&PageType=jobdetails",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_ubsMeta": {
-        "reqId": "350112",
-        "detailSiteId": "5049",
-        "department": "Personal & Corporate Banking",
-        "region": "Suisse - Valais",
-        "cities": "",
-        "categoryRaw": "Business management, administratif et support, Développement commercial, Conseil clientèle / Relationship management, Gestion processus, projets et programmes, Gestion portefeuille et fonds, Gestion et développement produits",
-        "jobType": ""
-      },
-      "previousSlugs": [
-        "regional-sales-manager-personal-banking-region-valais-80-100-ubs-valais"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "regional-sales-manager-personal-banking-region-valais-80-100-ubs-valais"
-        ],
-        "de": [
-          "regional-sales-manager-personal-banking-region-valais-80-100-ubs-valais"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T13:52:38.721Z",
-      "salaryMin": 101500,
-      "salaryMax": 156000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 156000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VS",
-      "streetAddress": "Valais",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:17:42.743Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.ubs.com/tgnewui/search/home/homewithpreload?partnerid=25008&siteid=5049&jobid=350112&pagetype=jobdetails",
       "crawlerMissStreak": 2
     }
   ]

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "felfel",
-  "assembledAt": "2026-11-28T09:13:28.244Z",
-  "runId": "46128652334",
+  "assembledAt": "2026-11-28T21:28:29.670Z",
+  "runId": "46189575386",
   "jobs": [
     {
       "id": "felfel-179387fdfd98",
@@ -34,7 +34,7 @@
       "url": "https://felfel.jobs.personio.de/job/2898496",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:00.249Z",
+      "crawledAt": "2026-11-28T21:28:23.824Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -84,7 +84,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T09:13:00.249Z",
+      "validThrough": "2027-02-18T21:28:23.824Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://felfel.jobs.personio.de/job/2876840",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:00.246Z",
+      "crawledAt": "2026-11-28T21:28:23.822Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -168,7 +168,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:13:00.246Z",
+      "validThrough": "2027-02-03T21:28:23.822Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -202,7 +202,7 @@
       "url": "https://felfel.jobs.personio.de/job/2798583",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:00.244Z",
+      "crawledAt": "2026-11-28T21:28:23.819Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -251,7 +251,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:13:00.244Z",
+      "validThrough": "2026-12-28T21:28:23.819Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -285,7 +285,7 @@
       "url": "https://felfel.jobs.personio.de/job/2816710",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:00.239Z",
+      "crawledAt": "2026-11-28T21:28:23.816Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -335,7 +335,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:13:00.239Z",
+      "validThrough": "2027-01-19T21:28:23.816Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -369,7 +369,7 @@
       "url": "https://felfel.jobs.personio.de/job/2905396",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:00.237Z",
+      "crawledAt": "2026-11-28T21:28:23.813Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -419,7 +419,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-23T09:13:00.237Z",
+      "validThrough": "2027-02-23T21:28:23.813Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -453,7 +453,7 @@
       "url": "https://felfel.jobs.personio.de/job/2842697",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:00.235Z",
+      "crawledAt": "2026-11-28T21:28:23.811Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -506,7 +506,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:13:00.235Z",
+      "validThrough": "2027-01-12T21:28:23.811Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -540,7 +540,7 @@
       "url": "https://felfel.jobs.personio.de/job/2910291",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:00.233Z",
+      "crawledAt": "2026-11-28T21:28:23.809Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -561,7 +561,9 @@
       "jobReqId": "2910291",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-27T21:14:21.187Z",
+      "previousSlugs": [
+        "growth-marketing-manager-felfel-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "growth-marketing-manager-felfel-zurich"
@@ -573,9 +575,7 @@
           "growth-marketing-manager-felfel-zurich"
         ]
       },
-      "previousSlugs": [
-        "growth-marketing-manager-felfel-zurich"
-      ],
+      "firstSeenAt": "2026-11-27T21:14:21.187Z",
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -590,7 +590,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-25T09:13:00.233Z",
+      "validThrough": "2027-02-25T21:28:23.809Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -624,7 +624,7 @@
       "url": "https://felfel.jobs.personio.de/job/2834630",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:00.230Z",
+      "crawledAt": "2026-11-28T21:28:23.806Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -660,7 +660,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-06T09:13:00.230Z",
+      "validThrough": "2027-01-06T21:28:23.806Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -694,7 +694,7 @@
       "url": "https://felfel.jobs.personio.de/job/2842832",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:13:00.224Z",
+      "crawledAt": "2026-11-28T21:28:23.801Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -748,7 +748,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T09:13:00.224Z",
+      "validThrough": "2027-01-13T21:28:23.801Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -782,7 +782,7 @@
       "url": "https://felfel.jobs.personio.de/job/2898118",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:00.217Z",
+      "crawledAt": "2026-11-28T21:28:23.793Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -832,7 +832,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T09:13:00.217Z",
+      "validThrough": "2027-02-18T21:28:23.793Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -866,7 +866,7 @@
       "url": "https://felfel.jobs.personio.de/job/2626851",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:00.214Z",
+      "crawledAt": "2026-11-28T21:28:23.789Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
@@ -910,7 +910,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T09:13:00.214Z",
+      "validThrough": "2027-01-03T21:28:23.789Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -944,7 +944,7 @@
       "url": "https://felfel.jobs.personio.de/job/2910281",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-28T09:13:00.191Z",
+      "crawledAt": "2026-11-28T21:28:23.760Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -965,7 +965,9 @@
       "jobReqId": "2910281",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-27T21:14:21.111Z",
+      "previousSlugs": [
+        "junior-global-paid-media-manager-felfel-zurich"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "junior-global-paid-media-manager-felfel-zurich"
@@ -974,9 +976,7 @@
           "junior-global-paid-media-manager-felfel-zurich"
         ]
       },
-      "previousSlugs": [
-        "junior-global-paid-media-manager-felfel-zurich"
-      ],
+      "firstSeenAt": "2026-11-27T21:14:21.111Z",
       "salaryMin": 63500,
       "salaryMax": 112500,
       "salarySource": "estimated",
@@ -991,7 +991,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-25T09:13:00.191Z",
+      "validThrough": "2027-02-25T21:28:23.760Z",
       "validThroughSource": "last-observed-window"
     }
   ]
