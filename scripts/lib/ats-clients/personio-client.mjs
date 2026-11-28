@@ -63,7 +63,8 @@
  * renders no recognisable block (see `extractPersonioRenderedJob`).
  */
 
-import { XMLParser } from 'fast-xml-parser';
+import { XMLParser, XMLValidator } from 'fast-xml-parser';
+import { markAuthoritativeEmptySnapshot } from '../authoritative-empty-snapshot.mjs';
 import { sourcePostingDateFields } from '../source-posting-date.mjs';
 import { httpFetchWithRetry } from '../transient-fetch.mjs';
 import {
@@ -359,6 +360,25 @@ export async function fetchPersonioJobs(subdomain, options = {}) {
 
   const positions = toArray(parsed?.['workzag-jobs']?.position);
   const jobs = positions.map((p) => normalizePersonioJob(p, { subdomain }));
+
+  // A well-formed feed whose `<workzag-jobs>` root holds 0 `<position>` is the
+  // tenant saying "no open roles" — a source-proven zero, not a fetch/parse
+  // miss. Stamp it so the standard pipeline retires the stored slice instead
+  // of aborting `no-jobs-parsed`. Fail-closed: HTTP errors and XML parse
+  // errors threw above; a document that is not strictly valid XML or lacks
+  // the root node stays a bare `[]` (no proof).
+  if (
+    jobs.length === 0
+    && parsed
+    && typeof parsed === 'object'
+    && Object.prototype.hasOwnProperty.call(parsed, 'workzag-jobs')
+    && XMLValidator.validate(xml) === true
+  ) {
+    return markAuthoritativeEmptySnapshot(
+      [],
+      `Personio feed ${url}: HTTP 200, valid XML, <workzag-jobs> root with 0 <position>`,
+    );
+  }
 
   // Fetch detail data for every position so structured workplace data cannot
   // be skipped merely because the XML feed already carried a description.
