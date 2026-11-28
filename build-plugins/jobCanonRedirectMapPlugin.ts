@@ -25,6 +25,7 @@ import {
   resolveJobCanton,
   SECTION_LEGACY_TI_ROOT,
 } from './shared/cantonSection';
+import { resolveLegacyGermanSectionPath } from './shared/legacyGermanSectionAliases';
 import { getSafeDistPageTargets, isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
 import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import { localizedActiveJobSlug } from './shared/activeJobPageSelection';
@@ -493,6 +494,18 @@ function isGermanLegacyNonRoutablePrefix(prefix: string): boolean {
   return resolveCantonFromSection('de', section) === null;
 }
 
+/**
+ * Routable form of a German job-canon prefix. A legacy `/de/jobs-im-<canton>`
+ * prefix that the site cannot route becomes its canonical `/de/jobs-in-<canton>`
+ * section when the canton is known; an unknown legacy prefix yields null (no
+ * redirect is better than a 301 to a 404). Routable prefixes pass unchanged.
+ */
+export function routableGermanJobCanonPrefix(prefix: string): string | null {
+  if (!isGermanLegacyNonRoutablePrefix(prefix)) return prefix;
+  const canonical = resolveLegacyGermanSectionPath(prefix)?.canonicalPath;
+  return canonical ? canonical.replace(/\/+$/, '') : null;
+}
+
 export function assertMaxShardGrowthWithinPercent(
   baselineShardBytes: readonly number[],
   currentShardBytes: readonly number[],
@@ -859,6 +872,8 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
           addedByLocale: { it: 0, en: 0, de: 0, fr: 0 },
           removedUnpublishedByLocale: { it: 0, en: 0, de: 0, fr: 0 },
           nonRoutableGermanChanged: 0,
+          nonRoutableGermanRewritten: 0,
+          nonRoutableGermanDropped: 0,
           activeSlugPrefixConflict: 0,
           conflictExamples: [] as Array<{ locale: JobCanonLocale; slug: string; prefixes: string[] }>,
         };
@@ -1268,6 +1283,8 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
             addedByLocale: { it: 0, en: 0, de: 0, fr: 0 },
             removedUnpublishedByLocale: { it: 0, en: 0, de: 0, fr: 0 },
             nonRoutableGermanChanged: 0,
+            nonRoutableGermanRewritten: 0,
+            nonRoutableGermanDropped: 0,
             activeSlugPrefixConflict: 0,
             conflictExamples: [] as Array<{ locale: JobCanonLocale; slug: string; prefixes: string[] }>,
           },
@@ -1429,6 +1446,28 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
             }
           }
 
+          // Active prefixes were re-aligned above; what remains non-routable is
+          // historical/expired. The Worker 301s to the stored prefix, so a
+          // legacy `/de/jobs-im-<x>` there becomes a 404: rewrite it to the
+          // canonical section, or drop it when the canton is unknown.
+          for (const slug in bucket) {
+            const entry = bucket[slug];
+            const dePrefix = entry.de;
+            if (typeof dePrefix !== 'string') continue;
+            // A prefix published by a current page is where that page lives.
+            const activeDe = currentPrefixes.get(slug)?.de;
+            if (activeDe !== undefined && activeDe !== '\u0000active-prefix-conflict') continue;
+            const routable = routableGermanJobCanonPrefix(dePrefix);
+            if (routable === dePrefix) continue;
+            if (routable) {
+              entry.de = routable;
+              logicalStats.activePrefixes.nonRoutableGermanRewritten += 1;
+            } else {
+              delete entry.de;
+              logicalStats.activePrefixes.nonRoutableGermanDropped += 1;
+            }
+          }
+
           const slugs = Object.keys(bucket).sort();
           if (slugs.length === 0) {
             prefixOrderBySlugLocale.clear();
@@ -1538,6 +1577,8 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
         activePrefixStats.addedByLocale = logicalStats.activePrefixes.addedByLocale;
         activePrefixStats.removedUnpublishedByLocale = logicalStats.activePrefixes.removedUnpublishedByLocale;
         activePrefixStats.nonRoutableGermanChanged = logicalStats.activePrefixes.nonRoutableGermanChanged;
+        activePrefixStats.nonRoutableGermanRewritten = logicalStats.activePrefixes.nonRoutableGermanRewritten;
+        activePrefixStats.nonRoutableGermanDropped = logicalStats.activePrefixes.nonRoutableGermanDropped;
         activePrefixStats.activeSlugPrefixConflict = logicalStats.activePrefixes.activeSlugPrefixConflict;
         activePrefixStats.conflictExamples = logicalStats.activePrefixes.conflictExamples;
         const peakDeltaBytes = peakHeapUsed - heapCheckpoints.start;
