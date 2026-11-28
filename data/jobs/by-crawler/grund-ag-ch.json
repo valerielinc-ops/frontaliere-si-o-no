@@ -1,7 +1,7 @@
 {
   "crawlerKey": "grund-ag-ch",
-  "assembledAt": "2026-11-28T09:18:14.447Z",
-  "runId": "46129070339",
+  "assembledAt": "2026-11-28T21:58:46.338Z",
+  "runId": "46190039649",
   "jobs": [
     {
       "id": "grund-ag-ch-d07ce0e95f63",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "posto-di-apprendistato-come-meccatronico-a-d-automobili-afc-veicoli-commerciali-grund-ag-fahrzeuge-triengen-lu",
         "en": "apprenticeship-as-automotive-mechatronics-technician-efz-commercial-vehicles-grund-ag-fahrzeuge-triengen-lu",
-        "de": "lehrstelle-als-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch",
+        "de": "lehrstelle-bei-grund-ag-fahrzeuge-in-triengen-als-automobil-mechatroniker-in-efz",
         "fr": "place-d-apprentissage-de-mecatronicien-ne-d-automobiles-cfc-vehicules-utilitaires-grund-ag-fahrzeuge-triengen-lu"
       },
       "company": "Grund AG Fahrzeuge",
@@ -34,7 +34,7 @@
       "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/8804713-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-fahrzeuge",
       "source": "Grund AG Fahrzeuge Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:18:08.031Z",
+      "crawledAt": "2026-11-28T21:58:39.868Z",
       "addressLocality": "Triengen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -54,12 +54,10 @@
       "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/8804713-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-fahrzeuge",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-als-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch",
-        "apprendistato-come-automobil-mechatroniker-in-cfc-nutzfahrzeuge-grund-ag-fahrzeuge-triengen",
-        "lehrstelle-bei-grund-ag-fahrzeuge-in-triengen-als-automobil-mechatroniker-in-efz"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "lehrstelle-als-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch"
+        ],
         "it": [
           "lehrstelle-als-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch",
           "apprendistato-come-automobil-mechatroniker-in-cfc-nutzfahrzeuge-grund-ag-fahrzeuge-triengen",
@@ -68,13 +66,15 @@
         "en": [
           "lehrstelle-als-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch"
         ],
-        "de": [
-          "lehrstelle-bei-grund-ag-fahrzeuge-in-triengen-als-automobil-mechatroniker-in-efz"
-        ],
         "fr": [
           "lehrstelle-als-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch"
         ]
       },
+      "previousSlugs": [
+        "lehrstelle-als-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch",
+        "apprendistato-come-automobil-mechatroniker-in-cfc-nutzfahrzeuge-grund-ag-fahrzeuge-triengen",
+        "lehrstelle-bei-grund-ag-fahrzeuge-in-triengen-als-automobil-mechatroniker-in-efz"
+      ],
       "firstSeenAt": "2026-10-28T20:14:05.194Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
@@ -90,7 +90,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:18:08.031Z",
+      "validThrough": "2026-12-28T21:58:39.868Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -124,7 +124,7 @@
       "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/8804712-automobil-fachmann-frau-efz-nutzfahrzeuge-triengen-lu-grund-ag-fahrzeuge",
       "source": "Grund AG Fahrzeuge Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:18:08.029Z",
+      "crawledAt": "2026-11-28T21:58:39.867Z",
       "addressLocality": "Triengen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -180,7 +180,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:18:08.029Z",
+      "validThrough": "2026-12-28T21:58:39.867Z",
       "validThroughSource": "last-observed-window"
     }
   ]
