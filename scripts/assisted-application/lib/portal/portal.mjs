@@ -11799,11 +11799,14 @@ function finalReviewEvidenceSnapshot(snapshot) {
       disabled: Boolean(field?.disabled),
       chrome: Boolean(field?.chrome),
       invalid: field?.invalid === true,
+      // Which form the control belongs to: the confirmation reads only the form that was sent.
+      formId: String(field?.formId || '').slice(0, 80),
     })).slice(0, 120),
     buttons: (snapshot.buttons || []).map(button => ({
       text: String(button?.text || '').slice(0, 160),
       disabled: Boolean(button?.disabled),
       chrome: Boolean(button?.chrome),
+      formId: String(button?.formId || '').slice(0, 80),
     })).slice(0, 80),
   };
 }
@@ -15356,6 +15359,7 @@ export async function submitViaPortal(ctx) {
       // handlers can act.
       // Kept in the encrypted evidence: the reconciliation binds a stored run to the round's click by it.
       evidence.formBinding = formBinding;
+      evidence.finalFormId = final.formId || '';
       if (ctx.onBeforeSubmit) await ctx.onBeforeSubmit({ uploads: evidence.uploads, formBinding });
       if (ctx.portalReplay === true) {
         if (ctx.portalReplayMetrics && typeof ctx.portalReplayMetrics === 'object') {
@@ -15391,6 +15395,7 @@ export async function submitViaPortal(ctx) {
         finalSubmission,
         inPageConfirmation: (afterSnapshot) => inPageConfirmation({
           beforeText: beforeClickText, afterSnapshot, submissionUrl: finalUrl, responses: diagnostics?.data?.responses || [],
+          finalLabel: final.label, submittedFormId: final.formId,
         }),
         onPortalChallenge: targetPage => passAssistedPortalChallenge(targetPage, browser, log),
       });
