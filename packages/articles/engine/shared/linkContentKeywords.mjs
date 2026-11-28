@@ -1,5 +1,5 @@
 import { CONTENT_LINK_CONTEXT, matchContentLinks } from './contentLinkVocabulary.mjs';
-import { isNegatedSentence, sentenceAt } from './contentKeywordMatcher.mjs';
+import { isNegatedSentence, sentenceAt, testLeftBounded } from './contentKeywordMatcher.mjs';
 
 /** Link prose with a shared article budget; preserve existing anchors, code and headings. */
 export function linkContentKeywords(text, locale = 'it', { matcher = matchContentLinks, enabledIds, isEnabled = /** @type {(id: string) => boolean} */ (() => true), destinations = {}, maxLinks = 3, usedIds = new Set() } = {}) {
@@ -76,7 +76,7 @@ export function linkContentKeywords(text, locale = 'it', { matcher = matchConten
  const sentence = sentenceAt(stripped, sStart, sEnd);
  if (isNegatedSentence(sentence, locale)) continue;
  const needed = CONTENT_LINK_CONTEXT[action]?.[locale];
- if (needed && !needed.test(sentence)) continue;
+ if (needed && !testLeftBounded(needed, sentence)) continue;
 
  // Map stripped range → original range
  let origStart = posMap[sStart];
