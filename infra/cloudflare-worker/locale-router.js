@@ -2720,7 +2720,14 @@ async function upgradeLegacyStubGet(url, target, response) {
       return reader.cancel(reason);
     },
   });
-  return new Response(replay, response);
+  // The replayed stream carries exactly the bytes the runtime handed us (the
+  // Workers runtime decodes a compressed origin body on read and re-encodes it
+  // on egress from Content-Encoding, as it does for the untouched original), so
+  // Content-Encoding stays. Content-Length describes the origin's wire bytes and
+  // is dropped: the runtime frames the re-encoded stream itself.
+  const headers = new Headers(response.headers);
+  headers.delete('Content-Length');
+  return new Response(replay, { status: response.status, statusText: response.statusText, headers });
 }
 
 /**

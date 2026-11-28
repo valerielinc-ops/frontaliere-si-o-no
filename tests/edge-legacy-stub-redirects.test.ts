@@ -298,7 +298,7 @@ describe('edge HTTP contract', () => {
     expect(state.chunksRead).toBeLessThan(chunks.length);
   });
 
-  it('GET live page above 256 KiB: 200, byte-identical body, headers kept, no refetch', async () => {
+  it('GET live page above 256 KiB: 200, byte-identical body, headers kept (Content-Length dropped), no refetch', async () => {
     const listed = ownPaths[0];
     const liveHead = '<!DOCTYPE html><html><head><title>Live</title></head><body>';
     const liveHtml = `${liveHead}${'é'.repeat(256 * 1024 + 1)}</body></html>`;
@@ -318,12 +318,14 @@ describe('edge HTTP contract', () => {
         'Cache-Control': 'public, max-age=60',
       },
     });
-    const headersBefore = [...origin.headers];
+    const headersBefore = [...origin.headers].filter(([name]) => name !== 'content-length');
     const refetch = noRefetch();
     const out = await upgradeLegacyStub(new Request(`${APEX}${listed}`), origin, refetch);
     expect(out.status).toBe(200);
     expect(out.statusText).toBe('OK');
     expect([...out.headers]).toEqual(headersBefore);
+    expect(out.headers.get('Content-Length')).toBeNull();
+    expect(out.headers.get('Content-Encoding')).toBe('gzip');
     const got = new Uint8Array(await out.arrayBuffer());
     expect(Buffer.from(got).equals(Buffer.from(encoded))).toBe(true);
     expect(refetch).toHaveBeenCalledTimes(0);
