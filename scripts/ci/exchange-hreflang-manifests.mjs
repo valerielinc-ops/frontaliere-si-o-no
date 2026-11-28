@@ -92,7 +92,7 @@ export function manifestArtifactName(locale, runId, runAttempt) {
   return `hreflang-index-manifest-${locale}-${runId}-${runAttempt}`;
 }
 
-function describeError(error) {
+export function describeError(error) {
   if (error?.killed) return 'timed out';
   const stderr = String(error?.stderr || '').trim();
   const detail = stderr || String(error?.message || error);
@@ -165,7 +165,7 @@ async function readGhJson({ gh, args, timeoutMs, onRateLimit }) {
   }
 }
 
-async function isPublished({ gh, repo, runId, name, onRateLimit }) {
+export async function isPublished({ gh, repo, runId, name, onRateLimit }) {
   const url = `repos/${repo}/actions/runs/${runId}/artifacts?name=${encodeURIComponent(name)}`;
   const { artifacts = [] } = await readGhJson({
     gh,
@@ -179,7 +179,7 @@ async function isPublished({ gh, repo, runId, name, onRateLimit }) {
 // Every attempt of every job, because a copy is only recognisable next to the
 // entry it copies. A short list could hide that entry, so it counts as a failed
 // poll and is never used.
-async function readJobs({ gh, repo, runId, onRateLimit }) {
+export async function readJobs({ gh, repo, runId, onRateLimit }) {
   const all = [];
   for (let page = 1; ; page += 1) {
     const url = `repos/${repo}/actions/runs/${runId}/jobs?filter=all&per_page=${JOBS_PAGE_SIZE}&page=${page}`;
@@ -196,7 +196,7 @@ async function readJobs({ gh, repo, runId, onRateLimit }) {
 }
 
 // The newest attempt decides, whatever order the API lists the job entries in.
-function latestLocaleJob(locale, jobs) {
+export function latestLocaleJob(locale, jobs) {
   return jobs
     .filter((candidate) => buildLocaleFromJobName(candidate?.name) === locale)
     .reduce((latest, candidate) => (
@@ -219,7 +219,7 @@ function executedAttempt(job, jobs) {
   return Math.min(Number(job.run_attempt), ...attempts);
 }
 
-function manifestAttemptOf(locale, jobs, runAttempt) {
+export function manifestAttemptOf(locale, jobs, runAttempt) {
   const job = latestLocaleJob(locale, jobs);
   if (job?.conclusion !== 'success') return String(runAttempt);
   const attempt = executedAttempt(job, jobs);
@@ -546,7 +546,7 @@ export async function exchangeHreflangManifests({
   }
 }
 
-async function runGh(args, timeoutMs) {
+export async function runGh(args, timeoutMs) {
   const api = args[0] === 'api';
   const command = api ? ['api', '--include', ...args.slice(1)] : args;
   try {

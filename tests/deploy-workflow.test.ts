@@ -1215,19 +1215,20 @@ describe('deploy.yml — non-IT legs reuse the IT Rollup bundle (#19575)', () =>
     expect(retry.with?.name).toBe(attemptScopedArtifactName);
     expect(retry.if).toContain('steps.upload-it-rollup-bundle.outcome == \'failure\'');
     expect(wait.if).toBe("matrix.locale != 'it'");
-    expect(wait.env?.BUNDLE_ARTIFACT_NAME).toBe(attemptScopedArtifactName);
-    expect(wait.env?.BUNDLE_ARTIFACT_NAME).toContain('${{ github.run_attempt }}');
-    expect(wait.run).toContain('--arg name "$BUNDLE_ARTIFACT_NAME"');
-    expect(wait.run).toContain('build-locale (it)');
-    expect(wait.run).toContain('completed:*');
-    expect(wait.run).toContain('exit 1');
+    // The script derives the name, because a rerun that does not run IT again
+    // must read the bundle of the attempt in which IT built it.
+    expect(wait.run).toBe('node scripts/ci/wait-it-rollup-bundle.mjs');
+    expect(wait.env?.IT_BUNDLE_RUN_ID).toBe('${{ github.run_id }}');
+    expect(wait.env?.IT_BUNDLE_RUN_ATTEMPT).toBe('${{ github.run_attempt }}');
     expect(download.if).toBe("matrix.locale != 'it'");
     expect(download.uses).toBe('actions/download-artifact@v8');
-    expect(download.with.name).toBe(attemptScopedArtifactName);
+    expect(download.with.name).toBe(`\${{ steps.${wait.id}.outputs.artifact_name }}`);
     expect(restore.if).toBe("matrix.locale != 'it'");
     expect(restore.run).toContain('dist/assets');
     expect(restore.run).toContain('route-chunks.json');
     expect(restore.run).toContain('job-canon-ordering-fields.json');
+    // A bundle of an earlier attempt is accepted only with this run's build id.
+    expect(restore.run).toContain('if [ "$(cat dist/build-id.txt)" != "$DEPLOY_BUILD_ID" ]; then');
     expect(steps.indexOf(upload)).toBeLessThan(steps.indexOf(wait));
     expect(steps.indexOf(wait)).toBeLessThan(steps.indexOf(download));
     expect(steps.indexOf(download)).toBeLessThan(steps.indexOf(restore));
@@ -1242,12 +1243,13 @@ describe('deploy.yml — non-IT legs reuse the IT Rollup bundle (#19575)', () =>
     const wait = named('Wait for IT Rollup bundle artifact');
     const download = named('Download IT Rollup bundle artifact');
 
-    expect(wait.run).toContain('actions/runs/${IT_BUNDLE_RUN_ID}/artifacts');
+    const waitScript = readFileSync(resolve(ROOT, 'scripts/ci/exchange-hreflang-manifests.mjs'), 'utf8');
+    expect(waitScript).toContain('actions/runs/${runId}/artifacts');
     // `github-token` is what switches download-artifact from the internal
     // results service to the REST API.
     expect(download.with).toMatchObject({
       'github-token': wait.env?.GH_TOKEN,
-      repository: wait.env?.IT_BUNDLE_REPOSITORY,
+      repository: wait.env?.GH_REPO,
       'run-id': wait.env?.IT_BUNDLE_RUN_ID,
     });
   });
