@@ -855,7 +855,7 @@ export function createSameIdentityArchiveIndex(records, { activeJobs, isAmbiguou
     if (!record) return null;
     const held = localeRouteKeys(record);
     const incoming = localeRouteKeys(entry);
-    if (entry.slug && entry.slug !== record.slug) incoming.add(`it:${entry.slug}`);
+    if (entry.slug) incoming.add(`it:${entry.slug}`); // even when it is also the record's master
     const unserved = [...incoming].filter((routeKey) => {
       if (held.has(routeKey) || activeRouteKeys.has(routeKey)) return false;
       return (routeHolders.get(routeKey) || 0) === 0; // else another record holds it (not this one: `held` is checked above)
@@ -990,6 +990,7 @@ function mergeUnservedRoutesIntoRecord(record, routeKeys, sourceRecord) {
   addPreviousSlugRoutesKeepAll(record, byLocale, {
     source: 'expired-jobs-archive.archiveRemovedJobsToSlice/same-identity',
     cap: DEFAULT_PREV_SLUG_CAP,
+    keepMasterSlug: true,
   });
   for (const routeKey of routeKeys) {
     const locale = localeFromRouteKey(routeKey);

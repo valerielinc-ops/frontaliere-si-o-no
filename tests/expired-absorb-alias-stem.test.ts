@@ -11,6 +11,7 @@ import {
   createSameIdentityArchiveIndex,
   localeRouteKeys,
   readExpiredSlice,
+  repairExpiredRoutesAgainstActive,
 } from '../scripts/lib/expired-jobs-archive.mjs';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
@@ -94,5 +95,41 @@ describe('absorb: the master slug of the payload is one of its URLs', () => {
     const settled = JSON.stringify(rows);
     expect(archiveRemovedJobsToSlice([withOwnMaster()], 'musterfirma', { dir })).toBe(0);
     expect(JSON.stringify(read())).toBe(settled);
+  });
+});
+
+describe('absorb: record and payload share a master slug that is not their Italian route', () => {
+  const MASTER = `${STEM}-master`;
+  const sharedMaster = () => ({
+    ...posting(),
+    slug: MASTER,
+    slugByLocale: Object.fromEntries(LOCALES.map((l) => [l, `${STEM}-localized-${l}`])),
+    sourceIdentity: 'url:https://jobs.example/musterfirma/posting-a',
+  });
+
+  it('adds the Italian master route once', () => {
+    const record: any = sharedMaster();
+    expect(localeRouteKeys(record).has(`it:${MASTER}`)).toBe(false);
+    const index = createSameIdentityArchiveIndex([record]);
+    expect(index.absorb(sharedMaster())).toEqual({ record, changed: true });
+    expect(localeRouteKeys(record).has(`it:${MASTER}`)).toBe(true);
+    const settled = JSON.stringify(record);
+    expect(index.absorb(sharedMaster())).toEqual({ record, changed: false });
+    expect(JSON.stringify(record)).toBe(settled);
+  });
+
+  it('when a distinct active posting owns it, every later cycle reuses one alias and grows nothing', () => {
+    const record: any = sharedMaster();
+    const owner = { ...stemOwner(), slug: MASTER, slugByLocale: { it: MASTER } };
+    const states: string[] = [];
+    const routes: string[] = [];
+    for (let cycle = 1; cycle <= 5; cycle += 1) {
+      expect(createSameIdentityArchiveIndex([record]).absorb(sharedMaster())).not.toBeNull();
+      repairExpiredRoutesAgainstActive([record], [owner]);
+      states.push(JSON.stringify(record));
+      routes.push([...localeRouteKeys(record)].sort().join());
+    }
+    expect(new Set(routes).size).toBe(1);
+    expect(new Set(states.slice(1)).size).toBe(1);
   });
 });
