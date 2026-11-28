@@ -153,3 +153,12 @@ describe('the employer slot of an ATS title accepts a single-token name', () => 
   });
 });
 
+describe('an isolated ampersand joins one company name in the title slot', () => {
+  it('reads A & B as another employer and keeps the order\'s own «&» name', () => {
+    expect(namesAnotherEmployer('A & B - My application', { company: 'Acme', title: 'Manager' })).toBe(true);
+    expect(namesAnotherEmployer('Procter & Gamble - Bewerbung', { company: 'Acme', title: 'Manager' })).toBe(true);
+    expect(namesAnotherEmployer('Ernst & Young - My application', { company: 'Acme', title: 'Manager' })).toBe(true);
+    expect(namesAnotherEmployer('Ernst & Young - My application', { company: 'Ernst & Young AG', title: 'Manager' })).toBe(false);
+  });
+});
+

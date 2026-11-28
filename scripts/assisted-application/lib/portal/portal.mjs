@@ -5615,8 +5615,15 @@ function foreignEmployerEvidence(line, { neutral, job, ownSegment = () => false 
     if (titleSegments.some(isApplicationChrome)) {
       for (const segment of titleSegments) {
         if (isApplicationChrome(segment) || ownSegment(segment)) continue;
-        const tokens = segment.split(/\s+/u).map((token) => token.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '')).filter(Boolean);
-        const names = tokens.filter((token) => /^\p{Lu}/u.test(token) && ![...normalizeWords(token).split(' ')].every((word) => !word || neutral.has(word) || filler(word)));
+        // An isolated «&» between capitalised tokens joins one company name (A & B, Procter & Gamble, Ernst & Young):
+        // the whole group is a name and its one-letter tokens are not filler.
+        const tokens = segment.split(/\s+/u).map((token) => (token === '&' ? token : token.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, ''))).filter(Boolean);
+        const joined = new Set();
+        tokens.forEach((token, index) => {
+          if (token === '&' && /^\p{Lu}/u.test(tokens[index - 1] || '') && /^\p{Lu}/u.test(tokens[index + 1] || '')) [index - 1, index, index + 1].forEach((at) => joined.add(at));
+        });
+        const names = tokens.filter((token, index) => joined.has(index)
+          || (/^\p{Lu}/u.test(token) && ![...normalizeWords(token).split(' ')].every((word) => !word || neutral.has(word) || filler(word))));
         if (names.length >= 1 && names.length === tokens.length) return { reason: 'employer_slot_of_title', entity: tokens.join(' '), line: originalLine };
       }
     }
