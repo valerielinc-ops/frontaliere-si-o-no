@@ -140,6 +140,13 @@ function dropAmbiguousHits(hits, text) {
  * so the folding of accents and endings stays defined in one place. A token that
  * is part of an entity phrase is not counted again as a token: the entity already
  * says it, and a «specific» token must add something beyond it.
+ *
+ * @param {{ title?: string, excerpt?: string, tags?: string[] }} [article]
+ * @param {{
+ *   match?: (text: string, locale?: string) => Array<{ id: string, text: string }>,
+ *   locale?: string,
+ *   tokenize?: (text: string) => Iterable<string>,
+ * }} [options]
  */
 export function buildKeywordProfile({ title = '', excerpt = '', tags = [] } = {}, { match, locale = 'it', tokenize } = {}) {
   const entities = new Map();
