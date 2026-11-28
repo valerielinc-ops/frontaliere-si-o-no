@@ -50,8 +50,15 @@ export const LOCAL_DISPATCH_LEASE_MS = 140 * 60 * 1000;
 export const LOCAL_DISPATCH_PREP_MAX_ATTEMPTS = 3;
 export const SWISS_RUNNER_OFFLINE_REASONS = Object.freeze([
   'heartbeat_missing', 'heartbeat_stale', 'egress_not_swiss', 'entry_point_unavailable',
-  'deps_install_failed', 'deps_installing', 'storage_upload_unavailable', 'storage_probe_running',
+  'deps_install_failed', 'deps_installing', 'storage_upload_unavailable', 'storage_probe_running', 'stale_code',
 ]);
+/**
+ * A runner whose checked-out code is older than this is not eligible (reason `stale_code`): the heartbeat carries
+ * `codeAt`, the commit time of the checkout's HEAD, and the site's main moves every hour (cron data commits), so a
+ * checkout that stopped following origin/main falls behind visibly. A heartbeat without `codeAt` (older runner) is
+ * not judged.
+ */
+export const SWISS_RUNNER_CODE_MAX_AGE_MS = 24 * 60 * 60 * 1000;
 const RUNNING_STATES = new Set(['drafting', 'regenerating', 'submitting']);
 const LOCAL_MODES = new Set(['draft', 'submit']);
 const PENDING_SCAN_LIMIT = 50;
@@ -99,13 +106,17 @@ export function swissRunnerAvailability(heartbeats, nowMs = Date.now()) {
   if (!list.length) return { online: false, reason: 'heartbeat_missing', runners: 0 };
   const fresh = list.filter(beat => Number(beat.at) > 0 && nowMs - Number(beat.at) <= SWISS_RUNNER_HEARTBEAT_STALE_MS);
   if (!fresh.length) return { online: false, reason: 'heartbeat_stale', runners: 0 };
-  const eligible = fresh.filter(beat => beat.eligible === true && beat.egressCountry === SWISS_EGRESS_COUNTRY);
+  const codeIsStale = beat => Number(beat.codeAt) > 0 && nowMs - Number(beat.codeAt) > SWISS_RUNNER_CODE_MAX_AGE_MS;
+  const eligible = fresh.filter(beat => beat.eligible === true && beat.egressCountry === SWISS_EGRESS_COUNTRY && !codeIsStale(beat));
   if (!eligible.length) {
+    if (fresh.some(beat => beat.eligible === true && beat.egressCountry === SWISS_EGRESS_COUNTRY && codeIsStale(beat))) {
+      return { online: false, reason: 'stale_code', runners: 0 };
+    }
     const unavailableSwissRunner = fresh.find(beat => beat.egressCountry === SWISS_EGRESS_COUNTRY
-      && ['entry_point_unavailable', 'deps_install_failed', 'deps_installing', 'storage_upload_unavailable', 'storage_probe_running']
+      && ['entry_point_unavailable', 'deps_install_failed', 'deps_installing', 'storage_upload_unavailable', 'storage_probe_running', 'stale_code']
         .some(reason => String(beat.reason || '').startsWith(reason)));
     const rawReason = String(unavailableSwissRunner?.reason || '');
-    const reason = ['entry_point_unavailable', 'deps_install_failed', 'deps_installing', 'storage_upload_unavailable', 'storage_probe_running']
+    const reason = ['entry_point_unavailable', 'deps_install_failed', 'deps_installing', 'storage_upload_unavailable', 'storage_probe_running', 'stale_code']
       .find(candidate => rawReason.startsWith(candidate)) || 'egress_not_swiss';
     return { online: false, reason, runners: 0 };
   }
@@ -278,7 +289,7 @@ export async function completeLocalDispatch({ db, orderId, key, runnerId, outcom
 }
 
 /** The runner's heartbeat: what it saw of its exit, whether it takes work, what it runs now. */
-export async function writeRunnerHeartbeat({ db, runnerId, nowMs = Date.now(), egressCountry = null, eligible = false, reason = null, busy = null, version = null }) {
+export async function writeRunnerHeartbeat({ db, runnerId, nowMs = Date.now(), egressCountry = null, eligible = false, reason = null, busy = null, version = null, codeAt = null }) {
   const id = String(runnerId || '').trim();
   if (!id) throw new Error('runner_id_missing');
   await localRunnerRefFor(db, id).set({
@@ -289,6 +300,7 @@ export async function writeRunnerHeartbeat({ db, runnerId, nowMs = Date.now(), e
     reason: reason ? String(reason).slice(0, 80) : null,
     busy: busy && busy.orderId ? { orderId: String(busy.orderId), key: String(busy.key || ''), since: Number(busy.since) || nowMs } : null,
     version: version ? String(version).slice(0, 64) : null,
+    codeAt: Number(codeAt) > 0 ? Number(codeAt) : null,
   }, { merge: true });
   return { ok: true };
 }
