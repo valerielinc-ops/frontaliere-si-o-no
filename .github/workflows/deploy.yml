@@ -1107,44 +1107,19 @@ jobs:
       # on only build-locale(it) in GitHub's matrix DAG. Poll the same-run
       # artifact and the IT job identity instead: an IT failure fails closed,
       # while a transient Actions API response keeps the bounded wait alive.
+      # The artifact carries the attempt in which IT really ran. "Re-run failed
+      # jobs" (and the targeted one-leg rerun in rearm-deploy-build.mjs) does
+      # not run a successful IT leg again, so the script traces the copied job
+      # entry back to that attempt instead of waiting for a name nobody writes.
       - name: Wait for IT Rollup bundle artifact
         if: matrix.locale != 'it'
-        shell: bash
+        id: wait-it-rollup-bundle
         env:
           GH_TOKEN: ${{ github.token }}
-          BUNDLE_ARTIFACT_NAME: it-rollup-bundle-${{ github.run_id }}-${{ github.run_attempt }}
+          GH_REPO: ${{ github.repository }}
           IT_BUNDLE_RUN_ID: ${{ github.run_id }}
-          IT_BUNDLE_REPOSITORY: ${{ github.repository }}
-        run: |
-          set -euo pipefail
-          for attempt in $(seq 1 720); do
-            artifact_id="$(
-              gh api "repos/${IT_BUNDLE_REPOSITORY}/actions/runs/${IT_BUNDLE_RUN_ID}/artifacts?per_page=100" 2>/dev/null \
-                | jq -r --arg name "$BUNDLE_ARTIFACT_NAME" '[.artifacts[] | select(.name == $name and .expired == false)] | first | .id // empty' \
-                || true
-            )"
-            if [ -n "$artifact_id" ]; then
-              echo "IT Rollup bundle artifact is available (id=$artifact_id, attempt=$attempt)"
-              exit 0
-            fi
-
-            it_state="$(
-              gh api "repos/${IT_BUNDLE_REPOSITORY}/actions/runs/${IT_BUNDLE_RUN_ID}/jobs?per_page=100" 2>/dev/null \
-                | jq -r '[.jobs[] | select(.name == "build-locale (it)")] | first | if . == null then "missing" else (.status + ":" + (.conclusion // "")) end' \
-                || true
-            )"
-            case "$it_state" in
-              completed:success) ;;
-              completed:*)
-                echo "::error::build-locale (it) ended as $it_state before publishing $BUNDLE_ARTIFACT_NAME"
-                exit 1
-                ;;
-            esac
-            echo "Waiting for $BUNDLE_ARTIFACT_NAME (attempt $attempt/720; IT job=$it_state)"
-            sleep 15
-          done
-          echo "::error::Timed out waiting for $BUNDLE_ARTIFACT_NAME"
-          exit 1
+          IT_BUNDLE_RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: node scripts/ci/wait-it-rollup-bundle.mjs
 
       # `github-token` + `run-id` make the action look the artifact up through
       # the REST API, the view the wait step above has just confirmed. Without
@@ -1155,7 +1130,7 @@ jobs:
         if: matrix.locale != 'it'
         uses: actions/download-artifact@v8
         with:
-          name: it-rollup-bundle-${{ github.run_id }}-${{ github.run_attempt }}
+          name: ${{ steps.wait-it-rollup-bundle.outputs.artifact_name }}
           path: ${{ runner.temp }}/it-rollup-bundle-download
           github-token: ${{ github.token }}
           repository: ${{ github.repository }}
