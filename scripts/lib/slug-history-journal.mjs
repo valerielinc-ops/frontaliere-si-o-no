@@ -364,13 +364,16 @@ export function replaceSlugRouteEverywhere(job, fromRoute, toRoute, {
  *
  * @param {object} job
  * @param {Record<string, string[]>} routesByLocale
- * @param {{source?: string, reason?: string, cap?: number}} [options]
+ * @param {{source?: string, reason?: string, cap?: number, keepMasterSlug?: boolean}} [options]
+ *   `keepMasterSlug`: when `slugByLocale.it` is set, `job.slug` is not by itself an Italian
+ *   route (`localeRouteKeys`), so a master that differs from it may enter the history.
  * @returns {number} routes added
  */
 export function addPreviousSlugRoutesKeepAll(job, routesByLocale, {
   source = 'addPreviousSlugRoutesKeepAll',
   reason = 'route merged into the record that already represents this posting',
   cap = DEFAULT_SLUG_ARRAY_CAP,
+  keepMasterSlug = false,
 } = {}) {
   if (!job || typeof job !== 'object' || !routesByLocale || typeof routesByLocale !== 'object') return 0;
   let added = 0;
@@ -382,7 +385,7 @@ export function addPreviousSlugRoutesKeepAll(job, routesByLocale, {
     const list = Array.isArray(job.previousSlugsByLocale[locale])
       ? job.previousSlugsByLocale[locale]
       : (job.previousSlugsByLocale[locale] = []);
-    const current = locale === 'it' ? job.slug : undefined;
+    const current = locale === 'it' && !(keepMasterSlug && job.slugByLocale?.it) ? job.slug : undefined;
     for (const value of routes) {
       const route = String(value ?? '').trim();
       if (!route || list.includes(route) || route === job.slugByLocale?.[locale] || route === current) continue;

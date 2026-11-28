@@ -1769,6 +1769,11 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
   } = options;
   const hasRequestedHousekeepingProof = Array.isArray(requestedHousekeepingProof)
     && requestedHousekeepingProof.length > 0;
+  const definitiveProofJobs = hasRequestedHousekeepingProof
+    ? requestedHousekeepingProof
+      .filter((entry) => entry?.definitive === true && entry.job?.slug)
+      .map((entry) => entry.job)
+    : [];
   try {
     writeJobsCrawlerSlice(crawlerKey, jobs, {
       ...writeOptions,
@@ -1777,8 +1782,9 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
         : {}),
       // The verified wrapper archives the evidence itself. Keep the single
       // archive call at that decision boundary instead of archiving once
-      // before and once after the retry write.
-      skipRetiredArchive: hasRequestedHousekeepingProof,
+      // before and once after the retry write. The writer still archives every
+      // removal the proof does not name.
+      callerArchivedJobs: definitiveProofJobs,
       // This wrapper owns the evidence decision. Do not file a parser-health
       // issue until the deterministic housekeeping proof/source probe says
       // whether the shrink is real; a proven quarantine is an accepted write,
@@ -1786,12 +1792,7 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
       deferShrinkGuardIssue: true,
     });
     if (hasRequestedHousekeepingProof) {
-      const archived = archiveRemovedJobsToSlice(
-        requestedHousekeepingProof
-          .filter((entry) => entry?.definitive === true && entry.job?.slug)
-          .map((entry) => entry.job),
-        crawlerKey,
-      );
+      const archived = archiveRemovedJobsToSlice(definitiveProofJobs, crawlerKey);
       if (archived > 0) {
         console.warn(`  📦 Archived ${archived} housekeeping job(s) → data/jobs/expired/by-crawler/${crawlerKey}.json (soft-landing pages preserved).`);
       }
@@ -1915,7 +1916,8 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
     // moves a record's slug to a deterministic alias, so a by-slug merge would miss
     // it and mint a second record. This call passes no `activeJobs`, so a route a
     // still-active posting has taken over is judged from the slice itself: the
-    // record's own routes and aliases, or another record's.
+    // record's own routes or another record's. Otherwise the route is merged back
+    // and the assembly repair moves it to the alias the record already holds.
     const archived = archiveRemovedJobsToSlice(verdict.disappearedJobs, crawlerKey);
     if (archived > 0) {
       console.warn(`  📦 Archived ${archived} expired job(s) → data/jobs/expired/by-crawler/${crawlerKey}.json (soft-landing pages preserved).`);
@@ -2941,8 +2943,10 @@ export function isNearDuplicateLocalizedTitle(candidate, source) {
  *   a deliberate thin-source quarantine. Internal callers only; unproven
  *   removals remain blocked by the byte guard.
  * @param {boolean} [options.skipRetiredArchive] - Internal: the verified
- *   wrapper already archived the measured removals at its evidence boundary;
- *   prevents the retry write from duplicating that archive call.
+ *   wrapper already archived ALL the measured removals at its evidence
+ *   boundary; prevents the retry write from duplicating that archive call.
+ * @param {object[]} [options.callerArchivedJobs] - Internal: the removals the
+ *   caller archives itself right after this write; the writer archives the rest.
  */
 /**
  * The description as writeJobsCrawlerSlice stores it: artifact clean-up, then
@@ -2977,34 +2981,30 @@ function hasArchivedTitle(entry) {
   return nonblank(entry?.title) || Object.values(entry?.titleByLocale || {}).some(nonblank);
 }
 
-/** Every route slug a row answers on: current slugs, plus history when asked. */
-function sliceRowRouteSlugs(job, { withHistory = false } = {}) {
-  const routes = [];
-  const add = (value) => {
-    if (typeof value === 'string' && value.trim()) routes.push(value.trim());
-  };
-  add(job?.slug);
-  if (job?.slugByLocale && typeof job.slugByLocale === 'object') {
-    for (const value of Object.values(job.slugByLocale)) add(value);
-  }
-  if (withHistory) {
-    if (Array.isArray(job?.previousSlugs)) job.previousSlugs.forEach(add);
-    if (job?.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
-      for (const values of Object.values(job.previousSlugsByLocale)) {
-        if (Array.isArray(values)) values.forEach(add);
-      }
-    }
+/** Every locale route (current and history) the rows answer on. */
+function routeKeysOf(rows) {
+  const routes = new Set();
+  for (const row of rows) {
+    if (!row || typeof row !== 'object') continue;
+    for (const route of localeRouteKeys(row)) routes.add(route);
   }
   return routes;
 }
 
+/** Whether `job` answers on a locale route that is not in `heldRoutes`. */
+function hasUnheldRoute(job, heldRoutes) {
+  return [...localeRouteKeys(job)].some((route) => !heldRoutes.has(route));
+}
+
 /**
  * Rows of the previous run that a slice write retires: no written row carries
- * their identity (`resolveJobDiffKey`) and none answers on one of their routes
- * (current slugs of the retired row against current + previous slugs of the
- * written rows), and they were not handed to another crawler key. A renamed
- * posting keeps its id or its old slug in `previousSlugs`, so it is not
- * retired; a collapsed duplicate carries its slugs over, so it is not either.
+ * their identity (`resolveJobDiffKey`) and at least one of their locale routes
+ * (current + previous slugs) is answered neither by a written row nor by a row
+ * handed to another crawler key. A renamed posting keeps its id, and a
+ * collapsed duplicate carries all its routes over, so neither is retired.
+ * Sharing ONE slug with a live row is not enough: store chains reuse a generic
+ * slug across dozens of postings, and the other routes of the dropped one would
+ * be lost (Denner, wave 10df597a2d5 of 2026-11-28).
  *
  * @param {object[]|null} priorJobs  The slice of the previous run.
  * @param {object[]} writtenJobs      The rows this write persisted.
@@ -3013,19 +3013,16 @@ function sliceRowRouteSlugs(job, { withHistory = false } = {}) {
  */
 export function retiredSliceRows(priorJobs, writtenJobs, handedOverJobs = []) {
   if (!Array.isArray(priorJobs) || priorJobs.length === 0) return [];
-  const liveKeys = new Set();
-  const liveRoutes = new Set();
-  for (const job of [...(Array.isArray(writtenJobs) ? writtenJobs : []), ...(handedOverJobs || [])]) {
-    if (!job || typeof job !== 'object') continue;
-    const key = resolveJobDiffKey(job);
-    if (key) liveKeys.add(key);
-    for (const route of sliceRowRouteSlugs(job, { withHistory: true })) liveRoutes.add(route);
-  }
+  const liveRows = [...(Array.isArray(writtenJobs) ? writtenJobs : []), ...(handedOverJobs || [])];
+  const liveKeys = new Set(
+    liveRows.filter((job) => job && typeof job === 'object').map(resolveJobDiffKey).filter(Boolean),
+  );
+  const liveRoutes = routeKeysOf(liveRows);
   return priorJobs.filter((job) => {
     if (!job || typeof job !== 'object' || !job.slug) return false;
     const key = resolveJobDiffKey(job);
     if (key && liveKeys.has(key)) return false;
-    return !sliceRowRouteSlugs(job).some((route) => liveRoutes.has(route));
+    return hasUnheldRoute(job, liveRoutes);
   });
 }
 
@@ -3035,14 +3032,17 @@ export function retiredSliceRows(priorJobs, writtenJobs, handedOverJobs = []) {
  * whole run, and the slice itself is already written. A failure is logged
  * with its cause so the missing archive records stay visible.
  */
-function archiveRetiredSliceRows(crawlerKey, priorJobs, writtenJobs, handedOverJobs) {
-  const retired = retiredSliceRows(priorJobs, writtenJobs, handedOverJobs);
+function archiveRetiredSliceRows(crawlerKey, priorJobs, writtenJobs, handedOverJobs, callerArchivedKeys) {
+  const retired = retiredSliceRows(priorJobs, writtenJobs, handedOverJobs)
+    .filter((job) => !callerArchivedKeys.has(shrinkJobKey(job)));
   if (retired.length === 0) return 0;
   try {
-    // A slug the archive already holds with a title was archived by the
-    // caller's own step (template pipeline, housekeeping, corroborated shrink)
-    // or by a previous write of this run: rewriting it would only move its
-    // expiredAt forward (same rule as archiveFilteredJobsToSlices).
+    // A slug the archive already holds with a title, with every route of the
+    // row held by the archive or by a live row, was archived by the caller's own
+    // step (template pipeline, housekeeping, corroborated shrink) or by a
+    // previous write of this run: rewriting it would only move its expiredAt
+    // forward. The slug alone proves nothing: a posting revived and dropped
+    // again meets its older record, which lacks the routes gained since.
     // Read through readJsonFile (#18272) and fail closed: an archive that
     // exists but cannot be read must not reach archiveRemovedJobsToSlice,
     // whose own reader starts from `[]` on a parse error and would rewrite
@@ -3055,7 +3055,10 @@ function archiveRetiredSliceRows(crawlerKey, priorJobs, writtenJobs, handedOverJ
         .filter((entry) => entry?.slug && hasArchivedTitle(entry))
         .map((entry) => entry.slug),
     );
-    const missing = retired.filter((job) => !archivedWithTitle.has(job.slug));
+    const heldRoutes = routeKeysOf([...existingArchive, ...writtenJobs, ...(handedOverJobs || [])]);
+    const missing = retired.filter(
+      (job) => !archivedWithTitle.has(job.slug) || hasUnheldRoute(job, heldRoutes),
+    );
     if (missing.length === 0) return 0;
     const archived = archiveRemovedJobsToSlice(missing, crawlerKey, { activeJobs: writtenJobs });
     console.log(
@@ -3665,9 +3668,15 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     ? removedJobsForArchive(existingSlice.jobs, mergedJobs)
     : [];
   assertRemovedJobsArchivable(removedJobs, crawlerKey);
+  // Removals the caller archives itself (housekeeping proof). Only those: every
+  // other row this write retires is still archived here.
+  const callerArchivedKeys = new Set((options.callerArchivedJobs || []).map(shrinkJobKey));
   const archived = options.skipRetiredArchive
     ? 0
-    : archiveRemovedJobsToSlice(removedJobs, crawlerKey);
+    : archiveRemovedJobsToSlice(
+      removedJobs.filter((job) => !callerArchivedKeys.has(shrinkJobKey(job))),
+      crawlerKey,
+    );
   if (archived > 0) {
     console.log(
       `  📦 Retired archive guard: archived ${archived} removed job(s) `
@@ -3748,7 +3757,9 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // reached data/jobs/expired/by-crawler. The archive merges by slug, so the
   // callers that already archived see an idempotent write.
   if (!options.skipRetiredArchive) {
-    archiveRetiredSliceRows(crawlerKey, priorJobs, currentEntry.slice.jobs, ownershipHandedOver);
+    archiveRetiredSliceRows(
+      crawlerKey, priorJobs, currentEntry.slice.jobs, ownershipHandedOver, callerArchivedKeys,
+    );
   }
   const hardeningSuffix = hardened.updated > 0 ? `, salary hardened ${hardened.updated}` : '';
   console.log(`📂 Wrote jobs slice: data/jobs/by-crawler/${crawlerKey}.json (${finalJobs.length} jobs${hardeningSuffix})`);

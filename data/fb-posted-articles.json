@@ -2,24 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "record-organi-importati-2025",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/record-organi-importati-2025/",
-      "ts": "2026-05-07T16:00:00.964Z",
-      "seed": true
-    },
-    {
-      "id": "svizzera-hockey-finlandia-2026",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/svizzera-hockey-finlandia-2026/",
-      "ts": "2026-05-07T17:49:31.880Z",
-      "seed": true
-    },
-    {
-      "id": "tax-free-dirinella-orari-ridotti",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/tax-free-dirinella-orari-ridotti/",
-      "ts": "2026-05-07T18:01:35.285Z",
-      "seed": true
-    },
-    {
       "id": "lombardia-chiede-completamento-alptransit",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/lombardia-chiede-completamento-alptransit/",
       "ts": "2026-05-07T18:13:55.730Z",
@@ -6550,6 +6532,57 @@
       "copyAngleIntent": "both",
       "copyHook": "Mobilità oltreconfine: una domanda precisa per leggere meglio la guida.",
       "copyCta": "Consulta la guida."
+    },
+    {
+      "id": "minimo-obvaldo-contratti",
+      "url": "https://frontaliereticino.ch/articoli-svizzera/minimo-obvaldo-contratti/",
+      "ts": "2026-11-28T20:20:10.366Z",
+      "fbPostId": "951226518080080_122132685363272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "f0d80b4606e89a89",
+      "copyTemplateId": "fb-article-question",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Mobilità oltreconfine: una domanda precisa per leggere meglio la guida.",
+      "copyCta": "Consulta la guida."
+    },
+    {
+      "id": "bollettino-frontaliere-2026-11-28",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/bollettino-frontaliere-2026-11-28/",
+      "ts": "2026-11-28T20:20:15.024Z",
+      "fbPostId": "951226518080080_122132685387272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "f0d80b4606e89a89",
+      "copyTemplateId": "fb-article-question",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Mobilità oltreconfine: una domanda precisa per leggere meglio la guida.",
+      "copyCta": "Consulta la guida."
+    },
+    {
+      "id": "salario-minimo-ticino-compromesso",
+      "url": "https://frontaliereticino.ch/articoli-svizzera/salario-minimo-ticino-compromesso/",
+      "ts": "2026-11-28T20:20:20.405Z",
+      "fbPostId": "951226518080080_122132685429272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "f0d80b4606e89a89",
+      "copyTemplateId": "fb-article-practical",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Redditi esteri: un passaggio pratico da verificare nella guida.",
+      "copyCta": "Leggi l'approfondimento."
     }
   ]
 }
