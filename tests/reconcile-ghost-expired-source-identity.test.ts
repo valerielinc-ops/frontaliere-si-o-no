@@ -119,7 +119,7 @@ describe('reconcileGhostExpired — source identity guard (#11596)', () => {
     expect(active.previousSlugs).toContain('pasticceria-a-example-hospital-liestal');
   });
 
-  it('still merges when the active identity appears in sourceIdentityHistory', () => {
+  it('matches on sourceIdentityHistory, but moves no route and keeps the record', () => {
     const active = activeSibling();
     const expired = [archivedDuplicate({
       sourceIdentityHistory: [
@@ -128,9 +128,16 @@ describe('reconcileGhostExpired — source identity guard (#11596)', () => {
       ],
     })];
 
-    const { ghostCount } = reconcileGhostExpired([active], expired, { sliceDir });
+    const before = JSON.stringify([active.previousSlugs, active.previousSlugsByLocale]);
 
-    expect(ghostCount).toBe(1);
+    const result = reconcileGhostExpired([active], expired, { sliceDir });
+
+    // The record declares ARCHIVED_URL for itself: the history entry finds the
+    // candidate, it does not prove whose routes these are.
+    expect(result.retainedGhostCount).toBe(1);
+    expect(result.mergedSlugs).toBe(0);
+    expect(result.cleanedExpired).toEqual(expired);
+    expect(JSON.stringify([active.previousSlugs, active.previousSlugsByLocale])).toBe(before);
   });
 
   it('fails closed when an active URL has no archive source identity', () => {

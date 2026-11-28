@@ -1,9 +1,12 @@
 /**
  * Route bookkeeping for the assembler's ghost pass (`reconcileGhostExpired`).
  *
- * Two rules:
- *  - history moves to an active job only on proof that both records are the same
- *    single posting, from the identity each record declares for ITSELF;
+ * Three rules:
+ *  - no route at all moves unless both records declare for themselves a posting
+ *    that nobody else declares differently (merge history, raw ids and
+ *    fragment-less URL keys only find the candidate);
+ *  - per-locale history moves to an active job only on proof that both records
+ *    are the same single posting, from the identity each declares for ITSELF;
  *  - nothing is ever evicted to make room. What does not fit stays on the
  *    archive record, which the caller then keeps.
  */
@@ -188,32 +191,61 @@ export function ownPostingIdentities(record = {}) {
   return identities;
 }
 
+/** Title, company and location: what every declarer of one posting must share. */
+export function postingMetadataKey(job) {
+  return [job.title, job.company, job.location].map((value) => (value || '').toLowerCase().trim()).join('||');
+}
+
+/** A trailing slash on the path names the same page; query, hash and case do not change. */
+function declarerKey(identity) {
+  if (!identity.startsWith('url:')) return identity;
+  const url = new URL(identity.slice(4));
+  url.pathname = url.pathname.replace(/\/+$/, '') || '/';
+  return `url:${url.href}`;
+}
+
 /**
- * Index who declares each identity, across the active and archived corpus.
- * Returns `sameSinglePosting(archived, active, metadataKey)`: true only when
- * both name one identity with a single-posting token, `active` is its only
- * active declarer, and every declarer has the same title, company and location.
+ * Index who declares each identity, across the active and archived corpus. Both
+ * answers need one identity the two records declare for themselves, with
+ * `active` as its only active declarer.
+ *  - `sameDeclaredPosting`: enough to move current and flat slugs. A trailing
+ *    slash may differ, and no third title, company or location may declare the
+ *    identity (the two records may differ: a title in another language).
+ *  - `sameSinglePosting`: needed for per-locale history. Every declarer has the
+ *    same title, company and location, and the identity is written identically
+ *    and carries a single-posting token.
  */
-export function createSinglePostingProof(activeJobs, archivedJobs, metadataKey) {
+export function createPostingProof(activeJobs, archivedJobs) {
   const declarers = new Map();
   const register = (record, isActive) => {
-    for (const identity of ownPostingIdentities(record)) {
-      let entry = declarers.get(identity);
-      if (!entry) declarers.set(identity, entry = { actives: 0, keys: new Set() });
+    for (const key of new Set([...ownPostingIdentities(record)].map(declarerKey))) {
+      let entry = declarers.get(key);
+      if (!entry) declarers.set(key, entry = { actives: 0, keys: new Set() });
       if (isActive) entry.actives += 1;
-      entry.keys.add(metadataKey(record));
+      entry.keys.add(postingMetadataKey(record));
     }
   };
   for (const job of activeJobs) register(job, true);
   for (const job of archivedJobs) register(job, false);
 
-  return (archived, active) => {
-    const activeIdentities = ownPostingIdentities(active);
-    return [...ownPostingIdentities(archived)].some((identity) => {
-      if (!activeIdentities.has(identity) || !hasSinglePostingToken(identity)) return false;
-      const entry = declarers.get(identity);
-      return entry?.actives === 1 && entry.keys.size === 1;
-    });
+  const soleActive = (key) => (declarers.get(key)?.actives === 1 ? declarers.get(key) : null);
+
+  return {
+    sameDeclaredPosting(archived, active) {
+      const activeKeys = new Set([...ownPostingIdentities(active)].map(declarerKey));
+      const pair = new Set([postingMetadataKey(archived), postingMetadataKey(active)]);
+      return [...ownPostingIdentities(archived)].map(declarerKey).some((key) => {
+        const entry = activeKeys.has(key) && soleActive(key);
+        return Boolean(entry) && [...entry.keys].every((metadata) => pair.has(metadata));
+      });
+    },
+    sameSinglePosting(archived, active) {
+      const activeIdentities = ownPostingIdentities(active);
+      return [...ownPostingIdentities(archived)].some((identity) => (
+        activeIdentities.has(identity) && hasSinglePostingToken(identity)
+          && soleActive(declarerKey(identity))?.keys.size === 1
+      ));
+    },
   };
 }
 
@@ -275,9 +307,10 @@ function historyRoutes(ghost) {
 
 /**
  * Copy a ghost's routes to its active match, each under its own locale, without
- * evicting anything. Current slugs and flat-only slugs always travel; the
- * per-locale history only when `proven`. Without proof it is assigned to nobody,
- * including its copies in the flat `previousSlugs` union. Returns the number of
+ * evicting anything. The caller has shown that both are one posting
+ * (`sameDeclaredPosting`, or neither declares any identity). Current slugs and
+ * flat-only slugs then travel; the per-locale history only when `proven`.
+ * Without proof it is assigned to nobody, including its copies in the flat `previousSlugs` union. Returns the number of
  * distinct slugs added (one slug can fill several locale routes).
  */
 export function mergeGhostRoutes(match, ghost, { proven = false } = {}) {
