@@ -39,7 +39,7 @@ function fetchUrl(input: RequestInfo | URL): string {
 
 function loadBrowserJobCanonMapFetcher(): (slug: string, fetcher: typeof fetch) => Promise<unknown> {
   const source = readFileSync(resolve(process.cwd(), 'public/404.html'), 'utf8');
-  const start = source.indexOf('function jobCanonV1ShardKey(');
+  const start = source.indexOf('function jobCanonV2ShardKey(');
   const end = source.indexOf('// Request locale', start);
   expect(start).toBeGreaterThanOrEqual(0);
   expect(end).toBeGreaterThan(start);

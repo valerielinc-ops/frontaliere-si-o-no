@@ -1,5 +1,6 @@
 /**
- * Emit the v1 and v2 /job-canon maps without retaining the complete registry
+ * Emit the v2 /job-canon maps (the v1 prefix shards were retired after the S3
+ * zero-use receipt; manifest schema 3 has no v1 section) without retaining the complete registry
  * or the complete output graph in V8. Registry records are spooled per shard
  * and applied to one output shard at a time in closeBundle.
  */
@@ -58,9 +59,9 @@ import {
 const OUT_SUBDIR = 'job-canon';
 const V2_SUBDIR = 'v2';
 const V2_BUCKET_COUNT = JOB_CANON_V2_SHARD_COUNT;
-// Schema 2 digests use emitted key order, so v1 integrity is accumulated while
-// writing instead of rebuilding a complete shard to sort it after emission.
-const MANIFEST_SCHEMA_VERSION = 2;
+// Schema 3 = schema 2 without the retired `v1` section. Digests use emitted
+// key order, so integrity is computed while writing.
+const MANIFEST_SCHEMA_VERSION = 3;
 const MANIFEST_LOCALE_ORDER = ['it', 'en', 'de', 'fr'] as const satisfies readonly JobCanonLocale[];
 const STAGE_OPERATIONS = [
   'prefix',
@@ -190,27 +191,6 @@ function countAliases(entry: LocaleEntry): number {
     if (typeof entry.alias[locale] === 'string') count += 1;
   }
   return count;
-}
-
-function shardKey(slug: string): string {
-  const value = slug.slice(0, 2).toLowerCase().replace(/[^a-z0-9]/g, '_');
-  return value.length === 2 ? value : (value + '__').slice(0, 2);
-}
-
-/**
- * v1 is streamed from the finished v2 buckets, so a duplicate must fail before
- * its second JSON fragment is appended. JSON.parse would otherwise keep only
- * the last value while the manifest counters and digests counted both.
- */
-export function assertUniqueJobCanonV1Key(
-  emittedSlugs: Set<string>,
-  slug: string,
-  shard: string,
-): void {
-  if (emittedSlugs.has(slug)) {
-    throw new Error(`[job-canon-redirect-map] duplicate v1 key ${JSON.stringify(slug)} in shard ${shard}`);
-  }
-  emittedSlugs.add(slug);
 }
 
 /** Section prefix the consumers join with `${slug}/`. */
@@ -1300,66 +1280,8 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
           },
         };
 
-        const v1Dir = outDir;
-        const v1BufferByShard = new Map<string, Buffer[]>();
-        const v1BufferBytesByShard = new Map<string, number>();
-        const v1BufferedBytesLimit = 1024 * 1024;
-        let v1BufferedBytes = 0;
-        const v1Started = new Set<string>();
-        const v1HasEntries = new Set<string>();
-        const v1EmittedSlugs = new Set<string>();
-        const v1Keys = new Set<string>();
-        const v1EntriesByShard = new Map<string, number>();
-        const v1AliasesByShard = new Map<string, number>();
-        const v1BytesByShard = new Map<string, number>();
-        const v1RawDigestByShard = new Map<string, ReturnType<typeof createHash>>();
-        const v1CanonicalDigestByShard = new Map<string, ReturnType<typeof createHash>>();
-        const v1FileManifest: Record<string, JobCanonFileManifest> = Object.create(null) as Record<string, JobCanonFileManifest>;
         const v2FileManifest: Record<string, JobCanonFileManifest> = Object.create(null) as Record<string, JobCanonFileManifest>;
         const logicalEntriesDigest = createHash('sha256');
-        const flushV1Buffer = (key: string): void => {
-          const pending = v1BufferByShard.get(key);
-          if (!pending) return;
-          fs.appendFileSync(path.join(v1Dir, `${key}.json`), Buffer.concat(pending));
-          v1BufferedBytes -= v1BufferBytesByShard.get(key) ?? 0;
-          v1BufferByShard.delete(key);
-          v1BufferBytesByShard.delete(key);
-        };
-        const appendV1Entry = (slug: string, entry: LocaleEntry): void => {
-          const key = shardKey(slug);
-          assertUniqueJobCanonV1Key(v1EmittedSlugs, slug, key);
-          v1Keys.add(key);
-          const outputPath = path.join(v1Dir, `${key}.json`);
-          if (!v1Started.has(key)) {
-            fs.writeFileSync(outputPath, '{', 'utf8');
-            v1Started.add(key);
-            v1BytesByShard.set(key, 1);
-            v1RawDigestByShard.set(key, createHash('sha256').update('{'));
-            v1CanonicalDigestByShard.set(key, createHash('sha256'));
-          }
-          const pending = v1BufferByShard.get(key) ?? [];
-          const separator = v1HasEntries.has(key) ? ',' : '';
-          v1HasEntries.add(key);
-          const canonicalEntry = canonicalJobCanonEntry(entry);
-          const fragment = Buffer.from(`${separator}${JSON.stringify(slug)}:${JSON.stringify(canonicalEntry)}`, 'utf8');
-          pending.push(fragment);
-          v1BufferByShard.set(key, pending);
-          v1BufferedBytes += fragment.length;
-          v1BytesByShard.set(key, (v1BytesByShard.get(key) ?? 0) + fragment.length);
-          v1RawDigestByShard.get(key)!.update(fragment);
-          updateCanonicalEntryDigest(v1CanonicalDigestByShard.get(key)!, slug, canonicalEntry);
-          v1EntriesByShard.set(key, (v1EntriesByShard.get(key) ?? 0) + 1);
-          v1AliasesByShard.set(key, (v1AliasesByShard.get(key) ?? 0) + countAliases(canonicalEntry));
-          const bufferedBytes = (v1BufferBytesByShard.get(key) ?? 0) + fragment.length;
-          v1BufferBytesByShard.set(key, bufferedBytes);
-          if (bufferedBytes >= 16 * 1024) flushV1Buffer(key);
-          while (v1BufferedBytes > v1BufferedBytesLimit) {
-            const oldestKey = v1BufferByShard.keys().next().value as string | undefined;
-            if (!oldestKey) break;
-            flushV1Buffer(oldestKey);
-          }
-        };
-
         const emitV2Bucket = (key: string): number | null => {
           const operationPath = (operation: StageOperation): string =>
             path.join(stageDir, 'v2', operation, `${key}.jsonl`);
@@ -1513,10 +1435,6 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
             aliases: bucketAliasCount,
             canonicalEntriesSha256: canonicalBucketDigest.digest('hex'),
           };
-          // Every slug belongs to exactly one hash bucket. Append each finished
-          // v2 entry to its v1 file in bounded chunks so the 29 MB `ve` shard
-          // never becomes an in-memory object or one giant JSON string.
-          for (const slug of slugs) appendV1Entry(slug, bucket[slug]);
           prefixOrderBySlugLocale.clear();
           currentPrefixes.clear();
           for (const slug of slugs) delete bucket[slug];
@@ -1535,31 +1453,6 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
             await new Promise<void>((resolve) => setImmediate(resolve));
           }
         }
-        for (const key of [...v1BufferByShard.keys()]) flushV1Buffer(key);
-        for (const key of v1Keys) {
-          fs.appendFileSync(path.join(v1Dir, `${key}.json`), '}', 'utf8');
-          v1BytesByShard.set(key, (v1BytesByShard.get(key) ?? 0) + 1);
-          v1RawDigestByShard.get(key)!.update('}');
-        }
-        const v1Bytes: number[] = [];
-        for (const key of [...v1Keys].sort()) {
-          const relativeFile = `${key}.json`;
-          const outputPath = path.join(v1Dir, relativeFile);
-          const entries = v1EntriesByShard.get(key) ?? 0;
-          const aliases = v1AliasesByShard.get(key) ?? 0;
-          const bytes = v1BytesByShard.get(key) ?? 0;
-          if (fs.statSync(outputPath).size !== bytes) {
-            throw new Error(`[job-canon-redirect-map] v1 manifest byte count disagrees with emitted shard ${relativeFile}`);
-          }
-          v1Bytes.push(bytes);
-          v1FileManifest[relativeFile] = {
-            bytes,
-            sha256: v1RawDigestByShard.get(key)!.digest('hex'),
-            entries,
-            aliases,
-            canonicalEntriesSha256: v1CanonicalDigestByShard.get(key)!.digest('hex'),
-          };
-        }
         const sortFileManifest = (files: Record<string, JobCanonFileManifest>): Record<string, JobCanonFileManifest> => {
           const sorted: Record<string, JobCanonFileManifest> = Object.create(null) as Record<string, JobCanonFileManifest>;
           for (const filename of Object.keys(files).sort()) sorted[filename] = files[filename];
@@ -1572,15 +1465,12 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
             aliases: logicalStats.aliases,
             canonicalEntriesSha256: logicalEntriesDigest.digest('hex'),
           },
-          v1: { files: sortFileManifest(v1FileManifest) },
           v2: { files: sortFileManifest(v2FileManifest) },
         };
         fs.writeFileSync(releaseManifestPath, `${JSON.stringify(manifest)}\n`, 'utf8');
-        markHeap('v1-and-v2-written');
         markHeap('v2-written');
         console.log(
-          `[job-canon-redirect-map] v1: ${JSON.stringify(summarizeBytes(v1Bytes))}, `
-          + `v2: ${JSON.stringify(summarizeBytes(v2Bytes))}, heap=${heapCheckpoints['v2-written']}`,
+          `[job-canon-redirect-map] v2: ${JSON.stringify(summarizeBytes(v2Bytes))}, heap=${heapCheckpoints['v2-written']}`,
         );
 
         activePrefixStats.changedByLocale = logicalStats.activePrefixes.changedByLocale;
@@ -1592,26 +1482,14 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
         activePrefixStats.activeSlugPrefixConflict = logicalStats.activePrefixes.activeSlugPrefixConflict;
         activePrefixStats.conflictExamples = logicalStats.activePrefixes.conflictExamples;
         const peakDeltaBytes = peakHeapUsed - heapCheckpoints.start;
-        const v1Summary = summarizeBytes(v1Bytes);
         const v2Summary = summarizeBytes(v2Bytes);
-        const uploadedBytes = v1Summary.total + v2Summary.total;
         console.log(
           `[job-canon-redirect-map] logical entries=${logicalStats.entries}, aliases=${logicalStats.aliases}, `
           + `aliasesByLocale=${JSON.stringify(logicalStats.aliasesByLocale)}`,
         );
         console.log(`[job-canon-redirect-map] active prefixes=${JSON.stringify(activePrefixStats)}`);
         console.log(
-          `[job-canon-redirect-map] first upload: v1Files=${v1Summary.count}, v1Bytes=${v1Summary.total}; `
-          + `v2Files=${v2Summary.count}, v2Bytes=${v2Summary.total}; combinedBytes=${uploadedBytes}; `
-          + `estimated ${(4 * Math.max(
-            (v1Summary.count + v2Summary.count) / Math.max(1, v1Summary.count),
-            uploadedBytes / Math.max(1, v1Summary.total),
-          )).toFixed(1)}-`
-          + `${(6 * Math.max(
-            (v1Summary.count + v2Summary.count) / Math.max(1, v1Summary.count),
-            uploadedBytes / Math.max(1, v1Summary.total),
-          )).toFixed(1)}s from the 4-6s v1 baseline `
-          + `(120s _r2_sync budget).`,
+          `[job-canon-redirect-map] first upload: v2Files=${v2Summary.count}, v2Bytes=${v2Summary.total}.`,
         );
         console.log(
           `[job-canon-redirect-map] closeBundle heap checkpoints=${JSON.stringify(heapCheckpoints)}, `
