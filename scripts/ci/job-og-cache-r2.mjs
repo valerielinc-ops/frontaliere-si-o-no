@@ -24,8 +24,8 @@
 import { spawn } from 'node:child_process';
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, renameSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { JOB_OG_IMAGE_VERSION } from '../../build-plugins/shared/jobOgImageVersion.mjs';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 const CACHE_DIR = '.cache/og-jobs';
 const COMPLETION_MARKER = '.complete';
@@ -184,6 +184,6 @@ async function main(command) {
   }
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (isInvokedDirectly(import.meta.url)) {
   await main(process.argv[2]);
 }
