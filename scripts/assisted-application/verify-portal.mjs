@@ -117,7 +117,8 @@ export async function executePortalVerification({ db, bucket, orderId, round, no
       const probe = applicationExistsProbeEntry(applyUrl);
       if (!probe) proof = { conclusion: 'unknown', reason: 'portal_without_application_exists_route' };
       else {
-        proof = await inspectExists({ applyUrl, targetUrl: probe.entryUrl, probe, job: state.draft.job || {}, accounts });
+        proof = await inspectExists({ applyUrl, targetUrl: probe.entryUrl, probe, job: state.draft.job || {}, accounts,
+          aliasEmail: String(state.order.candidateAlias?.address || ''), allowRecovery: true });
         const live = applicationExistsRoute(proof.applicationExists ? `https://${proof.applicationExists.host}${proof.applicationExists.pagePath}` : '');
         const urls = [state.draft.channel?.applyUrl, state.draft.channel?.postingUrl, state.draft.job?.applyUrl, state.draft.job?.postingUrl, state.order.jobUrl];
         // The whole vacancy id comes from the live URL; the binding is to the order's own posting URLs.
