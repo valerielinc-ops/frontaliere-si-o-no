@@ -67,6 +67,17 @@ const entries = [
   // (one Actions call per scheduled workflow) is budgeted once a day on the
   // native cron of that workflow, not once an hour.
   { id: 'site-unreported-failures', repo: 'site', workflow: 'unreported-failure-issues.yml', everyMinutes: 60, inputs: { mode: 'failures' } },
+  // The native `5,30,55` cron of this workflow delivered 30 scheduled runs in
+  // 12 days (median gap 487 minutes, max 722). Same cadence as the site drainer;
+  // the workflow keeps its native cron as a safety net. `introducedAt` is set
+  // ahead of the deploy so the observer does not call it stale before the first slot.
+  {
+    id: 'corpus-followup-drainer',
+    repo: 'corpus',
+    workflow: 'followup-drainer.yml',
+    everyMinutes: 20,
+    introducedAt: '2026-11-28T21:00:00Z',
+  },
   { id: 'corpus-triage-pending', repo: 'corpus', workflow: 'issue-triage.yml', everyMinutes: 10, condition: 'untriaged-issues' },
   { id: 'corpus-triage-sweep', repo: 'corpus', workflow: 'issue-triage.yml', everyMinutes: 240 },
   { id: 'corpus-closer', repo: 'corpus', workflow: 'close-recovered-failure-issues.yml', everyMinutes: 60 },
