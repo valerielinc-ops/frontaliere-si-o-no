@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-11-27T21:15:27.376Z",
+  "generatedAt": "2026-11-28T09:15:39.371Z",
   "total": 23,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 23,
-  "durationMs": 23196,
-  "avgDurationMs": 23196,
+  "durationMs": 18430,
+  "avgDurationMs": 18430,
   "durationHistory": [
-    23196
+    18430
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -53,7 +53,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T21:15:04.972Z",
+      "crawledAt": "2026-11-28T09:15:27.963Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 63000,
@@ -64,7 +64,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:15:04.972Z",
+      "validThrough": "2027-02-04T09:15:27.963Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-05T21:13:58.262Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6560",
@@ -113,7 +113,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T21:15:04.968Z",
+      "crawledAt": "2026-11-28T09:15:27.961Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "salaryMin": 113000,
@@ -135,7 +135,7 @@
       },
       "streetAddress": "Bleicherweg 8",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T21:15:04.968Z",
+      "validThrough": "2026-12-28T09:15:27.961Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-10T22:20:59.183Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6550",
@@ -184,7 +184,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T21:15:04.963Z",
+      "crawledAt": "2026-11-28T09:15:27.957Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 174500,
@@ -195,7 +195,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:15:04.963Z",
+      "validThrough": "2027-02-02T09:15:27.957Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-03T21:28:28.747Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6549",
@@ -244,7 +244,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T21:15:04.957Z",
+      "crawledAt": "2026-11-28T09:15:27.954Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 104500,
@@ -255,7 +255,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:15:04.957Z",
+      "validThrough": "2027-02-02T09:15:27.954Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-03T21:28:28.740Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6548",
@@ -263,6 +263,66 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6515",
+      "slug": "data-ops-ingegnere-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Data Ops Engineer",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-13T17:40:09+00:00",
+      "postedDate": "2026-11-13T17:40:09+00:00",
+      "postingDateSource": "reported",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6515",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>General Info</strong></span></p><p><span>· Department: IT & Digital – Data Engineering / Data Services</span></p><p><span>· Work time Percentage: 100%</span></p><p><span>· Location: Geneva</span></p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span>As a Data Ops Engineer (Authorised Officer) within our IT & Digital division, you will play a key role in the DeltaFlow programme, which is migrating EFG’s analytics platform from SQL Server / Talend / SSAS to a modern Databricks lakehouse with a Microsoft Fabric semantic layer.</span></p><p><span>You will be responsible for onboarding datasets from core banking systems and existing SQL Server environments into governed, production-grade data products using an established, configuration‑driven framework. This is a delivery‑focused role in a FINMA‑regulated environment, requiring strong technical skills, high attention to detail and a rigorous approach to data quality, documentation and controls.</span></p><p><span>In addition, you will contribute to the smooth day‑to‑day operation of our data integration services, including change management, SLA monitoring, quality assurance and continuous improvement of operational procedures and documentation. You will collaborate closely with IT, Data, and business support stakeholders to ensure robust governance and reliable data for reporting and analytics across the bank.</span></p><p><span><strong>Key Responsibilities</strong></span></p><p><span>· Deliver end‑to‑end onboarding of new datasets from core banking systems and existing SQL Server environments through the Databricks medallion layers (Bronze/Silver/Gold) into governed Gold data products in production.</span></p><p><span>· Apply and enhance the existing configuration‑driven framework (declarative pipelines and configuration files) by following established patterns, standards and conventions to ensure consistency and maintainability.</span></p><p><span>· Design and implement robust data transformations in Databricks using PySpark and SQL, including data cleansing, historisation (e.g. SCD1/SCD2) and dimensional modelling aligned with agreed business requirements and data models.</span></p><p><span>· Define, implement and monitor data quality controls (e.g. completeness, uniqueness, referential integrity, source‑to‑target reconciliations) to ensure reliable data for Finance, Risk, Compliance and Front Office stakeholders.</span></p><p><span>· Deploy changes across DEV, UAT and PROD environments using CI/CD practices and tooling (e.g. Git, Databricks Asset Bundles, Azure DevOps), ensuring traceability, reproducibility and adherence to internal release processes.</span></p><p><span>· Analyse and interpret existing SQL Server data warehouse models, stored procedures and datamarts to correctly map and migrate data into the Databricks lakehouse and Microsoft Fabric semantic layer.</span></p><p><span>· Support operational activities for data integration services, including change management, incident follow‑up, SLA and KPI monitoring, and timely escalation of issues impacting critical business processes.</span></p><p><span>· Maintain and continuously improve operational documentation and standard operating procedures (SOPs) to ensure they remain accurate, compliant with internal and regulatory requirements, and easy to follow for IT and business support teams.</span></p><p><span>· Collaborate with IT, Data Governance, Finance, Risk and other business stakeholders to strengthen governance around integration processes, gather feedback and propose improvements to ways of working and operational efficiency.</span></p><p><span><strong>Requirements and Qualifications</strong></span></p><p><span><strong>Education</strong></span><br><span>· Minimum: University degree (Bachelor or equivalent) in Computer Science, Information Systems, Engineering, Mathematics or a related field.</span><br><span>· Preferred: Master’s degree or equivalent further education in Data Engineering, Data Science or a related technical discipline.</span></p><p><span><strong>Professional Experience</strong></span><br><span>· Minimum 3–5 years of hands‑on experience in data engineering or data operations roles, ideally within financial services or another highly regulated industry.</span><br><span>· Proven track record delivering end‑to‑end data integration and analytics solutions on Databricks or similar cloud‑based data platforms.</span><br><span>· Experience working with data warehouse environments based on SQL Server, including migration or modernisation projects.</span></p><p><span><strong>Technical and Functional Knowledge</strong></span><br><span>· Strong, practical experience with Databricks, including PySpark, Delta Lake, Unity Catalog and the medallion (Bronze/Silver/Gold) architecture.</span><br><span>· Excellent SQL skills and solid experience with SQL Server, including the ability to read and analyse existing data warehouse models, stored procedures and datamarts.</span><br><span>· Sound data modelling expertise, particularly dimensional modelling (facts/dimensions), business keys, grain definition and historisation (SCD1/SCD2).</span><br><span>· Solid CI/CD mindset, including use of Git, automated deployments and “data integration as code” practices.</span><br><span>· High level of rigour and discipline in a regulated environment, with strong focus on reproducibility, traceability, testing principles and robust release patterns for data pipelines.</span><br><span>· Good knowledge of private banking products and associated data (e.g. positions, transactions, portfolios, client hierarchies) and their use in reporting and analytics.</span><br><span>· Preferred: Experience with Databricks Asset Bundles, Azure DevOps and streaming or change‑data‑capture (CDC) ingestion patterns.</span></p><p><span><strong>Languages</strong></span><br><span>· French: working proficiency (spoken and written).</span><br><span>· English: working proficiency (spoken and written).</span></p><p><span><strong>Our Values</strong></span></p><p><span>· Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span>· Hands-on: Being proactive to rapidly deliver high-quality results</span></p><p><span>· Passionate: Being committed and striving for excellence</span></p><p><span>· Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span>· Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 5
+          }
+        }
+      },
+      "crawledAt": "2026-11-28T09:15:27.952Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "postalCode": "1201",
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-12T09:15:27.952Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-14T09:15:44.870Z",
+      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6515",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -301,7 +361,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T21:15:04.953Z",
+      "crawledAt": "2026-11-28T09:15:27.949Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-09-14T14:56:06+00:00",
@@ -317,7 +377,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:15:04.953Z",
+      "validThrough": "2026-12-28T09:15:27.949Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -443,7 +503,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T21:15:04.948Z",
+      "crawledAt": "2026-11-28T09:15:27.946Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-09-16T14:22:35+00:00",
@@ -459,7 +519,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6436",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:15:04.948Z",
+      "validThrough": "2026-12-28T09:15:27.946Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -506,7 +566,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T21:15:04.910Z",
+      "crawledAt": "2026-11-28T09:15:27.934Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "salaryMin": 85500,
@@ -528,7 +588,7 @@
         "checkedAt": "2026-10-31T20:48:45.577Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-17T21:15:04.910Z",
+      "validThrough": "2027-01-18T09:15:27.934Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6221",
       "_qualityScore": 99,
@@ -643,7 +703,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T21:15:04.902Z",
+      "crawledAt": "2026-11-28T09:15:27.932Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19T13:28:38+00:00",
@@ -660,7 +720,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6066",
       "postingDateSource": "reported",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:15:04.902Z",
+      "validThrough": "2026-12-28T09:15:27.932Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -704,7 +764,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T21:15:04.896Z",
+      "crawledAt": "2026-11-28T09:15:27.929Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-20T07:37:07+00:00",
@@ -721,7 +781,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6039",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:15:04.896Z",
+      "validThrough": "2026-12-28T09:15:27.929Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -838,7 +898,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T21:15:04.862Z",
+      "crawledAt": "2026-11-28T09:15:27.919Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -866,72 +926,12 @@
         "checkedAt": "2026-10-31T20:48:45.577Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T21:15:04.862Z",
+      "validThrough": "2026-12-28T09:15:27.919Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6515",
-      "slug": "data-ops-ingegnere-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Data Ops Engineer",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-13T17:40:09+00:00",
-      "postedDate": "2026-11-13T17:40:09+00:00",
-      "postingDateSource": "reported",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6515",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>General Info</strong></span></p><p><span>· Department: IT & Digital – Data Engineering / Data Services</span></p><p><span>· Work time Percentage: 100%</span></p><p><span>· Location: Geneva</span></p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span>As a Data Ops Engineer (Authorised Officer) within our IT & Digital division, you will play a key role in the DeltaFlow programme, which is migrating EFG’s analytics platform from SQL Server / Talend / SSAS to a modern Databricks lakehouse with a Microsoft Fabric semantic layer.</span></p><p><span>You will be responsible for onboarding datasets from core banking systems and existing SQL Server environments into governed, production-grade data products using an established, configuration‑driven framework. This is a delivery‑focused role in a FINMA‑regulated environment, requiring strong technical skills, high attention to detail and a rigorous approach to data quality, documentation and controls.</span></p><p><span>In addition, you will contribute to the smooth day‑to‑day operation of our data integration services, including change management, SLA monitoring, quality assurance and continuous improvement of operational procedures and documentation. You will collaborate closely with IT, Data, and business support stakeholders to ensure robust governance and reliable data for reporting and analytics across the bank.</span></p><p><span><strong>Key Responsibilities</strong></span></p><p><span>· Deliver end‑to‑end onboarding of new datasets from core banking systems and existing SQL Server environments through the Databricks medallion layers (Bronze/Silver/Gold) into governed Gold data products in production.</span></p><p><span>· Apply and enhance the existing configuration‑driven framework (declarative pipelines and configuration files) by following established patterns, standards and conventions to ensure consistency and maintainability.</span></p><p><span>· Design and implement robust data transformations in Databricks using PySpark and SQL, including data cleansing, historisation (e.g. SCD1/SCD2) and dimensional modelling aligned with agreed business requirements and data models.</span></p><p><span>· Define, implement and monitor data quality controls (e.g. completeness, uniqueness, referential integrity, source‑to‑target reconciliations) to ensure reliable data for Finance, Risk, Compliance and Front Office stakeholders.</span></p><p><span>· Deploy changes across DEV, UAT and PROD environments using CI/CD practices and tooling (e.g. Git, Databricks Asset Bundles, Azure DevOps), ensuring traceability, reproducibility and adherence to internal release processes.</span></p><p><span>· Analyse and interpret existing SQL Server data warehouse models, stored procedures and datamarts to correctly map and migrate data into the Databricks lakehouse and Microsoft Fabric semantic layer.</span></p><p><span>· Support operational activities for data integration services, including change management, incident follow‑up, SLA and KPI monitoring, and timely escalation of issues impacting critical business processes.</span></p><p><span>· Maintain and continuously improve operational documentation and standard operating procedures (SOPs) to ensure they remain accurate, compliant with internal and regulatory requirements, and easy to follow for IT and business support teams.</span></p><p><span>· Collaborate with IT, Data Governance, Finance, Risk and other business stakeholders to strengthen governance around integration processes, gather feedback and propose improvements to ways of working and operational efficiency.</span></p><p><span><strong>Requirements and Qualifications</strong></span></p><p><span><strong>Education</strong></span><br><span>· Minimum: University degree (Bachelor or equivalent) in Computer Science, Information Systems, Engineering, Mathematics or a related field.</span><br><span>· Preferred: Master’s degree or equivalent further education in Data Engineering, Data Science or a related technical discipline.</span></p><p><span><strong>Professional Experience</strong></span><br><span>· Minimum 3–5 years of hands‑on experience in data engineering or data operations roles, ideally within financial services or another highly regulated industry.</span><br><span>· Proven track record delivering end‑to‑end data integration and analytics solutions on Databricks or similar cloud‑based data platforms.</span><br><span>· Experience working with data warehouse environments based on SQL Server, including migration or modernisation projects.</span></p><p><span><strong>Technical and Functional Knowledge</strong></span><br><span>· Strong, practical experience with Databricks, including PySpark, Delta Lake, Unity Catalog and the medallion (Bronze/Silver/Gold) architecture.</span><br><span>· Excellent SQL skills and solid experience with SQL Server, including the ability to read and analyse existing data warehouse models, stored procedures and datamarts.</span><br><span>· Sound data modelling expertise, particularly dimensional modelling (facts/dimensions), business keys, grain definition and historisation (SCD1/SCD2).</span><br><span>· Solid CI/CD mindset, including use of Git, automated deployments and “data integration as code” practices.</span><br><span>· High level of rigour and discipline in a regulated environment, with strong focus on reproducibility, traceability, testing principles and robust release patterns for data pipelines.</span><br><span>· Good knowledge of private banking products and associated data (e.g. positions, transactions, portfolios, client hierarchies) and their use in reporting and analytics.</span><br><span>· Preferred: Experience with Databricks Asset Bundles, Azure DevOps and streaming or change‑data‑capture (CDC) ingestion patterns.</span></p><p><span><strong>Languages</strong></span><br><span>· French: working proficiency (spoken and written).</span><br><span>· English: working proficiency (spoken and written).</span></p><p><span><strong>Our Values</strong></span></p><p><span>· Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span>· Hands-on: Being proactive to rapidly deliver high-quality results</span></p><p><span>· Passionate: Being committed and striving for excellence</span></p><p><span>· Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span>· Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 5
-          }
-        }
-      },
-      "crawledAt": "2026-11-27T21:15:04.853Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "postalCode": "1201",
-      "streetAddress": "Geneve",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:15:04.853Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T09:15:44.870Z",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6515",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -973,7 +973,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T21:15:04.845Z",
+      "crawledAt": "2026-11-28T09:15:27.916Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 97500,
@@ -984,10 +984,70 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:15:04.845Z",
+      "validThrough": "2027-02-19T09:15:27.916Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-21T21:19:37.019Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6562",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6597",
+      "slug": "erp-project-tirocinante-finanza-geneva-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "ERP Project Intern - Finance (Geneva)",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-24T16:42:16+00:00",
+      "postedDate": "2026-11-24T16:42:16+00:00",
+      "postingDateSource": "reported",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6597",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Job Title</span></span></p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\">ERP Project Intern - Finance</p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"> </p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Department</span></span></p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\">Finance</p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"> </p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Location</span></span></p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\">Geneva</p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"> </p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Job Description</span></span></p><p><span>The ERP Project Finance intern will support the Finance department in a strategic project to select and implement a new ERP system for the bank. Working closely with Finance, IT and Project Management, the intern will help gather and structure requirements, analyse ERP solutions, support vendor evaluations, contribute to project documentation and coordination, and, after selection, participate in the preparation and early stages of the ERP implementation.</span></p><p> </p><p><span style=\"display: none;\">Top of Form</span></p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Main Responsibilities</span></span></p><ul style=\"list-style-type: square;\"><li><span style=\"color: rgb(51, 59, 64);\">Project & Coordination Support</span><ul><li><span style=\"color: rgb(51, 59, 64);\">Assist the project manager and Finance lead in planning and tracking project activities, milestones and deliverables.</span></li><li><span style=\"color: rgb(51, 59, 64);\">Prepare and maintain project documentation (meeting minutes, action logs, status reports, presentations).</span></li></ul></li><li><span style=\"color: rgb(51, 59, 64);\">Finance Requirements & Process Analysis</span><ul><li><span style=\"color: rgb(51, 59, 64);\">Support the collection and documentation of Finance requirements (e.g. general ledger, AP/AR, fixed assets, consolidation, reporting).</span></li><li><span style=\"color: rgb(51, 59, 64);\">Help map and document current Finance processes and contribute to defining target (“to be”) processes.</span></li><li><span style=\"color: rgb(51, 59, 64);\">Assist in structuring and prioritising requirements into clear lists or matrices.</span></li></ul></li><li><span style=\"color: rgb(51, 59, 64);\">ERP & Vendor Evaluation Support</span><ul><li><span style=\"color: rgb(51, 59, 64);\">Contribute to the preparation of RFI/RFP materials (questionnaires, requirement catalogues, evaluation criteria).</span></li><li><span style=\"color: rgb(51, 59, 64);\">Help collect and compare information on ERP vendors and solutions from a Finance perspective (functional coverage, reporting, controls, integration with banking systems).</span></li><li><span style=\"color: rgb(51, 59, 64);\">Support the preparation of comparison summaries, evaluation scorecards and decision support material.</span></li></ul></li><li><span style=\"color: rgb(51, 59, 64);\">Workshops, Demos & Stakeholder Engagement</span><ul><li><span style=\"color: rgb(51, 59, 64);\">Help organise workshops, vendor demos and Finance stakeholder meetings.</span></li><li><span style=\"color: rgb(51, 59, 64);\">Support the preparation of demo scripts and use cases relevant for Finance.</span></li><li><span style=\"color: rgb(51, 59, 64);\">Capture feedback from participants and help consolidate it into structured evaluation outputs.</span></li></ul></li><li><span style=\"color: rgb(51, 59, 64);\">Data, Reporting & Documentation</span><ul><li>Assist in preparing data samples, templates and simple analyses required during the selection phase.</li><li>Maintain well-structured documentation and shared repositories (requirements, decisions, risks, open points).</li></ul></li><li>Risk, Controls & Compliance (Finance Focus)<ul><li>Support the documentation of key Finance control and compliance aspects (e.g. segregation of duties, audit trail, closing controls), under guidance from senior staff.</li></ul></li><li>Implementation Preparation & Support (Post Selection)<ul><li>After ERP selection, support preparation activities for implementation (e.g. refinement of requirements, validation of design assumptions, planning of Finance-related tasks).</li><li>Assist in activities such as test case preparation, data preparation, and coordination with Finance users during early implementation phases.</li><li>Help document lessons learned and feedback from Finance stakeholders during the initial implementation steps.</li></ul></li></ul><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"> </p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Profile / Background</span></span></p><ul style=\"list-style-type: square;\"><li>Education<ul><li>Currently enrolled in a Bachelor’s or Master’s degree in Finance, Accounting, Business Administration, Information Systems, or a related field.</li></ul></li><li>Technical & Analytical Skills<ul><li>Strong analytical skills and ability to structure and synthesise information.</li><li>Good command of office tools, in particular spreadsheets and presentations.</li><li>Interest in ERP systems and Finance/Accounting processes.</li></ul></li><li>Soft Skills<ul><li>Strong written and verbal communication skills.</li><li>Ability to work collaboratively with Finance, IT and other stakeholders.</li><li>High attention to detail, reliability and good organisational skills.</li><li>Proactive, curious and willing to learn in a project driven environment.</li></ul></li><li>Languages<ul><li>Very good command of English and French (written and spoken).</li></ul></li></ul><p> </p><p><span style=\"color: rgb(140, 63, 62);\"><span style=\"font-size: 14pt; line-height: 107%;\">Skills and experience</span></span></p><ul style=\"list-style-type: square;\"><li>Preferred initial exposure to accounting or ERP/finance systems (e.g. through coursework, internships or student projects).</li><li>Basic understanding of banking or financial services.</li><li>Experience working in teams on projects or case studies.</li></ul><p> </p><p><span style=\"color: rgb(140, 63, 62);\"><span style=\"font-size: 14pt; line-height: 107%;\">What we Offer</span></span></p><ul style=\"list-style-type: square;\"><li>Direct involvement in a strategic ERP selection and early implementation project within the Finance function.</li><li>Practical exposure to Finance processes, ERP solutions and project management in a banking environment.</li><li>Opportunity to collaborate with experienced Finance and IT professionals.</li><li>A learning oriented environment with regular guidance and feedback.</li></ul><p> </p><p><span style=\"color: rgb(140, 63, 62);\"><span style=\"font-size: 14pt; line-height: 107%;\">Our Values</span></span></p><ul style=\"list-style-type: square;\"><li><p class=\"Bulletlist\"><span style=\"color: rgb(51, 60, 64); font-family: \"Fira Sans\", sans-serif;\"><strong>Accountability</strong></span><span style=\"color: rgb(51, 60, 64);\">: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p></li><li><p class=\"Bulletlist\"><span style=\"color: rgb(51, 60, 64); font-family: \"Fira Sans\", sans-serif;\"><strong>Hands-on</strong></span><span style=\"color: rgb(51, 60, 64);\">: Being proactive to rapidly deliver high-quality results</span></p></li><li><p class=\"Bulletlist\"><span style=\"color: rgb(51, 60, 64); font-family: \"Fira Sans\", sans-serif;\"><strong>Passionate</strong></span><span style=\"color: rgb(51, 60, 64);\">: Being committed and striving for excellence</span></p></li><li><p class=\"Bulletlist\"><span style=\"color: rgb(51, 60, 64); font-family: \"Fira Sans\", sans-serif;\"><strong>Solution-driven</strong></span><span style=\"color: rgb(51, 60, 64);\">: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p></li><li><p class=\"Bulletlist\"><span style=\"color: rgb(51, 60, 64); font-family: \"Fira Sans\", sans-serif;\"><strong>Partnership-oriented</strong></span><span style=\"color: rgb(51, 60, 64);\">: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p></li></ul>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 5
+          }
+        }
+      },
+      "crawledAt": "2026-11-28T09:15:27.913Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "salaryMin": 73000,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "postalCode": "1201",
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-09T09:15:27.913Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-24T21:16:44.042Z",
+      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6597",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1033,7 +1093,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T21:15:04.835Z",
+      "crawledAt": "2026-11-28T09:15:27.910Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 63000,
@@ -1044,7 +1104,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:15:04.835Z",
+      "validThrough": "2027-02-12T09:15:27.910Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-14T09:15:44.873Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6541",
@@ -1093,7 +1153,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T21:15:04.830Z",
+      "crawledAt": "2026-11-28T09:15:27.908Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 97500,
@@ -1104,7 +1164,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T21:15:04.830Z",
+      "validThrough": "2027-02-22T09:15:27.908Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-23T21:17:47.178Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6349",
@@ -1202,7 +1262,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T21:15:04.825Z",
+      "crawledAt": "2026-11-28T09:15:27.907Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "salaryMin": 49500,
@@ -1213,7 +1273,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-24T21:15:04.825Z",
+      "validThrough": "2027-02-25T09:15:27.907Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-26T21:24:21.234Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6613",
@@ -1221,66 +1281,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6597",
-      "slug": "erp-project-tirocinante-finanza-geneva-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "ERP Project Intern - Finance (Geneva)",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-24T16:42:16+00:00",
-      "postedDate": "2026-11-24T16:42:16+00:00",
-      "postingDateSource": "reported",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6597",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Job Title</span></span></p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\">ERP Project Intern - Finance</p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"> </p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Department</span></span></p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\">Finance</p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"> </p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Location</span></span></p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\">Geneva</p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"> </p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Job Description</span></span></p><p><span>The ERP Project Finance intern will support the Finance department in a strategic project to select and implement a new ERP system for the bank. Working closely with Finance, IT and Project Management, the intern will help gather and structure requirements, analyse ERP solutions, support vendor evaluations, contribute to project documentation and coordination, and, after selection, participate in the preparation and early stages of the ERP implementation.</span></p><p> </p><p><span style=\"display: none;\">Top of Form</span></p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Main Responsibilities</span></span></p><ul style=\"list-style-type: square;\"><li><span style=\"color: rgb(51, 59, 64);\">Project & Coordination Support</span><ul><li><span style=\"color: rgb(51, 59, 64);\">Assist the project manager and Finance lead in planning and tracking project activities, milestones and deliverables.</span></li><li><span style=\"color: rgb(51, 59, 64);\">Prepare and maintain project documentation (meeting minutes, action logs, status reports, presentations).</span></li></ul></li><li><span style=\"color: rgb(51, 59, 64);\">Finance Requirements & Process Analysis</span><ul><li><span style=\"color: rgb(51, 59, 64);\">Support the collection and documentation of Finance requirements (e.g. general ledger, AP/AR, fixed assets, consolidation, reporting).</span></li><li><span style=\"color: rgb(51, 59, 64);\">Help map and document current Finance processes and contribute to defining target (“to be”) processes.</span></li><li><span style=\"color: rgb(51, 59, 64);\">Assist in structuring and prioritising requirements into clear lists or matrices.</span></li></ul></li><li><span style=\"color: rgb(51, 59, 64);\">ERP & Vendor Evaluation Support</span><ul><li><span style=\"color: rgb(51, 59, 64);\">Contribute to the preparation of RFI/RFP materials (questionnaires, requirement catalogues, evaluation criteria).</span></li><li><span style=\"color: rgb(51, 59, 64);\">Help collect and compare information on ERP vendors and solutions from a Finance perspective (functional coverage, reporting, controls, integration with banking systems).</span></li><li><span style=\"color: rgb(51, 59, 64);\">Support the preparation of comparison summaries, evaluation scorecards and decision support material.</span></li></ul></li><li><span style=\"color: rgb(51, 59, 64);\">Workshops, Demos & Stakeholder Engagement</span><ul><li><span style=\"color: rgb(51, 59, 64);\">Help organise workshops, vendor demos and Finance stakeholder meetings.</span></li><li><span style=\"color: rgb(51, 59, 64);\">Support the preparation of demo scripts and use cases relevant for Finance.</span></li><li><span style=\"color: rgb(51, 59, 64);\">Capture feedback from participants and help consolidate it into structured evaluation outputs.</span></li></ul></li><li><span style=\"color: rgb(51, 59, 64);\">Data, Reporting & Documentation</span><ul><li>Assist in preparing data samples, templates and simple analyses required during the selection phase.</li><li>Maintain well-structured documentation and shared repositories (requirements, decisions, risks, open points).</li></ul></li><li>Risk, Controls & Compliance (Finance Focus)<ul><li>Support the documentation of key Finance control and compliance aspects (e.g. segregation of duties, audit trail, closing controls), under guidance from senior staff.</li></ul></li><li>Implementation Preparation & Support (Post Selection)<ul><li>After ERP selection, support preparation activities for implementation (e.g. refinement of requirements, validation of design assumptions, planning of Finance-related tasks).</li><li>Assist in activities such as test case preparation, data preparation, and coordination with Finance users during early implementation phases.</li><li>Help document lessons learned and feedback from Finance stakeholders during the initial implementation steps.</li></ul></li></ul><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"> </p><p style=\"margin-left: 8.5pt; text-indent: -8.5pt;\"><span style=\"color: rgb(140, 63, 62);\"><span lang=\"DE\" style=\"font-size: 14pt;\">Profile / Background</span></span></p><ul style=\"list-style-type: square;\"><li>Education<ul><li>Currently enrolled in a Bachelor’s or Master’s degree in Finance, Accounting, Business Administration, Information Systems, or a related field.</li></ul></li><li>Technical & Analytical Skills<ul><li>Strong analytical skills and ability to structure and synthesise information.</li><li>Good command of office tools, in particular spreadsheets and presentations.</li><li>Interest in ERP systems and Finance/Accounting processes.</li></ul></li><li>Soft Skills<ul><li>Strong written and verbal communication skills.</li><li>Ability to work collaboratively with Finance, IT and other stakeholders.</li><li>High attention to detail, reliability and good organisational skills.</li><li>Proactive, curious and willing to learn in a project driven environment.</li></ul></li><li>Languages<ul><li>Very good command of English and French (written and spoken).</li></ul></li></ul><p> </p><p><span style=\"color: rgb(140, 63, 62);\"><span style=\"font-size: 14pt; line-height: 107%;\">Skills and experience</span></span></p><ul style=\"list-style-type: square;\"><li>Preferred initial exposure to accounting or ERP/finance systems (e.g. through coursework, internships or student projects).</li><li>Basic understanding of banking or financial services.</li><li>Experience working in teams on projects or case studies.</li></ul><p> </p><p><span style=\"color: rgb(140, 63, 62);\"><span style=\"font-size: 14pt; line-height: 107%;\">What we Offer</span></span></p><ul style=\"list-style-type: square;\"><li>Direct involvement in a strategic ERP selection and early implementation project within the Finance function.</li><li>Practical exposure to Finance processes, ERP solutions and project management in a banking environment.</li><li>Opportunity to collaborate with experienced Finance and IT professionals.</li><li>A learning oriented environment with regular guidance and feedback.</li></ul><p> </p><p><span style=\"color: rgb(140, 63, 62);\"><span style=\"font-size: 14pt; line-height: 107%;\">Our Values</span></span></p><ul style=\"list-style-type: square;\"><li><p class=\"Bulletlist\"><span style=\"color: rgb(51, 60, 64); font-family: \"Fira Sans\", sans-serif;\"><strong>Accountability</strong></span><span style=\"color: rgb(51, 60, 64);\">: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p></li><li><p class=\"Bulletlist\"><span style=\"color: rgb(51, 60, 64); font-family: \"Fira Sans\", sans-serif;\"><strong>Hands-on</strong></span><span style=\"color: rgb(51, 60, 64);\">: Being proactive to rapidly deliver high-quality results</span></p></li><li><p class=\"Bulletlist\"><span style=\"color: rgb(51, 60, 64); font-family: \"Fira Sans\", sans-serif;\"><strong>Passionate</strong></span><span style=\"color: rgb(51, 60, 64);\">: Being committed and striving for excellence</span></p></li><li><p class=\"Bulletlist\"><span style=\"color: rgb(51, 60, 64); font-family: \"Fira Sans\", sans-serif;\"><strong>Solution-driven</strong></span><span style=\"color: rgb(51, 60, 64);\">: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p></li><li><p class=\"Bulletlist\"><span style=\"color: rgb(51, 60, 64); font-family: \"Fira Sans\", sans-serif;\"><strong>Partnership-oriented</strong></span><span style=\"color: rgb(51, 60, 64);\">: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p></li></ul>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 5
-          }
-        }
-      },
-      "crawledAt": "2026-11-27T21:15:04.764Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "salaryMin": 73000,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "postalCode": "1201",
-      "streetAddress": "Geneve",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T21:15:04.764Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-24T21:16:44.042Z",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6597",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -1322,7 +1322,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T21:15:04.747Z",
+      "crawledAt": "2026-11-28T09:15:27.891Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 63000,
@@ -1333,7 +1333,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T21:15:04.747Z",
+      "validThrough": "2027-02-25T09:15:27.891Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-26T21:24:21.211Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6496",
@@ -1966,5 +1966,5 @@
       }
     }
   ],
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
 }
