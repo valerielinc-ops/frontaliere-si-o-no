@@ -1744,7 +1744,8 @@ describe('Bing-compatible full-tree crawler', () => {
       'utf8',
     );
 
-    expect(jobsSeoSource).toContain('const emittedCategoryListingPaths = new Set<string>();');
+    expect(jobsSeoSource).toContain('const emittedCategoryListingPaths = emittedCategoryHubs.paths;');
+    expect(jobsSeoSource).toContain('collectEmittedCategoryHubPaths(validJobs, localeList, sectionByLocale, shouldEmitLocale)');
     expect(jobsSeoSource).toContain('const catJobs = legacyCategoryJobs.get(catKey) ?? [];');
     expect(jobsSeoSource).toContain('emittedCategoryListingPaths.has(buildJobCategoryPath(locale, sectionByLocale[locale], k))');
     expect(jobsSeoSource).toContain('if (!catLabel || !emittedCategoryListingPaths.has(href)) return [];');

@@ -38,7 +38,10 @@ import {
   buildActiveJobPathOwners,
   localizedActiveJobSlug,
 } from "../build-plugins/shared/activeJobPageSelection.ts";
-import { getJobSitemapAllowlist } from "../build-plugins/shared/buildSignals.ts";
+import {
+  getEmittedJobCategoryHubLocs,
+  getJobSitemapAllowlist,
+} from "../build-plugins/shared/buildSignals.ts";
 import {
   isListingInventoryJob,
   normalizeListingIdentity,
@@ -889,6 +892,7 @@ async function prepareSitemapUpdates(
   const stalePublishedRemovals = stalePublishedActiveJobDetailLocs(
     activeSitemapSources,
     fullBuildSitemapLocs,
+    getEmittedJobCategoryHubLocs(),
   );
   const stalePublishedCount = [...stalePublishedRemovals.values()].reduce(
     (count, locs) => count + locs.size,
