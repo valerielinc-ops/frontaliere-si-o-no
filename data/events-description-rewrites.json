@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-28T20:30:33.865Z",
+  "generatedAt": "2026-11-28T21:39:22.123Z",
   "model": "gpt-6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -6656,6 +6656,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-27T17:21:33.291Z"
     },
+    "ge-agenda:cine-discussion-questionner-masculinites-autour-film-documentaire-noir-hommes-pleurent-sikou-niakate-2020::87c6d20c5bb48fc22721271bf417d716ad8cd2901c06573b280b8962ec175f59": {
+      "id": "ge-agenda:cine-discussion-questionner-masculinites-autour-film-documentaire-noir-hommes-pleurent-sikou-niakate-2020",
+      "sourceDescriptionHash": "87c6d20c5bb48fc22721271bf417d716ad8cd2901c06573b280b8962ec175f59",
+      "description": "A Ginevra è in programma la proiezione di un documentario di Sikou Niakaté, legata a una riflessione sulle mascolinità. Dopo il film è previsto un confronto con il regista, José “Geos” Tippenhauer e Pamela Ohene-Nyako.",
+      "descriptionByLocale": {
+        "it": "A Ginevra è in programma la proiezione di un documentario di Sikou Niakaté, legata a una riflessione sulle mascolinità. Dopo il film è previsto un confronto con il regista, José “Geos” Tippenhauer e Pamela Ohene-Nyako.",
+        "en": "A documentary by Sikou Niakaté is being screened in Geneva as part of a reflection on masculinities. After the film, the director, José “Geos” Tippenhauer and Pamela Ohene-Nyako will take part in a discussion.",
+        "de": "In Genf steht ein Dokumentarfilm von Sikou Niakaté im Mittelpunkt, verbunden mit einer Auseinandersetzung mit Männlichkeitsbildern. Im Anschluss an die Vorführung findet ein Gespräch mit dem Regisseur, José „Geos“ Tippenhauer und Pamela Ohene-Nyako statt.",
+        "fr": "À Genève, un documentaire de Sikou Niakaté sert de point de départ à une réflexion sur les masculinités. La séance se poursuit par un échange avec le réalisateur, José « Geos » Tippenhauer et Pamela Ohene-Nyako."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T21:34:44.161Z"
+    },
     "ge-agenda:cine-geneve-miserables-ladj::ac70c071f7b26a5291f913f66e2ebd919b0459a21b74419247afd9a72b5dd62e": {
       "id": "ge-agenda:cine-geneve-miserables-ladj",
       "sourceDescriptionHash": "ac70c071f7b26a5291f913f66e2ebd919b0459a21b74419247afd9a72b5dd62e",
@@ -6949,6 +6963,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T14:20:47.223Z"
+    },
+    "ge-agenda:cite-seniors-fete-20-regard-sociologique-evolutions-technologiques::3e3af070cbd6bf1ff059974cb63d2939df2a810a6eef7535e52935adbfbb33a6": {
+      "id": "ge-agenda:cite-seniors-fete-20-regard-sociologique-evolutions-technologiques",
+      "sourceDescriptionHash": "3e3af070cbd6bf1ff059974cb63d2939df2a810a6eef7535e52935adbfbb33a6",
+      "description": "L’appuntamento di Ginevra è presentato come una conferenza-incontro. Con un taglio sociologico, si affronta il modo in cui i cambiamenti tecnologici incidono sulla vita quotidiana e sulle relazioni tra le persone.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento di Ginevra è presentato come una conferenza-incontro. Con un taglio sociologico, si affronta il modo in cui i cambiamenti tecnologici incidono sulla vita quotidiana e sulle relazioni tra le persone.",
+        "en": "The Geneva event is listed as a conference and discussion. It considers, from a sociological perspective, how technological change affects everyday life and relationships between people.",
+        "de": "Die Veranstaltung in Genf ist als Konferenz und Begegnung eingeordnet. Aus soziologischer Sicht geht es darum, wie technologische Veränderungen den Alltag und die Beziehungen zwischen Menschen beeinflussen.",
+        "fr": "La rencontre genevoise est annoncée comme une conférence-débat. Elle aborde sous un angle sociologique la façon dont les changements technologiques agissent sur le quotidien et les relations entre les personnes."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T21:18:13.948Z"
     },
     "ge-agenda:cite-seniors-fete-20-regards-croises-evolution-espaces-publics-bergues-jonction-decouvertes-eau::6848ae25170ca83285515a84c8d849b805d7c33b5d999ad1d266aae75d74420b": {
       "id": "ge-agenda:cite-seniors-fete-20-regards-croises-evolution-espaces-publics-bergues-jonction-decouvertes-eau",
@@ -207486,6 +207514,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-27T00:04:21.327Z"
     },
+    "tio-agenda:65213::8ca0c288e46655558317dff355c95264bc56736a55b449ea8bf2d7b03c65a013": {
+      "id": "tio-agenda:65213",
+      "sourceDescriptionHash": "8ca0c288e46655558317dff355c95264bc56736a55b449ea8bf2d7b03c65a013",
+      "description": "Dune è in programma al Cinema Iride di Lugano con proiezioni cinematografiche. La proposta riporta sul grande schermo film della saga.",
+      "descriptionByLocale": {
+        "it": "Dune è in programma al Cinema Iride di Lugano con proiezioni cinematografiche. La proposta riporta sul grande schermo film della saga.",
+        "en": "Dune is part of the film programme at Cinema Iride in Lugano. The screenings bring films from the saga back to the big screen.",
+        "de": "Dune steht im Filmprogramm des Cinema Iride in Lugano. Die Vorführungen bringen Filme aus der Saga zurück auf die Kinoleinwand.",
+        "fr": "Dune figure au programme du Cinema Iride à Lugano. Les séances permettent de revoir des films de la saga sur grand écran."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T21:20:52.685Z"
+    },
     "tio-agenda:65214::4751514e0fb9fc575dbc29cab025ef8b2e02d1416ef871d89d5446e986597c68": {
       "id": "tio-agenda:65214",
       "sourceDescriptionHash": "4751514e0fb9fc575dbc29cab025ef8b2e02d1416ef871d89d5446e986597c68",
@@ -207934,6 +207976,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-28T16:28:52.828Z"
     },
+    "tio-agenda:65266::5420c878e820639220ad4248ebf2a56fff704174bbb96f3bd23ddc8c29262c48": {
+      "id": "tio-agenda:65266",
+      "sourceDescriptionHash": "5420c878e820639220ad4248ebf2a56fff704174bbb96f3bd23ddc8c29262c48",
+      "description": "La conferenza alla Biblioteca cantonale di Lugano è collegata all’apertura di una mostra. L’esposizione riguarda libri d’artista della Stamperia d’arte Albicocco.",
+      "descriptionByLocale": {
+        "it": "La conferenza alla Biblioteca cantonale di Lugano è collegata all’apertura di una mostra. L’esposizione riguarda libri d’artista della Stamperia d’arte Albicocco.",
+        "en": "The conference at the Cantonal Library in Lugano is associated with an exhibition opening. The exhibition concerns artist’s books from Stamperia d’arte Albicocco.",
+        "de": "Die Konferenz in der Kantonsbibliothek in Lugano steht im Zusammenhang mit der Eröffnung einer Ausstellung. Die Ausstellung widmet sich Künstlerbüchern der Stamperia d’arte Albicocco.",
+        "fr": "La conférence à la Bibliothèque cantonale de Lugano est liée à l’ouverture d’une exposition. Celle-ci porte sur des livres d’artiste de la Stamperia d’arte Albicocco."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T21:25:25.811Z"
+    },
     "tio-agenda:65267::665e176fbfc6107a830dc7354515af1277bbd14a9e6f6f9a5aae8a213048434a": {
       "id": "tio-agenda:65267",
       "sourceDescriptionHash": "665e176fbfc6107a830dc7354515af1277bbd14a9e6f6f9a5aae8a213048434a",
@@ -208045,6 +208101,20 @@
       "model": "gpt-6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-28T16:18:22.843Z"
+    },
+    "tio-agenda:65278::1f06b679da8a817a92b2381d78540cc60fc432a64af1b98ad55ba9282b2e0f13": {
+      "id": "tio-agenda:65278",
+      "sourceDescriptionHash": "1f06b679da8a817a92b2381d78540cc60fc432a64af1b98ad55ba9282b2e0f13",
+      "description": "È previsto uno spettacolo teatrale al Teatro Cambusa di Locarno. L’appuntamento è segnalato nel Locarnese.",
+      "descriptionByLocale": {
+        "it": "È previsto uno spettacolo teatrale al Teatro Cambusa di Locarno. L’appuntamento è segnalato nel Locarnese.",
+        "en": "A theatre event is scheduled at Teatro Cambusa in Locarno. It is listed in the Locarnese area.",
+        "de": "Im Teatro Cambusa in Locarno ist eine Theaterveranstaltung vorgesehen. Sie ist dem Locarnese zugeordnet.",
+        "fr": "Un événement théâtral est prévu au Teatro Cambusa, à Locarno. Il est répertorié dans le Locarnese."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T21:19:10.889Z"
     },
     "tio-agenda:65279::9c944e5f2bf6794135e48324b6180506243bb057e38f6400cb79fb9de4eaa6ee": {
       "id": "tio-agenda:65279",
@@ -208210,8 +208280,8 @@
       "id": "ge-agenda:andromaque",
       "sourceDescriptionHash": "33d17a5a0763f41bb23b6a66373f7ab5540aa6d1f54b76ea63714d7b7bf0b586",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-28T18:35:47.690Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-28T21:20:57.828Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -208309,17 +208379,8 @@
       "id": "ge-agenda:choeur-chants-leman",
       "sourceDescriptionHash": "5d8334ed4014728a7cd03ab8788f043996382de991454d9aee5250966f41233f",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-28T18:32:21.806Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "ge-agenda:cine-discussion-questionner-masculinites-autour-film-documentaire-noir-hommes-pleurent-sikou-niakate-2020::87c6d20c5bb48fc22721271bf417d716ad8cd2901c06573b280b8962ec175f59": {
-      "id": "ge-agenda:cine-discussion-questionner-masculinites-autour-film-documentaire-noir-hommes-pleurent-sikou-niakate-2020",
-      "sourceDescriptionHash": "87c6d20c5bb48fc22721271bf417d716ad8cd2901c06573b280b8962ec175f59",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-28T18:50:48.407Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-28T21:18:45.972Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -208338,15 +208399,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-16T05:29:52.424Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "ge-agenda:cite-seniors-fete-20-regard-sociologique-evolutions-technologiques::3e3af070cbd6bf1ff059974cb63d2939df2a810a6eef7535e52935adbfbb33a6": {
-      "id": "ge-agenda:cite-seniors-fete-20-regard-sociologique-evolutions-technologiques",
-      "sourceDescriptionHash": "3e3af070cbd6bf1ff059974cb63d2939df2a810a6eef7535e52935adbfbb33a6",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-28T18:38:16.929Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -208525,8 +208577,8 @@
       "id": "ge-agenda:images-survivantes",
       "sourceDescriptionHash": "5f1ab2de4b5a7aed3b91a1f1ab5605c266b138c7a33a99d8c2cab6cd50b3a4d7",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-28T18:39:56.107Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-28T21:22:24.143Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -208804,8 +208856,8 @@
       "id": "ge-agenda:seniors-rencontrer-club-lecture",
       "sourceDescriptionHash": "093505026484e2afdcb2a9542c6bb4ffd81199c240801bf9366f4da0e844a640",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-28T18:41:39.527Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-28T21:23:07.574Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -209164,8 +209216,8 @@
       "id": "guidle:A6MDvyf",
       "sourceDescriptionHash": "213ddab84d0800aaa42000a42fb534076a852936f47ebd66a041e43f2efbb5ab",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-28T18:44:31.295Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-28T21:25:41.851Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -210208,8 +210260,8 @@
       "id": "guidle:Akta3jB",
       "sourceDescriptionHash": "a79ac6f53a49ce52127bb22d34f5a9465f0cc22dcc9acf720cbd9bec2fb39c73",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T19:23:15.961Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T21:33:51.515Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -210883,8 +210935,8 @@
       "id": "guidle:AS4Cbm8",
       "sourceDescriptionHash": "41c8cd887c9c41212ebbe79f631f60c0044e70889725f0cdf96d0007d47057f1",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-28T18:47:22.491Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-28T21:28:46.035Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -211648,8 +211700,8 @@
       "id": "guidle:AYMNiKN",
       "sourceDescriptionHash": "1b3d31dbdaca311b786a058743204ff428c78f05e41a465b34bc7a885e031ceb",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-28T18:43:35.757Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-28T21:24:00.490Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -211747,8 +211799,8 @@
       "id": "lu-stadt-agenda:6363325",
       "sourceDescriptionHash": "7a35bbc923c150dade1a7e9d52c4c393f0a431ad10dc3086c4d154f11fbcf129",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-28T18:34:58.449Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-28T21:20:02.839Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -211783,8 +211835,8 @@
       "id": "lu-stadt-agenda:7694128",
       "sourceDescriptionHash": "a4ab323c5cae39e242333889135f8cd2702640684a8b1a48191a69a22c17cce6",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-28T18:45:59.617Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-28T21:20:07.104Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -217053,15 +217105,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "tio-agenda:65213::8ca0c288e46655558317dff355c95264bc56736a55b449ea8bf2d7b03c65a013": {
-      "id": "tio-agenda:65213",
-      "sourceDescriptionHash": "8ca0c288e46655558317dff355c95264bc56736a55b449ea8bf2d7b03c65a013",
-      "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-28T18:47:31.642Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "tio-agenda:65218::e997e3a499472aac22da1093b48aa979545da6144751dcfe51101a25af0d8881": {
       "id": "tio-agenda:65218",
       "sourceDescriptionHash": "e997e3a499472aac22da1093b48aa979545da6144751dcfe51101a25af0d8881",
@@ -217083,18 +217126,18 @@
     "tio-agenda:65222::a0816464bbfab17e0a3cd46d8598615178458d2ab92d36b5b55d9cbf3c4e54fd": {
       "id": "tio-agenda:65222",
       "sourceDescriptionHash": "a0816464bbfab17e0a3cd46d8598615178458d2ab92d36b5b55d9cbf3c4e54fd",
-      "code": "new-date-or-price",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-28T18:54:39.497Z",
+      "code": "new-name",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-28T21:27:47.716Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:65233::5949df438a5af54f205eac7e2d68841bffb4afa7d6d989c6c48c44e90c405a72": {
       "id": "tio-agenda:65233",
       "sourceDescriptionHash": "5949df438a5af54f205eac7e2d68841bffb4afa7d6d989c6c48c44e90c405a72",
-      "code": "new-date-or-price",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-28T18:53:12.284Z",
+      "code": "new-number",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-28T21:26:41.019Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -217110,9 +217153,9 @@
     "tio-agenda:65250::6bfb7435d2e35a838b2fd322768a71da6c02439c6f9d9f5d443499e364421ad6": {
       "id": "tio-agenda:65250",
       "sourceDescriptionHash": "6bfb7435d2e35a838b2fd322768a71da6c02439c6f9d9f5d443499e364421ad6",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-28T18:44:59.970Z",
+      "code": "new-number",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-28T21:29:04.286Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -217122,15 +217165,6 @@
       "code": "new-date-or-price",
       "rejectedRuns": 2,
       "lastAttemptAt": "2026-11-28T19:24:48.770Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:65266::5420c878e820639220ad4248ebf2a56fff704174bbb96f3bd23ddc8c29262c48": {
-      "id": "tio-agenda:65266",
-      "sourceDescriptionHash": "5420c878e820639220ad4248ebf2a56fff704174bbb96f3bd23ddc8c29262c48",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-28T18:52:18.241Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -217149,15 +217183,6 @@
       "code": "new-number",
       "rejectedRuns": 2,
       "lastAttemptAt": "2026-11-28T19:20:06.955Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:65278::1f06b679da8a817a92b2381d78540cc60fc432a64af1b98ad55ba9282b2e0f13": {
-      "id": "tio-agenda:65278",
-      "sourceDescriptionHash": "1f06b679da8a817a92b2381d78540cc60fc432a64af1b98ad55ba9282b2e0f13",
-      "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-28T18:34:04.607Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     }

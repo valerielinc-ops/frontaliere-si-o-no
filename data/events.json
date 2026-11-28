@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-28T20:37:36.659Z",
+  "generatedAt": "2026-11-28T21:49:11.841Z",
   "totalEvents": 18880,
   "events": [
     {
@@ -568251,7 +568251,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Dune è in programma al Cinema Iride di Lugano con proiezioni cinematografiche. La proposta riporta sul grande schermo film della saga.",
+      "descriptionByLocale": {
+        "it": "Dune è in programma al Cinema Iride di Lugano con proiezioni cinematografiche. La proposta riporta sul grande schermo film della saga.",
+        "en": "Dune is part of the film programme at Cinema Iride in Lugano. The screenings bring films from the saga back to the big screen.",
+        "de": "Dune steht im Filmprogramm des Cinema Iride in Lugano. Die Vorführungen bringen Filme aus der Saga zurück auf die Kinoleinwand.",
+        "fr": "Dune figure au programme du Cinema Iride à Lugano. Les séances permettent de revoir des films de la saga sur grand écran."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:65226",
@@ -588357,7 +588365,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È previsto uno spettacolo teatrale al Teatro Cambusa di Locarno. L’appuntamento è segnalato nel Locarnese.",
+      "descriptionByLocale": {
+        "it": "È previsto uno spettacolo teatrale al Teatro Cambusa di Locarno. L’appuntamento è segnalato nel Locarnese.",
+        "en": "A theatre event is scheduled at Teatro Cambusa in Locarno. It is listed in the Locarnese area.",
+        "de": "Im Teatro Cambusa in Locarno ist eine Theaterveranstaltung vorgesehen. Sie ist dem Locarnese zugeordnet.",
+        "fr": "Un événement théâtral est prévu au Teatro Cambusa, à Locarno. Il est répertorié dans le Locarnese."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AwMxmpY",
@@ -614179,7 +614195,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La conferenza alla Biblioteca cantonale di Lugano è collegata all’apertura di una mostra. L’esposizione riguarda libri d’artista della Stamperia d’arte Albicocco.",
+      "descriptionByLocale": {
+        "it": "La conferenza alla Biblioteca cantonale di Lugano è collegata all’apertura di una mostra. L’esposizione riguarda libri d’artista della Stamperia d’arte Albicocco.",
+        "en": "The conference at the Cantonal Library in Lugano is associated with an exhibition opening. The exhibition concerns artist’s books from Stamperia d’arte Albicocco.",
+        "de": "Die Konferenz in der Kantonsbibliothek in Lugano steht im Zusammenhang mit der Eröffnung einer Ausstellung. Die Ausstellung widmet sich Künstlerbüchern der Stamperia d’arte Albicocco.",
+        "fr": "La conférence à la Bibliothèque cantonale de Lugano est liée à l’ouverture d’une exposition. Celle-ci porte sur des livres d’artiste de la Stamperia d’arte Albicocco."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:etoile-ciel-0",
@@ -618041,7 +618065,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento di Ginevra è presentato come una conferenza-incontro. Con un taglio sociologico, si affronta il modo in cui i cambiamenti tecnologici incidono sulla vita quotidiana e sulle relazioni tra le persone.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento di Ginevra è presentato come una conferenza-incontro. Con un taglio sociologico, si affronta il modo in cui i cambiamenti tecnologici incidono sulla vita quotidiana e sulle relazioni tra le persone.",
+        "en": "The Geneva event is listed as a conference and discussion. It considers, from a sociological perspective, how technological change affects everyday life and relationships between people.",
+        "de": "Die Veranstaltung in Genf ist als Konferenz und Begegnung eingeordnet. Aus soziologischer Sicht geht es darum, wie technologische Veränderungen den Alltag und die Beziehungen zwischen Menschen beeinflussen.",
+        "fr": "La rencontre genevoise est annoncée comme une conférence-débat. Elle aborde sous un angle sociologique la façon dont les changements technologiques agissent sur le quotidien et les relations entre les personnes."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:hermanos-gutierrez",
