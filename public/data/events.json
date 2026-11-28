@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-28T19:06:25.843Z",
+  "generatedAt": "2026-11-28T19:54:49.380Z",
   "totalEvents": 18844,
   "events": [
     {
@@ -514741,7 +514741,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Ginevra, L’Appartement presenta una mostra dedicata a Pablo Benzo. È la sua prima esposizione personale in galleria.",
+      "descriptionByLocale": {
+        "it": "A Ginevra, L’Appartement presenta una mostra dedicata a Pablo Benzo. È la sua prima esposizione personale in galleria.",
+        "en": "In Geneva, L’Appartement presents an exhibition devoted to Pablo Benzo. It is his first solo exhibition at the gallery.",
+        "de": "In Genf zeigt L’Appartement eine Ausstellung mit Arbeiten von Pablo Benzo. Es ist seine erste Einzelausstellung in der Galerie.",
+        "fr": "À Genève, L’Appartement présente une exposition consacrée à Pablo Benzo. Il s’agit de sa première exposition personnelle dans cette galerie."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:63350",
@@ -524233,7 +524241,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’incontro riflette su come il lavoro venga narrato e rappresentato, mettendo a confronto prospettive artistiche, letterarie ed economiche. Il dialogo prende spunto da opere esposte e da un altorilievo del Museo Vincenzo Vela che ricorda le persone morte durante la costruzione di un tunnel ferroviario.",
+      "descriptionByLocale": {
+        "it": "L’incontro riflette su come il lavoro venga narrato e rappresentato, mettendo a confronto prospettive artistiche, letterarie ed economiche. Il dialogo prende spunto da opere esposte e da un altorilievo del Museo Vincenzo Vela che ricorda le persone morte durante la costruzione di un tunnel ferroviario.",
+        "en": "The gathering considers how work is narrated and represented, bringing artistic, literary and economic perspectives together. The discussion draws on works in an exhibition and on a relief at the Museo Vincenzo Vela commemorating people who died during the construction of a railway tunnel.",
+        "de": "Die Veranstaltung befasst sich damit, wie Arbeit erzählt und dargestellt wird, und bringt künstlerische, literarische und wirtschaftliche Perspektiven zusammen. Ausgangspunkte sind Werke einer Ausstellung und ein Relief im Museo Vincenzo Vela, das an Menschen erinnert, die beim Bau eines Eisenbahntunnels ums Leben kamen.",
+        "fr": "La rencontre examine la manière de raconter et de représenter le travail, en croisant des perspectives artistiques, littéraires et économiques. La discussion s’appuie sur des œuvres exposées et sur un haut-relief du Museo Vincenzo Vela qui commémore les personnes mortes lors de la construction d’un tunnel ferroviaire."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:153701a05c354aefb2f1dbd8d69f0a16",
@@ -544729,7 +544745,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento è dedicato alla donazione di sangue. Il prelievo si svolge presso la Scuola comunale di Bellinzona e richiede una prenotazione.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è dedicato alla donazione di sangue. Il prelievo si svolge presso la Scuola comunale di Bellinzona e richiede una prenotazione.",
+        "en": "This event is dedicated to donating blood. The collection takes place at the Scuola comunale in Bellinzona and requires an appointment.",
+        "de": "Bei dieser Veranstaltung geht es um die Blutspende. Die Blutentnahme findet in der Scuola comunale in Bellinzona statt und erfordert eine Anmeldung.",
+        "fr": "Ce rendez-vous est consacré au don de sang. Le prélèvement a lieu à la Scuola comunale de Bellinzona et nécessite une réservation."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A4wXGYq",
@@ -595458,7 +595482,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Adele Venneri presenta il suo libro durante un incontro alla Libreria Locarnese di Locarno. La conversazione affronta i temi dell’opera, tra cui l’ascolto e il significato del ricevere.",
+      "descriptionByLocale": {
+        "it": "Adele Venneri presenta il suo libro durante un incontro alla Libreria Locarnese di Locarno. La conversazione affronta i temi dell’opera, tra cui l’ascolto e il significato del ricevere.",
+        "en": "At Libreria Locarnese in Locarno, Adele Venneri presents her book at a meeting. The discussion explores themes of the work, including listening and what it means to receive.",
+        "de": "Adele Venneri stellt ihr Buch bei einer Begegnung in der Libreria Locarnese in Locarno vor. Im Gespräch geht es um Themen des Werks, darunter das Zuhören und die Bedeutung des Empfangens.",
+        "fr": "Adele Venneri présente son livre lors d’une rencontre à la Libreria Locarnese, à Locarno. La discussion aborde des thèmes de l’ouvrage, notamment l’écoute et le sens de la réception."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:848e0f04c7a64c9d9f722000bb9abdb1",
@@ -620083,7 +620115,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo appuntamento teatrale a Ginevra si inserisce nel periodo del solstizio d’inverno. La serata riunisce cibo, danza e una dimensione politica, evocando un passaggio tra il mondo visibile e quello invisibile.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento teatrale a Ginevra si inserisce nel periodo del solstizio d’inverno. La serata riunisce cibo, danza e una dimensione politica, evocando un passaggio tra il mondo visibile e quello invisibile.",
+        "en": "This theatrical event in Geneva is framed around the winter solstice. Its evening brings together eating, dancing and a political dimension, while evoking a passage between visible and invisible worlds.",
+        "de": "Die Theaterveranstaltung in Genf steht im Zeichen der Wintersonnenwende. Der Abend verbindet Essen, Tanz und eine politische Dimension und deutet einen Übergang zwischen sichtbarer und unsichtbarer Welt an.",
+        "fr": "Cette proposition théâtrale à Genève s’inscrit dans le cadre du solstice d’hiver. La soirée associe repas, danse et dimension politique, en évoquant un passage entre les mondes visible et invisible."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:164843958aeb445e89ee77f00c268246",
@@ -645136,7 +645176,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Gli scacchi sono al centro di questo appuntamento ricorrente all’Hostellerie d’Orzival. L’incontro è rivolto sia a chi è alle prime esperienze sia a giocatori amatoriali o esperti.",
+      "descriptionByLocale": {
+        "it": "Gli scacchi sono al centro di questo appuntamento ricorrente all’Hostellerie d’Orzival. L’incontro è rivolto sia a chi è alle prime esperienze sia a giocatori amatoriali o esperti.",
+        "en": "Chess is the focus of this recurring evening at the Hostellerie d'Orzival. The event includes newcomers as well as casual and experienced players.",
+        "de": "Bei diesem wiederkehrenden Abend in der Hostellerie d’Orzival steht das Schachspiel im Mittelpunkt. Eingeladen sind sowohl Einsteiger als auch Freizeit- und erfahrene Spieler.",
+        "fr": "Les échecs sont au cœur de cette soirée récurrente à l’Hostellerie d’Orzival. La rencontre s’adresse aussi bien aux débutants qu’aux joueurs amateurs ou chevronnés."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AnNT9k9",
