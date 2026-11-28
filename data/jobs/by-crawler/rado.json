@@ -1,7 +1,7 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-11-28T09:28:05.073Z",
-  "runId": "46128906806",
+  "assembledAt": "2026-11-28T21:45:51.125Z",
+  "runId": "46189855262",
   "jobs": [
     {
       "id": "company-7ucqp9",
@@ -29,7 +29,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-11-27T21:30:20.109Z",
+      "crawledAt": "2026-11-28T21:44:24.466Z",
       "firstSeenAt": "2026-10-22T21:24:47.922Z",
       "titleByLocale": {
         "en": "SEA Specialist (Google Ads)",
@@ -92,10 +92,9 @@
       "addressRegion": "BE",
       "streetAddress": "Lengnau BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:30:20.109Z",
+      "validThrough": "2026-12-28T21:44:24.466Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/en/job/34621",
-      "crawlerMissStreak": 1
+      "sourceIdentity": "url:https://www.swatchgroup.com/en/job/34621"
     },
     {
       "id": "company-7ucqnj",
@@ -120,7 +119,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-11-27T21:30:20.109Z",
+      "crawledAt": "2026-11-28T21:44:24.466Z",
       "firstSeenAt": "2026-09-24T14:28:31.911Z",
       "titleByLocale": {
         "de": "Logistiker:in Lehrstelle 2027",
@@ -186,10 +185,9 @@
       "addressRegion": "BE",
       "streetAddress": "Lengnau BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:30:20.109Z",
+      "validThrough": "2026-12-28T21:44:24.466Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/de/job/34601",
-      "crawlerMissStreak": 1
+      "sourceIdentity": "url:https://www.swatchgroup.com/de/job/34601"
     },
     {
       "id": "company-7ucq4q",
@@ -212,7 +210,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-11-27T21:30:20.109Z",
+      "crawledAt": "2026-11-28T21:44:24.466Z",
       "firstSeenAt": "2026-10-23T21:17:42.290Z",
       "titleByLocale": {
         "it": "Risorse Umane Business Partner 100%",
@@ -265,10 +263,9 @@
       "addressRegion": "BE",
       "streetAddress": "Lengnau BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:30:20.109Z",
+      "validThrough": "2026-12-28T21:44:24.466Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/de/job/34596",
-      "crawlerMissStreak": 1
+      "sourceIdentity": "url:https://www.swatchgroup.com/de/job/34596"
     }
   ]
 }

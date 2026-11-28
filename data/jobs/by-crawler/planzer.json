@@ -1,7 +1,7 @@
 {
   "crawlerKey": "planzer",
-  "assembledAt": "2026-11-28T09:19:24.593Z",
-  "runId": "46128906806",
+  "assembledAt": "2026-11-28T21:45:57.354Z",
+  "runId": "46189855262",
   "jobs": [
     {
       "id": "planzer-ba47bd125623",
@@ -35,7 +35,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4107906",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:18:41.363Z",
+      "crawledAt": "2026-11-28T21:45:09.072Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Hermetschloostrasse 12",
@@ -85,7 +85,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-25T09:18:41.363Z",
+      "validThrough": "2027-02-24T21:45:09.072Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -120,7 +120,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4107909",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:18:40.645Z",
+      "crawledAt": "2026-11-28T21:45:08.473Z",
       "addressLocality": "Kallnach",
       "addressRegion": "BE",
       "streetAddress": "Brühlgasse 9",
@@ -164,7 +164,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-25T09:18:40.645Z",
+      "validThrough": "2027-02-24T21:45:08.473Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -199,7 +199,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4108867",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:18:39.828Z",
+      "crawledAt": "2026-11-28T21:45:07.834Z",
       "addressLocality": "Seewen",
       "addressRegion": "SO",
       "streetAddress": "Seewernstrasse 203",
@@ -220,7 +220,9 @@
       "externalId": "4108867",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-27T21:21:23.548Z",
+      "previousSlugs": [
+        "stv-schichtleiter-umschlag-spat-m-w-d-planzer-seewen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "stv-schichtleiter-umschlag-spat-m-w-d-planzer-seewen"
@@ -232,9 +234,7 @@
           "stv-schichtleiter-umschlag-spat-m-w-d-planzer-seewen"
         ]
       },
-      "previousSlugs": [
-        "stv-schichtleiter-umschlag-spat-m-w-d-planzer-seewen"
-      ],
+      "firstSeenAt": "2026-11-27T21:21:23.548Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -249,7 +249,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-26T09:18:39.828Z",
+      "validThrough": "2027-02-25T21:45:07.834Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -284,7 +284,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4108777",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:18:39.108Z",
+      "crawledAt": "2026-11-28T21:45:07.087Z",
       "addressLocality": "Kallnach",
       "addressRegion": "BE",
       "streetAddress": "Brühlgasse 9",
@@ -305,7 +305,9 @@
       "externalId": "4108777",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-27T21:21:22.826Z",
+      "previousSlugs": [
+        "fachmann-betriebsunterhalt-m-w-d-planzer-kallnach"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachmann-betriebsunterhalt-m-w-d-planzer-kallnach"
@@ -317,9 +319,7 @@
           "fachmann-betriebsunterhalt-m-w-d-planzer-kallnach"
         ]
       },
-      "previousSlugs": [
-        "fachmann-betriebsunterhalt-m-w-d-planzer-kallnach"
-      ],
+      "firstSeenAt": "2026-11-27T21:21:22.826Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -334,7 +334,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-26T09:18:39.108Z",
+      "validThrough": "2027-02-25T21:45:07.087Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -369,7 +369,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4106257",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:18:38.314Z",
+      "crawledAt": "2026-11-28T21:45:06.489Z",
       "addressLocality": "Dintikon",
       "addressRegion": "AG",
       "streetAddress": "Silostrasse 8",
@@ -420,7 +420,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:18:38.314Z",
+      "validThrough": "2027-01-26T21:45:06.489Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -455,7 +455,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4106254",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:18:37.582Z",
+      "crawledAt": "2026-11-28T21:45:05.855Z",
       "addressLocality": "Domat/Ems",
       "addressRegion": "GR",
       "streetAddress": "Via Zups 2",
@@ -502,16 +502,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:18:37.582Z",
+      "validThrough": "2027-01-26T21:45:05.855Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "planzer-bcbd77c1ba69",
       "slug": "paketzusteller-m-w-d-planzer-seewen",
       "slugByLocale": {
-        "de": "paketzusteller-m-w-d-planzer-seewen",
         "it": "paketzusteller-m-w-d-planzer-seewen",
         "en": "paketzusteller-m-w-d-planzer-seewen",
+        "de": "paketzusteller-m-w-d-planzer-seewen",
         "fr": "paketzusteller-m-w-d-planzer-seewen"
       },
       "company": "Planzer",
@@ -519,16 +519,16 @@
       "companyDomain": "planzer.ch",
       "title": "Paketzusteller (m/w/d)",
       "titleByLocale": {
-        "de": "Paketzusteller (m/w/d)",
         "it": "Paketzusteller (m/w/d)",
         "en": "Paketzusteller (m/w/d)",
+        "de": "Paketzusteller (m/w/d)",
         "fr": "Paketzusteller (m/w/d)"
       },
       "description": "Planzer Paket steht für zuverlässige und schnelle Paketzustellungen in der Schweiz. Als Teil unseres Teams trägst du aktiv dazu bei, unseren hohen Qualitätsanspruch und Service weiterzuentwickeln. Wir bieten dir eine abwechslungsreiche Tätigkeit in einem zukunftsorientierten Unternehmen, das auf nachhaltige Lösungen setzt. Werde Teil unseres Teams und gestalte die Zukunft der Paketwelt mit!\n\nWas du bewegst\n• Am frühen Morgen übernimmst du dein fertig beladenes Fahrzeug und machst dich auf den Weg, um Pakete in deinem Zustellgebiet auszuliefern\n• Du lieferst Pakete zuverlässig an unsere geschätzten Kunden und nimmst bei Bedarf Rücksendungen entgegen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n• Egal ob Sonne, Regen, Schnee oder Eis – du beweist dein Können auf den Schweizer Strassen bei jedem Wetter\n• Deine Einsatztage sind von Montag bis Freitag oder Dienstag bis Sonntag\n\nWeshalb es dir gelingt\n• Deinen Führerausweis Kat. B besitzt du seit mindestens 3 Jahren und bist versiert im Lenken von manuell geschalteten Fahrzeugen\n• Du bist fit und packst gern mit an – Pakete bis zu 30 kg bringen dich nicht aus der Puste\n• Falls du schon Erfahrung im Paketservice hast: Jackpot! Falls nicht, lernst du schnell\n• Dein Leumund ist einwandfrei, bei dir gibt es nichts zu beanstanden\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Tierpark Goldau Tickets: Mit unserer Jahreskarte kannst du gratis in den Tierpark Goldau!\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
       "descriptionByLocale": {
-        "de": "Planzer Paket steht für zuverlässige und schnelle Paketzustellungen in der Schweiz. Als Teil unseres Teams trägst du aktiv dazu bei, unseren hohen Qualitätsanspruch und Service weiterzuentwickeln. Wir bieten dir eine abwechslungsreiche Tätigkeit in einem zukunftsorientierten Unternehmen, das auf nachhaltige Lösungen setzt. Werde Teil unseres Teams und gestalte die Zukunft der Paketwelt mit!\n\nWas du bewegst\n• Am frühen Morgen übernimmst du dein fertig beladenes Fahrzeug und machst dich auf den Weg, um Pakete in deinem Zustellgebiet auszuliefern\n• Du lieferst Pakete zuverlässig an unsere geschätzten Kunden und nimmst bei Bedarf Rücksendungen entgegen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n• Egal ob Sonne, Regen, Schnee oder Eis – du beweist dein Können auf den Schweizer Strassen bei jedem Wetter\n• Deine Einsatztage sind von Montag bis Freitag oder Dienstag bis Sonntag\n\nWeshalb es dir gelingt\n• Deinen Führerausweis Kat. B besitzt du seit mindestens 3 Jahren und bist versiert im Lenken von manuell geschalteten Fahrzeugen\n• Du bist fit und packst gern mit an – Pakete bis zu 30 kg bringen dich nicht aus der Puste\n• Falls du schon Erfahrung im Paketservice hast: Jackpot! Falls nicht, lernst du schnell\n• Dein Leumund ist einwandfrei, bei dir gibt es nichts zu beanstanden\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Tierpark Goldau Tickets: Mit unserer Jahreskarte kannst du gratis in den Tierpark Goldau!\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "it": "Planzer Paket steht für zuverlässige und schnelle Paketzustellungen in der Schweiz. Als Teil unseres Teams trägst du aktiv dazu bei, unseren hohen Qualitätsanspruch und Service weiterzuentwickeln. Wir bieten dir eine abwechslungsreiche Tätigkeit in einem zukunftsorientierten Unternehmen, das auf nachhaltige Lösungen setzt. Werde Teil unseres Teams und gestalte die Zukunft der Paketwelt mit!\n\nWas du bewegst\n• Am frühen Morgen übernimmst du dein fertig beladenes Fahrzeug und machst dich auf den Weg, um Pakete in deinem Zustellgebiet auszuliefern\n• Du lieferst Pakete zuverlässig an unsere geschätzten Kunden und nimmst bei Bedarf Rücksendungen entgegen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n• Egal ob Sonne, Regen, Schnee oder Eis – du beweist dein Können auf den Schweizer Strassen bei jedem Wetter\n• Deine Einsatztage sind von Montag bis Freitag oder Dienstag bis Sonntag\n\nWeshalb es dir gelingt\n• Deinen Führerausweis Kat. B besitzt du seit mindestens 3 Jahren und bist versiert im Lenken von manuell geschalteten Fahrzeugen\n• Du bist fit und packst gern mit an – Pakete bis zu 30 kg bringen dich nicht aus der Puste\n• Falls du schon Erfahrung im Paketservice hast: Jackpot! Falls nicht, lernst du schnell\n• Dein Leumund ist einwandfrei, bei dir gibt es nichts zu beanstanden\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Tierpark Goldau Tickets: Mit unserer Jahreskarte kannst du gratis in den Tierpark Goldau!\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "en": "Planzer Paket steht für zuverlässige und schnelle Paketzustellungen in der Schweiz. Als Teil unseres Teams trägst du aktiv dazu bei, unseren hohen Qualitätsanspruch und Service weiterzuentwickeln. Wir bieten dir eine abwechslungsreiche Tätigkeit in einem zukunftsorientierten Unternehmen, das auf nachhaltige Lösungen setzt. Werde Teil unseres Teams und gestalte die Zukunft der Paketwelt mit!\n\nWas du bewegst\n• Am frühen Morgen übernimmst du dein fertig beladenes Fahrzeug und machst dich auf den Weg, um Pakete in deinem Zustellgebiet auszuliefern\n• Du lieferst Pakete zuverlässig an unsere geschätzten Kunden und nimmst bei Bedarf Rücksendungen entgegen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n• Egal ob Sonne, Regen, Schnee oder Eis – du beweist dein Können auf den Schweizer Strassen bei jedem Wetter\n• Deine Einsatztage sind von Montag bis Freitag oder Dienstag bis Sonntag\n\nWeshalb es dir gelingt\n• Deinen Führerausweis Kat. B besitzt du seit mindestens 3 Jahren und bist versiert im Lenken von manuell geschalteten Fahrzeugen\n• Du bist fit und packst gern mit an – Pakete bis zu 30 kg bringen dich nicht aus der Puste\n• Falls du schon Erfahrung im Paketservice hast: Jackpot! Falls nicht, lernst du schnell\n• Dein Leumund ist einwandfrei, bei dir gibt es nichts zu beanstanden\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Tierpark Goldau Tickets: Mit unserer Jahreskarte kannst du gratis in den Tierpark Goldau!\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
+        "de": "Planzer Paket steht für zuverlässige und schnelle Paketzustellungen in der Schweiz. Als Teil unseres Teams trägst du aktiv dazu bei, unseren hohen Qualitätsanspruch und Service weiterzuentwickeln. Wir bieten dir eine abwechslungsreiche Tätigkeit in einem zukunftsorientierten Unternehmen, das auf nachhaltige Lösungen setzt. Werde Teil unseres Teams und gestalte die Zukunft der Paketwelt mit!\n\nWas du bewegst\n• Am frühen Morgen übernimmst du dein fertig beladenes Fahrzeug und machst dich auf den Weg, um Pakete in deinem Zustellgebiet auszuliefern\n• Du lieferst Pakete zuverlässig an unsere geschätzten Kunden und nimmst bei Bedarf Rücksendungen entgegen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n• Egal ob Sonne, Regen, Schnee oder Eis – du beweist dein Können auf den Schweizer Strassen bei jedem Wetter\n• Deine Einsatztage sind von Montag bis Freitag oder Dienstag bis Sonntag\n\nWeshalb es dir gelingt\n• Deinen Führerausweis Kat. B besitzt du seit mindestens 3 Jahren und bist versiert im Lenken von manuell geschalteten Fahrzeugen\n• Du bist fit und packst gern mit an – Pakete bis zu 30 kg bringen dich nicht aus der Puste\n• Falls du schon Erfahrung im Paketservice hast: Jackpot! Falls nicht, lernst du schnell\n• Dein Leumund ist einwandfrei, bei dir gibt es nichts zu beanstanden\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Tierpark Goldau Tickets: Mit unserer Jahreskarte kannst du gratis in den Tierpark Goldau!\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "fr": "Planzer Paket steht für zuverlässige und schnelle Paketzustellungen in der Schweiz. Als Teil unseres Teams trägst du aktiv dazu bei, unseren hohen Qualitätsanspruch und Service weiterzuentwickeln. Wir bieten dir eine abwechslungsreiche Tätigkeit in einem zukunftsorientierten Unternehmen, das auf nachhaltige Lösungen setzt. Werde Teil unseres Teams und gestalte die Zukunft der Paketwelt mit!\n\nWas du bewegst\n• Am frühen Morgen übernimmst du dein fertig beladenes Fahrzeug und machst dich auf den Weg, um Pakete in deinem Zustellgebiet auszuliefern\n• Du lieferst Pakete zuverlässig an unsere geschätzten Kunden und nimmst bei Bedarf Rücksendungen entgegen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n• Egal ob Sonne, Regen, Schnee oder Eis – du beweist dein Können auf den Schweizer Strassen bei jedem Wetter\n• Deine Einsatztage sind von Montag bis Freitag oder Dienstag bis Sonntag\n\nWeshalb es dir gelingt\n• Deinen Führerausweis Kat. B besitzt du seit mindestens 3 Jahren und bist versiert im Lenken von manuell geschalteten Fahrzeugen\n• Du bist fit und packst gern mit an – Pakete bis zu 30 kg bringen dich nicht aus der Puste\n• Falls du schon Erfahrung im Paketservice hast: Jackpot! Falls nicht, lernst du schnell\n• Dein Leumund ist einwandfrei, bei dir gibt es nichts zu beanstanden\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Tierpark Goldau Tickets: Mit unserer Jahreskarte kannst du gratis in den Tierpark Goldau!\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden."
       },
       "needsRetranslation": true,
@@ -537,7 +537,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4106251",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:18:36.867Z",
+      "crawledAt": "2026-11-28T21:45:05.259Z",
       "addressLocality": "Seewen",
       "addressRegion": "SO",
       "streetAddress": "Seewernstrasse 203",
@@ -557,9 +557,8 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4106251",
       "externalId": "4106251",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-19T22:52:51.071Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -574,17 +573,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:18:36.867Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-19T22:52:51.071Z"
+      "validThrough": "2026-12-28T21:45:05.259Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "planzer-0cac4e30dfb6",
       "slug": "addetto-a-alla-logistica-m-w-d-planzer-emmen",
       "slugByLocale": {
-        "de": "mitarbeiter-logistik-m-w-d-planzer-emmen",
         "it": "addetto-a-alla-logistica-m-w-d-planzer-emmen",
         "en": "mitarbeiter-logistik-m-w-d-planzer-emmen",
+        "de": "mitarbeiter-logistik-m-w-d-planzer-emmen",
         "fr": "mitarbeiter-logistik-m-w-d-planzer-emmen"
       },
       "company": "Planzer",
@@ -592,16 +590,16 @@
       "companyDomain": "planzer.ch",
       "title": "Mitarbeiter Logistik (m/w/d)",
       "titleByLocale": {
-        "de": "Mitarbeiter Logistik (m/w/d)",
         "it": "Addetto/a alla logistica (m/w/d)",
         "en": "Mitarbeiter Logistik (m/w/d)",
+        "de": "Mitarbeiter Logistik (m/w/d)",
         "fr": "Mitarbeiter Logistik (m/w/d)"
       },
       "description": "Ob klein oder gross, einfach oder komplex – wir transportieren und lagern Güter. Mit motivierten Mitarbeitenden und modernen Fahrzeugen bedienen wir von Emmen nicht nur die Region, sondern auch die hintersten Winkel der Schweiz. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Du kommissionierst Artikel präzise und sorgst dafür, dass Kundenbestellungen noch am selben Tag abgewickelt werden\n• Ein- sowie Auslagerungen, Verpackung und Etikettierung erledigst du zuverlässig nach Vorgaben\n• Inventuren? Da packst du mit an und sorgst für den perfekten Überblick\n• Das Lagersystem und die Betriebsmittel nutzt du sicher und effizient\n• Du arbeitest hauptsächlich am Montag und Dienstag und unterstützt uns vereinzelt auch bei Samstageinsätzen\n\nWeshalb es dir gelingt\n• Du verfügst über eine abgeschlossene Berufsausbildung als Logistiker EFZ oder bringst Berufserfahrung in der Logistik mit\n• Du hast idealerweise einen Staplerausweis in der Tasche – falls nicht, bist du motiviert, diesen zu einem späteren Zeitpunkt zu absolvieren\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Zuverlässigkeit, Genauigkeit und eine schnelle Anpassungsfähigkeit an neue Herausforderungen zeichnen dich aus\n• Auch wenn's mal stressig wird, bleibst du cool und behältst den Überblick\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
       "descriptionByLocale": {
-        "de": "Ob klein oder gross, einfach oder komplex – wir transportieren und lagern Güter. Mit motivierten Mitarbeitenden und modernen Fahrzeugen bedienen wir von Emmen nicht nur die Region, sondern auch die hintersten Winkel der Schweiz. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Du kommissionierst Artikel präzise und sorgst dafür, dass Kundenbestellungen noch am selben Tag abgewickelt werden\n• Ein- sowie Auslagerungen, Verpackung und Etikettierung erledigst du zuverlässig nach Vorgaben\n• Inventuren? Da packst du mit an und sorgst für den perfekten Überblick\n• Das Lagersystem und die Betriebsmittel nutzt du sicher und effizient\n• Du arbeitest hauptsächlich am Montag und Dienstag und unterstützt uns vereinzelt auch bei Samstageinsätzen\n\nWeshalb es dir gelingt\n• Du verfügst über eine abgeschlossene Berufsausbildung als Logistiker EFZ oder bringst Berufserfahrung in der Logistik mit\n• Du hast idealerweise einen Staplerausweis in der Tasche – falls nicht, bist du motiviert, diesen zu einem späteren Zeitpunkt zu absolvieren\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Zuverlässigkeit, Genauigkeit und eine schnelle Anpassungsfähigkeit an neue Herausforderungen zeichnen dich aus\n• Auch wenn's mal stressig wird, bleibst du cool und behältst den Überblick\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "it": "Ob klein oder gross, einfach oder komplex – wir transportieren und lagern Güter. Mit motivierten Mitarbeitenden und modernen Fahrzeugen bedienen wir von Emmen nicht nur die Region, sondern auch die hintersten Winkel der Schweiz. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Du kommissionierst Artikel präzise und sorgst dafür, dass Kundenbestellungen noch am selben Tag abgewickelt werden\n• Ein- sowie Auslagerungen, Verpackung und Etikettierung erledigst du zuverlässig nach Vorgaben\n• Inventuren? Da packst du mit an und sorgst für den perfekten Überblick\n• Das Lagersystem und die Betriebsmittel nutzt du sicher und effizient\n• Du arbeitest hauptsächlich am Montag und Dienstag und unterstützt uns vereinzelt auch bei Samstageinsätzen\n\nWeshalb es dir gelingt\n• Du verfügst über eine abgeschlossene Berufsausbildung als Logistiker EFZ oder bringst Berufserfahrung in der Logistik mit\n• Du hast idealerweise einen Staplerausweis in der Tasche – falls nicht, bist du motiviert, diesen zu einem späteren Zeitpunkt zu absolvieren\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Zuverlässigkeit, Genauigkeit und eine schnelle Anpassungsfähigkeit an neue Herausforderungen zeichnen dich aus\n• Auch wenn's mal stressig wird, bleibst du cool und behältst den Überblick\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "en": "Ob klein oder gross, einfach oder komplex – wir transportieren und lagern Güter. Mit motivierten Mitarbeitenden und modernen Fahrzeugen bedienen wir von Emmen nicht nur die Region, sondern auch die hintersten Winkel der Schweiz. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Du kommissionierst Artikel präzise und sorgst dafür, dass Kundenbestellungen noch am selben Tag abgewickelt werden\n• Ein- sowie Auslagerungen, Verpackung und Etikettierung erledigst du zuverlässig nach Vorgaben\n• Inventuren? Da packst du mit an und sorgst für den perfekten Überblick\n• Das Lagersystem und die Betriebsmittel nutzt du sicher und effizient\n• Du arbeitest hauptsächlich am Montag und Dienstag und unterstützt uns vereinzelt auch bei Samstageinsätzen\n\nWeshalb es dir gelingt\n• Du verfügst über eine abgeschlossene Berufsausbildung als Logistiker EFZ oder bringst Berufserfahrung in der Logistik mit\n• Du hast idealerweise einen Staplerausweis in der Tasche – falls nicht, bist du motiviert, diesen zu einem späteren Zeitpunkt zu absolvieren\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Zuverlässigkeit, Genauigkeit und eine schnelle Anpassungsfähigkeit an neue Herausforderungen zeichnen dich aus\n• Auch wenn's mal stressig wird, bleibst du cool und behältst den Überblick\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
+        "de": "Ob klein oder gross, einfach oder komplex – wir transportieren und lagern Güter. Mit motivierten Mitarbeitenden und modernen Fahrzeugen bedienen wir von Emmen nicht nur die Region, sondern auch die hintersten Winkel der Schweiz. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Du kommissionierst Artikel präzise und sorgst dafür, dass Kundenbestellungen noch am selben Tag abgewickelt werden\n• Ein- sowie Auslagerungen, Verpackung und Etikettierung erledigst du zuverlässig nach Vorgaben\n• Inventuren? Da packst du mit an und sorgst für den perfekten Überblick\n• Das Lagersystem und die Betriebsmittel nutzt du sicher und effizient\n• Du arbeitest hauptsächlich am Montag und Dienstag und unterstützt uns vereinzelt auch bei Samstageinsätzen\n\nWeshalb es dir gelingt\n• Du verfügst über eine abgeschlossene Berufsausbildung als Logistiker EFZ oder bringst Berufserfahrung in der Logistik mit\n• Du hast idealerweise einen Staplerausweis in der Tasche – falls nicht, bist du motiviert, diesen zu einem späteren Zeitpunkt zu absolvieren\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Zuverlässigkeit, Genauigkeit und eine schnelle Anpassungsfähigkeit an neue Herausforderungen zeichnen dich aus\n• Auch wenn's mal stressig wird, bleibst du cool und behältst den Überblick\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "fr": "Ob klein oder gross, einfach oder komplex – wir transportieren und lagern Güter. Mit motivierten Mitarbeitenden und modernen Fahrzeugen bedienen wir von Emmen nicht nur die Region, sondern auch die hintersten Winkel der Schweiz. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Du kommissionierst Artikel präzise und sorgst dafür, dass Kundenbestellungen noch am selben Tag abgewickelt werden\n• Ein- sowie Auslagerungen, Verpackung und Etikettierung erledigst du zuverlässig nach Vorgaben\n• Inventuren? Da packst du mit an und sorgst für den perfekten Überblick\n• Das Lagersystem und die Betriebsmittel nutzt du sicher und effizient\n• Du arbeitest hauptsächlich am Montag und Dienstag und unterstützt uns vereinzelt auch bei Samstageinsätzen\n\nWeshalb es dir gelingt\n• Du verfügst über eine abgeschlossene Berufsausbildung als Logistiker EFZ oder bringst Berufserfahrung in der Logistik mit\n• Du hast idealerweise einen Staplerausweis in der Tasche – falls nicht, bist du motiviert, diesen zu einem späteren Zeitpunkt zu absolvieren\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Zuverlässigkeit, Genauigkeit und eine schnelle Anpassungsfähigkeit an neue Herausforderungen zeichnen dich aus\n• Auch wenn's mal stressig wird, bleibst du cool und behältst den Überblick\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden."
       },
       "needsRetranslation": true,
@@ -610,7 +608,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4106248",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:18:36.086Z",
+      "crawledAt": "2026-11-28T21:45:04.643Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "streetAddress": "Feldmattstrasse 31",
@@ -630,17 +628,16 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4106248",
       "externalId": "4106248",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-logistik-m-w-d-planzer-emmen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-logistik-m-w-d-planzer-emmen"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-logistik-m-w-d-planzer-emmen"
-      ],
+      "firstSeenAt": "2026-10-29T09:31:39.398Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -655,17 +652,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:18:36.086Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-29T09:31:39.398Z"
+      "validThrough": "2027-01-27T21:45:04.643Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "planzer-85fe72094c7d",
       "slug": "chauffeur-kat-ce-m-w-d-planzer-zurich",
       "slugByLocale": {
-        "de": "chauffeur-kat-ce-m-w-d-planzer-zurich",
         "it": "chauffeur-kat-ce-m-w-d-planzer-zurich",
         "en": "chauffeur-kat-ce-m-w-d-planzer-zurich",
+        "de": "chauffeur-kat-ce-m-w-d-planzer-zurich",
         "fr": "chauffeur-kat-ce-m-w-d-planzer-zurich"
       },
       "company": "Planzer",
@@ -673,16 +669,16 @@
       "companyDomain": "planzer.ch",
       "title": "Chauffeur Kat. CE (m/w/d)",
       "titleByLocale": {
-        "de": "Chauffeur Kat. CE (m/w/d)",
         "it": "Chauffeur Kat. CE (m/w/d)",
         "en": "Chauffeur Kat. CE (m/w/d)",
+        "de": "Chauffeur Kat. CE (m/w/d)",
         "fr": "Chauffeur Kat. CE (m/w/d)"
       },
       "description": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Gemäss Einsatzplanung der Disposition führst du Transportaufträge im nationalen Verkehr aus und lieferst die Ware termingerecht und professionell an unsere Kunden\n• Die Be- und Entladung ist für dich kein Problem – du packst mit an und sorgst dafür, dass alles sicher verstaut ist\n• Du achtest auf eine fachgerechte Ladungssicherung – nichts bleibt dem Zufall überlassen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n\nWeshalb es dir gelingt\n• Du hast den Führerausweis Kat. CE in der Tasche und kannst Anhängerzüge sicher fahren\n• Idealerweise bringst du Erfahrung im Stückguttransport mit und besitzt den Stapler- sowie ADR-Ausweis\n• Deine Fahrerbewilligungen sind auf dem neusten Stand\n• In der Region kennst du dich gut aus und bist auf der Strasse sicher unterwegs\n• Du kannst dich mündlich und schriftlich sicher in deutscher Sprache ausdrücken\n• Du bist zuverlässig, flexibel und auch in stressigen Situationen leistungsfähig\n\nDeine Benefits\n• Grosszügiges Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Gute Verkehrsanbindung: Top Verkehrsanbindung - schneller zur Arbeit, mehr Freizeit\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
       "descriptionByLocale": {
-        "de": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Gemäss Einsatzplanung der Disposition führst du Transportaufträge im nationalen Verkehr aus und lieferst die Ware termingerecht und professionell an unsere Kunden\n• Die Be- und Entladung ist für dich kein Problem – du packst mit an und sorgst dafür, dass alles sicher verstaut ist\n• Du achtest auf eine fachgerechte Ladungssicherung – nichts bleibt dem Zufall überlassen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n\nWeshalb es dir gelingt\n• Du hast den Führerausweis Kat. CE in der Tasche und kannst Anhängerzüge sicher fahren\n• Idealerweise bringst du Erfahrung im Stückguttransport mit und besitzt den Stapler- sowie ADR-Ausweis\n• Deine Fahrerbewilligungen sind auf dem neusten Stand\n• In der Region kennst du dich gut aus und bist auf der Strasse sicher unterwegs\n• Du kannst dich mündlich und schriftlich sicher in deutscher Sprache ausdrücken\n• Du bist zuverlässig, flexibel und auch in stressigen Situationen leistungsfähig\n\nDeine Benefits\n• Grosszügiges Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Gute Verkehrsanbindung: Top Verkehrsanbindung - schneller zur Arbeit, mehr Freizeit\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "it": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Gemäss Einsatzplanung der Disposition führst du Transportaufträge im nationalen Verkehr aus und lieferst die Ware termingerecht und professionell an unsere Kunden\n• Die Be- und Entladung ist für dich kein Problem – du packst mit an und sorgst dafür, dass alles sicher verstaut ist\n• Du achtest auf eine fachgerechte Ladungssicherung – nichts bleibt dem Zufall überlassen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n\nWeshalb es dir gelingt\n• Du hast den Führerausweis Kat. CE in der Tasche und kannst Anhängerzüge sicher fahren\n• Idealerweise bringst du Erfahrung im Stückguttransport mit und besitzt den Stapler- sowie ADR-Ausweis\n• Deine Fahrerbewilligungen sind auf dem neusten Stand\n• In der Region kennst du dich gut aus und bist auf der Strasse sicher unterwegs\n• Du kannst dich mündlich und schriftlich sicher in deutscher Sprache ausdrücken\n• Du bist zuverlässig, flexibel und auch in stressigen Situationen leistungsfähig\n\nDeine Benefits\n• Grosszügiges Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Gute Verkehrsanbindung: Top Verkehrsanbindung - schneller zur Arbeit, mehr Freizeit\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "en": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Gemäss Einsatzplanung der Disposition führst du Transportaufträge im nationalen Verkehr aus und lieferst die Ware termingerecht und professionell an unsere Kunden\n• Die Be- und Entladung ist für dich kein Problem – du packst mit an und sorgst dafür, dass alles sicher verstaut ist\n• Du achtest auf eine fachgerechte Ladungssicherung – nichts bleibt dem Zufall überlassen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n\nWeshalb es dir gelingt\n• Du hast den Führerausweis Kat. CE in der Tasche und kannst Anhängerzüge sicher fahren\n• Idealerweise bringst du Erfahrung im Stückguttransport mit und besitzt den Stapler- sowie ADR-Ausweis\n• Deine Fahrerbewilligungen sind auf dem neusten Stand\n• In der Region kennst du dich gut aus und bist auf der Strasse sicher unterwegs\n• Du kannst dich mündlich und schriftlich sicher in deutscher Sprache ausdrücken\n• Du bist zuverlässig, flexibel und auch in stressigen Situationen leistungsfähig\n\nDeine Benefits\n• Grosszügiges Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Gute Verkehrsanbindung: Top Verkehrsanbindung - schneller zur Arbeit, mehr Freizeit\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
+        "de": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Gemäss Einsatzplanung der Disposition führst du Transportaufträge im nationalen Verkehr aus und lieferst die Ware termingerecht und professionell an unsere Kunden\n• Die Be- und Entladung ist für dich kein Problem – du packst mit an und sorgst dafür, dass alles sicher verstaut ist\n• Du achtest auf eine fachgerechte Ladungssicherung – nichts bleibt dem Zufall überlassen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n\nWeshalb es dir gelingt\n• Du hast den Führerausweis Kat. CE in der Tasche und kannst Anhängerzüge sicher fahren\n• Idealerweise bringst du Erfahrung im Stückguttransport mit und besitzt den Stapler- sowie ADR-Ausweis\n• Deine Fahrerbewilligungen sind auf dem neusten Stand\n• In der Region kennst du dich gut aus und bist auf der Strasse sicher unterwegs\n• Du kannst dich mündlich und schriftlich sicher in deutscher Sprache ausdrücken\n• Du bist zuverlässig, flexibel und auch in stressigen Situationen leistungsfähig\n\nDeine Benefits\n• Grosszügiges Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Gute Verkehrsanbindung: Top Verkehrsanbindung - schneller zur Arbeit, mehr Freizeit\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "fr": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Gemäss Einsatzplanung der Disposition führst du Transportaufträge im nationalen Verkehr aus und lieferst die Ware termingerecht und professionell an unsere Kunden\n• Die Be- und Entladung ist für dich kein Problem – du packst mit an und sorgst dafür, dass alles sicher verstaut ist\n• Du achtest auf eine fachgerechte Ladungssicherung – nichts bleibt dem Zufall überlassen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n\nWeshalb es dir gelingt\n• Du hast den Führerausweis Kat. CE in der Tasche und kannst Anhängerzüge sicher fahren\n• Idealerweise bringst du Erfahrung im Stückguttransport mit und besitzt den Stapler- sowie ADR-Ausweis\n• Deine Fahrerbewilligungen sind auf dem neusten Stand\n• In der Region kennst du dich gut aus und bist auf der Strasse sicher unterwegs\n• Du kannst dich mündlich und schriftlich sicher in deutscher Sprache ausdrücken\n• Du bist zuverlässig, flexibel und auch in stressigen Situationen leistungsfähig\n\nDeine Benefits\n• Grosszügiges Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Gute Verkehrsanbindung: Top Verkehrsanbindung - schneller zur Arbeit, mehr Freizeit\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden."
       },
       "needsRetranslation": true,
@@ -691,7 +687,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4106529",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:18:34.889Z",
+      "crawledAt": "2026-11-28T21:45:04.048Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Hermetschloostrasse 12",
@@ -711,9 +707,8 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4106529",
       "externalId": "4106529",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-29T09:31:37.901Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -728,17 +723,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:18:34.889Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-29T09:31:37.901Z"
+      "validThrough": "2027-01-27T21:45:04.048Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "planzer-907b61587e3c",
       "slug": "ausbildner-lkw-nutzfahrzeugtechnik-m-w-d-planzer-dallikon",
       "slugByLocale": {
-        "de": "ausbildner-lkw-nutzfahrzeugtechnik-m-w-d-planzer-dallikon",
         "it": "ausbildner-lkw-nutzfahrzeugtechnik-m-w-d-planzer-dallikon",
         "en": "ausbildner-lkw-nutzfahrzeugtechnik-m-w-d-planzer-dallikon",
+        "de": "ausbildner-lkw-nutzfahrzeugtechnik-m-w-d-planzer-dallikon",
         "fr": "ausbildner-lkw-nutzfahrzeugtechnik-m-w-d-planzer-dallikon"
       },
       "company": "Planzer",
@@ -746,16 +740,16 @@
       "companyDomain": "planzer.ch",
       "title": "Ausbildner LKW-/Nutzfahrzeugtechnik (m/w/d)",
       "titleByLocale": {
-        "de": "Ausbildner LKW-/Nutzfahrzeugtechnik (m/w/d)",
         "it": "Ausbildner LKW-/Nutzfahrzeugtechnik (m/w/d)",
         "en": "Ausbildner LKW-/Nutzfahrzeugtechnik (m/w/d)",
+        "de": "Ausbildner LKW-/Nutzfahrzeugtechnik (m/w/d)",
         "fr": "Ausbildner LKW-/Nutzfahrzeugtechnik (m/w/d)"
       },
       "description": "Bei uns sind echte Profis gefragt – nicht nur auf der Strasse, sondern auch in der Logistik und unseren eigenen Werkstätten. Unsere topmoderne Flotte mit rund 1'800 Fahrzeugen verdient regelmässige Wartung und präzise Reparaturen. Packst du mit an?\n\nWas du bewegst\n• Du begleitest und förderst Lernende in ihrer fachlichen und persönlichen Entwicklung\n• Die Vermittlung von praxisnahem Fachwissen in Diagnose, Wartung und Reparatur von Nutzfahrzeugen gehört zu deinen Aufgaben\n• Du planst und koordinierst die Ausbildungsinhalte und stellst eine hochwertige Ausbildung sicher\n• Bei der Vorbereitung auf das Qualifikationsverfahren unterstützt du die Lernenden und förderst ihre Selbstständigkeit\n• Als fachliches sowie persönliches Vorbild arbeitest du aktiv im Werkstattbetrieb mit\n\nWeshalb es dir gelingt\n• Eine abgeschlossene Berufsausbildung als Automobil-Mechatroniker EFZ Fachrichtung Nutzfahrzeuge, Lastwagen-, Land- oder Baumaschinenmechaniker bildet deine Basis\n• Idealerweise bringst du bereits Erfahrung als Berufsbildner mit oder bist bereit, die entsprechende Weiterbildung zu absolvieren\n• Du hast Freude an der Ausbildung und Förderung junger Berufsleute\n• Empathie, Verantwortungsbewusstsein und Lösungsorientierung zeichnen dich aus\n• Eine selbständige und strukturierte Arbeitsweise ist für dich selbstverständlich – Qualität und Sicherheit stehen bei dir an erster Stelle\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Moderne Arbeitsgeräte: Wir gehen mit der Zeit - dir stehen moderne und sichere Arbeitsgeräte zur Verfügung\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
       "descriptionByLocale": {
-        "de": "Bei uns sind echte Profis gefragt – nicht nur auf der Strasse, sondern auch in der Logistik und unseren eigenen Werkstätten. Unsere topmoderne Flotte mit rund 1'800 Fahrzeugen verdient regelmässige Wartung und präzise Reparaturen. Packst du mit an?\n\nWas du bewegst\n• Du begleitest und förderst Lernende in ihrer fachlichen und persönlichen Entwicklung\n• Die Vermittlung von praxisnahem Fachwissen in Diagnose, Wartung und Reparatur von Nutzfahrzeugen gehört zu deinen Aufgaben\n• Du planst und koordinierst die Ausbildungsinhalte und stellst eine hochwertige Ausbildung sicher\n• Bei der Vorbereitung auf das Qualifikationsverfahren unterstützt du die Lernenden und förderst ihre Selbstständigkeit\n• Als fachliches sowie persönliches Vorbild arbeitest du aktiv im Werkstattbetrieb mit\n\nWeshalb es dir gelingt\n• Eine abgeschlossene Berufsausbildung als Automobil-Mechatroniker EFZ Fachrichtung Nutzfahrzeuge, Lastwagen-, Land- oder Baumaschinenmechaniker bildet deine Basis\n• Idealerweise bringst du bereits Erfahrung als Berufsbildner mit oder bist bereit, die entsprechende Weiterbildung zu absolvieren\n• Du hast Freude an der Ausbildung und Förderung junger Berufsleute\n• Empathie, Verantwortungsbewusstsein und Lösungsorientierung zeichnen dich aus\n• Eine selbständige und strukturierte Arbeitsweise ist für dich selbstverständlich – Qualität und Sicherheit stehen bei dir an erster Stelle\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Moderne Arbeitsgeräte: Wir gehen mit der Zeit - dir stehen moderne und sichere Arbeitsgeräte zur Verfügung\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "it": "Bei uns sind echte Profis gefragt – nicht nur auf der Strasse, sondern auch in der Logistik und unseren eigenen Werkstätten. Unsere topmoderne Flotte mit rund 1'800 Fahrzeugen verdient regelmässige Wartung und präzise Reparaturen. Packst du mit an?\n\nWas du bewegst\n• Du begleitest und förderst Lernende in ihrer fachlichen und persönlichen Entwicklung\n• Die Vermittlung von praxisnahem Fachwissen in Diagnose, Wartung und Reparatur von Nutzfahrzeugen gehört zu deinen Aufgaben\n• Du planst und koordinierst die Ausbildungsinhalte und stellst eine hochwertige Ausbildung sicher\n• Bei der Vorbereitung auf das Qualifikationsverfahren unterstützt du die Lernenden und förderst ihre Selbstständigkeit\n• Als fachliches sowie persönliches Vorbild arbeitest du aktiv im Werkstattbetrieb mit\n\nWeshalb es dir gelingt\n• Eine abgeschlossene Berufsausbildung als Automobil-Mechatroniker EFZ Fachrichtung Nutzfahrzeuge, Lastwagen-, Land- oder Baumaschinenmechaniker bildet deine Basis\n• Idealerweise bringst du bereits Erfahrung als Berufsbildner mit oder bist bereit, die entsprechende Weiterbildung zu absolvieren\n• Du hast Freude an der Ausbildung und Förderung junger Berufsleute\n• Empathie, Verantwortungsbewusstsein und Lösungsorientierung zeichnen dich aus\n• Eine selbständige und strukturierte Arbeitsweise ist für dich selbstverständlich – Qualität und Sicherheit stehen bei dir an erster Stelle\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Moderne Arbeitsgeräte: Wir gehen mit der Zeit - dir stehen moderne und sichere Arbeitsgeräte zur Verfügung\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "en": "Bei uns sind echte Profis gefragt – nicht nur auf der Strasse, sondern auch in der Logistik und unseren eigenen Werkstätten. Unsere topmoderne Flotte mit rund 1'800 Fahrzeugen verdient regelmässige Wartung und präzise Reparaturen. Packst du mit an?\n\nWas du bewegst\n• Du begleitest und förderst Lernende in ihrer fachlichen und persönlichen Entwicklung\n• Die Vermittlung von praxisnahem Fachwissen in Diagnose, Wartung und Reparatur von Nutzfahrzeugen gehört zu deinen Aufgaben\n• Du planst und koordinierst die Ausbildungsinhalte und stellst eine hochwertige Ausbildung sicher\n• Bei der Vorbereitung auf das Qualifikationsverfahren unterstützt du die Lernenden und förderst ihre Selbstständigkeit\n• Als fachliches sowie persönliches Vorbild arbeitest du aktiv im Werkstattbetrieb mit\n\nWeshalb es dir gelingt\n• Eine abgeschlossene Berufsausbildung als Automobil-Mechatroniker EFZ Fachrichtung Nutzfahrzeuge, Lastwagen-, Land- oder Baumaschinenmechaniker bildet deine Basis\n• Idealerweise bringst du bereits Erfahrung als Berufsbildner mit oder bist bereit, die entsprechende Weiterbildung zu absolvieren\n• Du hast Freude an der Ausbildung und Förderung junger Berufsleute\n• Empathie, Verantwortungsbewusstsein und Lösungsorientierung zeichnen dich aus\n• Eine selbständige und strukturierte Arbeitsweise ist für dich selbstverständlich – Qualität und Sicherheit stehen bei dir an erster Stelle\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Moderne Arbeitsgeräte: Wir gehen mit der Zeit - dir stehen moderne und sichere Arbeitsgeräte zur Verfügung\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
+        "de": "Bei uns sind echte Profis gefragt – nicht nur auf der Strasse, sondern auch in der Logistik und unseren eigenen Werkstätten. Unsere topmoderne Flotte mit rund 1'800 Fahrzeugen verdient regelmässige Wartung und präzise Reparaturen. Packst du mit an?\n\nWas du bewegst\n• Du begleitest und förderst Lernende in ihrer fachlichen und persönlichen Entwicklung\n• Die Vermittlung von praxisnahem Fachwissen in Diagnose, Wartung und Reparatur von Nutzfahrzeugen gehört zu deinen Aufgaben\n• Du planst und koordinierst die Ausbildungsinhalte und stellst eine hochwertige Ausbildung sicher\n• Bei der Vorbereitung auf das Qualifikationsverfahren unterstützt du die Lernenden und förderst ihre Selbstständigkeit\n• Als fachliches sowie persönliches Vorbild arbeitest du aktiv im Werkstattbetrieb mit\n\nWeshalb es dir gelingt\n• Eine abgeschlossene Berufsausbildung als Automobil-Mechatroniker EFZ Fachrichtung Nutzfahrzeuge, Lastwagen-, Land- oder Baumaschinenmechaniker bildet deine Basis\n• Idealerweise bringst du bereits Erfahrung als Berufsbildner mit oder bist bereit, die entsprechende Weiterbildung zu absolvieren\n• Du hast Freude an der Ausbildung und Förderung junger Berufsleute\n• Empathie, Verantwortungsbewusstsein und Lösungsorientierung zeichnen dich aus\n• Eine selbständige und strukturierte Arbeitsweise ist für dich selbstverständlich – Qualität und Sicherheit stehen bei dir an erster Stelle\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Moderne Arbeitsgeräte: Wir gehen mit der Zeit - dir stehen moderne und sichere Arbeitsgeräte zur Verfügung\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "fr": "Bei uns sind echte Profis gefragt – nicht nur auf der Strasse, sondern auch in der Logistik und unseren eigenen Werkstätten. Unsere topmoderne Flotte mit rund 1'800 Fahrzeugen verdient regelmässige Wartung und präzise Reparaturen. Packst du mit an?\n\nWas du bewegst\n• Du begleitest und förderst Lernende in ihrer fachlichen und persönlichen Entwicklung\n• Die Vermittlung von praxisnahem Fachwissen in Diagnose, Wartung und Reparatur von Nutzfahrzeugen gehört zu deinen Aufgaben\n• Du planst und koordinierst die Ausbildungsinhalte und stellst eine hochwertige Ausbildung sicher\n• Bei der Vorbereitung auf das Qualifikationsverfahren unterstützt du die Lernenden und förderst ihre Selbstständigkeit\n• Als fachliches sowie persönliches Vorbild arbeitest du aktiv im Werkstattbetrieb mit\n\nWeshalb es dir gelingt\n• Eine abgeschlossene Berufsausbildung als Automobil-Mechatroniker EFZ Fachrichtung Nutzfahrzeuge, Lastwagen-, Land- oder Baumaschinenmechaniker bildet deine Basis\n• Idealerweise bringst du bereits Erfahrung als Berufsbildner mit oder bist bereit, die entsprechende Weiterbildung zu absolvieren\n• Du hast Freude an der Ausbildung und Förderung junger Berufsleute\n• Empathie, Verantwortungsbewusstsein und Lösungsorientierung zeichnen dich aus\n• Eine selbständige und strukturierte Arbeitsweise ist für dich selbstverständlich – Qualität und Sicherheit stehen bei dir an erster Stelle\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Moderne Arbeitsgeräte: Wir gehen mit der Zeit - dir stehen moderne und sichere Arbeitsgeräte zur Verfügung\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden."
       },
       "needsRetranslation": true,
@@ -764,7 +758,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4106532",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:18:33.893Z",
+      "crawledAt": "2026-11-28T21:45:03.324Z",
       "addressLocality": "Dällikon",
       "addressRegion": "ZH",
       "streetAddress": "Industriestrasse 10",
@@ -784,9 +778,8 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4106532",
       "externalId": "4106532",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-29T09:31:36.871Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -801,9 +794,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:18:33.893Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-29T09:31:36.871Z"
+      "validThrough": "2027-01-27T21:45:03.324Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "planzer-1e2613c61ec6",
@@ -885,7 +877,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-27T21:21:27.863Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "planzer-6d16a06e9192",
@@ -956,7 +948,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-22T21:21:27.155Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "planzer-35f03ec2c8c9",
@@ -1043,7 +1035,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-24T21:21:26.439Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "planzer-27adb1754f64",
@@ -1126,179 +1118,6 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-25T21:21:25.709Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "planzer-d2b39417104d",
-      "slug": "dipendente-della-flotta-di-veicoli-m-f-d-planzer-penthalaz",
-      "slugByLocale": {
-        "it": "dipendente-della-flotta-di-veicoli-m-f-d-planzer-penthalaz",
-        "en": "vehicle-fleet-employee-m-f-d-planzer-penthalaz",
-        "de": "fahrzeugflottenmitarbeiter-m-w-d-planzer-penthalaz",
-        "fr": "employe-parc-de-vehicules-m-f-d-planzer-penthalaz"
-      },
-      "company": "Planzer",
-      "companyKey": "planzer",
-      "companyDomain": "planzer.ch",
-      "title": "Employé parc de véhicules (m/f/d)",
-      "titleByLocale": {
-        "it": "Dipendente della flotta di veicoli (m/f/d)",
-        "en": "Vehicle fleet employee (m/f/d)",
-        "de": "Fahrzeugflottenmitarbeiter (m/w/d)",
-        "fr": "Employé parc de véhicules (m/f/d)"
-      },
-      "description": "Le mouvement est dans notre ADN - depuis 1936. En tant qu'entreprise familiale, nous accordons de l'importance aux personnes qui veulent réfléchir, participer et grandir avec nous. Rejoins notre famille et façonne avec nous l'avenir de la logistique de transport et de stockage.\n\nCe que tu accomplis\n• Tu coordonnes les travaux d'entretien et de maintenance avec les prestataires de services internes et externes et tu effectues toi-même les petites réparations\n• Tu effectues régulièrement les contrôles des véhicules présents sur le parc et l'organisation du sationnenment\n• Tu es un soutien important pour les nouveaux achats et les achats de remplacement, ainsi que pour les tâches techniques et administratives\n• Tu t'assures du bon fonctionnement de l'entretien du tunnel de nettoyage, et plus globalement de toutes les installations du parc\n• Horaires: du lundi au vendredi de 10h à 20h\n\nCe qui te permettra de réussir\n• Tu disposes idéalement d'une expérience en mécanique de véhicules légers, lourds ou agricoles ; CFC, un atout ou formation équivalente\n• Tu communiques aisément en français à l'oral comme à l'écrit; l'allemand oral, un plus\n• Tu maitrises des moyens de communication modernes (par exemple MS Office)\n• Tu te caractérises par ta fiabilité, ta flexibilité, ta capacité à prendre des initiatives et ta volonté de te donner à fond même en période de stress\n• Tu es en excellente condition physique\n\nTes avantages\n• Règlement de vacances attractif: Chez nous, tu commences avec 5 semaines de vacances et, à partir de ta 5e année de service, tu profites même de 6 semaines!\n• Culture d'entreprise familiale: Tu feras partie de notre culture d'entreprise familiale - respect, confiance et courtoisie sont nos valeurs clés\n• Des outils de travail modernes: Nous vivons avec notre temps - tu disposes d'outils de travail modernes et sûrs\n• Parking gratuit: Chez nous, tu peux te garer gratuitement\n\nQui sommes-nous\nEn tant qu'entreprise, nous accordons une grande importance à la collaboration et à une bonne ambiance de travail. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la disponibilité et la motivation. Nous accordons également une grande importance à la ponctualité, à la loyauté et à la précision, car ces valeurs constituent la base d'une méthode de travail fiable et orientée vers le client.",
-      "descriptionByLocale": {
-        "it": "Il movimento è nel nostro DNA dal 1936. Come azienda di famiglia, apprezziamo le persone che vogliono pensare, partecipare e crescere con noi. Unisciti alla nostra famiglia e forma con noi il futuro della logistica del trasporto e dello stoccaggio.\n\nCosa fai\n• Coordinate i lavori di manutenzione e manutenzione con i fornitori di servizi interni ed esterni ed eseguite piccole riparazioni da soli\n• Effettuate regolarmente i controlli dei veicoli presenti sulla flotta e l'organizzazione del regolamento\n• Sei un importante supporto per nuovi acquisti e acquisti di sostituzione, nonché per compiti tecnici e amministrativi\n• Assicura il corretto funzionamento della manutenzione del tunnel di pulizia, e più in generale di tutte le strutture del parco\n• Orario: dal lunedì al venerdì dalle 10:00 alle 20:00\n\nChe vi permetterà di avere successo\n• Idealmente avete esperienza in meccanica di veicoli leggeri, pesanti o agricoli; SWC, un asset o una formazione equivalente\n• Si comunica facilmente in francese sia per via orale che per iscritto; tedesco orale, un plus\n• Controllate i moderni mezzi di comunicazione (ad esempio MS Office)\n• Siete caratterizzati dalla vostra affidabilità, flessibilità, capacità di prendere iniziative, e la volontà di donarsi in pieno anche in tempi di stress\n• Siete in ottime condizioni fisiche\n\nI vantaggi\n• Attraente insediamento vacanza: Con noi, si inizia con 5 settimane di vacanza e, dal vostro 5 ° anno di servizio, si gode anche 6 settimane!\n• Cultura aziendale familiare: farai parte della nostra cultura aziendale di famiglia. - rispetto, fiducia e cortesia sono i nostri valori chiave\n• Strumenti di lavoro moderni: Viviamo con il nostro tempo - avete strumenti di lavoro moderni e sicuri\n• Parcheggio gratuito: con noi, è possibile parcheggiare gratuitamente\n\nChi siamo?\nCome azienda, attribuiamo grande importanza alla collaborazione e ad una buona atmosfera di lavoro. Questo è il motivo per cui apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, poiché questi valori costituiscono la base di un metodo di lavoro affidabile e orientato al cliente.",
-        "en": "The movement has been in our DNA since 1936. As a family business, we value people who want to think, participate and grow up with us. Join our family and shape with us the future of transport and storage logistics.\n\nWhat You Do\n• You coordinate maintenance and maintenance work with internal and external service providers and perform small repairs yourself\n• You regularly carry out the checks of vehicles present on the fleet and the organisation of the settlement\n• You are an important support for new purchases and replacement purchases, as well as for technical and administrative tasks\n• You ensure the proper operation of the cleaning tunnel maintenance, and more generally of all the facilities in the park\n• Hours: Monday to Friday from 10am to 8pm\n\nWhich will allow you to succeed\n• You ideally have experience in mechanics of light, heavy or agricultural vehicles; SWC, an asset or equivalent training\n• You communicate easily in French both orally and in writing; oral German, a plus\n• You control modern means of communication (e.g. MS Office)\n• You are characterized by your reliability, flexibility, ability to take initiatives, and willingness to give yourself in full even in times of stress\n• You are in excellent physical condition\n\nYour benefits\n• Attractive holiday settlement: With us, you start with 5 weeks of vacation and, from your 5th year of service, you even enjoy 6 weeks!\n• Family business culture: You'll be part of our family business culture. - respect, trust and courtesy are our key values\n• Modern working tools: We live with our time - you have modern and safe working tools\n• Free parking: With us, you can park for free\n\nWho are we?\nAs a company, we attach great importance to collaboration and a good working atmosphere. This is why we particularly appreciate qualities such as team spirit, availability and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis of a reliable and customer-oriented method of work.",
-        "de": "Die Bewegung ist seit 1936 in unserer DNA. Als Familienunternehmen schätzen wir Menschen, die mit uns denken, mitmachen und aufwachsen wollen. Schließen Sie sich unserer Familie an und gestalten Sie mit uns die Zukunft der Transport- und Lagerlogistik.\n\nWas du tust\n• Sie koordinieren Wartungs- und Wartungsarbeiten mit internen und externen Dienstleistern und führen selbst kleine Reparaturen durch\n• Sie führen regelmäßig die Überprüfungen der in der Flotte befindlichen Fahrzeuge und die Organisation der Abrechnung durch\n• Sie sind eine wichtige Unterstützung bei Neu- und Ersatzkäufen sowie bei technischen und administrativen Aufgaben\n• Sie gewährleisten den ordnungsgemäßen Betrieb der Wartung des Reinigungstunnels und allgemeiner aller Einrichtungen im Park\n• Stunden: Montag bis Freitag von 10 bis 20 Uhr\n\nWas Ihnen den Erfolg ermöglicht\n• Sie haben idealerweise Erfahrung in Mechanik von leichten, schweren oder landwirtschaftlichen Fahrzeugen; SWC, ein Asset oder eine gleichwertige Ausbildung\n• Sie kommunizieren leicht auf Französisch sowohl mündlich als auch schriftlich; mündliches Deutsch, ein Plus\n• Sie steuern moderne Kommunikationsmittel (z.B. MS Office)\n• Sie zeichnen sich durch Ihre Zuverlässigkeit, Flexibilität, Initiativesfähigkeit und Bereitschaft aus, sich selbst in Zeiten von Stress voll und ganz zu geben.\n• Sie befinden sich in einer ausgezeichneten körperlichen Verfassung\n\nIhre Vorteile\n• Attraktive Urlaubssiedlung: Bei uns starten Sie mit 5 Wochen Urlaub und genießen ab dem 5. Dienstjahr sogar 6 Wochen!\n• Familienunternehmenskultur: Sie werden Teil unserer Familienunternehmenskultur. - Respekt, Vertrauen und Höflichkeit sind unsere Grundwerte\n• Moderne Arbeitsmittel: Wir leben mit unserer Zeit - Sie haben moderne und sichere Arbeitsmittel\n• Kostenlose Parkplätze: Bei uns können Sie kostenlos parken\n\nWer sind wir?\nAls Unternehmen legen wir großen Wert auf Zusammenarbeit und ein gutes Arbeitsklima. Deshalb schätzen wir besonders Qualitäten wie Teamgeist, Verfügbarkeit und Motivation. Auch legen wir großen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage einer zuverlässigen und kundenorientierten Arbeitsweise bilden.",
-        "fr": "Le mouvement est dans notre ADN - depuis 1936. En tant qu'entreprise familiale, nous accordons de l'importance aux personnes qui veulent réfléchir, participer et grandir avec nous. Rejoins notre famille et façonne avec nous l'avenir de la logistique de transport et de stockage.\n\nCe que tu accomplis\n• Tu coordonnes les travaux d'entretien et de maintenance avec les prestataires de services internes et externes et tu effectues toi-même les petites réparations\n• Tu effectues régulièrement les contrôles des véhicules présents sur le parc et l'organisation du sationnenment\n• Tu es un soutien important pour les nouveaux achats et les achats de remplacement, ainsi que pour les tâches techniques et administratives\n• Tu t'assures du bon fonctionnement de l'entretien du tunnel de nettoyage, et plus globalement de toutes les installations du parc\n• Horaires: du lundi au vendredi de 10h à 20h\n\nCe qui te permettra de réussir\n• Tu disposes idéalement d'une expérience en mécanique de véhicules légers, lourds ou agricoles ; CFC, un atout ou formation équivalente\n• Tu communiques aisément en français à l'oral comme à l'écrit; l'allemand oral, un plus\n• Tu maitrises des moyens de communication modernes (par exemple MS Office)\n• Tu te caractérises par ta fiabilité, ta flexibilité, ta capacité à prendre des initiatives et ta volonté de te donner à fond même en période de stress\n• Tu es en excellente condition physique\n\nTes avantages\n• Règlement de vacances attractif: Chez nous, tu commences avec 5 semaines de vacances et, à partir de ta 5e année de service, tu profites même de 6 semaines!\n• Culture d'entreprise familiale: Tu feras partie de notre culture d'entreprise familiale - respect, confiance et courtoisie sont nos valeurs clés\n• Des outils de travail modernes: Nous vivons avec notre temps - tu disposes d'outils de travail modernes et sûrs\n• Parking gratuit: Chez nous, tu peux te garer gratuitement\n\nQui sommes-nous\nEn tant qu'entreprise, nous accordons une grande importance à la collaboration et à une bonne ambiance de travail. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la disponibilité et la motivation. Nous accordons également une grande importance à la ponctualité, à la loyauté et à la précision, car ces valeurs constituent la base d'une méthode de travail fiable et orientée vers le client."
-      },
-      "needsRetranslation": false,
-      "location": "Penthalaz",
-      "canton": "VD",
-      "url": "https://live.solique.ch/planzer/job/details/4106679",
-      "source": "Planzer Dedicated Parser (Solique)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:23:44.070Z",
-      "addressLocality": "Penthalaz",
-      "addressRegion": "VD",
-      "streetAddress": "Chemin de l'Islettaz 7",
-      "postalCode": "1305",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Logistica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/planzer/job/details/4106679",
-      "externalId": "4106679",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "employe-parc-de-vehicules-m-f-d-planzer-penthalaz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "employe-parc-de-vehicules-m-f-d-planzer-penthalaz"
-        ],
-        "en": [
-          "employe-parc-de-vehicules-m-f-d-planzer-penthalaz"
-        ],
-        "de": [
-          "employe-parc-de-vehicules-m-f-d-planzer-penthalaz"
-        ]
-      },
-      "firstSeenAt": "2026-11-23T21:21:11.967Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-22T09:23:44.070Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4106679",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "planzer-76edfce6e500",
-      "slug": "addetto-a-alla-logistica-samstagsschicht-m-w-d-planzer-emmen",
-      "slugByLocale": {
-        "it": "addetto-a-alla-logistica-samstagsschicht-m-w-d-planzer-emmen",
-        "en": "employee-logistics-saturday-shift-m-f-d-planzer-emmen",
-        "de": "mitarbeiter-logistik-samstagsschicht-m-w-d-planzer-emmen",
-        "fr": "logistique-des-employes-samedi-quart-h-f-d-planzer-emmen"
-      },
-      "company": "Planzer",
-      "companyKey": "planzer",
-      "companyDomain": "planzer.ch",
-      "title": "Mitarbeiter Logistik Samstagsschicht (m/w/d)",
-      "titleByLocale": {
-        "it": "Addetto/a alla logistica Samstagsschicht (m/w/d)",
-        "en": "Employee Logistics Saturday shift (m/f/d)",
-        "de": "Mitarbeiter Logistik Samstagsschicht (m/w/d)",
-        "fr": "Logistique des employés Samedi quart (h/f/d)"
-      },
-      "description": "Ob klein oder gross, einfach oder komplex – wir transportieren und lagern Güter. Mit motivierten Mitarbeitenden und modernen Fahrzeugen bedienen wir von Emmen nicht nur die Region, sondern auch die hintersten Winkel der Schweiz. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Du kommissionierst Artikel präzise und sorgst dafür, dass Kundenbestellungen termingerecht abgewickelt werden\n• Ein- und Auslagerungen sowie das Verpacken und Etikettieren von Waren erledigst du zuverlässig und sorgfältig\n• Mit unseren Lagergeräten und Betriebsmitteln gehst du sicher und effizient um\n• Dein fester Arbeitstag ist der Samstag. Gemeinsam mit deinem Team sorgst du dafür, dass auch am Wochenende alles rundläuft\n\nWeshalb es dir gelingt\n• Du verfügst idealerweise über eine abgeschlossene Berufsausbildung als Logistiker/in EFZ oder bringst Berufserfahrung im Lager- oder Logistikbereich mit\n• Ein Staplerausweis ist von Vorteil. Falls du noch keinen besitzt, unterstützen wir dich gerne beim Erwerb\n• Du kannst dich mündlich und schriftlich gut in deutscher Sprache verständigen\n• Zuverlässigkeit, Genauigkeit und eine selbstständige Arbeitsweise zeichnen dich aus\n• Die Bereitschaft, ausschliesslich jeden Samstag zu arbeiten, ist für dich selbstverständlich\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-      "descriptionByLocale": {
-        "it": "Che sia piccolo o grande, semplice o complesso – trasportiamo e riportiamo merci. Con dipendenti motivati e veicoli moderni, a Emmen serviamo non solo la regione, ma anche gli angoli più posteriori della Svizzera. Diventa parte del nostro team e modella il futuro della logistica!\n\nChe cosa si muove\n• Scegli gli articoli con precisione e assicurati che gli ordini del cliente vengano elaborati in tempo\n• Lo stoccaggio e il recupero nonché l'imballaggio e l'etichettatura delle merci sono fatti in modo affidabile e con attenzione\n• Con le nostre attrezzature e risorse di storage gestisci in modo sicuro ed efficiente\n• Il tuo giorno lavorativo fisso e' sabato. Insieme al vostro team, assicuratevi che tutto funzioni senza intoppi nel fine settimana.\n\nPerché hai successo?\n• Idealmente, avete completato la formazione professionale come specialista di logistica o portare esperienza professionale nel settore del magazzino o della logistica\n• Un pass per carrelli elevatori è un vantaggio. Se non si possiede già uno, vi supporteremo volentieri con l'acquisizione\n• È possibile comunicare bene per via orale e per iscritto in tedesco\n• Affidabilità, precisione e un metodo di lavoro indipendente ti distinguono\n• La volontà di lavorare esclusivamente ogni sabato è una questione naturalmente per voi\n\nI tuoi vantaggi\n• Attraente regolamento vacanza: Con noi si inizia con 5 settimane vacanze e anche beneficiare di 6 settimane dal 5 ° anno di servizio!\n• Ulteriori opportunità di formazione e sviluppo: Con noi si può sviluppare - promuoviamo e sfidare i talenti\n• Formazione introduttiva centrale: Passerete i vostri primi giorni di lavoro nell'introduzione centrale, dove sarete insegnati le basi più importanti\n• Parcheggio gratuito: Preparatevi per il parcheggio - con noi potete parcheggiare gratuitamente\n\nChi siamo\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
-        "en": "Whether small or large, simple or complex – we transport and store goods. With motivated employees and modern vehicles, we at Emmen serve not only the region, but also the rearmost corners of Switzerland. Become part of our team and shape the future of logistics!\n\nWhat you move\n• You pick items precisely and ensure that customer orders are processed on time\n• Storage and retrieval as well as packaging and labelling of goods are done reliably and carefully\n• With our storage equipment and resources you handle safely and efficiently\n• Your fixed working day is Saturday. Together with your team, you ensure that everything runs smoothly on the weekend.\n\nWhy do you succeed?\n• Ideally, you have completed vocational training as a logistics specialist or bring professional experience in the warehouse or logistics sector\n• A forklift pass is an advantage. If you do not already own one, we will gladly support you with the acquisition\n• You can communicate well orally and in writing in German\n• Reliability, accuracy and an independent working method distinguish you\n• The willingness to work exclusively every Saturday is a matter of course for you\n\nYour Benefits\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Further education and development opportunities: With us you can develop yourself - we promote and challenge talents\n• Central introductory training: You will spend your first working days in the central introduction, where you will be taught the most important basics\n• Free parking: Get ready for parking - with us you can park for free\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
-        "de": "Ob klein oder gross, einfach oder komplex – wir transportieren und lagern Güter. Mit motivierten Mitarbeitenden und modernen Fahrzeugen bedienen wir von Emmen nicht nur die Region, sondern auch die hintersten Winkel der Schweiz. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Du kommissionierst Artikel präzise und sorgst dafür, dass Kundenbestellungen termingerecht abgewickelt werden\n• Ein- und Auslagerungen sowie das Verpacken und Etikettieren von Waren erledigst du zuverlässig und sorgfältig\n• Mit unseren Lagergeräten und Betriebsmitteln gehst du sicher und effizient um\n• Dein fester Arbeitstag ist der Samstag. Gemeinsam mit deinem Team sorgst du dafür, dass auch am Wochenende alles rundläuft\n\nWeshalb es dir gelingt\n• Du verfügst idealerweise über eine abgeschlossene Berufsausbildung als Logistiker/in EFZ oder bringst Berufserfahrung im Lager- oder Logistikbereich mit\n• Ein Staplerausweis ist von Vorteil. Falls du noch keinen besitzt, unterstützen wir dich gerne beim Erwerb\n• Du kannst dich mündlich und schriftlich gut in deutscher Sprache verständigen\n• Zuverlässigkeit, Genauigkeit und eine selbstständige Arbeitsweise zeichnen dich aus\n• Die Bereitschaft, ausschliesslich jeden Samstag zu arbeiten, ist für dich selbstverständlich\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-        "fr": "Petite ou grande, simple ou complexe – nous transportons et entreposons des marchandises. Avec des employés motivés et des véhicules modernes, nous servons non seulement la région, mais aussi les coins arrière de la Suisse. Faites partie de notre équipe et façonnez l'avenir de la logistique!\n\nCe que tu bouges\n• Vous choisissez des articles avec précision et assurez-vous que les commandes des clients sont traitées à temps\n• Le stockage et la récupération ainsi que l'emballage et l'étiquetage des marchandises sont effectués de manière fiable et prudente.\n• Avec nos équipements de stockage et nos ressources, vous manipulez efficacement et en toute sécurité\n• Votre journée de travail fixe est samedi. Avec votre équipe, vous vous assurez que tout se déroule bien le week-end.\n\nPourquoi tu réussis ?\n• Idéalement, vous avez suivi une formation professionnelle en tant que spécialiste de la logistique ou vous avez acquis une expérience professionnelle dans le secteur de l'entrepôt ou de la logistique\n• Un passe de chariot élévateur est un avantage. Si vous n'en possédez pas déjà, nous vous soutiendrons volontiers avec l'acquisition\n• Vous pouvez bien communiquer oralement et par écrit en allemand\n• Fiabilité, précision et une méthode de travail indépendante vous distinguent\n• La volonté de travailler exclusivement chaque samedi est une question bien sûr pour vous\n\nVos avantages\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Possibilités d'éducation et de développement supplémentaires: Avec nous vous pouvez vous développer - nous promouvons et défions les talents\n• Formation d'introduction centrale: Vous passerez vos premiers jours de travail dans l'introduction centrale, où vous serez enseigné les bases les plus importantes\n• Parking gratuit: Préparez-vous pour le stationnement - avec nous vous pouvez garer gratuitement\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
-      },
-      "location": "Emmen",
-      "canton": "LU",
-      "url": "https://live.solique.ch/planzer/job/details/4106826",
-      "source": "Planzer Dedicated Parser (Solique)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:23:43.389Z",
-      "addressLocality": "Emmen",
-      "addressRegion": "LU",
-      "streetAddress": "Feldmattstrasse 31",
-      "postalCode": "6032",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Logistica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/planzer/job/details/4106826",
-      "externalId": "4106826",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-logistik-samstagsschicht-m-w-d-planzer-emmen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-logistik-samstagsschicht-m-w-d-planzer-emmen"
-        ],
-        "en": [
-          "mitarbeiter-logistik-samstagsschicht-m-w-d-planzer-emmen"
-        ],
-        "fr": [
-          "mitarbeiter-logistik-samstagsschicht-m-w-d-planzer-emmen"
-        ]
-      },
-      "firstSeenAt": "2026-11-24T21:20:42.871Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-23T09:23:43.389Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4106826",
       "crawlerMissStreak": 2
     }
   ]

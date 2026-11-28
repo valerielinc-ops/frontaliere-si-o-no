@@ -51,7 +51,7 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00054674EXTERNALENGLOBAL/Internship-in-Mechanical-Engineering-R-D-f-m-d--80-100"
   ],
   "notes": "Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-11-28T09:18:15.133Z",
+  "updatedAt": "2026-11-28T21:43:38.776Z",
   "seedMetaByUrl": {
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050875EXTERNALENGLOBAL/Experimental-Physicist--80---100---f-m-d": {
       "location": "Baden-Daettwil, Aargau, Switzerland",
@@ -253,17 +253,17 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00053828EXTERNALENGLOBAL/Service-Technician-f-m-d--80-100": {
-      "location": "Schaffhausen, Schaffhausen, Switzerland",
-      "canton": "SH",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00054674EXTERNALENGLOBAL/Internship-in-Mechanical-Engineering-R-D-f-m-d--80-100": {
+      "location": "Untersiggenthal, Aargau, Switzerland",
+      "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00054674EXTERNALENGLOBAL/Internship-in-Mechanical-Engineering-R-D-f-m-d--80-100": {
-      "location": "Untersiggenthal, Aargau, Switzerland",
-      "canton": "AG",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00053828EXTERNALENGLOBAL/Service-Technician-f-m-d--80-100": {
+      "location": "Schaffhausen, Schaffhausen, Switzerland",
+      "canton": "SH",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
