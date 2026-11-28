@@ -60,11 +60,12 @@ function makeStore(account: any): Store {
   return store;
 }
 
-function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = existsUrl, entryPage = 'redirect_to_login', accepted = null, portalUsername = null, limit = undefined, cutsInput = false, store = makeStore(account), recover = undefined, allowRecovery = false, aliasEmail = '' }: { postTo?: string; formAction?: string; signedInPage?: string; entryPage?: Entry; accepted?: string[] | null; portalUsername?: string | null; limit?: number; cutsInput?: boolean; store?: Store; recover?: any; allowRecovery?: boolean; aliasEmail?: string } = {}) {
+function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = existsUrl, entryPage = 'redirect_to_login', accepted = null, portalUsername = null, limit = undefined, cutsInput = false, unreadableInput = false, store = makeStore(account), recover = undefined, allowRecovery = false, aliasEmail = '' }: { postTo?: string; formAction?: string; signedInPage?: string; entryPage?: Entry; accepted?: string[] | null; portalUsername?: string | null; limit?: number; cutsInput?: boolean; unreadableInput?: boolean; store?: Store; recover?: any; allowRecovery?: boolean; aliasEmail?: string } = {}) {
   let handler: (route: any) => Promise<void>;
   let currentUrl = '';
   let signedIn = false;
   const log: Array<{ method: string; url: string; allowed: boolean }> = [];
+  const attempts: Array<{ user: number; password: string }> = [];
   usernameLimit = limit;
   const subframe = { name: 'subframe' };
   const fire = async (url: string, method = 'GET', navigation = true, inSubframe = false) => {
@@ -92,13 +93,14 @@ function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = exis
     },
     locator: () => ({ first: () => ({
       evaluate: async () => ({ action: formAction, method: 'post', credentialsOwned: true }),
-      inputValue: async () => { const typedUser = String(state.actions.find((action: any) => action.fieldId === 'u1')?.value ?? ''); return cutsInput && limit ? typedUser.slice(0, limit) : typedUser; },
+      inputValue: async () => { if (unreadableInput) throw new Error('detached'); const typedUser = String(state.actions.find((action: any) => action.fieldId === 'u1')?.value ?? ''); return cutsInput && limit ? typedUser.slice(0, limit) : typedUser; },
       click: async () => {
         const typed = state.actions.find((action: any) => action.fieldId === 'p1')?.value;
         const userAction = state.actions.find((action: any) => action.fieldId === 'u1');
         // What the portal receives: the whole value when the run raised the field's cap (preserveFullValue), else what the field keeps.
         const sentUser = userAction ? (userAction.preserveFullValue || !limit ? userAction.value : String(userAction.value).slice(0, limit)) : '';
         const posted = await fire(postTo, 'POST', false);
+        if (posted) attempts.push({ user: sentUser.length, password: String(typed) });
         signedIn = posted && (accepted === null || accepted.includes(typed)) && (portalUsername === null || sentUser === portalUsername);
       },
     }) }),
@@ -107,7 +109,7 @@ function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = exis
   const context = { route: async (_pattern: string, h: typeof handler) => { handler = h; }, routeWebSocket: async () => {}, addInitScript: async () => {}, newPage: async () => page, close: async () => {} };
   const run = () => verifyPortalApplication({ applyUrl, targetUrl: entry, probe, job: {}, accounts: store as any, allowRecovery, aliasEmail, ...(recover ? { recover } : {}),
     launch: async () => ({ newContext: async () => context, close: async () => {} }) as any });
-  return { run, fire, log, store };
+  return { run, fire, log, store, attempts };
 }
 
 describe('probe of an ATS sign-in with a registration form beside it (entry -> Login -> POST -> ApplicationExists)', () => {
@@ -319,6 +321,32 @@ describe('the sign-in identity: the field cuts the address (umantis UserName max
     const proof: any = await run();
     expect(proof.applicationExists).toMatchObject({ vacancyId: '6604' });
     expect(log.filter(entryLog => entryLog.method === 'POST')).toHaveLength(1);
+  });
+
+  it('an unreadable field is a cut field: nothing is clicked, no POST, login_username_cut', async () => {
+    const { run, log } = harness({ store: makeStore(longAccount), limit: 50, unreadableInput: true, portalUsername: cutAddress });
+    const proof: any = await run();
+    // The full variant is never clicked; the cut variant (no readback needed) is the one that goes out.
+    expect(proof.trace).toEqual(expect.arrayContaining([expect.objectContaining({ kind: 'login_identity', reason: 'full' })]));
+    expect(log.filter(entryLog => entryLog.method === 'POST')).toHaveLength(1);
+    const only = harness({ store: makeStore(longAccount), limit: 50, unreadableInput: true, portalUsername: 'nobody' });
+    const refused: any = await only.run();
+    expect(refused.stopReason).not.toBe('inspection_exception');
+    expect(only.attempts.every(attempt => attempt.user === 50)).toBe(true);
+  });
+
+  it('once the whole address is refused, the other passwords are tried under the address the field keeps, and no recovery follows', async () => {
+    const store = makeStore({ ...longAccount, password: 'current', previousPassword: 'older' });
+    const recover = vi.fn();
+    const { run, attempts } = harness({ store, limit: 50, portalUsername: cutAddress, accepted: ['older'], recover, allowRecovery: true, aliasEmail: longAddress });
+    const proof: any = await run();
+    expect(proof.applicationExists).toMatchObject({ vacancyId: '6604' });
+    expect(attempts).toEqual([
+      { user: longAddress.length, password: 'current' },
+      { user: 50, password: 'current' },
+      { user: 50, password: 'older' },
+    ]);
+    expect(recover).not.toHaveBeenCalled();
   });
 
   it('no second identity when the field does not cut the address', async () => {

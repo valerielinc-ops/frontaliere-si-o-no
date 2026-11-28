@@ -362,8 +362,10 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       // What the field really holds, by its length only: a control that still cut the address is no sign-in.
       const emailLocator = locatorFor(page, email);
       if (emailVariant === 'full' && typeof emailLocator?.inputValue === 'function') {
+        // A value that cannot be read is as good as a cut one: nothing is clicked on an identity that may still be cut.
         const held = await emailLocator.inputValue().catch(() => null);
-        if (typeof held === 'string' && held.length !== typedAddress.length) return { reason: 'login_username_cut', extra: { typed: held.length, wanted: typedAddress.length } };
+        if (typeof held !== 'string') return { reason: 'login_username_cut', extra: { readable: false, wanted: typedAddress.length } };
+        if (held.length !== typedAddress.length) return { reason: 'login_username_cut', extra: { typed: held.length, wanted: typedAddress.length } };
       }
       loginArmed = true;
       await locatorFor(page, signin).click({ timeout: 6000 });
@@ -452,8 +454,10 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       if ((failure?.reason === 'login_not_accepted' || failure?.reason === 'login_username_cut') && usernameClamped) {
         await reopenLogin();
         if (snapshot.passwordVisible) {
-          failure = await attemptSignin('', { emailVariant: 'truncated' });
-          if (!failure) emailVariant = 'truncated';
+          // The portal refused the whole address (or the field cut it): from here on the account is looked for under the
+          // address as the field keeps it, for this password and for every other candidate, before any recovery.
+          emailVariant = 'truncated';
+          failure = await attemptSignin('', { emailVariant });
         } else failure = null;
       }
       let adopted = '';
