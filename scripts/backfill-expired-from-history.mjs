@@ -1643,6 +1643,7 @@ export function processSlice(sliceFile, {
       }
       report.refused = true;
       report.unrestoredLegitimateRoutes = unrestored.size;
+      report.unrestoredLegitimateRouteKeys = [...unrestored].sort().slice(0, 100);
       report.lost = [];
       report.ownerChanged = [];
       report.restoredByLocale = {};

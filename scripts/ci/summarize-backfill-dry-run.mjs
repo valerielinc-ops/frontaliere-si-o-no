@@ -23,6 +23,7 @@ export function summarizeDryRun(reports, logText = '', expectedKeys = null) {
     refusedRoutes: report.refusedRoutes || 0,
     collisions: report.collisions || 0,
     unrestoredLegitimateRoutes: report.unrestoredLegitimateRoutes || 0,
+    unrestoredLegitimateRouteKeys: report.unrestoredLegitimateRouteKeys || [],
     restoredByLocale: report.restoredByLocale || {},
     lost: report.lost || [],
     ownerChanged: report.ownerChanged || [],
