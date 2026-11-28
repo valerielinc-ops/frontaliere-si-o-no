@@ -10,7 +10,7 @@
 import path from 'path';
 import { readArticleRegistryMetadata } from './shared/articleRegistryMetadata';
 import { decodeHtmlText } from './shared/htmlEntities';
-import { buildRelatedArticlesIndex } from './relatedArticlesIndex';
+import { buildRelatedArticlesIndex, pickCrossSectionRelated, RELATED_TOTAL_MAX, type CrossSectionCandidate, type CrossSectionLocale } from './relatedArticlesIndex';
 import { hasCompleteGoogleEventData } from './shared/googleEventDataQuality.mjs';
 import type { Plugin } from 'vite';
 import { getSiteShell, type ArticleAuthor, type SiteShellContract } from './siteShell';
@@ -384,6 +384,13 @@ export interface RenderArticlePagesOptions {
  * dimensions) instead of being patched afterwards. A local file always wins.
  */
  remoteHeroSizes?: Record<string, { width: number; height: number }>;
+ /**
+ * Articles of the OTHER sections, from the published API (never an import
+ * from the other repo), for the cross-section related links (F6.3a). Without
+ * it the page renders exactly as before. Only `indexable` destinations with a
+ * canonical page in the page's own locale are linked.
+ */
+ crossSectionCandidates?: CrossSectionCandidate[];
 }
 
 export interface RenderArticlePagesResult {
@@ -1352,13 +1359,28 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  return `<li class="s-65FRzB"><a class="s-ty-PxH" href="${esc(href)}">${esc(label)}</a></li>`;
  };
 
- const buildRelatedArticlesHtml = (currentId: string, _currentCategory: string, locale: string): string => {
+ const crossSectionCandidates = opts.crossSectionCandidates ?? [];
+ const buildRelatedArticlesHtml = (
+ currentId: string,
+ _currentCategory: string,
+ locale: string,
+ source?: { title: string; excerpt?: string; keywords?: string },
+ ): string => {
  const picks = (relatedArticlesMap.get(currentId) ?? [])
  .map(id => entryById.get(id))
  .filter((e): e is typeof entries[number] => Boolean(e));
  const hubItem = buildTopicHubLinkHtml(currentId, locale);
- if (picks.length === 0 && !hubItem) return '';
- const items = hubItem + picks.map(art => {
+ const crossLinks = source && crossSectionCandidates.length > 0 && ['it', 'en', 'de', 'fr'].includes(locale)
+ ? pickCrossSectionRelated(
+ { articleId: currentId, section: SECTION.name, locale: locale as CrossSectionLocale, ...source },
+ crossSectionCandidates,
+ )
+ : [];
+ if (picks.length === 0 && !hubItem && crossLinks.length === 0) return '';
+ // Total ceiling: hub link + same-section picks + cross-section links <= RELATED_TOTAL_MAX.
+ // The same-section tail yields first; the cross-section links are the scarce ones.
+ const sameSectionRoom = Math.max(0, RELATED_TOTAL_MAX - (hubItem ? 1 : 0) - crossLinks.length);
+ const items = hubItem + picks.slice(0, sameSectionRoom).map(art => {
  const slug = blogSlugs[art.articleId]?.[locale] ?? art.articleId;
  const indexSlug = blogIndexSlug[locale] ?? SECTION.indexSlug[locale as 'it' | 'en' | 'de' | 'fr'] ?? SECTION.indexSlug.it;
  const href = resolveArticleRouteHref(
@@ -1367,7 +1389,9 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  );
  const title = art.ogT.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
  return `<li class="s-65FRzB"><a class="s-ty-PxH" href="${esc(href)}">${esc(title)}</a></li>`;
- }).join('');
+ }).join('') + crossLinks.map(link =>
+ `<li class="s-65FRzB" data-related-cross-section="${esc(link.section)}"><a class="s-ty-PxH" href="${esc(link.href)}">${esc(link.title)}</a></li>`,
+ ).join('');
  return `<section class="s-zzuqwx" data-article-related="true"><h2 class="s-GipLjS">${esc(relatedArticlesLabel[locale] ?? relatedArticlesLabel.it)}</h2><ul class="s-9oHkUE">${items}</ul></section>`;
  };
 
@@ -2143,7 +2167,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
-${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">${ARTICLE_BYLINE[disclosureLocale(locale)].by} ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${articleBylineNote ? ` (${esc(articleBylineNote)})` : ''}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${articleAtfMarkup}${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildArticleTransparencyAside(locale, articleTransparencyAuthorName, articleProvenance, articleBodyHtml)}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}${articleLocaleNav}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
+${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">${ARTICLE_BYLINE[disclosureLocale(locale)].by} ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${articleBylineNote ? ` (${esc(articleBylineNote)})` : ''}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${articleAtfMarkup}${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildArticleTransparencyAside(locale, articleTransparencyAuthorName, articleProvenance, articleBodyHtml)}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale, { title: localizedTitle, excerpt: localizedDesc, keywords: en.keywords })}${articleLocaleNav}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;

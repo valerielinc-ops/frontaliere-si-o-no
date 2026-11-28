@@ -95,3 +95,75 @@ export function rankContentDestinations(match, { title = '', excerpt = '', body 
   }
   return [...scores].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([id, score]) => ({ id, score }));
 }
+
+/** Words that name the whole site, not a subject: they never count as a shared keyword. */
+// Stems, not words: the tokenizer folds one trailing vowel (`ticino` -> `ticin`, `lavoro` -> `lavor`).
+const GENERIC_STEMS = ['frontalier', 'grenzg', 'ticin', 'tessin', 'svizzer', 'swiss', 'schweiz', 'suisse', 'switzerl', 'lavor'];
+const isGenericToken = token => GENERIC_STEMS.some(stem => token.startsWith(stem));
+
+/** Weight of a keyword by where it occurs; the higher wins when it occurs in several places. */
+const PROFILE_WEIGHT = { title: 3, tag: 2, excerpt: 2, titleToken: 1, tagToken: 1 };
+
+/**
+ * Keyword profile of an article for cross-section matching. Entities come from
+ * the shared vocabulary (`match`, a matcher built with createContentKeywordMatcher),
+ * tokens from the title and tags only: an excerpt is too wide to prove a shared
+ * subject on single words. `tokenize` is injected (the related-articles tokenizer)
+ * so the folding of accents and endings stays defined in one place.
+ */
+export function buildKeywordProfile({ title = '', excerpt = '', tags = [] } = {}, { match, locale = 'it', tokenize } = {}) {
+  const entities = new Map();
+  const tokenWeights = new Map();
+  const titleKeys = new Set();
+  const put = (map, key, weight) => { if ((map.get(key) || 0) < weight) map.set(key, weight); };
+  const addEntities = (text, weight, inTitle) => {
+    if (!match || !text) return;
+    for (const hit of match(String(text), locale)) {
+      put(entities, hit.id, weight);
+      if (inTitle) titleKeys.add(`e:${hit.id}`);
+    }
+  };
+  const addTokens = (text, weight, inTitle) => {
+    if (!tokenize || !text) return;
+    for (const token of tokenize(String(text))) {
+      if (token.length < 5 || isGenericToken(token)) continue;
+      put(tokenWeights, token, weight);
+      if (inTitle) titleKeys.add(`t:${token}`);
+    }
+  };
+  addEntities(title, PROFILE_WEIGHT.title, true);
+  addEntities(excerpt, PROFILE_WEIGHT.excerpt, false);
+  addTokens(title, PROFILE_WEIGHT.titleToken, true);
+  for (const tag of tags) {
+    addEntities(tag, PROFILE_WEIGHT.tag, false);
+    addTokens(tag, PROFILE_WEIGHT.tagToken, false);
+  }
+  return { entities, tokens: tokenWeights, titleKeys };
+}
+
+/**
+ * Relevance of `target` to `source`: shared entities add their lower weight, shared
+ * tokens add theirs up to a cap of 4 (a long title must not pass on loose words).
+ * `anchored` tells whether a shared keyword is visible in the target's title, which
+ * is the anchor text of the link.
+ */
+export function scoreSharedKeywords(source, target) {
+  const shared = [];
+  let score = 0;
+  let tokenScore = 0;
+  for (const [id, weight] of source.entities) {
+    const other = target.entities.get(id);
+    if (other === undefined) continue;
+    score += Math.min(weight, other);
+    shared.push(`e:${id}`);
+  }
+  for (const [token, weight] of source.tokens) {
+    const other = target.tokens.get(token);
+    if (other === undefined) continue;
+    tokenScore += Math.min(weight, other);
+    shared.push(`t:${token}`);
+  }
+  score += Math.min(tokenScore, 4);
+  shared.sort();
+  return { score, shared, anchored: shared.some(key => target.titleKeys.has(key)) };
+}

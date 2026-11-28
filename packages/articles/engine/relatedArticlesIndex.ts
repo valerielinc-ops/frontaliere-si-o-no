@@ -47,6 +47,9 @@
  * a sorted array and every tie breaks on `articleId`.
  */
 
+import { buildKeywordProfile, scoreSharedKeywords } from './shared/contentKeywordMatcher.mjs';
+import { matchContentLinks } from './shared/contentLinkVocabulary.mjs';
+
 /** One article, reduced to what the ranking needs. */
 export interface RelatedArticleInput {
   articleId: string;
@@ -465,4 +468,115 @@ export function inboundCounts(map: RelatedArticlesMap): Map<string, number> {
     for (const t of targets) counts.set(t, (counts.get(t) ?? 0) + 1);
   }
   return counts;
+}
+
+// ── Cross-section related articles (F6.3a, objective O3) ─────────────────────
+//
+// `buildRelatedArticlesIndex` works on one section's entries, so an article of a
+// canton never linked to the national sections and vice versa (measured 0%). The
+// picker below adds 1-2 links to OTHER sections, chosen by shared keywords
+// (entities of the shared vocabulary, title and tag tokens) with a minimum
+// relevance: when no candidate clears it there is no link, never a filler.
+
+/** Locales the corpus is published in. */
+export type CrossSectionLocale = 'it' | 'en' | 'de' | 'fr';
+
+/** One locale version of an article of another section, as the published API describes it. */
+export interface CrossSectionLocaleVersion {
+  title: string;
+  excerpt?: string;
+  /** Site-relative path of the page in this locale (`/…/slug/`). */
+  href: string;
+  /** Meta keywords (Italian only in the corpus). */
+  keywords?: string;
+  /** Canonical path when it differs from `href` (the page is not the canonical one). */
+  canonical?: string;
+}
+
+/** An article of another section. Built from the published API, never imported from the other repo. */
+export interface CrossSectionCandidate {
+  articleId: string;
+  section: string;
+  datePub?: string;
+  /** False for noindex, retired or excluded articles: never a link destination. */
+  indexable?: boolean;
+  locales: Partial<Record<CrossSectionLocale, CrossSectionLocaleVersion>>;
+}
+
+/** The article being rendered, in the locale of the page. */
+export interface CrossSectionSource {
+  articleId: string;
+  section: string;
+  locale: CrossSectionLocale;
+  title: string;
+  excerpt?: string;
+  keywords?: string;
+}
+
+export interface CrossSectionLink {
+  articleId: string;
+  section: string;
+  href: string;
+  title: string;
+  score: number;
+  /** Shared keywords (`e:<entity>` or `t:<token>`), for reporting. */
+  shared: string[];
+}
+
+/** Minimum relevance: one entity in both titles, or three shared title tokens. */
+export const CROSS_SECTION_MIN_SCORE = 3;
+/** At most this many cross-section links per article, one per target section. */
+export const CROSS_SECTION_MAX_LINKS = 2;
+/** Ceiling on every related item of an article page (hub link included). */
+export const RELATED_TOTAL_MAX = 7;
+
+const splitKeywords = (raw?: string): string[] =>
+  raw ? raw.split(',').map((k) => k.trim()).filter(Boolean) : [];
+
+const profileOf = (locale: CrossSectionLocale, v: { title: string; excerpt?: string; keywords?: string }) =>
+  buildKeywordProfile(
+    { title: v.title, excerpt: v.excerpt, tags: locale === 'it' ? splitKeywords(v.keywords) : [] },
+    { match: matchContentLinks, locale, tokenize },
+  );
+
+/**
+ * Pick the cross-section links of one article. Pure and deterministic: ties break
+ * on date (newer first) and then on id.
+ */
+export function pickCrossSectionRelated(
+  source: CrossSectionSource,
+  candidates: readonly CrossSectionCandidate[],
+): CrossSectionLink[] {
+  if (candidates.length === 0) return [];
+  const sourceProfile = profileOf(source.locale, source);
+  const scored: Array<CrossSectionLink & { date: string }> = [];
+  for (const c of candidates) {
+    if (c.section === source.section || c.indexable === false) continue;
+    const version = c.locales[source.locale];
+    if (!version?.title || !version.href.startsWith('/')) continue;
+    if (version.canonical && version.canonical !== version.href) continue;
+    const result = scoreSharedKeywords(sourceProfile, profileOf(source.locale, version));
+    if (result.score < CROSS_SECTION_MIN_SCORE || !result.anchored) continue;
+    scored.push({
+      articleId: c.articleId,
+      section: c.section,
+      href: version.href,
+      title: version.title,
+      score: result.score,
+      shared: result.shared,
+      date: c.datePub ?? '',
+    });
+  }
+  scored.sort(
+    (a, b) => b.score - a.score || b.date.localeCompare(a.date) || a.section.localeCompare(b.section) || a.articleId.localeCompare(b.articleId),
+  );
+  const picks: CrossSectionLink[] = [];
+  const sections = new Set<string>();
+  for (const { date: _date, ...link } of scored) {
+    if (sections.has(link.section)) continue;
+    sections.add(link.section);
+    picks.push(link);
+    if (picks.length >= CROSS_SECTION_MAX_LINKS) break;
+  }
+  return picks;
 }
