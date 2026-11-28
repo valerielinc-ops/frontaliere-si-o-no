@@ -1,18 +1,19 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-11-27T21:47:54.320Z",
-  "total": 28,
-  "newCount": 4,
-  "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 24,
-  "durationMs": 23722,
-  "avgDurationMs": 23722,
+  "generatedAt": "2026-11-28T09:40:14.441Z",
+  "total": 27,
+  "newCount": 0,
+  "updatedCount": 4,
+  "removedCount": 1,
+  "unchangedCount": 23,
+  "durationMs": 55716,
+  "avgDurationMs": 55716,
   "durationHistory": [
-    23722
+    55716
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://jobs.postfinance.ch/job/ICT-Software-Architektin/75232-de_DE",
       "applyUrl": "https://jobs.postfinance.ch/job/ICT-Software-Architektin/75232-de_DE",
@@ -22,7 +23,7 @@
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "slug": "ict-software-architekt-in-postfinance",
+      "slug": "architetto-a-di-software-ict-postfinance-bern",
       "sourceLang": "de",
       "department": [
         "Informatik und Digital Services"
@@ -33,8 +34,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:25.649Z",
-      "validThrough": "2027-02-25T21:47:25.649Z",
+      "crawledAt": "2026-11-28T09:39:09.451Z",
+      "validThrough": "2027-02-26T09:39:09.451Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -44,8 +45,8 @@
         "canton": "BE",
         "location": "Bern"
       },
-      "needsRetranslation": true,
       "id": "postfinance-5531c1c863e0",
+      "firstSeenAt": "2026-11-27T21:47:25.649Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
       "currency": "CHF",
@@ -56,12 +57,11 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-27T21:47:25.649Z",
-      "_qualityScore": 83,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -74,7 +74,7 @@
       "location": "Schwyz",
       "canton": "SZ",
       "country": "CH",
-      "slug": "kundenberater-in-privatkund-innen-postfinance",
+      "slug": "consulente-per-la-clientela-privata-postfinance-schwyz",
       "sourceLang": "de",
       "department": [
         "Verkauf und Kundenberatung"
@@ -85,8 +85,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:24.995Z",
-      "validThrough": "2027-02-04T21:47:24.995Z",
+      "crawledAt": "2026-11-28T09:39:08.783Z",
+      "validThrough": "2027-02-04T09:39:08.783Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -96,8 +96,8 @@
         "canton": "SZ",
         "location": "Schwyz"
       },
-      "needsRetranslation": true,
       "id": "postfinance-49c1b2be7c26",
+      "firstSeenAt": "2026-11-05T21:49:43.241Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
       "currency": "CHF",
@@ -108,12 +108,11 @@
       "streetAddress": "Schwyz",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:49:43.241Z",
-      "_qualityScore": 83,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -126,7 +125,7 @@
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "slug": "credit-analyst-fixed-income-w-m-d-postfinance",
+      "slug": "credit-analista-fixed-income-w-m-d-postfinance-bern",
       "sourceLang": "de",
       "department": [
         "Büro-Finanzen und Revision"
@@ -137,8 +136,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:24.330Z",
-      "validThrough": "2027-02-25T21:47:24.330Z",
+      "crawledAt": "2026-11-28T09:39:08.112Z",
+      "validThrough": "2027-02-26T09:39:08.112Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -148,8 +147,9 @@
         "canton": "BE",
         "location": "Bern"
       },
-      "needsRetranslation": true,
       "id": "postfinance-5eebc14e0b9c",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-27T21:47:24.330Z",
       "salaryMin": 105500,
       "salaryMax": 185000,
       "currency": "CHF",
@@ -160,12 +160,11 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-27T21:47:24.330Z",
-      "_qualityScore": 88,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -189,8 +188,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:23.664Z",
-      "validThrough": "2027-02-25T21:47:23.664Z",
+      "crawledAt": "2026-11-28T09:39:07.430Z",
+      "validThrough": "2027-02-26T09:39:07.430Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -200,8 +199,8 @@
         "canton": "GL",
         "location": "Niederurnen"
       },
-      "needsRetranslation": true,
       "id": "postfinance-f421d8856ccf",
+      "firstSeenAt": "2026-11-27T21:47:23.664Z",
       "salaryMin": 73500,
       "salaryMax": 113000,
       "currency": "CHF",
@@ -212,1193 +211,16 @@
       "streetAddress": "Niederurnen",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-27T21:47:23.664Z",
-      "_qualityScore": 88,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Niederurnen/74899-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Niederurnen/74899-de_DE",
-      "title": "Kundenbetreuer:in Customer Center Niederurnen",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Niederurnen",
-      "canton": "GL",
-      "country": "CH",
-      "slug": "addetto-a-al-servizio-clienti-customer-center-niederurnen-postfinance-niederurnen",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:41.017Z",
-      "validThrough": "2026-12-29T21:47:41.017Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "GL",
-        "location": "Niederurnen"
-      },
-      "id": "postfinance-8433af2b03c4",
-      "firstSeenAt": "2026-09-30T21:35:43.116Z",
-      "salaryMin": 73500,
-      "salaryMax": 113000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "8867",
-      "addressLocality": "Niederurnen",
-      "addressRegion": "GL",
-      "streetAddress": "Niederurnen",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Security-Officer-%28wmd%29/75163-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Security-Officer-%28wmd%29/75163-de_DE",
-      "title": "Security Officer (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "agente-di-sicurezza-m-f-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:40.269Z",
-      "validThrough": "2027-02-04T21:47:40.269Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "60-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-a74e183cac8b",
-      "firstSeenAt": "2026-11-05T21:49:43.982Z",
-      "salaryMin": 73000,
-      "salaryMax": 124500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Kundenberaterin-Privatkundinnen/75142-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Kundenberaterin-Privatkundinnen/75142-de_DE",
-      "title": "Kundenberater:in Privatkund:innen",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Zug",
-      "canton": "ZG",
-      "country": "CH",
-      "slug": "consulente-alla-clientela-privata-postfinance-zug",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:39.623Z",
-      "validThrough": "2027-02-04T21:47:39.623Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Consulenza",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "ZG",
-        "location": "Zug"
-      },
-      "id": "postfinance-afbcc97d744e",
-      "firstSeenAt": "2026-11-05T21:49:43.241Z",
-      "salaryMin": 79000,
-      "salaryMax": 121500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "6300",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "streetAddress": "Zug",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Leiterin-Architektur-PostFinance-%28wmd%29/75197-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Leiterin-Architektur-PostFinance-%28wmd%29/75197-de_DE",
-      "title": "Leiter:in Architektur PostFinance (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "responsabile-architektur-postfinance-m-w-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:38.955Z",
-      "validThrough": "2027-02-08T21:47:38.955Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-49856b64ca33",
-      "firstSeenAt": "2026-11-10T21:30:13.870Z",
-      "salaryMin": 113000,
-      "salaryMax": 192000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Kundenberaterin-Privatkunden-Basel-Steinenberg/75211-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Kundenberaterin-Privatkunden-Basel-Steinenberg/75211-de_DE",
-      "title": "Kundenberater:in Privatkunden Basel Steinenberg",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Basel",
-      "canton": "BS",
-      "country": "CH",
-      "slug": "consulente-clienti-privati-basilea-steinenberg-postfinance-basel",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:38.308Z",
-      "validThrough": "2027-02-16T21:47:38.308Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Consulenza",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BS",
-        "location": "Basel"
-      },
-      "id": "postfinance-b0f60a9b350d",
-      "firstSeenAt": "2026-11-18T09:50:20.834Z",
-      "salaryMin": 74000,
-      "salaryMax": 113500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "4001",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "streetAddress": "Basel",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75007-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75007-de_DE",
-      "title": "Kundenberater:in PostFinance Corner",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Biel/Bienne",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "consulente-alla-clientela-postfinance-corner-postfinance-biel-bienne",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:37.678Z",
-      "validThrough": "2027-02-04T21:47:37.678Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Biel/Bienne"
-      },
-      "id": "postfinance-6936e17e1849",
-      "firstSeenAt": "2026-11-05T21:49:36.513Z",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "2502",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "streetAddress": "Biel/Bienne",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75010-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75010-de_DE",
-      "title": "Kundenberater:in PostFinance Corner",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Frauenfeld",
-      "canton": "TG",
-      "country": "CH",
-      "slug": "consulente-alla-clientela-postfinance-corner-postfinance-frauenfeld",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:37.028Z",
-      "validThrough": "2027-02-04T21:47:37.028Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "TG",
-        "location": "Frauenfeld"
-      },
-      "id": "postfinance-d841c1ee9f37",
-      "firstSeenAt": "2026-11-05T21:49:40.279Z",
-      "salaryMin": 68500,
-      "salaryMax": 105000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "8500",
-      "addressLocality": "Frauenfeld",
-      "addressRegion": "TG",
-      "streetAddress": "Frauenfeld",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75011-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75011-de_DE",
-      "title": "Kundenberater:in PostFinance Corner",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Chur",
-      "canton": "GR",
-      "country": "CH",
-      "slug": "consulente-alla-clientela-postfinance-corner-postfinance-chur",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:36.366Z",
-      "validThrough": "2027-02-04T21:47:36.366Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Chur"
-      },
-      "id": "postfinance-1a2e44c7053a",
-      "firstSeenAt": "2026-11-05T21:49:41.747Z",
-      "salaryMin": 68500,
-      "salaryMax": 105000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "7000",
-      "addressLocality": "Chur",
-      "addressRegion": "GR",
-      "streetAddress": "Chur",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75012-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75012-de_DE",
-      "title": "Kundenberater:in PostFinance Corner",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Wil SG",
-      "canton": "SG",
-      "country": "CH",
-      "slug": "consulente-alla-clientela-postfinance-corner-postfinance-wil-sg",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:35.590Z",
-      "validThrough": "2027-02-04T21:47:35.590Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "SG",
-        "location": "Wil SG"
-      },
-      "id": "postfinance-bc3a8a4704a5",
-      "firstSeenAt": "2026-11-05T21:49:41.018Z",
-      "salaryMin": 68500,
-      "salaryMax": 105000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "9000",
-      "addressLocality": "Wil SG",
-      "addressRegion": "SG",
-      "streetAddress": "Wil SG",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75004-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75004-de_DE",
-      "title": "Kundenberater:in PostFinance Corner",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Horgen",
-      "canton": "ZH",
-      "country": "CH",
-      "slug": "consulente-alla-clientela-postfinance-corner-postfinance-horgen",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:34.850Z",
-      "validThrough": "2027-02-04T21:47:34.850Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Horgen"
-      },
-      "id": "postfinance-4e1d32cfd4a9",
-      "firstSeenAt": "2026-11-05T21:49:38.040Z",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "8810",
-      "addressLocality": "Horgen",
-      "addressRegion": "ZH",
-      "streetAddress": "Horgen",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75006-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75006-de_DE",
-      "title": "Kundenberater:in PostFinance Corner",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Baden",
-      "canton": "AG",
-      "country": "CH",
-      "slug": "consulente-alla-clientela-postfinance-corner-postfinance-baden",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:34.199Z",
-      "validThrough": "2027-02-04T21:47:34.199Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "AG",
-        "location": "Baden"
-      },
-      "id": "postfinance-50df3386614a",
-      "firstSeenAt": "2026-11-05T21:49:38.040Z",
-      "salaryMin": 74000,
-      "salaryMax": 113500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "5400",
-      "addressLocality": "Baden",
-      "addressRegion": "AG",
-      "streetAddress": "Baden",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/IT-Business-Analystin-PostFinance-App/74932-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/IT-Business-Analystin-PostFinance-App/74932-de_DE",
-      "title": "IT Business Analyst:in PostFinance App",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "it-business-analyst-in-postfinance-app-postfinance",
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:33.543Z",
-      "validThrough": "2027-02-19T21:47:33.543Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-4bf0885a1eb1",
-      "firstSeenAt": "2026-11-20T21:57:20.837Z",
-      "salaryMin": 73000,
-      "salaryMax": 124500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Teamleitung-Finanzplanung/75260-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Teamleitung-Finanzplanung/75260-de_DE",
-      "title": "Teamleitung Finanzplanung",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "gestione-del-team-pianificazione-finanziaria-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:32.894Z",
-      "validThrough": "2027-02-21T21:47:32.894Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-d7aef0876caa",
-      "firstSeenAt": "2026-11-23T09:52:04.992Z",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Senior-Finanzplanerin-Region-Z%C3%BCrich-&-Zentralschweiz/75265-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Finanzplanerin-Region-Z%C3%BCrich-&-Zentralschweiz/75265-de_DE",
-      "title": "Senior Finanzplaner:in - Region Zürich & Zentralschweiz",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Zürich",
-      "canton": "ZH",
-      "country": "CH",
-      "slug": "senior-financial-planner-regione-zurigo-e-svizzera-centrale-postfinance-zurich",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:32.247Z",
-      "validThrough": "2027-02-21T21:47:32.247Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zürich"
-      },
-      "id": "postfinance-4e67a7beba6d",
-      "firstSeenAt": "2026-11-23T09:52:03.916Z",
-      "salaryMin": 117000,
-      "salaryMax": 180000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "8001",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Senior-Finanzplanerin-Region-Ostschweiz/75266-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Finanzplanerin-Region-Ostschweiz/75266-de_DE",
-      "title": "Senior Finanzplaner:in - Region Ostschweiz",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Ostschweiz",
-      "canton": "SG",
-      "country": "CH",
-      "slug": "senior-financial-planner-regione-svizzera-orientale-postfinance-ostschweiz",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:31.571Z",
-      "validThrough": "2027-02-21T21:47:31.571Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "SG",
-        "location": "Ostschweiz"
-      },
-      "id": "postfinance-70220864222f",
-      "firstSeenAt": "2026-11-23T09:52:02.806Z",
-      "salaryMin": 96000,
-      "salaryMax": 147500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "9000",
-      "addressLocality": "Ostschweiz",
-      "addressRegion": "SG",
-      "streetAddress": "Ostschweiz",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Senior-Finanzplanerin-Region-Mittelland-&-Nordwestschweiz/75267-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Finanzplanerin-Region-Mittelland-&-Nordwestschweiz/75267-de_DE",
-      "title": "Senior Finanzplaner:in - Region Mittelland & Nordwestschweiz",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "pianificatore-finanziario-senior-regione-dell-altopiano-centrale-e-della-svizzera-nordoccidentale-postfinance-mittelland",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:30.921Z",
-      "validThrough": "2027-02-21T21:47:30.921Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-8139152079f3",
-      "firstSeenAt": "2026-11-23T09:52:01.704Z",
-      "salaryMin": 109000,
-      "salaryMax": 167000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Senior-Finanzplanerin-Region-Romandie/75268-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Finanzplanerin-Region-Romandie/75268-de_DE",
-      "title": "Senior Finanzplaner:in - Region Romandie",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Lausanne",
-      "canton": "VD",
-      "country": "CH",
-      "slug": "pianificatore-finanziario-senior-regione-romandie-postfinance-westschweiz",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:30.251Z",
-      "validThrough": "2027-02-21T21:47:30.251Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "VD",
-        "location": "Lausanne"
-      },
-      "id": "postfinance-8c4f9548a913",
-      "firstSeenAt": "2026-11-23T09:52:00.633Z",
-      "salaryMin": 101500,
-      "salaryMax": 156000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "1003",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "streetAddress": "Lausanne",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Architecture-Owner-%28wmd%29/75191-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Architecture-Owner-%28wmd%29/75191-de_DE",
-      "title": "Architecture Owner (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "proprietario-dell-architettura-m-f-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:29.602Z",
-      "validThrough": "2027-02-21T21:47:29.602Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-db3ae37bd0a1",
-      "firstSeenAt": "2026-11-23T09:51:59.547Z",
-      "salaryMin": 73000,
-      "salaryMax": 124500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Mitarbeiterin-Kompetenz-Center-Kreditkarten/74490-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Mitarbeiterin-Kompetenz-Center-Kreditkarten/74490-de_DE",
-      "title": "Mitarbeiter:in Kompetenz-Center Kreditkarten",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Niederurnen",
-      "canton": "GL",
-      "country": "CH",
-      "slug": "collaboratore-trice-kompetenz-center-kreditkarten-postfinance-niederurnen",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Administration"
-      ],
-      "category": [
-        "Büro-Administration"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:28.941Z",
-      "validThrough": "2026-12-27T21:47:28.941Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "GL",
-        "location": "Niederurnen"
-      },
-      "id": "postfinance-fe195634dcc0",
-      "firstSeenAt": "2026-08-17T10:02:05.031Z",
-      "salaryMin": 65000,
-      "salaryMax": 98500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "8867",
-      "addressLocality": "Niederurnen",
-      "addressRegion": "GL",
-      "streetAddress": "Niederurnen",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Software-Engineer-Digital-Assets-%28wmd%29/75024-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Software-Engineer-Digital-Assets-%28wmd%29/75024-de_DE",
-      "title": "Software Engineer Digital Assets (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "software-ingegnere-digital-assets-w-m-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:28.295Z",
-      "validThrough": "2027-02-21T21:47:28.295Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "IT",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-71680172d297",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-11-23T21:42:55.619Z",
-      "salaryMin": 73000,
-      "salaryMax": 124500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Mitarbeiterin-Compliance-Office-Privatkunden/75306-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Mitarbeiterin-Compliance-Office-Privatkunden/75306-de_DE",
-      "title": "Mitarbeiter:in Compliance Office Privatkunden",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "collaboratore-trice-compliance-office-privatkunden-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Recht und Compliance"
-      ],
-      "category": [
-        "Büro-Recht und Compliance"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:27.639Z",
-      "validThrough": "2026-12-27T21:47:27.639Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-3421fc7fad46",
-      "firstSeenAt": "2026-09-09T23:11:28.050Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Team-Assistentin-Finance-&-Risk%2C-Legal-and-Compliance/75297-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Team-Assistentin-Finance-&-Risk%2C-Legal-and-Compliance/75297-de_DE",
-      "title": "Team-Assistent:in Finance & Risk, Legal and Compliance",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "assistente-di-team-finanza-e-rischio-affari-legali-e-conformita-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Administration"
-      ],
-      "category": [
-        "Büro-Administration"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:26.993Z",
-      "validThrough": "2027-02-23T21:47:26.993Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "80-90%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-e77b70d7764d",
-      "firstSeenAt": "2026-11-25T21:46:40.633Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Kundenberaterin-Privatkunden/75323-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Kundenberaterin-Privatkunden/75323-de_DE",
-      "title": "Kundenberater:in Privatkunden",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Stans",
-      "canton": "NW",
-      "country": "CH",
-      "slug": "kundenberater-in-privatkunden-postfinance-stans",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T21:47:26.333Z",
-      "validThrough": "2027-02-25T21:47:26.333Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Consulenza",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "NW",
-        "location": "Stans"
-      },
-      "id": "postfinance-b876d6965970",
-      "firstSeenAt": "2026-11-27T10:02:27.716Z",
-      "salaryMin": 79000,
-      "salaryMax": 121500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "6370",
-      "addressLocality": "Stans",
-      "addressRegion": "NW",
-      "streetAddress": "Stans",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
+  "removedJobs": [
     {
       "url": "https://jobs.postfinance.ch/job/Junior-Specialist-Governance-&-Policy-Management-%2860%2C-befristet-f%C3%BCr-6-12-Monate%29/75264-de_DE",
       "applyUrl": "https://jobs.postfinance.ch/job/Junior-Specialist-Governance-&-Policy-Management-%2860%2C-befristet-f%C3%BCr-6-12-Monate%29/75264-de_DE",
@@ -1453,5 +275,1181 @@
       }
     }
   ],
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
+  "unchangedJobs": [
+    {
+      "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Niederurnen/74899-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Niederurnen/74899-de_DE",
+      "title": "Kundenbetreuer:in Customer Center Niederurnen",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Niederurnen",
+      "canton": "GL",
+      "country": "CH",
+      "slug": "addetto-a-al-servizio-clienti-customer-center-niederurnen-postfinance-niederurnen",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:25.246Z",
+      "validThrough": "2026-12-30T09:39:25.246Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "GL",
+        "location": "Niederurnen"
+      },
+      "id": "postfinance-8433af2b03c4",
+      "firstSeenAt": "2026-09-30T21:35:43.116Z",
+      "salaryMin": 73500,
+      "salaryMax": 113000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8867",
+      "addressLocality": "Niederurnen",
+      "addressRegion": "GL",
+      "streetAddress": "Niederurnen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Security-Officer-%28wmd%29/75163-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Security-Officer-%28wmd%29/75163-de_DE",
+      "title": "Security Officer (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "agente-di-sicurezza-m-f-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:24.574Z",
+      "validThrough": "2027-02-04T09:39:24.574Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "60-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-a74e183cac8b",
+      "firstSeenAt": "2026-11-05T21:49:43.982Z",
+      "salaryMin": 73000,
+      "salaryMax": 124500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Kundenberaterin-Privatkundinnen/75142-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Kundenberaterin-Privatkundinnen/75142-de_DE",
+      "title": "Kundenberater:in Privatkund:innen",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Zug",
+      "canton": "ZG",
+      "country": "CH",
+      "slug": "consulente-alla-clientela-privata-postfinance-zug",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:23.906Z",
+      "validThrough": "2027-02-04T09:39:23.906Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Consulenza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "ZG",
+        "location": "Zug"
+      },
+      "id": "postfinance-afbcc97d744e",
+      "firstSeenAt": "2026-11-05T21:49:43.241Z",
+      "salaryMin": 79000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "6300",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "streetAddress": "Zug",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Leiterin-Architektur-PostFinance-%28wmd%29/75197-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Leiterin-Architektur-PostFinance-%28wmd%29/75197-de_DE",
+      "title": "Leiter:in Architektur PostFinance (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "responsabile-architektur-postfinance-m-w-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:23.223Z",
+      "validThrough": "2027-02-09T09:39:23.223Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-49856b64ca33",
+      "firstSeenAt": "2026-11-10T21:30:13.870Z",
+      "salaryMin": 113000,
+      "salaryMax": 192000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Kundenberaterin-Privatkunden-Basel-Steinenberg/75211-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Kundenberaterin-Privatkunden-Basel-Steinenberg/75211-de_DE",
+      "title": "Kundenberater:in Privatkunden Basel Steinenberg",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Basel",
+      "canton": "BS",
+      "country": "CH",
+      "slug": "consulente-clienti-privati-basilea-steinenberg-postfinance-basel",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:22.541Z",
+      "validThrough": "2027-02-17T09:39:22.541Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Consulenza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BS",
+        "location": "Basel"
+      },
+      "id": "postfinance-b0f60a9b350d",
+      "firstSeenAt": "2026-11-18T09:50:20.834Z",
+      "salaryMin": 74000,
+      "salaryMax": 113500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "4001",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75007-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75007-de_DE",
+      "title": "Kundenberater:in PostFinance Corner",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Biel/Bienne",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "consulente-alla-clientela-postfinance-corner-postfinance-biel-bienne",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:21.857Z",
+      "validThrough": "2027-02-04T09:39:21.857Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Biel/Bienne"
+      },
+      "id": "postfinance-6936e17e1849",
+      "firstSeenAt": "2026-11-05T21:49:36.513Z",
+      "salaryMin": 77500,
+      "salaryMax": 118500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "2502",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE",
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75010-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75010-de_DE",
+      "title": "Kundenberater:in PostFinance Corner",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Frauenfeld",
+      "canton": "TG",
+      "country": "CH",
+      "slug": "consulente-alla-clientela-postfinance-corner-postfinance-frauenfeld",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:21.084Z",
+      "validThrough": "2027-02-04T09:39:21.084Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "TG",
+        "location": "Frauenfeld"
+      },
+      "id": "postfinance-d841c1ee9f37",
+      "firstSeenAt": "2026-11-05T21:49:40.279Z",
+      "salaryMin": 68500,
+      "salaryMax": 105000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8500",
+      "addressLocality": "Frauenfeld",
+      "addressRegion": "TG",
+      "streetAddress": "Frauenfeld",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75011-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75011-de_DE",
+      "title": "Kundenberater:in PostFinance Corner",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Chur",
+      "canton": "GR",
+      "country": "CH",
+      "slug": "consulente-alla-clientela-postfinance-corner-postfinance-chur",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:20.322Z",
+      "validThrough": "2027-02-04T09:39:20.322Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Chur"
+      },
+      "id": "postfinance-1a2e44c7053a",
+      "firstSeenAt": "2026-11-05T21:49:41.747Z",
+      "salaryMin": 68500,
+      "salaryMax": 105000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "7000",
+      "addressLocality": "Chur",
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75012-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75012-de_DE",
+      "title": "Kundenberater:in PostFinance Corner",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Wil SG",
+      "canton": "SG",
+      "country": "CH",
+      "slug": "consulente-alla-clientela-postfinance-corner-postfinance-wil-sg",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:19.647Z",
+      "validThrough": "2027-02-04T09:39:19.647Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "SG",
+        "location": "Wil SG"
+      },
+      "id": "postfinance-bc3a8a4704a5",
+      "firstSeenAt": "2026-11-05T21:49:41.018Z",
+      "salaryMin": 68500,
+      "salaryMax": 105000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "9000",
+      "addressLocality": "Wil SG",
+      "addressRegion": "SG",
+      "streetAddress": "Wil SG",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75004-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75004-de_DE",
+      "title": "Kundenberater:in PostFinance Corner",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Horgen",
+      "canton": "ZH",
+      "country": "CH",
+      "slug": "consulente-alla-clientela-postfinance-corner-postfinance-horgen",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:18.963Z",
+      "validThrough": "2027-02-04T09:39:18.963Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Horgen"
+      },
+      "id": "postfinance-4e1d32cfd4a9",
+      "firstSeenAt": "2026-11-05T21:49:38.040Z",
+      "salaryMin": 83000,
+      "salaryMax": 127500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8810",
+      "addressLocality": "Horgen",
+      "addressRegion": "ZH",
+      "streetAddress": "Horgen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75006-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/75006-de_DE",
+      "title": "Kundenberater:in PostFinance Corner",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Baden",
+      "canton": "AG",
+      "country": "CH",
+      "slug": "consulente-alla-clientela-postfinance-corner-postfinance-baden",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:18.296Z",
+      "validThrough": "2027-02-04T09:39:18.296Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "AG",
+        "location": "Baden"
+      },
+      "id": "postfinance-50df3386614a",
+      "firstSeenAt": "2026-11-05T21:49:38.040Z",
+      "salaryMin": 74000,
+      "salaryMax": 113500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "5400",
+      "addressLocality": "Baden",
+      "addressRegion": "AG",
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/IT-Business-Analystin-PostFinance-App/74932-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/IT-Business-Analystin-PostFinance-App/74932-de_DE",
+      "title": "IT Business Analyst:in PostFinance App",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "it-business-analyst-in-postfinance-app-postfinance",
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:17.615Z",
+      "validThrough": "2027-02-19T09:39:17.615Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-4bf0885a1eb1",
+      "firstSeenAt": "2026-11-20T21:57:20.837Z",
+      "salaryMin": 73000,
+      "salaryMax": 124500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Teamleitung-Finanzplanung/75260-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Teamleitung-Finanzplanung/75260-de_DE",
+      "title": "Teamleitung Finanzplanung",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "gestione-del-team-pianificazione-finanziaria-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:16.943Z",
+      "validThrough": "2027-02-22T09:39:16.943Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-d7aef0876caa",
+      "firstSeenAt": "2026-11-23T09:52:04.992Z",
+      "salaryMin": 77500,
+      "salaryMax": 118500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Senior-Finanzplanerin-Region-Z%C3%BCrich-&-Zentralschweiz/75265-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Finanzplanerin-Region-Z%C3%BCrich-&-Zentralschweiz/75265-de_DE",
+      "title": "Senior Finanzplaner:in - Region Zürich & Zentralschweiz",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Zürich",
+      "canton": "ZH",
+      "country": "CH",
+      "slug": "senior-financial-planner-regione-zurigo-e-svizzera-centrale-postfinance-zurich",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:16.261Z",
+      "validThrough": "2027-02-22T09:39:16.261Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "id": "postfinance-4e67a7beba6d",
+      "firstSeenAt": "2026-11-23T09:52:03.916Z",
+      "salaryMin": 117000,
+      "salaryMax": 180000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Senior-Finanzplanerin-Region-Ostschweiz/75266-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Finanzplanerin-Region-Ostschweiz/75266-de_DE",
+      "title": "Senior Finanzplaner:in - Region Ostschweiz",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Ostschweiz",
+      "canton": "SG",
+      "country": "CH",
+      "slug": "senior-financial-planner-regione-svizzera-orientale-postfinance-ostschweiz",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:15.518Z",
+      "validThrough": "2027-02-22T09:39:15.518Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "SG",
+        "location": "Ostschweiz"
+      },
+      "id": "postfinance-70220864222f",
+      "firstSeenAt": "2026-11-23T09:52:02.806Z",
+      "salaryMin": 96000,
+      "salaryMax": 147500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "9000",
+      "addressLocality": "Ostschweiz",
+      "addressRegion": "SG",
+      "streetAddress": "Ostschweiz",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Senior-Finanzplanerin-Region-Mittelland-&-Nordwestschweiz/75267-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Finanzplanerin-Region-Mittelland-&-Nordwestschweiz/75267-de_DE",
+      "title": "Senior Finanzplaner:in - Region Mittelland & Nordwestschweiz",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "pianificatore-finanziario-senior-regione-dell-altopiano-centrale-e-della-svizzera-nordoccidentale-postfinance-mittelland",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:14.823Z",
+      "validThrough": "2027-02-22T09:39:14.823Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-8139152079f3",
+      "firstSeenAt": "2026-11-23T09:52:01.704Z",
+      "salaryMin": 109000,
+      "salaryMax": 167000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Senior-Finanzplanerin-Region-Romandie/75268-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Finanzplanerin-Region-Romandie/75268-de_DE",
+      "title": "Senior Finanzplaner:in - Region Romandie",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Lausanne",
+      "canton": "VD",
+      "country": "CH",
+      "slug": "pianificatore-finanziario-senior-regione-romandie-postfinance-westschweiz",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:14.127Z",
+      "validThrough": "2027-02-22T09:39:14.127Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "VD",
+        "location": "Lausanne"
+      },
+      "id": "postfinance-8c4f9548a913",
+      "firstSeenAt": "2026-11-23T09:52:00.633Z",
+      "salaryMin": 101500,
+      "salaryMax": 156000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "1003",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Architecture-Owner-%28wmd%29/75191-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Architecture-Owner-%28wmd%29/75191-de_DE",
+      "title": "Architecture Owner (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "proprietario-dell-architettura-m-f-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:13.455Z",
+      "validThrough": "2027-02-22T09:39:13.455Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-db3ae37bd0a1",
+      "firstSeenAt": "2026-11-23T09:51:59.547Z",
+      "salaryMin": 73000,
+      "salaryMax": 124500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Mitarbeiterin-Kompetenz-Center-Kreditkarten/74490-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Mitarbeiterin-Kompetenz-Center-Kreditkarten/74490-de_DE",
+      "title": "Mitarbeiter:in Kompetenz-Center Kreditkarten",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Niederurnen",
+      "canton": "GL",
+      "country": "CH",
+      "slug": "collaboratore-trice-kompetenz-center-kreditkarten-postfinance-niederurnen",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Administration"
+      ],
+      "category": [
+        "Büro-Administration"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:12.775Z",
+      "validThrough": "2026-12-28T09:39:12.775Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "GL",
+        "location": "Niederurnen"
+      },
+      "id": "postfinance-fe195634dcc0",
+      "firstSeenAt": "2026-08-17T10:02:05.031Z",
+      "salaryMin": 65000,
+      "salaryMax": 98500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8867",
+      "addressLocality": "Niederurnen",
+      "addressRegion": "GL",
+      "streetAddress": "Niederurnen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Software-Engineer-Digital-Assets-%28wmd%29/75024-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Software-Engineer-Digital-Assets-%28wmd%29/75024-de_DE",
+      "title": "Software Engineer Digital Assets (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "software-ingegnere-digital-assets-w-m-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:12.092Z",
+      "validThrough": "2027-02-22T09:39:12.092Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "IT",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-71680172d297",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-23T21:42:55.619Z",
+      "salaryMin": 73000,
+      "salaryMax": 124500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Mitarbeiterin-Compliance-Office-Privatkunden/75306-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Mitarbeiterin-Compliance-Office-Privatkunden/75306-de_DE",
+      "title": "Mitarbeiter:in Compliance Office Privatkunden",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "collaboratore-trice-compliance-office-privatkunden-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Recht und Compliance"
+      ],
+      "category": [
+        "Büro-Recht und Compliance"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:11.439Z",
+      "validThrough": "2026-12-28T09:39:11.439Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-3421fc7fad46",
+      "firstSeenAt": "2026-09-09T23:11:28.050Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Team-Assistentin-Finance-&-Risk%2C-Legal-and-Compliance/75297-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Team-Assistentin-Finance-&-Risk%2C-Legal-and-Compliance/75297-de_DE",
+      "title": "Team-Assistent:in Finance & Risk, Legal and Compliance",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "assistente-di-team-finanza-e-rischio-affari-legali-e-conformita-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Administration"
+      ],
+      "category": [
+        "Büro-Administration"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:10.783Z",
+      "validThrough": "2027-02-24T09:39:10.783Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "80-90%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-e77b70d7764d",
+      "firstSeenAt": "2026-11-25T21:46:40.633Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Kundenberaterin-Privatkunden/75323-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Kundenberaterin-Privatkunden/75323-de_DE",
+      "title": "Kundenberater:in Privatkunden",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Stans",
+      "canton": "NW",
+      "country": "CH",
+      "slug": "kundenberater-in-privatkunden-postfinance-stans",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-28T09:39:10.124Z",
+      "validThrough": "2027-02-26T09:39:10.124Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Consulenza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "NW",
+        "location": "Stans"
+      },
+      "id": "postfinance-b876d6965970",
+      "firstSeenAt": "2026-11-27T10:02:27.716Z",
+      "salaryMin": 79000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "6370",
+      "addressLocality": "Stans",
+      "addressRegion": "NW",
+      "streetAddress": "Stans",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
 }
