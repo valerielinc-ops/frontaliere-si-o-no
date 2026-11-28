@@ -8817,6 +8817,21 @@ function stableUploadTriggerDiscriminator(button) {
 const SUCCESS_FACTORS_DIALOG_SLOT_RE = /\s(?:öffnet\s+ein\s+dialog(?:feld|fenster)?|opens\s+a\s+dialog(?:\s+box)?|ouvre\s+une\s+(?:boîte\s+de\s+)?dialogue|apre\s+(?:una\s+)?(?:finestra\s+di\s+)?dialogo)\s*$/iu;
 const SUCCESS_FACTORS_FILLED_SLOT_RE = /\b(?:edit\s+document|dokument\s+bearbeiten|modifica\s+(?:il\s+)?documento|modifier\s+(?:le\s+)?document)\b/i;
 
+/**
+ * The document whose slot already holds a file and offers «Edit document <file> Opens a dialog» ('cv' |
+ * 'cover_letter'), or ''. That dialog takes a new file in place of the held one: it is the replacement trigger of a
+ * held file this run cannot keep (a CV under another name than this run's), never an upload slot of an empty one.
+ */
+export function successFactorsFilledSlotKind(button) {
+  const text = String(button?.text || '').replace(/\s+/g, ' ').trim();
+  if (!SUCCESS_FACTORS_DIALOG_SLOT_RE.test(text)) return '';
+  const held = SUCCESS_FACTORS_FILLED_SLOT_RE.exec(text);
+  if (!held) return '';
+  const caption = text.slice(0, held.index);
+  if (REMOVE_FILE_RE.test(caption)) return '';
+  return documentSlotCaptionKind(caption);
+}
+
 /** The document a slot caption names ('cv' | 'cover_letter'); '' when it names neither, or both. */
 function documentSlotCaptionKind(caption) {
   const cv = CV_DOCUMENT_CONTEXT_RE.test(caption);
@@ -8867,7 +8882,7 @@ export function portalQuestionDocumentSlotKind(question) {
   return parts.length <= 6 && parts.every(part => SLOT_CAPTION_PART_RE.test(part)) ? kind : '';
 }
 
-export function uploadButtonCandidatesFor(snapshot, kind) {
+export function uploadButtonCandidatesFor(snapshot, kind, { replaceHeld = false } = {}) {
   const pattern = kind === 'cv' ? CV_UPLOAD_RE : kind === 'cover_letter' ? COVER_LETTER_UPLOAD_RE : null;
   const contextPattern = kind === 'cv' ? CV_DOCUMENT_CONTEXT_RE : kind === 'cover_letter' ? COVER_LETTER_DOCUMENT_CONTEXT_RE : null;
   if (!pattern || !contextPattern) return [];
@@ -8893,7 +8908,9 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
   const named = findButton(snapshot?.buttons || [], pattern);
   if (named && buttonMatchesDocumentContext(named, contextPattern)) add(named);
   for (const button of snapshot?.buttons || []) {
-    if (!button.disabled && !button.chrome && successFactorsDocumentSlotKind(button) === kind) add(button);
+    if (button.disabled || button.chrome) continue;
+    if (successFactorsDocumentSlotKind(button) === kind
+      || (replaceHeld && successFactorsFilledSlotKind(button) === kind)) add(button);
   }
   for (const button of snapshot?.buttons || []) {
     if (button.disabled || button.chrome) continue;
@@ -9606,11 +9623,11 @@ async function uploadThroughExistingFileField(page, field, file, trace = null, c
 }
 
 /** Dequeue an upload trigger that is still allowed after a portal redraw. */
-function nextAllowedUploadTrigger(page, snapshot, kind, channelType, pending, tried) {
+function nextAllowedUploadTrigger(page, snapshot, kind, channelType, pending, tried, replaceHeld = false) {
   // `pending` contains keys, not button objects. Re-resolve every queued key
   // against the current snapshot so a redraw cannot make us click a detached
   // or reidentified control from the previous snapshot.
-  const discovered = uploadButtonCandidatesFor(snapshot, kind)
+  const discovered = uploadButtonCandidatesFor(snapshot, kind, { replaceHeld })
     .filter((button) => iconUploadAllowedForPage(page, button, kind, snapshot, channelType));
   for (;;) {
     let candidate = null;
@@ -9653,6 +9670,21 @@ function nextAllowedUploadTrigger(page, snapshot, kind, channelType, pending, tr
 }
 
 /**
+ * A document taken out of its slot (or about to be replaced there) is put in again by the upload dialog: the page's
+ * «done» mark and its spent tries belong to the file that was there, so they are cleared for this document alone.
+ * The budget stays bounded: MAX_SECTION_TRIES per page from here on.
+ */
+export function resetDocumentUploadState(url, documents, done, tries) {
+  const where = anonymizePath(url);
+  for (const document of documents || []) {
+    const key = document === 'cv' ? `cv|${where}` : document === 'cover_letter' ? `cover-letter|${where}` : '';
+    if (!key) continue;
+    done.delete(key);
+    tries.delete(key);
+  }
+}
+
+/**
  * Before a page is planned: its closed sections opened, and the CV attached
  * through an upload control when the portal exposes no file field. A page is
  * done only once the action is seen to work (more fields in sight, the file
@@ -9661,7 +9693,7 @@ function nextAllowedUploadTrigger(page, snapshot, kind, channelType, pending, tr
  */
 export async function openFormSections(page, snapshot, {
   files = {}, done = new Set(), tries = new Map(), channelType = '', applyUrl = '',
-  workdayApplicationEntryProven = false,
+  workdayApplicationEntryProven = false, replaceHeld = new Set(), cvKept = false,
 } = {}) {
   let current = snapshot;
   const where = anonymizePath(page.url());
@@ -9720,9 +9752,11 @@ export async function openFormSections(page, snapshot, {
   // A discovered file field stays in the normal planning path. That path
   // removes an earlier upload before replacing it and records the receipt and
   // failure in the same evidence as other planned uploads.
-  while (cvFile && !done.has(cvKey) && !current.fields.some(isCvFileField)) {
+  // The CV an earlier run of this order left in its slot under this run's own name is kept (the caller decided):
+  // no upload is looked for, and no «trigger_not_found» is reported for a slot that is full by design.
+  while (cvFile && !cvKept && !done.has(cvKey) && !current.fields.some(isCvFileField)) {
     if (routeMismatch()) return { snapshot: current, handoff: 'posting_mismatch' };
-    const triggerButton = nextAllowedUploadTrigger(page, current, 'cv', channelType, pendingCvTriggers, triedCvTriggers);
+    const triggerButton = nextAllowedUploadTrigger(page, current, 'cv', channelType, pendingCvTriggers, triedCvTriggers, replaceHeld.has('cv'));
     const triggerKey = triggerButton && uploadTriggerKey(triggerButton);
     if (triggerKey) triedCvTriggers.add(triggerKey);
     if (!triggerButton) {
@@ -9767,7 +9801,7 @@ export async function openFormSections(page, snapshot, {
   let pendingCoverLetterTriggers = [];
   while (coverLetterFile && !done.has(coverLetterKey) && attempt(coverLetterKey)) {
     if (routeMismatch()) return { snapshot: current, handoff: 'posting_mismatch' };
-    const triggerButton = nextAllowedUploadTrigger(page, current, 'cover_letter', channelType, pendingCoverLetterTriggers, triedCoverLetterTriggers);
+    const triggerButton = nextAllowedUploadTrigger(page, current, 'cover_letter', channelType, pendingCoverLetterTriggers, triedCoverLetterTriggers, replaceHeld.has('cover_letter'));
     const triggerKey = triggerButton && uploadTriggerKey(triggerButton);
     if (triggerKey) triedCoverLetterTriggers.add(triggerKey);
     if (!triggerButton) break;
@@ -13900,6 +13934,10 @@ export async function submitViaPortal(ctx) {
     // Pages whose sections and CV dialog were opened (openFormSections), and the tries.
     const openedOnce = new Set();
     const openTries = new Map();
+    // Documents whose held file this run replaces through the slot's «Edit document» dialog (SuccessFactors),
+    // and the page+document pairs already tried: one replacement attempt per page and document.
+    const replaceHeldDocuments = new Set();
+    const heldReplacementTried = new Set();
     const profileSectionsDone = new Set();
     // Semantic answers for planner retries (career-ops application-answers):
     // checkbox markers are never treated as candidate answers. The last answer wins.
@@ -14510,6 +14548,7 @@ export async function submitViaPortal(ctx) {
         const opened = await openFormSections(page, snapshot, {
           files: ctx.files, done: openedOnce, tries: openTries, channelType, applyUrl: ctx.applyUrl,
           workdayApplicationEntryProven,
+          replaceHeld: replaceHeldDocuments, cvKept: keptCvUrls.has(page.url()),
         });
         snapshot = opened.snapshot;
         if (opened.handoff) {
@@ -14835,7 +14874,11 @@ export async function submitViaPortal(ctx) {
           evidence.steps.at(-1).replaced = replaced;
           snapshot = await extractFields(page);
           // A slot that takes its file through a dialog (SuccessFactors) is filled before the page is planned:
-          // the emptied slot gets this run's file now. A file field is left to the planner, as before.
+          // the emptied slot gets this run's file now. A file field is left to the planner, as before. The
+          // page's «done» mark and tries belong to the file just taken away (SuccessFactors keeps one URL for
+          // all its steps, Damiani 2026-11-28: the letter slot was «Attach a Cover Letter» and nothing was
+          // attached): cleared for the replaced documents, then bounded again.
+          resetDocumentUploadState(page.url(), replaced, openedOnce, openTries);
           const sectionsAgain = await openSections();
           if (sectionsAgain?.navigationRecovered) { snapshot = await extractFields(page, NAVIGATION); step -= 1; continue; }
           if (sectionsAgain) return sectionsAgain;
@@ -14851,6 +14894,35 @@ export async function submitViaPortal(ctx) {
       }
       if (keptEarlier.length) evidence.steps.at(-1).keptEarlier = keptEarlier;
       if (keptEarlier.includes('cv')) keptCvUrls.add(page.url());
+      // A document slot that holds a file under another name than this run's (an earlier draft's adapted CV, on
+      // the order's own account) and offers only «Edit document <file> Opens a dialog»: the run's approved file
+      // goes in through that dialog, once per page and document. Without an account of the order, or when the
+      // dialog does not take the file, the run stops as before.
+      if (ctx.accounts && ctx.files) {
+        const sentHeld = new Set(evidence.uploads.map((upload) => upload.document));
+        const foreign = ['cv', 'cover_letter'].filter((document) =>
+          documentPaths(ctx.files, document).length > 0
+          && !sentHeld.has(document) && !selectedDocumentsThisRun.has(document) && !keptEarlier.includes(document)
+          && !heldReplacementTried.has(`${document}|${page.url()}`)
+          && !(document === 'cv' && snapshot.fields.some(isCvFileField))
+          && (snapshot.buttons || []).filter((button) => !button.disabled && !button.chrome
+            && successFactorsFilledSlotKind(button) === document).length === 1);
+        if (foreign.length) {
+          for (const document of foreign) {
+            heldReplacementTried.add(`${document}|${page.url()}`);
+            replaceHeldDocuments.add(document);
+          }
+          resetDocumentUploadState(page.url(), foreign, openedOnce, openTries);
+          const sectionsHeld = await openSections();
+          replaceHeldDocuments.clear();
+          if (sectionsHeld?.navigationRecovered) { snapshot = await extractFields(page, NAVIGATION); step -= 1; continue; }
+          if (sectionsHeld) return sectionsHeld;
+          snapshot = await extractFields(page);
+          const sentAfterHeld = new Set(evidence.uploads.map((upload) => upload.document));
+          evidence.steps.at(-1).heldReplacement = foreign.map((document) => ({ document, replaced: sentAfterHeld.has(document) }));
+          if (foreign.some((document) => !sentAfterHeld.has(document))) return await handoff('previous_file_replacement_unavailable');
+        }
+      }
 
       let after = snapshot;
       let unclearQuestions = [];

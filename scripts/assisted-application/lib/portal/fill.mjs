@@ -1050,6 +1050,22 @@ export function documentPaths(files, document) {
   return (Array.isArray(value) ? value : [value]).filter((path) => typeof path === 'string' && path);
 }
 
+/**
+ * What a failed choice leaves for the owner to read: the control's own label and kind, and the options the page
+ * offered when the value was looked for (the portal's labels, never the candidate's answer). An empty list says the
+ * combobox's options were not read (closed listbox); a full one says the answer is not among them.
+ */
+export function optionFailureDiagnostics(field) {
+  const options = Array.isArray(field?.options) ? field.options : [];
+  return {
+    label: String(field?.label || '').replace(/\s+/g, ' ').trim().slice(0, 80),
+    kind: String(field?.kind || field?.inputType || ''),
+    ...(field?.widget ? { widget: String(field.widget).slice(0, 40) } : {}),
+    optionCount: options.length,
+    offered: options.slice(0, 12).map((option) => String(option?.label ?? option ?? '').replace(/\s+/g, ' ').trim().slice(0, 60)),
+  };
+}
+
 export async function applyActions(page, fields, actions, files, {
   pause = () => page.waitForTimeout(150 + Math.floor(Math.random() * 250)),
   onUploadSelection = () => {},
@@ -1239,7 +1255,9 @@ export async function applyActions(page, fields, actions, files, {
     } catch (error) {
       const choiceEvidence = choiceObservation
         ? await choiceFailureEvidence({ page, fields, field, locator: choiceLocator, observation: choiceObservation }).catch(() => null) : null;
-      results.push({ fieldId: field.id, ok: false, error: String(error?.message || error).slice(0, 120), ...(choiceEvidence ? { choiceEvidence } : {}) });
+      const message = String(error?.message || error).slice(0, 120);
+      const optionDiagnostics = /^option_/.test(message) ? optionFailureDiagnostics(field) : null;
+      results.push({ fieldId: field.id, ok: false, error: message, ...(optionDiagnostics ? { optionDiagnostics } : {}), ...(choiceEvidence ? { choiceEvidence } : {}) });
     } finally {
       await choiceObservation?.original?.dispose?.().catch(() => {});
     }
