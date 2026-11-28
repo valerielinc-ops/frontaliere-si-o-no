@@ -164,3 +164,48 @@ describe('only the form that was sent counts as still visible', () => {
     expect(ask({ submittedFormId: 'f-application', afterSnapshot: { ...after, buttons: [...after.buttons, { text: 'Invia', formId: 'f-application', disabled: true }] } }).confirmed).toBe(true);
   });
 });
+
+describe('contact-form confirmations of the send (DE/FR/IT/EN)', () => {
+  it('reads the past-tense send confirmations, with accents and NFC/NFD alike', () => {
+    for (const text of [
+      'Ihre Nachricht wurde erfolgreich gesendet.', 'Deine Nachricht wurde versendet', 'Ihre Nachricht wurde übermittelt', 'Erfolgreich gesendet!',
+      'Vielen Dank für Ihre Nachricht', 'Ihre Nachricht wurde erfolgreich u\u0308bermittelt'.normalize('NFD'),
+      'Votre message a bien été envoyé', 'Message envoyé avec succès', 'Il tuo messaggio è stato inviato con successo', 'Il Suo messaggio è stato inviato',
+      'Your message has been sent', 'Your message has been sent successfully', 'Message sent successfully',
+    ]) expect(inPageConfirmationText(text), text).not.toBe('');
+  });
+
+  it('never reads futures, conditionals, negations or lookalike words', () => {
+    for (const text of [
+      'Ihre Nachricht wird gesendet', 'Ihre Nachricht konnte nicht gesendet werden', 'Ihre Nachricht wurde nicht erfolgreich gesendet',
+      'Ihre Nachricht wurde nicht gesendet', 'Wir prüfen Ihre Nachricht', 'Votre message sera envoyé', 'Votre message n’a pas été envoyé',
+      'Il tuo messaggio non è stato inviato', 'Il tuo messaggio verrà inviato', 'Your message will be sent', 'Your message has not been sent',
+      'Message could not be sent', 'unerfolgreich gesendetx',
+    ]) expect(inPageConfirmationText(text), text).toBe('');
+  });
+
+  // Synthetic copy of a real saved page: the application form is gone, the cookie banner is the only control.
+  const stiPage = 'https://employer.example/bewerbung/?job-id=1';
+  const stiAfter = {
+    url: stiPage, errors: [], fields: [], buttons: [{ text: 'Alle akzeptieren', chrome: true }],
+    text: 'Bewerbungsformular\nIhre Nachricht wurde erfolgreich gesendet.\nSo geht es weiter\nWir prüfen deine Bewerbung persönlich und melden uns bei dir.',
+  };
+  const stiPosts = [{ phase: 'submit', host: 'employer.example', method: 'POST', status: 200 }, { phase: 'submit', host: 'employer.example', method: 'POST', status: 204 }];
+
+  it('confirms the saved evidence of a send whose page only says the message went', () => {
+    expect(inPageConfirmation({ beforeText: 'Bewerbungsformular\nAbsenden', afterSnapshot: stiAfter, submissionUrl: stiPage, responses: stiPosts }).confirmed).toBe(true);
+    expect(inPageConfirmationFromEvidence({
+      event: { type: 'submit_failed', error: 'portal_ambiguous' },
+      evidence: {
+        finalOutcomes: ['ambiguous'], finalButton: { by: 'runner', label: 'Absenden' }, preSubmitConfirmationVisible: false,
+        afterSubmitSnapshot: stiAfter, submissionUrl: stiPage, diagnostics: { responses: stiPosts },
+      },
+    })).toEqual({ confirmed: true, reason: 'in_page_confirmation' });
+  });
+
+  it('stays ambiguous when that text was visible before the click or the send was answered with an error', () => {
+    expect(inPageConfirmation({ beforeText: stiAfter.text, afterSnapshot: stiAfter, submissionUrl: stiPage, responses: stiPosts })).toMatchObject({ reason: 'confirmation_visible_before_click' });
+    expect(inPageConfirmation({ beforeText: '', afterSnapshot: stiAfter, submissionUrl: stiPage, responses: [{ ...stiPosts[0], status: 500 }] })).toMatchObject({ confirmed: false });
+    expect(inPageConfirmation({ beforeText: '', afterSnapshot: { ...stiAfter, text: 'Ihre Nachricht konnte nicht gesendet werden.' }, submissionUrl: stiPage, responses: stiPosts })).toMatchObject({ reason: 'no_confirmation_text' });
+  });
+});
