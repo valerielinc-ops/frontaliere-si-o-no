@@ -4,7 +4,7 @@ import path from 'node:path';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { buildJobPostingSchema } from '../build-plugins/shared/jobPostingSchema';
 import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-fetch.mjs';
-import { fetchSecoAdSnapshot, fetchSecoEmployers } from '../scripts/lib/prospector/sources/seco-jobroom.mjs';
+import { fetchSecoAdSnapshot, fetchSecoEmployers, readSecoSearchPage } from '../scripts/lib/prospector/sources/seco-jobroom.mjs';
 import {
   addJobsToCorpusIndex,
   buildCorpusIndex,
@@ -420,13 +420,58 @@ describe('selectPublishableJobs', () => {
   });
 });
 
+/**
+ * A stand-in for the job-room search that behaves like the measured API: a
+ * query shows only its first `window` rows, and a request whose
+ * `(page + 1) * size` passes the window is refused with a 412. Filters mirror
+ * the ones the crawler uses: canton, onlineSince (ads online for at most k
+ * days), permanent, workload band (overlap) and the date sort.
+ */
+function jobRoom(ads: Array<{ id: string, canton?: string, age: number, permanent?: boolean, wl?: [number, number] }>, window = 100) {
+  const rows = ads.map((spec) => ({
+    spec,
+    row: ad(spec.id, {
+      publication: { startDate: day(-spec.age) },
+      jobContent: {
+        location: { city: 'Lugano', postalCode: '6900', cantonCode: spec.canton || 'TI', countryIsoCode: 'CH' },
+        employment: {
+          workloadPercentageMin: String((spec.wl || [100, 100])[0]),
+          workloadPercentageMax: String((spec.wl || [100, 100])[1]),
+          permanent: spec.permanent ?? true,
+          shortEmployment: false,
+        },
+      },
+    }),
+  }));
+  const log: Array<{ status: number, query: any, page: number, size: number, sort: string }> = [];
+  const fetchImpl = async (url: unknown, init: any) => {
+    const target = new URL(String(url));
+    const page = Number(target.searchParams.get('page'));
+    const size = Number(target.searchParams.get('size'));
+    const sort = String(target.searchParams.get('sort'));
+    const query = JSON.parse(init.body);
+    if ((page + 1) * size > window) {
+      log.push({ status: 412, query, page, size, sort });
+      return feedResponse(String(url), 412, '{"title":"Invalid Search Parameters"}');
+    }
+    const matching = rows.filter(({ spec }) => (query.cantonCodes.length === 0 || query.cantonCodes.includes(spec.canton || 'TI'))
+      && spec.age <= query.onlineSince
+      && (query.permanent === null || query.permanent === (spec.permanent ?? true))
+      && (spec.wl || [100, 100])[1] >= query.workloadPercentageMin
+      && (spec.wl || [100, 100])[0] <= query.workloadPercentageMax);
+    matching.sort((a, b) => (a.spec.age - b.spec.age) * (sort === 'date_asc' ? -1 : 1) || a.spec.id.localeCompare(b.spec.id));
+    log.push({ status: 200, query, page, size, sort });
+    return feedResponse(String(url), 200, JSON.stringify(matching.slice(page * size, (page + 1) * size).map((m) => m.row)), matching.length);
+  };
+  return { fetchImpl, log };
+}
+
 describe('fetchAllSecoJobroomJobs', () => {
-  const page = (url: unknown) => Number(new URL(String(url)).searchParams.get('page'));
-  const options = (fetchImpl: unknown) => ({
+  const options = (fetchImpl: unknown, pageSize = 100) => ({
     now: NOW,
     cantons: ['TI'],
     corpusIndex: emptyCorpusIndex(),
-    fetchOptions: { pageSize: 2, fetchImpl, lookupImpl, sleepImpl },
+    fetchOptions: { pageSize, fetchImpl, lookupImpl, sleepImpl },
   });
 
   beforeEach(() => {
@@ -436,24 +481,60 @@ describe('fetchAllSecoJobroomJobs', () => {
   });
   afterEach(() => vi.restoreAllMocks());
 
-  it('reads every page, checks the declared total and logs the counters', async () => {
-    const pages = [[ad('f1'), ad('f2')], [ad('f3')]];
-    const result = await fetchAllSecoJobroomJobs(options(
-      async (url: unknown) => feedResponse(String(url), 200, JSON.stringify(pages[page(url)] || []), 3),
-    ));
+  it('reads a feed that fits one window in one request and logs the counters', async () => {
+    const feed = jobRoom([{ id: 'f1', age: 1 }, { id: 'f2', age: 2 }, { id: 'f3', age: 3 }]);
+    const result = await fetchAllSecoJobroomJobs(options(feed.fetchImpl));
     expect(result).toMatchObject({ discoveredCount: 3, fetchOutcome: 'ok' });
     expect(result.jobs).toHaveLength(3);
+    expect(feed.log).toHaveLength(1);
     expect(console.log).toHaveBeenCalledWith(expect.stringContaining('[seco-jobroom] letti=3 pubblicabili=3'));
   });
 
-  it('counts an ad seen on two pages once, and tolerates what the moving total explains', async () => {
-    let call = 0;
-    const pages = [[ad('m1'), ad('m2')], [ad('m2'), ad('m3')], [ad('m3')]];
-    const result = await fetchAllSecoJobroomJobs(options(async (url: unknown) => {
-      call += 1;
-      return feedResponse(String(url), 200, JSON.stringify(pages[page(url)] || []), 3 + Math.min(call - 1, 1));
+  it('reads a feed far larger than the search window by narrowing the query, never by paging deeper', async () => {
+    const specs = Array.from({ length: 60 }, (_, i) => ({
+      id: `w${i}`,
+      canton: i % 2 ? 'TI' : 'GR',
+      age: 1 + (i % 12),
+      permanent: i % 3 !== 0,
     }));
-    expect(result.discoveredCount).toBe(3);
+    const feed = jobRoom(specs, 10);
+    const snapshot = await fetchSecoAdSnapshot({
+      cantons: ['TI', 'GR'], onlineSince: 30, pageSize: 10, fetchImpl: feed.fetchImpl, lookupImpl, sleepImpl,
+    });
+    expect(snapshot).toMatchObject({ outcome: 'complete', errorCode: null, firstDeclaredTotal: 60, lastDeclaredTotal: 60 });
+    expect(snapshot.rows).toHaveLength(60);
+    expect(new Set(snapshot.rows.map((row: any) => row.jobAdvertisement.id)).size).toBe(60);
+    expect(feed.log.filter((entry) => entry.status === 412)).toEqual([]);
+    expect(feed.log.every((entry) => entry.page === 0)).toBe(true);
+  });
+
+  it('splits a day that overflows the window on the permanent flag and the workload band', async () => {
+    const specs = [
+      ...Array.from({ length: 7 }, (_, i) => ({ id: `d${i}`, age: 5, permanent: true, wl: [100, 100] as [number, number] })),
+      ...Array.from({ length: 4 }, (_, i) => ({ id: `e${i}`, age: 5, permanent: false, wl: [100, 100] as [number, number] })),
+      ...Array.from({ length: 4 }, (_, i) => ({ id: `p${i}`, age: 5, permanent: true, wl: [60, 80] as [number, number] })),
+    ];
+    const feed = jobRoom(specs, 8);
+    const snapshot = await fetchSecoAdSnapshot({ cantons: ['TI'], pageSize: 8, fetchImpl: feed.fetchImpl, lookupImpl, sleepImpl });
+    expect(snapshot.outcome).toBe('complete');
+    expect(snapshot.rows).toHaveLength(15);
+    expect(feed.log.some((entry) => entry.query.permanent === true)).toBe(true);
+    expect(feed.log.filter((entry) => entry.status === 412)).toEqual([]);
+  });
+
+  it('goes partial, not complete, when a cell cannot be narrowed under the window', async () => {
+    const feed = jobRoom(Array.from({ length: 12 }, (_, i) => ({ id: `u${i}`, age: 4, permanent: true, wl: [100, 100] as [number, number] })), 5);
+    const snapshot = await fetchSecoAdSnapshot({ cantons: ['TI'], pageSize: 5, fetchImpl: feed.fetchImpl, lookupImpl, sleepImpl });
+    expect(snapshot).toMatchObject({ outcome: 'partial', errorCode: 'unpartitionable_leaf' });
+    await expect(fetchAllSecoJobroomJobs(options(feed.fetchImpl, 5))).rejects.toThrow(/partial \(unpartitionable_leaf\)/);
+  });
+
+  it('stops at the request budget and reports a partial snapshot', async () => {
+    const feed = jobRoom(Array.from({ length: 40 }, (_, i) => ({ id: `b${i}`, age: 1 + (i % 20) })), 5);
+    const snapshot = await fetchSecoAdSnapshot({
+      cantons: ['TI'], pageSize: 5, maxRequests: 3, fetchImpl: feed.fetchImpl, lookupImpl, sleepImpl,
+    });
+    expect(snapshot).toMatchObject({ outcome: 'partial', errorCode: 'request_budget_exceeded', pagesRead: 3 });
   });
 
   it('refuses a short read after one retry', async () => {
@@ -479,7 +560,7 @@ describe('fetchAllSecoJobroomJobs', () => {
   it('refuses a read with no declared total', async () => {
     await expect(fetchAllSecoJobroomJobs(options(
       async (url: unknown) => feedResponse(String(url), 200, JSON.stringify([ad('z1')])),
-    ))).rejects.toThrow(/completeness unverifiable/);
+    ))).rejects.toThrow(/missing_declared_total/);
   });
 
   it('marks a source outage as unavailable, so the stored slice is kept', async () => {
@@ -490,19 +571,42 @@ describe('fetchAllSecoJobroomJobs', () => {
   it('lets a refused request surface as a real failure', async () => {
     await expect(fetchAllSecoJobroomJobs(options(async (url: unknown) => feedResponse(String(url), 403, 'no'))))
       .rejects.toMatchObject({ feedEndpointUnavailable: false });
+    clearPoliteFetchStateForTests();
+    await expect(fetchAllSecoJobroomJobs(options(async (url: unknown) => feedResponse(String(url), 412, 'narrow your search'))))
+      .rejects.toMatchObject({ feedEndpointUnavailable: false });
   });
 
-  it('reports a page failure mid-sweep as partial', async () => {
+  it('reports a failure mid-sweep as partial', async () => {
+    const feed = jobRoom(Array.from({ length: 30 }, (_, i) => ({ id: `q${i}`, age: 1 + (i % 10) })), 5);
+    let calls = 0;
     const snapshot = await fetchSecoAdSnapshot({
-      cantons: ['TI'],
-      pageSize: 1,
-      lookupImpl,
-      sleepImpl,
-      fetchImpl: async (url: unknown) => (page(url) === 0
-        ? feedResponse(String(url), 200, JSON.stringify([ad('p1')]), 2)
-        : feedResponse(String(url), 400, 'bad')),
+      cantons: ['TI'], pageSize: 5, lookupImpl, sleepImpl,
+      fetchImpl: async (url: unknown, init: any) => (++calls > 2
+        ? feedResponse(String(url), 400, 'bad')
+        : feed.fetchImpl(url, init)),
     });
-    expect(snapshot).toMatchObject({ outcome: 'partial', errorCode: 'http_400', pagesRead: 1, firstDeclaredTotal: 2 });
+    expect(snapshot).toMatchObject({ outcome: 'partial', errorCode: 'http_400', pagesRead: 2, firstDeclaredTotal: 30 });
+  });
+
+  it('goes partial when only the closing root query fails', async () => {
+    const feed = jobRoom(Array.from({ length: 30 }, (_, i) => ({ id: `c${i}`, age: 1 + (i % 10) })), 5);
+    const snapshot = await fetchSecoAdSnapshot({
+      cantons: ['TI'], pageSize: 5, lookupImpl, sleepImpl,
+      fetchImpl: async (url: unknown, init: any) => (new URL(String(url)).searchParams.get('size') === '1'
+        ? feedResponse(String(url), 500, 'boom')
+        : feed.fetchImpl(url, init)),
+    });
+    expect(snapshot).toMatchObject({ outcome: 'partial', firstDeclaredTotal: 30, lastDeclaredTotal: 30 });
+    expect(snapshot.errorCode).toBeTruthy();
+    await expect(fetchAllSecoJobroomJobs(options(async (url: unknown, init: any) => (new URL(String(url)).searchParams.get('size') === '1'
+      ? feedResponse(String(url), 500, 'boom')
+      : feed.fetchImpl(url, init)), 5))).rejects.toThrow(/partial/);
+  });
+
+  it('never sends a page behind the search window', async () => {
+    const result = await readSecoSearchPage(1, { cantons: ['TI'], onlineSince: 30, pageSize: 100, lookupImpl, sleepImpl,
+      fetchImpl: async () => { throw new Error('must not be called'); } });
+    expect(result).toEqual({ ok: false, outcome: 'unavailable', errorCode: 'search_window_exceeded' });
   });
 
   it('sends the public-only search and leaves the prospector reader on the same request', async () => {
@@ -517,6 +621,20 @@ describe('fetchAllSecoJobroomJobs', () => {
       },
     });
     expect(bodies[0]).toMatchObject({ displayRestricted: false, onlineSince: 30, cantonCodes: ['TI'] });
+  });
+
+  it('clamps an oversized prospector page and drops a persisted hint behind the window', async () => {
+    const seen: Array<{ page: number, size: number }> = [];
+    await fetchSecoEmployers({
+      cantons: ['TI'], pageSize: 500, startAfterId: 'x', startPageHint: 3, lookupImpl, sleepImpl,
+      fetchImpl: async (url: unknown) => {
+        const target = new URL(String(url));
+        seen.push({ page: Number(target.searchParams.get('page')), size: Number(target.searchParams.get('size')) });
+        return feedResponse(String(url), 200, '[]', 0);
+      },
+    });
+    expect(seen.length).toBeGreaterThan(0);
+    expect(seen.every((entry) => entry.size === 100 && (entry.page + 1) * entry.size <= 100)).toBe(true);
   });
 });
 
