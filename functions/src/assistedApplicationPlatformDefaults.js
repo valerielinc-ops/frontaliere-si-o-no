@@ -97,11 +97,13 @@ import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestion
 // questions; a passport stated at upload remains the higher-priority fact, and an unknown nationality stays open.
 // v14 (2026-11-12): passport questions share one fact; verified platform answers plus a foreign permit can
 // establish EU/EFTA, while an explicit candidate blank keeps the passport unknown.
+// v17 (2026-11-28): the field of study («Major», «Fachrichtung») from the CV's highest title, and a free-text
+// language row («Language») from the CV's strongest language: a text field the CV answers is never asked.
 // v16 (2026-11-27): «Risiedi in Svizzera?» answered from the stated address country, and a residence-or-permit
 // question answered yes only by a held permit (never no from the lack of one): the waits on them are read again.
 // v15 (2026-11-24): deduce birth-year estimate from work experience when education lacks dates (unblocking
 // civil-status deduction), and deduce category B driving licence from own-car evidence or decision.
-export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v16';
+export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v17';
 
 /** The street names a required street field receives when the CV has none (owner list, 2026-11-09). */
 export const PLATFORM_STREETS = Object.freeze([
@@ -372,6 +374,34 @@ export function platformEducationLevel(profile = {}) {
   return ranks.length ? Math.max(...ranks) : null;
 }
 
+// The field of study a CV title states: an explicit key, or the words after «Laurea in», «Bachelor of», «Diplom in» …
+// A title that names no field («Diploma di perito informatico», «Maturità») yields '' and the candidate is asked.
+const DEGREE_FIELD_RE = /^(?:laurea(?:\s+(?:magistrale|specialistica|triennale|breve))?|master(?:['’]s)?(?:\s+degree)?(?:\s+of\s+(?:science|arts))?|bachelor(?:['’]s)?(?:\s+degree)?(?:\s+of\s+(?:science|arts))?|diploma(?:\s+di\s+laurea)?|dottorato(?:\s+di\s+ricerca)?|ph\.?d\.?|licence|diplom|msc|bsc|degree)\s+(?:in|of|en|nelle?|aus)\s+(.+)$/iu;
+function studyFieldOf(item) {
+  for (const key of ['field', 'fieldOfStudy', 'major', 'studyField']) {
+    const value = clean(item?.[key], 120);
+    if (value) return value;
+  }
+  const match = DEGREE_FIELD_RE.exec(clean(item?.degree, 200));
+  if (!match) return '';
+  const value = clean(match[1].split(/\s*(?:[,;(]|\s[-–—]\s|\spresso\s|\sat\s|\sall['’]\s*)/u)[0].replace(/[.\s]+$/u, ''), 120);
+  return /\p{L}{3}/u.test(value) && !/\d/.test(value) ? value : '';
+}
+
+/** The field of study of the CV's highest title; '' when none states it or the highest titles disagree. */
+export function platformStudyField(profile = {}) {
+  const items = (Array.isArray(profile?.education) ? profile.education : [])
+    .filter((item) => item && typeof item === 'object')
+    .map((item) => ({ item, rank: educationLevelRank(item.degree) ?? educationLevelRank(item.institution) }))
+    .filter((entry) => entry.rank !== null);
+  if (!items.length) return '';
+  const top = Math.max(...items.map((entry) => entry.rank));
+  const fields = items.filter((entry) => entry.rank === top).map((entry) => studyFieldOf(entry.item));
+  const distinct = new Map(fields.filter(Boolean).map((value) => [fold(value), value]));
+  // A top title that states no field is no proof for another top title's field.
+  return distinct.size === 1 && fields.every(Boolean) ? [...distinct.values()][0] : '';
+}
+
 export function ageOn(dateOfBirth, nowMs = Date.now()) {
   const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(dateOfBirth || ''));
   if (!match) return null;
@@ -544,6 +574,8 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
     dateOfBirth: birth?.value || '',
     dateOfBirthEstimated: Boolean(birth?.estimated),
     educationLevel: platformEducationLevel(profile),
+    // The field of study of the CV's highest title («Major»), '' when the CV names none or two different ones.
+    studyField: platformStudyField(profile),
     // The CV's titles of study and certifications, for a field that asks one (held_title).
     titles: cvTitles(profile),
     age,
@@ -1776,6 +1808,7 @@ function classifyPlatformSubject(question) {
   if (isSwissArmyQuestion(question)) return 'swiss_army_service';
   if (isEducationLevelQuestion(question)) return 'education_level';
   if (isHeldTitleQuestion(question)) return 'held_title';
+  if (isStudyFieldQuestion(question)) return 'study_field';
   if (isFirstLanguageQuestion(question)) return 'first_language';
   if (isCorrespondenceLanguageQuestion(question)) return 'correspondence_language';
   if (isLanguageRowName(question)) return 'language_row_name';
@@ -1921,6 +1954,12 @@ function dateValue(question, iso, locale) {
 const EDUCATION_LEVEL_LABEL = /\b(?:(?:highest )?(?:level of )?education(?:al)? (?:level|attainment|degree)|(?:highest )?level of (?:education|study|studies)|highest (?:education|degree|qualification)|education|titolo di studio|livello (?:di )?(?:istruzione|studio|studi)|grado (?:di )?istruzione|istruzione|ausbildungsniveau|bildungsniveau|bildungsabschluss|hochste\w* (?:abschluss|ausbildung)|hochster bildungsabschluss|schulabschluss|niveau (?:d )?(?:etudes|formation|education)|diplome le plus eleve|plus haut diplome|formation)\b/;
 const EDUCATION_NOT_LEVEL = /\b(?:institut\w*|school name|nome (?:della )?scuola|universit\w* name|major|field|subject|indirizzo|fachrichtung|domaine|year|anno|jahr|annee|start|end|from|to|da|al|grade|voto|note|country|paese|land|pays|city|citta|ort|ville)\b/;
 
+// «Major» (SuccessFactors), «Fachrichtung», «Indirizzo di studi»: a free-text field, never a picklist of levels or schools.
+const STUDY_FIELD_LABEL = /^(?:major|field of study|area of study|study (?:field|area|subject|program(?:me)?)|subject of study|course of study|degree (?:subject|major)|fachrichtung|studienrichtung|studienfach|studiengang|indirizzo di studi[o]?|campo di studi[o]?|ambito di studio|corso di laurea|domaine d etudes?|filiere d etudes?)$/;
+function isStudyFieldQuestion(question) {
+  return STUDY_FIELD_LABEL.test(label(question)) && ['text', 'textarea', ''].includes(typeOf(question)) && optionsOf(question).length === 0;
+}
+
 function isEducationLevelQuestion(question) {
   const text = label(question);
   if (!EDUCATION_LEVEL_LABEL.test(text) || EDUCATION_NOT_LEVEL.test(text) || text.split(' ').length > 8) return false;
@@ -2032,7 +2071,20 @@ function rowScope(question) {
 // required row is one the application asks.
 function isLanguageRowName(question) {
   if (question?.required === false || !BARE_LANGUAGE.test(label(question)) || INTERFACE_LANGUAGE.test(rowScope(question))) return false;
+  // A free-text row names the language itself, but only inside a competency section: a bare text «Language» elsewhere is
+  // not provably a row.
+  if (!optionsOf(question).length) return ['text', ''].includes(typeOf(question)) && LANGUAGE_SECTION.test(rowScope(question));
   return optionsOf(question).filter((option) => languageCodesIn(option).length === 1).length >= 2;
+}
+
+// The name of a language in the language the field's caption is written in (a free-text row).
+function languageNameFor(question, code) {
+  const caption = label(question);
+  const locale = { language: 'en', lingua: 'it', sprache: 'de', langue: 'fr' }[caption.split(' ')[0]] || 'en';
+  try {
+    const name = new Intl.DisplayNames([locale], { type: 'language' }).of(code);
+    return name && name !== code ? name.charAt(0).toLocaleUpperCase(locale) + name.slice(1) : '';
+  } catch { return ''; }
 }
 
 function isLanguageRowLevel(question) {
@@ -2413,9 +2465,12 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
     case 'salary_expectation': value = salaryValue(question, withLocale); break;
     case 'education_level': value = educationLevelValue(question, known); break;
     case 'held_title': value = heldTitleValue(question, known); break;
+    case 'study_field': value = known.studyField || ''; break;
     case 'language_row_name': {
       const primary = primaryLanguage(known);
-      value = primary ? pickOption(question, (option) => languageCodesIn(option).length === 1 && languageCodesIn(option)[0] === primary.code) : '';
+      value = !primary ? ''
+        : optionsOf(question).length ? pickOption(question, (option) => languageCodesIn(option).length === 1 && languageCodesIn(option)[0] === primary.code)
+          : languageNameFor(question, primary.code);
       break;
     }
     case 'language_row_level': {
