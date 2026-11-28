@@ -83,10 +83,12 @@ jobs:
       - name: Sync GSC orphan slugs + enrich
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: |
-          # Prints the process peak RSS in the run log when node exits on its own
-          # (a V8 heap OOM aborts instead, and then prints its GC trace).
-          node --import 'data:text/javascript,process.on("exit",()=>console.log("[memory] sync-gsc-orphans peak_rss_mib="+Math.ceil(process.resourceUsage().maxRSS/1024)))' \
-            scripts/sync-gsc-orphans.mjs \
+          # The parent prints the child's peak RSS and exit code, so the line is
+          # there even when node is aborted (V8 heap OOM, 134) or killed by a
+          # signal (137). Only losing the whole step (job timeout, cancel, lost
+          # runner) leaves the log without it.
+          python3 -c 'import resource,subprocess,sys; code=subprocess.call(sys.argv[1:]); code=code if code>=0 else 128-code; peak=resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss; print("[memory] sync-gsc-orphans peak_rss_mib=%d exit=%d"%((peak+1023)//1024,code),flush=True); sys.exit(code)' \
+            node scripts/sync-gsc-orphans.mjs \
             ${{ inputs.dry_run == true && '--dry-run' || '' }}
         env:
           # The default ~4 GB heap runs out right after the orphan merge (53,887
