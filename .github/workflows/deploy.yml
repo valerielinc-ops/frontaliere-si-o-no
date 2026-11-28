@@ -695,6 +695,21 @@ jobs:
       - name: Grow swap (il tetto V8 a 14336 MB vuole headroom sull'host)
         run: bash scripts/ci/grow-build-swap.sh
 
+      # Un runner perso non lascia log (BlobNotFound): memoria, disco e carico
+      # vanno scritti fuori dal runner mentre il job gira, come commit status
+      # `deploy-host/<locale>`. Campi e lettura nello script. Il token resta
+      # nell'ambiente di questo step: gli step di build non lo vedono.
+      # Spegnimento: variabile di repository DEPLOY_HOST_HEARTBEAT=0.
+      - name: Start off-runner host heartbeat
+        if: vars.DEPLOY_HOST_HEARTBEAT != '0'
+        continue-on-error: true
+        env:
+          HEARTBEAT_TOKEN: ${{ github.token }}
+          HEARTBEAT_LOCALE: ${{ matrix.locale }}
+        run: |
+          bash scripts/ci/host-heartbeat.sh --once
+          nohup bash scripts/ci/host-heartbeat.sh > "$RUNNER_TEMP/host-heartbeat.log" 2>&1 < /dev/null &
+
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
