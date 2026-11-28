@@ -11,6 +11,7 @@ import { normalizeJobSearchTokens as normalizeTokens, occupationalRoleTokens, to
  */
 
 import { resolveKnownJobCanton } from './shared/cantonSection';
+import { classifyClusterToken, splitClusterTokens } from './shared/clusterQueryTokens';
 import { firstParsableMs } from './shared/firstParsableDate';
 import {
   ORPHAN_LANDING_LOCALES as SHARED_ORPHAN_LANDING_LOCALES,
@@ -206,7 +207,8 @@ export function jobMatchesCluster(job: OrphanCountableJob, cluster: OrphanQueryC
     ...normalizeTokens(job.addressLocality),
   ]);
 
-  return matchesClusterFacts(titleTokens, locTokens, clusterMatchFacts(cluster));
+  const facts = clusterMatchFacts(cluster);
+  return matchesClusterFacts(titleTokens, locTokens, facts, facts.cantonCodes.size > 0 ? resolveKnownJobCanton(job) : null);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -247,8 +249,18 @@ export function jobMatchesCluster(job: OrphanCountableJob, cluster: OrphanQueryC
 // ─────────────────────────────────────────────────────────────────────────────
 
 interface ClusterMatchFacts {
+  /** Content role tokens: occupational, without canton names/markers/context words. */
   readonly roleTokens: readonly string[];
+  /** Named localities (cities); canton names are NOT here, they are a filter. */
   readonly specificRegions: readonly string[];
+  /** Cantons (other than the broad Ticino coverage) the query names: a FILTER on the job's canton. */
+  readonly cantonCodes: ReadonlySet<string>;
+  /** Region tokens that name those cantons; kept as a locality fallback for jobs with no resolvable canton. */
+  readonly cantonNameRegions: readonly string[];
+  /** A canton marker / context word / canton name was removed from the role tokens. */
+  readonly normalized: boolean;
+  /** The query names Switzerland or Ticino as a whole (broad region token). */
+  readonly broadGeo: boolean;
   readonly allRolesGeneric: boolean;
 }
 
@@ -258,50 +270,85 @@ const clusterFactsCache = new WeakMap<OrphanQueryCluster, ClusterMatchFacts>();
 function clusterMatchFacts(cluster: OrphanQueryCluster): ClusterMatchFacts {
   const hit = clusterFactsCache.get(cluster);
   if (hit) return hit;
+  // Canton names, "canton/kanton" markers and cross-border context words
+  // ("frontalieri") describe WHERE / FOR WHOM, not WHAT: they are never
+  // required in a job title (see shared/clusterQueryTokens.ts).
+  const split = splitClusterTokens(cluster.roleTokens);
+  const cantonCodes = new Set<string>(split.cantonCodes.filter((code) => code !== 'TI'));
   // A *specific* locality (city) is enforced against the job location; *broad*
-  // tokens (svizzera/ticino/ch) only mean site-wide coverage.
-  const specificRegions = cluster.regionTokens.filter((r) => !BROAD_REGION_TOKENS.has(r));
-  const allRolesGeneric =
-    cluster.roleTokens.length === 0 || occupationalRoleTokens(cluster.roleTokens).length === 0;
-  const roleTokens = occupationalRoleTokens(cluster.roleTokens);
-  const facts: ClusterMatchFacts = { roleTokens, specificRegions, allRolesGeneric };
+  // tokens (svizzera/ticino/ch) only mean site-wide coverage; a canton name
+  // other than Ticino filters on the job's canton.
+  const specificRegions: string[] = [];
+  const cantonNameRegions: string[] = [];
+  for (const r of cluster.regionTokens) {
+    if (BROAD_REGION_TOKENS.has(r)) continue;
+    const cls = classifyClusterToken(r);
+    if (cls?.kind === 'canton') {
+      cantonNameRegions.push(r);
+      for (const code of cls.codes) cantonCodes.add(code);
+    } else {
+      specificRegions.push(r);
+    }
+  }
+  const roleTokens = occupationalRoleTokens(split.content);
+  const allRolesGeneric = roleTokens.length === 0;
+  const facts: ClusterMatchFacts = {
+    roleTokens,
+    specificRegions,
+    cantonCodes,
+    cantonNameRegions,
+    normalized: split.removed,
+    broadGeo: cluster.regionTokens.some((r) => BROAD_REGION_TOKENS.has(r)),
+    allRolesGeneric,
+  };
   clusterFactsCache.set(cluster, facts);
   return facts;
 }
 
 /**
- * The role+region decision, byte-for-byte the branch sequence that used to live
- * inline in `jobMatchesCluster`. Both call sites (the public per-job function
- * and the indexed loop) go through this, so there is exactly one copy of it.
+ * The role+region decision. Both call sites (the public per-job function and
+ * the indexed loop) go through this, so there is exactly one copy of it.
+ *
+ *   - city gate: a named city must start the job location;
+ *   - canton gate: a named canton must be the job's canton (or, when the job's
+ *     canton is unknown, a locality named like it);
+ *   - no content role token: the named geography alone decides; a query that
+ *     only lost marker/context words ("frontalieri") or names only
+ *     Switzerland/Ticino shows every active job (Ticino coverage is then
+ *     applied by selectOrphanLandingJobs);
+ *   - otherwise every content role token must be in the title/company.
  */
 function matchesClusterFacts(
   titleTokens: Iterable<string>,
   locTokens: Iterable<string>,
   facts: ClusterMatchFacts,
+  jobCanton: string | null,
 ): boolean {
-  // Pure geographic search ("jobs in <city>"): no occupational intent, just a
-  // named city → match by locality alone.
-  if (facts.specificRegions.length > 0 && facts.allRolesGeneric) {
-    return facts.specificRegions.some((rtok) => localityMatchesCity(locTokens, rtok));
+  const cityGate = facts.specificRegions.length > 0
+    ? facts.specificRegions.some((rtok) => localityMatchesCity(locTokens, rtok))
+    : null;
+  const cantonGate = facts.cantonCodes.size > 0
+    ? (jobCanton !== null && facts.cantonCodes.has(jobCanton))
+      || facts.cantonNameRegions.some((rtok) => localityMatchesCity(locTokens, rtok))
+    : null;
+  if (cityGate === false || cantonGate === false) return false;
+
+  if (facts.roleTokens.length === 0) {
+    // Pure geographic search, or a query reduced to marker/context words.
+    return cityGate !== null || cantonGate !== null || facts.normalized || facts.broadGeo;
   }
 
   // A compound profession must match every occupational term. Matching only
   // "specialist" would surface medical roles for customs-specialist searches.
-  if (facts.roleTokens.length === 0 || !facts.roleTokens.every((stem) => tokenMatchesStem(titleTokens, stem))) return false;
-
-  // Region: a named city must appear in the job location; broad-only tokens
-  // (or no region tokens) leave coverage unconstrained / site-wide.
-  if (facts.specificRegions.length > 0) {
-    if (!facts.specificRegions.some((rtok) => localityMatchesCity(locTokens, rtok))) return false;
-  }
-
-  return true;
+  return facts.roleTokens.every((stem) => tokenMatchesStem(titleTokens, stem));
 }
 
 /** Per-job derived state. Locale-keyed fields are filled lazily, per locale. */
 interface JobMatchEntry {
   /** normalizeTokens(location) + normalizeTokens(addressLocality), de-duped. */
   locTokens?: string[];
+  /** resolveKnownJobCanton(job), lazily; `undefined` = not computed yet. */
+  cantonKnown?: string | null;
   /** Verified publication timestamp (or zero), locale-invariant. */
   postedMs: number;
   activeByLocale: Partial<Record<OrphanLandingLocale, boolean>>;
@@ -408,7 +455,12 @@ export function filterMatchingJobs<T extends OrphanCountableJob>(
   for (const i of index.newestFirst) {
     const entry = index.entries[i];
     if (!entryActive(entry, jobs[i], locale)) continue;
-    if (!matchesClusterFacts(entryTitleTokens(entry, jobs[i], locale), entryLocTokens(entry, jobs[i]), facts)) {
+    let jobCanton: string | null = null;
+    if (facts.cantonCodes.size > 0) {
+      if (entry.cantonKnown === undefined) entry.cantonKnown = resolveKnownJobCanton(jobs[i]);
+      jobCanton = entry.cantonKnown;
+    }
+    if (!matchesClusterFacts(entryTitleTokens(entry, jobs[i], locale), entryLocTokens(entry, jobs[i]), facts, jobCanton)) {
       continue;
     }
     matched.push(i);
@@ -456,7 +508,8 @@ export function selectOrphanLandingJobs<T extends OrphanCountableJob>(
   minJobs: number,
 ): OrphanLandingJobs<T> {
   const namesTicino = cluster.regionTokens.some((r) => TICINO_REGION_TOKENS.has(r));
-  if (!namesTicino || clusterMatchFacts(cluster).specificRegions.length > 0) {
+  const facts = clusterMatchFacts(cluster);
+  if (!namesTicino || facts.specificRegions.length > 0 || facts.cantonCodes.size > 0) {
     return { jobs: filterMatchingJobs(jobs, cluster, limit), regionRelevant: true };
   }
   const allMatches = filterMatchingJobs(jobs, cluster, Number.POSITIVE_INFINITY);
