@@ -66,6 +66,8 @@ async function readCollection(firestore, collection, { date, fields }, nowMs, in
           stripeId: collection === 'reader_checkout_claims' ? id
             : !conflict && provider !== 'sumup' && validId(stripeId) ? stripeId : null,
           sumupId: !conflict && provider !== 'stripe' && validId(sumup) ? sumup : null,
+          // Covered by a parent service: no payment of its own at a provider.
+          delegated: provider === 'parent_service' && !session && !legacySession && !sumup,
         });
       }
       if (documents.length <= PAGE_SIZE) return result;
@@ -115,21 +117,26 @@ function applicationState(record) {
   if (record.collection === 'reader_checkout_claims') return 'paid';
   if (record.state === 'paid' || (record.collection === 'orders' && record.state === 'active')) return 'paid';
   if (record.collection === 'orders' && record.state === 'created') return 'unpaid';
+  if (record.state === 'refunded' && record.collection !== 'orders') return 'refunded';
   if (['assisted_applications', 'application_concierge_services'].includes(record.collection)
       && ['pending', 'failed', 'unpaid'].includes(record.state)) return 'unpaid';
   return 'unknown';
 }
 
 export function reconcilePayments(records, stripe, sumup, nowMs) {
-  const counts = { matched: 0, providerPaidAppUnpaid: 0, appPaidProviderIncompatible: 0, grace: 0, unknown: 0 };
+  const counts = { matched: 0, providerPaidAppUnpaid: 0, appPaidProviderIncompatible: 0, grace: 0, unknown: 0, delegated: 0 };
   const stripeRows = [...(stripe?.completeCheckouts ?? []), ...(stripe?.expiredCheckouts ?? []),
-    ...(stripe?.staleOpenCheckouts ?? [])];
+    ...(stripe?.staleOpenCheckouts ?? []), ...(stripe?.lookedUpCheckouts ?? [])];
   const stripeById = new Map();
   for (const row of stripeRows) stripeById.set(row.id, stripeById.has(row.id) ? null : row);
   const sumUpById = new Map(sumup?.checkouts?.map((row) => [row.id, row]));
   const seen = new Set();
 
   for (const record of records) {
+    if (record.delegated) {
+      counts.delegated++;
+      continue;
+    }
     const stripeRow = stripeById.get(record.stripeId);
     const sumUpRow = sumUpById.get(record.sumupId);
     if (stripeRow && matchesStripe(stripeRow, record)) seen.add(stripeRow.id);
@@ -143,14 +150,18 @@ export function reconcilePayments(records, stripe, sumup, nowMs) {
       // FAILED and EXPIRED may be recovered or renewed. They are incompatible
       // with an app payment tied to this exact checkout.
       if (['FAILED', 'EXPIRED', 'CANCELLED'].includes(sumUpRow.status)) provider = 'incompatible';
+      // The payment is still being collected: consistent with an unpaid app row.
+      if (['OPEN', 'PENDING'].includes(sumUpRow.status)) provider = 'pending';
     } else if (stripeRow && matchesStripe(stripeRow, record)) {
       if (stripeRow.paymentStatus === 'paid') provider = 'paid';
       if (stripeRow.status === 'expired' && stripeRow.paymentStatus === 'unpaid') provider = 'incompatible';
+      if (stripeRow.status === 'open' && stripeRow.paymentStatus === 'unpaid') provider = 'pending';
     }
     const app = applicationState(record);
     if (app === 'unpaid' && provider === 'paid') counts.providerPaidAppUnpaid++;
     else if (app === 'paid' && provider === 'incompatible') counts.appPaidProviderIncompatible++;
-    else if (app === 'paid' && provider === 'paid') counts.matched++;
+    else if (['paid', 'refunded'].includes(app) && provider === 'paid') counts.matched++;
+    else if (app === 'unpaid' && provider === 'pending') counts.matched++;
     else if (app !== 'unpaid' || provider !== 'incompatible') counts.unknown++;
   }
 

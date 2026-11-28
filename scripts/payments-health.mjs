@@ -120,7 +120,7 @@ async function stripeList(request, resource, label, start, end, filters, project
 }
 
 function stripeCheckout(row, source, expectedStatus) {
-  if (row.status !== expectedStatus) fail(source, 'invalid_response');
+  if (![expectedStatus].flat().includes(row.status)) fail(source, 'invalid_response');
   const product = row.metadata?.product;
   const orderId = reference(row.metadata?.orderId);
   const serviceId = reference(row.metadata?.serviceId);
@@ -293,6 +293,33 @@ async function sumUpCheckouts(request, merchantCode, ids, onIncomplete) {
   return checkouts;
 }
 
+const STRIPE_LOOKUP_LIMIT = 50;
+
+// The app row can be modified inside the window while its session was created
+// before it, so the listings above never see it: read those sessions by id.
+export async function lookupStripeCheckouts({ apiKey, ids, nowMs, fetchImpl = globalThis.fetch, onIncomplete } = {}) {
+  const source = 'stripe.checkout_lookup';
+  windowStart(source, apiKey, nowMs, fetchImpl);
+  const unique = [...new Set(ids)].filter(identifier);
+  if (unique.length > STRIPE_LOOKUP_LIMIT) onIncomplete?.(`${source}.lookup_limit`);
+  const rows = [];
+  const lookup = async (id) => {
+    const row = await requestJson(source, fetchImpl, new URL(`/v1/checkout/sessions/${id}`, 'https://api.stripe.com'), apiKey);
+    if (row.id !== id || !Number.isSafeInteger(row.created)) fail(source, 'invalid_response');
+    return stripeCheckout(row, source, ['open', 'complete', 'expired']);
+  };
+  const targets = unique.slice(0, STRIPE_LOOKUP_LIMIT);
+  for (let offset = 0; offset < targets.length; offset += 4) {
+    const batch = await Promise.all(targets.slice(offset, offset + 4).map((id) => lookup(id).catch((error) => {
+      if (!onIncomplete) throw error;
+      onIncomplete(error instanceof CollectorError ? error.code : `${source}.unavailable`);
+      return null;
+    })));
+    rows.push(...batch.filter(Boolean));
+  }
+  return rows;
+}
+
 export async function collectSumUpSignals({ apiKey, merchantCode, checkoutIds, nowMs, fetchImpl = globalThis.fetch, onIncomplete } = {}) {
   const start = windowStart('sumup', apiKey, nowMs, fetchImpl);
   if (!identifier(merchantCode) || !Array.isArray(checkoutIds)) fail('sumup', 'invalid_scope');
@@ -415,6 +442,17 @@ export async function runPaymentsHealth({
     })),
     firestoreToken ? readPaymentRecords(firestore, nowMs, onIncomplete) : [],
   ]);
+  if (stripe) {
+    const listed = new Set(Object.values(stripe.details).flat().filter(Boolean).map((row) => row.id));
+    const missing = records.map((row) => row.stripeId)
+      .filter((id) => id && !listed.has(id));
+    if (missing.length) {
+      const lookedUp = await attempt('stripe.checkout_lookup.unavailable', () => lookupStripeCheckouts({
+        apiKey: secret('STRIPE_SECRET_KEY'), ids: missing, nowMs, fetchImpl, onIncomplete,
+      }));
+      stripe.details.lookedUpCheckouts = lookedUp ?? [];
+    }
+  }
   const checkoutIds = [...new Set(records.map((row) => row.sumupId).filter(Boolean))];
   if (checkoutIds.length > 200) incomplete.add('sumup.checkouts.checkout_limit');
   const sumup = await attempt('sumup.unavailable', () => collectSumUpSignals({
