@@ -16,6 +16,7 @@ import { staticScriptsPlugin } from './build-plugins/staticScriptsPlugin';
 import { versionedCdnAssetsPlugin } from './build-plugins/versionedCdnAssetsPlugin';
 import { metaPixelBaseCodePlugin } from './build-plugins/metaPixelBaseCodePlugin';
 import { assetIntegrityManifestPlugin } from './build-plugins/shared/assetIntegrity';
+import { esbuildModuleMapOverrides } from './build-plugins/shared/esbuildModuleMaps';
 import { asyncCssPlugin } from './build-plugins/asyncCssPlugin';
 import { minifyCriticalIndexCssPlugin } from './build-plugins/minifyCriticalIndexCss';
 import { minifySeoStaticCssPlugin } from './build-plugins/minifySeoStaticCss';
@@ -159,7 +160,7 @@ const __dirname = path.dirname(__filename);
 /* ================================================================
  * Vite configuration
  * ================================================================ */
-export default defineConfig(({ mode }) => {
+export default defineConfig(({ mode, command }) => {
  // Read env inside the callback so tests/callers that mutate FAST_BUILD
  // after importing this module still see the current value.
  const isFastBuild = !!process.env.FAST_BUILD;
@@ -667,6 +668,9 @@ export default defineConfig(({ mode }) => {
  },
  }
  : {}),
+ // Drop the per-module esbuild maps that `build.sourcemap: false` still leaves
+ // in Rollup's graph (measurement in the helper).
+ ...esbuildModuleMapOverrides(command, process.env.PUBLIC_SOURCEMAPS === '1'),
  server: {
  port: 3000,
  host: '0.0.0.0',
