@@ -47,6 +47,8 @@ export function inPageConfirmationFromEvidence(payload = {}) {
     afterSnapshot: evidence.afterSubmitSnapshot || null,
     submissionUrl: evidence.submissionUrl || '',
     responses: evidence.diagnostics?.responses || [],
+    finalLabel: String(evidence.finalButton?.label || ''),
+    submittedFormId: String(evidence.finalFormId || ''),
   });
 }
 

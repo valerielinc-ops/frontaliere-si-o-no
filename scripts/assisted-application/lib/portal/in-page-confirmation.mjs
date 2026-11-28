@@ -50,9 +50,12 @@ const hostOf = (value) => {
  * @param {string} input.submissionUrl the page the final click was made on
  * @param {object[]} input.responses diagnostics.responses ({phase, host, method, status})
  * @param {boolean} [input.allowUnknownBefore] reconciliation of runs that did not save the text before the click
+ * @param {string} [input.finalLabel] the label of the send control that was clicked
+ * @param {string} [input.submittedFormId] the id of the form that was sent (saved with the evidence since this rule
+ *   reads one form); without it the sent form is the one holding the CV upload and that send control
  * @returns {{confirmed:boolean, reason:string}}
  */
-export function inPageConfirmation({ beforeText = null, afterSnapshot = null, submissionUrl = '', responses = [], allowUnknownBefore = false } = {}) {
+export function inPageConfirmation({ beforeText = null, afterSnapshot = null, submissionUrl = '', responses = [], allowUnknownBefore = false, finalLabel = '', submittedFormId = '' } = {}) {
   const no = (reason) => ({ confirmed: false, reason });
   if (!afterSnapshot || typeof afterSnapshot.text !== 'string') return no('no_snapshot');
   const here = address(afterSnapshot.url);
@@ -64,8 +67,20 @@ export function inPageConfirmation({ beforeText = null, afterSnapshot = null, su
   } else if (!allowUnknownBefore) return no('before_click_text_unknown');
   const fields = Array.isArray(afterSnapshot.fields) ? afterSnapshot.fields : [];
   const buttons = Array.isArray(afterSnapshot.buttons) ? afterSnapshot.buttons : [];
-  const formStillThere = fields.some((field) => field?.chrome !== true && field?.disabled !== true && field?.inputType !== 'hidden')
-    || buttons.some((button) => button?.chrome !== true && button?.disabled !== true && SUBMIT_RE.test(String(button?.text || '')));
+  // ONLY the form that was sent: the page keeps its other forms (a booking widget, a newsletter, a search) and
+  // their fields say nothing about it. The sent form is gone when none of ITS controls is still shown and active
+  // (by its id); without that identity (older evidence) when no CV upload and no control labelled like the one
+  // that was clicked is left. A label or an upload still there keeps it ambiguous.
+  const live = (item) => item?.chrome !== true && item?.disabled !== true;
+  const sameLabel = (text) => {
+    const wanted = String(finalLabel || '').replace(/\s+/gu, ' ').trim().toLowerCase();
+    return wanted ? String(text || '').replace(/\s+/gu, ' ').trim().toLowerCase() === wanted : SUBMIT_RE.test(String(text || ''));
+  };
+  const formStillThere = submittedFormId
+    ? [...fields, ...buttons].some((item) => live(item) && item?.formId === submittedFormId && item?.inputType !== 'hidden')
+      || buttons.some((button) => live(button) && sameLabel(button?.text))
+    : fields.some((field) => live(field) && field?.inputType === 'file')
+      || buttons.some((button) => live(button) && sameLabel(button?.text));
   if (formStillThere) return no('form_still_visible');
   if ((afterSnapshot.errors || []).length || fields.some((field) => field?.invalid === true)
     || REFUSED_RE.test(afterSnapshot.text)

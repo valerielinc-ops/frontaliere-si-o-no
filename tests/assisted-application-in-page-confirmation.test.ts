@@ -132,3 +132,35 @@ describe('which stored run holds the click', () => {
     expect(evidenceHoldsTheClick({}, {})).toBe(false);
   });
 });
+
+describe('only the form that was sent counts as still visible', () => {
+  // The page after the send, as saved: the other forms of the page stay, the application form is gone.
+  const otherForms = {
+    fields: [
+      { inputType: 'text' }, { inputType: 'text' }, { inputType: '' }, { inputType: '' }, { inputType: '' }, { inputType: 'text' },
+      { inputType: 'text', formId: 'f-news' }, { inputType: 'email', formId: 'f-news' }, { inputType: 'checkbox', formId: 'f-news' },
+    ],
+    buttons: ['Prenota ora', 'ITA', 'Toggle navigation', 'Iscriviti', 'Accetta tutti i cookie', 'Seleziona i cookie'].map((text) => ({ text })),
+  };
+  const after = { ...goneForm, ...otherForms };
+  const ask = (overrides: Record<string, unknown> = {}) => run({ afterSnapshot: after, finalLabel: 'INVIA CANDIDATURA', ...overrides });
+
+  it('confirms with a booking widget and a newsletter form left on the page (saved evidence without form identity)', () => {
+    expect(ask()).toEqual({ confirmed: true, reason: 'in_page_confirmation' });
+  });
+
+  it('confirms by form identity when the evidence has it, whatever the other forms hold', () => {
+    expect(ask({ submittedFormId: 'f-application' }).confirmed).toBe(true);
+  });
+
+  it('stays ambiguous while the send control or the CV upload of the sent form is still there', () => {
+    expect(ask({ afterSnapshot: { ...after, buttons: [...after.buttons, { text: 'INVIA CANDIDATURA' }] } })).toMatchObject({ reason: 'form_still_visible' });
+    expect(ask({ afterSnapshot: { ...after, fields: [...after.fields, { inputType: 'file' }] } })).toMatchObject({ reason: 'form_still_visible' });
+    expect(ask({ submittedFormId: 'f-application', afterSnapshot: { ...after, fields: [...after.fields, { inputType: 'text', formId: 'f-application' }] } })).toMatchObject({ reason: 'form_still_visible' });
+    expect(ask({ submittedFormId: 'f-application', afterSnapshot: { ...after, buttons: [...after.buttons, { text: 'Invia', formId: 'f-application' }] } })).toMatchObject({ reason: 'form_still_visible' });
+  });
+
+  it('does not let a disabled or chrome control of the sent form keep it open', () => {
+    expect(ask({ submittedFormId: 'f-application', afterSnapshot: { ...after, buttons: [...after.buttons, { text: 'Invia', formId: 'f-application', disabled: true }] } }).confirmed).toBe(true);
+  });
+});
