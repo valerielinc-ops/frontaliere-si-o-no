@@ -259,10 +259,18 @@ interface ClusterMatchFacts {
   readonly cantonNameRegions: readonly string[];
   /** A canton marker / context word / canton name was removed from the role tokens. */
   readonly normalized: boolean;
-  /** The query names Switzerland or Ticino as a whole (broad region token). */
-  readonly broadGeo: boolean;
   readonly allRolesGeneric: boolean;
+  /**
+   * The facts as they were before canton names became a filter (cantons stay
+   * title/locality terms). Only built when a canton filter exists; used as a
+   * floor so a page that matched jobs before never matches fewer than
+   * CANTON_FILTER_LEGACY_FLOOR once the strict filter finds too few.
+   */
+  legacy: ClusterMatchFacts | null;
 }
+
+/** Same number as the plugin's MIN_MATCHING_JOBS: the indexable job floor. */
+const CANTON_FILTER_LEGACY_FLOOR = 3;
 
 const clusterFactsCache = new WeakMap<OrphanQueryCluster, ClusterMatchFacts>();
 
@@ -298,9 +306,22 @@ function clusterMatchFacts(cluster: OrphanQueryCluster): ClusterMatchFacts {
     cantonCodes,
     cantonNameRegions,
     normalized: split.removed,
-    broadGeo: cluster.regionTokens.some((r) => BROAD_REGION_TOKENS.has(r)),
     allRolesGeneric,
+    legacy: null,
   };
+  if (cantonCodes.size > 0) {
+    const legacySpecific = cluster.regionTokens.filter((r) => !BROAD_REGION_TOKENS.has(r));
+    const legacyRoles = occupationalRoleTokens(cluster.roleTokens);
+    facts.legacy = {
+      roleTokens: legacyRoles,
+      specificRegions: legacySpecific,
+      cantonCodes: new Set<string>(),
+      cantonNameRegions: [],
+      normalized: false,
+      allRolesGeneric: legacyRoles.length === 0,
+      legacy: null,
+    };
+  }
   clusterFactsCache.set(cluster, facts);
   return facts;
 }
@@ -313,9 +334,10 @@ function clusterMatchFacts(cluster: OrphanQueryCluster): ClusterMatchFacts {
  *   - canton gate: a named canton must be the job's canton (or, when the job's
  *     canton is unknown, a locality named like it);
  *   - no content role token: the named geography alone decides; a query that
- *     only lost marker/context words ("frontalieri") or names only
- *     Switzerland/Ticino shows every active job (Ticino coverage is then
- *     applied by selectOrphanLandingJobs);
+ *     only lost marker/context words ("frontalieri", "canton ticino") shows
+ *     every active job (Ticino coverage is then applied by
+ *     selectOrphanLandingJobs); a query with nothing removed keeps the old
+ *     rule (no content role, no named place: no match);
  *   - otherwise every content role token must be in the title/company.
  */
 function matchesClusterFacts(
@@ -335,7 +357,7 @@ function matchesClusterFacts(
 
   if (facts.roleTokens.length === 0) {
     // Pure geographic search, or a query reduced to marker/context words.
-    return cityGate !== null || cantonGate !== null || facts.normalized || facts.broadGeo;
+    return cityGate !== null || cantonGate !== null || facts.normalized;
   }
 
   // A compound profession must match every occupational term. Matching only
@@ -451,20 +473,31 @@ export function filterMatchingJobs<T extends OrphanCountableJob>(
   // every cluster. Most landings need only the newest 15 results, so matching
   // can stop as soon as that exact prefix is known. Infinite limits still walk
   // every job and preserve the complete newest-first order for region counts.
-  const matched: number[] = [];
-  for (const i of index.newestFirst) {
-    const entry = index.entries[i];
-    if (!entryActive(entry, jobs[i], locale)) continue;
-    let jobCanton: string | null = null;
-    if (facts.cantonCodes.size > 0) {
-      if (entry.cantonKnown === undefined) entry.cantonKnown = resolveKnownJobCanton(jobs[i]);
-      jobCanton = entry.cantonKnown;
+  const walk = (f: ClusterMatchFacts): number[] => {
+    const matched: number[] = [];
+    for (const i of index.newestFirst) {
+      const entry = index.entries[i];
+      if (!entryActive(entry, jobs[i], locale)) continue;
+      let jobCanton: string | null = null;
+      if (f.cantonCodes.size > 0) {
+        if (entry.cantonKnown === undefined) entry.cantonKnown = resolveKnownJobCanton(jobs[i]);
+        jobCanton = entry.cantonKnown;
+      }
+      if (!matchesClusterFacts(entryTitleTokens(entry, jobs[i], locale), entryLocTokens(entry, jobs[i]), f, jobCanton)) {
+        continue;
+      }
+      matched.push(i);
+      if (matched.length >= limit) break;
     }
-    if (!matchesClusterFacts(entryTitleTokens(entry, jobs[i], locale), entryLocTokens(entry, jobs[i]), facts, jobCanton)) {
-      continue;
-    }
-    matched.push(i);
-    if (matched.length >= limit) break;
+    return matched;
+  };
+
+  let matched = walk(facts);
+  // Floor: a strict canton filter can hold fewer jobs than the previous
+  // matcher that already earned the page its listing (GSC clicks included).
+  if (facts.legacy && matched.length < CANTON_FILTER_LEGACY_FLOOR) {
+    const legacy = walk(facts.legacy);
+    if (legacy.length > matched.length) matched = legacy;
   }
 
   const out: T[] = [];
