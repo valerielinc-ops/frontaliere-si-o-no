@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-11-27T15:45:03.514Z",
+  "assembledAt": "2026-11-28T14:43:56.482Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -116450,17 +116450,17 @@
     },
     {
       "id": "guidle:A6WxGQs",
-      "title": "Blues & Boogie Woogie auf höchstem Niveau",
+      "title": "Mit Boogie ins neue Jahr",
       "titleByLocale": {
-        "it": "Blues & Boogie Woogie auf höchstem Niveau",
-        "en": "Blues & Boogie Woogie auf höchstem Niveau",
-        "de": "Blues & Boogie Woogie auf höchstem Niveau",
-        "fr": "Blues & Boogie Woogie auf höchstem Niveau"
+        "it": "Mit Boogie ins neue Jahr",
+        "en": "Mit Boogie ins neue Jahr",
+        "de": "Mit Boogie ins neue Jahr",
+        "fr": "Mit Boogie ins neue Jahr"
       },
       "startDate": "2027-01-03",
       "endDate": "2027-01-03",
       "startTime": "17:00",
-      "category": "Boogie-Woogie",
+      "category": "Altri eventi",
       "venue": "Villa Wellentanz",
       "comune": "Wila",
       "canton": "ZH",
@@ -116481,16 +116481,22 @@
         "lng": 8.8427877
       },
       "recurring": false,
-      "organizer": {
-        "@type": "Organization",
-        "name": "Guidle",
-        "url": "https://www.guidle.com/"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Villa Wellentanz"
-      },
-      "sourceDescriptionHash": "33ef7a286b2cb6d417eebce6503bfd4ebe9f4dbed90297142454e5aa832c8915"
+      "performer": [
+        {
+          "name": "Gegenwart"
+        },
+        {
+          "name": "Blues"
+        }
+      ],
+      "sourceDescriptionHash": "07437986167925e7cfc58d6dfdf96b70688462bcebd5f9a10942bca9969dbaaf",
+      "previousRoutes": [
+        {
+          "canton": "ZH",
+          "comune": "Wila",
+          "slug": "blues-boogie-woogie-auf-hochstem-niveau-2027-01-03"
+        }
+      ]
     },
     {
       "id": "guidle:AXtECfi",
@@ -177683,7 +177689,7 @@
         "de": "Begegnungscafé",
         "fr": "Begegnungscafé"
       },
-      "startDate": "2026-11-25",
+      "startDate": "2026-12-30",
       "endDate": "2026-12-30",
       "startTime": "15:30",
       "category": "Comunione",
@@ -177700,8 +177706,15 @@
         "lat": 46.83715328145459,
         "lng": 9.283629627473822
       },
-      "recurring": true,
-      "sourceDescriptionHash": "72dfc3cca70009a6721b30454391e3ef1aed8ebadbbe766e6bf97be213549b8b"
+      "recurring": false,
+      "sourceDescriptionHash": "72dfc3cca70009a6721b30454391e3ef1aed8ebadbbe766e6bf97be213549b8b",
+      "previousRoutes": [
+        {
+          "canton": "GR",
+          "comune": "Flims",
+          "slug": "begegnungscafe-2026-11-25"
+        }
+      ]
     },
     {
       "id": "guidle:ABwnAMA",
@@ -178964,8 +178977,8 @@
         "de": "Mittagstisch",
         "fr": "Mittagstisch"
       },
-      "startDate": "2026-11-24",
-      "endDate": "2026-12-29",
+      "startDate": "2026-12-29",
+      "endDate": "2027-06-29",
       "startTime": "12:00",
       "category": "Comunione",
       "venue": "Röm.-kath. St. Josefskirche",
@@ -178983,7 +178996,14 @@
         "lng": 9.2919845
       },
       "recurring": true,
-      "sourceDescriptionHash": "41c8cd887c9c41212ebbe79f631f60c0044e70889725f0cdf96d0007d47057f1"
+      "sourceDescriptionHash": "41c8cd887c9c41212ebbe79f631f60c0044e70889725f0cdf96d0007d47057f1",
+      "previousRoutes": [
+        {
+          "canton": "GR",
+          "comune": "Flims",
+          "slug": "mittagstisch-2026-11-24"
+        }
+      ]
     },
     {
       "id": "guidle:A1qJRT5",
@@ -191256,10 +191276,10 @@
       "id": "guidle:AMKEsj3",
       "title": "Death Café – Let's talk about life, dying and death",
       "titleByLocale": {
-        "it": "Death Café - Parliamo di vita, di morire e di morte",
+        "it": "Death Café – Let's talk about life, dying and death",
         "en": "Death Café - Let's talk about life, dying and death",
-        "de": "Death Café – Lassen Sie uns über Leben, Sterben und Tod sprechen",
-        "fr": "Café-Mort : parlons de la vie, de la fin de vie et de la mort"
+        "de": "Death Café – Let's talk about life, dying and death",
+        "fr": "Death Café – Let's talk about life, dying and death"
       },
       "startDate": "2027-01-21",
       "endDate": "2027-05-04",
@@ -191268,7 +191288,7 @@
       "venue": "Bibliothek Zug",
       "comune": "Zug",
       "canton": "ZG",
-      "url": "https://www.guidle.com/it/events/this-that/zug/death-cafe-lets-talk-about-life-dying-and-death_AMKEsj3",
+      "url": "https://www.guidle.com/it/veranstaltungen/zug/death-cafe-lets-talk-about-life-dying-and-death_AMKEsj3",
       "sourceKey": "guidle",
       "sourceName": "Guidle",
       "price": {
@@ -191285,7 +191305,7 @@
         "lng": 8.5153211
       },
       "recurring": true,
-      "sourceDescriptionHash": "2cbeba4f9b65a3f2d43ae66effe5d229345174d9081bf68d7d2d6db5e2204f99"
+      "sourceDescriptionHash": "642a43cdbacdbbd5ac34bc275786d8203f119f91fdd7d7810668bacc80c996e3"
     },
     {
       "id": "guidle:AXMqQyQ",
@@ -214166,6 +214186,3498 @@
       },
       "recurring": false,
       "sourceDescriptionHash": "ccfc75d12157452801bd62933d52d77034d2c0074c3cb23e32518dc93d733bf0"
+    },
+    {
+      "id": "guidle:AAtVwG5",
+      "title": "AUFGELEGT - VINYL UNTER DER NADEL. GESCHICHTEN IM RAUM.",
+      "titleByLocale": {
+        "it": "AUFGELEGT - VINYL UNTER DER NADEL. GESCHICHTEN IM RAUM.",
+        "en": "AUFGELEGT – VINYL UNDER THE NEEDLE. STORIES IN THE ROOM.",
+        "de": "AUFGELEGT – VINYL UNTER DER NADEL. GESCHICHTEN IM RAUM.",
+        "fr": "AUFGELEGT - LE VINYLE SOUS LA TÊTE DE LECTURE. DES HISTOIRES DANS L’ESPACE."
+      },
+      "startDate": "2026-12-17",
+      "endDate": "2026-12-17",
+      "startTime": "20:00",
+      "category": "Altri eventi",
+      "venue": "ONO Kulturlokal",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/bern/aufgelegt-vinyl-unter-der-nadel-geschichten-im-raum_AAtVwG5",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Kramgasse 6",
+        "postalCode": "3011"
+      },
+      "geo": {
+        "lat": 46.9481497,
+        "lng": 7.4519649
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "7ec932025caf2efcb008ac909ae4d521bb4f7240b2dbd0103eaac02b95f4b831"
+    },
+    {
+      "id": "guidle:AGn5M6V",
+      "title": "Weihnachtsparty in der Mahogany Hall",
+      "titleByLocale": {
+        "it": "Weihnachtsparty in der Mahogany Hall",
+        "en": "Christmas Party at Mahogany Hall",
+        "de": "Weihnachtsfeier im Mahogany Hall",
+        "fr": "Fête de Noël au Mahogany Hall"
+      },
+      "startDate": "2026-12-18",
+      "endDate": "2026-12-19",
+      "startTime": "20:00",
+      "category": "Altri eventi",
+      "venue": "Mahogany Hall Bern",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/bern/weihnachtsparty-in-der-mahogany-hall_AGn5M6V",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 19,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Klösterlistutz 18",
+        "postalCode": "3013"
+      },
+      "geo": {
+        "lat": 46.9490555,
+        "lng": 7.4597239
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "93ef9de023698c040ca0e7514b3027b87af3248a5ba86ea674f6b4afea9ddc6e"
+    },
+    {
+      "id": "guidle:AFbBkms",
+      "title": "THE MUSIC OF JOE HARRIOTT / THE MUSIC OF KIM GORDON",
+      "titleByLocale": {
+        "it": "THE MUSIC OF JOE HARRIOTT / THE MUSIC OF KIM GORDON",
+        "en": "THE MUSIC OF KIM GORDON",
+        "de": "DIE MUSIK VON JOE HARRIOTT / DIE MUSIK VON KIM GORDON",
+        "fr": "LA MUSIQUE DE JOE HARRIOTT / LA MUSIQUE DE KIM GORDON"
+      },
+      "startDate": "2026-12-14",
+      "endDate": "2026-12-14",
+      "startTime": "20:00",
+      "category": "Altri eventi",
+      "venue": "ONO Kulturlokal",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/bern/the-music-of-joe-harriott-the-music-of-kim-gordon_AFbBkms",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Kramgasse 6",
+        "postalCode": "3011"
+      },
+      "geo": {
+        "lat": 46.9481497,
+        "lng": 7.4519649
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "e3ffa8f2f99fec8da5088e13d928b0a32bb9fe3cf69068477955fca5a2c51364"
+    },
+    {
+      "id": "guidle:AP7mkyW",
+      "title": "Inaugurazione dello SpielZoll di Splügen",
+      "titleByLocale": {
+        "it": "Inaugurazione dello SpielZoll di Splügen",
+        "en": "Opening of SpielZoll Splügen",
+        "de": "Eröffnung SpielZoll Splügen",
+        "fr": "Inauguration du SpielZoll de Splügen"
+      },
+      "startDate": "2026-12-16",
+      "endDate": "2026-12-16",
+      "startTime": "16:00",
+      "category": "Altre offerte di Giochi / sport d'immaginazione",
+      "venue": "SpielZoll",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/spluegen/inauguration-du-spielzoll-de-spluegen_AP7mkyW",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Splügenstrasse 4",
+        "postalCode": "7435"
+      },
+      "geo": {
+        "lat": 46.552143,
+        "lng": 9.323231
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Punsch"
+        },
+        {
+          "name": "Gebäck"
+        }
+      ],
+      "sourceDescriptionHash": "f7f12b48dfa3b8dc98d2ce073940595c87522fd7563a56a4e8405a9110372b3e"
+    },
+    {
+      "id": "guidle:ARBbSuc",
+      "title": "Hl. Christmette für Gross und Klein",
+      "titleByLocale": {
+        "it": "Santa Messa di Natale per grandi e piccini",
+        "en": "Holy Christmas Mass for Young and Old",
+        "de": "Heilige Weihnachtsmesse für Jung und Alt",
+        "fr": "Célébration de la messe de Noël pour grands et petits"
+      },
+      "startDate": "2026-12-24",
+      "endDate": "2026-12-24",
+      "startTime": "16:00",
+      "category": "Altri eventi",
+      "venue": "Katholische Kirchgemeinde Arosa",
+      "comune": "Arosa",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/arosa/celebration-de-la-messe-de-noel-pour-grands-et-petits_ARBbSuc",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Hohe Promenade 3",
+        "postalCode": "7050"
+      },
+      "geo": {
+        "lat": 46.7786923,
+        "lng": 9.6756717
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "a5fc01226c6d171d2c753edb229f7a70a5aa3d8a4ce0910637ade5d77e09a8ac"
+    },
+    {
+      "id": "guidle:A1BrfRn",
+      "title": "Weihnachtsgeschichtenabend",
+      "titleByLocale": {
+        "it": "Weihnachtsgeschichtenabend",
+        "en": "Christmas Story Evening",
+        "de": "Abend mit Weihnachtsgeschichten",
+        "fr": "Soirée des contes de Noël"
+      },
+      "startDate": "2026-12-13",
+      "endDate": "2026-12-13",
+      "startTime": "17:00",
+      "category": "Altri eventi",
+      "venue": "Evangelisches Krichenzentrum \"Rathaus\"",
+      "comune": "Leukerbad",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/leukerbad/weihnachtsgeschichtenabend_A1BrfRn",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "postalCode": "3954"
+      },
+      "geo": {
+        "lat": 46.3798286,
+        "lng": 7.6263745
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Tourismuspfarrer"
+        },
+        {
+          "name": "Autor Christoph Gysel"
+        }
+      ],
+      "sourceDescriptionHash": "446214b125921cd45499fa062cd8884fd01ea348b0e3d9988113bbb034037b12"
+    },
+    {
+      "id": "guidle:AjcV2Vu",
+      "title": "Eröffnung mit DJ Hene im Kuhstall",
+      "titleByLocale": {
+        "it": "Inaugurazione con DJ Hene al Kuhstall",
+        "en": "Opening with DJ Hene at the Kuhstall",
+        "de": "Eröffnung mit DJ Hene im Kuhstall",
+        "fr": "Ouverture avec DJ Hene au Kuhstall"
+      },
+      "startDate": "2026-12-18",
+      "endDate": "2026-12-18",
+      "startTime": "21:00",
+      "category": "Altri eventi",
+      "venue": "Restaurant Kuhstall",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/schoenried/ouverture-avec-dj-hene-au-kuhstall_AjcV2Vu",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Waldmattenstrasse 30A",
+        "postalCode": "3778"
+      },
+      "geo": {
+        "lat": 46.5021209,
+        "lng": 7.2968495
+      },
+      "recurring": false,
+      "performer": {
+        "name": "DJ Hene"
+      },
+      "sourceDescriptionHash": "d32c2ebe594a30e01c9e7e240b3b7201cc213ee60a9b255a74641f4b36a1beed"
+    },
+    {
+      "id": "guidle:A3eFY7N",
+      "title": "Weihnachtsmarkt in Saanen",
+      "titleByLocale": {
+        "it": "Mercatino di Natale a Saanen",
+        "en": "Christmas market in Saanen",
+        "de": "Weihnachtsmarkt in Saanen",
+        "fr": "Marché de Noël à Saanen"
+      },
+      "startDate": "2026-12-19",
+      "endDate": "2026-12-19",
+      "startTime": "14:00",
+      "category": "Avvento / Natale",
+      "venue": "Begegnungszone Saanen",
+      "comune": "Saanen",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/saanen/marche-de-noel-a-saanen_A3eFY7N",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Dorfstrasse",
+        "postalCode": "3792"
+      },
+      "geo": {
+        "lat": 46.4897952,
+        "lng": 7.2594579
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "3c38818e960e676453e3007679119f91fb796bbfae4bd1e818c1d56889570619"
+    },
+    {
+      "id": "guidle:ARguDgD",
+      "title": "Tisseuses d’étoiles",
+      "titleByLocale": {
+        "it": "Tisseuses d’étoiles",
+        "en": "Star weavers",
+        "de": "Sternweber",
+        "fr": "Tisserands d'étoiles"
+      },
+      "startDate": "2026-12-17",
+      "endDate": "2026-12-24",
+      "startTime": "18:30",
+      "category": "Altri eventi",
+      "venue": "Hôtel de Ville de Lausanne",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/tisseuses-detoiles_ARguDgD",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Place de la Palud 2",
+        "postalCode": "1003"
+      },
+      "geo": {
+        "lat": 46.5217177,
+        "lng": 6.6330435
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "6f73a44de0bc8d80596b2e790c9d806e370d652d92ce7bbc4ec2c6357a3b4582"
+    },
+    {
+      "id": "guidle:A97teA5",
+      "title": "Workshop Keksdekoration",
+      "titleByLocale": {
+        "it": "Laboratorio di biscotti",
+        "en": "Cookie workshop",
+        "de": "Kekse-Workshop",
+        "fr": "Atelier biscuits de Noël"
+      },
+      "startDate": "2026-12-21",
+      "endDate": "2026-12-21",
+      "startTime": "15:00",
+      "category": "Altri eventi",
+      "venue": "Maison des congrès",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/les-diablerets/atelier-biscuits-de-noel_A97teA5",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Chemin des Grandes Isles 7",
+        "postalCode": "1865"
+      },
+      "geo": {
+        "lat": 46.3490989,
+        "lng": 7.1551849
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "98170ec81b9f424dd15ab6c02fccbbef1cf79226399570ec8ca6c938992f38a3"
+    },
+    {
+      "id": "guidle:AfcZ72c",
+      "title": "Marché de Noël au Domaine des Râpes",
+      "titleByLocale": {
+        "it": "Marché de Noël au Domaine des Râpes",
+        "en": "Christmas Market at the Domaine des Râpes",
+        "de": "Weihnachtsmarkt im Domaine des Râpes",
+        "fr": "Marche de No au"
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2026-12-12",
+      "startTime": "00:00",
+      "category": "Avvento / Natale",
+      "venue": "Domaine des Râpes",
+      "comune": "Matran",
+      "canton": "FR",
+      "url": "https://www.guidle.com/it/evenements/raiffeisen-memberplus/matran/marche-de-noel-au-domaine-des-rapes_AfcZ72c",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Case postale",
+        "postalCode": "1753"
+      },
+      "geo": {
+        "lat": 46.785263,
+        "lng": 7.1054033
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "d0475c1c08effff5bdbff619fba2ea1ae1595a7909d5f4503159c5af18b96ad4"
+    },
+    {
+      "id": "guidle:AumSWtE",
+      "title": "Kejeblos, A Thin Man + Live Act: Wavetest",
+      "titleByLocale": {
+        "it": "Kejeblos, A Thin Man + Live Act: Wavetest",
+        "en": "A Thin Man + Live Act :av",
+        "de": "Kejeblos, A Thin Man + Live-Act: Wavetest",
+        "fr": "Kejeblos, A Thin Man + Concert : Wavetest"
+      },
+      "startDate": "2026-12-28",
+      "endDate": "2026-12-28",
+      "startTime": "21:00",
+      "category": "Altri eventi",
+      "venue": "Moods im Schiffbau",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zuerich/kejeblos-a-thin-man-live-act-wavetest_AumSWtE",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Schiffbaustrasse 6",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.3888209,
+        "lng": 8.518645
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "3462babdf36793ca47cbb28759a07206d845839a1f29dcb9aa954ad08ff7d812"
+    },
+    {
+      "id": "guidle:A18PQtD",
+      "title": "Super Marché – 10e édition",
+      "titleByLocale": {
+        "it": "Super Marché – 10e édition",
+        "en": "Super Marché – 10th edition",
+        "de": "Super Marché – 10. Ausgabe",
+        "fr": "Supermarché – 10e édition"
+      },
+      "startDate": "2026-12-18",
+      "endDate": "2026-12-20",
+      "startTime": "17:00",
+      "category": "Altri eventi",
+      "venue": "QG Quartier Général",
+      "comune": "La Chaux-de-Fonds",
+      "canton": "NE",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/la-chaux-de-fonds/super-marche-10e-edition_A18PQtD",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Rue du Commerce 122",
+        "postalCode": "2300"
+      },
+      "geo": {
+        "lat": 47.0916677,
+        "lng": 6.8150477
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "e91fa7f521cc71b697e19d4d07ee529c23895a22fb60c4748df43fc81dce6f79"
+    },
+    {
+      "id": "guidle:AeMjscL",
+      "title": "Lebhafte Nächte",
+      "titleByLocale": {
+        "it": "Notti vivaci",
+        "en": "Lively Nights",
+        "de": "Lebhaftes Nachtleben",
+        "fr": "Nuits Animées"
+      },
+      "startDate": "2026-12-18",
+      "endDate": "2027-01-03",
+      "startTime": "17:00",
+      "category": "Altri eventi",
+      "venue": "Hôtel de Ville",
+      "comune": "Le Locle",
+      "canton": "NE",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/le-locle/lebhafte-naechte_AeMjscL",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Avenue de l'Hôtel-de-Ville 1",
+        "postalCode": "2400"
+      },
+      "geo": {
+        "lat": 47.0556887,
+        "lng": 6.7457603
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Ex Lumina"
+      },
+      "sourceDescriptionHash": "b6c27ca0cff93a2445c524581a0c615784038ef5364b0f17a0eefa6ec226b61e"
+    },
+    {
+      "id": "guidle:AG1wFyi",
+      "title": "Es ist ein Ros entsprungen",
+      "titleByLocale": {
+        "it": "Es ist ein Ros entsprungen",
+        "en": "Es ist ein Ros’ entsprungen",
+        "de": "Es ist ein Ros’ entsprungen",
+        "fr": "C'est une rose à endurer"
+      },
+      "startDate": "2026-12-19",
+      "endDate": "2026-12-19",
+      "startTime": "20:00",
+      "category": "Altri eventi",
+      "venue": "Dreifaltigkeitskirche Bern",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/bern/es-ist-ein-ros-entsprungen_AG1wFyi",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Taubenstrasse 6",
+        "postalCode": "3011"
+      },
+      "geo": {
+        "lat": 46.945123,
+        "lng": 7.4394941
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "3efb4ef646b4e18c18d278a67a6c976c927d1cde49dee80ea76c28f5346ee394"
+    },
+    {
+      "id": "guidle:AiCFkp1",
+      "title": "Weihnachtsmarkt Oberägeri",
+      "titleByLocale": {
+        "it": "Weihnachtsmarkt Oberägeri",
+        "en": "Oberägeri Christmas Market",
+        "de": "Weihnachtsmarkt-Supermärkte",
+        "fr": "Marché de Noël d’Oberägeri"
+      },
+      "startDate": "2026-12-19",
+      "endDate": "2026-12-19",
+      "startTime": "10:00",
+      "category": "Avvento / Natale",
+      "venue": "Mehrzweckanlage Maienmatt",
+      "comune": "Oberägeri",
+      "canton": "ZG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/oberaegeri/weihnachtsmarkt-oberaegeri_AiCFkp1",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Alosenstrasse 6",
+        "postalCode": "6315"
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "6d604bf3a40825ae5eccbcb416897d75703fac64c3187afcc022040052950033"
+    },
+    {
+      "id": "guidle:AyS2KRX",
+      "title": "Tag der offenen Tür im PLAVNA",
+      "titleByLocale": {
+        "it": "Tag der offenen Tür im PLAVNA",
+        "en": "Open Day at PLAVNA",
+        "de": "Tag der offenen Tür in der PLAVNA",
+        "fr": "Journée portes ouvertes à PLAVNA"
+      },
+      "startDate": "2026-12-20",
+      "endDate": "2026-12-20",
+      "startTime": "14:00",
+      "category": "Altri eventi",
+      "venue": "chasa Plavna",
+      "comune": "Scuol",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/scuol/tag-der-offenen-tuer-im-plavna_AyS2KRX",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Stradun 328A",
+        "postalCode": "7550"
+      },
+      "geo": {
+        "lat": 46.797402,
+        "lng": 10.299669
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "6ec708d2a1b1bc6144c65edbf8f3c152e2b07cda72a8efd96fef8f8c0e04d415"
+    },
+    {
+      "id": "guidle:APZ32RA",
+      "title": "Wiedereröffnung Restaurant Briand – Torrent",
+      "titleByLocale": {
+        "it": "Riapertura del ristorante Briand - Torrent",
+        "en": "Reopening Restaurant Briand - Torrent",
+        "de": "Wiedereröffnung des Restaurants Briand – Torrent",
+        "fr": "Réouverture Restaurant Briand - Torrent"
+      },
+      "startDate": "2026-12-18",
+      "endDate": "2026-12-18",
+      "startTime": "11:00",
+      "category": "Altri eventi",
+      "venue": "Restaurant Briand, Torrent",
+      "comune": "Leukerbad",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/leukerbad/reouverture-restaurant-briand-torrent_APZ32RA",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "postalCode": "3954"
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "dc959d787d49a761053384a786ab8647c8b4b35fff5cf2e98423a2c80a79ed7a"
+    },
+    {
+      "id": "guidle:AXEuuJH",
+      "title": "Les temps forts de La Reine des Neiges 1&2",
+      "titleByLocale": {
+        "it": "Les temps forts de La Reine des Neiges 1&2",
+        "en": "The highlights of Frozen 1 & 2",
+        "de": "Die Höhepunkte von Die Eiskönigin 1 & 2",
+        "fr": "Les temps forts de La Reine des Neiges 1 et 2"
+      },
+      "startDate": "2026-12-21",
+      "endDate": "2026-12-21",
+      "startTime": "17:30",
+      "category": "Altri eventi",
+      "venue": "SwissTech Convention Center",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/ecublens-vd/les-temps-forts-de-la-reine-des-neiges-1-und-2_AXEuuJH",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 34.3,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Rte Louis Favre 2",
+        "postalCode": "1024"
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "8bec57ccdd40ebe5ad15d18499d0d1856a5b910e03f233282e3da96e3c0c67bc"
+    },
+    {
+      "id": "guidle:AbpVMc6",
+      "title": "Viens faire ta bougie!",
+      "titleByLocale": {
+        "it": "Viens faire ta bougie!",
+        "en": "Come and make your candle!",
+        "de": "Komm und mach deine Kerze!",
+        "fr": "Viens faire ta bougie !"
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2026-12-12",
+      "startTime": "13:00",
+      "category": "Altri eventi",
+      "venue": "Espace 44",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/viens-faire-ta-bougie_AbpVMc6",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Avenue Bergières 44",
+        "postalCode": "1004"
+      },
+      "geo": {
+        "lat": 46.5320032,
+        "lng": 6.6219114
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "038f39975fffb4d4e0aa8ff8e77d561a52be4be3387b6e9670225a4f267461bd"
+    },
+    {
+      "id": "guidle:AiEnjcA",
+      "title": "Loto de Noël du Magasin",
+      "titleByLocale": {
+        "it": "Loto de Noël du Magasin",
+        "en": "Shop Christmas Raffle",
+        "de": "Weihnachts-Lotto des Geschäfts",
+        "fr": "Magasin de la loterie de Noël"
+      },
+      "startDate": "2026-12-19",
+      "endDate": "2026-12-19",
+      "startTime": "18:00",
+      "category": "Lotto",
+      "venue": "Grande salle – Ecole primaire et secondaire C. F.-Ramuz",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/loto-de-noel-du-magasin_AiEnjcA",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Chemin d'Entre-Bois 13B",
+        "postalCode": "1018"
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "50a3e2e6bee5606960fb929246f1639155384afffd139ede9feb15745329d35d"
+    },
+    {
+      "id": "guidle:AeJ2xRW",
+      "title": "A Ceremony of Carols",
+      "titleByLocale": {
+        "it": "A Ceremony of Carols",
+        "en": "A Ceremony Car",
+        "de": "Eine Zeremonie der Weihnachtslieder",
+        "fr": "Une cérémonie de chants de Noël"
+      },
+      "startDate": "2026-12-18",
+      "endDate": "2026-12-18",
+      "startTime": "19:00",
+      "category": "Altri eventi",
+      "venue": "Casino de Montbenon",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/a-ceremony-of-carols_AeJ2xRW",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 45,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Allée Ernest-Ansermet 3",
+        "postalCode": "1003"
+      },
+      "geo": {
+        "lat": 46.5204414,
+        "lng": 6.6249239
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "e4d1f6ad25d2fc4586cc73dc2782f5b2457b14a207568084f6949aaf4618556c"
+    },
+    {
+      "id": "guidle:ACiLPf1",
+      "title": "Modèle animal - Visites commentées",
+      "titleByLocale": {
+        "it": "Modèle animal - Visites commentées",
+        "en": "Animal model – Guided tours",
+        "de": "Tiermodell – Führungen mit Erläuterungen",
+        "fr": "Modèle animal - Visites guidées"
+      },
+      "startDate": "2026-12-13",
+      "endDate": "2027-02-28",
+      "startTime": "10:15",
+      "category": "Visita guidata ulteriore museo",
+      "venue": "Photo Elysée",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/modele-animal-visites-commentees_ACiLPf1",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 12,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Place de la Gare 17",
+        "postalCode": "1003"
+      },
+      "geo": {
+        "lat": 46.5181393,
+        "lng": 6.6241716
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "395010499a0e06c912471c5a1b8f02b1219a49a5e295a57fb7562cf96c845bb3"
+    },
+    {
+      "id": "guidle:AaKf1Pm",
+      "title": "Sonntagswettkämpfe in der Gryon-Eishalle",
+      "titleByLocale": {
+        "it": "Gare domenicali alla pista di pattinaggio di Gryon",
+        "en": "Sunday Competitions at the Gryon Ice Rink",
+        "de": "Sonntägliche Wettbewerbe auf der Eisbahn von Gryon",
+        "fr": "Concours des Dimanches à la Patinoire de Gryon"
+      },
+      "startDate": "2026-12-20",
+      "endDate": "2027-02-28",
+      "startTime": "16:00",
+      "category": "Altri eventi",
+      "venue": "Patinoire de Gryon",
+      "comune": "Gryon",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/gryon/sonntagswettkaempfe-in-der-gryon-eishalle_AaKf1Pm",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Place de Barboleuse",
+        "postalCode": "1882"
+      },
+      "geo": {
+        "lat": 46.2832314,
+        "lng": 7.0715596
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "1bbfc31c3ce2384f8302e728449738d55ce53fee6adb45409a8da041cc4eb3b8"
+    },
+    {
+      "id": "guidle:Abbii7e",
+      "title": "Wassilissa und das Feuer der Baba Jaga",
+      "titleByLocale": {
+        "it": "Wassilissa und das Feuer der Baba Jaga",
+        "en": "Vasilisa and Baba Yaga’s Fire",
+        "de": "Wassilissa und das Feuer von Baba Jaga",
+        "fr": "Vassilissa et le feu de Baba Yaga"
+      },
+      "startDate": "2026-12-26",
+      "endDate": "2026-12-26",
+      "startTime": "17:00",
+      "category": "Altri eventi",
+      "comune": "Binn",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/binn/wassilissa-und-das-feuer-der-baba-jaga_Abbii7e",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 46.3640318,
+        "lng": 8.1832823
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "ff7acad6bccc1d96c98b87cf081b76a32eb664485365e4a2839a17f6c3ed9cd0"
+    },
+    {
+      "id": "guidle:AXtcVfK",
+      "title": "Concerto lirico",
+      "titleByLocale": {
+        "it": "Concerto lirico",
+        "en": "<g id=\"1\">OPERA </g>CONCERT",
+        "de": "Opernkonzert",
+        "fr": "Concert lyrique"
+      },
+      "startDate": "2026-12-20",
+      "endDate": "2026-12-20",
+      "startTime": "17:00",
+      "category": "Altri eventi",
+      "venue": "Chiesa San Martino",
+      "comune": "Ronco sopra Ascona",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/musei/bambini/eventi/ronco-sopra-ascona/concerto-lirico_AXtcVfK",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "postalCode": "6622"
+      },
+      "geo": {
+        "lat": 46.1442047,
+        "lng": 8.7278126
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "3f413c882a67788a58aa8770da84525861af3cba28c94e2b900bb25ae565f8aa"
+    },
+    {
+      "id": "guidle:A3T1PF1",
+      "title": "Fasnachtsgesellschaft Muri Neuenburg | onderwägs",
+      "titleByLocale": {
+        "it": "Fasnachtsgesellschaft Muri Neuenburg | onderwägs",
+        "en": "Fasnachtsgesellschaft Muri Neuenburg | on the way",
+        "de": "Fasnachtsgesellschaft Muri Neuenburg | unterwägs",
+        "fr": "Société de carnaval de Muri-Neuenburg | onderwägs"
+      },
+      "startDate": "2027-01-23",
+      "endDate": "2027-01-23",
+      "startTime": "19:00",
+      "category": "Carnevale",
+      "venue": "Neuenburgerplatz",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/muri-ag/brauchtum--fest/fasnachtsgesellschaft-muri-neuenburg--burgerversammlung_A3T1PF1",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Bachstrasse - Aettenbergstrasse - Schweielstrasse",
+        "postalCode": "5630"
+      },
+      "geo": {
+        "lat": 47.26427,
+        "lng": 8.343362
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "b73d41076282e8b95bdcb07e6558adc9cc5a200ebd622edee1aaa3f4e84a1e08"
+    },
+    {
+      "id": "guidle:AYMNiKN",
+      "title": "Lawinenausbildungstag SSC Niederurnen",
+      "titleByLocale": {
+        "it": "Lawinenausbildungstag SSC Niederurnen",
+        "en": "SSC Niederurnen Avalanche Training Day",
+        "de": "Der amsterdynenausbildungstag SSC Niederurnen",
+        "fr": "Journée de formation aux avalanches SSC Niederurnen"
+      },
+      "startDate": "2027-01-02",
+      "endDate": "2027-01-02",
+      "startTime": "10:50",
+      "category": "Giri di sci",
+      "canton": "GL",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/niederurnen/lawinenausbildungstag-ssc-niederurnen_AYMNiKN",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "geo": {
+        "lat": 47.1250205,
+        "lng": 9.0467816
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "1b3d31dbdaca311b786a058743204ff428c78f05e41a465b34bc7a885e031ceb"
+    },
+    {
+      "id": "guidle:ART8nRP",
+      "title": "Lottoabende",
+      "titleByLocale": {
+        "it": "Lottoabende",
+        "en": "Lottoabende",
+        "de": "Lottoabende",
+        "fr": "Lotto-Abende"
+      },
+      "startDate": "2027-01-04",
+      "endDate": "2027-02-08",
+      "startTime": "20:30",
+      "category": "Lotto",
+      "venue": "Hotel & Restaurant Piz Ela",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/berguen--bravuogn/dies-und-das/lottoabende_ART8nRP",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 2,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Hauptstrasse 87",
+        "postalCode": "7482"
+      },
+      "geo": {
+        "lat": 46.6283473,
+        "lng": 9.746517
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "a660a694543962ba03d872ffe630c7759048df88ab37a56388652db4529c2182"
+    },
+    {
+      "id": "guidle:AC59uus",
+      "title": "ökum. Trauercafé - Evang. Kirchgemeindehaus",
+      "titleByLocale": {
+        "it": "ökum. Trauercafé - Evang. Kirchgemeindehaus",
+        "en": "ökum. Trauercafé - Evang. Kirchgemeindehaus",
+        "de": "ökum. Trauercafé - Evang. Kirchgemeindehaus",
+        "fr": "ökum. Trauercafé - Evang. Kirchgemeindehaus"
+      },
+      "startDate": "2027-01-22",
+      "endDate": "2027-09-10",
+      "startTime": "14:00",
+      "category": "Comunione",
+      "venue": "Evang.-ref. Kirchgemeindehaus",
+      "comune": "Weinfelden",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/weinfelden/trauercafe-evang-kirchgemeindehaus_AC59uus",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Kirchgasse 6",
+        "postalCode": "8570"
+      },
+      "geo": {
+        "lat": 47.568043,
+        "lng": 9.1115732
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "cb8657fd09a2af1f2a1fdb37b607a68d96d724848525e4cbee6f6cbc698fb850"
+    },
+    {
+      "id": "guidle:A32Bk1F",
+      "title": "Erzählcafé mit Nicole Bormann",
+      "titleByLocale": {
+        "it": "Erzählcafé mit Nicole Bormann",
+        "en": "Erzählcafé mit Nicole Bormann",
+        "de": "Erzählcafé mit Nicole Bormann",
+        "fr": "Erzählcafé mit Nicole Bormann"
+      },
+      "startDate": "2027-01-07",
+      "endDate": "2027-01-07",
+      "startTime": "14:00",
+      "category": "Comunione",
+      "venue": "Röm.-kath. Pfarreizentrum Weinfelden",
+      "comune": "Weinfelden",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/weinfelden/erzaehlcafe-mit-fredi-wolfer_A32Bk1F",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Freiestrasse 13",
+        "postalCode": "8570"
+      },
+      "geo": {
+        "lat": 47.5652906,
+        "lng": 9.1118627
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Nicole Bormann"
+      },
+      "sourceDescriptionHash": "32a99b64242665fef43370df5590c2f93e550028b6b52ad10fccd510a6c57d24"
+    },
+    {
+      "id": "guidle:A6N9L16",
+      "title": "Samariter Freiamt+ | Samariterübung",
+      "titleByLocale": {
+        "it": "Samariter Freiamt+ | Samariterübung",
+        "en": "Samariter Freiamt+ | Samariterübung",
+        "de": "Samariter Freiamt+ | Samariterübung",
+        "fr": "Samariter Freiamt+ | Samariterübung"
+      },
+      "startDate": "2027-01-05",
+      "endDate": "2027-03-02",
+      "startTime": "20:00",
+      "category": "Salute / Medicina",
+      "venue": "Schulhaus Badweiher",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/muri-ag/samariter-freiamt-schnupperabend_A6N9L16",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "postalCode": "5630"
+      },
+      "geo": {
+        "lat": 47.2702567,
+        "lng": 8.3362669
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "39e95d28c39177ac16b719dc74e11381de98c62ff3ddfc35c1152b1f39192e5c"
+    },
+    {
+      "id": "guidle:A85snnr",
+      "title": "Zuger TrauerCafé",
+      "titleByLocale": {
+        "it": "Zuger TrauerCafé",
+        "en": "Zuger TrauerCafé",
+        "de": "Zuger TrauerCafé",
+        "fr": "Zuger TrauerCafé"
+      },
+      "startDate": "2027-01-08",
+      "endDate": "2027-12-03",
+      "startTime": "16:00",
+      "category": "Altre società",
+      "venue": "Evang.-ref. Kirchenzentrum",
+      "canton": "ZG",
+      "url": "https://www.guidle.com/it/veranstaltungen/zug/zuger-trauercafe_A85snnr",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Bundesstrasse 15",
+        "postalCode": "6300"
+      },
+      "geo": {
+        "lat": 47.1715692,
+        "lng": 8.5126881
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "ed1fdf14d812b29d46aab0afe2f1dcebb5295e9d1fe06703399bc56dd252b2a0"
+    },
+    {
+      "id": "guidle:Akta3jB",
+      "title": "Budget Kirchgemeindeversammlung",
+      "titleByLocale": {
+        "it": "Budget Kirchgemeindeversammlung",
+        "en": "Budget Kirchgemeindeversammlung",
+        "de": "Budget Kirchgemeindeversammlung",
+        "fr": "Budget Kirchgemeindeversammlung"
+      },
+      "startDate": "2027-01-13",
+      "endDate": "2027-01-13",
+      "startTime": "20:00",
+      "category": "Fede Cattolica Romana",
+      "venue": "Röm.-kath. Pfarreizentrum Weinfelden",
+      "comune": "Weinfelden",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/weinfelden/budget-kirchgemeindeversammlung_Akta3jB",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Freiestrasse 13",
+        "postalCode": "8570"
+      },
+      "geo": {
+        "lat": 47.5652906,
+        "lng": 9.1118627
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "a79ac6f53a49ce52127bb22d34f5a9465f0cc22dcc9acf720cbd9bec2fb39c73"
+    },
+    {
+      "id": "guidle:A1HNpmt",
+      "title": "Neujahrsapéro",
+      "titleByLocale": {
+        "it": "Neujahrsapéro",
+        "en": "Neujahrsapéro",
+        "de": "Neujahrsapéro",
+        "fr": "Neujahrsapéro"
+      },
+      "startDate": "2027-01-02",
+      "endDate": "2029-01-02",
+      "startTime": "11:00",
+      "category": "Altre comunità civile",
+      "venue": "Rathaus Weinfelden",
+      "comune": "Weinfelden",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/weinfelden/neujahrsapero_A1HNpmt",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Rathausstrasse 2",
+        "postalCode": "8570"
+      },
+      "geo": {
+        "lat": 47.5685723,
+        "lng": 9.1095363
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "629af50953656bdc29621372290f6c67c1ff4dfcbbf18b9f89b941ef6dfc65f3"
+    },
+    {
+      "id": "guidle:APVuquf",
+      "title": "Lehrgang Botanisches Malen & Illustrieren",
+      "titleByLocale": {
+        "it": "Lehrgang Botanisches Malen & Illustrieren",
+        "en": "Lehrgang Botanisches Malen & Illustrieren",
+        "de": "Lehrgang Botanisches Malen & Illustrieren",
+        "fr": "Lehrgang Botanisches Malen & Illustrieren"
+      },
+      "startDate": "2027-01-22",
+      "endDate": "2027-01-22",
+      "category": "Illustratore scientifico",
+      "comune": "Wädenswil",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/waedenswil/lehrgang-botanisches-malen-und-illustrieren_APVuquf",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "geo": {
+        "lat": 47.2188986,
+        "lng": 8.6795436
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Farbstiften"
+        },
+        {
+          "name": "Wasserfarbe"
+        }
+      ],
+      "sourceDescriptionHash": "57cba5396497f3c112936e9cb1dfd06d92f60adbf0368bc774f96e0963d4bd16"
+    },
+    {
+      "id": "guidle:AF2Nypg",
+      "title": "Aperitivo di Capodanno a Rheinwald - Hinterrhein",
+      "titleByLocale": {
+        "it": "Aperitivo di Capodanno a Rheinwald - Hinterrhein",
+        "en": "New Year's Eve Cocktail Party in Rheinwald - Hinterrhein",
+        "de": "Silvester-Apéro im Rheinwald - Hinterrhein",
+        "fr": "Apéritif du réveillon du Nouvel An à Rheinwald - Hinterrhein"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "18:00",
+      "category": "Altri eventi",
+      "venue": "Vorplatz Bachhuus",
+      "comune": "Rheinwald",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/hinterrhein/silvester-apero-im-rheinwald_AF2Nypg",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Dorfstrasse 26",
+        "postalCode": "7438"
+      },
+      "geo": {
+        "lat": 46.53071700300719,
+        "lng": 9.199056015344235
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "6a8de41d7e5c5d42d858cece4aa78311c02a0c11928bb7b35ed8c21bd00ae55f"
+    },
+    {
+      "id": "guidle:AMfjRwj",
+      "title": "THE VALLEY",
+      "titleByLocale": {
+        "it": "THE VALLEY",
+        "en": "THE VALLEY",
+        "de": "THE VALLEY",
+        "fr": "THE VALLEY"
+      },
+      "startDate": "2027-01-16",
+      "endDate": "2027-01-16",
+      "startTime": "14:00",
+      "category": "Visita guidata ulteriore museo",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/events/kemptthal/the-valley_AMfjRwj",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.452366,
+        "lng": 8.704455
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "c33f6f3c30923bdee7623a6d2f55abc79c1320ac0bb2a7dd010f43f352553219"
+    },
+    {
+      "id": "guidle:A5UvbMu",
+      "title": "Neujahrsapéro",
+      "titleByLocale": {
+        "it": "Neujahrsapéro",
+        "en": "Neujahrsapéro",
+        "de": "Neujahrsapéro",
+        "fr": "Neujahrsapéro"
+      },
+      "startDate": "2027-01-03",
+      "endDate": "2027-01-03",
+      "startTime": "11:00",
+      "category": "Altre comunità civile",
+      "venue": "Heiget-Huus",
+      "comune": "Fehraltorf",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/fehraltorf/neujahrsapero_A5UvbMu",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "postalCode": "8320"
+      },
+      "geo": {
+        "lat": 47.388637,
+        "lng": 8.755132
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "853189a967fcf6997d2f1b4e808b7f0fa51cf354f1331f5ef86ec878be0a5136"
+    },
+    {
+      "id": "guidle:AXh6Fm3",
+      "title": "Lehrgang Botanisches Malen & Illustrieren",
+      "titleByLocale": {
+        "it": "Lehrgang Botanisches Malen & Illustrieren",
+        "en": "Lehrgang Botanisches Malen & Illustrieren",
+        "de": "Lehrgang Botanisches Malen & Illustrieren",
+        "fr": "Lehrgang Botanisches Malen & Illustrieren"
+      },
+      "startDate": "2027-01-08",
+      "endDate": "2027-01-08",
+      "category": "Illustratore scientifico",
+      "comune": "Wädenswil",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/waedenswil/lehrgang-botanisches-malen-und-illustrieren_AXh6Fm3",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "geo": {
+        "lat": 47.2188986,
+        "lng": 8.6795436
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Farbstiften"
+        },
+        {
+          "name": "Wasserfarbe"
+        }
+      ],
+      "sourceDescriptionHash": "57cba5396497f3c112936e9cb1dfd06d92f60adbf0368bc774f96e0963d4bd16"
+    },
+    {
+      "id": "guidle:AhNb4xb",
+      "title": "Sulle tracce degli scoiattoli",
+      "titleByLocale": {
+        "it": "Sulle tracce degli scoiattoli",
+        "en": "On the Trail of Squirrels",
+        "de": "Auf den Spuren der Eichhörnchen",
+        "fr": "Sur les traces des écureuils"
+      },
+      "startDate": "2027-01-04",
+      "endDate": "2027-01-04",
+      "category": "Altre offerte di Giochi / sport d'immaginazione",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/evenements/champex-lac/a-la-rencontre-des-ecureuils_AhNb4xb",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "geo": {
+        "lat": 45.9317691,
+        "lng": 7.0989015
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Getränken"
+      },
+      "sourceDescriptionHash": "e9df7c514002e8b88aaeefbf91e492f0b657f509e2413976832bda790967b605"
+    },
+    {
+      "id": "guidle:A8YEDVj",
+      "title": "Sulle tracce di un cacciatore",
+      "titleByLocale": {
+        "it": "Sulle tracce di un cacciatore",
+        "en": "In the Footsteps of a Trapper",
+        "de": "Auf den Spuren eines Trappers",
+        "fr": "Sur les traces d'un trappeur"
+      },
+      "startDate": "2027-01-06",
+      "endDate": "2027-01-06",
+      "startTime": "00:00",
+      "category": "Altre offerte di Giochi / sport d'immaginazione",
+      "venue": "Office du Tourisme de Champex-Lac",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/veranstaltungen/champex-lac/auf-den-spuren-eines-trappers_A8YEDVj",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Route du Lac 38",
+        "postalCode": "1938"
+      },
+      "geo": {
+        "lat": 46.0312563,
+        "lng": 7.1169318
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "be07e5cd12b9c8fd8647d3208e89360804cfdc139db3dc430eb84e9d0ae12d04"
+    },
+    {
+      "id": "guidle:AJ21U5h",
+      "title": "Eggli-Abfahrt",
+      "titleByLocale": {
+        "it": "Eggli-Abfahrt",
+        "en": "Eggli-Abfahrt",
+        "de": "Eggli-Abfahrt",
+        "fr": "Eggli-Abfahrt"
+      },
+      "startDate": "2027-01-03",
+      "endDate": "2027-01-03",
+      "startTime": "10:00",
+      "category": "Altri eventi",
+      "venue": "Restaurant Eggli",
+      "canton": "AI",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/appenzell-steinegg/eggli-abfahrt_AJ21U5h",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 18,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "postalCode": "9050"
+      },
+      "geo": {
+        "lat": 47.3206593,
+        "lng": 9.4658095
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "1c724c03259b0e5295be95444ae0056082e78f2500b8756f2ba258eb7e46145d"
+    },
+    {
+      "id": "guidle:AVPVMXR",
+      "title": "Engadiner Dampffahrt",
+      "titleByLocale": {
+        "it": "Engadiner Dampffahrt",
+        "en": "Engadiner Dampffahrt",
+        "de": "Engadiner Dampffahrt",
+        "fr": "Engadiner Dampffahrt"
+      },
+      "startDate": "2027-01-02",
+      "endDate": "2027-01-02",
+      "startTime": "13:45",
+      "category": "Traffico su rotaie",
+      "venue": "Rhätische Bahn AG",
+      "comune": "Scuol",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/scuol/engadiner-dampffahrt_AVPVMXR",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 57,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Staziun",
+        "postalCode": "7550"
+      },
+      "geo": {
+        "lat": 46.793724,
+        "lng": 10.286263
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "2c57e193bcf45ab23b9e4bc1e4e3871557d0eb42238bd5b081c65363d07dad7e"
+    },
+    {
+      "id": "guidle:AQSFLRG",
+      "title": "Jahres-AusKlang",
+      "titleByLocale": {
+        "it": "Jahres-AusKlang",
+        "en": "Jahres-AusKlang",
+        "de": "Jahres-AusKlang",
+        "fr": "Jahres-AusKlang"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2027-12-31",
+      "startTime": "17:00",
+      "category": "Altri eventi",
+      "venue": "Klangkeller Bern",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/bern/jahres-ausklang_AQSFLRG",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Junkerngasse 43",
+        "postalCode": "3011"
+      },
+      "geo": {
+        "lat": 46.9476347,
+        "lng": 7.4541212
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "9653c9342c85faa36ced0ea92c7b8eff937e81d4d55ee97129945f867f28b778"
+    },
+    {
+      "id": "guidle:AQQMa4K",
+      "title": "Hotel Krone Stammtisch – wie früher!",
+      "titleByLocale": {
+        "it": "Hotel Krone Stammtisch – wie früher!",
+        "en": "Hotel Krone regulars' table – just like in the old days!",
+        "de": "Hotel Krone Stammtisch – wie früher!",
+        "fr": "Hotel Krone Stammtisch – wie früher!"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "18:00",
+      "category": "Comunione",
+      "comune": "Churwalden",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/churwalden/hotel-krone-stammtisch-wie-frueher_AQQMa4K",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "geo": {
+        "lat": 46.7772788,
+        "lng": 9.54559
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "2cfcbda2207abe581aa7beea5d5d78e048ca3231755d358a38f3ed66127495a8"
+    },
+    {
+      "id": "guidle:Ap9s8K1",
+      "title": "Grosses Schützenlotto in Subingen",
+      "titleByLocale": {
+        "it": "Grosses Schützenlotto in Subingen",
+        "en": "Grosses Schützenlotto in Subingen",
+        "de": "Grosses Schützenlotto in Subingen",
+        "fr": "Grosses Schützenlotto in Subingen"
+      },
+      "startDate": "2027-01-08",
+      "endDate": "2027-01-10",
+      "startTime": "20:00",
+      "category": "Lotto",
+      "venue": "Mehrzweckhalle",
+      "comune": "Subingen",
+      "canton": "SO",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/subingen/grosses-schuetzenlotto-in-subingen_Ap9s8K1",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 80,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Sportplatzstrasse",
+        "postalCode": "4553"
+      },
+      "geo": {
+        "lat": 47.193014,
+        "lng": 7.6180553
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "EC/Debit-Karten"
+        },
+        {
+          "name": "PostCard"
+        }
+      ],
+      "sourceDescriptionHash": "759a24fe3fdc31ff4d963047d78956068dc5d3f9f528cd3152b72aeaee5b7821"
+    },
+    {
+      "id": "guidle:Ae7Bqat",
+      "title": "IBU-Cup 2027",
+      "titleByLocale": {
+        "it": "IBU-Cup 2027",
+        "en": "2027 IBU Cup",
+        "de": "IBU-Cup 2027",
+        "fr": "Coupe IBU 2027"
+      },
+      "startDate": "2027-01-11",
+      "endDate": "2027-01-11",
+      "category": "Altri eventi",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/events/this-that/geschinen/ibu-cup-2027_Ae7Bqat",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "geo": {
+        "lat": 46.494906,
+        "lng": 8.28003
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "3822bbbd2736bd3dace6befb3db56bdf00bcdd26e6b83c596307968a9a6ca6fe"
+    },
+    {
+      "id": "guidle:AtK3G9u",
+      "title": "Spettacolo per famiglie",
+      "titleByLocale": {
+        "it": "Spettacolo per famiglie",
+        "en": "Family's Show",
+        "de": "Familienvorstellung",
+        "fr": "Spectacle pour les familles"
+      },
+      "startDate": "2027-01-02",
+      "endDate": "2027-01-02",
+      "startTime": "00:00",
+      "category": "Altri eventi",
+      "venue": "Centre Sportif Le Régent",
+      "comune": "Crans-Montana",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/veranstaltungen/kleinkunst/crans-montana/spectacle-pour-les-familles-pierre-et-le-loup_AtK3G9u",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Rue du Bisse 15",
+        "postalCode": "3963"
+      },
+      "geo": {
+        "lat": 46.3062839,
+        "lng": 7.461372
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "@type": "PerformingGroup",
+          "name": "Sinfonia Valais-Wallis Orchestra"
+        },
+        {
+          "@type": "PerformingGroup",
+          "name": "Valais-Wallis Orchestra"
+        }
+      ],
+      "sourceDescriptionHash": "c503a8d1dff6833d6f5b0bdf4663d36d4568b502c06ce55cea48e0578a1b0459"
+    },
+    {
+      "id": "guidle:AagF7gr",
+      "title": "Aperitivo festivo nel Rheinwald - Medels",
+      "titleByLocale": {
+        "it": "Aperitivo festivo nel Rheinwald - Medels",
+        "en": "Festive aperitif in the Rheinwald - Medels",
+        "de": "Festtags-Apéro im Rheinwald - Medels",
+        "fr": "Apéro de fête dans la forêt rhénane - Medels"
+      },
+      "startDate": "2026-12-30",
+      "endDate": "2026-12-30",
+      "startTime": "18:00",
+      "category": "Altri eventi",
+      "venue": "Dorfplatz beim Dorfbrunnen",
+      "comune": "Rheinwald",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/medels-im-rheinwald/festtags-apero-im-rheinwald-medels_AagF7gr",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "postalCode": "7436"
+      },
+      "geo": {
+        "lat": 46.5476,
+        "lng": 9.29479
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "ab86d4c7c2771f5ceae396985fb69ae9acd6a852ceaf3f4e1c62a2aa51339bbb"
+    },
+    {
+      "id": "guidle:AsMCCX3",
+      "title": "Aperitivo festivo nel Rheinwald - Nufenen",
+      "titleByLocale": {
+        "it": "Aperitivo festivo nel Rheinwald - Nufenen",
+        "en": "Festive aperitif in the Rheinwald - Nufenen",
+        "de": "Festtags-Apéro im Rheinwald - Nufenen",
+        "fr": "Apéro de fête dans le Rheinwald - Nufenen"
+      },
+      "startDate": "2026-12-29",
+      "endDate": "2026-12-29",
+      "startTime": "18:00",
+      "category": "Altri eventi",
+      "venue": "Dorfplatz beim Dorfbrunnen",
+      "comune": "Rheinwald",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/eventi/questo-e-quello/nufenen/aperitivo-festivo-nel-rheinwald-nufenen_AsMCCX3",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "postalCode": "7437"
+      },
+      "geo": {
+        "lat": 46.5394932,
+        "lng": 9.2433569
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "14cb046e38ba8d78a0b21ae4b926375e1c2b4bee1661a6e6943eb9b34b22814b"
+    },
+    {
+      "id": "guidle:AMQKRLb",
+      "title": "Aperitivo di Capodanno nel Rheinwald - Splügen",
+      "titleByLocale": {
+        "it": "Aperitivo di Capodanno nel Rheinwald - Splügen",
+        "en": "New Year's Reception in Rheinwald - Splügen",
+        "de": "Neujahrs-Apéro im Rheinwald - Splügen",
+        "fr": "Apéro du Nouvel An dans le Rheinwald - Splügen"
+      },
+      "startDate": "2027-01-01",
+      "endDate": "2027-01-01",
+      "startTime": "15:00",
+      "category": "Altri eventi",
+      "venue": "Talrestaurant Splügen-Tambo",
+      "comune": "Rheinwald",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/spluegen/apero-du-nouvel-an-dans-le-rheinwald-spluegen_AMQKRLb",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "postalCode": "7435"
+      },
+      "geo": {
+        "lat": 46.548823,
+        "lng": 9.320568
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "c74eb1e05e70f9c132cccb751384ed483d5d7d2113fc4b04cc6d51365a29ad70"
+    },
+    {
+      "id": "guidle:AiWFg2X",
+      "title": "Neues Jahr",
+      "titleByLocale": {
+        "it": "Neues Jahr",
+        "en": "New Year's Eve",
+        "de": "Neues Jahr",
+        "fr": "Nouvel an"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "18:00",
+      "category": "Altri eventi",
+      "venue": "Espace du Lavioz",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/events/this-that/vercorin/new-years-eve_AiWFg2X",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Route du Bisse 13",
+        "postalCode": "3967"
+      },
+      "geo": {
+        "lat": 46.2540974,
+        "lng": 7.5303621
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "f0618585302c35ca511d6d5f05730ca0905ba6650863c4a2589d11393ecccb74"
+    },
+    {
+      "id": "guidle:AV9YGvy",
+      "title": "Neujahrszug",
+      "titleByLocale": {
+        "it": "Neujahrszug",
+        "en": "New Year Train",
+        "de": "Neujahrszug",
+        "fr": "Train du Nouvel An"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2027-01-01",
+      "startTime": "00:00",
+      "category": "Altri eventi",
+      "venue": "Gare CFF Lausanne",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/events/this-that/lausanne/new-year-train_AV9YGvy",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 285,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Place de la Gare 5A",
+        "postalCode": "1003"
+      },
+      "geo": {
+        "lat": 46.5169562,
+        "lng": 6.6292631
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "9b0a7f8e384952b5fee39aee7349a784e773cab2f0ecc89fe32607b7b8cff54c"
+    },
+    {
+      "id": "guidle:A6MDvyf",
+      "title": "Sylvester-Kreuzfahrt",
+      "titleByLocale": {
+        "it": "Sylvester-Kreuzfahrt",
+        "en": "New Year’s Eve cruise",
+        "de": "Sylvester-Kreuzfahrt",
+        "fr": "Croisière de la Saint-Sylvestre"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2027-01-01",
+      "startTime": "00:00",
+      "category": "Altri eventi",
+      "venue": "Embarcadère CGN de Lausanne-Ouchy",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/events/this-that/lausanne/new-years-eve-cruise_A6MDvyf",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Quai Jean-Pascal Delamuraz 1",
+        "postalCode": "1006"
+      },
+      "geo": {
+        "lat": 46.5049466,
+        "lng": 6.6275707
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Musik"
+      },
+      "sourceDescriptionHash": "213ddab84d0800aaa42000a42fb534076a852936f47ebd66a041e43f2efbb5ab"
+    },
+    {
+      "id": "guidle:AdRkivd",
+      "title": "Die Antiquitätenmesse von La Gruyère",
+      "titleByLocale": {
+        "it": "Die Antiquitätenmesse von La Gruyère",
+        "en": "Antique fair of La Gruyère",
+        "de": "Die Antiquitätenmesse von La Gruyère",
+        "fr": "Brocante de la Gruyère"
+      },
+      "startDate": "2027-01-22",
+      "endDate": "2027-01-24",
+      "startTime": "10:00",
+      "category": "Fiera commerciale",
+      "venue": "Espace Gruyère",
+      "comune": "Bulle",
+      "canton": "FR",
+      "url": "https://www.guidle.com/it/musees/sans-barrieres/evenements/bulle/brocante-de-la-gruyere_AdRkivd",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Case postale",
+        "postalCode": "1630"
+      },
+      "geo": {
+        "lat": 46.617528,
+        "lng": 7.057168
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "4ea0aa2d521b2998dd47d60554fea4e0d8b55527baf56bfe5c7bc1c3879859a1"
+    },
+    {
+      "id": "guidle:Avk9dY5",
+      "title": "Silvesterkonzert",
+      "titleByLocale": {
+        "it": "Silvesterkonzert",
+        "en": "New Year's Eve Concert",
+        "de": "Silvesterkonzert",
+        "fr": "Silvesterkonzert"
+      },
+      "startDate": "2026-12-30",
+      "endDate": "2026-12-30",
+      "startTime": "20:00",
+      "category": "Altri eventi",
+      "venue": "Tellenhaus",
+      "comune": "Ernen",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/events/this-that/ernen/new-years-eve-concert_Avk9dY5",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Hengert 10",
+        "postalCode": "3995"
+      },
+      "geo": {
+        "lat": 46.3990469,
+        "lng": 8.1458848
+      },
+      "recurring": false,
+      "performer": {
+        "@type": "PerformingGroup",
+        "name": "Plessis Trio"
+      },
+      "sourceDescriptionHash": "35e07eb3a812631dc8952a828a24bebfe341674b6baa31338c581fbee6179123"
+    },
+    {
+      "id": "guidle:AsiPEU2",
+      "title": "Traditioneller Neujahrslottomatch",
+      "titleByLocale": {
+        "it": "Traditioneller Neujahrslottomatch",
+        "en": "Traditioneller Neujahrslottomatch",
+        "de": "Traditioneller Neujahrslottomatch",
+        "fr": "Traditioneller Neujahrslottomatch"
+      },
+      "startDate": "2027-01-01",
+      "endDate": "2027-01-01",
+      "startTime": "00:00",
+      "category": "Lotto",
+      "venue": "Bezirksschule Gersau",
+      "comune": "Gersau",
+      "canton": "SZ",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/gersau/traditioneller-neujahrslottomatch_AsiPEU2",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Schulhausplatz 10",
+        "postalCode": "6442"
+      },
+      "geo": {
+        "lat": 46.991929,
+        "lng": 8.5279446
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "9b8d6a40ab1ac2829d6b2ef7202e6bd55d3c9ce79245351f76f1fd69623ff79a"
+    },
+    {
+      "id": "guidle:Am7AiMA",
+      "title": "BORGES 2026",
+      "titleByLocale": {
+        "it": "BORGES 2026",
+        "en": "BORGES 2026",
+        "de": "BORGES 2026",
+        "fr": "BORGES 2026"
+      },
+      "startDate": "2027-01-01",
+      "endDate": "2027-01-01",
+      "startTime": "08:00",
+      "category": "Altri eventi",
+      "venue": "Autre lieu",
+      "canton": "GE",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/geneve/borges-2026_Am7AiMA",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Genève",
+        "postalCode": "1204"
+      },
+      "geo": {
+        "lat": 46.193878,
+        "lng": 6.145186
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "de01c7254d6b254df424f7d97264ceab470e88cff6bbde46d28fd187d74ea38a"
+    },
+    {
+      "id": "guidle:A8YCjrf",
+      "title": "Lesung: Benedict Meyer – Alberts Tour",
+      "titleByLocale": {
+        "it": "Lesung: Benedict Meyer – Alberts Tour",
+        "en": "Lesung: Benedict Meyer – Alberts Tour",
+        "de": "Lesung: Benedict Meyer – Alberts Tour",
+        "fr": "Lesung: Benedict Meyer – Alberts Tour"
+      },
+      "startDate": "2027-01-14",
+      "endDate": "2027-01-14",
+      "startTime": "20:00",
+      "category": "Lettura",
+      "venue": "Haus der Vereine",
+      "comune": "Riehen",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/kleinkunst/riehen/lesung-melara-mvogdobo-grossmuetter_A8YCjrf",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Baselstrasse 43",
+        "postalCode": "4125"
+      },
+      "geo": {
+        "lat": 47.5847787,
+        "lng": 7.649519
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "008c31b9d6203aa8557f9a5b43860751efef3236daab1adf0783a2166f997d1c"
+    },
+    {
+      "id": "guidle:A9Zby6T",
+      "title": "AVZO Neujahrs-Apéro",
+      "titleByLocale": {
+        "it": "AVZO Neujahrs-Apéro",
+        "en": "AVZO Neujahrs-Apéro",
+        "de": "AVZO Neujahrs-Apéro",
+        "fr": "AVZO Neujahrs-Apéro"
+      },
+      "startDate": "2027-01-13",
+      "endDate": "2027-01-13",
+      "startTime": "18:00",
+      "category": "Riunione generale / Assemblea dei delegati (Associazione)",
+      "venue": "Bildungszentrum Uster",
+      "comune": "Uster",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/uster/avzo-neujahrs-apero_A9Zby6T",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Krämerackerstrasse 15",
+        "postalCode": "8610"
+      },
+      "geo": {
+        "lat": 47.3487731,
+        "lng": 8.7082463
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Referat"
+      },
+      "sourceDescriptionHash": "dba8a1823275b9c6c6022c6c574dd040bf69fcba7da0f499277edba8b5eb4cf2"
+    },
+    {
+      "id": "guidle:ANQ9qrr",
+      "title": "Drupi – 50 anni da Piccola e Fragile",
+      "titleByLocale": {
+        "it": "Drupi – 50 anni da Piccola e Fragile",
+        "en": "Drupi – 50 Years Piccola e Fragile",
+        "de": "Drupi – 50 Jahre Piccola e Fragile",
+        "fr": "Drupi – 50 ans de Piccola e Fragile"
+      },
+      "startDate": "2027-01-09",
+      "endDate": "2027-01-09",
+      "startTime": "20:30",
+      "category": "Altri eventi",
+      "venue": "Palazzo dei Congressi",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/events/this-that/lugano/drupi-50-years-piccola-e-fragile_ANQ9qrr",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 1,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Piazza dell'Indipendenza 4",
+        "postalCode": "6900"
+      },
+      "geo": {
+        "lat": 46.0049708,
+        "lng": 8.9561164
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Publikum"
+        },
+        {
+          "name": "Aufrichtigkeit"
+        },
+        {
+          "name": "Konsequenz"
+        },
+        {
+          "name": "Leidenschaft"
+        }
+      ],
+      "sourceDescriptionHash": "1464ff1e358e0a7d8689beeef81200f97336ce9d8f328403ad482104715f7606"
+    },
+    {
+      "id": "guidle:Amd8aMf",
+      "title": "Positive Psychologie",
+      "titleByLocale": {
+        "it": "Positive Psychologie",
+        "en": "Positive Psychologie",
+        "de": "Positive Psychologie",
+        "fr": "Positive Psychologie"
+      },
+      "startDate": "2027-01-05",
+      "endDate": "2027-01-05",
+      "startTime": "14:00",
+      "category": "Altra vita sociale",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/olten/positive-psychologie_Amd8aMf",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 95,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "fac5d070da963c27e5f4bc8a633745c503cf30254cc8c521e48bafd8306615cb"
+    },
+    {
+      "id": "guidle:Avp4Rs6",
+      "title": "Prüfungspaket ICDL BASE & Typing",
+      "titleByLocale": {
+        "it": "Prüfungspaket ICDL BASE & Typing",
+        "en": "Prüfungspaket ICDL BASE & Typing",
+        "de": "Prüfungspaket ICDL BASE & Typing",
+        "fr": "Prüfungspaket ICDL BASE & Typing"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "23:50",
+      "category": "Informatica per i amatori",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/winterthur/pruefungspaket-icdl-base-und-typing_Avp4Rs6",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 565,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.5000253,
+        "lng": 8.7220787
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5c2b15d35d8d0e9cec21f57944e5275b945403e2f5354559dce5bc70e3d3cfbb"
+    },
+    {
+      "id": "guidle:AYfL5Fq",
+      "title": "Infoabend Dipl. Managementassistent/in im Gesundheitswesen",
+      "titleByLocale": {
+        "it": "Infoabend Dipl. Managementassistent/in im Gesundheitswesen",
+        "en": "Infoabend Dipl. Managementassistent/in im Gesundheitswesen",
+        "de": "Infoabend Dipl. Managementassistent/in im Gesundheitswesen",
+        "fr": "Infoabend Dipl. Managementassistent/in im Gesundheitswesen"
+      },
+      "startDate": "2027-01-05",
+      "endDate": "2027-01-05",
+      "startTime": "18:30",
+      "category": "Manager della sanità",
+      "venue": "Juventus Schule für Medizin",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/bildung/kurse/zuerich/infoabend-dipl-managementassistentin-im-gesundheitswesen_AYfL5Fq",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Lagerstrasse 102",
+        "postalCode": "8004"
+      },
+      "geo": {
+        "lat": 47.3802493,
+        "lng": 8.5292099
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "c60350d70f542772a05c5424424cbb415049dd912eb5df70d08540e69e3de2bc"
+    },
+    {
+      "id": "guidle:AxpTUHG",
+      "title": "Prüfungspaket ICDL Standard",
+      "titleByLocale": {
+        "it": "Prüfungspaket ICDL Standard",
+        "en": "Prüfungspaket ICDL Standard",
+        "de": "Prüfungspaket ICDL Standard",
+        "fr": "Prüfungspaket ICDL Standard"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "23:50",
+      "category": "Informatica per i amatori",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/winterthur/pruefungspaket-icdl-standard_AxpTUHG",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 695,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.5000253,
+        "lng": 8.7220787
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5c2b15d35d8d0e9cec21f57944e5275b945403e2f5354559dce5bc70e3d3cfbb"
+    },
+    {
+      "id": "guidle:A8THUJK",
+      "title": "ICDL Base/Standard: Diagnosetest",
+      "titleByLocale": {
+        "it": "ICDL Base/Standard: Diagnosetest",
+        "en": "ICDL Base/Standard: Diagnosetest",
+        "de": "ICDL Base/Standard: Diagnosetest",
+        "fr": "ICDL Base/Standard: Diagnosetest"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "23:50",
+      "category": "Informatica per i amatori",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/winterthur/icdl-basestandard-diagnosetest_A8THUJK",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 30,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.5000253,
+        "lng": 8.7220787
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5c2b15d35d8d0e9cec21f57944e5275b945403e2f5354559dce5bc70e3d3cfbb"
+    },
+    {
+      "id": "guidle:Af6Z7r9",
+      "title": "ICDL Base/Standard: Tutorial-Test",
+      "titleByLocale": {
+        "it": "ICDL Base/Standard: Tutorial-Test",
+        "en": "ICDL Base/Standard: Tutorial-Test",
+        "de": "ICDL Base/Standard: Tutorial-Test",
+        "fr": "ICDL Base/Standard: Tutorial-Test"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "23:50",
+      "category": "Informatica per i amatori",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/winterthur/icdl-basestandard-tutorial-test_Af6Z7r9",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 45,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.5000253,
+        "lng": 8.7220787
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5c2b15d35d8d0e9cec21f57944e5275b945403e2f5354559dce5bc70e3d3cfbb"
+    },
+    {
+      "id": "guidle:ATAgpXu",
+      "title": "Prüfungspaket ICDL Profile",
+      "titleByLocale": {
+        "it": "Prüfungspaket ICDL Profile",
+        "en": "Prüfungspaket ICDL Profile",
+        "de": "Prüfungspaket ICDL Profile",
+        "fr": "Prüfungspaket ICDL Profile"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "23:50",
+      "category": "Informatica per i amatori",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/winterthur/pruefungspaket-icdl-profile_ATAgpXu",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 565,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.5000253,
+        "lng": 8.7220787
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5c2b15d35d8d0e9cec21f57944e5275b945403e2f5354559dce5bc70e3d3cfbb"
+    },
+    {
+      "id": "guidle:AUJdsP2",
+      "title": "ICDL ID",
+      "titleByLocale": {
+        "it": "ICDL ID",
+        "en": "ICDL ID",
+        "de": "ICDL ID",
+        "fr": "ICDL ID"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "23:50",
+      "category": "Informatica per i amatori",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/winterthur/icdl-id_AUJdsP2",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 150,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.5000253,
+        "lng": 8.7220787
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5c2b15d35d8d0e9cec21f57944e5275b945403e2f5354559dce5bc70e3d3cfbb"
+    },
+    {
+      "id": "guidle:AqsAw4T",
+      "title": "Prüfungspaket ICDL BASE",
+      "titleByLocale": {
+        "it": "Prüfungspaket ICDL BASE",
+        "en": "Prüfungspaket ICDL BASE",
+        "de": "Prüfungspaket ICDL BASE",
+        "fr": "Prüfungspaket ICDL BASE"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "23:50",
+      "category": "Informatica per i amatori",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/winterthur/pruefungspaket-icdl-base_AqsAw4T",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 480,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.5000253,
+        "lng": 8.7220787
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5c2b15d35d8d0e9cec21f57944e5275b945403e2f5354559dce5bc70e3d3cfbb"
+    },
+    {
+      "id": "guidle:A9wQEYn",
+      "title": "Infoabend Medizinische/r Praxiskoordinator/in & Med. Teamleiter/in VSH Health",
+      "titleByLocale": {
+        "it": "Infoabend Medizinische/r Praxiskoordinator/in & Med. Teamleiter/in VSH Health",
+        "en": "Infoabend Medizinische/r Praxiskoordinator/in & Med. Teamleiter/in VSH Health",
+        "de": "Infoabend Medizinische/r Praxiskoordinator/in & Med. Teamleiter/in VSH Health",
+        "fr": "Infoabend Medizinische/r Praxiskoordinator/in & Med. Teamleiter/in VSH Health"
+      },
+      "startDate": "2027-01-05",
+      "endDate": "2027-01-05",
+      "startTime": "18:30",
+      "category": "Capo del'ufficio medicale",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zuerich/infoabend-medizinischer-praxiskoordinatorin-und-med-teamleiterin-vsh-health_A9wQEYn",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "geo": {
+        "lat": 47.3700584,
+        "lng": 8.5275711
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "9d553f6f8fa51d330e04b49eab2b9f9f466d5cec386d85ada4b3b7b489ee2916"
+    },
+    {
+      "id": "guidle:AXfZwyi",
+      "title": "Infoabend Berufsmaturität 2",
+      "titleByLocale": {
+        "it": "Infoabend Berufsmaturität 2",
+        "en": "Infoabend Berufsmaturität 2",
+        "de": "Infoabend Berufsmaturität 2",
+        "fr": "Infoabend Berufsmaturität 2"
+      },
+      "startDate": "2027-01-07",
+      "endDate": "2027-01-07",
+      "startTime": "18:30",
+      "category": "Maturità professionale",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/bildung/kurse/zuerich/infoabend-berufsmaturitaet-2_AXfZwyi",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "geo": {
+        "lat": 47.3802493,
+        "lng": 8.5292099
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "36f9f7f4d8870c507376488c65e9c3899447d8f0fbf970a7677e9271f0153130"
+    },
+    {
+      "id": "guidle:Adgj3sp",
+      "title": "ICDL Typing Skills: Diagnosetest",
+      "titleByLocale": {
+        "it": "ICDL Typing Skills: Diagnosetest",
+        "en": "ICDL Typing Skills: Diagnosetest",
+        "de": "ICDL Typing Skills: Diagnosetest",
+        "fr": "ICDL Typing Skills: Diagnosetest"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "23:50",
+      "category": "Informatica per i amatori",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/winterthur/icdl-typing-skills-diagnosetest_Adgj3sp",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 30,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.5000253,
+        "lng": 8.7220787
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5c2b15d35d8d0e9cec21f57944e5275b945403e2f5354559dce5bc70e3d3cfbb"
+    },
+    {
+      "id": "guidle:ApKAPYK",
+      "title": "Engadiner Dampffahrt Scuol",
+      "titleByLocale": {
+        "it": "Engadiner Dampffahrt Scuol",
+        "en": "Engadiner Dampffahrt Scuol",
+        "de": "Engadiner Dampffahrt Scuol",
+        "fr": "Engadiner Dampffahrt Scuol"
+      },
+      "startDate": "2027-01-02",
+      "endDate": "2027-01-02",
+      "startTime": "10:02",
+      "category": "Traffico su rotaie",
+      "venue": "Bahnhof Samedan",
+      "comune": "Samedan",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/samedan/engadiner-dampffahrt-scuol_ApKAPYK",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 58,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "postalCode": "7503"
+      },
+      "geo": {
+        "lat": 46.533775,
+        "lng": 9.873496
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "b6f65d6ebdaa2162eb3f7d8ca47ff4c281fb182398693de381ab3a79d6d0e996"
+    },
+    {
+      "id": "guidle:AUeuELe",
+      "title": "Engadiner Dampffahrt Zernez",
+      "titleByLocale": {
+        "it": "Engadiner Dampffahrt Zernez",
+        "en": "Engadiner Dampffahrt Zernez",
+        "de": "Engadiner Dampffahrt Zernez",
+        "fr": "Engadiner Dampffahrt Zernez"
+      },
+      "startDate": "2027-01-03",
+      "endDate": "2027-01-03",
+      "startTime": "10:02",
+      "category": "Traffico su rotaie",
+      "venue": "Bahnhof Samedan",
+      "comune": "Samedan",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/samedan/engadiner-dampffahrt-zernez_AUeuELe",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 45,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "postalCode": "7503"
+      },
+      "geo": {
+        "lat": 46.533775,
+        "lng": 9.873496
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "4587eb959917173ae76a6bfd37c15c28137d2cf1e90d5265214a979ec751863a"
+    },
+    {
+      "id": "guidle:ABBiqdY",
+      "title": "Winnie Puuh Tag: Wir feiern vor!",
+      "titleByLocale": {
+        "it": "Winnie Puuh Tag: Wir feiern vor!",
+        "en": "Winnie Puuh Tag: Wir feiern vor!",
+        "de": "Winnie Puuh Tag: Wir feiern vor!",
+        "fr": "Winnie Puuh Tag: Wir feiern vor!"
+      },
+      "startDate": "2027-01-17",
+      "endDate": "2027-01-17",
+      "startTime": "14:00",
+      "category": "Altri eventi",
+      "venue": "Spielzeug Welten Museum Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/basel/winnie-puuh-tag-wir-feiern-vor_ABBiqdY",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Steinenvorstadt 1",
+        "postalCode": "4051"
+      },
+      "geo": {
+        "lat": 47.5539346,
+        "lng": 7.589089
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "bc8e4699a310e2d3897a853c862bd07a1ecea6518cb63607ce89eff8954ae8cb"
+    },
+    {
+      "id": "guidle:AnuBf8C",
+      "title": "Museumsnacht",
+      "titleByLocale": {
+        "it": "Museumsnacht",
+        "en": "Museumsnacht",
+        "de": "Museumsnacht",
+        "fr": "Museumsnacht"
+      },
+      "startDate": "2027-01-22",
+      "endDate": "2027-01-22",
+      "startTime": "18:00",
+      "category": "Oltre museo / monumento",
+      "venue": "Spielzeug Welten Museum Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/basel/museumsnacht_AnuBf8C",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Steinenvorstadt 1",
+        "postalCode": "4051"
+      },
+      "geo": {
+        "lat": 47.5539346,
+        "lng": 7.589089
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "c4d041dc43f8a68a73ae06081b6e4d6c16eda4dcf0b9b706f699790570977cf8"
+    },
+    {
+      "id": "guidle:AZnsDxy",
+      "title": "Saubere Sache - Reinigungsmittel selbst gemacht",
+      "titleByLocale": {
+        "it": "Saubere Sache - Reinigungsmittel selbst gemacht",
+        "en": "Saubere Sache - Reinigungsmittel selbst gemacht",
+        "de": "Saubere Sache - Reinigungsmittel selbst gemacht",
+        "fr": "Saubere Sache - Reinigungsmittel selbst gemacht"
+      },
+      "startDate": "2027-01-16",
+      "endDate": "2027-01-16",
+      "startTime": "09:00",
+      "category": "Do It Yourself / Fai da te",
+      "venue": "Schulanlage Bruggfeld",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/sitterdorf/saubere-sache-reinigungsmittel-selbst-gemacht_AZnsDxy",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Rofenstrasse 20",
+        "postalCode": "8589"
+      },
+      "geo": {
+        "lat": 47.500932,
+        "lng": 9.241714
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "15c45367ac50167a62cb9e3c1cf6c46582085739def02024bd7be7c8deb2e579"
+    },
+    {
+      "id": "guidle:AEbZLxQ",
+      "title": "PV \"Presque vrai\"",
+      "titleByLocale": {
+        "it": "PV \"Presque vrai\"",
+        "en": "PV \"Presque vrai\"",
+        "de": "PV \"Presque vrai\"",
+        "fr": "PV \"Presque vrai\""
+      },
+      "startDate": "2027-01-09",
+      "endDate": "2027-01-09",
+      "startTime": "20:00",
+      "category": "Altri eventi",
+      "venue": "Théâtre du Martolet",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/st-maurice/pv-presque-vrai_AEbZLxQ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-02-20T09:43:24+01:00",
+        "url": "https://infomaniak.events/fr-ch/culture-et-spectacles/pv-presque-vrai/e300040f-dc24-4453-8ff7-7e209e6615de/events/388761",
+        "amount": 45,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "booking-page"
+      },
+      "address": {
+        "street": "Rue Charles-Emmanuel de Rivaz",
+        "postalCode": "1890"
+      },
+      "geo": {
+        "lat": 46.2177797,
+        "lng": 7.0030302
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "0b0ba40fa5200d81da17930e43b8fcba7f1c48a20ec7e13495dd96315c0e5a22"
+    },
+    {
+      "id": "guidle:Ah8vmTr",
+      "title": "Skihütte offen",
+      "titleByLocale": {
+        "it": "Skihütte offen",
+        "en": "Skihütte offen",
+        "de": "Skihütte offen",
+        "fr": "Skihütte offen"
+      },
+      "startDate": "2027-01-10",
+      "endDate": "2027-01-10",
+      "startTime": "11:00",
+      "category": "Altri eventi",
+      "venue": "Ortsmuseum Urdorf",
+      "comune": "Urdorf",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/urdorf/skihuette-offen_Ah8vmTr",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Birmensdorferstrasse 102",
+        "postalCode": "8902"
+      },
+      "geo": {
+        "lat": 47.3828021,
+        "lng": 8.4219095
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "686a4fc7673b77abe3a6232bf2ff42a458b808d2d1ac29d2560afa95828ce12d"
+    },
+    {
+      "id": "guidle:A6Krxnd",
+      "title": "Handarbeitsnachmittag / Organisiert vom Frauenverein",
+      "titleByLocale": {
+        "it": "Handarbeitsnachmittag / Organisiert vom Frauenverein",
+        "en": "Handarbeitsnachmittag / Organisiert vom Frauenverein",
+        "de": "Handarbeitsnachmittag / Organisiert vom Frauenverein",
+        "fr": "Handarbeitsnachmittag / Organisiert vom Frauenverein"
+      },
+      "startDate": "2027-01-19",
+      "endDate": "2027-01-19",
+      "startTime": "14:00",
+      "category": "Artigianato / Cucito",
+      "comune": "Urdorf",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/urdorf/handarbeitsnachmittag-organisiert-vom-frauenverein_A6Krxnd",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "geo": {
+        "lat": 47.3818515,
+        "lng": 8.4248109
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5c007310a307dc4877d0637159a63e372634d2e89e3527b40deaf5a742d63a8b"
+    },
+    {
+      "id": "guidle:AgwQYeG",
+      "title": "Schachabend im Orzival",
+      "titleByLocale": {
+        "it": "Schachabend im Orzival",
+        "en": "Chess evening at the Orzival",
+        "de": "Schachabend im Orzival",
+        "fr": "Soirée échecs à l'Orzival"
+      },
+      "startDate": "2027-01-06",
+      "endDate": "2027-12-22",
+      "startTime": "17:30",
+      "category": "Altri eventi",
+      "venue": "Hostellerie d'Orzival",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/events/this-that/vercorin/chess-evening-at-the-orzival_AgwQYeG",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Impasse d'Orzival 10",
+        "postalCode": "3967"
+      },
+      "geo": {
+        "lat": 46.256886,
+        "lng": 7.5276566
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "2a3494e2141ea4359a458331475c3e3eea82ae572475db43ee7d9a7345ce5cba"
+    },
+    {
+      "id": "guidle:AWnFuPy",
+      "title": "Ballonwoche 2027 Arosa",
+      "titleByLocale": {
+        "it": "Ballonwoche 2027 Arosa",
+        "en": "Balloon week 2027",
+        "de": "Ballonwoche 2027 Arosa",
+        "fr": "Balloon week 2027"
+      },
+      "startDate": "2027-01-04",
+      "endDate": "2027-01-08",
+      "startTime": "00:00",
+      "category": "Altri eventi",
+      "venue": "Ballonclub Arosa",
+      "comune": "Arosa",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/events/this-that/arosa/balloon-week-2027_AWnFuPy",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Poststrasse 27",
+        "postalCode": "7050"
+      },
+      "geo": {
+        "lat": 46.783078,
+        "lng": 9.6833687
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Ausladen"
+        },
+        {
+          "name": "Aufstellen"
+        },
+        {
+          "name": "Feuern"
+        }
+      ],
+      "sourceDescriptionHash": "f46ce1d3083258914289c92e9f0fd3a1f6b7c940c5af1542ccf06a3ed74a2781"
+    },
+    {
+      "id": "guidle:A78Mcgs",
+      "title": "Glooming - Ballonwoche 2027",
+      "titleByLocale": {
+        "it": "Glooming - Ballonwoche 2027",
+        "en": "Glooming - Balloon week 2027",
+        "de": "Glooming - Ballonwoche 2027",
+        "fr": "Glooming - Balloon week 2027"
+      },
+      "startDate": "2027-01-03",
+      "endDate": "2027-01-03",
+      "startTime": "17:15",
+      "category": "Altri eventi",
+      "comune": "Arosa",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/events/this-that/arosa/glooming-balloon-week-2027_A78Mcgs",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "geo": {
+        "lat": 46.7772287,
+        "lng": 9.6554
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "3176e101f3469be481617fa724eb2fd2747de7e8291cb8e8f15e94263491e82e"
+    },
+    {
+      "id": "guidle:AMEKwpQ",
+      "title": "Spectacle d'humour \"Merci d'y croire - la vérité c'est fatigant\"",
+      "titleByLocale": {
+        "it": "Spectacle d'humour \"Merci d'y croire - la vérité c'est fatigant\"",
+        "en": "Spectacle d'humour \"Merci d'y croire - la vérité c'est fatigant\"",
+        "de": "Spectacle d'humour \"Merci d'y croire - la vérité c'est fatigant\"",
+        "fr": "Spectacle d'humour \"Merci d'y croire - la vérité c'est fatigant\""
+      },
+      "startDate": "2027-01-14",
+      "endDate": "2027-05-27",
+      "startTime": "20:00",
+      "category": "Altri eventi",
+      "venue": "Floky la loutre",
+      "canton": "GE",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/geneve/spectacle-dhumour-merci-dy-croire-la-verite-cest-fatigant_AMEKwpQ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Rue de Carouge 44",
+        "postalCode": "1205"
+      },
+      "geo": {
+        "lat": 46.194579,
+        "lng": 6.1433361
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "45603841ee47ca47ac60ce441eb5a0916734784cb7c66bc8666d1efdf41d861c"
+    },
+    {
+      "id": "guidle:AeLEHSr",
+      "title": "Le verre, au-delà de la matière. Les collections du Cirva",
+      "titleByLocale": {
+        "it": "Le verre, au-delà de la matière. Les collections du Cirva",
+        "en": "Le verre, au-delà de la matière. Les collections du Cirva",
+        "de": "Le verre, au-delà de la matière. Les collections du Cirva",
+        "fr": "Le verre, au-delà de la matière. Les collections du Cirva"
+      },
+      "startDate": "2027-01-03",
+      "endDate": "2027-01-03",
+      "startTime": "11:00",
+      "category": "Visita guidata ulteriore museo",
+      "venue": "Musée Ariana",
+      "canton": "GE",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/geneve/le-verre-au-dela-de-la-matiere-les-collections-du-cirva_AeLEHSr",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Avenue de la Paix 10",
+        "postalCode": "1202"
+      },
+      "geo": {
+        "lat": 46.2254201,
+        "lng": 6.138862
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "bd951f3c9ff9319a33fb17a6074c98f7415135e7eb9a153e30e7b6407e3a8c40"
+    },
+    {
+      "id": "guidle:AU44cSS",
+      "title": "Edelwhite Gin Workshop - Gin Destillieren",
+      "titleByLocale": {
+        "it": "Edelwhite Gin Workshop - Gin Destillieren",
+        "en": "Edelwhite Gin Workshop - Gin distilling",
+        "de": "Edelwhite Gin Workshop - Gin Destillieren",
+        "fr": "Edelwhite Gin Workshop - Gin Destillieren"
+      },
+      "startDate": "2027-01-23",
+      "endDate": "2027-06-05",
+      "startTime": "10:00",
+      "category": "Cottura insieme",
+      "venue": "Lindenhof",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/events/tastings/ebnet/edelwhite-gin-workshop-gin-distilling_AU44cSS",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 150,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Lindenhof 1",
+        "postalCode": "6163"
+      },
+      "geo": {
+        "lat": 47.0211099,
+        "lng": 8.0769414
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "548c95215762d96c20f4d6356971f0efbe35cb3062a3b9bc5f5c109fe1916a10"
+    },
+    {
+      "id": "guidle:A89mRkR",
+      "title": "1. Januarbrunch",
+      "titleByLocale": {
+        "it": "1. Januarbrunch",
+        "en": "January 1 brunch",
+        "de": "1. Januarbrunch",
+        "fr": "1. Januarbrunch"
+      },
+      "startDate": "2027-01-01",
+      "endDate": "2027-01-01",
+      "startTime": "08:00",
+      "category": "Altri eventi",
+      "venue": "Hotel Helvetia",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/events/this-that/muestair/january-1-brunch_A89mRkR",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 37.9,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Via Maistra 30",
+        "postalCode": "7537"
+      },
+      "geo": {
+        "lat": 46.626615,
+        "lng": 10.446129
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "c545659d742f5f2c1364db0908c434284e0f09c734c3aeb8dcddaa64a73a9a94"
+    },
+    {
+      "id": "guidle:Are48Yr",
+      "title": "Tag der offenen Tür im Schweizerischen Flaschenmuseum Willisau",
+      "titleByLocale": {
+        "it": "Tag der offenen Tür im Schweizerischen Flaschenmuseum Willisau",
+        "en": "Tag der offenen Tür im Schweizerischen Flaschenmuseum Willisau",
+        "de": "Tag der offenen Tür im Schweizerischen Flaschenmuseum Willisau",
+        "fr": "Tag der offenen Tür im Schweizerischen Flaschenmuseum Willisau"
+      },
+      "startDate": "2027-01-24",
+      "endDate": "2027-01-24",
+      "startTime": "10:00",
+      "category": "Visita guidata ulteriore museo",
+      "venue": "Schweizerisches Flaschenmuseum",
+      "comune": "Willisau",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/willisau/tag-der-offenen-tuer-im-schweizerischen-flaschenmuseum-willisau_Are48Yr",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Käppelimatt 1",
+        "postalCode": "6130"
+      },
+      "geo": {
+        "lat": 47.1167938,
+        "lng": 7.9745074
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "8f7c6e67690c77188052c3c4caf83b1064ad9ae3a7a3cdf230dcbb878771f99f"
+    },
+    {
+      "id": "guidle:AvR8HaV",
+      "title": "Cantare alla fine dell'anno - con Karin Jana Beck e Matthias Gerber",
+      "titleByLocale": {
+        "it": "Cantare alla fine dell'anno - con Karin Jana Beck e Matthias Gerber",
+        "en": "Singing at the turn of the year - with Karin Jana Beck & Matthias Gerber",
+        "de": "Singender Jahreswechsel – mit Karin Jana Beck & Matthias Gerber",
+        "fr": "Nouvel an en chansons - avec Karin Jana Beck & Matthias Gerber"
+      },
+      "startDate": "2026-12-30",
+      "endDate": "2027-01-02",
+      "startTime": "00:00",
+      "category": "Altri eventi",
+      "venue": "Hotel Rigi Klösterli – Zum goldenen Hirschen",
+      "canton": "SZ",
+      "url": "https://www.guidle.com/it/eventi/questo-e-quello/rigi-kloesterli/cantare-alla-fine-dellanno-con-karin-jana-beck-e-matthias-gerber_AvR8HaV",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 350,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Klösterliweg 17",
+        "postalCode": "6410"
+      },
+      "geo": {
+        "lat": 47.0434483,
+        "lng": 8.4849147
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Karin Jana Beck"
+        },
+        {
+          "name": "Matthias Gerber"
+        }
+      ],
+      "sourceDescriptionHash": "87a5102cec47282051a3ff7c99358e4bc7d778b780cd9c9d21813026bef108b9"
+    },
+    {
+      "id": "guidle:AACCqNF",
+      "title": "Pub Quiz - World-Special",
+      "titleByLocale": {
+        "it": "Pub Quiz - World-Special",
+        "en": "Pub Quiz - World-Special",
+        "de": "Pub Quiz - World-Special",
+        "fr": "Pub Quiz - World-Special"
+      },
+      "startDate": "2027-01-13",
+      "endDate": "2027-01-14",
+      "startTime": "19:30",
+      "category": "Altre offerte di Giochi / sport d'immaginazione",
+      "venue": "OldCapitol",
+      "comune": "Langenthal",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/langenthal/pub-quiz-world-special_AACCqNF",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 46.9,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Spitalgasse 6",
+        "postalCode": "4900"
+      },
+      "geo": {
+        "lat": 47.2110391,
+        "lng": 7.7898409
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Pub Quiz"
+      },
+      "sourceDescriptionHash": "2b7ae56197cb5a895556d75b713310254e9c3a121502fda1a8fea9b398d0614e"
+    },
+    {
+      "id": "guidle:AvdGe1G",
+      "title": "Bärzelistags Matinée mit Sandra Rippstein",
+      "titleByLocale": {
+        "it": "Bärzelistags Matinée mit Sandra Rippstein",
+        "en": "Bärzelistags Matinée mit Sandra Rippstein",
+        "de": "Bärzelistags Matinée mit Sandra Rippstein",
+        "fr": "Bärzelistags Matinée mit Sandra Rippstein"
+      },
+      "startDate": "2027-01-02",
+      "endDate": "2027-01-02",
+      "startTime": "11:45",
+      "category": "Altri eventi",
+      "venue": "Eventlokal Hirsern",
+      "comune": "Ursenbach",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/ursenbach/baerzelistags-matinee-mit-sandra-rippstein_AvdGe1G",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 69,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Hirsern 102b",
+        "postalCode": "4937"
+      },
+      "geo": {
+        "lat": 47.1312709,
+        "lng": 7.7612455
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Mähne"
+      },
+      "sourceDescriptionHash": "d8cb11a3cbfa6a96628cfcfc1f85262e7cd11576e4ab3aa027a782ffc20e60b0"
+    },
+    {
+      "id": "guidle:At4AQjq",
+      "title": "ICDL Typing Skills: Zertifikatstest",
+      "titleByLocale": {
+        "it": "ICDL Typing Skills: Zertifikatstest",
+        "en": "ICDL Typing Skills: Zertifikatstest",
+        "de": "ICDL Typing Skills: Zertifikatstest",
+        "fr": "ICDL Typing Skills: Zertifikatstest"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "23:50",
+      "category": "Informatica per i amatori",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/st-gallen/icdl-typing-skills-zertifikatstest_At4AQjq",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 65,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.4230367,
+        "lng": 9.3695057
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5c2b15d35d8d0e9cec21f57944e5275b945403e2f5354559dce5bc70e3d3cfbb"
+    },
+    {
+      "id": "guidle:AgZZdip",
+      "title": "ICDL Workforce Base",
+      "titleByLocale": {
+        "it": "ICDL Workforce Base",
+        "en": "ICDL Workforce Base",
+        "de": "ICDL Workforce Base",
+        "fr": "ICDL Workforce Base"
+      },
+      "startDate": "2027-01-08",
+      "endDate": "2027-01-08",
+      "startTime": "13:00",
+      "category": "Informatica per i amatori",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/bern/icdl-workforce-base_AgZZdip",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 2350,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 46.9480556,
+        "lng": 7.4369444
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "c53f88633b647972dae1d2917e72964f41f8b2814a26f13d8d7d7ff99c3c48c5"
+    },
+    {
+      "id": "guidle:Athjs5e",
+      "title": "Prüfungspaket ICDL Upgrade",
+      "titleByLocale": {
+        "it": "Prüfungspaket ICDL Upgrade",
+        "en": "Prüfungspaket ICDL Upgrade",
+        "de": "Prüfungspaket ICDL Upgrade",
+        "fr": "Prüfungspaket ICDL Upgrade"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "23:50",
+      "category": "Informatica per i amatori",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/st-gallen/pruefungspaket-icdl-upgrade_Athjs5e",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 255,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.4230367,
+        "lng": 9.3695057
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5c2b15d35d8d0e9cec21f57944e5275b945403e2f5354559dce5bc70e3d3cfbb"
+    },
+    {
+      "id": "guidle:ADbcdwx",
+      "title": "ICDL Typing Zertifikatstest: Typing Test",
+      "titleByLocale": {
+        "it": "ICDL Typing Zertifikatstest: Typing Test",
+        "en": "ICDL Typing Zertifikatstest: Typing Test",
+        "de": "ICDL Typing Zertifikatstest: Typing Test",
+        "fr": "ICDL Typing Zertifikatstest: Typing Test"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "23:50",
+      "category": "Informatica per i amatori",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/st-gallen/icdl-typing-zertifikatstest-typing-test_ADbcdwx",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 65,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.4230367,
+        "lng": 9.3695057
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "b0f002305bebf14b7d98f45b233f47cce8ec2f1e2678f396c50521ce73f702d3"
+    },
+    {
+      "id": "guidle:AVNBada",
+      "title": "ICDL Base/Standard: Zertifikatstest",
+      "titleByLocale": {
+        "it": "ICDL Base/Standard: Zertifikatstest",
+        "en": "ICDL Base/Standard: Zertifikatstest",
+        "de": "ICDL Base/Standard: Zertifikatstest",
+        "fr": "ICDL Base/Standard: Zertifikatstest"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "23:50",
+      "category": "Informatica per i amatori",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/st-gallen/icdl-basestandard-zertifikatstest_AVNBada",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 65,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.4230367,
+        "lng": 9.3695057
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5c2b15d35d8d0e9cec21f57944e5275b945403e2f5354559dce5bc70e3d3cfbb"
+    },
+    {
+      "id": "guidle:ARuBsVA",
+      "title": "Prüfungspaket ICDL BASE",
+      "titleByLocale": {
+        "it": "Prüfungspaket ICDL BASE",
+        "en": "Prüfungspaket ICDL BASE",
+        "de": "Prüfungspaket ICDL BASE",
+        "fr": "Prüfungspaket ICDL BASE"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "23:50",
+      "category": "Informatica per i amatori",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/st-gallen/pruefungspaket-icdl-base_ARuBsVA",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 480,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.4230367,
+        "lng": 9.3695057
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5c2b15d35d8d0e9cec21f57944e5275b945403e2f5354559dce5bc70e3d3cfbb"
+    },
+    {
+      "id": "guidle:AHMApNk",
+      "title": "ICDL Base/Standard: Tutorial-Test",
+      "titleByLocale": {
+        "it": "ICDL Base/Standard: Tutorial-Test",
+        "en": "ICDL Base/Standard: Tutorial-Test",
+        "de": "ICDL Base/Standard: Tutorial-Test",
+        "fr": "ICDL Base/Standard: Tutorial-Test"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "23:50",
+      "category": "Informatica per i amatori",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/st-gallen/icdl-basestandard-tutorial-test_AHMApNk",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 45,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.4230367,
+        "lng": 9.3695057
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5c2b15d35d8d0e9cec21f57944e5275b945403e2f5354559dce5bc70e3d3cfbb"
+    },
+    {
+      "id": "guidle:AQxhU75",
+      "title": "ICDL ID",
+      "titleByLocale": {
+        "it": "ICDL ID",
+        "en": "ICDL ID",
+        "de": "ICDL ID",
+        "fr": "ICDL ID"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "23:50",
+      "category": "Informatica per i amatori",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/st-gallen/icdl-id_AQxhU75",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 150,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.4230367,
+        "lng": 9.3695057
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5c2b15d35d8d0e9cec21f57944e5275b945403e2f5354559dce5bc70e3d3cfbb"
+    },
+    {
+      "id": "guidle:AvdbjKD",
+      "title": "Prüfungspaket ICDL BASE & Typing",
+      "titleByLocale": {
+        "it": "Prüfungspaket ICDL BASE & Typing",
+        "en": "Prüfungspaket ICDL BASE & Typing",
+        "de": "Prüfungspaket ICDL BASE & Typing",
+        "fr": "Prüfungspaket ICDL BASE & Typing"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "23:50",
+      "category": "Informatica per i amatori",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/st-gallen/pruefungspaket-icdl-base-und-typing_AvdbjKD",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 565,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.4230367,
+        "lng": 9.3695057
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5c2b15d35d8d0e9cec21f57944e5275b945403e2f5354559dce5bc70e3d3cfbb"
+    },
+    {
+      "id": "guidle:AiXfEwW",
+      "title": "Examen ICDL",
+      "titleByLocale": {
+        "it": "Examen ICDL",
+        "en": "Examen ICDL",
+        "de": "Examen ICDL",
+        "fr": "Examen ICDL"
+      },
+      "startDate": "2027-01-21",
+      "endDate": "2027-01-21",
+      "startTime": "18:00",
+      "category": "Informatica per i amatori",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/lausanne/examen-icdl_AiXfEwW",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 120,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 46.5221456,
+        "lng": 6.6262435
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "9c13b75e225dadbf83a2ed3ce08318e720a7d6796f5bf44da9d53148e7738483"
+    },
+    {
+      "id": "guidle:ARrvMSr",
+      "title": "ICDL Workforce Base",
+      "titleByLocale": {
+        "it": "ICDL Workforce Base",
+        "en": "ICDL Workforce Base",
+        "de": "ICDL Workforce Base",
+        "fr": "ICDL Workforce Base"
+      },
+      "startDate": "2027-01-06",
+      "endDate": "2027-01-06",
+      "startTime": "18:00",
+      "category": "Informatica per i amatori",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zuerich/icdl-workforce-base_ARrvMSr",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 2350,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.3852537,
+        "lng": 8.5317894
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "c53f88633b647972dae1d2917e72964f41f8b2814a26f13d8d7d7ff99c3c48c5"
+    },
+    {
+      "id": "guidle:AhHbh3n",
+      "title": "ICDL Base/Standard: Diagnosetest",
+      "titleByLocale": {
+        "it": "ICDL Base/Standard: Diagnosetest",
+        "en": "ICDL Base/Standard: Diagnosetest",
+        "de": "ICDL Base/Standard: Diagnosetest",
+        "fr": "ICDL Base/Standard: Diagnosetest"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "23:50",
+      "category": "Informatica per i amatori",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/st-gallen/icdl-basestandard-diagnosetest_AhHbh3n",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 30,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.4230367,
+        "lng": 9.3695057
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5c2b15d35d8d0e9cec21f57944e5275b945403e2f5354559dce5bc70e3d3cfbb"
+    },
+    {
+      "id": "guidle:AmdXxnr",
+      "title": "Prüfungspaket ICDL Profile",
+      "titleByLocale": {
+        "it": "Prüfungspaket ICDL Profile",
+        "en": "Prüfungspaket ICDL Profile",
+        "de": "Prüfungspaket ICDL Profile",
+        "fr": "Prüfungspaket ICDL Profile"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "23:50",
+      "category": "Informatica per i amatori",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/st-gallen/pruefungspaket-icdl-profile_AmdXxnr",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 565,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.4230367,
+        "lng": 9.3695057
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5c2b15d35d8d0e9cec21f57944e5275b945403e2f5354559dce5bc70e3d3cfbb"
     }
   ]
 }
