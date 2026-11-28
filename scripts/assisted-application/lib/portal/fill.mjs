@@ -3,6 +3,7 @@ import { asksHeldStatus, isNationalityField, isPermitField, nationalityLabelOf, 
 import { addressQuestionTopic, permitBooleanOptionLabel, questionTopic } from './plan.mjs';
 import { countryCodeOfLabel, formatPhoneForField, phoneCountryCode, phoneDialCode } from '../../../../functions/src/lib/phoneNormalization.js';
 import { residenceCountryCode } from './residence-address.mjs';
+import { isStudyFieldQuestion, studyFieldSearchKeys } from '../../../../functions/src/assistedApplicationPlatformDefaults.js';
 import { dismissOptionalAutofill } from './optional-autofill.mjs';
 import { beginChoiceObservation, choiceFailureEvidence } from './choice-evidence.mjs';
 
@@ -514,6 +515,49 @@ async function pickSuggestion(page, field, locator, value) {
  * no choice: Enter would take whichever option is highlighted (career-ops,
  * Workday: never pick by position), so the field fails and is planned again.
  */
+/**
+ * An autocomplete that accepts only a listed option (SuccessFactors «Major», Damiani 2026-11-28: the agent typed the
+ * diploma's text for 24 rounds and no suggestion was ever chosen). The literal answer has been typed and found no
+ * option of that exact label; the remaining search keys (a field of study's portal-style names) are typed one by one,
+ * the suggestions read, and one real option chosen: the label equal to the key, else the only suggestion that holds
+ * the key as whole words. Never a positional pick. Every label seen is kept for the question to the candidate.
+ */
+export function pickSuggestionLabel(labels, key, { literal = false } = {}) {
+  void literal;
+  const wanted = suggestionForm(key);
+  if (!wanted) return -1;
+  // Only the exact label, as the portal writes it up to case, accents, spaces, punctuation and «&»/«and»: a key
+  // held inside a longer name («Software Engineering» for «Engineering») is another field of study.
+  const exact = labels.map((label, index) => ({ index, same: suggestionForm(label) === wanted })).filter((item) => item.same);
+  return exact.length === 1 ? exact[0].index : -1;
+}
+
+const suggestionForm = (value) => normalizedChoice(value).replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, ' ').replace(/\s+/g, ' ').trim();
+
+async function visibleSuggestionLabels(frame) {
+  const visible = frame.locator('[role="option"]:visible');
+  return (typeof visible.allInnerTexts === 'function' ? await visible.allInnerTexts().catch(() => []) : [])
+    .map((label) => String(label).replace(/\s+/g, ' ').trim()).filter(Boolean);
+}
+
+async function chooseBySearchKeys(page, field, locator, frame, value, seen) {
+  const keys = studyFieldSearchKeys(value).filter((key) => normalizedChoice(key) !== normalizedChoice(value));
+  for (const key of keys) {
+    await Promise.resolve(locator.press('ControlOrMeta+A')).catch(() => {});
+    await Promise.resolve(locator.press('Backspace')).catch(() => {});
+    await Promise.resolve(locator.pressSequentially(key.slice(0, 40), { delay: TYPE_DELAY_MS * 2, timeout: ACTION_TIMEOUT_MS })).catch(() => {});
+    await frame.locator('[role="option"]:visible').first().waitFor({ state: 'visible', timeout: 3000 }).catch(() => {});
+    const labels = await visibleSuggestionLabels(frame);
+    for (const label of labels) if (!seen.includes(label) && seen.length < 40) seen.push(label);
+    const index = pickSuggestionLabel(labels, key, { literal: false });
+    if (index >= 0) {
+      await frame.locator('[role="option"]:visible').nth(index).click({ timeout: ACTION_TIMEOUT_MS });
+      return labels[index];
+    }
+  }
+  return '';
+}
+
 async function fillCombobox(page, field, locator, value) {
   await locator.click({ timeout: ACTION_TIMEOUT_MS });
   await locator.pressSequentially(value.slice(0, 40), { delay: TYPE_DELAY_MS * 2 });
@@ -547,8 +591,22 @@ async function fillCombobox(page, field, locator, value) {
     const residenceCountry = isResidenceCountryField(field);
     const phoneCountry = isPhoneCountryField(field);
     if (!nationality && !residenceCountry && !phoneCountry) {
+      const seen = visibleLabels.filter((label) => label).slice(0, 40);
+      if (isStudyFieldQuestion({ label: field.label, kind: 'combobox', selectLike: false })) {
+        const chosen = await chooseBySearchKeys(page, field, locator, frame, value, seen);
+        if (chosen) return chosen;
+        // Nothing matched any key: always read what the emptied box lists too, so the candidate can choose among the
+        // portal's own options (the filtered lists seen so far may hold only part of them).
+        await Promise.resolve(locator.press('ControlOrMeta+A')).catch(() => {});
+        await Promise.resolve(locator.press('Backspace')).catch(() => {});
+        await Promise.resolve(locator.press('ArrowDown')).catch(() => {});
+        await frame.locator('[role="option"]:visible').first().waitFor({ state: 'visible', timeout: 2500 }).catch(() => {});
+        for (const label of await visibleSuggestionLabels(frame)) if (!seen.includes(label) && seen.length < 40) seen.push(label);
+      }
       await locator.press('Escape').catch(() => {});
-      throw new Error('option_not_found');
+      const failure = new Error('option_not_found');
+      failure.suggestions = seen;
+      throw failure;
     }
     const options = frame.getByRole('option');
     const labels = (await options.allInnerTexts()).map((label) => String(label).replace(/\s+/g, ' ').trim()).filter(Boolean);
@@ -1256,7 +1314,9 @@ export async function applyActions(page, fields, actions, files, {
       const choiceEvidence = choiceObservation
         ? await choiceFailureEvidence({ page, fields, field, locator: choiceLocator, observation: choiceObservation }).catch(() => null) : null;
       const message = String(error?.message || error).slice(0, 120);
-      const optionDiagnostics = /^option_/.test(message) ? optionFailureDiagnostics(field) : null;
+      const optionDiagnostics = /^option_/.test(message)
+        ? { ...optionFailureDiagnostics(field), ...(Array.isArray(error?.suggestions) && error.suggestions.length ? { suggestions: error.suggestions.slice(0, 40) } : {}) }
+        : null;
       results.push({ fieldId: field.id, ok: false, error: message, ...(optionDiagnostics ? { optionDiagnostics } : {}), ...(choiceEvidence ? { choiceEvidence } : {}) });
     } finally {
       await choiceObservation?.original?.dispose?.().catch(() => {});
