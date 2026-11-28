@@ -65,7 +65,7 @@ import { officialLocalityPostalCode } from './lib/swiss-locality-directory.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
-import { collapseRepublishedCoopVacancies, enrichCoopSourceBackedJobs } from './lib/coop-job-parser.mjs';
+import { collapseRepublishedCoopVacancies, createRepublishedCollapseForSliceWrite, enrichCoopSourceBackedJobs } from './lib/coop-job-parser.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
@@ -959,12 +959,20 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  // Collapse on the exact records the writer persists (#20424): the pass in the
+  // detail step runs before address/body normalization and firstSeenAt.
+  const _finalCollapse = createRepublishedCollapseForSliceWrite('Volg', {
+    onRouteHistoryOverflow: (overflowJobs, activeJobs) => {
+      archiveRemovedJobsToSlice(overflowJobs, COMPANY_KEY, { activeJobs });
+    },
+  });
+  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs, { collapseRepublishedJobs: _finalCollapse });
+  const _publishedTotal = _sliceJobs.length - _finalCollapse.collapsedCount;
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'volg',
     generatedAt: new Date().toISOString(),
-    total: _sliceJobs.length,
+    total: _publishedTotal,
     ...detailDropSummaryFields(volgSummaryCounts.detailDrop),
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,

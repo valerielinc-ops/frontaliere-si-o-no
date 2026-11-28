@@ -3455,6 +3455,20 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     console.log(`  🗓️ JobPosting deadline resolved after firstSeenAt backfill: ${deadlineResolvedAfterFirstSeen}`);
   }
 
+  // ── Final-state duplicate collapse (opt-in, #20424) ────────────────────
+  // A runner that collapses reposts before this writer sees records whose
+  // address, description and first-seen date are not final: this funnel then
+  // resolves the street, normalizes the body and carries firstSeenAt forward.
+  // Measured 2026-11-28: 22 Coop groups (same title, store and body under two
+  // UUIDs) stayed published because the runner-side pass ran first. The hook
+  // runs here, on the exact records that will be persisted; the dropped rows
+  // reach the retired-row archive below and their routes were already moved to
+  // the keeper by the hook, so no indexed URL answers 404.
+  if (typeof options.collapseRepublishedJobs === 'function') {
+    const collapsedKept = options.collapseRepublishedJobs(hardened.jobs);
+    if (Array.isArray(collapsedKept)) hardened.jobs = collapsedKept;
+  }
+
   // ── prev-slug safety net (FRO-prev-slug-attribution, 2026-05-20) ───────
   // Even with the writer fixes (shared-jobs-crawler.ensureLocaleFields →
   // addPreviousSlugForLocale, pre-AI captureLostSlugs), a missed mutation
