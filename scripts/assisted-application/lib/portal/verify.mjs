@@ -29,6 +29,35 @@ const launchAssistedVerificationBrowser = ({ headless = !headedBrowser() } = {})
 
 export { applicationExistsProbeNavigation };
 
+const SAFE_ERROR_MESSAGES = [
+  [/net::ERR_[A-Z_]{3,40}/, match => match[0]],
+  [/Timeout \d+ms exceeded/, () => 'timeout'],
+  [/Target page, context or browser has been closed|has been closed/i, () => 'target_closed'],
+  [/Execution context was destroyed/i, () => 'context_destroyed'],
+  [/strict mode violation/i, () => 'strict_mode_violation'],
+  [/Cannot read properties of (undefined|null)/, match => `read_of_${match[1]}`],
+  [/is not a function/, () => 'not_a_function'],
+  [/is not (?:defined|iterable)/, () => 'not_defined'],
+  [/decrypt|Unsupported state or unable to authenticate data/i, () => 'decrypt_failed'],
+];
+
+/**
+ * What an inspection error may say about itself: where it happened (our own stage names), the error's class and
+ * code when they look like identifiers, and one token from a short allowlist of known messages. Never the
+ * message text itself: it can carry portal pages, URLs, credentials or candidate data.
+ */
+export function safeErrorInfo(error, stage = 'unknown') {
+  const name = typeof error?.name === 'string' && /^[A-Za-z]{1,40}$/.test(error.name) ? error.name : 'Error';
+  const code = typeof error?.code === 'string' && /^[A-Za-z0-9_.:-]{1,60}$/.test(error.code) ? error.code : undefined;
+  const text = String(error?.message ?? '').slice(0, 400);
+  let messageCode;
+  for (const [pattern, token] of SAFE_ERROR_MESSAGES) {
+    const match = pattern.exec(text);
+    if (match) { messageCode = token(match); break; }
+  }
+  return { stage: String(stage).replace(/[^a-z_]/g, '').slice(0, 30) || 'unknown', name, ...(code ? { code } : {}), ...(messageCode ? { message: messageCode } : {}) };
+}
+
 export function verificationTarget({ applyUrl, evidence, sourceProtocol = null }) {
   try {
     const source = new URL(applyUrl);
@@ -129,6 +158,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
     || Boolean(probe && applicationExistsProbeNavigation(action, probe) && /\/application\/login\/\d+\/?$/i.test(new URL(action).pathname));
   const browser = await launch({ headless: !headedBrowser() });
   let context;
+  let stage = 'launch';
   const proof = { ...(sourceProtocol ? { sourceProtocol } : {}), kind: 'portal_verification', version: 1, observedAt: Date.now(), pages: [], blockedRequests: 0, conclusion: 'unknown', trace: [] };
   // What the inspection saw and refused, without values: host, path and parameter NAMES of every page and of
   // every blocked request, with the reason. Without it a stop with no page recorded cannot be diagnosed.
@@ -232,6 +262,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       }
       return block(!loginArmed ? 'mutation_not_armed' : loginPosted ? 'second_mutation' : method !== 'POST' ? 'method_not_allowed' : 'login_route_mismatch');
     });
+    stage = 'entry';
     const page = await context.newPage();
     if (typeof page.on === 'function') page.on('framenavigated', frame => { if (frame === page.mainFrame()) note('page', frame.url(), 'navigated'); });
     const stop = (reason, extra = {}) => {
@@ -318,6 +349,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
     // flow (reset e-mail read from the alias inbox, new password stored as the runner stores it), under the fence
     // above, then one more sign-in with the new password. Nothing else is opened.
     const recoverAndSignin = async () => {
+      stage = 'recovery';
       if (!allowRecovery || !probe?.loginUrl || !aliasEmail) return { reason: 'login_not_accepted', extra: { recovery: 'not_allowed' } };
       navigationTargets.add(probe.loginUrl);
       await page.goto(probe.loginUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
@@ -332,7 +364,22 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
           page, snapshot: { ...snapshot, fields: form.scoped },
           // The store's own answer to the request is the reason a recovery may end without a single click on the
           // portal (rate limit, cooldown, one still running): it goes in the trace.
-          ctx: { candidate: { identity: { email: aliasEmail } }, dryRun: false, accounts: { ...accounts, beginRecovery: async (...args) => {
+          ctx: { candidate: { identity: { email: aliasEmail } }, dryRun: false, accounts: { ...accounts,
+            // The reset e-mail's link (the portal's own token link, on this host) is the one navigation the run is
+            // told to make by the e-mail: it is allowed exactly, once known, and nothing else from the e-mail is.
+            waitForPasswordReset: async (...args) => {
+              const message = await accounts.waitForPasswordReset(...args);
+              try {
+                const link = new URL(String(message?.url || ''));
+                if (link.protocol === 'https:' && link.origin === new URL(applyUrl).origin && !link.username && !link.password && !link.hash
+                  && ![...link.searchParams.keys()].some(key => MUTATION_QUERY_KEY_RE.test(key))) {
+                  navigationTargets.add(link.href);
+                  note('reset_link', link.href, 'allowed');
+                }
+              } catch { /* No usable link: the flow decides what to do without it. */ }
+              return message;
+            },
+            beginRecovery: async (...args) => {
             const begun = await accounts.beginRecovery(...args);
             proof.recovery = { ...(proof.recovery || {}), begin: String(begun?.status || '').slice(0, 30), ...(begun?.retryAt ? { retryAt: Number(begun.retryAt) } : {}) };
             note('recovery_begin', page.url(), String(begun?.status || '').slice(0, 30), begun?.retryAt ? { retryAt: Number(begun.retryAt) } : {});
@@ -354,6 +401,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       await prepareLoginPage();
       return (await attemptSignin()) || null;
     };
+    stage = 'login';
     await prepareLoginPage();
     if (snapshot.passwordVisible) {
       const host = new URL(page.url()).hostname;
@@ -367,6 +415,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
         const emailed = typeof accounts.resetPasswordCandidates === 'function' ? await accounts.resetPasswordCandidates(host, { limit: 2 }).catch(() => []) : [];
         const tried = new Set([stored.password]);
         const candidates = [stored.previousPassword, ...emailed, stored.lastGoodPassword].filter(secret => secret && !tried.has(secret) && tried.add(secret)).slice(0, 3);
+        stage = 'candidates';
         note('candidates', page.url(), 'prepared', { count: candidates.length, emailed: emailed.length });
         for (const secret of candidates) {
           await page.goto(targetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
@@ -402,6 +451,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
         screenshot: (await page.screenshot({ fullPage: true })).toString('base64') });
       return current;
     };
+    stage = 'observe';
     snapshot = await observe();
     note('page', page.url(), 'observed');
     if (probe) {
@@ -420,6 +470,14 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       await page.goto(histories[0].href, { waitUntil: 'domcontentloaded', timeout: 60_000 });
       await observe();
     }
+    return proof;
+  } catch (error) {
+    // The inspection of a probe keeps what it saw up to the failure: its trace, and where and what failed, as
+    // identifiers only. The other inspections keep their contract: the error goes to the caller.
+    if (!probe) throw error;
+    proof.stopReason = 'inspection_exception';
+    proof.error = safeErrorInfo(error, stage);
+    note('exception', proof.trace.at(-1)?.host ? `https://${proof.trace.at(-1).host}${proof.trace.at(-1).path || '/'}` : applyUrl, 'exception', proof.error);
     return proof;
   } finally {
     await context?.close().catch(() => {});

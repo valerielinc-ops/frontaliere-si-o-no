@@ -7,7 +7,7 @@ vi.mock('../scripts/assisted-application/lib/portal/fields.mjs', async importOri
 vi.mock('../scripts/assisted-application/lib/portal/fill.mjs', async importOriginal => ({
   ...await importOriginal<any>(), applyActions: async (_page: any, fields: any[], actions: any[]) => { state.filled = fields; state.actions = actions; return []; },
 }));
-import { verifyPortalApplication } from '../scripts/assisted-application/lib/portal/verify.mjs';
+import { safeErrorInfo, verifyPortalApplication } from '../scripts/assisted-application/lib/portal/verify.mjs';
 import { applicationExistsProbeEntry, applicationExistsProbeNavigation } from '../functions/src/lib/applicationExistsReconciliation.js';
 import { portalAccountStore } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
@@ -279,6 +279,72 @@ describe('rejected sign-in: the previous password, then one recovery of the alia
       expect(((await run()) as any).stopReason).toBe('login_not_accepted');
     }
     expect(recover).not.toHaveBeenCalled();
+  });
+});
+
+describe('the reset e-mail\'s link and the errors of an inspection', () => {
+  const alias = account.email;
+  const resetLink = `https://${HOST}/?PasswordResetToken=SECRETTOKEN&PersID=1&customer=x&lang=ger&DesignID=2`;
+
+  it('the link the reset e-mail names is the one extra navigation the recovery may make (the run of 28/11 died on it)', async () => {
+    const store = makeStore({ ...account, password: 'rejected-one' });
+    store.waitForPasswordReset = vi.fn(async () => ({ url: resetLink, messageId: 'm', receivedAt: 2 }));
+    let fireIn: any;
+    const recover = vi.fn(async ({ ctx, host }: any) => {
+      // Before the e-mail is read, the same URL is refused; once the store names it, exactly it is allowed.
+      expect(await fireIn(resetLink)).toBe(false);
+      await ctx.accounts.waitForPasswordReset({ host, sinceMs: 1 });
+      expect(await fireIn(resetLink)).toBe(true);
+      expect(await fireIn(`https://${HOST}/?PasswordResetToken=OTHER`)).toBe(false);
+      expect(await fireIn(`https://${HOST}/Password/PWForgottenConfirm?PasswordResetToken=SECRETTOKEN`)).toBe(true);
+      return { handoff: 'account_recovery_timeout', accountFailure: { code: 'account_recovery_timeout', stage: 'login' } };
+    });
+    const h = harness({ accepted: [], store, recover, allowRecovery: true, aliasEmail: alias });
+    fireIn = h.fire;
+    const proof: any = await h.run();
+    expect(recover).toHaveBeenCalledTimes(1);
+    expect(proof.trace).toEqual(expect.arrayContaining([expect.objectContaining({ kind: 'reset_link', path: '/', params: expect.arrayContaining(['PasswordResetToken']) })]));
+    // Parameter NAMES only: the token itself is never in the evidence.
+    expect(JSON.stringify(proof)).not.toContain('SECRETTOKEN');
+  });
+
+  it('refuses a reset link on another host, or with a mutation key', async () => {
+    for (const link of [`https://other.example/?PasswordResetToken=x`, `https://${HOST}/?PasswordResetToken=x&action=submit`]) {
+      const store = makeStore({ ...account, password: 'rejected-one' });
+      store.waitForPasswordReset = vi.fn(async () => ({ url: link }));
+      let fireIn: any;
+      const recover = vi.fn(async ({ ctx, host }: any) => {
+        await ctx.accounts.waitForPasswordReset({ host, sinceMs: 1 });
+        expect(await fireIn(link)).toBe(false);
+        return { handoff: 'account_recovery_timeout', accountFailure: { code: 'account_recovery_timeout', stage: 'login' } };
+      });
+      const h = harness({ accepted: [], store, recover, allowRecovery: true, aliasEmail: alias });
+      fireIn = h.fire;
+      await h.run();
+      expect(recover).toHaveBeenCalledTimes(1);
+    }
+  });
+
+  it('an error in the middle of an inspection keeps the trace and says where and what, as identifiers only', async () => {
+    const store = makeStore({ ...account, password: 'rejected-one' });
+    const recover = vi.fn(async () => { throw Object.assign(new Error('page.goto: net::ERR_FAILED at https://recruitingapp-2800.umantis.com/?PasswordResetToken=SECRETTOKEN'), { name: 'Error' }); });
+    const { run } = harness({ accepted: [], store, recover, allowRecovery: true, aliasEmail: alias });
+    const proof: any = await run();
+    expect(proof.stopReason).toBe('inspection_exception');
+    expect(proof.error).toEqual({ stage: 'recovery', name: 'Error', message: 'net::ERR_FAILED' });
+    expect(proof.trace.length).toBeGreaterThan(3);
+    expect(proof.trace.at(-1)).toMatchObject({ kind: 'exception', reason: 'exception', stage: 'recovery' });
+    expect(JSON.stringify(proof)).not.toContain('SECRETTOKEN');
+  });
+
+  it('safeErrorInfo never lets a message through, only known tokens', () => {
+    expect(safeErrorInfo(new TypeError("Cannot read properties of undefined (reading 'password') for maria@example.test"), 'login'))
+      .toEqual({ stage: 'login', name: 'TypeError', message: 'read_of_undefined' });
+    expect(safeErrorInfo(Object.assign(new Error('Timeout 6000ms exceeded. waiting for secret page'), { name: 'TimeoutError' }), 'Entry!'))
+      .toEqual({ stage: 'ntry', name: 'TimeoutError', message: 'timeout' });
+    expect(safeErrorInfo(Object.assign(new Error('free text with a password hunter2'), { code: 'ECONNRESET' }), 'inspect'))
+      .toEqual({ stage: 'inspect', name: 'Error', code: 'ECONNRESET' });
+    expect(safeErrorInfo({ name: 'weird name!', message: 'x' }, 'x')).toEqual({ stage: 'x', name: 'Error' });
   });
 });
 
