@@ -517,11 +517,18 @@ function rawRouteFromLocaleKey(routeKey) {
  * `sourceIdentityOnly` is for archive ownership reconciliation: raw `id` and
  * `url` fields can differ between crawler slices that carry the same historic
  * alias, so only persisted `sourceIdentity` provenance can preempt that merge.
- * @param {() => void} [beforeFirstMutation] internal: called once, before the
- * first record this call may mutate, so a caller can still observe the state.
  * @returns {{entries: object[], changed: number, repairedRoutes: number, details: string[]}}
  */
-export function repairExpiredRoutesWithinArchive(
+export function repairExpiredRoutesWithinArchive(entries, options = {}) {
+  return repairExpiredRoutesWithinArchiveObserved(entries, options);
+}
+
+/**
+ * `repairExpiredRoutesWithinArchive` plus a hook for the collapse driver:
+ * `beforeFirstMutation` is called once, before the first record this call may
+ * mutate, so the caller can still observe the state it is about to change.
+ */
+function repairExpiredRoutesWithinArchiveObserved(
   entries,
   {
     source = 'expired-jobs-archive.repairExpiredRoutesWithinArchive',
@@ -1787,7 +1794,7 @@ export function collapseDuplicateRouteEntries(entries, options = {}) {
       && !options.repairSharedIdentityCollisions;
     const postCollapseRepair = repeatsInitialRepair
       ? { repairedRoutes: 0, details: [] }
-      : repairExpiredRoutesWithinArchive(result.entries, {
+      : repairExpiredRoutesWithinArchiveObserved(result.entries, {
         ...options,
         // A cap refusal is non-destructive only while the component remains
         // route-unique. Shared source identity normally permits a merge, but
@@ -1817,7 +1824,12 @@ export function collapseDuplicateRouteEntries(entries, options = {}) {
     //    records came back in the very same order, so the archive is
     //    byte-for-byte what the last signature (or the initial state) described.
     const noMerge = !repairMutated && result.collapsed === 0;
-    const settled = noMerge && result.unmergeable === 0 && result.capRefused === 0;
+    //    Never on the last pass: only the first pass can come back reordered
+    //    (every later input is already canonical, so `unchanged` holds), which is
+    //    why this cannot hide the non-convergence error; the guard keeps it so
+    //    by construction, the last pass always falling back to the signatures.
+    const settled = noMerge && result.unmergeable === 0 && result.capRefused === 0
+      && pass < MAX_COLLAPSE_PASSES - 1;
     const unchanged = noMerge
       && result.entries.length === current.length
       && result.entries.every((record, index) => record === current[index]);
