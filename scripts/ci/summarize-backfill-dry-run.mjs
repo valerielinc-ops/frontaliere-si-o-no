@@ -14,6 +14,7 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 const REFUSAL_LINE = /refusing to write the archive/u;
 const HEAP_LINE = /^\[heap\]/u;
+const GHOST_LINE = /Expired slice ghost reconciliation: kept/u;
 
 export function summarizeDryRun(reports, logText = '', expectedKeys = null) {
   const crawlers = reports.map((report) => ({
@@ -53,6 +54,7 @@ export function summarizeDryRun(reports, logText = '', expectedKeys = null) {
     },
     refusalLogLines: logLines.filter((line) => REFUSAL_LINE.test(line)),
     heapLines: logLines.filter((line) => HEAP_LINE.test(line)),
+    ghostReconciliationLines: logLines.filter((line) => GHOST_LINE.test(line)),
   };
 }
 
@@ -89,6 +91,7 @@ function main() {
     ...summary.crawlers.map((crawler) => `crawler ${crawler.crawlerKey}: lost=${crawler.lost.length} ownerChanged=${crawler.ownerChanged.length} refused=${crawler.refused} restored=${JSON.stringify(crawler.restoredByLocale)}`),
     ...summary.refusalLogLines.map((line) => `log: ${line}`),
     ...summary.heapLines.map((line) => `log: ${line}`),
+    ...summary.ghostReconciliationLines.map((line) => `log: ${line}`),
   ];
   console.log(lines.join('\n'));
   if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${lines.join('\n')}\n`);

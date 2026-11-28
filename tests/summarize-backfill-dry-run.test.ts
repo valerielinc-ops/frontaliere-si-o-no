@@ -35,13 +35,14 @@ describe('summarize-backfill-dry-run', () => {
     const summary = summarizeDryRun([
       clean,
       { crawlerKey: 'b', refused: true, refusedRoutes: 3, collisions: 3, unrestoredLegitimateRoutes: 4, maxRssMb: 20 },
-    ], 'x\n::error::f.json: refusing to write the archive, 1 route\n[heap] phase: peak heap 5 MB\n');
+    ], 'x\n::error::f.json: refusing to write the archive, 1 route\n[heap] phase: peak heap 5 MB\nExpired slice ghost reconciliation: kept 7 ghost identities\n');
     expect(summary.totals.restoredByLocale).toEqual({ it: 2 });
     expect(summary.totals.refusedCrawlers).toEqual(['b']);
     expect(summary.totals.unrestoredLegitimateRoutes).toBe(4);
     expect(summary.totals.maxRssMb).toBe(20);
     expect(summary.refusalLogLines).toHaveLength(1);
     expect(summary.heapLines).toHaveLength(1);
+    expect(summary.ghostReconciliationLines).toHaveLength(1);
     expect(dryRunExitCode(summary)).toBe(0);
   });
 
