@@ -1,7 +1,7 @@
 {
   "key": "riri",
   "label": "Riri Group",
-  "generatedAt": "2026-11-28T09:22:17.855Z",
+  "generatedAt": "2026-11-28T22:00:15.215Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4054,
-  "avgDurationMs": 4054,
+  "durationMs": 4582,
+  "avgDurationMs": 4582,
   "durationHistory": [
-    4054
+    4582
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -53,7 +53,7 @@
       "applyUrl": "https://careers.oerlikon.com/job/Mendrisio-Marketing-Specialist-TI-6850/1454662233/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
       "source": "Riri Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-28T09:21:58.858Z",
+      "crawledAt": "2026-11-28T22:00:01.654Z",
       "firstSeenAt": "2026-11-05T21:36:17.966Z",
       "salaryMin": 50500,
       "salaryMax": 89000,
@@ -61,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:21:58.858Z",
+      "validThrough": "2027-02-03T22:00:01.654Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -72,5 +72,5 @@
       }
     }
   ],
-  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
+  "codeCommit": "e60bb477e02fc78f2385473075e1dff5d9e2799a"
 }

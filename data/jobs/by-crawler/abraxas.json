@@ -1,7 +1,7 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-11-28T09:23:03.787Z",
-  "runId": "46129483321",
+  "assembledAt": "2026-11-28T22:00:25.748Z",
+  "runId": "46190515285",
   "jobs": [
     {
       "id": "abraxas-85e7ac82ee22",
@@ -34,7 +34,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/werkstudentin-controlling-40-60-5093",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:22:27.345Z",
+      "crawledAt": "2026-11-28T22:00:18.597Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -59,7 +59,9 @@
       "pensumMin": 40,
       "pensumMax": 60,
       "pensum": "40 - 60%",
-      "firstSeenAt": "2026-11-27T21:19:53.133Z",
+      "previousSlugs": [
+        "werkstudent-in-controlling-40-60-abraxas-st-gallen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "werkstudent-in-controlling-40-60-abraxas-st-gallen"
@@ -71,9 +73,7 @@
           "werkstudent-in-controlling-40-60-abraxas-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "werkstudent-in-controlling-40-60-abraxas-st-gallen"
-      ],
+      "firstSeenAt": "2026-11-27T21:19:53.133Z",
       "salaryMin": 36000,
       "salaryMax": 61200,
       "salarySource": "estimated",
@@ -88,7 +88,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-26T09:22:27.345Z",
+      "validThrough": "2027-02-25T22:00:18.597Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -122,7 +122,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/system-engineer-mit-projekterfahrung-80-100-8712",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:22:26.921Z",
+      "crawledAt": "2026-11-28T22:00:18.090Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -172,7 +172,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:22:26.921Z",
+      "validThrough": "2026-12-30T22:00:18.090Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -206,7 +206,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/solution-architektin-80-100-1304",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:22:26.492Z",
+      "crawledAt": "2026-11-28T22:00:17.583Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -254,7 +254,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:22:26.492Z",
+      "validThrough": "2027-01-27T22:00:17.583Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -288,7 +288,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-solution-architektin-80-100-mit-schwerpunkt-pre-sales-2846",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:22:26.064Z",
+      "crawledAt": "2026-11-28T22:00:17.064Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -356,7 +356,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:22:26.064Z",
+      "validThrough": "2026-12-28T22:00:17.064Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -390,7 +390,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architektin-im-steuerbereich-80-100-1783",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:22:25.636Z",
+      "crawledAt": "2026-11-28T22:00:16.554Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -453,7 +453,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:22:25.636Z",
+      "validThrough": "2026-12-28T22:00:16.554Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -487,7 +487,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-ki-solutions-engineer-80-100-4299",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:22:25.210Z",
+      "crawledAt": "2026-11-28T22:00:16.045Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -563,7 +563,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:22:25.210Z",
+      "validThrough": "2027-02-03T22:00:16.045Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -597,7 +597,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-software-engineer-80-100-3002",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:22:24.772Z",
+      "crawledAt": "2026-11-28T22:00:15.532Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -662,7 +662,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:22:24.772Z",
+      "validThrough": "2027-01-24T22:00:15.532Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -696,7 +696,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-servicenow-ki-engineer-80-100-3295",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:22:24.340Z",
+      "crawledAt": "2026-11-28T22:00:15.009Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -765,7 +765,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:22:24.340Z",
+      "validThrough": "2027-02-03T22:00:15.009Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -799,7 +799,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-projektleitung-im-bereich-steuerloesungen-80-100-4694",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:22:23.910Z",
+      "crawledAt": "2026-11-28T22:00:14.499Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -862,7 +862,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:22:23.910Z",
+      "validThrough": "2026-12-28T22:00:14.499Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -896,7 +896,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-2438",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:22:23.480Z",
+      "crawledAt": "2026-11-28T22:00:13.984Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -949,7 +949,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:22:23.480Z",
+      "validThrough": "2026-12-28T22:00:13.984Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -983,7 +983,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/leiterin-solution-architektur-80-100-1870",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:22:23.052Z",
+      "crawledAt": "2026-11-28T22:00:13.475Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1060,7 +1060,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:22:23.052Z",
+      "validThrough": "2026-12-28T22:00:13.475Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1094,7 +1094,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/berater-abacus-hrlohnzeiterfassung-80-100-5137",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:22:22.625Z",
+      "crawledAt": "2026-11-28T22:00:12.963Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1148,7 +1148,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-22T09:22:22.625Z",
+      "validThrough": "2027-02-21T22:00:12.963Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1182,7 +1182,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikationsmanagerin-80-100-mit-steuererfahrung-6637",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:22:22.103Z",
+      "crawledAt": "2026-11-28T22:00:12.280Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1207,166 +1207,21 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "firstSeenAt": "2026-11-27T21:19:47.648Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "applikationsmanager-in-80-100-mit-steuererfahrung-abraxas-st-gallen"
-        ],
-        "en": [
-          "applikationsmanager-in-80-100-mit-steuererfahrung-abraxas-st-gallen"
-        ],
-        "fr": [
-          "applikationsmanager-in-80-100-mit-steuererfahrung-abraxas-st-gallen"
-        ]
-      },
       "previousSlugs": [
         "applikationsmanager-in-80-100-mit-steuererfahrung-abraxas-st-gallen"
       ],
-      "salaryMin": 92000,
-      "salaryMax": 156500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 92000,
-          "maxValue": 156500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-26T09:22:22.103Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "abraxas-83471e2b296b",
-      "slug": "responsabile-delle-applicazioni-80-100-abraxas-informatik-ag-st-gallen",
-      "slugByLocale": {
-        "it": "responsabile-delle-applicazioni-80-100-abraxas-informatik-ag-st-gallen",
-        "en": "applikations-manager-in-80-100-abraxas-st-gallen",
-        "de": "applikations-manager-in-80-100-abraxas-st-gallen",
-        "fr": "responsable-des-applications-80-100-abraxas-informatik-ag-st-gallen"
-      },
-      "company": "Abraxas Informatik AG",
-      "companyKey": "abraxas",
-      "companyDomain": "abraxas.ch",
-      "title": "Applikations-Manager:in 80–100 %",
-      "titleByLocale": {
-        "it": "Responsabile delle applicazioni 80–100 %",
-        "en": "Application Manager 80–100 %",
-        "de": "Applikations-Manager:in 80–100 %",
-        "fr": "Responsable des applications 80–100 %"
-      },
-      "description": "Du begeisterst dich für den Kundenkontakt und möchtest die Zukunft unserer Fachapplikationen aktiv mitgestalten? Werde Teil des Teams Applikationsmanagement Steuern. Bei uns findest du ein kollegiales Arbeitsumfeld, in dem Eigeninitiative geschätzt wird und du Verantwortung übernehmen sowie deine Kompetenzen gezielt weiterentwickeln kannst.\nDeine Rolle\n• Kunden betreuen: Du bist die zentrale Anlaufstelle bei Fragen rund um unsere Applikationen, klärst Anliegen und sorgst für nachhaltige Lösungen\n• Bedürfnisse verstehen: Du analysierst, dokumentierst und priorisierst Anforderungen unserer Kunden\n• Wissen sichern: Du erstellst und pflegst Betriebs- und Benutzerdokumentationen\n• Zusammenarbeit koordinieren: Du steuerst Aufgaben und Schnittstellen zwischen internen IT-Stellen und externen Applikationsnutzenden\n• Abläufe managen: Du stellst wiederkehrende Prozesse sicher und sorgst für einen reibungslosen Betrieb\nDein Profil\n• Abgeschlossene kaufmännische oder technische Ausbildung, ein Studium im Bereich Informatik oder ein vergleichbarer beruflicher Werdegang mit entsprechender IT-Expertise\n• Du verfügst über Berufserfahrung im Steuerbereich , insbesondere in der Steuerberatung und im Treuhandwesen, der Wirtschaftsprüfung, in Steuerabteilungen von Unternehmen oder in der öffentlichen Verwaltung\n• Erfahrung im Umgang mit Business Software und Interesse an Applikationsprozessen\n• Analytisches und strukturiertes Denken, gepaart mit Freude an der Zusammenarbeit mit Kunden\n• Stilsichere Deutschkenntnisse in Wort und Schrift auf mindestens C1-Niveau\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-      "descriptionByLocale": {
-        "it": "Sei entusiasta del contatto con i clienti e vuoi plasmare attivamente il futuro delle nostre applicazioni specializzate? Diventa parte del team Application Management Taxes. Con noi troverete un ambiente di lavoro collegiale in cui l'iniziativa è apprezzata e si può assumersi la responsabilità e sviluppare ulteriormente le vostre competenze in modo mirato.\nIl tuo ruolo\n• Sei il punto centrale di contatto per le domande sulle nostre applicazioni, chiarire le preoccupazioni e fornire soluzioni sostenibili\n• Capire le esigenze: analizzare, documentare e dare priorità alle esigenze dei nostri clienti\n• Assicurare la conoscenza: creare e mantenere la documentazione operativa e utente\n• Collaborazione coordinata: Si controllano le attività e le interfacce tra gli uffici IT interni e gli utenti di applicazioni esterne\n• Gestione dei processi: Garantisci processi ricorrenti e garantisci un funzionamento regolare\nIl tuo profilo\n• Formazione commerciale o tecnica completa, una laurea in informatica o una carriera professionale comparabile con corrispondente competenza IT\n• Esperienza nel trattare il software aziendale e l'interesse nei processi applicativi\n• pensiero analitico e strutturato, accoppiato con piacere a lavorare con i clienti\n• Conoscenza sicura del tedesco nelle parole e nella scrittura di almeno livello C1\n• Il know-how fiscale è un vantaggio\nI tuoi vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nManteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
-        "en": "Are you enthusiastic about customer contact and would like to actively shape the future of our specialist applications? Become part of the team Application Management Taxes. With us you will find a collegial working environment in which initiative is appreciated and you can take on responsibility and further develop your skills in a targeted manner.\nYour role\n• You are the central point of contact for questions about our applications, clarify concerns and provide sustainable solutions\n• Understand needs: you analyze, document and prioritize our customers’ needs\n• Ensure knowledge: You create and maintain operational and user documentation\n• Coordinate collaboration: You control tasks and interfaces between internal IT offices and external application users\n• Manage processes: You ensure recurring processes and ensure smooth operation\nYour profile\n• Completed commercial or technical training, a degree in computer science or a comparable professional career with corresponding IT expertise\n• Experience in dealing with business software and interest in application processes\n• Analytical and structured thinking, coupled with pleasure in working with customers\n• Confident knowledge of German in words and writing at at least C1 level\n• Tax know-how is an advantage\nYour Benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nWe maintain an open you culture – so feel free to send us your application directly in the you form.",
-        "de": "Du begeisterst dich für den Kundenkontakt und möchtest die Zukunft unserer Fachapplikationen aktiv mitgestalten? Werde Teil des Teams Applikationsmanagement Steuern. Bei uns findest du ein kollegiales Arbeitsumfeld, in dem Eigeninitiative geschätzt wird und du Verantwortung übernehmen sowie deine Kompetenzen gezielt weiterentwickeln kannst.\nDeine Rolle\n• Kunden betreuen: Du bist die zentrale Anlaufstelle bei Fragen rund um unsere Applikationen, klärst Anliegen und sorgst für nachhaltige Lösungen\n• Bedürfnisse verstehen: Du analysierst, dokumentierst und priorisierst Anforderungen unserer Kunden\n• Wissen sichern: Du erstellst und pflegst Betriebs- und Benutzerdokumentationen\n• Zusammenarbeit koordinieren: Du steuerst Aufgaben und Schnittstellen zwischen internen IT-Stellen und externen Applikationsnutzenden\n• Abläufe managen: Du stellst wiederkehrende Prozesse sicher und sorgst für einen reibungslosen Betrieb\nDein Profil\n• Abgeschlossene kaufmännische oder technische Ausbildung, ein Studium im Bereich Informatik oder ein vergleichbarer beruflicher Werdegang mit entsprechender IT-Expertise\n• Du verfügst über Berufserfahrung im Steuerbereich , insbesondere in der Steuerberatung und im Treuhandwesen, der Wirtschaftsprüfung, in Steuerabteilungen von Unternehmen oder in der öffentlichen Verwaltung\n• Erfahrung im Umgang mit Business Software und Interesse an Applikationsprozessen\n• Analytisches und strukturiertes Denken, gepaart mit Freude an der Zusammenarbeit mit Kunden\n• Stilsichere Deutschkenntnisse in Wort und Schrift auf mindestens C1-Niveau\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "fr": "Êtes-vous enthousiaste au sujet du contact client et souhaitez-vous façonner activement l'avenir de nos applications spécialisées ? Devenez membre de l'équipe Application Management Taxes. Avec nous, vous trouverez un environnement de travail collégial dans lequel l'initiative est appréciée et vous pouvez assumer vos responsabilités et développer vos compétences de manière ciblée.\nVotre rôle\n• Vous êtes le point de contact central pour les questions sur nos applications, clarifier les préoccupations et fournir des solutions durables\n• Comprendre les besoins : vous analysez, documentez et priorisez nos clients\n• Assurer les connaissances : Vous créez et maintenez la documentation opérationnelle et utilisateur\n• Coordonner la collaboration: Vous contrôlez les tâches et les interfaces entre les bureaux informatiques internes et les utilisateurs externes d'applications\n• Gérer les processus: Vous assurez les processus récurrents et assurer le bon fonctionnement\nVotre profil\n• Achevé une formation commerciale ou technique, un diplôme en informatique ou une carrière professionnelle comparable avec une expertise informatique correspondante\n• Expérience dans le traitement des logiciels d'affaires et intérêt pour les processus d'application\n• La pensée analytique et structurée, associée au plaisir de travailler avec les clients\n• Connaissance de l'allemand en mots et en écriture au moins au niveau C1\n• Le savoir-faire fiscal est un avantage\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à la formation à 100% financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-managerin-80-100-8810",
-      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:22:04.652Z",
-      "needsRetranslation": false,
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9000",
-      "streetAddress": "St. Leonhard-Strasse 80",
-      "category": "IT / Sviluppo software",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / Informatica per la pubblica amministrazione",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://apply.refline.ch/215876/2528/index.html?lang=de&cid=1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "215876-2528",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "previousSlugs": [
-        "applikations-manager-in-80-100-abraxas-st-gallen",
-        "applikations-manager-in-80-100-abraxas-st-gallen-af3f20d2",
-        "applikations-manager-in-80-100-abraxas-st-gallen-c670b2df",
-        "applikations-manager-in-80-100-abraxas-st-gallen-05a2f56b",
-        "applikations-manager-in-80-100-abraxas-st-gallen-f71e691a",
-        "applikations-manager-in-80-100-abraxas-st-gallen-bf635670",
-        "applikations-manager-in-80-100-abraxas-st-gallen-577335f6",
-        "applikations-manager-in-80-100-abraxas-st-gallen-8a528140",
-        "applikations-manager-in-80-100-abraxas-st-gallen-85ac3f17",
-        "applikations-manager-in-80-100-abraxas-st-gallen-59e6882b",
-        "applikations-manager-in-80-100-abraxas-st-gallen-020e9119",
-        "applikations-manager-in-80-100-abraxas-st-gallen-39f9da88",
-        "applikations-manager-in-80-100-abraxas-st-gallen-0596baaa",
-        "applikations-manager-in-80-100-abraxas-st-gallen-0e91da1b",
-        "applikations-manager-in-80-100-abraxas-st-gallen-e13ae0b1",
-        "applikations-manager-in-80-100-abraxas-st-gallen-484eecdd",
-        "applikations-manager-in-80-100-abraxas-st-gallen-ca4262c1",
-        "gestionnaire-d-applications-en-80-100-abraxas-informatik-ag-st-gallen",
-        "applikations-manager-in-80-100-abraxas-st-gallen-a3c6829b",
-        "responsabile-delle-applicazioni-80-100-abraxas-informatik-ag-st-gallen-9aaf7419",
-        "applikations-manager-in-80-100-abraxas-st-gallen-4f8aebad",
-        "applikations-manager-in-80-100-abraxas-st-gallen-265c7b84",
-        "gestionnaire-d-applications-80-100-abraxas-informatik-ag-st-gallen",
-        "gestione-delle-applicazioni-in-80-100-abraxas-informatik-ag-st-gallen",
-        "applikations-manager-in-80-100-abraxas-st-gallen-725b03cc",
-        "applikations-manager-in-80-100-abraxas-st-gallen-6bd05a7c",
-        "applikations-manager-in-80-100-abraxas-st-gallen-5ad65ea5",
-        "applikations-manager-in-80-100-abraxas-st-gallen-32a5dddf",
-        "applikations-manager-in-80-100-abraxas-st-gallen-ddf17a20",
-        "applikations-manager-in-80-100-abraxas-st-gallen-574963c6",
-        "applikations-manager-in-80-100-abraxas-st-gallen-33cacb26",
-        "applikations-manager-in-80-100-abraxas-st-gallen-c328aae9",
-        "applikations-manager-in-80-100-abraxas-st-gallen-19f7b795",
-        "applikations-manager-in-80-100-abraxas-st-gallen-0a234e2f",
-        "applikations-manager-in-80-100-abraxas-st-gallen-512257c8",
-        "applikations-manager-in-80-100-abraxas-st-gallen-aec0f94a",
-        "applikations-manager-in-80-100-abraxas-st-gallen-7d8b1daf",
-        "applikations-manager-in-80-100-abraxas-st-gallen-ef031b6f"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "applikations-manager-in-80-100-abraxas-st-gallen-0e91da1b",
-          "applikations-manager-in-80-100-abraxas-st-gallen-e13ae0b1",
-          "applikations-manager-in-80-100-abraxas-st-gallen-484eecdd",
-          "applikations-manager-in-80-100-abraxas-st-gallen-ca4262c1",
-          "gestionnaire-d-applications-en-80-100-abraxas-informatik-ag-st-gallen",
-          "applikations-manager-in-80-100-abraxas-st-gallen-a3c6829b",
-          "responsabile-delle-applicazioni-80-100-abraxas-informatik-ag-st-gallen-9aaf7419",
-          "applikations-manager-in-80-100-abraxas-st-gallen",
-          "applikations-manager-in-80-100-abraxas-st-gallen-af3f20d2",
-          "applikations-manager-in-80-100-abraxas-st-gallen-c670b2df",
-          "applikations-manager-in-80-100-abraxas-st-gallen-05a2f56b",
-          "applikations-manager-in-80-100-abraxas-st-gallen-f71e691a",
-          "applikations-manager-in-80-100-abraxas-st-gallen-bf635670",
-          "applikations-manager-in-80-100-abraxas-st-gallen-577335f6",
-          "applikations-manager-in-80-100-abraxas-st-gallen-8a528140",
-          "applikations-manager-in-80-100-abraxas-st-gallen-85ac3f17",
-          "applikations-manager-in-80-100-abraxas-st-gallen-59e6882b",
-          "applikations-manager-in-80-100-abraxas-st-gallen-020e9119",
-          "applikations-manager-in-80-100-abraxas-st-gallen-39f9da88",
-          "applikations-manager-in-80-100-abraxas-st-gallen-0596baaa"
+          "applikationsmanager-in-80-100-mit-steuererfahrung-abraxas-st-gallen"
         ],
         "en": [
-          "applikations-manager-in-80-100-abraxas-st-gallen-265c7b84"
+          "applikationsmanager-in-80-100-mit-steuererfahrung-abraxas-st-gallen"
         ],
         "fr": [
-          "applikations-manager-in-80-100-abraxas-st-gallen",
-          "gestionnaire-d-applications-80-100-abraxas-informatik-ag-st-gallen"
+          "applikationsmanager-in-80-100-mit-steuererfahrung-abraxas-st-gallen"
         ]
       },
-      "firstSeenAt": "2026-10-27T21:25:37.839Z",
+      "firstSeenAt": "2026-11-27T21:19:47.648Z",
       "salaryMin": 92000,
       "salaryMax": 156500,
       "salarySource": "estimated",
@@ -1381,9 +1236,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:22:04.652Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "validThrough": "2027-02-25T22:00:12.280Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
