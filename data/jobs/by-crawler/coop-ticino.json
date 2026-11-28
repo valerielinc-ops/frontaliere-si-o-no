@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coop-ticino",
-  "assembledAt": "2026-11-28T09:49:38.852Z",
+  "assembledAt": "2026-11-28T13:55:35.999Z",
   "runId": "46128483525",
   "jobs": [
     {
@@ -9940,26 +9940,26 @@
         }
       },
       "previousSlugs": [
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-2",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-7mhx1n",
+        "boucher-specialiste-de-la-viande-coop-dielsdorf-7mhx1n",
         "butcher-meat-specialist-coop-dielsdorf-7mhx1n",
-        "boucher-specialiste-de-la-viande-coop-dielsdorf-7mhx1n"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-7mhx1n",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-2",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-7mhx1n"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-7mhx1n",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-2"
         ],
         "en": [
-          "butcher-meat-specialist-coop-dielsdorf-7mhx1n",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-7mhx1n"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-7mhx1n",
+          "butcher-meat-specialist-coop-dielsdorf-7mhx1n"
         ],
         "de": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-7mhx1n"
         ],
         "fr": [
-          "boucher-specialiste-de-la-viande-coop-dielsdorf-7mhx1n",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-7mhx1n"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-7mhx1n",
+          "boucher-specialiste-de-la-viande-coop-dielsdorf-7mhx1n"
         ]
       },
       "salaryMin": 73500,
@@ -60099,6 +60099,9 @@
         }
       },
       "previousSlugs": [
+        "aliments-pour-vendeurs-coop-klosters-serneus-qsu138",
+        "seller-food-coop-klosters-serneus-qsu138",
+        "verkaufer-in-food-coop-klosters-serneus-qsu138",
         "vendita-prodotti-alimentari-coop-genossenschaft-klosters-serneus",
         "verkaufer-in-food-coop-klosters-serneus-ga68q3",
         "vendita-prodotti-alimentari-coop-genossenschaft-klosters-serneus-1b4ffa-d1a94a47",
@@ -60124,13 +60127,11 @@
         "vendita-prodotti-alimentari-coop-genossenschaft-klosters-serneus-8c4e67",
         "produits-alimentaires-vendus-coop-klosters-serneus-ga68q3",
         "vendita-prodotti-alimentari-coop-genossenschaft-klosters-serneus-cba11f3b",
-        "verkaufer-in-food-coop-klosters-serneus-dejslx",
-        "verkaufer-in-food-coop-klosters-serneus-qsu138",
-        "seller-food-coop-klosters-serneus-qsu138",
-        "aliments-pour-vendeurs-coop-klosters-serneus-qsu138"
+        "verkaufer-in-food-coop-klosters-serneus-dejslx"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "verkaufer-in-food-coop-klosters-serneus-qsu138",
           "verkaufer-in-food-coop-klosters-serneus-ystl87-30169f56",
           "seller-food-coop-genossenschaft-klosters-serneus",
           "produits-alimentaires-vendus-coop-genossenschaft-klosters-serneus",
@@ -60149,25 +60150,24 @@
           "verkaufer-in-food-coop-klosters-serneus-972433a3",
           "vendita-prodotti-alimentari-coop-genossenschaft-klosters-serneus",
           "verkaufer-in-food-coop-klosters-serneus-ga68q3",
-          "vendita-prodotti-alimentari-coop-genossenschaft-klosters-serneus-1b4ffa-d1a94a47",
-          "verkaufer-in-food-coop-klosters-serneus-qsu138"
+          "vendita-prodotti-alimentari-coop-genossenschaft-klosters-serneus-1b4ffa-d1a94a47"
         ],
         "en": [
-          "seller-food-coop-genossenschaft-klosters-serneus-68887c",
-          "seller-food-coop-genossenschaft-klosters-serneus",
+          "verkaufer-in-food-coop-klosters-serneus-qsu138",
           "seller-food-coop-klosters-serneus-qsu138",
-          "verkaufer-in-food-coop-klosters-serneus-qsu138"
+          "seller-food-coop-genossenschaft-klosters-serneus-68887c",
+          "seller-food-coop-genossenschaft-klosters-serneus"
         ],
         "de": [
-          "verkaufer-in-food-coop-genossenschaft-klosters-serneus",
-          "verkaufer-in-food-coop-klosters-serneus-qsu138"
+          "verkaufer-in-food-coop-klosters-serneus-qsu138",
+          "verkaufer-in-food-coop-genossenschaft-klosters-serneus"
         ],
         "fr": [
+          "verkaufer-in-food-coop-klosters-serneus-qsu138",
+          "aliments-pour-vendeurs-coop-klosters-serneus-qsu138",
           "produits-alimentaires-vendus-coop-genossenschaft-klosters-serneus-68887c",
           "aliments-pour-vendeurs-coop-genossenschaft-klosters-serneus",
-          "produits-alimentaires-vendus-coop-genossenschaft-klosters-serneus",
-          "aliments-pour-vendeurs-coop-klosters-serneus-qsu138",
-          "verkaufer-in-food-coop-klosters-serneus-qsu138"
+          "produits-alimentaires-vendus-coop-genossenschaft-klosters-serneus"
         ]
       },
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/6b9aaf53-f6df-49c0-8bc2-245954911b1a",
@@ -88499,6 +88499,9 @@
         }
       },
       "previousSlugs": [
+        "vendeur-de-produits-frais-coop-stafa-s8x5zx",
+        "seller-fresh-products-coop-stafa-s8x5zx",
+        "verkaufer-in-frischprodukte-coop-stafa-s8x5zx",
         "vendita-prodotti-freschi-coop-genossenschaft-stafa-fd2462",
         "addetto-a-alla-vendita-di-prodotti-freschi-coop-genossenschaft-stafa-zurich",
         "verkaufer-in-frischprodukte-coop-stafa-zurich-8uhr7a",
@@ -88532,13 +88535,11 @@
         "vendita-prodotti-freschi-coop-genossenschaft-stafa-4036e94b",
         "verkaufer-in-frischprodukte-coop-stafa-6fedbc6f",
         "seller-fresh-products-coop-genossenschaft-stafa-7e24bdf6",
-        "vendeur-de-produits-frais-coop-genossenschaft-stafa-c5d37316",
-        "verkaufer-in-frischprodukte-coop-stafa-s8x5zx",
-        "seller-fresh-products-coop-stafa-s8x5zx",
-        "vendeur-de-produits-frais-coop-stafa-s8x5zx"
+        "vendeur-de-produits-frais-coop-genossenschaft-stafa-c5d37316"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "verkaufer-in-frischprodukte-coop-stafa-s8x5zx",
           "verkaufer-in-frischprodukte-coop-stafa-zurich-ek3rfo",
           "vendeur-produits-frais-coop-genossenschaft-stafa",
           "vendita-prodotti-freschi-coop-genossenschaft-stafa-9dba37",
@@ -88557,22 +88558,21 @@
           "verkaufer-in-frischprodukte-coop-stafa",
           "vendita-prodotti-freschi-coop-genossenschaft-stafa-fd2462",
           "addetto-a-alla-vendita-di-prodotti-freschi-coop-genossenschaft-stafa-zurich",
-          "verkaufer-in-frischprodukte-coop-stafa-zurich-8uhr7a",
-          "verkaufer-in-frischprodukte-coop-stafa-s8x5zx"
+          "verkaufer-in-frischprodukte-coop-stafa-zurich-8uhr7a"
         ],
         "en": [
-          "seller-fresh-products-coop-genossenschaft-stafa-fd2462",
+          "verkaufer-in-frischprodukte-coop-stafa-s8x5zx",
           "seller-fresh-products-coop-stafa-s8x5zx",
-          "verkaufer-in-frischprodukte-coop-stafa-s8x5zx"
+          "seller-fresh-products-coop-genossenschaft-stafa-fd2462"
         ],
         "de": [
-          "verkaufer-in-frischprodukte-coop-genossenschaft-stafa",
-          "verkaufer-in-frischprodukte-coop-stafa-s8x5zx"
+          "verkaufer-in-frischprodukte-coop-stafa-s8x5zx",
+          "verkaufer-in-frischprodukte-coop-genossenschaft-stafa"
         ],
         "fr": [
-          "vendeur-de-produits-frais-coop-genossenschaft-stafa-fd2462",
+          "verkaufer-in-frischprodukte-coop-stafa-s8x5zx",
           "vendeur-de-produits-frais-coop-stafa-s8x5zx",
-          "verkaufer-in-frischprodukte-coop-stafa-s8x5zx"
+          "vendeur-de-produits-frais-coop-genossenschaft-stafa-fd2462"
         ]
       },
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte/2d7b9f65-382e-4953-a3c9-43f6962055fd",
@@ -103035,15 +103035,15 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "responsabile-junior-vendita-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl",
           "responsabile-junior-vendita-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-0cg4cm",
           "nachwuchskader-verkauf-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms",
-          "responsabile-junior-vendita-region-oberwallis-coop-genossenschaft-bern",
-          "responsabile-junior-vendita-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl"
+          "responsabile-junior-vendita-region-oberwallis-coop-genossenschaft-bern"
         ],
         "de": [
+          "nachwuchskader-verkauf-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl",
           "nachwuchskader-verkauf-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-0cg4cm",
-          "nachwuchskader-verkauf-region-oberwallis-coop-genossenschaft-bern",
-          "nachwuchskader-verkauf-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl"
+          "nachwuchskader-verkauf-region-oberwallis-coop-genossenschaft-bern"
         ],
         "en": [
           "nachwuchskader-sales-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl"
@@ -103053,15 +103053,15 @@
         ]
       },
       "previousSlugs": [
+        "nachwuchskader-vente-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl",
+        "nachwuchskader-verkauf-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl",
+        "nachwuchskader-sales-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl",
+        "responsabile-junior-vendita-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl",
         "responsabile-junior-vendita-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-0cg4cm",
         "nachwuchskader-verkauf-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms",
         "nachwuchskader-verkauf-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-0cg4cm",
         "responsabile-junior-vendita-region-oberwallis-coop-genossenschaft-bern",
-        "nachwuchskader-verkauf-region-oberwallis-coop-genossenschaft-bern",
-        "responsabile-junior-vendita-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl",
-        "nachwuchskader-sales-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl",
-        "nachwuchskader-verkauf-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl",
-        "nachwuchskader-vente-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl"
+        "nachwuchskader-verkauf-region-oberwallis-coop-genossenschaft-bern"
       ],
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf-region-oberwallis/b6c271cf-c42e-42a8-a14e-8ae491da6178",
       "datePosted": "2026-09-24",
@@ -103144,44 +103144,44 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw",
           "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-tcaazq",
           "amministratore-delegato-amministratore-delegato-oberwallis-coop-genossenschaft-bern",
           "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms",
           "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
-          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-2",
-          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw"
+          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-2"
         ],
         "en": [
-          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-tcaazq",
-          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
+          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw",
           "managing-director-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw",
-          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw"
+          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-tcaazq",
+          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-genossenschaft-region-brig-visp-zermatt-und-goms"
         ],
         "de": [
+          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw",
           "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-tcaazq",
           "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-genossenschaft-bern",
-          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
-          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw"
+          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-genossenschaft-region-brig-visp-zermatt-und-goms"
         ],
         "fr": [
-          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-tcaazq",
-          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
-          "gerante-gerant-du-haut-valais-coop-region-brig-visp-zermatt-und-goms-6odqnw",
+          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw",
           "directeur-general-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw",
-          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw"
+          "gerante-gerant-du-haut-valais-coop-region-brig-visp-zermatt-und-goms-6odqnw",
+          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-tcaazq",
+          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-genossenschaft-region-brig-visp-zermatt-und-goms"
         ]
       },
       "previousSlugs": [
+        "directeur-general-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw",
+        "gerante-gerant-du-haut-valais-coop-region-brig-visp-zermatt-und-goms-6odqnw",
+        "managing-director-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw",
+        "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw",
         "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-tcaazq",
         "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-genossenschaft-bern",
         "amministratore-delegato-amministratore-delegato-oberwallis-coop-genossenschaft-bern",
         "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms",
         "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
-        "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-2",
-        "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw",
-        "managing-director-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw",
-        "gerante-gerant-du-haut-valais-coop-region-brig-visp-zermatt-und-goms-6odqnw",
-        "directeur-general-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw"
+        "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-2"
       ],
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/geschaeftsfuehrerin-geschaeftsfuehrer-oberwallis/6eea2d2d-5aff-4343-9dad-fd58ddcafb87",
       "datePosted": "2026-09-24",
@@ -103264,6 +103264,7 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h",
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-bern",
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-bern-11eofo",
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-bern-11eofo",
@@ -103281,10 +103282,10 @@
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms",
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-fzbs32",
-          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po",
-          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h"
+          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po"
         ],
         "en": [
+          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h",
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-ma6lbw",
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
           "deputy-managing-director-visp-brig-zermatt-and-goms-region-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
@@ -103292,17 +103293,17 @@
           "deputy-managing-director-for-the-visp-brig-zermatt-and-goms-region-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
           "stv-managing-directors-region-visp-brig-zermatt-and-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-fzbs32",
-          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po",
-          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h"
+          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po"
         ],
         "de": [
+          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h",
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-ma6lbw",
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-fzbs32",
-          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po",
-          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h"
+          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po"
         ],
         "fr": [
+          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h",
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-ma6lbw",
           "stv-directeurs-regionaux-viege-brig-zermatt-et-goms-coop-genossenschaft-bern-e9e3c8",
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
@@ -103317,11 +103318,12 @@
           "directeur-rice-adjoint-e-pour-la-region-de-visp-brig-zermatt-et-goms-coop-genossenschaft-region-brig-visp-zermatt-und",
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-fzbs32",
           "directeur-trice-adjoint-e-de-la-region-de-visp-brig-zermatt-et-goms-coop-genossenschaft-region-brig-visp-zermatt-und",
-          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po",
-          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h"
+          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po"
         ]
       },
       "previousSlugs": [
+        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h",
+        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h",
         "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-ma6lbw",
         "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms",
         "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-ma6lbw",
@@ -103365,9 +103367,7 @@
         "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-fzbs32",
         "directeur-trice-adjoint-e-de-la-region-de-visp-brig-zermatt-et-goms-coop-genossenschaft-region-brig-visp-zermatt-und",
         "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po",
-        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po",
-        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h",
-        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h"
+        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po"
       ],
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/stv-geschaeftsfuehrer-in-region-visp-brig-zermatt-und-goms/0c32b215-3490-4f03-9651-64d1a1e0a0f6",
       "datePosted": "2026-09-24",
