@@ -369,6 +369,8 @@ export function evaluateJobCanonV1Retirement(snapshot) {
   for (const blocker of streamSamplingBlockers) blockers.push(`sampling-stream:${blocker}`);
   if (v2SuccessLogs === 0) blockers.push('v2-success:0');
   if (v1FallbackLogs !== 0) blockers.push(`v1-fallback:${v1FallbackLogs}`);
+  const v1Unscanned = Array.isArray(snapshot.jobCanonV1UnscannedDays) ? snapshot.jobCanonV1UnscannedDays : [];
+  if (v1Unscanned.length > 0) blockers.push(`v1-scan:incomplete:${v1Unscanned.join(',')}`);
 
   const sampleIntervalsByDay = Object.fromEntries(
     v2Daily.map((d) => [d.day, d.sampleInterval ?? null]),
@@ -624,6 +626,7 @@ export async function collectJobCanonDailyWindows({
   };
   const v2Daily = [];
   const v1Daily = [];
+  const v1UnscannedDays = [];
   const windowsByDay = {};
   for (const day of utcDaysInTimeframe(timeframe)) {
     const dayStart = Date.parse(`${day}T00:00:00.000Z`);
@@ -655,14 +658,18 @@ export async function collectJobCanonDailyWindows({
     let v1Count = 0;
     let v1Interval = null;
     for (const leaf of leaves) {
-      if (requests >= maxRequests) break;
+      if (requests >= maxRequests) {
+        // A skipped window is unproven absence, never a zero.
+        if (!v1UnscannedDays.includes(day)) v1UnscannedDays.push(day);
+        break;
+      }
       const m = await bounded(v1Filters, leaf.from, leaf.to);
       v1Count += m.count;
       if (m.count > 0 && Number.isFinite(m.sampleInterval)) v1Interval = Math.max(v1Interval ?? 0, m.sampleInterval);
     }
     if (v1Count > 0) v1Daily.push({ day, count: v1Count, sampleInterval: v1Interval });
   }
-  return { v2Daily, v1Daily, requests, windowsByDay };
+  return { v2Daily, v1Daily, v1UnscannedDays, requests, windowsByDay };
 }
 
 function workerLogSamplingBuckets(calculation) {
@@ -888,7 +895,12 @@ export async function collectSnapshot(now = Date.now()) {
       sampleInterval: Number.isFinite(row?.sampleInterval) ? row.sampleInterval : null,
     };
   };
-  const { v2Daily: jobCanonV2Daily, v1Daily: jobCanonV1Daily, requests: jobCanonWindowRequests } =
+  const {
+    v2Daily: jobCanonV2Daily,
+    v1Daily: jobCanonV1Daily,
+    v1UnscannedDays: jobCanonV1UnscannedDays,
+    requests: jobCanonWindowRequests,
+  } =
     await collectJobCanonDailyWindows({
       measure: windowMeasure,
       v2Filters: buildJobCanonV2SuccessLogFilters(),
@@ -947,6 +959,7 @@ export async function collectSnapshot(now = Date.now()) {
     jobCanonV1FallbackLogs: jobCanonV1Daily.reduce((sum, row) => sum + row.count, 0),
     jobCanonV1Daily,
     jobCanonWindowRequests,
+    jobCanonV1UnscannedDays,
     workerLogSamplingExpectedDays: utcDaysInTimeframe(timeframe),
     workerLogSamplingBuckets: workerLogSamplingBuckets(workerLogSamplingCalculation),
     jobCanonParity: await collectJobCanonParity(),

@@ -383,6 +383,17 @@ describe('job-canon retirement evidence in day windows', () => {
     expect(r.v1Daily.map((d) => d.count)).toEqual([2, 2]);
   });
 
+  it('flags v1 windows skipped by the budget and blocks the receipt', async () => {
+    // day 1 v2+v1, day 2 v2 = 3 requests: day 2 v1 is never queried.
+    const r = await run(() => 10, { maxRequests: 3 });
+    expect(r.v1UnscannedDays).toEqual(['2026-11-21']);
+    const snapshot = completeJobCanonRetirementSnapshot() as Record<string, unknown>;
+    snapshot.jobCanonV1UnscannedDays = r.v1UnscannedDays;
+    const receipt = evaluateJobCanonV1Retirement(snapshot as never);
+    expect(receipt.ready).toBe(false);
+    expect(receipt.blockers).toContain('v1-scan:incomplete:2026-11-21');
+  });
+
   it('feeds the receipt: a day that stays coarse blocks it', async () => {
     const r = await run((_len, from) => (from >= base + DAY ? 100 : 1));
     const snapshot = completeJobCanonRetirementSnapshot();
