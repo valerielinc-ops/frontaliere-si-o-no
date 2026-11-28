@@ -1,7 +1,7 @@
 {
   "key": "mpa-praxisstellen-ch",
   "label": "mpa-praxisstellen",
-  "generatedAt": "2026-11-28T09:20:31.071Z",
+  "generatedAt": "2026-11-28T21:37:09.028Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -46,10 +46,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 8101,
-  "avgDurationMs": 8101,
+  "durationMs": 8884,
+  "avgDurationMs": 8884,
   "durationHistory": [
-    8101
+    8884
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -67,7 +67,7 @@
       "url": "https://www.pks-personal.ch/stellen/disponent-internationale-landverkehre-100-basel/basel/logistik-spedition/90afef0b",
       "source": "mpa-praxisstellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:20:05.446Z",
+      "crawledAt": "2026-11-28T21:36:44.602Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -90,7 +90,7 @@
       "salarySource": "estimated",
       "streetAddress": "Binningen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:20:05.446Z",
+      "validThrough": "2027-01-26T21:36:44.602Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -112,7 +112,7 @@
       "url": "https://www.pks-personal.ch/stellen/zolldeklarant-in-import-export-50/basel/logistik-spedition/74191d9a",
       "source": "mpa-praxisstellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:20:05.443Z",
+      "crawledAt": "2026-11-28T21:36:44.599Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -135,7 +135,7 @@
       "salarySource": "estimated",
       "streetAddress": "Binningen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:20:05.443Z",
+      "validThrough": "2027-01-26T21:36:44.599Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -146,5 +146,5 @@
       }
     }
   ],
-  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
+  "codeCommit": "e60bb477e02fc78f2385473075e1dff5d9e2799a"
 }

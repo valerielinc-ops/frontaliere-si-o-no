@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cogestim-ch",
-  "assembledAt": "2026-11-28T09:19:26.998Z",
-  "runId": "46128989728",
+  "assembledAt": "2026-11-28T21:39:50.267Z",
+  "runId": "46189948699",
   "jobs": [
     {
       "id": "cogestim-ch-235f78413034",
@@ -34,7 +34,7 @@
       "url": "https://cogestim.ch/carriere",
       "source": "COGESTIM SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:19:16.709Z",
+      "crawledAt": "2026-11-28T21:39:45.155Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -88,7 +88,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:19:16.709Z",
+      "validThrough": "2026-12-28T21:39:45.155Z",
       "validThroughSource": "last-observed-window"
     }
   ]

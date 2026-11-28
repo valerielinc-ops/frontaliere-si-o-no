@@ -1,7 +1,7 @@
 {
   "key": "lonza",
   "label": "Lonza",
-  "generatedAt": "2026-11-28T09:27:47.576Z",
+  "generatedAt": "2026-11-28T21:45:34.873Z",
   "total": 0,
   "discovered": null,
   "parsed": null,
@@ -21,13 +21,13 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64",
+  "codeCommit": "e60bb477e02fc78f2385473075e1dff5d9e2799a",
   "workdayRateLimit": {
     "tenant": "https://lonza.wd3.myworkdayjobs.com/wday/cxs/lonza/Lonza_Careers",
     "firstRateLimitedAt": "2026-11-27T21:28:01.637Z",
-    "lastRateLimitedAt": "2026-11-28T09:27:47.582Z",
-    "consecutiveRuns": 2,
-    "nextAttemptAfter": "2026-11-28T21:27:47.582Z",
+    "lastRateLimitedAt": "2026-11-28T21:45:34.880Z",
+    "consecutiveRuns": 3,
+    "nextAttemptAfter": "2026-11-29T21:45:34.880Z",
     "outcome": "rate-limited"
   }
 }
