@@ -368,6 +368,55 @@ export function successFactorsApplyUrlFromPosting(html, postingUrl = '') {
   }
 }
 
+const ANCHOR_RE = /<a\b[^>]*\bhref=(["'])(.*?)\1[^>]*>([\s\S]*?)<\/a>/gi;
+
+function decodeHrefEntities(value) {
+  return String(value || '').replace(/&amp;/gi, '&').replace(/&#38;|&#x26;/gi, '&').trim();
+}
+
+/**
+ * Employer sites that are not Jobs2Web (Migros, 2026-11-28) put the tenant's
+ * SuccessFactors module straight into their «Apply» anchors:
+ * `https://career2.successfactors.eu/careers?career_ns=job_application&company=…&career_job_req_id=4723`.
+ * The requisition id is not the public posting id, so the URL alone proves nothing: the posting page itself
+ * is the proof, and only when EVERY SuccessFactors application link on it names the same module (a
+ * «similar jobs» list with another requisition leaves it ambiguous) and one of them is labelled as the apply
+ * control. Desktop and mobile repeats of one link are one entry.
+ *
+ * @returns {string} the module URL as the page wrote it, or ''
+ */
+export function successFactorsApplyUrlFromAnchors(html) {
+  const modules = new Map();
+  let labelled = false;
+  for (const match of String(html || '').matchAll(ANCHOR_RE)) {
+    let url;
+    try {
+      url = new URL(decodeHrefEntities(match[2]));
+    } catch {
+      continue;
+    }
+    if (url.protocol !== 'https:' || url.username || url.password || !SUCCESSFACTORS_HOST_RE.test(url.hostname)) continue;
+    const path = url.pathname.replace(/\/+$/, '');
+    if (path !== '/career' && path !== '/careers') continue;
+    const valuesFor = (key) => [...url.searchParams.entries()].filter(([name]) => name.toLowerCase() === key).map(([, value]) => value);
+    const namespace = valuesFor('career_ns');
+    const requisition = valuesFor('career_job_req_id');
+    const company = valuesFor('company');
+    if (namespace.length > 1) return '';
+    if (namespace.length !== 1 || namespace[0].toLowerCase() !== 'job_application') continue;
+    // From here the anchor is an application module. Anything the runner's module identity refuses (a fragment,
+    // an explicit port) must leave the whole page unresolved, never be skipped: a skipped module of another
+    // requisition would stop making the page ambiguous.
+    if (url.hash || url.port) return '';
+    if (requisition.length !== 1 || !/^[0-9]{1,20}$/.test(requisition[0])) return '';
+    if (company.length !== 1 || !/^[a-z0-9][a-z0-9 _-]{0,99}$/i.test(company[0])) return '';
+    const text = htmlToText(match[3]);
+    if (APPLY_LABEL_RE.test(text) && !APPLY_LATER_LABEL_RE.test(text)) labelled = true;
+    modules.set(`${url.origin}${path}|${company[0].toLowerCase()}|${requisition[0]}`, url.href);
+  }
+  return labelled && modules.size === 1 ? [...modules.values()][0] : '';
+}
+
 /**
  * The posting's own redirect, never another job's (a "similar jobs" list):
  * the one carrying the posting's id (Prospective uses the same UUID in both),
@@ -472,6 +521,10 @@ export async function resolveApplyUrl(applyUrl, { fetchImpl = fetch, resolve = l
         const successFactors = successFactorsApplyUrlFromPosting(html, url);
         if (successFactors && await resolvesToPublicHost(successFactors, resolve)) {
           return { applyUrl: successFactors, via: 'successfactors' };
+        }
+        const anchoredSuccessFactors = successFactors ? '' : successFactorsApplyUrlFromAnchors(html);
+        if (anchoredSuccessFactors && await resolvesToPublicHost(anchoredSuccessFactors, resolve)) {
+          return { applyUrl: anchoredSuccessFactors, via: 'successfactors' };
         }
         const embeddedAts = embeddedAtsApplyUrlFromPosting(html, url);
         if (embeddedAts && await resolvesToPublicHost(embeddedAts.applyUrl, resolve)) {

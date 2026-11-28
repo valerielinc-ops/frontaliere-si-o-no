@@ -1,3 +1,4 @@
+import { isVerifiedPostingEntry } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { deflateRawSync } from 'node:zlib';
 import { describe, expect, it, vi } from 'vitest';
 import {
@@ -31,6 +32,7 @@ import {
   resolveApplyUrl,
   resolvesToPublicHost,
   successFactorsApplyUrlFromPosting,
+  successFactorsApplyUrlFromAnchors,
   workdayPostingApiUrl,
 } from '../functions/src/assistedApplicationAiJob.js';
 
@@ -1089,5 +1091,70 @@ describe('application e-mail subject', () => {
     expect(resolveLetterLanguage('it', 'it', [{ round: 1, text: 'Translate the cover letter into English' }])).toBe('en');
     expect(resolveLetterLanguage('de', 'it', [{ round: 1, text: 'Accorcia il secondo paragrafo' }])).toBe('de');
     expect(resolveLetterLanguage('de', 'it', [{ round: 1, text: 'Non scrivere in inglese' }])).toBe('de');
+  });
+});
+
+describe('Native employer page whose Apply anchors name the SuccessFactors module (synthetic Migros-style tenant)', () => {
+  const posting = 'https://jobs.example-group.test/fr/entreprises/job/coop-nord/vendeuse-fruits/00000000-0000-4000-8000-000000000001';
+  const module = 'https://career2.successfactors.eu/careers?career_ns=job_application&company=ExampleP1&career_job_req_id=4723&lang=fr_FR';
+  const anchor = (href: string, label = 'Postuler maintenant') => `<a href="${href.replace(/&/g, '&amp;')}" target="_blank" class="button">${label}</a>`;
+  const publicHost = async () => [{ address: '93.184.216.34', family: 4 }];
+
+  it('reads the one module, repeated by a desktop and a mobile Apply control, from the posting', async () => {
+    const html = `<main>${anchor(module)}<p>texte</p>${anchor(module)}</main>`;
+    expect(successFactorsApplyUrlFromAnchors(html)).toBe(module);
+    const fetchImpl = async () => new Response(html, { status: 200, headers: { 'content-type': 'text/html' } });
+    await expect(resolveApplyUrl(posting, { fetchImpl: fetchImpl as any, resolve: publicHost })).resolves.toEqual({ applyUrl: module, via: 'successfactors' });
+  });
+
+  it('stays unresolved when the page names two modules, no Apply label, or an untrusted host', () => {
+    const other = module.replace('4723', '4724');
+    expect(successFactorsApplyUrlFromAnchors(`${anchor(module)}${anchor(other, 'Voir')}`)).toBe('');
+    expect(successFactorsApplyUrlFromAnchors(anchor(module, 'Partager'))).toBe('');
+    expect(successFactorsApplyUrlFromAnchors(anchor(module.replace('career2.successfactors.eu', 'career2.successfactors.evil.example')))).toBe('');
+    expect(successFactorsApplyUrlFromAnchors(anchor(module.replace('/careers', '/other')))).toBe('');
+    expect(successFactorsApplyUrlFromAnchors(anchor(module.replace('career_job_req_id=4723', 'career_job_req_id=abc')))).toBe('');
+    expect(successFactorsApplyUrlFromAnchors(anchor(module, 'Postuler plus tard'))).toBe('');
+  });
+
+  it('accepts the plural /careers path and the singular /career path alike', () => {
+    expect(successFactorsApplyUrlFromAnchors(anchor(module.replace('/careers', '/career')))).toBe(module.replace('/careers', '/career'));
+  });
+});
+
+describe('SuccessFactors anchor resolver and runner module identity agree', () => {
+  const posting = 'https://jobs.example-group.test/fr/entreprises/job/coop-nord/vendeuse-fruits/00000000-0000-4000-8000-000000000001';
+  const clean = 'https://career2.successfactors.eu/careers?career_ns=job_application&company=ExampleP1&career_job_req_id=4723&lang=fr_FR';
+  const page = (...hrefs: string[]) => hrefs.map((href, index) => `<a href="${href.replace(/&/g, '&amp;')}">${index === 0 ? 'Postuler maintenant' : 'Voir'}</a>`).join('');
+
+  it('leaves a module link with a fragment unresolved', async () => {
+    const fragment = `${clean}#apply`;
+    expect(successFactorsApplyUrlFromAnchors(page(fragment))).toBe('');
+    const publicHost = async () => [{ address: '93.184.216.34', family: 4 }];
+    const fetchImpl = async () => new Response(page(fragment), { status: 200, headers: { 'content-type': 'text/html' } });
+    await expect(resolveApplyUrl(posting, { fetchImpl: fetchImpl as any, resolve: publicHost })).resolves.toEqual({ applyUrl: posting, via: '' });
+  });
+
+  it('a fragment module beside a clean one, or of another requisition, keeps the page unresolved', () => {
+    expect(successFactorsApplyUrlFromAnchors(page(clean, `${clean}#apply`))).toBe('');
+    expect(successFactorsApplyUrlFromAnchors(page(clean, `${clean.replace('4723', '4724')}#x`))).toBe('');
+  });
+
+  it('refuses an explicit port and a duplicated namespace', () => {
+    expect(successFactorsApplyUrlFromAnchors(page(clean.replace('.eu/', '.eu:8443/')))).toBe('');
+    expect(successFactorsApplyUrlFromAnchors(page(`${clean}&career_ns=job_application`))).toBe('');
+  });
+
+  it.each([
+    clean,
+    clean.replace('/careers', '/career'),
+    clean.replace('ExampleP1', 'Example P1'),
+  ])('every URL the resolver accepts is a module the runner can bind: %s', (url) => {
+    const accepted = successFactorsApplyUrlFromAnchors(page(url));
+    expect(accepted).not.toBe('');
+    expect(isVerifiedPostingEntry({
+      applyUrl: accepted, postingUrl: posting,
+      postingRouteProof: { via: 'successfactors', applyUrl: accepted, postingUrl: posting },
+    })).toBe(true);
   });
 });
