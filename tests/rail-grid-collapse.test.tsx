@@ -16,6 +16,13 @@ function Probe({ collapseOnEmpty }: { collapseOnEmpty?: boolean }) {
 }
 
 describe('useRailGridCollapse', () => {
+  it('keeps gutters reserved by default', () => {
+    render(<Probe />);
+    const rail = screen.getByTestId('rail');
+    fireEvent.click(rail);
+    expect(rail).toHaveAttribute('data-width', '300px');
+  });
+
   it('keeps listing gutters reserved when an empty verdict arrives after paint', () => {
     render(<Probe collapseOnEmpty={false} />);
     const rail = screen.getByTestId('rail');
@@ -25,8 +32,8 @@ describe('useRailGridCollapse', () => {
     expect(rail).toHaveAttribute('data-width', '300px');
   });
 
-  it('still collapses detail gutters when the default policy is enabled', () => {
-    render(<Probe />);
+  it('collapses only when a caller explicitly opts in (never the default)', () => {
+    render(<Probe collapseOnEmpty />);
     const rail = screen.getByTestId('rail');
 
     fireEvent.click(rail);
