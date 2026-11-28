@@ -9,7 +9,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import { createHash } from 'node:crypto';
 import { createInterface } from 'node:readline';
-import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
+import { iterateJsonArrayFile, readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import type { Plugin } from 'vite';
 import {
   iterateAllKnownJobSlugPartEntries,
@@ -443,6 +443,26 @@ async function readStagedJobs(file: string): Promise<ActiveJobSlugMapRow[]> {
   return jobs;
 }
 
+function hasTopLevelJsonArrayStart(file: string): boolean {
+  const descriptor = fs.openSync(file, 'r');
+  const chunk = Buffer.allocUnsafe(16 * 1024);
+  let position = 0;
+  try {
+    while (true) {
+      const bytesRead = fs.readSync(descriptor, chunk, 0, chunk.length, position);
+      if (bytesRead === 0) return false;
+      position += bytesRead;
+      for (let index = 0; index < bytesRead; index += 1) {
+        const byte = chunk[index];
+        if (byte === 0x20 || byte === 0x09 || byte === 0x0a || byte === 0x0d) continue;
+        return byte === 0x5b;
+      }
+    }
+  } finally {
+    fs.closeSync(descriptor);
+  }
+}
+
 function forEachStagedLine(
   file: string,
   visit: (slug: string, locale: JobCanonLocale, value: string, order: number) => void,
@@ -841,8 +861,6 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
         );
 
         const slugMapPath = path.join(distDir, 'data', 'jobs-slug-map.json');
-        let jobs: ActiveJobSlugMapRow[] = [];
-        let activeJobsRaw: unknown[] = [];
         const activeAliasStats: ActiveJobAliasStats = {
           candidateGroups: 0,
           realPageGroups: 0,
@@ -870,43 +888,20 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
               + `requires ${path.relative(rootDir, slugMapPath)} from jobsSeoPagesPlugin`,
             );
           }
-          const raw = readJsonFile(slugMapPath) as unknown;
-          if (!Array.isArray(raw)) {
+          if (!hasTopLevelJsonArrayStart(slugMapPath)) {
             throw new Error(
               `[job-canon-redirect-map] ${path.relative(rootDir, slugMapPath)} must contain an array`,
             );
           }
-          activeJobsRaw = raw;
-          jobs = raw as ActiveJobSlugMapRow[];
-          markHeap('active-slug-map-loaded');
+          markHeap('active-slug-map-stream-started');
 
           const {
             buildReservedHubSlugs,
             compareActiveJobsByStableOrder,
           } = await import('./jobsSeoPagesPlugin');
-          let writeIndex = 0;
-          for (const row of jobs) {
-            if (!row || typeof row !== 'object') continue;
-            const stableId = String(row.id || row.slug || '').trim();
-            const orderingFields = stableId ? orderingFieldsById.get(stableId) : undefined;
-            if (!orderingFields) {
-              const sourceName = buildStage === 'ssg' ? 'build handoff' : 'in-memory ordering fields';
-              throw new Error(`[job-canon-redirect-map] slug map and ${sourceName} do not match`);
-            }
-            Object.assign(row, orderingFields);
-            jobs[writeIndex++] = row;
-          }
-          jobs.length = writeIndex;
-          jobs.sort(compareActiveJobsByStableOrder);
-          orderingFieldsById = null;
-          clearJobCanonOrderingFields();
-          markHeap('active-jobs-ordered');
-
-          // Keep one compact candidate map for the Worker predicate instead
-          // of separate active-route, candidate, and recovery collections.
+          const activeJobsBuffer = newBuffer();
+          const stageBuffer = newBuffer();
           const workerFlagsBySlug = new Map<string, number>();
-          // Keep native-fact provenance so replacing one route map revokes its
-          // own facts without erasing another route's evidence for the slug.
           const nativeTargetsByRouteSlug = new Map<string, Array<[string, number]>>();
           const nativeContributionCounts = new Map<string, number>();
           const nativeContributionKey = (slug: string, localeBit: number): string => localeBit + ':' + slug;
@@ -922,18 +917,25 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
           const addWorkerSlugFlags = (slug: string, flags: number): void => {
             workerFlagsBySlug.set(slug, (workerFlagsBySlug.get(slug) ?? 0) | flags);
           };
-          const activeJobsBuffer = newBuffer();
-          const activeJobCount = jobs.length;
+          let activeJobCount = 0;
           currentHeapPhase = 'active-prefix-staging';
-          const stageBuffer = newBuffer();
           let activePrefixRows = 0;
           let activePrefixBufferRows = 0;
           let stagedActiveJobRows = 0;
-          for (const job of jobs) {
-            delete job.datePosted;
-            delete job.firstSeenAt;
-          }
-          for (const job of jobs) {
+          for (const rawJob of iterateJsonArrayFile(slugMapPath)) {
+            if (!rawJob || typeof rawJob !== 'object' || Array.isArray(rawJob)) {
+              throw new Error(
+                `[job-canon-redirect-map] ${path.relative(rootDir, slugMapPath)} must contain only object rows`,
+              );
+            }
+            const job = rawJob as ActiveJobSlugMapRow;
+            const stableId = String(job.id || job.slug || '').trim();
+            const orderingFields = stableId ? orderingFieldsById.get(stableId) : undefined;
+            if (!orderingFields) {
+              const sourceName = buildStage === 'ssg' ? 'build handoff' : 'in-memory ordering fields';
+              throw new Error(`[job-canon-redirect-map] slug map and ${sourceName} do not match`);
+            }
+            activeJobCount += 1;
             const bucketIndexes = new Set<number>();
             const trackSlugBucket = (slug: unknown): void => {
               if (typeof slug === 'string' && slug) {
@@ -1012,6 +1014,12 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
                 company: job.company,
                 location: job.location,
                 canton: job.canton,
+                datePosted: orderingFields.datePosted !== undefined
+                  ? orderingFields.datePosted
+                  : job.datePosted,
+                firstSeenAt: orderingFields.firstSeenAt !== undefined
+                  ? orderingFields.firstSeenAt
+                  : job.firstSeenAt,
               };
               const projectedPreviousSlugs = slugsForBucket(job.previousSlugs, bucketIndex);
               if (projectedPreviousSlugs.length > 0) projectedJob.previousSlugs = projectedPreviousSlugs;
@@ -1038,20 +1046,21 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
             }
             bucketIndexes.clear();
             stagedActiveJobRows += 1;
-            if (stagedActiveJobRows % 512 === 0) collectGarbage();
+            if (stagedActiveJobRows % 128 === 0) {
+              sampleHeap('active-slug-map-streaming');
+              collectGarbage();
+              sampleHeap('active-slug-map-streaming');
+            }
           }
           flushAll(stageBuffer);
           clearStageBuffer(stageBuffer);
           flushAll(activeJobsBuffer);
           clearStageBuffer(activeJobsBuffer);
+          orderingFieldsById = null;
+          clearJobCanonOrderingFields();
           collectGarbage();
+          markHeap('active-slug-map-streamed');
           markHeap('active-jobs-staged');
-          jobs.length = 0;
-          activeJobsRaw.length = 0;
-          jobs = [];
-          activeJobsRaw = [];
-          collectGarbage();
-          markHeap('active-job-inputs-released');
           markHeap('active-prefixes-staged');
           console.log(
             `[job-canon-redirect-map] active input: jobs=${activeJobCount}, currentPrefixes=${activePrefixRows}, `
@@ -1171,6 +1180,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
             const activeJobsFile = path.join(stageDir, 'v2', 'active-job', `${bucketKey}.jsonl`);
             if (!fs.existsSync(activeJobsFile)) continue;
             const bucketJobs = await readStagedJobs(activeJobsFile);
+            bucketJobs.sort(compareActiveJobsByStableOrder);
             const bucketRegistryAliases = new Set<string>();
             const aliasFile = path.join(stageDir, 'v2', 'registry-alias', `${bucketKey}.jsonl`);
             forEachStagedLine(aliasFile, (slug, locale) => {
