@@ -402,7 +402,12 @@ export function successFactorsApplyUrlFromAnchors(html) {
     const namespace = valuesFor('career_ns');
     const requisition = valuesFor('career_job_req_id');
     const company = valuesFor('company');
+    if (namespace.length > 1) return '';
     if (namespace.length !== 1 || namespace[0].toLowerCase() !== 'job_application') continue;
+    // From here the anchor is an application module. Anything the runner's module identity refuses (a fragment,
+    // an explicit port) must leave the whole page unresolved, never be skipped: a skipped module of another
+    // requisition would stop making the page ambiguous.
+    if (url.hash || url.port) return '';
     if (requisition.length !== 1 || !/^[0-9]{1,20}$/.test(requisition[0])) return '';
     if (company.length !== 1 || !/^[a-z0-9][a-z0-9 _-]{0,99}$/i.test(company[0])) return '';
     const text = htmlToText(match[3]);

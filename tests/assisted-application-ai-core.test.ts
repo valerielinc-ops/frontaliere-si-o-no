@@ -1,3 +1,4 @@
+import { isVerifiedPostingEntry } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { deflateRawSync } from 'node:zlib';
 import { describe, expect, it, vi } from 'vitest';
 import {
@@ -1118,5 +1119,42 @@ describe('Native employer page whose Apply anchors name the SuccessFactors modul
 
   it('accepts the plural /careers path and the singular /career path alike', () => {
     expect(successFactorsApplyUrlFromAnchors(anchor(module.replace('/careers', '/career')))).toBe(module.replace('/careers', '/career'));
+  });
+});
+
+describe('SuccessFactors anchor resolver and runner module identity agree', () => {
+  const posting = 'https://jobs.example-group.test/fr/entreprises/job/coop-nord/vendeuse-fruits/00000000-0000-4000-8000-000000000001';
+  const clean = 'https://career2.successfactors.eu/careers?career_ns=job_application&company=ExampleP1&career_job_req_id=4723&lang=fr_FR';
+  const page = (...hrefs: string[]) => hrefs.map((href, index) => `<a href="${href.replace(/&/g, '&amp;')}">${index === 0 ? 'Postuler maintenant' : 'Voir'}</a>`).join('');
+
+  it('leaves a module link with a fragment unresolved', async () => {
+    const fragment = `${clean}#apply`;
+    expect(successFactorsApplyUrlFromAnchors(page(fragment))).toBe('');
+    const publicHost = async () => [{ address: '93.184.216.34', family: 4 }];
+    const fetchImpl = async () => new Response(page(fragment), { status: 200, headers: { 'content-type': 'text/html' } });
+    await expect(resolveApplyUrl(posting, { fetchImpl: fetchImpl as any, resolve: publicHost })).resolves.toEqual({ applyUrl: posting, via: '' });
+  });
+
+  it('a fragment module beside a clean one, or of another requisition, keeps the page unresolved', () => {
+    expect(successFactorsApplyUrlFromAnchors(page(clean, `${clean}#apply`))).toBe('');
+    expect(successFactorsApplyUrlFromAnchors(page(clean, `${clean.replace('4723', '4724')}#x`))).toBe('');
+  });
+
+  it('refuses an explicit port and a duplicated namespace', () => {
+    expect(successFactorsApplyUrlFromAnchors(page(clean.replace('.eu/', '.eu:8443/')))).toBe('');
+    expect(successFactorsApplyUrlFromAnchors(page(`${clean}&career_ns=job_application`))).toBe('');
+  });
+
+  it.each([
+    clean,
+    clean.replace('/careers', '/career'),
+    clean.replace('ExampleP1', 'Example P1'),
+  ])('every URL the resolver accepts is a module the runner can bind: %s', (url) => {
+    const accepted = successFactorsApplyUrlFromAnchors(page(url));
+    expect(accepted).not.toBe('');
+    expect(isVerifiedPostingEntry({
+      applyUrl: accepted, postingUrl: posting,
+      postingRouteProof: { via: 'successfactors', applyUrl: accepted, postingUrl: posting },
+    })).toBe(true);
   });
 });
