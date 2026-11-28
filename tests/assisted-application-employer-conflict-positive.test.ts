@@ -205,3 +205,87 @@ describe('a placement agency\'s name variants are one employer', () => {
     expect(namesAnotherEmployer('Welcome\nSTA Partners', { title, company: 'STA AG' })).toBe(true);
   });
 });
+
+// Sixth and seventh real cases (live proofs 2026-11-28): the agency's «STA Stellenpartner AG» (a compound of the
+// trade) and the copyright line of a SuccessFactors footer «Damiani Group Valenza 2019 © All rights reserved»
+// (the place of the seat next to the employer's name).
+describe('trade compounds and legal-notice lines are no other employer', () => {
+  const sta = { title: 'Metallbauer', company: 'STA Personal AG' };
+  const damiani = { title: 'Group CFO', company: 'Damiani Group' };
+
+  it.each(['STA Stellenpartner AG', 'STA Jobpartner AG', 'STA Staffline AG', 'STA Tempforce AG', 'STA Recruitpoint AG', 'STA Personalpartner AG'])(
+    'reads «%s» as the order\'s agency', (name) => {
+      expect(namesAnotherEmployer(`Willkommen\n${name}\n© ${name}`, sta)).toBe(false);
+    });
+
+  it('still reads another agency, or another name next to the agency\'s, as a conflict', () => {
+    expect(namesAnotherEmployer('Willkommen\nMuster Stellenpartner AG', sta)).toBe(false); // body: no legal-form evidence far from the name
+    expect(namesAnotherEmployer('Bewerbung bei Muster Personalpartner AG', sta)).toBe(true);
+    expect(namesAnotherEmployer('Bewerbung bei Muster Stellenpartner AG', sta)).toBe(true);
+    expect(namesAnotherEmployer('Willkommen\nSTA Muster Stellenpartner AG', sta)).toBe(true);
+    // The broad trade stems never hide another agency by themselves: the order's distinctive name must be in the entity.
+    for (const other of ['Jobcenter AG', 'Staffpoint AG', 'Tempcare AG', 'Recruitwerk AG', 'Stellenwerk AG', 'Muster Partner AG']) {
+      expect(namesAnotherEmployer(other, sta)).toBe(true);
+      expect(namesAnotherEmployer(`Bewerbung bei ${other}`, sta)).toBe(true);
+    }
+  });
+
+  it.each([
+    'Damiani Group Valenza 2019 © All rights reserved',
+    'Damiani Group Valenza 2019 Alle Rechte vorbehalten',
+    'Damiani Group Valenza 2019 Tous droits réservés',
+    'Damiani Group Valenza 2019 Tutti i diritti riservati',
+    '© 2019 Damiani Group Valenza',
+    'Impressum Damiani Group Valenza',
+  ])('does not read the footer line «%s» as another employer', (line) => {
+    expect(namesAnotherEmployer(`Group CFO\nSign Out\n${line}`, damiani)).toBe(false);
+    expect(namesAnotherEmployer(`${line}\nGroup CFO`, damiani)).toBe(false);
+  });
+
+  it('removes only the legal part of a notice line and still reads another name on it', () => {
+    expect(namesAnotherEmployer('Jobcenter AG © Copyright 2026', sta)).toBe(true);
+    expect(namesAnotherEmployer('Willkommen\nJobcenter AG © Copyright 2026', sta)).toBe(false); // body: no entity evidence far from the name
+    expect(namesAnotherEmployer('Willkommen\nMuster STA © 2026 All rights reserved', sta)).toBe(true);
+    expect(namesAnotherEmployer('© 2026 Jobcenter AG', sta)).toBe(true);
+    expect(namesAnotherEmployer('Group CFO\nDamiani Group Valenza 2019 © All rights reserved', damiani)).toBe(false);
+    expect(namesAnotherEmployer('Group CFO\n© 2019 Damiani Group Valenza', damiani)).toBe(false);
+  });
+
+  it('keeps the same name next to the employer a conflict outside a legal notice', () => {
+    expect(namesAnotherEmployer('Group CFO\nDamiani Group Valenza', damiani)).toBe(true);
+  });
+});
+
+// Edges of the same class, reviewed together: a notice owner that carries only part of the order's identity or a
+// second legal entity, compounds written with any prefix, and a line that holds two entities.
+describe('notice owners and trade compounds: the edges', () => {
+  const sta = { title: 'Metallbauer', company: 'STA Personal AG' };
+  const muster = { title: 'Koch', company: 'Muster GmbH' };
+  const damiani = { title: 'Group CFO', company: 'Damiani Group' };
+
+  it('keeps a distinct legal entity that starts with the order\'s name on a notice line', () => {
+    expect(namesAnotherEmployer('Muster Ypsilon AG © Copyright 2026', muster)).toBe(true);
+    expect(namesAnotherEmployer('Muster Ypsilon AG © Copyright 2026', { ...muster, company: 'Muster' })).toBe(true);
+    expect(namesAnotherEmployer('Muster GmbH © Copyright 2026', muster)).toBe(false);
+    expect(namesAnotherEmployer('Muster GmbH Zürich 2026 © All rights reserved', muster)).toBe(false);
+    expect(namesAnotherEmployer('S.p.A. Muster Ypsilon © 2026', muster)).toBe(false); // no entity name before the form
+  });
+
+  it('drops the seat and the year next to the complete identity, and judges each part of a line apart', () => {
+    expect(namesAnotherEmployer('Group CFO\nDamiani Group Valenza 2019 © All rights reserved', damiani)).toBe(false);
+    expect(namesAnotherEmployer('Jobcenter AG | Damiani Group Valenza © 2019', damiani)).toBe(true);
+    expect(namesAnotherEmployer('Damiani Group Valenza | Jobcenter AG © 2019', damiani)).toBe(true);
+    expect(namesAnotherEmployer('Damiani Group Other Hotel © 2019', damiani)).toBe(true);
+    expect(namesAnotherEmployer('Damiani Group Valenza SA © 2019', damiani)).toBe(true);
+  });
+
+  it('accepts a trade compound with any prefix next to the order\'s name, and no other agency', () => {
+    for (const name of ['STA Workforcepartner AG', 'STA Zeitpersonal AG', 'STA Arbeitsvermittlung AG', 'STA Swissjobs AG', 'STA Stellenpartner AG']) {
+      expect(namesAnotherEmployer(`Willkommen\n${name}`, sta)).toBe(false);
+      expect(namesAnotherEmployer(`Bewerbung bei ${name}`, sta)).toBe(false);
+    }
+    for (const name of ['Muster Partner AG', 'Jobcenter AG', 'Muster Workforcepartner AG', 'Muster Zeitpersonal AG']) {
+      expect(namesAnotherEmployer(`Bewerbung bei ${name}`, sta)).toBe(true);
+    }
+  });
+});

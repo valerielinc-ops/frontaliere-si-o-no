@@ -16,6 +16,7 @@ import {
   LOCAL_DISPATCH_LEASE_MS,
   LOCAL_DISPATCH_PREP_MAX_ATTEMPTS,
   LOCAL_RUNNERS_COLLECTION,
+  SWISS_RUNNER_CODE_MAX_AGE_MS,
   SWISS_RUNNER_HEARTBEAT_STALE_MS,
   SWISS_RUNNER_PICKUP_MS,
   completeLocalDispatch,
@@ -350,6 +351,9 @@ describe('Swiss runner offline', () => {
       [{ at: now - 1000, eligible: false, egressCountry: 'CH', reason: 'entry_point_unavailable:pdf-lib' }, 'entry_point_unavailable'],
       [{ at: now - 1000, eligible: false, egressCountry: 'CH', reason: 'deps_install_failed:root' }, 'deps_install_failed'],
       [{ at: now - 1000, eligible: false, egressCountry: 'CH', reason: 'storage_upload_unavailable' }, 'storage_upload_unavailable'],
+      // eligible on its own word, but its checkout is a day and an hour behind main: held like an offline runner
+      [{ at: now - 1000, eligible: true, egressCountry: 'CH', codeAt: now - SWISS_RUNNER_CODE_MAX_AGE_MS - 3_600_000 }, 'stale_code'],
+      [{ at: now - 1000, eligible: false, egressCountry: 'CH', reason: 'stale_code' }, 'stale_code'],
     ] as const) {
       const store = storeWith(submitting, { [queuePath]: pending, ...(runner ? { [`${LOCAL_RUNNERS_COLLECTION}/swiss-a`]: runner } : {}) });
       await runAutomationSweep({ db: store.db, runEffect: effectRunner(vi.fn()), nowMs: now } as any);
@@ -382,6 +386,14 @@ describe('Swiss runner offline', () => {
     expect(swissRunnerAvailability([{ at: now, eligible: false, egressCountry: 'CH', reason: 'storage_upload_unavailable' }], now))
       .toMatchObject({ online: false, reason: 'storage_upload_unavailable' });
     expect(swissRunnerAvailability([{ at: now, eligible: true, egressCountry: 'CH' }], now)).toMatchObject({ online: true });
+    // code age: fresh code and a heartbeat without codeAt (older runner) stay eligible, old code does not
+    expect(swissRunnerAvailability([{ at: now, eligible: true, egressCountry: 'CH', codeAt: now - SWISS_RUNNER_CODE_MAX_AGE_MS + 60_000 }], now)).toMatchObject({ online: true });
+    expect(swissRunnerAvailability([{ at: now, eligible: true, egressCountry: 'CH', codeAt: now - SWISS_RUNNER_CODE_MAX_AGE_MS - 1 }], now))
+      .toMatchObject({ online: false, reason: 'stale_code' });
+    expect(swissRunnerAvailability([
+      { at: now, eligible: true, egressCountry: 'CH', codeAt: now - 3 * SWISS_RUNNER_CODE_MAX_AGE_MS },
+      { at: now, eligible: true, egressCountry: 'CH', codeAt: now - 60_000 },
+    ], now)).toMatchObject({ online: true, runners: 1 });
   });
 });
 
@@ -475,6 +487,19 @@ describe('local runner', () => {
     expect(runAgent).not.toHaveBeenCalled();
     expect(store.read(queuePath)?.status).toBe('pending');
     expect(store.read(`${LOCAL_RUNNERS_COLLECTION}/swiss-a`)).toMatchObject({ eligible: false, egressCountry: 'IT', reason: 'egress_not_swiss', at: now });
+  });
+
+  it('a checkout that could not follow main (stale_code) takes no lease and reports code age', async () => {
+    const store = storeWith(submitting);
+    await enqueueLocalDispatch({ db: store.db, orderId, flow: submitting, mode: 'submit', nowMs: now });
+    const runAgent = vi.fn();
+    const codeAt = now - 30 * 3_600_000;
+    const result = await runCycle({ ...safeRunnerPreflight, db: store.db, runnerId: 'swiss-a', now: () => now, fetchImpl: okText('CH') as any, runAgent, log: () => {}, codeAt, codeState: 'stale_code' });
+
+    expect(result).toMatchObject({ eligible: false, reason: 'stale_code', leased: null });
+    expect(runAgent).not.toHaveBeenCalled();
+    expect(store.read(queuePath)?.status).toBe('pending');
+    expect(store.read(`${LOCAL_RUNNERS_COLLECTION}/swiss-a`)).toMatchObject({ eligible: false, egressCountry: 'CH', reason: 'stale_code', codeAt });
   });
 
   it('an unknown exit takes no work either', async () => {

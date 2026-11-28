@@ -119,7 +119,7 @@ import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 import { stampCodeCommit } from './lib/checkout-code-commit.mjs';
 import { readJsonFile } from './lib/read-large-json.mjs';
-import { readExpiredSliceRows } from './lib/expired-slice-store.mjs';
+import { readExpiredSliceRows, rebalanceOversizeExpiredSlices } from './lib/expired-slice-store.mjs';
 import { createExpiredDescriptionSpill, withoutDescriptions } from './lib/expired-description-spill.mjs';
 import { startHeapPhase } from './lib/heap-phase-monitor.mjs';
 import { hydrateWorkdayCooldown, workdayCooldownSummaryField } from './lib/workday-rate-limit-cooldown.mjs';
@@ -4500,7 +4500,10 @@ export function normalizeAndPersistExpiredSlice(slicePath, entries, options = {}
  * applies the same pure repair to the in-memory aggregate for legacy entries
  * that exist only in the old aggregate file.
  */
-export function repairExpiredArchiveSlicesAgainstActive(activeJobs, { sliceDir = EXPIRED_SLICES_DIR } = {}) {
+export function repairExpiredArchiveSlicesAgainstActive(
+  activeJobs,
+  { sliceDir = EXPIRED_SLICES_DIR, ceilingOptions = {} } = {},
+) {
   // An empty active assembly is valid: the uncapped slice still needs route
   // canonicalization before the live route-recovery observer reads it.
   if (!Array.isArray(activeJobs)) {
@@ -4575,6 +4578,9 @@ export function repairExpiredArchiveSlicesAgainstActive(activeJobs, { sliceDir =
     ? { ghostCount: 0, mergedSlugs: 0 }
     : reconcileGhostExpired(activeJobs, allEntries, { sliceDir });
   ghostHeap.finish();
+  // The repairs above rewrite one file at a time. A malformed slice is left to
+  // the reader that reports it: rebalancing would throw on it here.
+  if (!malformed) rebalanceOversizeExpiredSlices({ ...ceilingOptions, dir: sliceDir });
 
   return {
     changed,
