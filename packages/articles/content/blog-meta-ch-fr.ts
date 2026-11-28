@@ -8756,6 +8756,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assistenza-sociale-svitto-criterio-bisogno.title': 'Assistance sociale de Schwytz : administration et critère de besoin',
     'blog.article.assistenza-sociale-svitto-criterio-bisogno.excerpt': 'En Suisse, l’aide sociale est généralement gérée par les cantons et les communes, sur la base du critère du besoin.',
     'blog.article.assistenza-sociale-svitto-criterio-bisogno.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.voto-federale-soglie-svitto.title': 'Quatre dates de votation fédérale et seuils pour les initiatives',
+    'blog.article.voto-federale-soglie-svitto.excerpt': 'La source indique quatre dates de votation fédérale par an. Pour une initiative populaire : 100\'000 signatures en 18 mois.',
+    'blog.article.voto-federale-soglie-svitto.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.autorizzazione-edilizia-cantone-svitto.title': 'Permis de construire dans le canton de Schwytz : règles et services cantonaux',
+    'blog.article.autorizzazione-edilizia-cantone-svitto.excerpt': 'Les règles et les services relatifs au permis de construire dans le canton de Schwytz relèvent de la compétence cantonale.',
+    'blog.article.autorizzazione-edilizia-cantone-svitto.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;
