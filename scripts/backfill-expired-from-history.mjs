@@ -464,6 +464,19 @@ export function resetHistoricalEntryMemo() {
   lastAddedDerived = null;
 }
 
+/** Sizes of the per-entry memo generations, for the dry-run memory diagnostics. */
+function entryMemoSizes() {
+  let stableChars = 0;
+  for (const derived of entryDerivedCurrent.values()) stableChars += derived.stable.length;
+  for (const derived of entryDerivedPrevious.values()) stableChars += derived.stable.length;
+  return {
+    current: entryDerivedCurrent.size,
+    previous: entryDerivedPrevious.size,
+    stableMb: Math.round(stableChars / (1024 * 1024)),
+    postingNames: postingNameMemo.size,
+  };
+}
+
 /** Collector inputs of one entry; computed once per distinct entry content. */
 function ownerDerivedForEntry(job) {
   const derived = derivedForEntry(job);
@@ -594,6 +607,7 @@ export function createHistoricalExpiredOwnerCollector() {
   return {
     add,
     values: () => owners.values(),
+    size: () => owners.length,
   };
 }
 
@@ -1476,6 +1490,11 @@ export function createListingIdentityCollector() {
   };
 
   return {
+    sizes: () => ({
+      ambiguous: ambiguous.size,
+      groups: groupsByIdentity.size,
+      seenSightings: seenSightings.size,
+    }),
     isAmbiguous: (identity) => ambiguous.has(identity)
       || (groupsByIdentity.get(identity)?.componentCount || 0) > 1,
     addArchiveRow(row) {
@@ -1721,7 +1740,21 @@ export function processSlice(sliceFile, {
   let walked = 0;
   for (const sha of sliceCommits) {
     if (walked % 10 === 0) {
-      phase(`walk ${walked}/${sliceCommits.length} activeMs=${Math.round(walkStats.activeWalkMs)} expiredMs=${Math.round(walkStats.expiredWalkMs)}`);
+      const sizes = process.env.BACKFILL_PHASE_LOG === '1'
+        ? ` sizes=${JSON.stringify({
+          owners: historicalExpiredOwners.size(),
+          index: historicalIndex.sizes(),
+          listing: listingIdentities.sizes(),
+          lostById: lostById.size,
+          lostByStable: lostByStableIdentity.size,
+          activeOwners: historicalActiveOwners.size,
+          expiredRoutePaths: historicalExpiredRoutePaths.size,
+          activeRoutePaths: historicalActiveRoutePaths.size,
+          seenEntries: seenExpiredEntries.size,
+          memo: entryMemoSizes(),
+        })}`
+        : '';
+      phase(`walk ${walked}/${sliceCommits.length} activeMs=${Math.round(walkStats.activeWalkMs)} expiredMs=${Math.round(walkStats.expiredWalkMs)}${sizes}`);
     }
     walked += 1;
     const oids = resolveHistoricalOids(sha, [currentRel, ...expiredRels], rootDir);

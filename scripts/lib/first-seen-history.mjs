@@ -277,7 +277,13 @@ export function createFirstSeenMetadataIndex() {
     return { enrichedEntries, enrichedFields };
   }
 
-  return { add, enrich, enrichActive };
+  return {
+    add,
+    enrich,
+    enrichActive,
+    /** Entry counts, for the dry-run memory diagnostics only. */
+    sizes: () => ({ byIdentity: byIdentity.size, bySlug: bySlug.size }),
+  };
 }
 
 function postingKey(record = {}) {

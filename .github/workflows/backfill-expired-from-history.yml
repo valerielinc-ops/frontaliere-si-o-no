@@ -59,7 +59,7 @@ concurrency:
   # queue (cleanup-stale-jobs, reconcile-expired-route-duplicates,
   # translate-pending, sync-gsc-orphans...). Dry runs of different crawler sets
   # or dedup modes run in parallel. Scheduled and real runs keep it.
-  group: ${{ (inputs.dry_run == true || inputs.dry_run == 'true') && format('backfill-expired-dry-run-{0}-{1}', inputs.crawler_keys, inputs.dedup_entries) || 'jobs-data-pipeline' }}
+  group: ${{ (inputs.dry_run == true || inputs.dry_run == 'true') && format('backfill-expired-dry-run-{0}-{1}-{2}', inputs.crawler_keys, inputs.dedup_entries, inputs.history_since) || 'jobs-data-pipeline' }}
   cancel-in-progress: false
   queue: max
 
