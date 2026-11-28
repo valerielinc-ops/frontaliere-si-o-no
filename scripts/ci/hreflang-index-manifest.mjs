@@ -23,12 +23,16 @@
  *   - `<manifest-dir>/<locale>.json` for every owned locale (published as an
  *     artifact by the workflow for the other legs of the same run).
  *   - Rewritten HTML (unless `--dry-run`), written only after EVERY decision
- *     has been made. Writes use bounded batches and a failed write rolls back
- *     its current batch. Earlier batches can be rewritten locally, but a
- *     failed workflow step cannot upload that partial `dist/`.
+ *     has been made. Writes use bounded batches, one in flight per write
+ *     worker, and a failed write rolls back its own batch. After a failure no
+ *     new batch starts and the step fails only once the batches in flight have
+ *     settled. Other batches can be rewritten locally, but a failed workflow
+ *     step cannot upload that partial `dist/`.
  *   - One summary line `[hreflang-index-manifest] {...}` with every counter,
  *     `pagesDeferred` (heads read a second time), `phaseMs` (walk, pass1,
- *     pass2, write, manifest) and `memoryMB` at the end of the run.
+ *     pass2, write, manifest), `writeDetail` (write workers and the time
+ *     summed over them in stage, commit and cleanup) and `memoryMB` at the
+ *     end of the run.
  *
  * Reads: each owned page head is read ONCE per run of this CLI. With a reused
  * pre-pass cache, only the blocks that need a manifest are read again: a strip
@@ -45,6 +49,11 @@
  *     [--prepass-cache <path> | --reuse-prepass-cache <path>]
  *     [--require-foreign-manifests]
  *     [--base-url https://frontaliereticino.ch] [--concurrency 64]
+ *     [--write-workers 8]
+ *
+ * This file is also the entry point of its own write workers, and it must stay
+ * the only file of the write path: post-build-matrix-test.yml overlays this
+ * file alone on an older source commit to measure it on a real IT shard.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -52,6 +61,7 @@ import { once } from 'node:events';
 import { performance } from 'node:perf_hooks';
 import { createInterface } from 'node:readline';
 import { fileURLToPath } from 'node:url';
+import { Worker, isMainThread, parentPort, workerData } from 'node:worker_threads';
 import { readHeadOrAll } from '../lib/readHead.mjs';
 import { distFileToUrlPath } from '../lib/externally-served-paths.mjs';
 import {
@@ -67,6 +77,19 @@ import {
 
 const SKIP_DIRS = new Set(['assets', 'data', 'images']);
 export const HREFLANG_REWRITE_BATCH_SIZE = 64;
+/**
+ * Threads running the rewrite transactions. Each one issues synchronous fs
+ * calls, so this is also the most disk requests the write pass has in flight.
+ * It is not tied to the CPU count on purpose: a thread blocked on the disk uses
+ * no CPU. The parallelism is what pays: ONE worker measured slower than the
+ * former `fs.promises` code on a lightly loaded Mac (0.79x), while 4, 8 and 16
+ * were within noise of each other there, on a warm cache. 8 doubles the four
+ * requests libuv allowed, for the runner's cold reads; compare on CI with
+ * `--write-workers` and the `write` / `writeDetail` fields of the summary
+ * (scripts/dev/bench-hreflang-write.mjs for a local comparison).
+ */
+export const HREFLANG_WRITE_WORKERS = 8;
+const WRITE_WORKER_ROLE = 'hreflang-rewrite';
 const HREFLANG_PREPASS_CACHE_VERSION = 2;
 /**
  * The strips `decideHreflangBlock` returns before it asks any manifest: they
@@ -312,30 +335,187 @@ function normaliseRewriteBatchSize(value) {
  * with the bytes duplicated by bounded batches, on the exact same files.
  * The old implementation staged every changed HTML file before its first
  * rename, so its peak is the sum of original + staged bytes for all records.
+ * With several batches in flight the peak is bounded by the largest
+ * `parallelBatches` of them taken together.
  */
-export function benchmarkHreflangStaging(records, batchSize = HREFLANG_REWRITE_BATCH_SIZE) {
+export function benchmarkHreflangStaging(records, batchSize = HREFLANG_REWRITE_BATCH_SIZE, parallelBatches = 1) {
   const size = normaliseRewriteBatchSize(batchSize);
   const preBatchPeakBytes = records.reduce(
     (total, record) => total + record.originalBytes + record.stagedBytes,
     0,
   );
-  let peakStagingBytes = 0;
+  const batchTotals = [];
   for (let offset = 0; offset < records.length; offset += size) {
     const batch = records.slice(offset, offset + size);
-    const batchBytes = batch.reduce(
+    batchTotals.push(batch.reduce(
       (total, record) => total + record.originalBytes + record.stagedBytes,
       0,
-    );
-    peakStagingBytes = Math.max(peakStagingBytes, batchBytes);
+    ));
   }
+  const peakStagingBytes = batchTotals
+    .sort((a, b) => b - a)
+    .slice(0, Math.max(1, parallelBatches))
+    .reduce((total, bytes) => total + bytes, 0);
   return {
     phase: 'build-locale:hreflang-index-manifest',
     inputFiles: records.length,
     batchSize: Number.isFinite(size) ? size : 'unbounded',
+    parallelBatches: Math.max(1, parallelBatches),
     preBatchPeakBytes,
     peakStagingBytes,
     reductionBytes: preBatchPeakBytes - peakStagingBytes,
   };
+}
+
+/**
+ * Rewrite one batch as a transaction: stage every changed page, then install
+ * them one by one behind a backup, and drop the backups only once the whole
+ * batch is installed.
+ *
+ * Synchronous on purpose. Through `fs.promises` each file cost about a dozen
+ * round trips between the event loop and libuv's four threads, and the two
+ * renames of every file were awaited one at a time. Parallelism comes from
+ * running several of these transactions in worker threads.
+ */
+function rewriteBatchSync(distDir, batch) {
+  const startedAt = performance.now();
+  let stageEnd = startedAt;
+  let commitEnd = startedAt;
+  // The temp dir lives under `dist/` so staged files and page files share a
+  // filesystem.
+  const transactionDir = fs.mkdtempSync(path.join(distDir, '.hreflang-index-'));
+  const staged = [];
+  const moved = [];
+  try {
+    for (let index = 0; index < batch.length; index++) {
+      const { file, decision } = batch[index];
+      // One read gives both the text and the on-disk size the staging
+      // benchmark needs (a regular file's size is its byte length).
+      const original = fs.readFileSync(file);
+      const next = applyHreflangDecision(original.toString('utf-8'), decision);
+      if (next === null) continue;
+      const stagedFile = path.join(transactionDir, String(index));
+      fs.writeFileSync(stagedFile, next, 'utf-8');
+      staged.push({ file, stagedFile, originalBytes: original.length, stagedBytes: Buffer.byteLength(next, 'utf-8') });
+    }
+    stageEnd = performance.now();
+
+    const transactionId = path.basename(transactionDir);
+    try {
+      for (const item of staged) {
+        const backup = `${item.file}.${transactionId}.bak`;
+        fs.renameSync(item.file, backup);
+        const record = { file: item.file, backup, installed: false };
+        moved.push(record);
+        fs.renameSync(item.stagedFile, item.file);
+        record.installed = true;
+      }
+    } catch (error) {
+      for (const item of [...moved].reverse()) {
+        try {
+          if (item.installed) fs.rmSync(item.file, { force: true });
+          fs.renameSync(item.backup, item.file);
+        } catch {
+          // Preserve the original failure; the workflow remains fail-closed.
+        }
+      }
+      throw error;
+    }
+    commitEnd = performance.now();
+    for (const item of moved) fs.rmSync(item.backup, { force: true });
+  } finally {
+    fs.rmSync(transactionDir, { recursive: true, force: true });
+  }
+  return {
+    records: staged.map(({ originalBytes, stagedBytes }) => ({ originalBytes, stagedBytes })),
+    stageMs: stageEnd - startedAt,
+    commitMs: commitEnd - stageEnd,
+    cleanupMs: performance.now() - commitEnd,
+  };
+}
+
+function serveRewriteWorker({ distDir }) {
+  parentPort.on('message', (batch) => {
+    try {
+      parentPort.postMessage({ result: rewriteBatchSync(distDir, batch) });
+    } catch (error) {
+      parentPort.postMessage({ error });
+    }
+  });
+}
+
+/** Send one batch to an idle worker and wait for its outcome. */
+function rewriteInWorker(worker, batch) {
+  return new Promise((resolve, reject) => {
+    const settle = (done, value) => {
+      worker.off('message', onMessage);
+      worker.off('error', onError);
+      worker.off('exit', onExit);
+      done(value);
+    };
+    const onMessage = ({ result, error }) => (error ? settle(reject, error) : settle(resolve, result));
+    const onError = (error) => settle(reject, error);
+    const onExit = (code) => settle(reject, new Error(`hreflang write worker exited with code ${code} during a batch`));
+    worker.on('message', onMessage);
+    worker.on('error', onError);
+    worker.on('exit', onExit);
+    worker.postMessage(batch);
+  });
+}
+
+/**
+ * Run every batch, `workers` at a time (`0` = on this thread). After the first
+ * failure no new batch starts, and the rejection is raised only once every
+ * batch in flight has settled: nothing mutates `dist/` after this returns.
+ */
+async function rewriteChanges({ distDir, changes, batchSize, workers }) {
+  const results = [];
+  let cursor = 0;
+  let failure = null;
+  const lane = async () => {
+    let worker = null;
+    try {
+      while (failure === null && cursor < changes.length) {
+        const offset = cursor;
+        cursor += batchSize;
+        const batch = changes.slice(offset, offset + batchSize);
+        if (workers === 0) {
+          results.push({ offset, ...rewriteBatchSync(distDir, batch) });
+          continue;
+        }
+        // execArgv emptied: the worker loads this file and must not inherit
+        // flags of the parent that only fit its own entry (`--input-type`).
+        worker ??= new Worker(new URL(import.meta.url), { execArgv: [], workerData: { role: WRITE_WORKER_ROLE, distDir } });
+        results.push({ offset, ...await rewriteInWorker(worker, batch) });
+      }
+    } catch (error) {
+      failure ??= { error };
+    } finally {
+      await worker?.terminate();
+    }
+  };
+  const lanes = Math.min(Math.max(1, workers), Math.ceil(changes.length / batchSize));
+  await Promise.all(Array.from({ length: lanes }, lane));
+  if (failure !== null) throw failure.error;
+  // Batches settle out of order; restore the input order so the same-input
+  // staging benchmark measures the groups that were on disk together.
+  results.sort((a, b) => a.offset - b.offset);
+  const sum = (key) => Math.round(results.reduce((total, result) => total + result[key], 0));
+  return {
+    records: results.flatMap((result) => result.records),
+    detail: {
+      workers: workers === 0 ? 0 : lanes,
+      batches: results.length,
+      stageMs: sum('stageMs'),
+      commitMs: sum('commitMs'),
+      cleanupMs: sum('cleanupMs'),
+    },
+  };
+}
+
+function normaliseWriteWorkers(value) {
+  const number = Number(value);
+  return Number.isInteger(number) && number >= 0 ? number : HREFLANG_WRITE_WORKERS;
 }
 
 /**
@@ -354,6 +534,7 @@ export async function runHreflangIndexManifest({
   concurrency = 64,
   runId = process.env.GITHUB_RUN_ID || '',
   rewriteBatchSize = HREFLANG_REWRITE_BATCH_SIZE,
+  writeWorkers = HREFLANG_WRITE_WORKERS,
   log = (line) => console.log(line),
 }) {
   if (manifestOnly && !dryRun) throw new Error('--manifest-only requires --dry-run');
@@ -534,69 +715,21 @@ export async function runHreflangIndexManifest({
   phaseMs.pass2 = elapsed();
 
   // ── Pass 3: write ──────────────────────────────────────────────────────
+  // At most one bounded batch of duplicate HTML per write worker is on disk.
+  // A failed batch rolls back its own renames; a failure fails this workflow
+  // step, so the partially rewritten local dist is never packed or uploaded.
   let filesRewritten = 0;
-  const stagingRecords = [];
+  let stagingRecords = [];
+  let writeDetail = null;
+  const parallelBatches = Math.max(1, normaliseWriteWorkers(writeWorkers));
   if (!dryRun) {
-    // Keep at most one bounded batch of duplicate HTML on disk. The temp dir
-    // lives under `dist/` so staged files and page files share a filesystem;
-    // the commit phase keeps backups and can roll back every rename in its
-    // current batch. A later batch failure fails this workflow step, so the
-    // partially rewritten local dist is never packed or uploaded.
-    for (let offset = 0; offset < changes.length; offset += batchSize) {
-      const batch = changes.slice(offset, offset + batchSize);
-      const transactionDir = await fs.promises.mkdtemp(path.join(distDir, '.hreflang-index-'));
-      const staged = [];
-      try {
-        await mapPool(batch, concurrency, async ({ file, decision }, index) => {
-          // One read gives both the text and the on-disk size the staging
-          // benchmark needs (a regular file's size is its byte length), so
-          // the former per-file stat() is gone.
-          const original = await fs.promises.readFile(file);
-          const next = applyHreflangDecision(original.toString('utf-8'), decision);
-          if (next === null) return;
-          const stagedFile = path.join(transactionDir, String(index));
-          await fs.promises.writeFile(stagedFile, next, 'utf-8');
-          staged.push({ file, stagedFile, index, originalBytes: original.length, stagedBytes: Buffer.byteLength(next, 'utf-8') });
-        });
-
-        // mapPool completes writes out of order; restore the production batch
-        // order so the same-input benchmark measures the same groups that
-        // were actually present on disk together.
-        staged.sort((a, b) => a.index - b.index);
-        const transactionId = path.basename(transactionDir);
-        const moved = [];
-        try {
-          // Installed one at a time, as before: installing a batch
-          // concurrently was measured to retain ~2.8 MB more live heap after
-          // a 30k-page leg for no measurable time gain on the same dist.
-          for (const item of staged) {
-            const backup = `${item.file}.${transactionId}.bak`;
-            await fs.promises.rename(item.file, backup);
-            const record = { ...item, backup, installed: false };
-            moved.push(record);
-            await fs.promises.rename(item.stagedFile, item.file);
-            record.installed = true;
-          }
-        } catch (error) {
-          for (const item of [...moved].reverse()) {
-            try {
-              if (item.installed) await fs.promises.rm(item.file, { force: true });
-              await fs.promises.rename(item.backup, item.file);
-            } catch {
-              // Preserve the original failure; the workflow remains fail-closed.
-            }
-          }
-          throw error;
-        }
-        // Backups are dropped only after the whole batch is installed, so
-        // removing them concurrently cannot affect the rollback above.
-        await mapPool(moved, concurrency, (item) => fs.promises.rm(item.backup, { force: true }));
-        stagingRecords.push(...staged);
-        filesRewritten += moved.length;
-      } finally {
-        await fs.promises.rm(transactionDir, { recursive: true, force: true });
-      }
-    }
+    ({ records: stagingRecords, detail: writeDetail } = await rewriteChanges({
+      distDir,
+      changes,
+      batchSize: Number.isFinite(batchSize) ? batchSize : Math.max(1, changes.length),
+      workers: normaliseWriteWorkers(writeWorkers),
+    }));
+    filesRewritten = stagingRecords.length;
   }
 
   phaseMs.write = elapsed();
@@ -634,7 +767,7 @@ export async function runHreflangIndexManifest({
   phaseMs.total = Math.round(performance.now() - startedAt);
   const memory = process.memoryUsage();
 
-  const stagingBenchmark = dryRun ? null : benchmarkHreflangStaging(stagingRecords, batchSize);
+  const stagingBenchmark = dryRun ? null : benchmarkHreflangStaging(stagingRecords, batchSize, parallelBatches);
   const summary = {
     owned: [...owned],
     dryRun,
@@ -656,6 +789,7 @@ export async function runHreflangIndexManifest({
       boundedBatchPeak: stagingBenchmark.peakStagingBytes,
     },
     phaseMs,
+    writeDetail,
     memoryMB: { heapUsed: Math.round(memory.heapUsed / 1048576), rss: Math.round(memory.rss / 1048576) },
   };
   log(`[hreflang-index-manifest] ${JSON.stringify(summary)}`);
@@ -680,13 +814,14 @@ function parseArgs(argv) {
     else if (a === '--reuse-prepass-cache') args.reusePrepassCachePath = argv[++i];
     else if (a === '--base-url') args.baseUrl = argv[++i];
     else if (a === '--concurrency') args.concurrency = Number(argv[++i]) || 64;
+    else if (a === '--write-workers') args.writeWorkers = normaliseWriteWorkers(argv[++i]);
     else rest.push(a);
   }
   if (rest[0]) args.distDir = rest[0];
   return args;
 }
 
-const invokedDirectly = (() => {
+const invokedDirectly = isMainThread && (() => {
   try {
     return fs.realpathSync(fileURLToPath(import.meta.url)) === fs.realpathSync(process.argv[1] || '');
   } catch {
@@ -711,8 +846,11 @@ if (invokedDirectly) {
     prepassCachePath: args.prepassCachePath ? path.resolve(args.prepassCachePath) : null,
     reusePrepassCachePath: args.reusePrepassCachePath ? path.resolve(args.reusePrepassCachePath) : null,
     concurrency: args.concurrency,
+    writeWorkers: args.writeWorkers,
   }).catch((error) => {
     console.error(`[hreflang-index-manifest] failed: ${error instanceof Error ? error.stack : String(error)}`);
     process.exit(1);
   });
 }
+
+if (!isMainThread && workerData?.role === WRITE_WORKER_ROLE) serveRewriteWorker(workerData);

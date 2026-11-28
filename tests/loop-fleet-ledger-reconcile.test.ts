@@ -2,6 +2,8 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import YAML from 'yaml';
+import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
 // @ts-expect-error — the reconciler is a dependency-free ESM CI script.
 import {
@@ -39,6 +41,20 @@ function writeJsonl(root: string, name: string, records: unknown[]) {
 }
 
 describe('loop-fleet-ledger-reconcile', () => {
+  // #20378 added an import without listing it: every run then died with
+  // ERR_MODULE_NOT_FOUND (runs 46026073408 through 46163371375).
+  it('lists the whole import closure of the probe in its sparse checkout', () => {
+    const root = path.resolve(__dirname, '..');
+    const workflow = YAML.parse(
+      fs.readFileSync(path.join(root, '.github/workflows/loop-fleet-ledger-reconcile.yml'), 'utf8'),
+    );
+    const sparse: string = workflow.jobs.reconcile.steps
+      .find((step: any) => step.with?.['sparse-checkout']).with['sparse-checkout'];
+    const listed = new Set(sparse.split('\n').map((line) => line.trim().replace(/^\//, '')));
+    const closure = collectRelativeImportClosure(root, 'scripts/ci/loop-fleet-ledger-reconcile.mjs');
+    expect(closure.filter((file) => !listed.has(file))).toEqual([]);
+  });
+
   it('declares one exact source workflow and artifact family for every loop', () => {
     expect(SOURCE_LOOPS).toHaveLength(11);
     expect(new Set(SOURCE_LOOPS.map((definition: any) => definition.loopId)).size).toBe(11);

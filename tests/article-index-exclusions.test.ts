@@ -3,9 +3,11 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {
+  ARTICLE_INDEX_DEMAND_KEEPS_FILENAME,
   ARTICLE_INDEX_EXCLUSIONS_FILES,
   articleIndexExclusionKey,
   loadArticleIndexExclusions,
+  parseArticleIndexDemandKeeps,
   parseArticleIndexExclusions,
 } from '../packages/articles/engine/shared/articleIndexExclusions.mjs';
 import {
@@ -97,6 +99,59 @@ describe('article index exclusions ledger', () => {
       xml,
       dropped: [],
     });
+  });
+
+  it('lets a click-backed article out of the ledger in both layouts, for every consumer of the loader', () => {
+    const ledger = JSON.stringify({
+      excluded: [
+        { section: 'frontaliere', id: 'gare-ciclismo-varese-ottobre' },
+        { section: 'frontaliere', id: 'senza-clic' },
+      ],
+    });
+    const keeps = JSON.stringify({ keeps: [{ section: 'frontaliere', id: 'gare-ciclismo-varese-ottobre', clicks: 5 }] });
+    const layouts: Array<[string, string]> = [
+      [SITE_LEDGER, `packages/articles/engine/shared/${ARTICLE_INDEX_DEMAND_KEEPS_FILENAME}`],
+      [CORPUS_LEDGER, `engine/shared/${ARTICLE_INDEX_DEMAND_KEEPS_FILENAME}`],
+    ];
+    for (const [ledgerRel, keepsRel] of layouts) {
+      const root = tempRoot();
+      writeLedger(root, ledgerRel, ledger);
+      writeLedger(root, keepsRel, keeps);
+      const candidates = ARTICLE_INDEX_EXCLUSIONS_FILES.map((candidate) => path.join(root, candidate));
+      expect([...loadArticleIndexExclusions(fs, candidates)]).toEqual(['frontaliere|senza-clic']);
+    }
+  });
+
+  it('keeps the ledger intact when no keeps file exists, and refuses an unreadable one', () => {
+    const root = tempRoot();
+    writeLedger(root, SITE_LEDGER, JSON.stringify({ excluded: [{ section: 'frontaliere', id: 'a' }] }));
+    const candidates = ARTICLE_INDEX_EXCLUSIONS_FILES.map((candidate) => path.join(root, candidate));
+    expect([...loadArticleIndexExclusions(fs, candidates)]).toEqual(['frontaliere|a']);
+    writeLedger(root, `packages/articles/engine/shared/${ARTICLE_INDEX_DEMAND_KEEPS_FILENAME}`, '{"keeps":[');
+    expect(() => loadArticleIndexExclusions(fs, candidates)).toThrow();
+    expect(() => parseArticleIndexDemandKeeps('{"keeps":{}}')).toThrow(/keeps/);
+    expect(() => parseArticleIndexDemandKeeps('{"keeps":[{"section":"canton-ti","id":"x"}]}')).toThrow(/sezione/);
+  });
+
+  it('ships a well-formed demand-keeps file: unique rows, real clicks, ids known to the slug registry', () => {
+    const file = path.resolve(__dirname, '../packages/articles/engine/shared', ARTICLE_INDEX_DEMAND_KEEPS_FILENAME);
+    const raw = fs.readFileSync(file, 'utf-8');
+    const rows = JSON.parse(raw).keeps as Array<{ section: string; id: string; clicks: number; window: string }>;
+    expect(parseArticleIndexDemandKeeps(raw).size).toBe(rows.length);
+    for (const row of rows) {
+      expect(row.clicks, `${row.id} needs real GSC clicks`).toBeGreaterThan(0);
+      expect(row.window).toMatch(/^\d{4}-\d{2}-\d{2}\.\.\d{4}-\d{2}-\d{2}$/);
+    }
+    const slugFiles: Record<string, string> = {
+      frontaliere: '../packages/articles/content/routerBlogData.ts',
+      svizzera: '../packages/articles/content/routerSwissData.ts',
+    };
+    for (const row of rows) {
+      const slugFile = path.resolve(__dirname, slugFiles[row.section]);
+      // Sparse checkouts may not carry the corpus content: skip, CI has it.
+      if (!fs.existsSync(slugFile)) continue;
+      expect(fs.readFileSync(slugFile, 'utf-8'), `${row.id} is not in ${row.section} registry`).toContain(`'${row.id}':`);
+    }
   });
 
   it('wires the renderer to the ledger on both the robots value and the validator marker', () => {

@@ -45,12 +45,12 @@
     {
       "commit": "182932629dd5e5e9657781832753c280399caa54",
       "generatedAt": "2026-09-16T11:04:04.615Z",
-      "matchedRecords": 147
+      "matchedRecords": 163
     },
     {
       "commit": "1d67b6d1de63ac7a27682744e45b031a72c2df8c",
       "generatedAt": "2026-09-14T11:36:34.465Z",
-      "matchedRecords": 80
+      "matchedRecords": 81
     },
     {
       "commit": "885b0fba0dca5b2e2bbeb339163a101e4aa2c068",
@@ -90,7 +90,7 @@
     {
       "commit": "d55c41295375ef268a90ec3d2e90b1546fad677f",
       "generatedAt": "2026-09-11T10:41:05.658Z",
-      "matchedRecords": 91
+      "matchedRecords": 92
     },
     {
       "commit": "d615e48e2fb29f0e613e89932d8ab231083b0cae",
@@ -120,7 +120,7 @@
     {
       "commit": "3f1a7eaf13ea487f7bce926fd4b00f98d87d4f40",
       "generatedAt": "2026-08-26T06:55:35.922Z",
-      "matchedRecords": 68
+      "matchedRecords": 69
     },
     {
       "commit": "16ebe31f40e837931a656ff4947a742bd144d7b9",
@@ -145,7 +145,7 @@
     {
       "commit": "c488a896e759739c2cb5a1d968f6188b1f5e97a6",
       "generatedAt": "2026-09-25T11:50:45.994Z",
-      "matchedRecords": 52
+      "matchedRecords": 58
     },
     {
       "commit": "612bbe4a944b1f877a5614f3654d1f5ea4f28387",
@@ -155,7 +155,7 @@
     {
       "commit": "ce95d63798265a857a39631deaa901f73b47f64c",
       "generatedAt": "2026-09-12T10:12:16.748Z",
-      "matchedRecords": 99
+      "matchedRecords": 102
     },
     {
       "commit": "75faac52d465fcce219401839da1a65facb640cd",
@@ -165,7 +165,7 @@
     {
       "commit": "b91088a6e1b2e513b8621c652a1a129072466996",
       "generatedAt": "2026-09-08T10:42:40.660Z",
-      "matchedRecords": 70
+      "matchedRecords": 71
     },
     {
       "commit": "e861ad2ec4f10d064ec176e012f3ed9ad0cb31ca",
@@ -175,7 +175,7 @@
     {
       "commit": "9806ab1b65777e5c4251741435588adccd517519",
       "generatedAt": "2026-09-02T10:44:23.545Z",
-      "matchedRecords": 64
+      "matchedRecords": 66
     },
     {
       "commit": "a93c8f124aba3b67e67ee03fbd51bf2b17cfc569",
@@ -190,7 +190,7 @@
     {
       "commit": "e6f8832cf878a7f384848f61a88a50b3d0a3011d",
       "generatedAt": "2026-08-23T06:48:30.957Z",
-      "matchedRecords": 65
+      "matchedRecords": 66
     },
     {
       "commit": "5a79d4993b6dda6d2fb35fae0d3933c4d0c65b08",
@@ -275,7 +275,7 @@
     {
       "commit": "0f454a9196b7e1923057874ed8499dbd5c82ec62",
       "generatedAt": "2026-09-26T11:04:31.511Z",
-      "matchedRecords": 61
+      "matchedRecords": 67
     },
     {
       "commit": "4f3aac86490e1788199b9c695b9cb41472740788",
@@ -306,6 +306,11 @@
       "commit": "255cbc74f4d556f15b3c87d1399ad7cda1df7f66",
       "generatedAt": "2026-10-18T03:20:43.206Z",
       "matchedRecords": 8
+    },
+    {
+      "commit": "1e3238aab084fe173b6187e9fd2a9c1ca43610c7",
+      "generatedAt": "2026-10-02T12:12:24.323Z",
+      "matchedRecords": 1
     }
   ],
   "events": [
@@ -20554,6 +20559,940 @@
         "supportingMatchingFields": ["title", "startDate", "recurrenceDates"],
         "supersededParsedStartDate": "2027-07-04",
         "supersededParsedComune": "Genève"
+      }
+    },
+    {
+      "id": "ge-agenda:soiree-forro-0",
+      "title": "Soirée Forró",
+      "startDate": "2026-09-03",
+      "category": "Danse",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/soiree-forro-0",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "recoveryEvidence": {
+        "sourceSnapshot": "9806ab1b65777e5c4251741435588adccd517519",
+        "sourceGeneratedAt": "2026-09-02T10:44:23.545Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:9e7d016fcedb4c179ae3232e8e717040",
+      "title": "Vesti’bulle",
+      "titleByLocale": {
+        "it": "Vesti’bulle",
+        "en": "Vesti’bulle",
+        "de": "Vesti’bulle",
+        "fr": "Vesti’bulle"
+      },
+      "startDate": "2026-09-05",
+      "endDate": "2026-09-05",
+      "startTime": "12:00",
+      "category": "Event",
+      "venue": "Espace Gruyère",
+      "comune": "Bulle",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/vestibulle/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "9806ab1b65777e5c4251741435588adccd517519",
+        "sourceGeneratedAt": "2026-09-02T10:44:23.545Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:86a3e33fdcf34c76b295c3df3ce89954",
+      "title": "Dinner Concert auf dem Stadtplatz Kloten",
+      "titleByLocale": {
+        "it": "Dinner Concert auf dem Stadtplatz Kloten",
+        "en": "Dinner Concert auf dem Stadtplatz Kloten",
+        "de": "Dinner Concert auf dem Stadtplatz Kloten",
+        "fr": "Dinner Concert auf dem Stadtplatz Kloten"
+      },
+      "startDate": "2026-09-09",
+      "endDate": "2026-09-09",
+      "startTime": "18:00",
+      "category": "Food",
+      "venue": "Stadtplatz",
+      "comune": "Kloten",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/dinner-concert-auf-dem-stadtplatz-kloten/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "b91088a6e1b2e513b8621c652a1a129072466996",
+        "sourceGeneratedAt": "2026-09-08T10:42:40.660Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:43cf71c6a23942cba2b110ca487ee424",
+      "title": "Präsentation des Kinderbuches von Daniel Fehr und Malin Widen zu Hans Erni",
+      "titleByLocale": {
+        "it": "Präsentation des Kinderbuches von Daniel Fehr und Malin Widen zu Hans Erni",
+        "en": "Präsentation des Kinderbuches von Daniel Fehr und Malin Widen zu Hans Erni",
+        "de": "Präsentation des Kinderbuches von Daniel Fehr und Malin Widen zu Hans Erni",
+        "fr": "Präsentation des Kinderbuches von Daniel Fehr und Malin Widen zu Hans Erni"
+      },
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-12",
+      "startTime": "14:00",
+      "category": "Theater",
+      "venue": "Hans Erni Museum",
+      "comune": "Widen",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/praesentation-des-kinderbuches-von-daniel-fehr-und-malin-widen-zu-hans-erni/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "ce95d63798265a857a39631deaa901f73b47f64c",
+        "sourceGeneratedAt": "2026-09-12T10:12:16.748Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:775d0be2f4f24c00a134cccff2fc860a",
+      "title": "Konzert Chor 50 Basel",
+      "titleByLocale": {
+        "it": "Konzert Chor 50 Basel",
+        "en": "Konzert Chor 50 Basel",
+        "de": "Konzert Chor 50 Basel",
+        "fr": "Konzert Chor 50 Basel"
+      },
+      "startDate": "2026-09-14",
+      "endDate": "2026-09-14",
+      "startTime": "15:00",
+      "category": "Event",
+      "venue": "Allschwil",
+      "comune": "Allschwil",
+      "canton": "BL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/konzert-chor-50-basel/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "1d67b6d1de63ac7a27682744e45b031a72c2df8c",
+        "sourceGeneratedAt": "2026-09-14T11:36:34.465Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "ge-agenda:festival-piano-2026-orchestre-concertus-dirige-matthieu-schweyer-lucas-chiche-nathalia-milstein",
+      "title": "Festival de piano 2026: Orchestre Concertus, dirigé par Matthieu Schweyer, Lucas Chiche et Nathalia Milstein",
+      "startDate": "2026-09-16",
+      "category": "Concert",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/festival-piano-2026-orchestre-concertus-dirige-matthieu-schweyer-lucas-chiche-nathalia-milstein",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "guidle:AvP95g5",
+      "title": "Costellazione giovani | Next Generation II | Ilya Shmukler",
+      "titleByLocale": {
+        "it": "Costellazione giovani | Next Generation II | Ilya Shmukler",
+        "en": "Costellazione giovani | Next Generation II | Ilya Shmukler",
+        "de": "Costellazione giovani | Next Generation II | Ilya Shmukler",
+        "fr": "Costellazione giovani | Next Generation II | Ilya Shmukler"
+      },
+      "startDate": "2026-09-20",
+      "endDate": "2026-09-20",
+      "startTime": "17:00",
+      "category": "Musica per piano / organo",
+      "venue": "Chiesa di Santa Maria Assunta",
+      "comune": "Locarno",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/evenements/classique/locarno/costellazione-giovani-next-generation-ii-ilya-shmukler_AvP95g5",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:185c4e2e356347c4b96e73bec35d5cfe",
+      "title": "FRIDOLIN TANZT",
+      "titleByLocale": {
+        "it": "FRIDOLIN TANZT",
+        "en": "FRIDOLIN TANZT",
+        "de": "FRIDOLIN TANZT",
+        "fr": "FRIDOLIN TANZT"
+      },
+      "startDate": "2026-09-20",
+      "endDate": "2026-09-20",
+      "startTime": "10:30",
+      "category": "Theater",
+      "venue": "Anna Göldi Museum",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/fridolin-tanzt/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:20439a36b79a44c28e451bc2f064d4f3",
+      "title": "Swisscom Football Camp Meiringen",
+      "titleByLocale": {
+        "it": "Swisscom Football Camp Meiringen",
+        "en": "Swisscom Football Camp Meiringen",
+        "de": "Swisscom Football Camp Meiringen",
+        "fr": "Swisscom Football Camp Meiringen"
+      },
+      "startDate": "2026-09-21",
+      "endDate": "2026-09-25",
+      "startTime": "02:00",
+      "category": "Sports",
+      "venue": "Fussballplatz Wiltschen",
+      "comune": "Hasliberg",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/swisscom-football-camp-meiringen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "c488a896e759739c2cb5a1d968f6188b1f5e97a6",
+        "sourceGeneratedAt": "2026-09-25T11:50:45.994Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:89d9806072734aa69873aa2f01b5b488",
+      "title": "Cena di beneficenza al Fairmont Montreux Palace a favore di Morija",
+      "titleByLocale": {
+        "it": "Cena di beneficenza al Fairmont Montreux Palace a favore di Morija",
+        "en": "Charity dinner at the Fairmont Montreux Palace in aid of Morija",
+        "de": "Charity-Dinner im Fairmont Montreux Palace zugunsten von Morija",
+        "fr": "Golf caritatif - 2ème OPEN Morija Au Golf Les Bois"
+      },
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-25",
+      "startTime": "09:00",
+      "category": "Music",
+      "venue": "Golf Les Bois",
+      "comune": "Les Bois",
+      "canton": "JU",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/charity-dinner-im-fairmont-montreux-palace-zugunsten-von-morija-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "c488a896e759739c2cb5a1d968f6188b1f5e97a6",
+        "sourceGeneratedAt": "2026-09-25T11:50:45.994Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "guidle:AM8YUVC",
+      "title": "Intelligenza artificiale: La mente sotto assedio",
+      "titleByLocale": {
+        "it": "Intelligenza artificiale: La mente sotto assedio",
+        "en": "Intelligenza artificiale: La mente sotto assedio",
+        "de": "Intelligenza artificiale: La mente sotto assedio",
+        "fr": "Intelligenza artificiale: La mente sotto assedio"
+      },
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-25",
+      "startTime": "20:00",
+      "category": "Media nuove",
+      "venue": "Aula riformata Poschiavo",
+      "comune": "Poschiavo",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/eventi/conoscenza/poschiavo/intelligenza-artificiale-la-mente-sotto-assedio_AM8YUVC",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "recoveryEvidence": {
+        "sourceSnapshot": "c488a896e759739c2cb5a1d968f6188b1f5e97a6",
+        "sourceGeneratedAt": "2026-09-25T11:50:45.994Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:64e35de2a73647238e9ced1abaf2d080",
+      "title": "Bärencup 2026",
+      "titleByLocale": {
+        "it": "Bärencup 2026",
+        "en": "Bärencup 2026",
+        "de": "Bärencup 2026",
+        "fr": "Bärencup 2026"
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Cham",
+      "comune": "Cham",
+      "canton": "ZG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/baerencup-2026/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "0f454a9196b7e1923057874ed8499dbd5c82ec62",
+        "sourceGeneratedAt": "2026-09-26T11:04:31.511Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:bdf8d697a38f4956a7e786746ec14e40",
+      "title": "Big Autumn Market",
+      "titleByLocale": {
+        "it": "Big Autumn Market",
+        "en": "Big Autumn Market",
+        "de": "Grosser Herbstmarkt",
+        "fr": "Grand marché d'automne"
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "08:00",
+      "category": "Event",
+      "venue": "Centre ville",
+      "comune": "Morges",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/grosser-herbstmarkt/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "0f454a9196b7e1923057874ed8499dbd5c82ec62",
+        "sourceGeneratedAt": "2026-09-26T11:04:31.511Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:b398374cd8d44516b3124bb9bf139e1a",
+      "title": "Ursy’s Autumn Market",
+      "titleByLocale": {
+        "it": "Ursy’s Autumn Market",
+        "en": "Ursy’s Autumn Market",
+        "de": "Herbstmarkt in Ursy",
+        "fr": "Marché d’automne d’Ursy"
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Ursy s'anime",
+      "comune": "Ursy",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/ursys-autumn-market/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "0f454a9196b7e1923057874ed8499dbd5c82ec62",
+        "sourceGeneratedAt": "2026-09-26T11:04:31.511Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:8f277be97cd64863a207ab5bc942f2f9",
+      "title": "PICTURE THIS",
+      "titleByLocale": {
+        "it": "PICTURE THIS",
+        "en": "PICTURE THIS",
+        "de": "PICTURE THIS",
+        "fr": "PICTURE THIS"
+      },
+      "startDate": "2026-10-26",
+      "endDate": "2026-10-26",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Geneva",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/picture-this/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "1e3238aab084fe173b6187e9fd2a9c1ca43610c7",
+        "sourceGeneratedAt": "2026-10-02T12:12:24.323Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:4c7ab0b968704d9ebd82bb5bf619dd31",
+      "title": "Sugita Exhibition (Paintings)",
+      "titleByLocale": {
+        "it": "Sugita Exhibition (Paintings)",
+        "en": "Sugita Exhibition (Paintings)",
+        "de": "Sugita-Ausstellung (Gemälde)",
+        "fr": "Exposition Sugita - Peintures"
+      },
+      "startDate": "2026-09-10",
+      "endDate": "2026-09-26",
+      "startTime": "02:00",
+      "category": "Exhibition",
+      "venue": "Galerie ArteFact",
+      "comune": "Villeneuve (VD)",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/fr-ch/decouvrir/manifestations/exposition-sugita-peintures/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "0f454a9196b7e1923057874ed8499dbd5c82ec62",
+        "sourceGeneratedAt": "2026-09-26T11:04:31.511Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:7ca78dda19b146eaae9a750b8506cbc7",
+      "title": "CES PETITS RIENS",
+      "titleByLocale": {
+        "it": "CES PETITS RIENS",
+        "en": "CES PETITS RIENS",
+        "de": "CES PETITS RIENS",
+        "fr": "CES PETITS RIENS"
+      },
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-26",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Sierre",
+      "comune": "Sierre",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/ces-petits-riens/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "0f454a9196b7e1923057874ed8499dbd5c82ec62",
+        "sourceGeneratedAt": "2026-09-26T11:04:31.511Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:1e71d2f8ffa54b15a9ba10fa0bc81b71",
+      "title": "Maman Sort Danser",
+      "titleByLocale": {
+        "it": "Maman Sort Danser",
+        "en": "Maman Sort Danser",
+        "de": "Maman Sort Danser",
+        "fr": "Maman Sort Danser"
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "L'After",
+      "comune": "Nyon",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/maman-sort-danser-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "0f454a9196b7e1923057874ed8499dbd5c82ec62",
+        "sourceGeneratedAt": "2026-09-26T11:04:31.511Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "tio-agenda:63819",
+      "title": "Donazione di sangue",
+      "titleByLocale": {
+        "it": "Donazione di sangue",
+        "en": "Blood donation",
+        "de": "Blutspende",
+        "fr": "Don de sang"
+      },
+      "startDate": "2026-09-16",
+      "startTime": "13:30",
+      "category": "altro",
+      "venue": "Aula di musica, scuole comunali",
+      "comune": "Mendrisio",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260916/63819",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "tio-agenda:63842",
+      "title": "Io, Daiana Crivelli",
+      "titleByLocale": {
+        "it": "Io, Daiana Crivelli",
+        "en": "I, Daiana Crivelli",
+        "de": "Ich, Daiana Crivelli",
+        "fr": "Moi, Daiana Crivelli"
+      },
+      "startDate": "2026-09-16",
+      "startTime": "15:00",
+      "category": "conferenze",
+      "venue": "Biblioteca Cantonale",
+      "comune": "Locarno",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260916/63842",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "ge-agenda:cine-relax-amelie-metaphysique-tubes",
+      "title": "Ciné-relax: Amélie et la métaphysique des tubes",
+      "startDate": "2026-09-17",
+      "category": "Projection",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/cine-relax-amelie-metaphysique-tubes",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "ge-agenda:rift-vernissage-performance-diner-exploratoire-solo-severin-guelpa",
+      "title": "RIFT – Vernissage, performance & dîner exploratoire – Solo de Séverin Guelpa",
+      "startDate": "2026-09-18",
+      "endDate": "2026-09-19",
+      "category": "Festival",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/rift-vernissage-performance-diner-exploratoire-solo-severin-guelpa",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:71cba1db2b324a738eaee425af49d2eb",
+      "title": "„CHUM INÄ“  Architektur für alle in Glarus",
+      "titleByLocale": {
+        "it": "„CHUM INÄ“  Architektur für alle in Glarus",
+        "en": "„CHUM INÄ“  Architektur für alle in Glarus",
+        "de": "„CHUM INÄ“  Architektur für alle in Glarus",
+        "fr": "„CHUM INÄ“  Architektur für alle in Glarus"
+      },
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-19",
+      "startTime": "09:00",
+      "category": "Event",
+      "venue": "8750 Glarus",
+      "comune": "Glarus",
+      "canton": "GL",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/chum-inae-architektur-fuer-alle-in-glarus/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:a2dc9dd7804843b2b0460ae9b3323265",
+      "title": "Jagdgesellschaft Chutzenkopf am Trüffelmarkt",
+      "titleByLocale": {
+        "it": "Jagdgesellschaft Chutzenkopf am Trüffelmarkt",
+        "en": "Jagdgesellschaft Chutzenkopf am Trüffelmarkt",
+        "de": "Jagdgesellschaft Chutzenkopf am Trüffelmarkt",
+        "fr": "Jagdgesellschaft Chutzenkopf am Trüffelmarkt"
+      },
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-19",
+      "startTime": "08:00",
+      "category": "Event",
+      "venue": "Liestal",
+      "comune": "Liestal",
+      "canton": "BL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/jagdgesellschaft-chutzenkopf-am-trueffelmarkt/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:e5e7aa2ceabb4a1e9ec8e5c6000adc2f",
+      "title": "CONFEDERAL DAY OF THANKSGIVING, REPENTANCE, AND PRAYERAG",
+      "titleByLocale": {
+        "it": "CONFEDERAL DAY OF THANKSGIVING, REPENTANCE, AND PRAYERAG",
+        "en": "CONFEDERAL DAY OF THANKSGIVING, REPENTANCE, AND PRAYERAG",
+        "de": "EIDGENÖSSISCHER DANK-, BUSS- UND BETTAG",
+        "fr": "FÊTE FÉDÉRALE DE REMERCIEMENT, DE PÉNITENCE ET DE PRIÈREAG"
+      },
+      "startDate": "2026-09-20",
+      "endDate": "2026-09-20",
+      "startTime": "10:30",
+      "category": "Event",
+      "venue": "Kapelle Aletschji",
+      "comune": "Blatten",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/eidgenoessischer-dank-buss-und-bettag/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "tio-agenda:63869",
+      "title": "Denise Gordon & the Ticino Gang",
+      "titleByLocale": {
+        "it": "Denise Gordon & the Ticino Gang",
+        "de": "Denise Gordon & die Tessiner Bande",
+        "fr": "Denise Gordon & la bande du Tessin"
+      },
+      "startDate": "2026-09-21",
+      "startTime": "20:30",
+      "category": "musica",
+      "venue": "Lux",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260921/63869",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "tio-agenda:63695",
+      "title": "L'educazione accogliente",
+      "titleByLocale": {
+        "it": "L'educazione accogliente",
+        "en": "Welcoming education",
+        "de": "Die freundliche Erziehung",
+        "fr": "L'éducation accueillante"
+      },
+      "startDate": "2026-09-22",
+      "startTime": "18:00",
+      "category": "conferenze",
+      "venue": "Biblioteca cantonale",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260922/63695",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:5a179696d761483cb8a181dbb2e491fd",
+      "title": "Mostra del bestiame di Herisau",
+      "titleByLocale": {
+        "it": "Mostra del bestiame di Herisau",
+        "en": "Herisau cattle show",
+        "de": "Viehschau Herisau",
+        "fr": "Exposition de bétail à Herisau"
+      },
+      "startDate": "2026-09-22",
+      "endDate": "2026-09-22",
+      "startTime": "09:30",
+      "category": "Event",
+      "venue": "9100 Herisau",
+      "comune": "Herisau",
+      "canton": "AR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/mostra-del-bestiame-di-herisau/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:98118e18d831497abdb5cda194ed2325",
+      "title": "\"WENN DER BERG KOMMT\"",
+      "titleByLocale": {
+        "it": "\"WENN DER BERG KOMMT\"",
+        "en": "\"WENN DER BERG KOMMT\"",
+        "de": "\"WENN DER BERG KOMMT\"",
+        "fr": "\"WENN DER BERG KOMMT\""
+      },
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-25",
+      "startTime": "19:30",
+      "category": "Event",
+      "venue": "Brig",
+      "comune": "Brig-Glis",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/wenn-der-berg-kommt/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "c488a896e759739c2cb5a1d968f6188b1f5e97a6",
+        "sourceGeneratedAt": "2026-09-25T11:50:45.994Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "ge-agenda:pulse-oxmo-puccino-caroline-meng-orchestre-geca",
+      "title": "PULSE Oxmo Puccino, Caroline Meng & Orchestre GECA",
+      "startDate": "2026-09-25",
+      "category": "Concert",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/pulse-oxmo-puccino-caroline-meng-orchestre-geca",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "recoveryEvidence": {
+        "sourceSnapshot": "c488a896e759739c2cb5a1d968f6188b1f5e97a6",
+        "sourceGeneratedAt": "2026-09-25T11:50:45.994Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:b7978a6b2c4943c9925ad610d668bcbf",
+      "title": "Vernissage: zwei künstlerische Resonanzen aus dem Landesplattenberg",
+      "titleByLocale": {
+        "it": "Vernissage: zwei künstlerische Resonanzen aus dem Landesplattenberg",
+        "en": "Vernissage: zwei künstlerische Resonanzen aus dem Landesplattenberg",
+        "de": "Vernissage: zwei künstlerische Resonanzen aus dem Landesplattenberg",
+        "fr": "Vernissage: zwei künstlerische Resonanzen aus dem Landesplattenberg"
+      },
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-25",
+      "startTime": "18:00",
+      "category": "Event",
+      "venue": "Landesbibliothek des Kantons Glarus",
+      "comune": "Glarus",
+      "canton": "GL",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/vernissage-zwei-kuenstlerische-resonanzen-aus-dem-landesplattenberg/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "c488a896e759739c2cb5a1d968f6188b1f5e97a6",
+        "sourceGeneratedAt": "2026-09-25T11:50:45.994Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "tio-agenda:63420",
+      "title": "Treno Storico - Il pane delle Centovalli",
+      "titleByLocale": {
+        "it": "Treno Storico - Il pane delle Centovalli",
+        "en": "Historical Train - The bread of the Centovalli",
+        "de": "Historischer Zug - Das Brot der Centovalli",
+        "fr": "Train historique - Le pain des Centovalli"
+      },
+      "startDate": "2026-10-04",
+      "startTime": "10:45",
+      "category": "sociale",
+      "venue": "Centovalli",
+      "comune": "Centovalli",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261004/63420",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:9d0e4edb4526454b938ce428fd9f1e83",
+      "title": "Campus Lunchtime-Konzert",
+      "titleByLocale": {
+        "it": "Campus Lunchtime-Konzert",
+        "en": "Campus Lunchtime-Konzert",
+        "de": "Campus Lunchtime-Konzert",
+        "fr": "Campus Lunchtime-Konzert"
+      },
+      "startDate": "2026-08-27",
+      "endDate": "2026-08-27",
+      "startTime": "12:50",
+      "category": "Music",
+      "venue": "Campus Aula",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/campus-lunchtime-konzert-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "3f1a7eaf13ea487f7bce926fd4b00f98d87d4f40",
+        "sourceGeneratedAt": "2026-08-26T06:55:35.922Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:4e1ecb0d396e4c6aad736ee29559016f",
+      "title": "Theatervirus Buchs präsentiert \"Die Schweizermacher\"",
+      "titleByLocale": {
+        "it": "Theatervirus Buchs präsentiert \"Die Schweizermacher\"",
+        "en": "Theatervirus Buchs präsentiert \"Die Schweizermacher\"",
+        "de": "Theatervirus Buchs präsentiert \"Die Schweizermacher\"",
+        "fr": "Theatervirus Buchs präsentiert \"Die Schweizermacher\""
+      },
+      "startDate": "2026-09-04",
+      "endDate": "2026-09-12",
+      "startTime": "20:00",
+      "category": "Theater",
+      "venue": "Alte Turnhalle",
+      "comune": "Buchs (AG)",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/theatervirus-buchs-praesentiert-die-schweizermacher/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "ce95d63798265a857a39631deaa901f73b47f64c",
+        "sourceGeneratedAt": "2026-09-12T10:12:16.748Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "guidle:Ai1HwM5",
+      "title": "Risk Day 2026",
+      "titleByLocale": {
+        "it": "Risk Day 2026",
+        "en": "Risk Day 2026",
+        "de": "Risk Day 2026",
+        "fr": "Risk Day 2026"
+      },
+      "startDate": "2026-09-11",
+      "endDate": "2026-09-11",
+      "startTime": "14:00",
+      "category": "Congresso: Affari / Amministrazione",
+      "venue": "ETH Hauptgebäude",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/risk-day-2026_Ai1HwM5",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "recoveryEvidence": {
+        "sourceSnapshot": "d55c41295375ef268a90ec3d2e90b1546fad677f",
+        "sourceGeneratedAt": "2026-09-11T10:41:05.658Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:f4c511edc29c4f0b8037f5fdfa283a0b",
+      "title": "Shepherds’ Festival in Randa",
+      "titleByLocale": {
+        "it": "Shepherds’ Festival in Randa",
+        "en": "Shepherds’ Festival in Randa",
+        "de": "Schäferfest in Randa",
+        "fr": "Fête des Bergers à Randa"
+      },
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-12",
+      "startTime": "11:00",
+      "category": "Festival",
+      "venue": "Schwarznasenschaf-Zuchtgenossenschaft Randa",
+      "comune": "Randa",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/shepherds-festival-in-randa/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recoveryEvidence": {
+        "sourceSnapshot": "ce95d63798265a857a39631deaa901f73b47f64c",
+        "sourceGeneratedAt": "2026-09-12T10:12:16.748Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "guidle:AcjQjaq",
+      "title": "Khatia Buniatishvili",
+      "titleByLocale": {
+        "it": "Khatia Buniatishvili",
+        "en": "Khatia Buniatishvili",
+        "de": "Khatia Buniatishvili",
+        "fr": "Khatia Buniatishvili"
+      },
+      "startDate": "2026-08-23",
+      "endDate": "2026-08-23",
+      "startTime": "18:00",
+      "category": "Musica classica",
+      "venue": "Festivalzelt Gstaad",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/gstaad/khatia-buniatishvili_AcjQjaq",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "recoveryEvidence": {
+        "sourceSnapshot": "e6f8832cf878a7f384848f61a88a50b3d0a3011d",
+        "sourceGeneratedAt": "2026-08-23T06:48:30.957Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "myswitzerland:e50db4f56bfd4c568da05afc47b78d17",
+      "title": "INFLAGRANTI - Tag der offenen Tür bei der Kantonspolizei Aargau",
+      "titleByLocale": {
+        "it": "INFLAGRANTI - Tag der offenen Tür bei der Kantonspolizei Aargau",
+        "en": "INFLAGRANTI - Tag der offenen Tür bei der Kantonspolizei Aargau",
+        "de": "INFLAGRANTI - Tag der offenen Tür bei der Kantonspolizei Aargau",
+        "fr": "INFLAGRANTI - Tag der offenen Tür bei der Kantonspolizei Aargau"
+      },
+      "startDate": "2026-09-20",
+      "endDate": "2026-09-20",
+      "startTime": "09:00",
+      "category": "Event",
+      "venue": "5503 Schafisheim",
+      "comune": "Schafisheim",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/inflagranti-tag-der-offenen-tuer-bei-der-kantonspolizei-aargau/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "AG",
+          "comune": "Schafisheim",
+          "slug": "inflagranti-tag-der-offenen-tur-bei-der-kantonspolizei-2026-09-20"
+        }
+      ],
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
+      }
+    },
+    {
+      "id": "tio-agenda:63702",
+      "title": "Mondonatura: mostra fotografica di Daniela Poletti - Vernissage",
+      "titleByLocale": {
+        "it": "Mondonatura: mostra fotografica di Daniela Poletti - Vernissage",
+        "en": "Mondonatura: photographic exhibition by Daniela Poletti - Vernissage",
+        "de": "Mondonatura: Fotoausstellung von Daniela Poletti - Vernissage",
+        "fr": "Mondonatura : exposition photographique de Daniela Poletti - Vernissage"
+      },
+      "startDate": "2026-09-22",
+      "startTime": "16:30",
+      "category": "appuntamenti",
+      "venue": "Spazio Sociale ManoVella",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260922/63702",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "mondonatura-mostra-fotografica-di-daniela-poletti-vernissage-2026-09-22"
+        }
+      ],
+      "recoveryEvidence": {
+        "sourceSnapshot": "182932629dd5e5e9657781832753c280399caa54",
+        "sourceGeneratedAt": "2026-09-16T11:04:04.615Z",
+        "verifiedOn": "2026-11-28"
       }
     }
   ]

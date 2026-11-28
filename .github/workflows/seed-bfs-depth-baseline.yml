@@ -126,6 +126,12 @@ jobs:
           output-dir: /tmp/pages
           github-token: ${{ github.token }}
 
+      # The logical dist (6.4M+ files, one directory per page) no longer fits
+      # the runner's ext4 root. Same files and paths on a compressed volume;
+      # see the script header for the measured numbers.
+      - name: Mount dist/ on a compressed volume
+        run: bash scripts/ci/mount-compressed-dist.sh mount dist
+
       - name: Extract dist/
         run: |
           set -e
@@ -198,6 +204,10 @@ jobs:
         run: |
           echo "Full dist/ after rehydrate: $(find dist -type f | wc -l) files; HTML: $(find dist -name '*.html' | wc -l)"
           df -h / | tail -1
+
+      - name: Report disk usage after rehydrate
+        if: always()
+        run: bash scripts/ci/mount-compressed-dist.sh report dist
 
       # A baseline is worse than an audit to get wrong: the section rehydrate
       # above is soft-fail by contract, and a subtree missing from dist/ would

@@ -550,6 +550,10 @@ export const SEARCH_COMBO_SEGMENT_PATTERN = /\/(ricerca|search|suche|recherche)-
 // to SEARCH_CLUSTER_301_MAP, then the canton-aware JOB_BOARD_SECTION_COMPAT_PATTERN
 // listing-root fallback) — the bridge itself is additionally always-live
 // (200 OK), so it never reaches this resolver in the first place.
+// Legacy/mistyped Italian name of the weekly-employers section (see the
+// resolver branch that consumes it). Compiled once at module load.
+const WEEKLY_EMPLOYERS_SECTION_ALIAS_PATTERN = /^\/aziende-assumono(?:\/(.+))?$/;
+
 // Event-detail leaves that are not represented by the permanent event archive
 // (for example an old route from before route history was persisted, or a
 // rescheduled/cancelled source record that never reached a crawl). Capture
@@ -1051,6 +1055,25 @@ export function resolveSearchConsoleCompatTarget(
  canonicalPath: `${prefix}/${urlSection}/`.replace(/\/+/g, '/'),
  kind: 'expired-job',
  locale,
+ };
+ }
+
+ // `/aziende-assumono/…` is a section-name alias of the Italian company-hub
+ // section (`/aziende-che-assumono/…`): Google indexed and clicked
+ // `/aziende-assumono/ticino/settimana-corrente/` although the section was
+ // never emitted under that name, so no SECTION_FALLBACKS entry matched and the
+ // path stayed unresolvable. Keep the tail: the same city/week leaf usually
+ // exists under the real section, and the consuming plugins gap-fill to
+ // `fallbackPath` (the hub root) when it does not.
+ const weeklyAliasMatch = WEEKLY_EMPLOYERS_SECTION_ALIAS_PATTERN.exec(path);
+ if (weeklyAliasMatch && !sourceBackedOnly) {
+ return {
+ canonicalPath: weeklyAliasMatch[1]
+ ? `/${WEEKLY_EMPLOYERS_SECTION.it}/${weeklyAliasMatch[1]}/`
+ : `/${WEEKLY_EMPLOYERS_SECTION.it}/`,
+ kind: 'legacy',
+ locale: 'it',
+ fallbackPath: `/${WEEKLY_EMPLOYERS_SECTION.it}/`,
  };
  }
 

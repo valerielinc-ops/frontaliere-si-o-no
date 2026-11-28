@@ -77,7 +77,6 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { getOctokit: createOctokit } = require('@actions/github');
             const { pathToFileURL } = require('node:url');
             const { listRecentCloudFunctionsRuns, shouldRetryCloudFunctionsRun } = await import(pathToFileURL(
               `${process.env.GITHUB_WORKSPACE}/scripts/ci/cloud-functions-hosted-runner-recovery.mjs`,
@@ -90,7 +89,7 @@ jobs:
             // repository's concurrent workflows. Use the long-lived PAT for
             // every recovery API call so a busy installation cannot make the
             // observer fail before it evaluates the startup signature.
-            const recoveryGithub = createOctokit(recoveryToken);
+            const recoveryGithub = getOctokit(recoveryToken);
             const run = context.payload.workflow_run;
             const runAttempt = run?.run_attempt;
             if (!Number.isSafeInteger(runAttempt) || runAttempt !== 1) {

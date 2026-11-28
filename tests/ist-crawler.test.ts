@@ -455,6 +455,90 @@ describe('IST detail response classification', () => {
     });
   });
 
+  it('classifies a Lugano role whose role summary names International School of Ticino itself', () => {
+    const result = classifyIstDetailPage({
+      sourceUrl: 'https://jobs.inspirededu.com/job/Lugano-Mathematics-Teacher/1378343857/',
+      status: 200,
+      html: `
+        <article>
+          <h1 data-job-field="title">Mathematics Teacher</h1>
+          <div data-job-field="location">Lugano, CH</div>
+          <div data-job-field="hiringOrganization">Inspired Education</div>
+          <div data-careersite-propertyid="description">
+            Inspired Education is a global group of premium schools with a portfolio of schools across several continents.
+            ROLE SUMMARY: For International School of Ticino, we seek a Mathematics Teacher to join the secondary team.
+          </div>
+        </article>
+      `,
+    });
+
+    expect(result).toMatchObject({
+      outcome: 'classified',
+      evidence: 'native-detail-fields',
+      isIst: true,
+    });
+  });
+
+  it('tolerates spacing and a possessive after the school name in the role summary', () => {
+    const result = classifyIstDetailPage({
+      sourceUrl: 'https://jobs.inspirededu.com/job/Lugano-Mathematics-Teacher/1378343858/',
+      status: 200,
+      html: `
+        <article>
+          <h1 data-job-field="title">Mathematics Teacher</h1>
+          <div data-job-field="location">Cadempino, CH</div>
+          <div data-job-field="hiringOrganization">Inspired Education</div>
+          <div data-careersite-propertyid="description">
+            Inspired Education is a global group of premium schools with a portfolio of schools across several continents.
+            ROLE  SUMMARY :  For  International School of Ticino’s secondary department, we seek a Mathematics Teacher.
+          </div>
+        </article>
+      `,
+    });
+
+    expect(result).toMatchObject({ outcome: 'classified', isIst: true });
+  });
+
+  it('does not attribute a Lugano role naming a different Inspired school to International School of Ticino', () => {
+    const result = classifyIstDetailPage({
+      sourceUrl: 'https://jobs.inspirededu.com/job/Lugano-Mathematics-Teacher/1378343859/',
+      status: 200,
+      html: `
+        <article>
+          <h1 data-job-field="title">Mathematics Teacher</h1>
+          <div data-job-field="location">Lugano, CH</div>
+          <div data-job-field="hiringOrganization">Inspired Education</div>
+          <div data-careersite-propertyid="description">
+            Inspired Education is a global group of premium schools with a portfolio of schools across several continents.
+            ROLE SUMMARY: For Lakeside Meadow International School, we seek a Mathematics Teacher.
+          </div>
+        </article>
+      `,
+    });
+
+    expect(result).toMatchObject({ isIst: false });
+  });
+
+  it('does not accept the school name for a Swiss role outside the Lugano area', () => {
+    const result = classifyIstDetailPage({
+      sourceUrl: 'https://jobs.inspirededu.com/job/Montreux-Mathematics-Teacher/1378343860/',
+      status: 200,
+      html: `
+        <article>
+          <h1 data-job-field="title">Mathematics Teacher</h1>
+          <div data-job-field="location">Montreux, CH</div>
+          <div data-job-field="hiringOrganization">Inspired Education</div>
+          <div data-careersite-propertyid="description">
+            Inspired Education is a global group of premium schools with a portfolio of schools across several continents.
+            ROLE SUMMARY: For International School of Ticino, we seek a Mathematics Teacher.
+          </div>
+        </article>
+      `,
+    });
+
+    expect(result).not.toMatchObject({ isIst: true });
+  });
+
   it('classifies a Swiss role whose role summary explicitly names another Inspired school', () => {
     const result = classifyIstDetailPage({
       sourceUrl: 'https://jobs.inspirededu.com/job/Montreux-Specialist-Teacher-Humanities/1375742257/',
