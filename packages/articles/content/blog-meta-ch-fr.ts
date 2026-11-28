@@ -8762,6 +8762,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.autorizzazione-edilizia-cantone-svitto.title': 'Permis de construire dans le canton de Schwytz : règles et services cantonaux',
     'blog.article.autorizzazione-edilizia-cantone-svitto.excerpt': 'Les règles et les services relatifs au permis de construire dans le canton de Schwytz relèvent de la compétence cantonale.',
     'blog.article.autorizzazione-edilizia-cantone-svitto.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.voto-federale-iniziative-referendum.title': 'Votes fédéraux : quatre dates annuelles et seuils de signatures',
+    'blog.article.voto-federale-iniziative-referendum.excerpt': 'Le calendrier fédéral prévoit quatre dates de votation par an. L\'initiative populaire nécessite 100\'000 signatures en 18 mois.',
+    'blog.article.voto-federale-iniziative-referendum.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

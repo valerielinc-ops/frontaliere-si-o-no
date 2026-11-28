@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Sat, 28 Nov 2026 00:21:35 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 28 Nov 2026 01:17:56 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -17,6 +17,57 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Federal votes: four annual dates and signature thresholds</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/federal-vote-initiatives-referendum/</link>
+      <description><![CDATA[The federal calendar provides for four voting dates per year.]]></description>
+      <content:encoded><![CDATA[## TL;DR
+- The federal calendar provides for four voting dates per year.
+- The popular initiative requires 100'000 signatures in 18 months.
+- The optional referendum requires 50'000 signatures in 100 days.
+- Constitutional amendments require a double majority.
+
+## Key facts
+- Scope: initiatives and referendums in the Canton of Schwyz
+- Federal votes are held on four dates each year
+- A popular initiative requires 100'000 signatures collected over a period of 18 months
+- An optional referendum requires 50'000 signatures within 100 days
+- A constitutional amendment must obtain a double majority of the people and the cantons
+
+Four federal voting dates per year are the precise temporal reference available for navigating the Swiss calendar. The editorial brief concerns a guide to cantonal voting in the Canton of Schwyz, but does not report the dates of cantonal votes or a calendar for the canton. The federal figure should therefore not be read as a Schwyz calendar.
+
+### The available figures
+Within the framework of national direct democracy, the stated threshold for a popular initiative is 100'000 signatures to be collected over a period of 18 months. For an optional referendum, the threshold is 50'000 signatures within 100 days. These are two distinct instruments, with different numbers of signatures and different periods. These figures describe the requirements reported for the federal level; the available information does not say whether or how the thresholds and deadlines apply to cantonal procedures in Schwyz.
+
+Another element concerns constitutional amendments: the source states that a double majority is required, namely that of the people and that of the cantons. This is a condition different from the signature count and does not replace the deadlines indicated for initiatives and referendums. The documentation does not associate a particular calendar with this rule.
+
+For anyone looking for a practical guide specific to voting in Schwyz, the scope of the verifiable facts therefore remains limited: the main federal figures on the frequency of votes, signatures and the double majority are available, but no cantonal voting dates or instructions specific to the canton are provided. This distinction is essential to avoid turning a national rule into an undocumented local indication.
+## How to read the thresholds
+
+### An arithmetic comparison, not a prediction
+The two thresholds allow a numerical comparison, provided that one takes into account that they measure different instruments and use time frames expressed in different units. The popular initiative specifies 100'000 signatures in 18 months; the optional referendum, 50'000 in 100 days. The first total is twice the second: 100'000 divided by 50'000 equals 2. This ratio concerns only the number of signatures required in the reported data. It does not show that one instrument is easier, more likely or faster to use.
+
+An arithmetic average over the stated period can also be calculated. Dividing 100'000 by 18 months gives approximately 5'556 signatures per month; dividing 50'000 by 100 days gives 500 signatures per day. These are averages derived from the source's totals and durations, not official quotas to be reached every month or every day. The source sets the total and the time frame, but does not describe an intermediate collection rate.
+
+The averages do not make the two time frames directly comparable: one is expressed per month and the other per day. Without converting months into a conventional number of days, it would be inappropriate to present a comparison of rates based on different units. Even with a conversion, the result would remain a theoretical calculation, not additional information about how the procedures work.
+
+The useful distinction for the reader is therefore among three pieces of information: the type of instrument, the total number of signatures and the stated deadline. The comparison does not add a new requirement and does not make it possible to derive a collection schedule. Above all, these calculations concern the reported federal figures: they cannot be applied to the cantonal vote in Schwyz without specific cantonal data. The material does not provide such data, so the comparison remains a way to read the national figures, not an operational guide to initiatives or referendums in the canton.
+## The double majority and local limits
+
+### A rule distinct from signatures
+For constitutional amendments, the stated condition is a double majority: a majority of the people and a majority of the Cantons are required. The essential meaning of the formula is that a majority in only one of the two components does not constitute the required double majority. This rule concerns the outcome of the constitutional amendment; the thresholds of 100'000 and 50'000 signatures, by contrast, concern the popular initiative and optional referendum, respectively. The source does not provide percentages, cantonal counts or other numerical details about the double majority.
+
+This distinction helps avoid confusing different stages and criteria. Signatures and the related deadlines are access thresholds described for the instruments of direct democracy; the double majority is the criterion indicated for a constitutional amendment. The available data do not reveal any further steps, nor is it possible to infer which specific cantonal vote in Schwyz concerns a constitutional amendment.
+
+In addition, the cantonal calendar for Schwyz, the dates of any particular consultation, the eligibility requirements for voters and the official voting procedures are not documented. Nor are details provided about cantonal procedures for initiatives and referendums. These omissions make it impossible to use federal figures to answer local questions: the four annual dates refer to federal votes, while the signature deadlines are the national values listed in the source.
+
+A complete local guide would require explicit cantonal information relating to the consultation in question. Such information is not provided here, so it is not possible to give an upcoming date, establish who is eligible to vote in Schwyz or describe cantonal channels and deadlines. The verifiable information remains the distinction between the federal framework and the cantonal topic: the former provides thresholds and the double-majority rule; the latter is the subject of the requested guide, but without documented operational details.]]></content:encoded>
+      <pubDate>Sat, 28 Nov 2026 01:17:56 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/voto-federale-iniziative-referendum</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-lucerna-elezioni-calendario-voto.webp" medium="image"/>
+    </item>
     <item>
       <title>Building permits in the Canton of Schwyz: rules and cantonal offices</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/building-permit-canton-schwyz/</link>
@@ -3231,76 +3282,6 @@ The employment data are also limited. Approximately 100 jobs at risk in Le Locle
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/zenith-rischio-posti-svizzera</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-zenith-rischio-posti-svizzera.webp" medium="image"/>
-    </item>
-    <item>
-      <title>PVL reluctantly recommends a yes to AVS financing</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/pvl-assembly-avs-financing/</link>
-      <description><![CDATA[After a close discussion, the delegates of the Liberal Greens (PVL), meeting in Bern, chose to recommend "yes" to the additional funding of the AVS.]]></description>
-      <content:encoded><![CDATA[## TL;DR
-- The PVL recommends a yes vote on supplementary AVS funding
-- Yes also to the fireworks initiative
-- No to the proposal on marriage discrimination
-- The four proposals will be voted on November 29
-
-## Key facts
-- Decision → yes with gritted teeth to the financing of the HSV
-- Place of the delegates' → meeting in Bern
-- Glacier → retreat rate of 5% thisyear
-- Popular → vote consultation on four proposals on 29 November
-
-After a close discussion, the delegates of the Liberal Greens (PVL), meeting in Bern, chose to recommend "yes" to the additional funding of the AVS. The decision was communicated at the end of the meeting and defined as a "yes to gritted teeth". The party linked it to the popular decision on the introduction of the 13th monthly payment, explaining that with this recommendation it intends to assume its responsibility.
-
-The political motivation concerns the way in which the new service is financed. The PVL advocates a moderate increase in value added tax, VAT, to create partial and reliable funding and spread the costs across all shoulders. However, the communiqué does not present this intervention as the solution to all the AVS issues: for the remaining challenges, the party speaks of a sustainable reform.
-
-> "A moderate increase in value added tax (VAT) would make it possible to guarantee a reliable partial financing and to share the costs among everyone. To address the remaining challenges, however, the AVS needs sustainable reform.”
-
-The statement cited by Keystone-ATS attributes the statement to Patrick Hässig, who is part of the National Council's Social Security and Health Commission. The report thus highlights two distinct plans: the financing of the 13th annuity and the call for broader reform for the remaining insurance challenges.
-
-### The other decisions of the meeting
-
-The popular initiative "For a limitation of fireworks" won the support of the PVL after a controversial confrontation. On the proposal that aims to ensure fair taxation for spouses and to end marriage discrimination, however, the position has been clear: the Liberal Greens reject it. The party recalls that the people only approved individual taxation in March and argues that this decision must be respected and applied consistently.
-
-Already in April, the PVL had expressed its support for the amendment of the federal law on war materiel. The people will be called to pronounce on the four proposals on November 29.
-## The tax issue: funding and reform do not coincide
-
-The central point is not merely the affirmative vote, but the separation between the source of funding and AVS reform. In the text released after the assembly, the PVL argues that a moderate increase in VAT could provide reliable partial funding. In the same passage, it acknowledges that other challenges remain and links them to the need for sustainable reform. The position, therefore, does not amount to a promise that the entire AVS/AHV pension provision issue has been resolved.
-
-For those who live or work in Switzerland, the tax distinction helps interpret the news correctly. The press release refers to value-added tax and does not indicate any measure involving direct federal tax. Nor does it mention cantonal or municipal tax rates. Indeed, verified facts about the Swiss tax system distinguish the AFC/ESTV, which is responsible for IFD and VAT, from cantonal administrations, which administer cantonal and municipal taxation. The reference to the cantons therefore serves to define the scope: the proposal described in the source concerns VAT, whereas it is not presented as a change to local taxes.
-
-### What can and cannot be quantified
-
-| Element | Documented information |
-|---|---|
-| Instrument indicated | Moderate increase in VAT |
-| Stated objective | Reliable partial funding of the 13th pension payment |
-| Amount of the increase | Not reported in the press release |
-| Overall reform | Considered necessary to address AVS's remaining challenges |
-
-The table shows the report's main limitation. The tax instrument and its political function are clear, but the new tax rate, the effective date, and the calculation of the burden on individual consumers or households are missing. The statement about spreading the costs across everyone is a PVL justification, not a numerical breakdown.
-
-The text also provides no basis for measuring an effect on the cost of living, nor does it link the proposal to LPP/BVG or other areas of pension provision. It is therefore not possible to derive from the press release alone a change in an individual's pension or an amount to be paid. The only explicit economic detail is the increase in VAT described as “moderate,” without a figure.
-
-The PVL's choice should therefore be understood as a political recommendation on funding the 13th pension payment. The decision does not contain, in the available report, a technical timetable for the sustainable reform called for to address the remaining challenges.
-## From social security to the PVL's political agenda
-
-The delegates' assembly also addressed issues that go beyond financing the AHV. In his speech, party president Jürg Grossen referred to climate and energy issues, as well as relations with Europe. He linked the climate issue to the 5% retreat of glaciers recorded this year: according to the Bernese National Councillor, a policy focused exclusively on CO2 is no longer sufficient.
-
-### Climate, water and relations with Europe
-
-In the reasoning attributed to Grossen, the climate issue encompasses water, energy, forests and agriculture, as well as vital resources and, ultimately, well-being. The PVL also stated that it would continue to exert pressure for a national water-storage strategy and a genuine climate policy. The source therefore reports a political line and some declared priorities, but does not indicate an operational plan, spending or a deadline for these initiatives.
-
-The party leadership also reiterated the importance of reliable relations with the European Union. The Bilateral III agreements were described as indispensable for Switzerland. The PVL unanimously supports the agreements as a whole and declares that it is committed to further developing the bilateral approach. On this front too, the report does not describe additional measures or a negotiating timetable.
-
-These issues are not included in the list of the four proposals put to a popular vote on November 29. The amendment to the Federal Act on War Material, by contrast, had already been supported by the PVL in April and is one of the proposals on which the people will vote. The source does not anticipate the outcome of the consultation and does not specify the content of the legislative amendment beyond its subject matter.
-
-The documented picture therefore remains precise but limited: a recommendation on financing the 13th pension payment, two other positions on popular initiatives, support already decided on war material and a political line on climate and Europe. For the pension issue, see AVS and pension.
-
-*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/assemblea-pvl%3a-%22s%c3%ac-a-denti-stretti%22-al-finanziamento-dell%27avs/92268148)*]]></content:encoded>
-      <pubDate>Sat, 24 Oct 2026 21:42:24 GMT</pubDate>
-      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/assemblea-pvl-avs-finanziamento</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-assemblea-pvl-avs-finanziamento.webp" medium="image"/>
     </item>
   </channel>
 </rss>

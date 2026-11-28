@@ -8762,6 +8762,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.autorizzazione-edilizia-cantone-svitto.title': 'Building permits in the Canton of Schwyz: rules and cantonal offices',
     'blog.article.autorizzazione-edilizia-cantone-svitto.excerpt': 'The rules and offices for building permits in the Canton of Schwyz fall under cantonal jurisdiction.',
     'blog.article.autorizzazione-edilizia-cantone-svitto.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.voto-federale-iniziative-referendum.title': 'Federal votes: four annual dates and signature thresholds',
+    'blog.article.voto-federale-iniziative-referendum.excerpt': 'The federal calendar provides for four voting dates per year.',
+    'blog.article.voto-federale-iniziative-referendum.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

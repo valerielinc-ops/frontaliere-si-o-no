@@ -2943,6 +2943,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'assistenza-sociale-svitto-criterio-bisogno': { it: 'assistenza-sociale-svitto-criterio-bisogno', en: 'schwyz-social-assistance-need-criterion', de: 'schwyz-sozialhilfe-bedarfsprinzip', fr: 'aide-sociale-schwytz-critere-besoin' },
  'voto-federale-soglie-svitto': { it: 'voto-federale-soglie-svitto', en: 'federal-vote-thresholds-svizzera', de: 'bundabstimmung-schwellen-sviz', fr: 'vote-federal-seuils-svit' },
  'autorizzazione-edilizia-cantone-svitto': { it: 'autorizzazione-edilizia-cantone-svitto', en: 'building-permit-canton-schwyz', de: 'baugenehmigung-kanton-schwyz', fr: 'permis-construire-canton-schwytz' },
+ 'voto-federale-iniziative-referendum': { it: 'voto-federale-iniziative-referendum', en: 'federal-vote-initiatives-referendum', de: 'bundabstimmung-initiativen-referendum', fr: 'vote-federal-initiatives-referendum' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

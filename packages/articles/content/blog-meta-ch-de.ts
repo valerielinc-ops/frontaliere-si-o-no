@@ -8762,6 +8762,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.autorizzazione-edilizia-cantone-svitto.title': 'Baubewilligung im Kanton Schwyz: Regeln und kantonale Ämter',
     'blog.article.autorizzazione-edilizia-cantone-svitto.excerpt': 'Die Regeln und Ämter für Baubewilligungen im Kanton Schwyz fallen in die kantonale Zuständigkeit.',
     'blog.article.autorizzazione-edilizia-cantone-svitto.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.voto-federale-iniziative-referendum.title': 'Bundesabstimmungen: vier Abstimmungstermine pro Jahr und Unterschriftenhürden',
+    'blog.article.voto-federale-iniziative-referendum.excerpt': 'Der eidgenössische Kalender sieht vier Abstimmungstermine pro Jahr vor.',
+    'blog.article.voto-federale-iniziative-referendum.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

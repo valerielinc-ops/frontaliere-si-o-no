@@ -8762,6 +8762,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.autorizzazione-edilizia-cantone-svitto.title': 'Autorizzazione edilizia Cantone Svitto: regole e uffici cantonali',
     'blog.article.autorizzazione-edilizia-cantone-svitto.excerpt': 'Le regole e gli uffici per l\'autorizzazione edilizia nel Cantone di Svitto sono di competenza cantonale.',
     'blog.article.autorizzazione-edilizia-cantone-svitto.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.voto-federale-iniziative-referendum.title': 'Voti federali: quattro date annuali e soglie di firme',
+    'blog.article.voto-federale-iniziative-referendum.excerpt': 'Il calendario federale prevede quattro date di voto all\'anno.',
+    'blog.article.voto-federale-iniziative-referendum.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;
