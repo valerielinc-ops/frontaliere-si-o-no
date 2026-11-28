@@ -1,7 +1,7 @@
 {
   "key": "stryker",
   "label": "Stryker",
-  "generatedAt": "2026-11-27T21:36:48.351Z",
+  "generatedAt": "2026-11-28T09:47:58.645Z",
   "total": 0,
   "discovered": null,
   "parsed": null,
@@ -21,13 +21,13 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee",
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64",
   "workdayRateLimit": {
     "tenant": "https://stryker.wd1.myworkdayjobs.com/wday/cxs/stryker/StrykerCareers",
     "firstRateLimitedAt": "2026-11-27T21:36:48.357Z",
-    "lastRateLimitedAt": "2026-11-27T21:36:48.357Z",
-    "consecutiveRuns": 1,
-    "nextAttemptAfter": "2026-11-28T03:36:48.357Z",
+    "lastRateLimitedAt": "2026-11-28T09:47:58.650Z",
+    "consecutiveRuns": 2,
+    "nextAttemptAfter": "2026-11-28T21:47:58.650Z",
     "outcome": "rate-limited"
   }
 }

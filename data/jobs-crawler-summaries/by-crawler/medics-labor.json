@@ -1,7 +1,7 @@
 {
   "key": "medics-labor",
   "label": "Medics Labor AG",
-  "generatedAt": "2026-11-27T21:37:11.289Z",
+  "generatedAt": "2026-11-28T09:45:12.087Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 5528,
-  "avgDurationMs": 5528,
+  "durationMs": 6375,
+  "avgDurationMs": 6375,
   "durationHistory": [
-    5528
+    6375
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "url": "https://app.reflinejobs.io/1474/0156/pub/113/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:36:51.706Z",
+      "crawledAt": "2026-11-28T09:44:54.450Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T21:36:51.706Z",
+      "validThrough": "2027-02-21T09:44:54.450Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -86,7 +86,7 @@
       "url": "https://app.reflinejobs.io/1474/0153/pub/111/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:36:51.176Z",
+      "crawledAt": "2026-11-28T09:44:53.782Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:36:51.176Z",
+      "validThrough": "2027-02-16T09:44:53.782Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -133,7 +133,7 @@
       "url": "https://app.reflinejobs.io/1474/0147/pub/109/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:36:50.640Z",
+      "crawledAt": "2026-11-28T09:44:53.096Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -157,7 +157,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:36:50.640Z",
+      "validThrough": "2027-02-04T09:44:53.096Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -168,5 +168,5 @@
       }
     }
   ],
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
 }
