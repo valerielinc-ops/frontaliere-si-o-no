@@ -16,6 +16,7 @@ import path from 'node:path';
 import { reconcileGhostExpired } from '../scripts/assemble-jobs-dataset.mjs';
 import { reconcileExpiredSlugs } from '../scripts/reconcile-job-slugs.mjs';
 import { localeRouteKeys } from '../scripts/lib/expired-jobs-archive.mjs';
+import { hasSinglePostingToken } from '../scripts/lib/ghost-route-transfer.mjs';
 
 const sliceDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ghost-keep-slices-'));
 afterAll(() => fs.rmSync(sliceDir, { recursive: true, force: true }));
@@ -145,6 +146,71 @@ describe('reconcileGhostExpired — routes survive the ghost gate', () => {
 
     expect(result.cleanedExpired).toHaveLength(2);
     expect(JSON.parse(fs.readFileSync(file, 'utf8'))).toHaveLength(2);
+  });
+});
+
+describe('hasSinglePostingToken — the token must sit where a posting is named', () => {
+  const UUID = '7f3c9a2e-5b41-4d8e-9c02-6a1b2c3d4e5f';
+  const HASH = '0a1b2c3d4e5f60718293a4b5c6d7e8f9';
+  const base = 'https://careers.example-garden.test';
+
+  it.each([
+    // The review's example, then the same class for each token shape.
+    `url:${base}/it/jobs?postalCode=12345`,
+    `url:${base}/it/jobs?sid=${HASH}`,
+    `url:${base}/it/jobs?utm_id=${UUID}`,
+    `url:${base}/it/jobs?companyId=123456`,
+    `url:${base}/it/jobs?tenant=${UUID}`,
+    `url:${base}/jobs/search?team=231361275`,
+    'url:https://recruiting-123456.example-garden.test/it/jobs',
+    `url:https://${HASH}.example-garden.test/it/jobs`,
+    // Ancestor segments name a board, a tenant, a session or a folder.
+    `url:${base}/${UUID}/jobs`,
+    `url:${base}/878019/0445/pub/3/index.html`,
+    `url:${base}/uploads/1/4/146598773/greenhouse_keeper.pdf`,
+    `url:${base}/s/${HASH}/it/jobs`,
+    `url:${base}/it/jobs;jsessionid=${HASH}`,
+    // The segment before the token says what it names.
+    `url:${base}/jobs/company/123456`,
+    `url:${base}/jobs/plz/12345`,
+    `url:${base}/job/greenhouse-keeper/widgetid/${UUID}`,
+    `url:${base}/jobs/123456/search`,
+    // Fragments.
+    `url:${base}/it/jobs#session=${HASH}`,
+    `url:${base}/it/jobs#postalCode=12345`,
+    `url:${base}/it/jobs#12345`,
+  ])('rejects %s', (identity) => {
+    expect(hasSinglePostingToken(identity)).toBe(false);
+  });
+
+  it.each([
+    `url:${base}/job/12345`,
+    `url:${base}/jobs/greenhouse-keeper/${UUID}`,
+    `url:${base}/en/job/22479/greenhouse-keeper`,
+    `url:${base}/jobs/57681/greenhouse-keeper/job?hub=13`,
+    `url:${base}/en/jobs/jr135079/greenhouse-keeper`,
+    `url:${base}/job/${HASH}/greenhouse-keeper`,
+    `url:${base}/greenhouse-keeper-j123456.html?sid=${HASH}`,
+    `url:${base}/jobs/job-details?jobId=280476573&team=231361275`,
+    `url:${base}/view?id=535252897224001458`,
+    `url:${base}/apply?reqId=12345`,
+    `url:${base}/apply?gh_jid=1234567`,
+    `url:${base}/it/jobs/#job.id=12345`,
+    `url:${base}/careers#offer/123456/greenhouse-keeper`,
+    `url:${base}/careers#/jobs/${UUID}`,
+    'id:example-garden-123456',
+  ])('accepts %s', (identity) => {
+    expect(hasSinglePostingToken(identity)).toBe(true);
+  });
+
+  it('keeps the record when the shared URL only carries a token that is not the posting', () => {
+    const shared = `${LISTING}?postalCode=12345`;
+    const active = activeJob({ url: shared });
+    const record = ghost({ sourceIdentity: `url:${shared}` });
+    const result = run([active], [record]);
+
+    expect(result.cleanedExpired).toEqual([record]);
+    expect(holds(active, 'ancien-serriste-example-garden')).toBe(false);
   });
 });
 

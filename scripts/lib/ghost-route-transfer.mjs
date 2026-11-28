@@ -23,13 +23,61 @@ const UUID_RE = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
 const LONG_NUMBER_RE = /\d{5,}/;
 const LONG_HEX_RE = /(?<![0-9a-z])(?=[0-9a-f]*\d)(?=[0-9a-f]*[a-f])[0-9a-f]{12,}(?![0-9a-z])/i;
 
+// Path segments after which the next segment names one posting.
+const JOB_SEGMENTS = new Set(['job', 'jobs', 'offer', 'position', 'vacancy', 'vacancies']);
+// A path ending in one of these is a list, whatever id comes before it.
+const LISTING_LEAVES = new Set(['jobs', 'list', 'results', 'search', 'vacancies']);
+// A segment with one of these names says the next one is not a posting.
+const OTHER_ID_SEGMENTS = new Set([
+  'board', 'category', 'client', 'companies', 'company', 'department', 'employer', 'location', 'org',
+  'organisation', 'organization', 'plz', 'postalcode', 'postcode', 'session', 'sid', 'team',
+  'tenant', 'token', 'widget', 'widgetid', 'zip',
+]);
+// Query or fragment names (without `.`, `_`, `-`) that identify a posting.
+const POSTING_PARAMS = new Set([
+  'ghjid', 'id', 'jid', 'jobid', 'offerid', 'positionid', 'postingid', 'reqid', 'requisitionid', 'vacancyid',
+]);
+
+const hasToken = (value) => UUID_RE.test(value) || LONG_NUMBER_RE.test(value) || LONG_HEX_RE.test(value);
+
+/** The leaf, or the segment right after a job segment. `;…` matrix parameters are ignored. */
+function pathNamesPosting(path) {
+  const segments = path.split('/').map((segment) => segment.split(';')[0]).filter(Boolean);
+  const names = segments.map((segment) => segment.toLowerCase());
+  const isList = LISTING_LEAVES.has(names.at(-1));
+  return segments.some((segment, index) => {
+    const previous = names[index - 1];
+    if (!hasToken(segment) || OTHER_ID_SEGMENTS.has(previous)) return false;
+    return index === segments.length - 1 || (!isList && JOB_SEGMENTS.has(previous));
+  });
+}
+
+function paramNamesPosting(params) {
+  return [...params].some(([name, value]) => (
+    POSTING_PARAMS.has(name.toLowerCase().replace(/[._-]/g, '')) && hasToken(value)
+  ));
+}
+
 /**
- * Whether an identity carries a token that names one posting. A careers listing
- * page (`…/it/jobs`) has none, and every posting read from it shares its URL.
- * Four digits are not enough: they are as often a year or a postal code.
+ * Whether an identity carries a token that names one posting. In a URL the token
+ * must sit in the leaf or after a job segment, in a posting-id parameter, or in a
+ * hash route or parameter read the same way: a host, a tenant folder, a session
+ * or tracking value and a postal-code filter are all shared by a listing's
+ * postings. An `id:` identity is judged whole. A careers listing page
+ * (`…/it/jobs`) has no such token. Four digits are not enough: they are as often
+ * a year or a postal code. `mergeUrlKey` is not reused: it reads a token from
+ * any query parameter and misses five-digit ids such as `/job/12345`.
  */
 export function hasSinglePostingToken(value) {
-  return UUID_RE.test(value) || LONG_NUMBER_RE.test(value) || LONG_HEX_RE.test(value);
+  if (!value.startsWith('url:')) return hasToken(value);
+  const href = sourcePostingUrlHref(value.slice(4));
+  if (!href) return false;
+  const { pathname, searchParams, hash } = new URL(href);
+  if (pathNamesPosting(pathname) || paramNamesPosting(searchParams)) return true;
+  const fragment = hash.slice(1);
+  return /^(?:\/|(?:job|offer)\/)/i.test(fragment)
+    ? pathNamesPosting(fragment.split('?')[0])
+    : paramNamesPosting(new URLSearchParams(fragment));
 }
 
 /**
