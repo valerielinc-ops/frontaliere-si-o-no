@@ -16,9 +16,16 @@
  * → errore: un insieme vuoto rimetterebbe in indice ogni articolo escluso senza
  * che niente fallisca.
  *
- * Modulo puro, `.mjs` e senza dipendenze: lo importano l'engine sotto Vite/tsx e
- * gli script CI sotto `node` semplice.
+ * Eccezione per domanda: `article-index-demand-keeps.json` (stessa cartella di
+ * questo modulo) elenca gli articoli che il ledger ritirerebbe per tema ma che
+ * hanno clic GSC reali. Sono sottratti dal ledger qui, una volta, cosi' pagina,
+ * RSS e sitemap del corpus decidono tutti allo stesso modo.
+ *
+ * Modulo `.mjs`, senza dipendenze oltre `node:path`: lo importano l'engine sotto
+ * Vite/tsx e gli script CI sotto `node` semplice.
  */
+
+import nodePath from 'node:path';
 
 export const ARTICLE_INDEX_EXCLUSIONS_FILES = Object.freeze([
   'packages/articles/content/article-index-exclusions.json',
@@ -68,6 +75,37 @@ export function assertArticleIndexExclusionsKnown(exclusions, knownKeys) {
 }
 
 /**
+ * Articoli che il ledger ritirerebbe ma che hanno clic GSC reali. Il file sta
+ * accanto a questo modulo (`engine/shared/`) in entrambi i layout: da
+ * `<root>/packages/articles/content/` o da `<root>/content/` si risale di uno e
+ * si scende in `engine/shared/`, quindi ogni consumer del ledger lo trova senza
+ * cambiare firma.
+ */
+export const ARTICLE_INDEX_DEMAND_KEEPS_FILENAME = 'article-index-demand-keeps.json';
+
+/**
+ * @param {string} raw contenuto del file keeps
+ * @returns {Set<string>} chiavi `sezione|id`
+ */
+export function parseArticleIndexDemandKeeps(raw) {
+  const parsed = JSON.parse(raw);
+  if (!parsed || !Array.isArray(parsed.keeps)) {
+    throw new Error('article-index-demand-keeps: manca l\'array `keeps`');
+  }
+  const keys = new Set();
+  for (const row of parsed.keeps) {
+    if (typeof row?.section !== 'string' || !row.section || typeof row?.id !== 'string' || !row.id) {
+      throw new Error(`article-index-demand-keeps: riga senza section/id: ${JSON.stringify(row)}`);
+    }
+    if (!ARTICLE_INDEX_EXCLUSION_SECTIONS.includes(row.section)) {
+      throw new Error(`article-index-demand-keeps: sezione non supportata: ${row.section}`);
+    }
+    keys.add(articleIndexExclusionKey(row.section, row.id));
+  }
+  return keys;
+}
+
+/**
  * @param {{ readFileSync: (file: string, encoding: 'utf-8') => string, existsSync: (file: string) => boolean }} fs
  * @param {readonly string[]} candidates path assoluti, in ordine di risoluzione
  * @returns {Set<string>}
@@ -75,7 +113,13 @@ export function assertArticleIndexExclusionsKnown(exclusions, knownKeys) {
 export function loadArticleIndexExclusions(fs, candidates) {
   for (const candidate of candidates) {
     if (!fs.existsSync(candidate)) continue;
-    return parseArticleIndexExclusions(fs.readFileSync(candidate, 'utf-8'));
+    const excluded = parseArticleIndexExclusions(fs.readFileSync(candidate, 'utf-8'));
+    const keepsFile = nodePath.join(nodePath.dirname(candidate), '..', 'engine', 'shared', ARTICLE_INDEX_DEMAND_KEEPS_FILENAME);
+    // Absent keeps file = no keeps. Present but unreadable = error: an empty
+    // set would silently re-noindex every article that earns clicks.
+    if (!fs.existsSync(keepsFile)) return excluded;
+    for (const key of parseArticleIndexDemandKeeps(fs.readFileSync(keepsFile, 'utf-8'))) excluded.delete(key);
+    return excluded;
   }
   return new Set();
 }
