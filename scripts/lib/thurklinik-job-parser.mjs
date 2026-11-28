@@ -55,6 +55,9 @@ const DETAIL_ROOT_SELECTORS = [
   '#content',
   'article',
   '.entry-content',
+  // Since 2026-11-28 the posting body is a raw-HTML WPBakery block (h1 inline)
+  // with none of the semantic roots above.
+  '.tk-page',
 ];
 const DETAIL_CHROME_SELECTOR =
   'nav, header, footer, aside, form, script, style, noscript, .breadcrumb, .breadcrumbs, [aria-label="breadcrumb"]';
@@ -201,6 +204,32 @@ export function parseListing(html = '') {
 }
 
 /**
+ * The JobPosting the detail page publishes for search engines
+ * (`script#tk-job-ld`, or any `application/ld+json` JobPosting). Its
+ * `description` is HTML written by the clinic, so it is turned into text like
+ * any other source body.
+ *
+ * @param {Document} document
+ * @returns {{ title: string, description: string }|null}
+ */
+function readJobPostingLd(document) {
+  const scripts = [
+    ...document.querySelectorAll('script#tk-job-ld'),
+    ...document.querySelectorAll('script[type="application/ld+json"]'),
+  ];
+  for (const script of scripts) {
+    let data;
+    try { data = JSON.parse(script.textContent || ''); } catch { continue; }
+    for (const item of Array.isArray(data) ? data : [data]) {
+      if (item?.['@type'] !== 'JobPosting' || typeof item.description !== 'string') continue;
+      const description = htmlToText(item.description);
+      if (description) return { title: String(item.title || ''), description };
+    }
+  }
+  return null;
+}
+
+/**
  * Extract the source text from a Thurklinik vacancy detail page.
  *
  * The selector order is deliberately semantic and fail-closed: scraping the
@@ -225,9 +254,14 @@ export function parseDetailPage(html = '', fallbackTitle = '') {
       break;
     }
     if (!root) {
+      // No semantic root: the page's own JobPosting JSON-LD carries the source
+      // text of the posting. Anything else stays empty (fail-closed).
+      const posting = readJobPostingLd(document);
       return {
-        title: cleanThurklinikTitle(document.querySelector('h1')?.textContent || fallbackTitle),
-        description: '',
+        title: cleanThurklinikTitle(
+          document.querySelector('h1')?.textContent || posting?.title || fallbackTitle,
+        ),
+        description: posting?.description || '',
       };
     }
 

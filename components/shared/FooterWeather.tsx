@@ -18,6 +18,25 @@ interface MiniWeather {
  city?: string;
 }
 
+/**
+ * Reserved height of the strip (CLS, tracker 20414: 103 GA4 events 17-23/11).
+ * The component used to return an empty <div/> until the weather arrived and
+ * then mounted a flex-wrap strip, pushing the footer down. The reservation is
+ * identical for the empty and the loaded state.
+ *
+ * Possible rows (a pill is `py-1.5` 12px + 20px `text-sm` emoji line = 32px,
+ * rows `gap-2` 8px apart; one row sits in a 36px box, the same height as the
+ * `SkeletonFooterSlot` fallback the lazy boundary in App.tsx paints first):
+ *  - Lugano + Como (always): ~128 + 8 + ~118 = ~254px, one row from 320px up;
+ *  - + the visitor's own city pill (only when far from Lugano/Como, arrives
+ *    later, one more ~128px pill): ~390px. The footer container is the viewport
+ *    minus `px-4` (32px), so below ~480px the third pill wraps -> two rows
+ *    (32 + 8 + 32 = 72px); from 480px a single row is enough.
+ * The reserve is a minimum: a long city name that wraps further still grows
+ * the strip, it never shrinks below the box.
+ */
+export const FOOTER_WEATHER_RESERVE_CLASS = 'min-h-[72px] min-[480px]:min-h-[36px]';
+
 const WEATHER_CACHE_TTL = 30 * 60 * 1000;
 const USER_LOCATION_CACHE_TTL = 60 * 60 * 1000; // 1 hour
 
@@ -232,10 +251,12 @@ const FooterWeather: React.FC = () => {
  }, [isVisible, user?.uid]);
 
  // Show a placeholder div even before data loads so IntersectionObserver has a target
- if (!lugano && !como && !userWeather) return <div ref={containerRef} />;
+ if (!lugano && !como && !userWeather) {
+ return <div ref={containerRef} className={FOOTER_WEATHER_RESERVE_CLASS} />;
+ }
 
  return (
- <div ref={containerRef} className="flex flex-wrap items-center justify-center gap-2">
+ <div ref={containerRef} className={`flex flex-wrap items-center content-center justify-center gap-2 ${FOOTER_WEATHER_RESERVE_CLASS}`}>
  {userWeather && userCity && (
  <WeatherPill weather={userWeather} label={userCity} isUser />
  )}
