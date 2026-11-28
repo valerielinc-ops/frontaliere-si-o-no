@@ -1,7 +1,7 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-11-28T09:45:37.537Z",
+  "generatedAt": "2026-11-28T21:37:59.147Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -10,16 +10,18 @@
   "authoritativeSnapshotVerified": false,
   "written": 1,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5376,
-  "avgDurationMs": 5376,
+  "unchangedCount": 1,
+  "durationMs": 4452,
+  "avgDurationMs": 4452,
   "durationHistory": [
-    5376
+    4452
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Compliance Officer",
       "company": "PKB Private Bank SA",
@@ -35,13 +37,13 @@
       "datePosted": "2026-10-23",
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "validThrough": "2027-01-21T09:45:13.692Z",
+      "validThrough": "2027-01-21T21:37:44.726Z",
       "sector": "Banca e servizi finanziari",
       "role": "Contabilità/Banca/Finanza",
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-28T09:45:13.692Z",
+      "crawledAt": "2026-11-28T21:37:44.726Z",
       "id": "pkb-private-bank-861a521add1e",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-23T09:46:10.994Z",
@@ -63,7 +65,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
+  "codeCommit": "e60bb477e02fc78f2385473075e1dff5d9e2799a"
 }

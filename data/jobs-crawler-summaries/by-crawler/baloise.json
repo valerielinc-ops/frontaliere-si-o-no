@@ -1,7 +1,7 @@
 {
   "key": "baloise",
   "label": "Baloise",
-  "generatedAt": "2026-11-28T09:46:25.244Z",
+  "generatedAt": "2026-11-28T21:36:04.829Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 4536,
-  "avgDurationMs": 4536,
+  "durationMs": 4999,
+  "avgDurationMs": 4999,
   "durationHistory": [
-    4536
+    4999
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/berater-w-m-d-private-banking-olten/baae08f3-884a-4f3f-8d20-b23c933fd676",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:46:03.220Z",
+      "crawledAt": "2026-11-28T21:35:47.512Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "salaryMax": 119000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:46:03.220Z",
+      "validThrough": "2026-12-28T21:35:47.512Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/senior-berater-w-m-d-private-banking-solothurn/5b8cd2c4-0f38-4f4b-9ca1-d5138b8d53f1",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:46:03.217Z",
+      "crawledAt": "2026-11-28T21:35:47.508Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "salaryMax": 160000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:46:03.217Z",
+      "validThrough": "2026-12-28T21:35:47.508Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -129,7 +129,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/privatkundenberater-w-m-d-bank-region-solothurn/8b004cab-df59-4102-83a7-e23e3b3051b3",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:46:03.208Z",
+      "crawledAt": "2026-11-28T21:35:47.501Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -152,7 +152,7 @@
       "salaryMax": 119000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:46:03.208Z",
+      "validThrough": "2027-01-20T21:35:47.501Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -175,7 +175,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/mitarbeiter-assistenz-hub-privatkunden-bank-so-be-w-m-d/70fb6d45-b75e-47fa-b8cf-cde3042b3b4d",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:46:03.205Z",
+      "crawledAt": "2026-11-28T21:35:47.499Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -198,7 +198,7 @@
       "salaryMax": 119000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T09:46:03.205Z",
+      "validThrough": "2027-02-05T21:35:47.499Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -221,7 +221,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/mitarbeiter-assistenz-hub-privatkunden-bank-so-zh-w-m-d/4383d8b1-9349-4d5d-9509-6ab4af05f115",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:46:03.199Z",
+      "crawledAt": "2026-11-28T21:35:47.497Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -244,7 +244,7 @@
       "salaryMax": 119000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T09:46:03.199Z",
+      "validThrough": "2027-02-05T21:35:47.497Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -266,7 +266,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/kundenberater-inbound-sowie-outbound-und-kundenzone-w-m-d/bc41dd02-7fc0-4f7c-a6a2-be1d122dd5e8",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:46:03.191Z",
+      "crawledAt": "2026-11-28T21:35:47.493Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -289,7 +289,7 @@
       "salaryMax": 119000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:46:03.191Z",
+      "validThrough": "2026-12-29T21:35:47.493Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -311,7 +311,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/berater-w-m-d-unternehmenskunden-bank/b8a2d618-e0fc-4e7f-b6c7-24fb0b2bcd28",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:46:03.163Z",
+      "crawledAt": "2026-11-28T21:35:47.474Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -334,7 +334,7 @@
       "salaryMax": 95200,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:46:03.163Z",
+      "validThrough": "2027-01-26T21:35:47.474Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -345,5 +345,5 @@
       }
     }
   ],
-  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
+  "codeCommit": "e60bb477e02fc78f2385473075e1dff5d9e2799a"
 }
