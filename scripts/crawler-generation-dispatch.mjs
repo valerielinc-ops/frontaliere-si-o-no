@@ -140,7 +140,28 @@ async function boundedResponseBody(response) {
   }
 }
 
-export function createGitHubActionsRequester({ apiUrl, token, fetchImpl = fetch }) {
+/** A refusal for quota (primary or secondary limit), not for missing permissions. */
+function isRateLimitRefusal({ status, body, retryAfter, rateLimitRemaining }) {
+  if (status === 429) return true;
+  return status === 403 && (rateLimitRemaining === '0' || Boolean(retryAfter)
+    || /rate limit/i.test(typeof body?.message === 'string' ? body.message : ''));
+}
+
+/**
+ * `readFallbackToken` is a second quota for GET only. The dispatch PAT shares its
+ * hourly quota with the whole corpus CI: on 28 Nov 2026 (run 46128375214) the
+ * POSTs of groups 10-25 created their runs while reads with the same PAT were
+ * refused, so no run could be confirmed and a launched wave was rejected with
+ * 16 failures. The fallback answer goes through the same validation as the
+ * primary one; writes never use it.
+ */
+export function createGitHubActionsRequester({
+  apiUrl,
+  token,
+  readFallbackToken = null,
+  onRateLimitRefusal = (/** @type {Record<string, unknown>} */ _refusal) => {},
+  fetchImpl = fetch,
+}) {
   if (!/^https?:\/\//.test(apiUrl ?? '') || typeof token !== 'string' || token.length === 0) {
     throw new TypeError('Missing GitHub dispatch API configuration');
   }
@@ -157,14 +178,14 @@ export function createGitHubActionsRequester({ apiUrl, token, fetchImpl = fetch 
       ? Math.min(30_000, Math.ceil(timeoutMs))
       : 30_000;
     const timer = setTimeout(() => controller.abort(), boundedTimeoutMs);
-    try {
+    const send = async (bearer) => {
       const response = await fetchImpl(`${base}${pathname}`, {
         method,
         redirect: 'error',
         signal: controller.signal,
         headers: {
           accept: 'application/vnd.github+json',
-          authorization: `Bearer ${token}`,
+          authorization: `Bearer ${bearer}`,
           'content-type': 'application/json',
           'x-github-api-version': apiVersion,
         },
@@ -174,7 +195,33 @@ export function createGitHubActionsRequester({ apiUrl, token, fetchImpl = fetch 
         status: response.status,
         body: await boundedResponseBody(response),
         retryAfter: response.headers.get('retry-after'),
+        rateLimitRemaining: response.headers.get('x-ratelimit-remaining'),
+        rateLimitReset: response.headers.get('x-ratelimit-reset'),
       };
+    };
+    const publicShape = ({ status, body: responseBody, retryAfter }) => (
+      { status, body: responseBody, retryAfter }
+    );
+    try {
+      const primary = await send(token);
+      if (!isRateLimitRefusal(primary)) return publicShape(primary);
+      let fallback = null;
+      if (method === 'GET' && readFallbackToken) {
+        try {
+          fallback = await send(readFallbackToken);
+        } catch {
+          // The primary refusal stays the verdict.
+        }
+      }
+      onRateLimitRefusal({
+        method,
+        path: pathname,
+        status: primary.status,
+        remaining: primary.rateLimitRemaining,
+        reset: primary.rateLimitReset,
+        fallbackStatus: fallback?.status ?? null,
+      });
+      return publicShape(fallback?.status === 200 || fallback?.status === 404 ? fallback : primary);
     } finally {
       clearTimeout(timer);
     }
@@ -1347,15 +1394,27 @@ function safeCheckpoint(values) {
   );
 }
 
+function dispatchRequesterOptions(env) {
+  return {
+    apiUrl: env.GITHUB_API_URL,
+    token: env.GITHUB_PAT_NANAKO,
+    readFallbackToken: env.CRAWLER_GENERATION_READ_FALLBACK_TOKEN || null,
+    onRateLimitRefusal: ({ method, path: pathname, status, remaining, reset, fallbackStatus }) => {
+      process.stderr.write(
+        `::warning::GitHub rate limit refused ${method} ${pathname} (status=${status},`
+        + ` remaining=${remaining ?? 'unknown'}, reset=${reset ?? 'unknown'},`
+        + ` read_fallback_status=${fallbackStatus ?? 'not_used'})\n`,
+      );
+    },
+  };
+}
+
 export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(2), env = process.env) {
   const { mode, values } = parseArguments(argv);
   if (mode === 'preflight') {
     let result;
     try {
-      const request = createGitHubActionsRequester({
-        apiUrl: env.GITHUB_API_URL,
-        token: env.GITHUB_PAT_NANAKO,
-      });
+      const request = createGitHubActionsRequester(dispatchRequesterOptions(env));
       result = await runPreflight({
         request,
         contractPath: path.resolve(values['--contract']),
@@ -1414,10 +1473,7 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
   const generationToken = values['--generation-token'];
   let request;
   try {
-    request = createGitHubActionsRequester({
-      apiUrl: env.GITHUB_API_URL,
-      token: env.GITHUB_PAT_NANAKO,
-    });
+    request = createGitHubActionsRequester(dispatchRequesterOptions(env));
   } catch {
     request = async () => { throw new Error('dispatch_api_unavailable'); };
   }
