@@ -267,6 +267,7 @@ jobs:
           path: current-index-validator
           sparse-checkout: |
             /scripts/ci/page-audit-index.mjs
+            /scripts/ci/mount-compressed-dist.sh
             /.github/actions/fetch-pages-artifact/
           sparse-checkout-cone-mode: false
 
@@ -330,6 +331,12 @@ jobs:
           run-id: ${{ inputs.shard_artifact_run_id || inputs.deploy_run_id }}
           output-dir: /tmp/pages
           github-token: ${{ github.token }}
+
+      # The logical dist (6.4M+ files, one directory per page) no longer fits
+      # the runner's ext4 root. Same files and paths on a compressed volume;
+      # see the script header for the measured numbers.
+      - name: Mount dist/ on a compressed volume
+        run: bash current-index-validator/scripts/ci/mount-compressed-dist.sh mount dist
 
       - name: Extract dist/ from the artifact tarball
         env:
@@ -551,6 +558,10 @@ jobs:
           rehydrateRuntimeBudgetObserved "$REHYDRATE_STARTED_AT" "$LOCALE_RC" "$SECTION_RC"
           echo "dist/ now holds $(find dist -type f | wc -l) files"
           if [ "$LOCALE_RC" -ne 0 ]; then exit "$LOCALE_RC"; fi
+
+      - name: Report disk usage after rehydrate
+        if: always()
+        run: bash current-index-validator/scripts/ci/mount-compressed-dist.sh report dist
 
       - name: Verify replay shard provenance after rehydrate
         env:

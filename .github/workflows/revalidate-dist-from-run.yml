@@ -153,6 +153,12 @@ jobs:
           output-dir: /tmp/github-pages-artifact
           github-token: ${{ github.token }}
 
+      # The logical dist (6.4M+ files, one directory per page) no longer fits
+      # the runner's ext4 root. Same files and paths on a compressed volume;
+      # see the script header for the measured numbers.
+      - name: Mount dist/ on a compressed volume
+        run: bash scripts/ci/mount-compressed-dist.sh mount dist
+
       # Only dist/ — no data/ restore. See the "Steps deliberately dropped"
       # note at the bottom of this file for why jobs.json and friends are not
       # needed by the rehydrate scripts or by the gate.
@@ -162,7 +168,8 @@ jobs:
         run: |
           set -euo pipefail
           # Pages artifact wraps a single artifact.tar — extract into dist/.
-          rm -rf dist && mkdir -p dist
+          # dist/ is a mount point (previous step): fill it, never remove it.
+          mkdir -p dist
           tar -xf "$TAR_PATH" -C dist
           # Release the source archive before any shard rehydration.
           rm -f "$TAR_PATH"
@@ -268,6 +275,10 @@ jobs:
           if [ "$LOCALE_RC" -ne 0 ]; then
             exit "$LOCALE_RC"
           fi
+
+      - name: Report disk usage after rehydrate
+        if: always()
+        run: bash scripts/ci/mount-compressed-dist.sh report dist
 
       # THE gate, and the only thing this workflow runs. Output is split so the
       # artifact carries every half: `--json` puts the machine-readable
