@@ -190,7 +190,7 @@ describe('questions the platform answers (labels from the census)', () => {
       order: { orderId: 'synthetic-order', applicantName: 'Candidato Prova', ...extra }, draft: { ...draft, profile }, flow, locale,
     }).platformFacts;
 
-    expect(PLATFORM_DEFAULTS_VERSION).toBe('platform-defaults-v17');
+    expect(PLATFORM_DEFAULTS_VERSION).toBe('platform-defaults-v18');
 
     const swissJob = { kind: 'job', role: 'Cloud engineer', employer: 'Example SA', location: 'Lugano', start: '2021', end: 'oggi' };
     const permitProfile = { location: 'Como (CO)', experience: [swissJob] };
