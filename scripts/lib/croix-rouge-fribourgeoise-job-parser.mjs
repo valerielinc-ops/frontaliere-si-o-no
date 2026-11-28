@@ -87,6 +87,12 @@ import { parseSwissShortDate } from './hospital-custom-html-helpers.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { hasPotentialJobData } from './jobcloud-empty-state.mjs';
+import {
+  extractJobCloudDescriptionHtml,
+  extractJobCloudKeyInfo,
+  extractJobCloudApplyUrl,
+  parseJobCloudDate,
+} from './jobcloud-company-detail.mjs';
 import { filterJobupCardsByEmployer, parseJobupSearchCards } from './jobup-ch-feed-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -407,52 +413,6 @@ export function extractJobupSearchListingLinks(html = '') {
   return [...new Set(ownedCards.map((card) => card.url).filter(Boolean))];
 }
 
-/**
- * Extract a single "key info" row's value by its label
- * (e.g. "Date de publication" → "30.6.2026"), tolerant of an optional
- * trailing colon on the label (the source markup is inconsistent about it).
- * @param {string} html Detail page HTML.
- * @param {string} label Exact French label text (no colon).
- * @returns {string}
- */
-function extractKeyInfoValue(html, label) {
-  const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const re = new RegExp(
-    `<div[^>]*>\\s*${escaped}:?\\s*</div>\\s*<div[^>]*class=["'][^"']*\\btext-size-small\\b[^"']*["'][^>]*>([\\s\\S]*?)</div>`,
-    'i',
-  );
-  const m = html.match(re);
-  return m ? normalizeSpace(decodeNumericEntities(stripHtml(m[1]))) : '';
-}
-
-/**
- * Extract the job detail page's visible rich-text body block (company
- * blurb + role title + tasks/profile prose), stopping before the
- * "job_details_content-right" sidebar (apply button + key-info panel) so
- * that sidebar text never leaks into the description.
- * @param {string} html Detail page HTML.
- * @returns {string} Raw (still-HTML) content block, or '' if not found.
- */
-function extractRichTextBlock(html = '') {
-  const startTag = 'text-rich-text w-richtext">';
-  const startIdx = html.indexOf(startTag);
-  if (startIdx === -1) return '';
-  const contentStart = startIdx + startTag.length;
-  const endIdx = html.indexOf('job_details_content-right', contentStart);
-  const slice = endIdx === -1 ? html.slice(contentStart) : html.slice(contentStart, endIdx);
-  return slice;
-}
-
-/**
- * Extract the outbound jobup.ch apply link.
- * @param {string} html Detail page HTML.
- * @returns {string}
- */
-function extractApplyUrl(html = '') {
-  const m = html.match(/<a\b[^>]*href\s*=\s*(["'])([^"']+)\1[^>]*id\s*=\s*(["'])job-ad-apply-btn\3/i);
-  return m ? decodeNumericEntities(m[2]).replace(/&amp;/g, '&') : '';
-}
-
 function extractJobupPostingJsonLd(html = '') {
   const blocks = html.match(/<script\b[^>]*type\s*=\s*(["'])application\/ld\+json\1[^>]*>[\s\S]*?<\/script>/gi) || [];
   for (const block of blocks) {
@@ -591,20 +551,20 @@ async function fetchJobDetail(href) {
   const title = normalizeSpace(decodeNumericEntities(posting?.title || (titleMatch ? stripHtml(titleMatch[1]) : '')));
   const description = isJobupDetail
     ? extractJobupDescription(html, posting)
-    : normalizeSpace(stripHtml(extractRichTextBlock(html)));
+    : normalizeSpace(stripHtml(extractJobCloudDescriptionHtml(html)));
   const datePosted = isJobupDetail
     ? normalizePostedDate(posting?.datePosted)
-    : parseSwissShortDate(extractKeyInfoValue(html, 'Date de publication'));
+    : parseJobCloudDate(extractJobCloudKeyInfo(html, 'Date de publication'));
   const occupationRange = isJobupDetail
     ? normalizeSpace(posting?.employmentType || visibleHtml.match(/\b\d{1,3}(?:\s*[–-]\s*\d{1,3})?\s*%/)?.[0] || '')
-    : extractKeyInfoValue(html, 'Taux d’activité');
+    : extractJobCloudKeyInfo(html, 'Taux d[’\']activité');
   const contractTypeRaw = isJobupDetail
     ? normalizeSpace(posting?.employmentType || '')
-    : extractKeyInfoValue(html, 'Type de contrat');
+    : extractJobCloudKeyInfo(html, 'Type de contrat');
   const lieuDeTravail = isJobupDetail
     ? extractJobupLocation(posting)
-    : extractKeyInfoValue(html, 'Lieu de travail');
-  const applyUrl = isJobupDetail ? '' : extractApplyUrl(html);
+    : extractJobCloudKeyInfo(html, 'Lieu de travail');
+  const applyUrl = isJobupDetail ? '' : extractJobCloudApplyUrl(html, detailUrl);
   const employmentType = isJobupDetail ? normalizeSpace(posting?.employmentType || '') : '';
 
   return { detailUrl, title, description, datePosted, occupationRange, contractTypeRaw, lieuDeTravail, applyUrl, employmentType };
