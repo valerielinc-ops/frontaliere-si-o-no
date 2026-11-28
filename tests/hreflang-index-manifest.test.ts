@@ -369,15 +369,16 @@ describe('runHreflangIndexManifest on a dist', () => {
       ['/en/rollback-en/', read(dist, '/en/rollback-en/')],
     ]);
 
-    const originalRename = fs.promises.rename.bind(fs.promises);
+    const originalRename = fs.renameSync.bind(fs);
     let renameCalls = 0;
-    const rename = vi.spyOn(fs.promises, 'rename').mockImplementation(async (...args) => {
+    const rename = vi.spyOn(fs, 'renameSync').mockImplementation((...args) => {
       renameCalls += 1;
       if (renameCalls === 4) throw new Error('forced hreflang rename failure');
       return originalRename(...args);
     });
     try {
-      await expect(runHreflangIndexManifest({ distDir: dist, manifestDir: path.join(tmp, 'm'), log: quiet }))
+      // writeWorkers 0: the transaction runs on this thread, where the spy is.
+      await expect(runHreflangIndexManifest({ distDir: dist, manifestDir: path.join(tmp, 'm'), writeWorkers: 0, log: quiet }))
         .rejects.toThrow('forced hreflang rename failure');
     } finally {
       rename.mockRestore();
@@ -399,9 +400,9 @@ describe('runHreflangIndexManifest on a dist', () => {
       write(dist, urlPath, page(urlPath, cluster, { robots: 'noindex,follow' }));
     }
 
-    const originalWriteFile = fs.promises.writeFile.bind(fs.promises);
+    const originalWriteFile = fs.writeFileSync.bind(fs);
     let stagedWrites = 0;
-    const writeFile = vi.spyOn(fs.promises, 'writeFile').mockImplementation(async (...args) => {
+    const writeFile = vi.spyOn(fs, 'writeFileSync').mockImplementation((...args) => {
       if (String(args[0]).includes('.hreflang-index-')) {
         stagedWrites += 1;
         if (stagedWrites === 65) throw new Error('forced hreflang staging failure');
@@ -409,7 +410,7 @@ describe('runHreflangIndexManifest on a dist', () => {
       return originalWriteFile(...args);
     });
     try {
-      await expect(runHreflangIndexManifest({ distDir: dist, manifestDir, log: quiet }))
+      await expect(runHreflangIndexManifest({ distDir: dist, manifestDir, writeWorkers: 0, log: quiet }))
         .rejects.toThrow('forced hreflang staging failure');
     } finally {
       writeFile.mockRestore();
@@ -436,7 +437,8 @@ describe('runHreflangIndexManifest on a dist', () => {
       write(dist, urlPath, page(urlPath, cluster, { robots: 'noindex,follow' }));
     }
 
-    const summary = await runHreflangIndexManifest({ distDir: dist, manifestDir: path.join(tmp, 'm'), log: quiet });
+    // One worker, so one batch on disk at a time.
+    const summary = await runHreflangIndexManifest({ distDir: dist, manifestDir: path.join(tmp, 'm'), writeWorkers: 1, log: quiet });
 
     expect(summary.filesRewritten).toBe(65);
     expect(summary.stagingBytes.allAtOnceEquivalent).toBeGreaterThan(summary.stagingBytes.boundedBatchPeak);
@@ -447,6 +449,72 @@ describe('runHreflangIndexManifest on a dist', () => {
       batchSize: 64,
     });
     expect(summary.stagingBenchmark.peakStagingBytes).toBeLessThan(summary.stagingBenchmark.preBatchPeakBytes);
+  });
+
+  it('bounds the staging peak by the batches that can be on disk together', () => {
+    const records = [5, 1, 3, 4].map((bytes) => ({ originalBytes: bytes, stagedBytes: bytes }));
+
+    expect(benchmarkHreflangStaging(records, 1).peakStagingBytes).toBe(10);
+    expect(benchmarkHreflangStaging(records, 1, 2)).toMatchObject({ parallelBatches: 2, peakStagingBytes: 18 });
+  });
+
+  // A real filesystem failure, because a spy cannot reach inside a worker:
+  // the page is readable, but nothing can be renamed in its directory.
+  it.skipIf(process.getuid?.() === 0)('write workers: a failing batch rolls itself back and no batch is left half done', async () => {
+    const dist = path.join(tmp, 'dist');
+    const manifestDir = path.join(tmp, 'm');
+    const paths = Array.from({ length: 96 }, (_, index) => `/worker-${String(index).padStart(3, '0')}/`);
+    for (const [index, urlPath] of paths.entries()) {
+      const slug = `worker-${String(index).padStart(3, '0')}`;
+      write(dist, urlPath, page(urlPath, clusterFor({ it: slug, en: `${slug}-en` }), { robots: 'noindex,follow' }));
+    }
+    const before = new Map(paths.map((urlPath) => [urlPath, read(dist, urlPath)]));
+    const locked = path.join(dist, 'worker-040');
+
+    fs.chmodSync(locked, 0o555);
+    try {
+      await expect(runHreflangIndexManifest({
+        distDir: dist, manifestDir, writeWorkers: 4, rewriteBatchSize: 8, concurrency: 1, log: quiet,
+      })).rejects.toThrow(/EACCES|EPERM/);
+    } finally {
+      fs.chmodSync(locked, 0o755);
+    }
+
+    expect(read(dist, '/worker-040/')).toBe(before.get('/worker-040/'));
+    expect(fs.existsSync(path.join(manifestDir, 'it.json'))).toBe(false);
+    for (const urlPath of paths) {
+      const now = read(dist, urlPath);
+      if (now !== before.get(urlPath)) expect(extractHreflangAlternates(now).size).toBe(0);
+      expect(fs.readdirSync(path.join(dist, urlPath.slice(1)))).toEqual(['index.html']);
+    }
+    expect(fs.readdirSync(dist).some((name) => name.startsWith('.hreflang-index-'))).toBe(false);
+
+    const retry = await runHreflangIndexManifest({ distDir: dist, manifestDir, writeWorkers: 4, rewriteBatchSize: 8, log: quiet });
+    expect(retry.writeDetail).toMatchObject({ workers: expect.any(Number), batches: expect.any(Number) });
+    for (const urlPath of paths) expect(extractHreflangAlternates(read(dist, urlPath)).size).toBe(0);
+  });
+
+  it('write workers produce the same bytes as the single-thread rewrite', async () => {
+    const snapshots: string[] = [];
+    for (const writeWorkers of [0, 8]) {
+      const dist = path.join(tmp, `dist-${writeWorkers}`);
+      const paths: string[] = [];
+      for (let index = 0; index < 200; index++) {
+        const slug = `same-${index}`;
+        const cluster = clusterFor({ it: slug, en: `${slug}-en` });
+        const urlPath = `/${slug}/`;
+        const filler = `<p>perché città — ${'x'.repeat(index * 700)}</p>`;
+        write(dist, urlPath, page(urlPath, cluster, { robots: 'noindex,follow' }).replace('</body>', `${filler}</body>`));
+        paths.push(urlPath);
+      }
+      const summary = await runHreflangIndexManifest({
+        distDir: dist, manifestDir: path.join(tmp, `m-${writeWorkers}`), writeWorkers, rewriteBatchSize: 8, log: quiet,
+      });
+      expect(summary.filesRewritten).toBe(200);
+      expect(summary.writeDetail).toMatchObject({ workers: writeWorkers, batches: 25 });
+      snapshots.push(paths.map((urlPath) => read(dist, urlPath)).join('\0'));
+    }
+    expect(snapshots[1]).toBe(snapshots[0]);
   });
 
   it('keeps fractional positive batch sizes from rounding down to a zero-sized batch', () => {
