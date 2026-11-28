@@ -52,6 +52,8 @@ import {
   normalizeExpiredEntryTitles,
   normalizeExpiredAtEntries,
 } from './lib/expired-jobs-archive.mjs';
+import { addPreviousSlugForLocale, DEFAULT_PREV_SLUG_CAP } from './lib/dedicated-crawler-common.mjs';
+import { replaceSlugRouteEverywhere } from './lib/slug-history-journal.mjs';
 import { ACTIVE_JOB_PAGE_LOCALES, localizedActiveJobSlug } from '../build-plugins/shared/activeJobPageSelection.ts';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import {
@@ -268,15 +270,18 @@ function compactOwnerEvidence(job, { active = false } = {}) {
   };
 }
 
+const OWNER_IDENTITY_ROUTE_FIELDS = new Set([
+  'slug',
+  'slugByLocale',
+  'previousSlugs',
+  'previousSlugsByLocale',
+  'previousSlugCantonByLocale',
+  'routeEntries',
+]);
+
 function compactOwnerIdentityEvidence(job) {
-  const evidence = compactOwnerEvidence(job);
-  delete evidence.slug;
-  delete evidence.slugByLocale;
-  delete evidence.previousSlugs;
-  delete evidence.previousSlugsByLocale;
-  delete evidence.previousSlugCantonByLocale;
-  delete evidence.routeEntries;
-  return evidence;
+  return Object.fromEntries(Object.entries(compactOwnerEvidence(job))
+    .filter(([key]) => !OWNER_IDENTITY_ROUTE_FIELDS.has(key)));
 }
 
 function historicalOwnerAccumulatorKey(identityEvidence, fingerprint) {
@@ -531,20 +536,21 @@ function materializeHistoricalOwnerRoutes(owner) {
     route.localeSlugKey,
     route.emittedPath,
   ]));
-  const previousByLocale = compactStringArrayMap(representative.previousSlugsByLocale);
+  const routesByLocale = {};
+  const cantonsByLocale = {};
   for (const route of owner.routeEvidenceByPath?.values() || []) {
     if (currentPaths.get(route.localeSlugKey) === route.emittedPath) continue;
     if (currentPaths.has(route.localeSlugKey)) {
       throw new Error('Historical route evidence has two canton-qualified paths for one locale slug');
     }
-    const previous = previousByLocale[route.locale] || [];
-    if (!previous.includes(route.slug)) previous.push(route.slug);
-    previousByLocale[route.locale] = previous;
-    if (route.canton && !representative.previousSlugCantonByLocale?.[route.locale]?.[route.slug]) {
-      setExpiredRouteCanton(representative, route.locale, route.slug, route.canton);
-    }
+    (routesByLocale[route.locale] ||= []).push(route.slug);
+    if (route.canton) (cantonsByLocale[route.locale] ||= {})[route.slug] = route.canton;
   }
-  if (Object.keys(previousByLocale).length > 0) representative.previousSlugsByLocale = previousByLocale;
+  mergeExpiredRouteEvidence(
+    representative,
+    { previousSlugsByLocale: routesByLocale, previousSlugCantonByLocale: cantonsByLocale },
+    'backfill-expired-from-history/historical-owner-routes',
+  );
   return representative;
 }
 
@@ -776,90 +782,22 @@ function emittedRouteKeys(job, options = {}) {
 
 function suppressExpiredRoute(entry, { locale, slug }) {
   if (!entry || !locale || !slug || slug === entry.slug) return false;
-
-  const previousByLocale = Object.fromEntries(Object.entries(entry.previousSlugsByLocale || {})
-    .filter(([, slugs]) => Array.isArray(slugs))
-    .map(([key, slugs]) => [key, [...slugs]]));
-  const previousSlugs = Array.isArray(entry.previousSlugs) ? [...entry.previousSlugs] : [];
-  const previousLocalesBefore = ACTIVE_JOB_PAGE_LOCALES.filter((supportedLocale) => (
-    previousByLocale[supportedLocale]?.includes(slug)
-  ));
-  const legacyGlobalAlias = previousSlugs.includes(slug) && previousLocalesBefore.length === 0;
-  let changed = false;
-
-  if (entry.slugByLocale?.[locale] === slug) {
-    const slugByLocale = { ...entry.slugByLocale };
-    delete slugByLocale[locale];
-    if (Object.keys(slugByLocale).length > 0) entry.slugByLocale = slugByLocale;
-    else delete entry.slugByLocale;
-    changed = true;
-  }
-
-  const localePrevious = previousByLocale[locale] || [];
-  const filteredLocalePrevious = localePrevious.filter((previousSlug) => previousSlug !== slug);
-  if (filteredLocalePrevious.length !== localePrevious.length) {
-    if (filteredLocalePrevious.length > 0) previousByLocale[locale] = filteredLocalePrevious;
-    else delete previousByLocale[locale];
-    changed = true;
-  }
-
-  if (legacyGlobalAlias) {
-    for (const supportedLocale of ACTIVE_JOB_PAGE_LOCALES) {
-      if (supportedLocale === locale) continue;
-      const aliases = previousByLocale[supportedLocale] || [];
-      if (!aliases.includes(slug)) previousByLocale[supportedLocale] = [...aliases, slug];
-    }
-    entry.previousSlugs = previousSlugs.filter((previousSlug) => previousSlug !== slug);
-    changed = true;
-  } else if (previousSlugs.includes(slug)
-    && !ACTIVE_JOB_PAGE_LOCALES.some((supportedLocale) => previousByLocale[supportedLocale]?.includes(slug))) {
-    entry.previousSlugs = previousSlugs.filter((previousSlug) => previousSlug !== slug);
-    changed = true;
-  }
-
-  if (changed) {
-    if (Object.keys(previousByLocale).length > 0) entry.previousSlugsByLocale = previousByLocale;
-    else delete entry.previousSlugsByLocale;
-
-    const previousCantons = Object.fromEntries(Object.entries(entry.previousSlugCantonByLocale || {})
-      .filter(([, cantons]) => cantons && typeof cantons === 'object' && !Array.isArray(cantons))
-      .map(([key, cantons]) => [key, { ...cantons }]));
-    if (previousCantons[locale]?.[slug]) {
-      delete previousCantons[locale][slug];
-      if (Object.keys(previousCantons[locale]).length === 0) delete previousCantons[locale];
-    }
-    if (Object.keys(previousCantons).length > 0) entry.previousSlugCantonByLocale = previousCantons;
-    else delete entry.previousSlugCantonByLocale;
-  }
-
-  return changed;
-}
-
-function addActiveFallbackAliases(routeEvidence, activeRoutes) {
-  const represented = localeRouteKeys(routeEvidence);
-  const previousByLocale = { ...(routeEvidence.previousSlugsByLocale || {}) };
-  let changed = false;
-  for (const { locale, slug } of activeRoutes) {
-    const localeSlugKey = `${locale}:${slug}`;
-    if (represented.has(localeSlugKey)) continue;
-    const previous = Array.isArray(previousByLocale[locale])
-      ? [...previousByLocale[locale]]
-      : [];
-    if (!previous.includes(slug)) {
-      previous.push(slug);
-      previousByLocale[locale] = previous;
-      changed = true;
-    }
-  }
-  if (changed) routeEvidence.previousSlugsByLocale = previousByLocale;
-  return routeEvidence;
+  const canonicalSlug = entry.slugByLocale?.[locale] || entry.slug;
+  const replacement = canonicalSlug === slug ? entry.slug : canonicalSlug;
+  if (!replacement || replacement === slug) return false;
+  return replaceSlugRouteEverywhere(entry, slug, replacement, {
+    source: 'backfill-expired-from-history/same-posting-active-route',
+    reason: 'same posting route remains served by its active page',
+    locale,
+    cap: DEFAULT_PREV_SLUG_CAP,
+  }) > 0;
 }
 
 function addExpiredFallbackAliases(survivor, historical) {
   const routeEvidence = structuredClone(historical || {});
-  const previousByLocale = { ...(routeEvidence.previousSlugsByLocale || {}) };
+  const routesByLocale = {};
+  const cantonsByLocale = {};
   const survivorRoutes = emittedRouteKeys(survivor);
-  let changed = false;
   for (const locale of ACTIVE_JOB_PAGE_LOCALES) {
     if (historical?.slugByLocale?.[locale]) continue;
     const slug = historical?.slug;
@@ -871,19 +809,14 @@ function addExpiredFallbackAliases(survivor, historical) {
     const survivorSlug = survivor?.slugByLocale?.[locale] || survivor?.slug;
     // A locale bucket cannot store two canton-qualified paths for one slug.
     if (slug === survivorSlug) continue;
-    const previous = Array.isArray(previousByLocale[locale])
-      ? [...previousByLocale[locale]]
-      : [];
-    if (!previous.includes(slug)) {
-      previous.push(slug);
-      previousByLocale[locale] = previous;
-      changed = true;
-    }
-    if (historicalCanton) {
-      changed = setExpiredRouteCanton(routeEvidence, locale, slug, historicalCanton) || changed;
-    }
+    (routesByLocale[locale] ||= []).push(slug);
+    if (historicalCanton) (cantonsByLocale[locale] ||= {})[slug] = historicalCanton;
   }
-  if (changed) routeEvidence.previousSlugsByLocale = previousByLocale;
+  mergeExpiredRouteEvidence(
+    routeEvidence,
+    { previousSlugsByLocale: routesByLocale, previousSlugCantonByLocale: cantonsByLocale },
+    'backfill-expired-from-history/expired-fallback-routes',
+  );
   return routeEvidence;
 }
 
@@ -2010,7 +1943,6 @@ export function processSlice(sliceFile, {
       }
       activeRouteMergePlans.push({
         owner,
-        historical: evidence.routePayload,
         historicalRoutes,
         ownerCanton,
       });
@@ -2110,31 +2042,53 @@ export function processSlice(sliceFile, {
   const lostCount = lostById.size + lostByStableIdentity.size;
 
   const activeRouteUpdatedOwners = new Set();
-  for (const { owner, historical, historicalRoutes, ownerCanton } of activeRouteMergePlans) {
-    const routeEvidence = addActiveFallbackAliases(
-      { ...historical },
-      historicalRoutes,
-    );
-    // mergeExpiredRouteEvidence can fill missing content context from its
-    // historical input. This transfer is route history only, so preserve every
-    // active content field exactly as the current slice supplied it.
-    delete routeEvidence.canton;
-    delete routeEvidence.location;
-    const routesChanged = mergeExpiredRouteEvidence(
-      owner,
-      routeEvidence,
-      `backfill-expired-from-history/${sliceFile}/active-route-history`,
-    );
+  for (const { owner, historicalRoutes, ownerCanton } of activeRouteMergePlans) {
+    const activeRoutesBefore = emittedRouteKeys(owner, { active: true });
+    let routesChanged = false;
     let routeCantonsChanged = false;
-    for (const routeKey of localeRouteKeys(routeEvidence)) {
-      const separator = routeKey.indexOf(':');
-      if (separator < 0) continue;
-      const locale = routeKey.slice(0, separator);
-      const slug = routeKey.slice(separator + 1);
-      const activeSlug = owner.slugByLocale?.[locale] || (locale === 'it' ? owner.slug : '');
-      if (!slug || slug === activeSlug) continue;
+    for (const { locale, slug } of historicalRoutes) {
+      const ownerPath = emittedRouteKey(locale, slug, ownerCanton);
+      if (!slug || !ownerPath || activeRoutesBefore.has(ownerPath)) continue;
+      const existingAliases = Array.isArray(owner.previousSlugsByLocale?.[locale])
+        ? owner.previousSlugsByLocale[locale]
+        : [];
+      const aliasAlreadyRecorded = existingAliases.includes(slug);
+      const cap = Math.max(
+        DEFAULT_PREV_SLUG_CAP,
+        existingAliases.length + (aliasAlreadyRecorded ? 0 : 1),
+      );
+      addPreviousSlugForLocale(
+        owner,
+        locale,
+        slug,
+        cap,
+        `backfill-expired-from-history/${sliceFile}/active-route-history`,
+        { syncLegacy: false },
+      );
+      routesChanged ||= !aliasAlreadyRecorded;
       routeCantonsChanged = setExpiredRouteCanton(owner, locale, slug, ownerCanton)
         || routeCantonsChanged;
+    }
+
+    const activeRoutesAfter = emittedRouteKeys(owner, { active: true });
+    const unrepresentedRoutes = historicalRoutes.filter(({ locale, slug }) => (
+      !activeRoutesAfter.has(emittedRouteKey(locale, slug, ownerCanton))
+    ));
+    if (unrepresentedRoutes.length > 0) {
+      console.error(
+        `::error::backfill-expired-from-history/${sliceFile}: refusing to write the slice; `
+        + `${unrepresentedRoutes.length} historical active route(s) could not be represented safely`,
+      );
+      return {
+        crawlerKey,
+        scannedCommits: sliceCommits.length,
+        lost: lostById.size + lostByStableIdentity.size,
+        added: 0,
+        recovered: 0,
+        enriched: 0,
+        activeEnriched: 0,
+        refusedRoutes: unrepresentedRoutes.length,
+      };
     }
     if (routesChanged || routeCantonsChanged) activeRouteUpdatedOwners.add(owner);
   }
