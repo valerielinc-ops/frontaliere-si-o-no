@@ -597,6 +597,9 @@ describe('active job aliases in the IT /job-canon publishing leg', () => {
       'shared-active-prefix-conflict': {
         de: '/de/jobs-in-zurich/shared-active-prefix-conflict',
       },
+      'unknown-canton-legacy-de': {
+        de: '/de/jobs-im-atlantis/unknown-canton-legacy-de',
+      },
       'worker-override-omitted-en': { de: '/de/jobs-im-tessin/worker-override-omitted-en' },
       'worker-effective-direct-en': { en: '/en/find-jobs-geneva/worker-effective-direct-en' },
       'worker-native-recovery-en': { de: '/de/jobs-im-tessin/worker-native-recovery-en' },
@@ -837,12 +840,21 @@ ${duplicateShardEntries.join(',\n')}
       nonRoutableGermanChanged: number;
       activeSlugPrefixConflict: number;
       conflictExamples: Array<{ locale: string; slug: string; prefixes: string[] }>;
+      nonRoutableGermanDropped: number;
+      nonRoutableGermanDroppedExamples: Array<{ slug: string; prefix: string }>;
     };
     expect(stats.changedByLocale).toEqual({ it: expect.any(Number), en: expect.any(Number), de: expect.any(Number), fr: expect.any(Number) });
     expect(stats.addedByLocale).toEqual({ it: expect.any(Number), en: expect.any(Number), de: expect.any(Number), fr: expect.any(Number) });
     expect(stats.changedByLocale.de).toBeGreaterThan(0);
     expect(stats.nonRoutableGermanChanged).toBeGreaterThan(0);
     expect(stats.activeSlugPrefixConflict).toBe(2);
+    // An unknown legacy canton is dropped (no 301 to a 404) and stays traceable.
+    expect(readEntry('unknown-canton-legacy-de')?.de).toBeUndefined();
+    expect(stats.nonRoutableGermanDropped).toBeGreaterThan(0);
+    expect(stats.nonRoutableGermanDroppedExamples).toContainEqual({
+      slug: 'unknown-canton-legacy-de',
+      prefix: '/de/jobs-im-atlantis',
+    });
     expect(stats.conflictExamples).toContainEqual({
       locale: 'de',
       slug: 'shared-active-prefix-conflict',
