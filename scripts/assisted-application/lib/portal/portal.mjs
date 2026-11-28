@@ -13164,7 +13164,10 @@ const RATE_LIMITED_PAGE_STOPS = new Set([
 // a navigation is its own «this job can no longer be applied for», which reads as another posting, as no
 // application stage, or (with no form control left) as a page for the candidate. The closure is the cause
 // (the flow notifies and refunds it), not a page to teach.
-const CLOSURE_RECHECK_STOPS = new Set(['posting_mismatch', 'application_stage_unknown', 'portal_needs_candidate']);
+const CLOSURE_RECHECK_STOPS = new Set(['posting_mismatch', 'application_stage_unknown', 'portal_needs_candidate', 'posting_unbound']);
+// Stops on a page that names no posting (a portal's home or hub): only the order's own address can say whether the
+// posting still exists.
+const POSTING_NOT_NAMED_STOPS = new Set(['posting_unbound', 'posting_mismatch']);
 const PORTAL_AUTH_FIELD_RE = /(?:login|sign[\s-]?in|username|user\s*id|password|account|anmeldung|connexion|identifiant|accedi|accesso)/iu;
 
 function isApplicationOwnedPortalField(field) {
@@ -13292,6 +13295,7 @@ export async function submitViaPortal(ctx) {
   const keptCvUrls = new Set();
   const cvFileNames = documentPaths(ctx.files, 'cv').map((file) => path.basename(file));
   let accountRecoveryUsed = false;
+  let unboundPostingRecheckUsed = false;
   let recoveryMarkerUnreadable = false;
   let recoveredApplicationHistoryChecked = false;
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
@@ -13319,6 +13323,38 @@ export async function submitViaPortal(ctx) {
         if (isHardClosed(current)) {
           evidence.livenessAtStop = { result: current.result, code: current.code, stop: reason };
           return { event: { type: 'posting_closed', reason: current.code }, evidence };
+        }
+        // A page with no application field and no posting id (a portal's home or hub) says nothing of the posting
+        // itself: read the order's own posting address once, through the entry URL, and stop as closed only on a
+        // hard closure. Bounded by a marker, never presses the final submit; a live posting keeps its stop.
+        if (POSTING_NOT_NAMED_STOPS.has(reason) && !unboundPostingRecheckUsed) {
+          unboundPostingRecheckUsed = true;
+          const recheckUrl = portalEntryUrl(ctx);
+          if (recheckUrl) {
+            try {
+              const recheckResponse = await page.goto(recheckUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+              await settle(page);
+              const recheckSnapshot = await extractFields(page, NAVIGATION).catch(() => null);
+              const recheck = classifyLiveness({
+                status: recheckResponse?.status?.() || 0,
+                requestedUrl: recheckUrl,
+                finalUrl: page.url(),
+                bodyText: await pageText(page).catch(() => ''),
+                applyControls: [
+                  ...(recheckSnapshot?.buttons || []).map((button) => button.text || button.label || ''),
+                  ...(recheckSnapshot?.links || []).map((link) => link.text || link.label || ''),
+                ],
+                locale: ctx.language,
+              });
+              evidence.unboundPostingRecheck = { result: recheck.result, code: recheck.code, reentered: true };
+              if (isHardClosed(recheck)) {
+                evidence.livenessAtStop = { result: recheck.result, code: recheck.code, stop: reason };
+                return { event: { type: 'posting_closed', reason: recheck.code }, evidence };
+              }
+            } catch {
+              evidence.unboundPostingRecheck = { result: 'uncertain', code: 'recheck_failed', reentered: true };
+            }
+          }
         }
       }
     }
