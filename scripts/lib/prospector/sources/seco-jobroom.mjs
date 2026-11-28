@@ -303,7 +303,9 @@ export async function fetchSecoAdSnapshot(opts = {}) {
 
   // The root total again: the gap the sweep itself moved is not a short read.
   const closing = await read({ cantons }, onlineSince, 'date_desc', 1);
-  if (closing) lastDeclaredTotal = closing.declaredTotal;
+  // Without the closing total the opening count cannot vouch for the sweep.
+  if (!closing) return finish('partial', failure?.errorCode || 'closing_total_unavailable');
+  lastDeclaredTotal = closing.declaredTotal;
   if (incompleteCode) return finish('partial', incompleteCode);
   return finish('complete');
 }
@@ -316,14 +318,17 @@ export async function fetchSecoEmployers(opts = {}) {
   const cantons = opts.cantons || ['TI'];
   const onlineSince = opts.onlineSince ?? 30;
   const maxPages = Number.isSafeInteger(opts.maxPages) && opts.maxPages > 0 ? opts.maxPages : 20;
-  const pageSize = Number.isSafeInteger(opts.pageSize) && opts.pageSize > 0 ? opts.pageSize : 100;
+  const pageSize = Number.isSafeInteger(opts.pageSize) && opts.pageSize > 0 ? Math.min(opts.pageSize, SECO_SEARCH_WINDOW) : SECO_SEARCH_WINDOW;
   const headSearchPages = Number.isSafeInteger(opts.headSearchPages) && opts.headSearchPages > 0
     ? opts.headSearchPages
     : Math.max(20, maxPages);
   const cursorSearchPages = Number.isSafeInteger(opts.cursorSearchPages) && opts.cursorSearchPages > 0
     ? opts.cursorSearchPages
     : Math.max(20, maxPages);
-  const startPageHint = Number.isSafeInteger(opts.startPageHint) && opts.startPageHint >= 0 ? opts.startPageHint : 0;
+  // A page behind the search window is refused by the feed: a persisted hint
+  // beyond it is dropped so the cursor search starts from page 0.
+  const startPageHint = Number.isSafeInteger(opts.startPageHint) && opts.startPageHint > 0
+    && (opts.startPageHint + 1) * pageSize <= SECO_SEARCH_WINDOW ? opts.startPageHint : 0;
   const startAfterId = typeof opts.startAfterId === 'string' && opts.startAfterId.trim()
     ? opts.startAfterId.trim()
     : null;

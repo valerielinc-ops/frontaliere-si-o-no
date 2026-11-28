@@ -588,6 +588,21 @@ describe('fetchAllSecoJobroomJobs', () => {
     expect(snapshot).toMatchObject({ outcome: 'partial', errorCode: 'http_400', pagesRead: 2, firstDeclaredTotal: 30 });
   });
 
+  it('goes partial when only the closing root query fails', async () => {
+    const feed = jobRoom(Array.from({ length: 30 }, (_, i) => ({ id: `c${i}`, age: 1 + (i % 10) })), 5);
+    const snapshot = await fetchSecoAdSnapshot({
+      cantons: ['TI'], pageSize: 5, lookupImpl, sleepImpl,
+      fetchImpl: async (url: unknown, init: any) => (new URL(String(url)).searchParams.get('size') === '1'
+        ? feedResponse(String(url), 500, 'boom')
+        : feed.fetchImpl(url, init)),
+    });
+    expect(snapshot).toMatchObject({ outcome: 'partial', firstDeclaredTotal: 30, lastDeclaredTotal: 30 });
+    expect(snapshot.errorCode).toBeTruthy();
+    await expect(fetchAllSecoJobroomJobs(options(async (url: unknown, init: any) => (new URL(String(url)).searchParams.get('size') === '1'
+      ? feedResponse(String(url), 500, 'boom')
+      : feed.fetchImpl(url, init)), 5))).rejects.toThrow(/partial/);
+  });
+
   it('never sends a page behind the search window', async () => {
     const result = await readSecoSearchPage(1, { cantons: ['TI'], onlineSince: 30, pageSize: 100, lookupImpl, sleepImpl,
       fetchImpl: async () => { throw new Error('must not be called'); } });
@@ -606,6 +621,20 @@ describe('fetchAllSecoJobroomJobs', () => {
       },
     });
     expect(bodies[0]).toMatchObject({ displayRestricted: false, onlineSince: 30, cantonCodes: ['TI'] });
+  });
+
+  it('clamps an oversized prospector page and drops a persisted hint behind the window', async () => {
+    const seen: Array<{ page: number, size: number }> = [];
+    await fetchSecoEmployers({
+      cantons: ['TI'], pageSize: 500, startAfterId: 'x', startPageHint: 3, lookupImpl, sleepImpl,
+      fetchImpl: async (url: unknown) => {
+        const target = new URL(String(url));
+        seen.push({ page: Number(target.searchParams.get('page')), size: Number(target.searchParams.get('size')) });
+        return feedResponse(String(url), 200, '[]', 0);
+      },
+    });
+    expect(seen.length).toBeGreaterThan(0);
+    expect(seen.every((entry) => entry.size === 100 && (entry.page + 1) * entry.size <= 100)).toBe(true);
   });
 });
 
