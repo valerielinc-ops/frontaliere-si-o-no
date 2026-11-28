@@ -911,7 +911,9 @@ function hasResendVerificationControl(snapshot = {}) {
 
 function successFactorsModuleIdentity(url) {
   if (!url || !isSuccessFactorsPortalUrl(url) || url.username || url.password || url.hash
-    || url.pathname.replace(/\/+$/, '') !== '/career') return null;
+    // `/careers` is the module path some tenants publish in their own «Apply» links
+
+    || !['/career', '/careers'].includes(url.pathname.replace(/\/+$/, ''))) return null;
   const valuesFor = (key) => [...url.searchParams.entries()]
     .filter(([name]) => name.toLowerCase() === key)
     .map(([, value]) => value);
