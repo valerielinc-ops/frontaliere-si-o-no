@@ -2,7 +2,10 @@ import {
   emitSitemapXml,
   isAuthoritativeJobSitemapShardFilename,
 } from "./sitemap-shard.mjs";
-import { isJobBoardSitemapDetailPath } from "./job-board-detail-path.mjs";
+import {
+  isJobBoardCategoryHubPath,
+  isJobBoardSitemapDetailPath,
+} from "./job-board-detail-path.mjs";
 import { SITEMAP_SHARD_CAP } from "./sitemap-limits.mjs";
 
 const URL_BLOCK_RX = /<url>[\s\S]*?<\/url>/g;
@@ -86,11 +89,18 @@ export function listActiveJobSitemapFilenames(indexXml) {
 export function stalePublishedActiveJobDetailLocs(
   sitemapXmlByPath,
   fullBuildSitemapLocs,
+  emittedCategoryHubLocs = null,
 ) {
   if (!(sitemapXmlByPath instanceof Map)) {
     throw new Error("[jobs-fast-sitemap] sitemap sources must be a Map");
   }
   assertLocSet(fullBuildSitemapLocs, "full-build sitemap allowlist");
+  // Optional positive set of the category hubs the full build emits, in every
+  // locale. When given, a published category hub outside it is stale too;
+  // `null` (producer undecided) keeps the hubs untouched.
+  if (emittedCategoryHubLocs !== null) {
+    assertLocSet(emittedCategoryHubLocs, "emitted category-hub set");
+  }
 
   const staleByPath = new Map();
   for (const [pathname, xml] of sitemapXmlByPath) {
@@ -109,13 +119,19 @@ export function stalePublishedActiveJobDetailLocs(
         parsed.origin !== "https://frontaliereticino.ch" ||
         parsed.search ||
         parsed.hash ||
-        !parsed.pathname.endsWith("/") ||
-        !isJobBoardSitemapDetailPath(parsed.pathname)
+        !parsed.pathname.endsWith("/")
       ) {
         continue;
       }
       const loc = parsed.href;
-      if (fullBuildSitemapLocs.has(loc)) continue;
+      if (isJobBoardCategoryHubPath(parsed.pathname)) {
+        if (emittedCategoryHubLocs === null || emittedCategoryHubLocs.has(loc)) continue;
+      } else if (
+        !isJobBoardSitemapDetailPath(parsed.pathname) ||
+        fullBuildSitemapLocs.has(loc)
+      ) {
+        continue;
+      }
       if (!staleByPath.has(pathname)) staleByPath.set(pathname, new Set());
       staleByPath.get(pathname).add(loc);
     }

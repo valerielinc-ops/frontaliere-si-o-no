@@ -77,6 +77,7 @@ import { extractStableJobId } from './lib/job-match-key.mjs';
 import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import {
   collapseRepublishedCoopVacancies,
+  createRepublishedCollapseForSliceWrite,
   enrichCoopSourceBackedJobs,
   extractCoopFamilyWorkplace,
   normalizeCoopFamilyWorkplace,
@@ -1113,6 +1114,7 @@ export async function writeFustPublishPlan(plan, options = {}) {
   }
 
   let archived = 0;
+  let publishedTotal = plan.sliceJobs.length;
   if (authoritativeEmpty) {
     if (plan.sliceJobs.length !== 0) {
       throw new Error('Fust authoritative-empty write refused: slice is not empty.');
@@ -1120,11 +1122,19 @@ export async function writeFustPublishPlan(plan, options = {}) {
     archived = await archive(priorJobs, FUST_KEY);
     await writeSlice(FUST_KEY, plan.sliceJobs, { skipShrinkGuard: true });
   } else {
-    await writeVerified(FUST_KEY, plan.sliceJobs, { isTargetJob: isFustJob });
+    // The final-state collapse runs inside the writer, on the records it
+    // persists (#20424); the summary total must follow what was written.
+    const finalCollapse = createRepublishedCollapseForSliceWrite('Fust', {
+      onRouteHistoryOverflow: (overflowJobs, activeJobs) => {
+        archiveRemovedJobsToSlice(overflowJobs, FUST_KEY, { activeJobs });
+      },
+    });
+    await writeVerified(FUST_KEY, plan.sliceJobs, { isTargetJob: isFustJob, collapseRepublishedJobs: finalCollapse });
+    publishedTotal = plan.sliceJobs.length - finalCollapse.collapsedCount;
   }
-  await writeSummary(plan.summary);
+  await writeSummary(publishedTotal === plan.summary.total ? plan.summary : { ...plan.summary, total: publishedTotal });
   await assemble();
-  return { total: plan.sliceJobs.length, archived };
+  return { total: publishedTotal, archived };
 }
 
 /**

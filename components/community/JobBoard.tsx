@@ -11673,7 +11673,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
      blocks below the fold, while the gated header (`!hasAccess`) has always
      carried the same six values directly under the h1. Same values, same
      order, one position; the two branches now agree. */}
- <JobDetailMetadataRow>
+ <JobDetailMetadataRow reserveRows={2}>
  <JobDetailMetaPill tone="neutral">
  {t(categoryTranslationKey(selectedJob))}
  </JobDetailMetaPill>

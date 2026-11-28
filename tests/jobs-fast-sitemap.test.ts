@@ -134,6 +134,34 @@ describe("jobs-fast sitemap merge", () => {
     expect(removals.get("/sitemap-jobs-zurigo-en.xml")).not.toContain(categoryLanding);
   });
 
+  it("prunes a published category hub the full build no longer emits", () => {
+    const emptyHub = "https://frontaliereticino.ch/de/jobs-in-nidwalden/kategorie-andere/";
+    const liveHub = "https://frontaliereticino.ch/de/jobs-in-nidwalden/kategorie-gesundheit/";
+    const otherLocaleHub = "https://frontaliereticino.ch/en/find-jobs-zurich/category-health/";
+    const detail = "https://frontaliereticino.ch/de/jobs-in-nidwalden/current-job/";
+    const sources = new Map([
+      [
+        "/sitemap-jobs-nidvaldo-de.xml",
+        rootXml([urlEntry(emptyHub), urlEntry(liveHub), urlEntry(detail)]),
+      ],
+      ["/sitemap-jobs-zurigo-en.xml", rootXml([urlEntry(otherLocaleHub)])],
+    ]);
+    const allowlist = new Set([detail]);
+
+    const removals = stalePublishedActiveJobDetailLocs(
+      sources,
+      allowlist,
+      new Set([liveHub, otherLocaleHub]),
+    );
+    expect([...removals].map(([pathname, locs]) => [pathname, [...locs]])).toEqual([
+      ["/sitemap-jobs-nidvaldo-de.xml", [emptyHub]],
+    ]);
+
+    // Producer undecided: hubs stay untouched (no pruning without evidence).
+    expect(stalePublishedActiveJobDetailLocs(sources, allowlist).size).toBe(0);
+    expect(stalePublishedActiveJobDetailLocs(sources, allowlist, null).size).toBe(0);
+  });
+
   it("lists only active job-detail sitemap files from the sitemap index", () => {
     const xml = indexXml([
       "sitemap-jobs.xml",
