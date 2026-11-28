@@ -138,8 +138,15 @@ export function localDispatchStaleReason(item, flow, order) {
   if ((item.mode === 'submit') !== (flow.state === 'submitting')) return 'flow_mode_changed';
   if (Number(flow.round || 1) !== Number(item.round)) return 'stale_round';
   if (Number(flow.dispatch?.requestedAt || 0) !== Number(item.requestedAt)) return 'superseded';
-  if (!requiresSwissEgress(flow)) return 'egress_not_required';
+  // A request the flow only PREFERRED to send from Switzerland (a rate-limited portal's retry) needs no mark.
+  if (!requiresSwissEgress(flow) && item.preferred !== true) return 'egress_not_required';
   return null;
+}
+
+/** Whether a Swiss runner is alive right now, read from the heartbeats (one bounded read). */
+export async function swissRunnerOnline({ db, nowMs = Date.now() }) {
+  const runners = await db.collection(LOCAL_RUNNERS_COLLECTION).limit(RUNNER_SCAN_LIMIT).get();
+  return swissRunnerAvailability((runners.docs || []).map(doc => doc.data()), nowMs);
 }
 
 /**
@@ -148,7 +155,7 @@ export function localDispatchStaleReason(item, flow, order) {
  * lease in progress stays where it is (the runner finds the newer key when it
  * releases, and the next lease takes it).
  */
-export async function enqueueLocalDispatch({ db, orderId, flow, mode, reason = null, nowMs = Date.now() }) {
+export async function enqueueLocalDispatch({ db, orderId, flow, mode, reason = null, preferred = false, nowMs = Date.now() }) {
   if (!LOCAL_MODES.has(mode)) throw new Error(`local_dispatch_mode_unsupported:${mode}`);
   const round = Number(flow?.round) || 1;
   const requestedAt = Number(flow?.dispatch?.requestedAt) || nowMs;
@@ -166,6 +173,8 @@ export async function enqueueLocalDispatch({ db, orderId, flow, mode, reason = n
       attempts: Number(flow?.dispatch?.attempts) || 1,
       reason: reason ? String(reason).slice(0, 60) : null,
       egress: SWISS_EGRESS,
+      // Preferred, not required: nobody took it in time (or no Swiss runner is alive), GitHub runs it instead.
+      preferred: preferred === true,
       status: 'pending',
       queuedAt: nowMs,
       prepFailures: 0,
@@ -306,6 +315,54 @@ export async function writeRunnerHeartbeat({ db, runnerId, nowMs = Date.now(), e
 }
 
 /**
+ * A preferred request nobody leased while no Swiss runner is alive: close it and dispatch the same run on GitHub.
+ * The request is claimed in a transaction (only a pending one nobody leased), so a runner and GitHub never both run
+ * it; when the flow has moved on it is only closed as stale.
+ * @returns {Promise<'github'|'stale'|'skipped'>}
+ */
+async function fallBackToGithub({ db, doc, nowMs, runEffect }) {
+  const seen = doc.data() || {};
+  const claimed = await db.runTransaction(async (transaction) => {
+    const item = (await transaction.get(doc.ref)).data() || null;
+    if (!item || !['pending', 'expiring'].includes(item.status) || item.key !== seen.key) return null;
+    if (item.lease && Number(item.lease.until) > nowMs) return null;
+    transaction.set(doc.ref, { status: 'expiring', result: { code: 'swiss_preferred_fallback', at: nowMs } }, { merge: true });
+    return item;
+  });
+  if (!claimed) return 'skipped';
+  const orderId = String(claimed.orderId || doc.ref.id);
+  const [orderSnapshot, flowSnapshot] = await Promise.all([
+    orderRef(db, orderId).get(), orderRef(db, orderId).collection('automation').doc('flow').get(),
+  ]);
+  const flow = flowSnapshot.data() || null;
+  const stale = localDispatchStaleReason(claimed, flow, orderSnapshot.data() || null);
+  let status = 'expired';
+  let code = 'swiss_preferred_fallback';
+  let outcome = 'github';
+  if (stale) {
+    code = stale;
+    outcome = 'stale';
+  } else {
+    try {
+      await runEffect({
+        db, orderId, flow, nowMs,
+        effect: { type: 'dispatch', mode: claimed.mode, reason: 'swiss_preferred_fallback', preferEgress: null, forceGithub: true },
+      });
+    } catch (error) {
+      // Left `expiring`: the next sweep tries again.
+      console.error('[assistedApplicationSwissRunner] github fallback not dispatched', orderId, error instanceof Error ? error.message : String(error));
+      return 'skipped';
+    }
+  }
+  await db.runTransaction(async (transaction) => {
+    const current = (await transaction.get(doc.ref)).data() || null;
+    if (current?.status !== 'expiring' || current.key !== claimed.key) return;
+    transaction.set(doc.ref, { status, finishedAt: nowMs, result: { code, at: nowMs } }, { merge: true });
+  });
+  return outcome;
+}
+
+/**
  * Sweep step: a request still pending past SWISS_RUNNER_PICKUP_MS while no
  * Swiss runner is alive holds its order for the owner with the reason. A
  * runner that is alive but busy is waited for: the watchdog decides.
@@ -349,6 +406,13 @@ export async function holdUnservedLocalDispatches({ db, nowMs = Date.now(), appl
   }
   const toApply = [];
   for (const doc of due) {
+    // A request the flow only preferred to send from Switzerland never holds the order for the owner: no Swiss
+    // runner is alive, so GitHub runs it (the same dispatch, claim and lease), as the ladder always did.
+    if ((doc.data() || {}).preferred === true) {
+      const outcome = await fallBackToGithub({ db, doc, nowMs, runEffect });
+      if (outcome === 'github') summary.fellBack = (summary.fellBack || 0) + 1;
+      continue;
+    }
     const seen = doc.data() || {};
     const claimed = await db.runTransaction(async (transaction) => {
       const item = (await transaction.get(doc.ref)).data() || null;
@@ -362,7 +426,14 @@ export async function holdUnservedLocalDispatches({ db, nowMs = Date.now(), appl
     });
     if (claimed) toApply.push({ ref: doc.ref, item: claimed });
   }
-  for (const doc of unfinished) toApply.push({ ref: doc.ref, item: doc.data() || {} });
+  for (const doc of unfinished) {
+    if ((doc.data() || {}).preferred === true) {
+      const outcome = await fallBackToGithub({ db, doc, nowMs, runEffect });
+      if (outcome === 'github') summary.fellBack = (summary.fellBack || 0) + 1;
+      continue;
+    }
+    toApply.push({ ref: doc.ref, item: doc.data() || {} });
+  }
   for (const { ref, item } of toApply) {
     let result;
     try {
