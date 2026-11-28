@@ -23,10 +23,23 @@ const UUID_RE = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
 const LONG_NUMBER_RE = /\d{5,}/;
 const LONG_HEX_RE = /(?<![0-9a-z])(?=[0-9a-f]*\d)(?=[0-9a-f]*[a-f])[0-9a-f]{12,}(?![0-9a-z])/i;
 
-// Path segments after which the next segment names one posting.
+// Segments after which the next one names a posting, whether or not it is the leaf.
 const JOB_SEGMENTS = new Set(['job', 'jobs', 'offer', 'position', 'vacancy', 'vacancies']);
-// A path ending in one of these is a list, whatever id comes before it.
-const LISTING_LEAVES = new Set(['jobs', 'list', 'results', 'search', 'vacancies']);
+// A token in the leaf needs one of these above it. The additions to
+// JOB_SEGMENTS are the ones seen in committed posting URLs.
+const POSTING_CONTEXT_SEGMENTS = new Set([
+  ...JOB_SEGMENTS,
+  'emplois', 'job-advertisement', 'job-detail', 'job-posting-page', 'job-vacancies', 'jobdetail',
+  'offene-stellen', 'open-jobs', 'postes-vacantes', 'postes-vacants', 'posti-vacanti', 'stellen',
+  'stellenangebot',
+]);
+// A path with one of these anywhere is a search, a list or a filter.
+const LIST_SEGMENTS = new Set([
+  'categories', 'category', 'filter', 'filters', 'job-search', 'list', 'page', 'results', 'search',
+  'tag', 'tags',
+]);
+// A path ending in one of these is a list too.
+const LIST_LEAVES = new Set(['jobs', 'vacancies']);
 // A segment with one of these names says the next one is not a posting.
 const OTHER_ID_SEGMENTS = new Set([
   'board', 'category', 'client', 'companies', 'company', 'department', 'employer', 'location', 'org',
@@ -40,15 +53,25 @@ const POSTING_PARAMS = new Set([
 
 const hasToken = (value) => UUID_RE.test(value) || LONG_NUMBER_RE.test(value) || LONG_HEX_RE.test(value);
 
-/** The leaf, or the segment right after a job segment. `;…` matrix parameters are ignored. */
+/**
+ * A token in a path counts only under an explicit posting segment, for bare
+ * numbers, slug+id and UUIDs alike: right after a JOB_SEGMENTS one, or in the
+ * leaf below a POSTING_CONTEXT_SEGMENTS one. A bare-number leaf is also a page
+ * or a filter value, so it must follow that segment or a hyphenated title.
+ * Never in a search, list or filter path. `;…` matrix parameters are ignored.
+ */
 function pathNamesPosting(path) {
   const segments = path.split('/').map((segment) => segment.split(';')[0]).filter(Boolean);
   const names = segments.map((segment) => segment.toLowerCase());
-  const isList = LISTING_LEAVES.has(names.at(-1));
+  if (names.some((name) => LIST_SEGMENTS.has(name))) return false;
+  const endsInList = LIST_LEAVES.has(names.at(-1));
   return segments.some((segment, index) => {
     const previous = names[index - 1];
     if (!hasToken(segment) || OTHER_ID_SEGMENTS.has(previous)) return false;
-    return index === segments.length - 1 || (!isList && JOB_SEGMENTS.has(previous));
+    if (index < segments.length - 1) return !endsInList && JOB_SEGMENTS.has(previous);
+    if (!names.slice(0, index).some((name) => POSTING_CONTEXT_SEGMENTS.has(name))) return false;
+    return !/^\d+(?:\.html?)?$/i.test(segment)
+      || POSTING_CONTEXT_SEGMENTS.has(previous) || /[-_%]/.test(previous);
   });
 }
 
@@ -60,8 +83,8 @@ function paramNamesPosting(params) {
 
 /**
  * Whether an identity carries a token that names one posting. In a URL the token
- * must sit in the leaf or after a job segment, in a posting-id parameter, or in a
- * hash route or parameter read the same way: a host, a tenant folder, a session
+ * must sit in the path as pathNamesPosting reads it, in a posting-id parameter,
+ * or in a hash route or parameter read the same way: a host, a tenant folder, a session
  * or tracking value and a postal-code filter are all shared by a listing's
  * postings. An `id:` identity is judged whole. A careers listing page
  * (`…/it/jobs`) has no such token. Four digits are not enough: they are as often
