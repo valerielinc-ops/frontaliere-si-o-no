@@ -184,10 +184,11 @@ function activeJob(id: string, slug: string, source: number, extra: Row = {}): R
 }
 
 describe('history backfill CLI exit status', () => {
-  it('succeeds only when no archive slices were refused', () => {
+  it('uses the dedicated refusal status only when archive slices were refused', () => {
     expect(backfillExitCode({ refusedArchives: 0 })).toBe(0);
-    expect(backfillExitCode({ refusedArchives: 1 })).toBeGreaterThan(0);
-    expect(backfillExitCode({ refusedArchives: 3 })).toBeGreaterThan(0);
+    // 3 is the workflow loop's contract for "refused, nothing written".
+    expect(backfillExitCode({ refusedArchives: 1 })).toBe(3);
+    expect(backfillExitCode({ refusedArchives: 3 })).toBe(3);
   });
 });
 
@@ -581,6 +582,46 @@ describe('history backfill: served expired routes', () => {
     expect(summary.applySkippedDueToRefusals).toBe(true);
     expect(targets.map((target) => readFileSync(target))).toEqual(before);
     expect(readdirSync(stagingParentDir)).toEqual([]);
+  });
+
+  it('reports route restoration and zero loss in a dry run, and a refusal without side effects', () => {
+    const betaActivePath = activePathFor('beta.json');
+    const betaExpiredPath = expiredPathFor('beta');
+    mkdirSync(path.dirname(betaActivePath), { recursive: true });
+    const sharedSlug = 'synthetic-report-refusal-route';
+    const acmeLost = activeJob('acme-report-success', 'synthetic-report-success', 618);
+    const betaLost = activeJob('beta-report-refused', sharedSlug, 619);
+    writeFileSync(betaActivePath, `${JSON.stringify([betaLost], null, 2)}\n`);
+    writeFileSync(betaExpiredPath, `${JSON.stringify([record(sharedSlug, 620)], null, 2)}\n`);
+    commit({ active: [acmeLost], expired: [] });
+    commit({ active: [] });
+    writeFileSync(betaActivePath, '[]\n');
+    finishCommit();
+
+    const targets = [activePath(), expiredPath(), betaActivePath, betaExpiredPath];
+    const before = targets.map((target) => readFileSync(target));
+    const reports: Array<Record<string, any>> = [];
+
+    const summary = prepareAndApplySlices(['acme.json', 'beta.json'], {
+      rootDir: root,
+      dryRun: true,
+      reports,
+    });
+
+    expect(targets.map((target) => readFileSync(target))).toEqual(before);
+    expect(summary.refusedArchives).toBe(1);
+    const [acme, beta] = reports;
+    expect(acme.crawlerKey).toBe('acme');
+    expect(acme.refused).toBe(false);
+    expect(acme.lost).toEqual([]);
+    expect(acme.ownerChanged).toEqual([]);
+    expect(acme.restoredByLocale.it).toBeGreaterThan(0);
+    expect(beta.crawlerKey).toBe('beta');
+    expect(beta.refused).toBe(true);
+    expect(beta.collisions).toBeGreaterThan(0);
+    expect(beta.lost).toEqual([]);
+    expect(beta.ownerChanged).toEqual([]);
+    expect(beta.restoredByLocale).toEqual({});
   });
 
   it('coalesces crawl-metadata snapshots of one posting but refuses a distinct posting reusing its route', () => {

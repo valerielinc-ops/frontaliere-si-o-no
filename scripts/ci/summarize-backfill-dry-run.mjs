@@ -1,0 +1,92 @@
+#!/usr/bin/env node
+/**
+ * Aggregate the per-crawler JSON reports written by
+ * `scripts/backfill-expired-from-history.mjs` under DRY_RUN=1
+ * (BACKFILL_REPORT_PATH) into one `report.json`, print a readable summary and
+ * fail when any served route was lost or changed owner.
+ *
+ * Usage: node scripts/ci/summarize-backfill-dry-run.mjs <report-dir> [log-file]
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import { appendFileSync } from 'node:fs';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
+
+const REFUSAL_LINE = /refusing to write the archive/u;
+const HEAP_LINE = /^\[heap\]/u;
+
+export function summarizeDryRun(reports, logText = '') {
+  const crawlers = reports.map((report) => ({
+    crawlerKey: report.crawlerKey,
+    refused: Boolean(report.refused),
+    refusedRoutes: report.refusedRoutes || 0,
+    collisions: report.collisions || 0,
+    unrestoredLegitimateRoutes: report.unrestoredLegitimateRoutes || 0,
+    restoredByLocale: report.restoredByLocale || {},
+    lost: report.lost || [],
+    ownerChanged: report.ownerChanged || [],
+  }));
+  const restoredByLocale = {};
+  for (const crawler of crawlers) {
+    for (const [locale, count] of Object.entries(crawler.restoredByLocale)) {
+      restoredByLocale[locale] = (restoredByLocale[locale] || 0) + count;
+    }
+  }
+  const logLines = String(logText).split(/\r?\n/u);
+  return {
+    crawlers,
+    totals: {
+      crawlers: crawlers.length,
+      refusedCrawlers: crawlers.filter((crawler) => crawler.refused).map((crawler) => crawler.crawlerKey),
+      refusedRoutes: crawlers.reduce((sum, crawler) => sum + crawler.refusedRoutes, 0),
+      collisions: crawlers.reduce((sum, crawler) => sum + crawler.collisions, 0),
+      unrestoredLegitimateRoutes: crawlers.reduce((sum, crawler) => sum + crawler.unrestoredLegitimateRoutes, 0),
+      restoredByLocale,
+      lost: crawlers.reduce((sum, crawler) => sum + crawler.lost.length, 0),
+      ownerChanged: crawlers.reduce((sum, crawler) => sum + crawler.ownerChanged.length, 0),
+      maxRssMb: Math.max(0, ...reports.map((report) => report.maxRssMb || 0)),
+    },
+    refusalLogLines: logLines.filter((line) => REFUSAL_LINE.test(line)),
+    heapLines: logLines.filter((line) => HEAP_LINE.test(line)),
+  };
+}
+
+export function dryRunExitCode(summary) {
+  return summary.totals.lost > 0 || summary.totals.ownerChanged > 0 ? 1 : 0;
+}
+
+function main() {
+  const [reportDir, logFile] = process.argv.slice(2);
+  if (!reportDir) {
+    console.error('usage: summarize-backfill-dry-run.mjs <report-dir> [log-file]');
+    process.exit(2);
+  }
+  const reports = fs.readdirSync(reportDir)
+    .filter((name) => name.endsWith('.json') && name !== 'report.json')
+    .sort()
+    .flatMap((name) => {
+      const parsed = JSON.parse(fs.readFileSync(path.join(reportDir, name), 'utf-8'));
+      return (parsed.crawlers || []).map((crawler) => ({ ...crawler, maxRssMb: parsed.maxRssMb }));
+    });
+  const logText = logFile && fs.existsSync(logFile) ? fs.readFileSync(logFile, 'utf-8') : '';
+  const summary = summarizeDryRun(reports, logText);
+  fs.writeFileSync(path.join(reportDir, 'report.json'), `${JSON.stringify(summary, null, 2)}\n`);
+  const { totals } = summary;
+  const lines = [
+    '## Backfill dry-run report',
+    `crawlers=${totals.crawlers} refusedCrawlers=${totals.refusedCrawlers.length} refusedRoutes=${totals.refusedRoutes} unrestoredLegitimateRoutes=${totals.unrestoredLegitimateRoutes}`,
+    `restoredByLocale=${JSON.stringify(totals.restoredByLocale)}`,
+    `lost=${totals.lost} ownerChanged=${totals.ownerChanged} maxRssMb=${totals.maxRssMb}`,
+    ...summary.refusalLogLines.map((line) => `log: ${line}`),
+    ...summary.heapLines.map((line) => `log: ${line}`),
+  ];
+  console.log(lines.join('\n'));
+  if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${lines.join('\n')}\n`);
+  const exitCode = dryRunExitCode(summary);
+  if (exitCode !== 0) {
+    console.error(`::error::Dry-run would lose ${totals.lost} served route(s) and change ${totals.ownerChanged} owner(s)`);
+  }
+  process.exit(exitCode);
+}
+
+if (isInvokedDirectly(import.meta.url)) main();

@@ -484,6 +484,15 @@ jobs:
             exit 0
           fi
 
+          # Crawlers refused for a route collision in THIS run. The alarm step
+          # below opens/comments one issue with the list; the job stays green.
+          refused_keys=()
+          write_refused_output() {
+            if [ -n "${GITHUB_OUTPUT:-}" ] && [ "${#refused_keys[@]}" -gt 0 ]; then
+              printf 'refused_crawlers=%s\n' "$(IFS=,; echo "${refused_keys[*]}")" >> "$GITHUB_OUTPUT"
+            fi
+          }
+
           mapfile -t key_list <<< "$keys"
           key_total="${#key_list[@]}"
           continuation_required=0
@@ -507,13 +516,28 @@ jobs:
             for key in "${batch_keys[@]}"; do
               [ -n "$key" ] || continue
               echo "──── Backfilling crawler: $key ────"
-              CRAWLER_KEYS="$key" node scripts/backfill-expired-from-history.mjs
+              # Exit 3 is the script's deterministic "slice refused for a route
+              # collision" outcome: it wrote nothing, so record the crawler and
+              # advance the cursor. Retrying it can never converge and would
+              # park every crawler behind it. Any other non-zero is an error.
+              if CRAWLER_KEYS="$key" node scripts/backfill-expired-from-history.mjs; then
+                crawler_rc=0
+              else
+                crawler_rc=$?
+              fi
+              if [ "$crawler_rc" -eq 3 ]; then
+                refused_keys+=("$key")
+                echo "::warning::Backfill refused crawler $key (route collision); nothing was written, cursor advances."
+              elif [ "$crawler_rc" -ne 0 ]; then
+                exit "$crawler_rc"
+              fi
               last_completed_key="$key"
               checkpoint_count=$((checkpoint_count + 1))
             done
             checkpoint
           done
 
+          write_refused_output
           if [ "$continuation_required" -eq 1 ]; then
             if [ -z "${GITHUB_PAT:-}" ]; then
               echo '::error::GITHUB_PAT is empty; cannot dispatch the next durable backfill run.'
@@ -542,6 +566,96 @@ jobs:
         # clean rerun must still leave the completed data for deploy.yml's
         # self-driven schedule.
         run: echo '✅ Backfill committato; la coda deploy self-driven lo prenderà al prossimo tick.'
+
+      - name: Alert on crawlers refused for route collisions
+        if: always() && steps.backfill.outputs.refused_crawlers != ''
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          REFUSED_CRAWLERS: ${{ steps.backfill.outputs.refused_crawlers }}
+        # The job stays green: a refusal is the fail-closed outcome (nothing
+        # written, no served route lost). The alarm keeps it visible so the
+        # collision gets a data fix instead of silently skipping the crawler.
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Backfill expired: crawler rifiutati per collisione route" \
+            --description "## Crawler rifiutati dal backfill
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Crawler:** ${REFUSED_CRAWLERS}
+
+          Lo script non ha scritto nulla per questi crawler (fail-closed): nessuna route servita e' stata persa, ma il recupero delle loro route legittime e' saltato finche' la collisione non viene risolta nei dati." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
+
+      - name: Dry-run backfill report (no writes, no commits)
+        id: dryrun
+        if: inputs.dry_run == true || inputs.dry_run == 'true'
+        env:
+          MAX_COMMITS: ${{ inputs.max_commits || '0' }}
+          CRAWLER_KEYS: ${{ inputs.crawler_keys || '' }}
+          HISTORY_SINCE: ${{ inputs.history_since || '45 days ago' }}
+        # Same crawler workset, batching and history window as the real step,
+        # but every crawler runs with DRY_RUN=1: nothing is written, committed
+        # or pushed, and the cursor file is neither read nor changed. Each
+        # crawler leaves a JSON report (routes restored per locale, refused
+        # routes, collisions, localeRouteKeys before/after on active+expired
+        # -> lost / ownerChanged); the summarizer fails the job on any loss.
+        run: |
+          set -euo pipefail
+          report_dir="$RUNNER_TEMP/backfill-dry-run"
+          mkdir -p "$report_dir"
+          log="$report_dir/dry-run.log"
+          : > "$log"
+
+          if [ -n "$CRAWLER_KEYS" ]; then
+            keys="$(printf '%s\n' "$CRAWLER_KEYS" | sed 's/[[:space:],][[:space:],]*/\n/g' | sed '/^$/d' | sort -u)"
+          else
+            keys="$(find data/jobs/by-crawler -maxdepth 1 -type f -name '*.json' -print | sed 's#^.*/##; s#\.json$##' | sort -u)"
+          fi
+          if [ -z "$keys" ]; then
+            echo 'No crawler slices matched; nothing to dry-run.'
+            exit 0
+          fi
+          case "${HISTORY_SINCE:-45 days ago}" in
+            ''|all) export HISTORY_SINCE='all' ;;
+            *) HISTORY_SINCE="$(date -u -d "$HISTORY_SINCE" '+%Y-%m-%dT%H:%M:%SZ')"; export HISTORY_SINCE ;;
+          esac
+
+          mapfile -t key_list <<< "$keys"
+          for ((batch_start=0; batch_start<${#key_list[@]}; batch_start+=8)); do
+            batch_keys=("${key_list[@]:batch_start:8}")
+            batch_crawler_keys=''
+            printf -v batch_crawler_keys '%s,' "${batch_keys[@]}"
+            batch_crawler_keys="${batch_crawler_keys%,}"
+            CRAWLER_KEYS="$batch_crawler_keys" node scripts/ci/prefetch-history-blobs.mjs
+            for key in "${batch_keys[@]}"; do
+              [ -n "$key" ] || continue
+              echo "──── Dry-run crawler: $key ────" | tee -a "$log"
+              set +e
+              DRY_RUN=1 BACKFILL_REPORT_PATH="$report_dir/$key.json" CRAWLER_KEYS="$key" \
+                node scripts/backfill-expired-from-history.mjs 2>&1 | tee -a "$log"
+              rc="${PIPESTATUS[0]}"
+              set -e
+              # 3 = refused (expected, reported); anything else is a real error.
+              if [ "$rc" -ne 0 ] && [ "$rc" -ne 3 ]; then
+                echo "::error::Dry-run of $key exited with $rc"
+                exit "$rc"
+              fi
+            done
+          done
+
+          node scripts/ci/summarize-backfill-dry-run.mjs "$report_dir" "$log"
+
+      - name: Upload dry-run report
+        if: always() && (inputs.dry_run == true || inputs.dry_run == 'true')
+        uses: actions/upload-artifact@v7
+        with:
+          name: backfill-dry-run-report
+          path: ${{ runner.temp }}/backfill-dry-run/
+          if-no-files-found: warn
+          retention-days: 14
 
       # ─── Perche' questo step esiste ────────────────────────────────────────
       # Il reporter qui sotto e' `run: node scripts/lib/github-issue-creator.mjs`,

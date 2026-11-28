@@ -50,6 +50,8 @@ function requireCommandSuccess(command: string, args: string[], cwd: string, env
 function runWorkflowHarness(options: {
   crawlerKeys?: string[];
   failCrawler?: string;
+  // Crawler whose stub exits 3: the script's "slice refused" status.
+  refuseCrawler?: string;
   interruptCrawler?: string;
   testGateExit?: number;
   checkpointBatchSize?: number;
@@ -98,6 +100,10 @@ function runWorkflowHarness(options: {
     '      exit 0',
     '    fi',
     '    if [ -n "${CRAWLER_DELAY_SECONDS:-}" ]; then sleep "$CRAWLER_DELAY_SECONDS"; fi',
+    '    if [ "$CRAWLER_KEYS" = "${REFUSE_CRAWLER:-}" ]; then',
+    '      printf "%s\\n" "crawler:$CRAWLER_KEYS:refused" >> "$EVENT_LOG"',
+    '      exit 3',
+    '    fi',
     '    if [ "$CRAWLER_KEYS" = "$FAIL_CRAWLER" ]; then',
     '      printf "%s\\n" "crawler:$CRAWLER_KEYS:failed" >> "$EVENT_LOG"',
     '      exit 23',
@@ -193,6 +199,7 @@ function runWorkflowHarness(options: {
       HISTORY_SINCE: 'all',
       BACKFILL_PROGRESS_PATH: progressRelativePath,
       FAIL_CRAWLER: options.failCrawler ?? '',
+      REFUSE_CRAWLER: options.refuseCrawler ?? '',
       INTERRUPT_CRAWLER: options.interruptCrawler ?? '',
       TEST_GATE_EXIT: String(options.testGateExit ?? 0),
       BACKFILL_CHECKPOINT_BATCH_SIZE: String(options.checkpointBatchSize ?? 8),
@@ -706,6 +713,26 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(result.events.filter((event) => event.startsWith('push:'))).toEqual(['push:active:alpha']);
     expect(result.progress.split('\t')).toHaveLength(5);
     expect(result.progress.split('\t').slice(0, 3)).toEqual([hashWorkset(['alpha', 'beta']), 'alpha', 'active']);
+  });
+
+  it('records a refused crawler (exit 3), advances the cursor, finishes green and reports it', () => {
+    const result = runWorkflowHarness({ crawlerKeys: ['alpha', 'beta', 'gamma'], refuseCrawler: 'beta' });
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.events).toContain('crawler:beta:refused');
+    // The refusal wrote nothing, and the crawlers after it still ran.
+    expect(result.events).not.toContain('crawler:beta:complete');
+    expect(result.events).toContain('crawler:gamma:complete');
+    expect(result.progress.split('\t').slice(0, 3)).toEqual([hashWorkset(['alpha', 'beta', 'gamma']), 'gamma', 'complete']);
+    expect(result.outputs).toContain('refused_crawlers=beta');
+    expect(result.outputs).toContain('continuation_required=false');
+  });
+
+  it('still fails the run for a non-refusal error code', () => {
+    const result = runWorkflowHarness({ crawlerKeys: ['alpha', 'beta'], failCrawler: 'beta' });
+
+    expect(result.status).toBe(23);
+    expect(result.outputs.some((line) => line.startsWith('refused_crawlers='))).toBe(false);
   });
 
   it('attempts one active checkpoint on SIGTERM during a crawler batch and exits non-zero', () => {

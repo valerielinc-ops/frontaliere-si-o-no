@@ -1278,6 +1278,48 @@ export function createListingIdentityCollector() {
  * Backfill one crawler's expired archive. The directories are parameters so a
  * test can run the real history walk inside a throwaway git repository.
  */
+
+/**
+ * Route-set evidence for the dry-run report: every `locale:slug` key served by
+ * a job, mapped to the owners that serve it. Pure; used only when a caller asks
+ * `processSlice` for a `report`.
+ */
+function routeOwnerSnapshot(jobs, owners = new Map()) {
+  for (const job of jobs) {
+    const owner = String(job?.id || job?.slug || '');
+    for (const routeKey of localeRouteKeys(job || {})) {
+      if (!owners.has(routeKey)) owners.set(routeKey, new Set());
+      owners.get(routeKey).add(owner);
+    }
+  }
+  return owners;
+}
+
+function routeLocale(routeKey) {
+  return routeKey.slice(0, routeKey.indexOf(':'));
+}
+
+/** Compare two snapshots: routes lost, owners changed, routes restored by locale. */
+export function compareRouteSnapshots(before, after) {
+  const lost = [];
+  const ownerChanged = [];
+  const restoredByLocale = {};
+  for (const [routeKey, beforeOwners] of before) {
+    const afterOwners = after.get(routeKey);
+    if (!afterOwners) {
+      lost.push(routeKey);
+      continue;
+    }
+    if (![...beforeOwners].every((owner) => afterOwners.has(owner))) ownerChanged.push(routeKey);
+  }
+  for (const routeKey of after.keys()) {
+    if (before.has(routeKey)) continue;
+    const locale = routeLocale(routeKey);
+    restoredByLocale[locale] = (restoredByLocale[locale] || 0) + 1;
+  }
+  return { lost, ownerChanged, restoredByLocale };
+}
+
 export function processSlice(sliceFile, {
   rootDir = ROOT,
   byCrawlerDir = path.join(rootDir, 'data', 'jobs', 'by-crawler'),
@@ -1285,6 +1327,7 @@ export function processSlice(sliceFile, {
   maxCommits = MAX_COMMITS,
   stagingDir = null,
   dryRun = DRY_RUN,
+  report = null,
 } = {}) {
   const crawlerKey = path.basename(sliceFile, '.json');
   const currentRel = `data/jobs/by-crawler/${sliceFile}`;
@@ -1301,6 +1344,9 @@ export function processSlice(sliceFile, {
   const currentBlob = fs.readFileSync(currentPath, 'utf-8');
   const currentPayload = parseSlice(currentBlob);
   const currentJobs = readJobsFromSlice(currentBlob);
+  // Snapshot before any in-place enrichment: the dry-run report compares it
+  // with the routes the written (or staged) output would serve.
+  const activeSnapshotBefore = report ? routeOwnerSnapshot(currentJobs) : null;
   const currentIds = new Set(currentJobs.map((j) => j.id).filter(Boolean));
   const currentSlugs = new Set(currentJobs.map((j) => j.slug).filter(Boolean));
   const currentSourceIdentities = new Set(currentJobs.flatMap((job) => (
@@ -1584,6 +1630,25 @@ export function processSlice(sliceFile, {
   // starting fresh would rewrite it with only the recovered rows.
   const existingShards = readExpiredSliceShards(crawlerKey, { dir: expiredDir });
   const existing = existingShards.flatMap((shard) => shard.rows);
+  const snapshotBefore = report ? routeOwnerSnapshot(existing, activeSnapshotBefore) : null;
+  // Called at every refusal return: records what the refused slice leaves
+  // unrecovered (routes of lost postings not served today). Nothing is written.
+  const refusalDetails = () => {
+    if (report) {
+      const unrestored = new Set();
+      for (const job of [...lostById.values(), ...lostByStableIdentity.values()]) {
+        for (const routeKey of localeRouteKeys(job || {})) {
+          if (!snapshotBefore.has(routeKey)) unrestored.add(routeKey);
+        }
+      }
+      report.refused = true;
+      report.unrestoredLegitimateRoutes = unrestored.size;
+      report.lost = [];
+      report.ownerChanged = [];
+      report.restoredByLocale = {};
+    }
+    return {};
+  };
 
   const archiveEntries = [];
   const archiveEntriesByMergeScope = new Map();
@@ -1807,6 +1872,7 @@ export function processSlice(sliceFile, {
       enriched: 0,
       activeEnriched: 0,
       refusedRoutes: refusedArchiveRoutePaths.size,
+      ...refusalDetails(),
     };
   }
 
@@ -2016,6 +2082,7 @@ export function processSlice(sliceFile, {
       enriched: 0,
       activeEnriched: 0,
       refusedRoutes: recoveredExpiredRouteCollisions.size,
+      ...refusalDetails(),
     };
   }
 
@@ -2065,6 +2132,7 @@ export function processSlice(sliceFile, {
       enriched: 0,
       activeEnriched: 0,
       refusedRoutes: unresolvedIdlessRouteKeys.size,
+      ...refusalDetails(),
     };
   }
 
@@ -2117,6 +2185,7 @@ export function processSlice(sliceFile, {
         enriched: 0,
         activeEnriched: 0,
         refusedRoutes: unrepresentedRoutes.length,
+      ...refusalDetails(),
       };
     }
     if (routesChanged || routeCantonsChanged) activeRouteUpdatedOwners.add(owner);
@@ -2300,6 +2369,7 @@ export function processSlice(sliceFile, {
       enriched: 0,
       activeEnriched: 0,
       refusedRoutes: refusedRouteOnlyCollisionKeys.size,
+      ...refusalDetails(),
     };
   }
 
@@ -2361,7 +2431,17 @@ export function processSlice(sliceFile, {
       enriched: 0,
       activeEnriched: activeMetadata.enrichedEntries,
       refusedRoutes: droppedRoutes.length,
+      ...refusalDetails(),
     };
+  }
+  if (report) {
+    const snapshotAfter = routeOwnerSnapshot(archived, routeOwnerSnapshot(currentJobs));
+    const { lost, ownerChanged, restoredByLocale } = compareRouteSnapshots(snapshotBefore, snapshotAfter);
+    report.refused = false;
+    report.unrestoredLegitimateRoutes = 0;
+    report.lost = lost;
+    report.ownerChanged = ownerChanged;
+    report.restoredByLocale = restoredByLocale;
   }
   // Even a no-op must pass the served-route check above. Otherwise a
   // historical active path can disappear when its current row keeps the same
@@ -2687,12 +2767,14 @@ export function prepareAndApplySlices(files, {
   dryRun = DRY_RUN,
   stagingParentDir = tmpdir(),
   onSliceResult = null,
+  reports = null,
 } = {}) {
   fs.mkdirSync(stagingParentDir, { recursive: true });
   const stagingDir = fs.mkdtempSync(path.join(stagingParentDir, 'backfill-expired-from-history-'));
   const summary = emptyBackfillSummary();
   try {
     for (const file of files) {
+      const report = reports ? {} : null;
       const result = processSlice(file, {
         rootDir,
         byCrawlerDir,
@@ -2700,8 +2782,19 @@ export function prepareAndApplySlices(files, {
         maxCommits,
         dryRun,
         stagingDir,
+        report,
       });
       if (!result) continue;
+      if (reports) {
+        reports.push({
+          crawlerKey: result.crawlerKey,
+          refusedRoutes: result.refusedRoutes || 0,
+          collisions: result.refusedRoutes || 0,
+          recovered: result.recovered,
+          added: result.added,
+          ...report,
+        });
+      }
       addSliceResultToSummary(summary, result);
       onSliceResult?.(result);
     }
@@ -2729,7 +2822,9 @@ function main() {
   console.log(`🧮 Backfilling expired slices from history${DRY_RUN ? ' (DRY RUN)' : ''}`);
   console.log(`   crawlers: ${files.length}, history cap: ${MAX_COMMITS || 'unbounded'}`);
 
+  const reports = process.env.BACKFILL_REPORT_PATH ? [] : null;
   const summary = prepareAndApplySlices(files, {
+    reports,
     onSliceResult: (result) => {
       if (result.lost > 0 || result.enriched > 0 || result.activeEnriched > 0
         || result.refusedRoutes > 0 || process.env.VERBOSE === '1') {
@@ -2740,6 +2835,14 @@ function main() {
     },
   });
   console.log('');
+  if (reports) {
+    writeJsonAtomic(process.env.BACKFILL_REPORT_PATH, {
+      dryRun: DRY_RUN,
+      maxRssMb: Math.round(process.resourceUsage().maxRSS / 1024),
+      summary,
+      crawlers: reports,
+    });
+  }
   const exitCode = backfillExitCode(summary);
   if (exitCode === 0) {
     console.log(`✅ Done. Crawlers: ${summary.crawlers}, with drops: ${summary.withDrops}`);
@@ -2757,14 +2860,22 @@ function main() {
   }
   if (exitCode !== 0) {
     console.error(
-      `::error::Backfill refused ${summary.refusedRoutesTotal} route(s) across ${summary.refusedArchives} archive slice(s); returning non-zero so the workflow can retry them`,
+      `::error::Backfill refused ${summary.refusedRoutesTotal} route(s) across ${summary.refusedArchives} archive slice(s); exiting with the refusal status so the workflow records them and continues`,
     );
     process.exitCode = exitCode;
   }
 }
 
+/**
+ * Exit status contract with the workflow loop: 0 = done, 3 = at least one
+ * slice was refused for a route collision (expected, deterministic outcome:
+ * nothing was written, the loop records the crawler and moves on), any other
+ * non-zero status is a real error.
+ */
+export const BACKFILL_REFUSED_EXIT_CODE = 3;
+
 export function backfillExitCode(summary) {
-  return summary?.refusedArchives > 0 ? 1 : 0;
+  return summary?.refusedArchives > 0 ? BACKFILL_REFUSED_EXIT_CODE : 0;
 }
 
 // Importing the module (tests) must not start a repository-wide backfill.
