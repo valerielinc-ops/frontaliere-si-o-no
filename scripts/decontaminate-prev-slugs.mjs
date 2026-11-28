@@ -39,7 +39,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { stableSlugHash } from './lib/dedicated-crawler-common.mjs';
-import { cleanPreviousSlugsPerLocale, pruneEmptyPreviousSlugLocaleBuckets } from './lib/dedicated-crawler-common.mjs';
+import { cleanPreviousSlugsPerLocale, isSelfCanonicalPreviousSlug, pruneEmptyPreviousSlugLocaleBuckets } from './lib/dedicated-crawler-common.mjs';
 import { addPreviousSlugForLocale, promotePreviousSlugToLegacy } from './lib/dedicated-crawler-common.mjs';
 import { buildUniqueSuffixOwnerMap, resolveRecoveryTarget } from './backfill-prev-slugs-from-loss-events.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -63,23 +63,6 @@ export function listCrawlerSlicePaths(directories = CRAWLER_SLICE_DIRS) {
 
 function normalizedSlug(value) {
   return String(value ?? '').trim();
-}
-
-function targetAlreadyServesSlug(job, locale, slug) {
-  const normalized = normalizedSlug(slug);
-  if (!normalized || !job || typeof job !== 'object') return false;
-
-  // The master slug is the live Italian route. It is self-canonical for the
-  // Italian bucket (and for the flat legacy bucket), but not automatically for
-  // en/de/fr: there it may be the old active route that needs a bridge.
-  if ((locale === null || locale === 'it') && normalized === normalizedSlug(job.slug)) return true;
-
-  if (locale !== null) {
-    return normalized === normalizedSlug(job.slugByLocale?.[locale]);
-  }
-
-  return Object.values(job.slugByLocale || {})
-    .some((activeSlug) => normalized === normalizedSlug(activeSlug));
 }
 
 function hasSelfCanonicalBridge(job) {
@@ -109,7 +92,9 @@ function hasSelfCanonicalBridge(job) {
 }
 
 function applyAddition(action) {
-  if (targetAlreadyServesSlug(action.targetJob, action.locale, action.slug)) return false;
+  // A live route of the target needs no history entry. The cleaner's predicate
+  // decides what is live, so the move and the cleanup cannot disagree.
+  if (isSelfCanonicalPreviousSlug(action.targetJob, action.locale, action.slug)) return false;
 
   if (action.locale !== null) {
     addPreviousSlugForLocale(
