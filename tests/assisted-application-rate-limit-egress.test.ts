@@ -35,6 +35,16 @@ describe('the retry of a rate-limited portal prefers the Swiss runner', () => {
   });
 });
 
+describe('the owner retry of a rate-limited portal', () => {
+  it('prefers the Swiss exit on a rate-limit hold, and on no other hold', () => {
+    const retry = transition({ ...heldRateLimited, portalAutoRetryAt: now + 3_600_000, portalRateLimitRetryCount: 2 }, { type: 'owner_retry_submit' }, { draft, nowMs: now });
+    expect(retry.flow).toMatchObject({ state: 'submitting', portalRateLimitRetryCount: 0, portalAutoRetryAt: null });
+    expect(retry.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'owner_retry', preferEgress: 'ch' }]);
+    const other = transition({ ...heldRateLimited, heldBy: ['portal:navigation_unavailable'] }, { type: 'owner_retry_submit' }, { draft, nowMs: now });
+    expect(other.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'owner_retry' }]);
+  });
+});
+
 describe('the dispatch effect', () => {
   const submitting = { state: 'submitting', round: 1, dispatch };
   const effect = { type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry', preferEgress: 'ch' };
