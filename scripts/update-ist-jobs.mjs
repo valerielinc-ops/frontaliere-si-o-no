@@ -193,6 +193,18 @@ const IST_GENERIC_SWISS_LOCATION_RE = /^(?:lugano|cadempino),\s*ch$/i;
 const IST_GENERIC_GROUP_ROLE_RE = /\binspired\s+education\s+group\s+school\b/i;
 const IST_GENERIC_IB_SCHOOL_RE = /\bib\s+world\s+school\b/i;
 const IST_GENERIC_ROLE_SUMMARY_SCHOOL_RE = /\brole\s+summary\s*:\s*(?:(?:(?:this|that)\s+is|our)\s+)?(?:an?\s+)?inspired\s+education(?:\s+group)?\s+school\b/i;
+// The role summary names the school itself ("ROLE SUMMARY: For International
+// School of Ticino, we seek ..."): the explicit tenant identity, as opposed to
+// the generic group boilerplate above. The name must open the sentence the
+// summary starts with and be closed by punctuation, a possessive or a verb, so
+// a longer school name that merely contains it does not match.
+const IST_ROLE_SUMMARY_TENANT_RE = new RegExp(
+  '\\brole\\s+summary\\s*:\\s*(?:for\\s+)?(?:the\\s+)?'
+  + '(?:international\\s+school\\s+of\\s+ticino|scuola\\s+internazionale\\s+(?:di|del)\\s+ticino'
+  + '|école\\s+internationale\\s+du\\s+tessin|internationale\\s+schule\\s+des\\s+tessins)'
+  + '(?=\\s*[,.;:]|\\s*[\'’]s\\b|\\s+(?:we|is|are|seeks?|has|needs?|offers?)\\b)',
+  'i',
+);
 const IST_CAMPUS_IDENTITY_FIELDS = [
   'tenant',
   'tenantName',
@@ -274,9 +286,13 @@ function hasVerifiedGenericSwissIstSignal(detail = {}, sourceUrl = detail.source
   if (hasConflictingCampusIdentity(detail)) return false;
   if (!IST_GENERIC_SWISS_LOCATION_RE.test(normalizeSpace(detail.location))) return false;
   const description = normalizeSpace(detail.description);
-  if (!IST_GENERIC_GROUP_ROLE_RE.test(description)) return false;
-  if (!IST_GENERIC_IB_SCHOOL_RE.test(description)
-    && !IST_GENERIC_ROLE_SUMMARY_SCHOOL_RE.test(description)) return false;
+  // An explicit tenant name in the role summary is the identity proof itself;
+  // otherwise the generic group wording plus an IB / role-summary school marker.
+  if (!IST_ROLE_SUMMARY_TENANT_RE.test(description)) {
+    if (!IST_GENERIC_GROUP_ROLE_RE.test(description)) return false;
+    if (!IST_GENERIC_IB_SCHOOL_RE.test(description)
+      && !IST_GENERIC_ROLE_SUMMARY_SCHOOL_RE.test(description)) return false;
+  }
 
   try {
     const parsed = new URL(String(sourceUrl || ''));
