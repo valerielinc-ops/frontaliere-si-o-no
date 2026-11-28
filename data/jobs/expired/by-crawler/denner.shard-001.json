@@ -62603,11 +62603,14 @@
     "previousSlugsByLocale": {
       "it": [
         "verkaufer-in-denner-21-fef2eb1e",
-        "verkaufer-in-denner-07cdccea"
+        "verkaufer-in-denner-07cdccea",
+        "commesso-a-denner-baar",
+        "venditore-denner-baar"
       ],
       "en": [
         "verkaufer-in-denner-21-fef2eb1e",
-        "verkaufer-in-denner-b3975b3b"
+        "verkaufer-in-denner-b3975b3b",
+        "shop-assistant-denner-baar"
       ],
       "de": [
         "verkaufer-in-denner-21-fef2eb1e",
@@ -62615,7 +62618,8 @@
       ],
       "fr": [
         "verkaufer-in-denner-21-fef2eb1e",
-        "verkaufer-in-denner-b3975b3b"
+        "verkaufer-in-denner-b3975b3b",
+        "vendeur-denner-baar"
       ]
     },
     "postalCode": "6340",
@@ -63484,7 +63488,19 @@
       "verkaufer-in-denner-07cdccea",
       "verkaufer-in-denner-b3975b3b",
       "verkaufer-in-denner-9c0f78e3"
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "commesso-a-denner-baar": "ZG",
+        "venditore-denner-baar": "ZG"
+      },
+      "en": {
+        "shop-assistant-denner-baar": "ZG"
+      },
+      "fr": {
+        "vendeur-denner-baar": "ZG"
+      }
+    }
   },
   {
     "slug": "verkaufer-in-im-stundenlohn-denner-ma53kn-98109ca4",

@@ -385,6 +385,17 @@ describe('loop clock dispatch', () => {
     expect(JSON.stringify(report)).not.toContain('secret-token');
   });
 
+  it('keeps the corpus follow-up drainer on the clock every 20 minutes with only the marker input', () => {
+    const entry = LOOP_CLOCK_ENTRIES.find((candidate) => candidate.id === 'corpus-followup-drainer');
+    expect(entry).toEqual({
+      id: 'corpus-followup-drainer',
+      repo: 'corpus',
+      workflow: 'followup-drainer.yml',
+      everyMinutes: 20,
+      introducedAt: '2026-11-28T21:00:00Z',
+    });
+  });
+
   it.each([
     {
       id: 'corpus-section-page-reconcile',
