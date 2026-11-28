@@ -5492,7 +5492,7 @@ const EMPLOYER_TITLE_SEPARATOR_RE = /[\n\r—–|·•]|\s-\s/;
 // evidence: menus, buttons, instructions, descriptions, file names and languages are never a conflict. Evidence is
 // an organisation: a legal form, «bei/chez/presso/at <Name>», «<Name> sucht/cerca/recherche», «Other <kind>», a
 // kind of employer next to a capitalised name, or the exact name of a known other employer.
-const LEGAL_FORM_TOKENS = new Set(['AG', 'GmbH', 'GMBH', 'SA', 'Sagl', 'SAGL', 'Sarl', 'SARL', 'Srl', 'SRL', 'SpA', 'SPA', 'Ltd', 'LTD', 'Inc', 'INC', 'LLC', 'LLP', 'KG', 'KGaA', 'OHG', 'PLC', 'Plc', 'BV', 'NV', 'SAS', 'Genossenschaft', 'Cooperativa', 'Stiftung', 'Fondation', 'Fondazione']);
+const LEGAL_FORM_TOKENS = new Set(['AG', 'GmbH', 'GMBH', 'SA', 'Sagl', 'SAGL', 'Sarl', 'SARL', 'Sàrl', 'Srl', 'SRL', 'SpA', 'SPA', 'Ltd', 'LTD', 'Inc', 'INC', 'LLC', 'LLP', 'KG', 'KGaA', 'OHG', 'PLC', 'Plc', 'BV', 'NV', 'SAS', 'Genossenschaft', 'Cooperativa', 'Stiftung', 'Fondation', 'Fondazione']);
 const PLACEMENT_PREPOSITIONS = new Set(['bei', 'chez', 'presso', 'at']);
 const PLACEMENT_ARTICLES = new Set(['the', 'der', 'die', 'das', 'dem', 'den', 'la', 'le', 'les', 'l', 'il', 'lo', 'gli', 'i']);
 // Capitalised nouns that follow «bei» in ordinary German/Italian/French prose and name nobody.
@@ -5515,7 +5515,13 @@ const isAgencyTradeWord = (word) => STAFFING_AGENCY_WORDS.has(word) || AGENCY_ST
 // With an agency as the order's employer, these words next to its name, and its legal form, are the same
 // agency's variants. For any other employer «Partners» next to the name stays another name.
 const AGENCY_VARIANT_WORDS = new Set(['partner', 'partners', 'jobs', 'job', 'services', 'service', 'consulting', 'group', 'gruppe', 'holding', 'solutions', 'suisse', 'schweiz', 'switzerland', 'svizzera']);
-const isAgencyVariantWord = (word) => isAgencyTradeWord(word) || AGENCY_VARIANT_WORDS.has(word);
+// Compounds of the trade by stem (stellenpartner, jobpartner, staffline, tempforce, recruitpoint, *partner).
+const AGENCY_VARIANT_STEM_RE = new RegExp('^(?:stellen|job|staff|temp|recruit)|^[a-z0-9]+(?:partner|partners|personal|vermittlung|dienst|dienste|dienstleistung|dienstleistungen|staffing|recruiting|jobs|services|consulting)$');
+// The page-wide neutral set takes only the narrow list: the broad stems (job*, staff*, temp*, *partner...) would
+// hide another agency's name («Jobcenter AG») before the entity check; they count only next to the order's
+// distinctive name (neighbour scan) or inside an entity that carries it (`exempt`).
+const isAgencyNarrowVariantWord = (word) => isAgencyTradeWord(word) || AGENCY_VARIANT_WORDS.has(word);
+const isAgencyVariantWord = (word) => isAgencyNarrowVariantWord(word) || AGENCY_VARIANT_STEM_RE.test(word);
 const isStaffingAgencyCompany = (company) => normalizeWords(company).split(' ').some(isAgencyTradeWord);
 
 // «S.p.A.», «S.A.», «S.à r.l.» written with dots: collapse them before the line is cut at its full stops.
@@ -5658,6 +5664,47 @@ function foreignEmployerEvidence(line, { neutral, job, ownSegment = () => false 
   return null;
 }
 
+// A copyright or legal-notice line of a page footer («Damiani Group Valenza 2019 © All rights reserved», «Impressum»)
+// names the site's publisher, the place of its seat and a year. Only the legal part is removed (the indicator, the
+// years, «All rights reserved» and what follows it); what remains is the notice's owner: when it starts with the
+// order's own name («Damiani Group Valenza») the place and the year next to it are no evidence, so the line goes;
+// any other name stays to be read («Jobcenter AG © Copyright 2026» keeps «Jobcenter AG»).
+const LEGAL_NOTICE_LINE_RE = /©|\(c\)\s*\d{4}|\bcopyright\b|all rights reserved|alle rechte vorbehalten|tous droits r[ée]serv|tutti i diritti riservati|\bimpressum\b/iu;
+const LEGAL_NOTICE_PART_RE = /©|\(c\)|\bcopyright\b|\bimpressum\b|(?:all rights reserved|alle rechte vorbehalten|tous droits r[ée]serv|tutti i diritti riservati)[^\n]*|\b(?:19|20)\d{2}\b/giu;
+function withoutLegalNoticeLines(text, job = {}) {
+  const identities = [companyIdentityWords(job.company), companyLongFormWords(job.company), ...companyShortForms(job.company)]
+    .filter((words) => words.length > 0);
+  const legalForms = (value) => collapseDottedLegalForms(value).split(/\s+/u)
+    .filter((token) => LEGAL_FORM_TOKENS.has(token.replace(/^[^\p{L}]+|[^\p{L}]+$/gu, ''))).length;
+  const ownLegalForms = legalForms(job.company);
+  return String(text || '').split(/\r?\n/).map((line) => {
+    if (!LEGAL_NOTICE_LINE_RE.test(line)) return line;
+    const owner = line.replace(LEGAL_NOTICE_PART_RE, ' ').replace(/\s+/g, ' ').trim();
+    if (!owner) return '';
+    // The notice's owner is dropped only when it carries the order's complete distinctive identity and no legal
+    // entity beyond the order's own: «Damiani Group Valenza» goes (the seat is no evidence), «Muster Ypsilon AG»
+    // for the order of «Muster GmbH» stays, and so does a second entity on the same line.
+    // A line can hold two notices or entities («Damiani Group Valenza | Jobcenter AG ©»): judge each part apart.
+    const kept = owner.split(EMPLOYER_TITLE_SEPARATOR_RE).map((part) => part.trim()).filter(Boolean).filter((part) => {
+      const words = normalizeWords(part).split(' ').filter(Boolean);
+      const wordSet = new Set(words);
+      const identity = identities.find((candidate) => candidate.every((word) => wordSet.has(word)));
+      if (!identity || legalForms(part) > ownLegalForms) return true;
+      // A legal form must close the identity itself: «Muster Ypsilon AG» is not «Muster GmbH».
+      const tokens = collapseDottedLegalForms(part).split(/\s+/u).map((token) => token.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, ''));
+      const formAt = tokens.findIndex((token) => LEGAL_FORM_TOKENS.has(token));
+      if (formAt >= 0 && normalizeWords(tokens.slice(0, formAt).join(' ')).split(' ')
+        .some((word) => word && !identity.includes(word) && !filler(word) && !NOT_A_NAME.has(word))) return true;
+      // What stands beside the identity must be a seat or a year; a kind of employer, an «other» marker, a trade
+      // word or an organisation noun there is a second name, which stays.
+      const rest = words.filter((word) => !identity.includes(word) && !NOT_A_NAME.has(word));
+      return rest.some((word) => EMPLOYER_KIND_WORDS.has(word) || OTHER_EMPLOYER_MARKER_WORDS.has(word)
+        || ORGANISATION_NOUNS.has(word) || isAgencyVariantWord(word));
+    });
+    return kept.join(' | ');
+  }).join('\n');
+}
+
 export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation = false, evidence = null } = {}) {
   // With an `evidence` object the call also says which line and entity made it a conflict (run diagnostics only).
   const hit = (reason, entity, line) => {
@@ -5679,7 +5726,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   const ours = new Set(identityWords.filter((word) => word.length > 1));
   if (!ours.size) return false;
   const ourKinds = employerKindsOf([...ours]);
-  const text = String(formText || '').replace(EMAIL_ADDRESS_RE, ' ');
+  const text = withoutLegalNoticeLines(formText, job).replace(EMAIL_ADDRESS_RE, ' ');
   const postingLocationWords = allowPostingLocation
     ? new Set([
       ...nameWords(job.location),
@@ -5705,8 +5752,9 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     ...FORM_VOCABULARY,
   ]);
   // An agency's own variants differ by trade words only («STA Personal AG» / «STA Personalpartner AG»).
-  if (isStaffingAgencyCompany(job.company)) {
-    for (const word of normalizeWords(text).split(' ')) if (word && isAgencyVariantWord(word)) neutral.add(word);
+  const agencyOrder = isStaffingAgencyCompany(job.company);
+  if (agencyOrder) {
+    for (const word of normalizeWords(text).split(' ')) if (word && isAgencyNarrowVariantWord(word)) neutral.add(word);
   }
   const identities = [companyIdentityWords(job.company), companyLongFormWords(job.company), ...companyShortForms(job.company)]
     .filter((words) => words.length > 0);
@@ -5819,7 +5867,8 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
         if (proseWord(at) && !OTHER_EMPLOYER_MARKER_WORDS.has(words[at]) && !EMPLOYER_KIND_WORDS.has(words[at])) continue;
         if (!neutral.has(words[at]) && !labels?.has(words[at])
           && !(EMPLOYER_KIND_CLASS.has(words[at]) && ourKinds.has(EMPLOYER_KIND_CLASS.get(words[at])))
-          && !isSelectOneLabelToken(words, at)) return hit('name_next_to_ours', `${words[at]} next to ${word}`, phrase);
+          && !isSelectOneLabelToken(words, at)
+          && !(agencyOrder && isAgencyVariantWord(words[at]) && !isAgencyVariantWord(word))) return hit('name_next_to_ours', `${words[at]} next to ${word}`, phrase);
       }
     }
   }
