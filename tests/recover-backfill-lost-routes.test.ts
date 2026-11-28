@@ -359,3 +359,20 @@ describe('committed residual manifest', () => {
     }
   });
 });
+
+describe('committed crawler-wave manifest', () => {
+  it('assigns each route to one target and records its proof', () => {
+    const file = path.join(path.dirname(DEFAULT_MANIFEST_PATH), 'crawler-wave-lost-routes-20261128.json');
+    const { targets } = JSON.parse(fs.readFileSync(file, 'utf8'));
+    const routes = (targets as any[]).flatMap((entry) => Object.entries(entry.routes)
+      .flatMap(([locale, slugs]) => (slugs as string[]).map((slug) => `${locale}:${slug}`)));
+
+    expect(routes.length).toBeGreaterThan(0);
+    expect(new Set(routes).size).toBe(routes.length);
+    for (const entry of targets) {
+      expect(entry.proof.rules.length).toBeGreaterThan(0);
+      expect(entry.slug && entry.companyKey && entry.crawlerKey && entry.sourceIdentity).toBeTruthy();
+      expect(entry.state).toBeUndefined();
+    }
+  });
+});
