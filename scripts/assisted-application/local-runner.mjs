@@ -55,6 +55,8 @@ export const HEARTBEAT_EVERY_MS = 60 * 1000;
 export const DEFAULT_LOOP_INTERVAL_MS = 30 * 1000;
 export const SYSTEM_CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 export const ENTRY_POINT_CHECK_TIMEOUT_MS = 15_000;
+/** Set by scripts/dev/install-swiss-runner.sh (SWISS_RUNNER_CODE_STATE) when the checkout could not be updated. */
+export const STALE_CODE_STATE = 'stale_code';
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BROKER_SCRIPT = path.join(REPO_ROOT, '.github', 'actions', 'setup-claude-haiku-fallback', 'codex-auth-broker.mjs');
 const CHROME_PRELOAD = path.join(REPO_ROOT, 'scripts', 'assisted-application', 'local-runner-chrome-preload.cjs');
@@ -659,7 +661,7 @@ export async function runAgentLocally({ db, leased, startedAt, runnerId = 'swiss
  *   `checkEveryMs`: how often, during a run, the heartbeat is written and the exit read again.
  */
 export async function runCycle({ db, runnerId, now = Date.now, fetchImpl = fetch, runAgent,
-  log = (line) => process.stdout.write(`${line}\n`), version = null, checkEveryMs = HEARTBEAT_EVERY_MS,
+  log = (line) => process.stdout.write(`${line}\n`), version = null, checkEveryMs = HEARTBEAT_EVERY_MS, codeAt = null, codeState = null,
   repoRoot = REPO_ROOT,
   ensureDependencies = (options) => ensureSwissRunnerDependencies({ repoRoot, ...options }),
   checkEntryPoint = verifyAgentEntryPoint,
@@ -668,12 +670,21 @@ export async function runCycle({ db, runnerId, now = Date.now, fetchImpl = fetch
   let egress = await readEgressCountry({ fetchImpl });
   let verdict = egressVerdict(egress);
   const beat = (busy = null) => writeRunnerHeartbeat({
-    db, runnerId, nowMs: now(), egressCountry: egress.country, eligible: verdict.eligible, reason: verdict.reason, busy, version,
+    db, runnerId, nowMs: now(), egressCountry: egress.country, eligible: verdict.eligible, reason: verdict.reason, busy, version, codeAt,
   });
   if (!verdict.eligible) {
     await beat();
     log(`swiss-runner idle: ${verdict.reason} (exit ${egress.country || 'unknown'})`);
     return { eligible: false, reason: verdict.reason, leased: null };
+  }
+
+  // The launch script could not bring the checkout to origin/main (code changed locally, or the fast-forward
+  // failed): the code is old, so no lease is taken and the heartbeat says why (the sweep then treats it as offline).
+  if (codeState === STALE_CODE_STATE) {
+    verdict = { eligible: false, reason: STALE_CODE_STATE };
+    await beat();
+    log(`swiss-runner idle: ${STALE_CODE_STATE} (checkout cannot follow origin/main)`);
+    return { eligible: false, reason: STALE_CODE_STATE, leased: null };
   }
 
   let statusTimer = null;
@@ -824,6 +835,13 @@ function checkoutVersion(repoRoot = REPO_ROOT) {
   return head.status === 0 ? `${RUNNER_VERSION}@${head.stdout.trim()}` : RUNNER_VERSION;
 }
 
+/** Commit time (ms) of the checkout's HEAD: how old the code this runner executes is. Null when unknown. */
+export function checkoutCodeAt(repoRoot = REPO_ROOT, spawnSyncImpl = spawnSync) {
+  const head = spawnSyncImpl('git', ['-C', repoRoot, 'log', '-1', '--format=%ct'], { encoding: 'utf8', timeout: 5000 });
+  const seconds = Number(String(head.stdout || '').trim());
+  return head.status === 0 && Number.isFinite(seconds) && seconds > 0 ? seconds * 1000 : null;
+}
+
 async function main(argv = process.argv.slice(2)) {
   if (argv.includes('--prepare-deps')) {
     await ensureSwissRunnerDependencies({ repoRoot: REPO_ROOT });
@@ -847,6 +865,8 @@ async function main(argv = process.argv.slice(2)) {
         db,
         runnerId,
         version: checkoutVersion(),
+        codeAt: checkoutCodeAt(),
+        codeState: process.env.SWISS_RUNNER_CODE_STATE === STALE_CODE_STATE ? STALE_CODE_STATE : null,
         entryPointFailureLogDir: dir,
         ensureDependencies: (options) => ensureSwissRunnerDependencies({ repoRoot: REPO_ROOT, ...options }),
         checkEntryPoint: verifyAgentEntryPoint,

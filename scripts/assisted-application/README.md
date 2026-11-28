@@ -61,6 +61,14 @@ and at login. The log goes to `~/Library/Logs/frontaliere/swiss-runner.log`. The
 `~/.config/frontaliere/sa-frontaliere-ticino.json` (override with `SWISS_RUNNER_SA`), `node` in `PATH`, and
 this Mac's Codex login in `~/.codex/auth.json`. Add `--headed` to see the Chrome window.
 
+**Stale code.** Each cycle the launch script fast-forwards the checkout to `origin/main`. Local changes to tracked
+data files (`data/`, `public/data/`, kept by cron workflows) are saved as a patch in
+`$SWISS_RUNNER_STATE_DIR/data-backups/` (default `~/.config/frontaliere/swiss-runner`) and restored first. A local
+change to any other file, or a fast-forward that fails while `origin/main` is ahead, is never reset: the runner
+takes no lease and its heartbeat says `reason: stale_code`. The heartbeat also carries `codeAt` (commit time of the
+checkout's HEAD); when it is older than 24 hours the sweep treats the runner as offline (`stale_code`) and uses
+the `swiss_runner_offline` path above.
+
 The Swiss runner **never uses the checkout's shared `node_modules`**. The installer runs
 `npm ci --ignore-scripts --no-audit --no-fund` for the root and `functions` lockfiles in private trees under
 `~/.local/share/frontaliere/swiss-runner/root-deps/` and `functions-deps/`, keyed by each lockfile's SHA-256.
