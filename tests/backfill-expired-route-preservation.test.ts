@@ -29,6 +29,7 @@ import {
   createListingIdentityCollector,
   prepareAndApplySlices,
   processSlice,
+  resetHistoricalEntryMemo,
 } from '../scripts/backfill-expired-from-history.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 import {
@@ -2475,6 +2476,55 @@ describe('history backfill: one listing URL for successive postings', () => {
       'id:synthetic-source-shared',
       'id:synthetic-source-v2',
     ]));
+  });
+
+  it('gives the same collector and listing state with and without the per-entry memo', () => {
+    const LOCALES = ['it', 'de', 'fr'];
+    const entry = (n: number, revision: number): Row => record(`synthetic-memo-${n}`, 9000 + n, {
+      title: `Synthetic memo ${n} r${revision}`,
+      slugByLocale: Object.fromEntries(LOCALES.map((locale) => [locale, `synthetic-memo-${n}-${locale}`])),
+      previousSlugs: n % 3 === 0 ? [`synthetic-memo-${n}-old`] : [],
+      expiredAt: daysAgo(100 - revision),
+      ...(n % 4 === 1 ? { sourceIdentity: `url:${listing}` } : {}),
+      ...(n % 5 === 2 ? { sourceIdentityHistory: [{ sourceIdentity: `id:synthetic-memo-hist-${n}` }] } : {}),
+    });
+    // Twelve versions of 40 entries: each repeats the previous one, with a
+    // changed slice and a re-added older revision (parsed again every time).
+    const versions: string[] = [];
+    for (let version = 0; version < 12; version += 1) {
+      versions.push(JSON.stringify(Array.from({ length: 40 }, (_, n) => (
+        entry(n, n % 7 === version % 7 ? version : version >= 6 && n % 11 === 0 ? 1 : 0)
+      ))));
+    }
+    const snapshot = (cold: boolean) => {
+      resetHistoricalEntryMemo();
+      const collector = createHistoricalExpiredOwnerCollector();
+      const index = createListingIdentityCollector();
+      const evidence: unknown[] = [];
+      for (const raw of versions) {
+        for (const row of JSON.parse(raw)) {
+          if (cold) resetHistoricalEntryMemo();
+          const owner = collector.add(row);
+          evidence.push(owner.evidence);
+          index.addArchiveRow(row);
+        }
+      }
+      const owners = [...collector.values()].map((owner: Row) => ({
+        ...owner,
+        commonPostingIdentities: [...owner.commonPostingIdentities].sort(),
+        commonDeclaredIdentities: [...owner.commonDeclaredIdentities].sort(),
+        observedPostingIdentities: [...owner.observedPostingIdentities].sort(),
+        observedDeclaredIdentities: [...owner.observedDeclaredIdentities].sort(),
+        routeEvidenceByPath: [...owner.routeEvidenceByPath.entries()],
+        routeSlugsByLocale: [...owner.routeSlugsByLocale].map(([k, v]: [string, Set<string>]) => [k, [...v]]),
+        routeCantonsByLocale: [...owner.routeCantonsByLocale].map(([k, v]: [string, Map<string, string>]) => [k, [...v]]),
+      }));
+      const ambiguous = [`url:${listing}`, ...owners.flatMap((owner: Row) => owner.commonPostingIdentities)]
+        .map((identity) => [identity, index.isAmbiguous(identity)]);
+      return JSON.stringify({ owners, evidence, ambiguous });
+    };
+    expect(snapshot(false)).toBe(snapshot(true));
+    resetHistoricalEntryMemo();
   });
 
   it('keeps listing-only and non-transitive identity evidence in separate owner components', () => {

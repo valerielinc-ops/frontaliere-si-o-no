@@ -395,6 +395,96 @@ function historicalOwnerIdentityEvidence(owner) {
   return evidence;
 }
 
+const POSTING_NAME_MEMO_LIMIT = 200000;
+let postingNameMemo = new Map();
+/** Pure in `identity`; the same few identities recur on every archive version. */
+function namesOnePostingMemo(identity) {
+  let named = postingNameMemo.get(identity);
+  if (named === undefined) {
+    named = namesOnePosting(identity);
+    if (postingNameMemo.size >= POSTING_NAME_MEMO_LIMIT) postingNameMemo = new Map();
+    postingNameMemo.set(identity, named);
+  }
+  return named;
+}
+
+// Values derived from one archive entry are pure functions of its content, and
+// successive archive versions repeat almost every entry. Keyed by the digest of
+// the entry's stable JSON (the very string the payload fingerprint hashes), so
+// an entry parsed again from a newer blob reuses them. Two generations bound
+// the memory: a full generation is retired only after the next one fills.
+const ENTRY_DERIVED_LIMIT = 40000;
+let entryDerivedCurrent = new Map();
+let entryDerivedPrevious = new Map();
+// The walk calls collector.add(entry) and then listing.addArchiveRow(entry) on
+// the same object with nothing in between, so the second call reuses the first
+// call's digest. Only the second call trusts the slot, and it empties it, so an
+// object mutated and re-added is always re-hashed.
+let lastAddedEntry = null;
+let lastAddedDerived = null;
+
+/**
+ * Pure per-entry values shared by the owner collector and the listing index.
+ * Consumers must treat every field as read-only (copy before mutating).
+ */
+function derivedForEntry(job, { reuseLastAdded = false } = {}) {
+  if (reuseLastAdded && job !== null && typeof job === 'object' && job === lastAddedEntry) {
+    const reused = lastAddedDerived;
+    lastAddedEntry = null;
+    lastAddedDerived = null;
+    return reused;
+  }
+  const stable = stableStringify(job);
+  const digest = createHash('sha1').update(stable).digest('base64');
+  let derived = entryDerivedCurrent.get(digest);
+  if (derived === undefined) {
+    derived = entryDerivedPrevious.get(digest);
+    if (derived === undefined) {
+      derived = { stable, owner: null, listing: null };
+    }
+    if (entryDerivedCurrent.size >= ENTRY_DERIVED_LIMIT) {
+      entryDerivedPrevious = entryDerivedCurrent;
+      entryDerivedCurrent = new Map();
+    }
+    entryDerivedCurrent.set(digest, derived);
+  }
+  return derived;
+}
+
+/** Drops every memoized per-entry value (tests compare cold against hot runs). */
+export function resetHistoricalEntryMemo() {
+  entryDerivedCurrent = new Map();
+  entryDerivedPrevious = new Map();
+  postingNameMemo = new Map();
+  lastAddedEntry = null;
+  lastAddedDerived = null;
+}
+
+/** Collector inputs of one entry; computed once per distinct entry content. */
+function ownerDerivedForEntry(job) {
+  const derived = derivedForEntry(job);
+  lastAddedEntry = job !== null && typeof job === 'object' ? job : null;
+  lastAddedDerived = lastAddedEntry ? derived : null;
+  if (derived.owner) return derived.owner;
+  const proofIdentities = new Set([...archiveRecordSourceIdentities(job)].filter(namesOnePostingMemo));
+  const identityEvidence = compactOwnerIdentityEvidence(job);
+  const fingerprint = createHash('sha256').update(derived.stable).digest('hex');
+  derived.owner = {
+    companyKey: String(job?.companyKey || ''),
+    proofIdentities,
+    declaredIdentities: declaredPostingIdentities(job),
+    identityEvidence,
+    fingerprint,
+    exactKey: stableStringify([identityEvidence, fingerprint]),
+    routes: emittedRouteEntries(job, { active: false }).map((route) => ({
+      route,
+      routeKey: stableStringify([route.localeSlugKey, route.emittedPath, route.canton || '']),
+    })),
+  };
+  derived.stable = null;
+  return derived.owner;
+}
+
 /**
  * Collect expired history with one full payload per proven posting. The proof
  * set is intersected on every merge, so a pairwise chain cannot turn into a
@@ -407,12 +497,15 @@ export function createHistoricalExpiredOwnerCollector() {
   const proofIndexKey = (companyKey, identity) => JSON.stringify([companyKey, identity]);
 
   const add = (job) => {
-    const companyKey = String(job?.companyKey || '');
-    const proofIdentities = new Set([...archiveRecordSourceIdentities(job)].filter(namesOnePosting));
-    const declaredIdentities = declaredPostingIdentities(job);
-    const identityEvidence = compactOwnerIdentityEvidence(job);
-    const fingerprint = payloadFingerprint(job);
-    const exactKey = stableStringify([identityEvidence, fingerprint]);
+    const derived = ownerDerivedForEntry(job);
+    const {
+      companyKey,
+      proofIdentities,
+      declaredIdentities,
+      identityEvidence,
+      fingerprint,
+      exactKey,
+    } = derived;
     const duplicate = exactPayloads.get(exactKey);
     const candidates = new Set();
     for (const identity of proofIdentities) {
@@ -470,7 +563,19 @@ export function createHistoricalExpiredOwnerCollector() {
     }
 
     owner.identityEvidence = historicalOwnerIdentityEvidence(owner);
-    refreshOwnerRouteEvidence(owner, job);
+    // Same effect as refreshOwnerRouteEvidence(owner, job) followed by the
+    // rebuild below; the rebuild that function ends with is overwritten here,
+    // so it runs once, from the representative.
+    for (const { route: derivedRoute, routeKey } of derived.routes) {
+      const route = { ...derivedRoute };
+      owner.routeEvidenceByPath.set(routeKey, route);
+      const slugs = owner.routeSlugsByLocale.get(route.locale) || new Set();
+      slugs.add(route.slug);
+      owner.routeSlugsByLocale.set(route.locale, slugs);
+      const cantons = owner.routeCantonsByLocale.get(route.locale) || new Map();
+      if (route.canton && !cantons.has(route.slug)) cantons.set(route.slug, route.canton);
+      owner.routeCantonsByLocale.set(route.locale, cantons);
+    }
     rebuildOwnerEvidence(owner, owner.representative);
     exactPayloads.set(exactKey, owner);
     for (const identity of owner.commonPostingIdentities) {
@@ -1208,18 +1313,25 @@ export function createListingIdentityCollector() {
     if (components.rank[leftRoot] === components.rank[rightRoot]) components.rank[leftRoot] += 1;
   };
 
-  const addSighting = (identity, record) => {
-    if (!identity || namesOnePosting(identity)) return;
+  const sightingKeys = (record) => {
     const slugs = [
       record.slug,
       ...Object.values(record.slugByLocale || {}),
       ...(record.previousSlugs || []),
       ...Object.values(record.previousSlugsByLocale || {}).flat(),
     ].filter(Boolean);
-    const keys = [...new Set([
+    return [...new Set([
       ...(record.id ? [`id:${record.id}`] : []),
       ...slugs.map((slug) => `slug:${slug}`),
     ])];
+  };
+
+  const addSighting = (identity, record) => {
+    if (!identity || namesOnePostingMemo(identity)) return;
+    addSightingKeys(identity, sightingKeys(record));
+  };
+
+  const addSightingKeys = (identity, keys) => {
     if (keys.length === 0) return;
     // Most versions repeat the previous one.
     const signature = JSON.stringify([identity, keys]);
@@ -1261,9 +1373,16 @@ export function createListingIdentityCollector() {
     isAmbiguous: (identity) => ambiguous.has(identity)
       || (groupsByIdentity.get(identity)?.componentCount || 0) > 1,
     addArchiveRow(row) {
-      for (const identity of archiveRecordSourceIdentities(row)) {
-        addSighting(identity, row || {});
+      const derived = derivedForEntry(row, { reuseLastAdded: true });
+      if (!derived.listing) {
+        const identities = [...archiveRecordSourceIdentities(row)].filter((identity) => (
+          identity && !namesOnePostingMemo(identity)
+        ));
+        derived.listing = { identities, keys: identities.length > 0 ? sightingKeys(row || {}) : [] };
       }
+      const { identities, keys } = derived.listing;
+      if (keys.length === 0) return;
+      for (const identity of identities) addSightingKeys(identity, keys);
     },
     addVersion(jobs) {
       for (const identity of ambiguousJobIdentities(jobs)) ambiguous.add(identity);
