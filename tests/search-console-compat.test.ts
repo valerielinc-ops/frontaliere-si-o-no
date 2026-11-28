@@ -485,6 +485,22 @@ describe('Search Console 404 compatibility resolver', () => {
     }
   });
 
+  it('maps the legacy aziende-assumono section name onto the real company-hub section, keeping the leaf', () => {
+    expect(resolveSearchConsoleCompatTarget('/aziende-assumono/ticino/settimana-corrente/')).toEqual({
+      canonicalPath: '/aziende-che-assumono/ticino/settimana-corrente/',
+      kind: 'legacy',
+      locale: 'it',
+      fallbackPath: '/aziende-che-assumono/',
+    });
+    expect(resolveSearchConsoleCompatTarget('/aziende-assumono/')).toMatchObject({
+      canonicalPath: '/aziende-che-assumono/',
+      fallbackPath: '/aziende-che-assumono/',
+    });
+    // Only the exact section name: a longer sibling segment is not the alias.
+    expect(resolveSearchConsoleCompatTarget('/aziende-assumono-ticino/lugano/')).toBeNull();
+    expect(resolveSearchConsoleCompatTarget('/aziende-assumono/ticino/settimana-corrente/', undefined, { sourceBackedOnly: true })).toBeNull();
+  });
+
   it('routes expired company-hub week leaves to the hub root, all 4 locales', () => {
     expect(
       resolveSearchConsoleCompatTarget('/aziende-che-assumono/locarno/amministrazione-cantonale-ticino/settimana-corrente'),

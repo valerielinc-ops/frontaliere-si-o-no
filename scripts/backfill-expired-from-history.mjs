@@ -421,7 +421,16 @@ export function processSlice(sliceFile, {
   }
 
   // What the archive serves before this run: none of it may disappear below.
-  const routesServedBefore = existing.flatMap((entry) => [...localeRouteKeys(entry || {})]);
+  const routesServedBefore = new Set(existing.flatMap((entry) => [...localeRouteKeys(entry || {})]));
+  // History keeps the rows an earlier run merged away. One that names no source
+  // posting and holds only routes the archive already serves adds no URL, and
+  // the route collapse never merges it into a record that does name one: adding
+  // it back only gives those routes a second owner. Since the final gate stopped
+  // committing the assembled slices, nothing repaired that on main (2026-11-28:
+  // every duplicate route the checkpoints added to soh-solothurner-spitaeler,
+  // tschuggen and buergenstock-hotels came from such a row).
+  const addsOnlyServedRoutes = (entry) => archiveRecordSourceIdentities(entry).size === 0
+    && [...localeRouteKeys(entry)].every((route) => routesServedBefore.has(route));
   const indexArchive = () => createSameIdentityArchiveIndex([...bySlug.values()], {
     activeJobs: currentJobs,
     isAmbiguousIdentity: listingIdentities.isAmbiguous,
@@ -447,6 +456,7 @@ export function processSlice(sliceFile, {
       }
     }
     if (!previous) {
+      if (addsOnlyServedRoutes(entry)) return false;
       bySlug.set(entry.slug, entry);
       identityIndex.add(entry);
       return true;
@@ -555,7 +565,7 @@ export function processSlice(sliceFile, {
   // archive served on entry and nobody serves now would become a 404. Keep the
   // archive on disk untouched and say which routes were at stake.
   const servedAfter = new Set([...archived, ...currentJobs].flatMap((entry) => [...localeRouteKeys(entry)]));
-  const droppedRoutes = [...new Set(routesServedBefore)].filter((routeKey) => !servedAfter.has(routeKey));
+  const droppedRoutes = [...routesServedBefore].filter((routeKey) => !servedAfter.has(routeKey));
   if (droppedRoutes.length > 0) {
     console.error(
       `::error::backfill-expired-from-history/${sliceFile}: refusing to write the archive, `
