@@ -343,7 +343,10 @@ describe('ECAM general notice (CVRDEqJ3): a posting published as a PDF', () => {
     // Generic and not reached from the bound page: a stop, as before.
     expect(formPostingMatch(formText, job, { pageUrl: formHref, postingUrl: career })).toBe('mismatch');
     // A form that names another employer next to the short form, or in its title, stops.
-    expect(formPostingMatch(formText.replace('RAPPORTO DI LAVORO CON L\'ECAM', 'RAPPORTO DI LAVORO CON ECAM Holding'), job, options)).toBe('mismatch');
+    // A grouping word next to the short form is the same group (R6: «du groupe Migros»), another name behind it is not.
+    expect(formPostingMatch(formText.replace('RAPPORTO DI LAVORO CON L\'ECAM', 'RAPPORTO DI LAVORO CON ECAM Holding'), job, options)).toBe('match');
+    expect(formPostingMatch(formText.replace('RAPPORTO DI LAVORO CON L\'ECAM', 'RAPPORTO DI LAVORO CON ECAM Holding Altrove'), job, options)).toBe('mismatch');
+    expect(formPostingMatch(formText.replace('RAPPORTO DI LAVORO CON L\'ECAM', 'RAPPORTO DI LAVORO CON ECAM Altrove'), job, options)).toBe('mismatch');
     expect(formPostingMatch(`Candidatura — Casa Anziani Altrove\n${formText}`, job, options)).toBe('mismatch');
   });
 });

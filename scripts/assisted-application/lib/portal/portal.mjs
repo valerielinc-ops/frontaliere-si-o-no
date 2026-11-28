@@ -5579,6 +5579,22 @@ const PLACEMENT_PROSE_NOUNS = new Set(['fragen', 'ruckfragen', 'rueckfragen', 'i
 const ORGANISATION_NOUNS = new Set(['employer', 'employers', 'arbeitgeber', 'unternehmen', 'firma', 'company', 'datore', 'azienda', 'societe', 'entreprise', 'employeur']);
 // A line of business next to the employer's name is the same group's entity, not another employer: «Deloitte»,
 // «Deloitte AG» and «Deloitte Consulting AG» name one employer. International/Europe stay names (review of #12292).
+// A word of corporate grouping next to the order's distinctive name says the same group, for any employer: «du groupe
+// Migros» (the portal's own header «Le portail de l'emploi du groupe Migros»), «X-Gruppe», «X Holding». It is another
+// employer only when what stands on its far side is another name («Migros Group Beta», «Migros Gruppe Muster»), or
+// when it forms its own legal entity elsewhere (the title rules: «Muster Group AG»).
+const CORPORATE_GROUP_WORDS = new Set(['groupe', 'gruppe', 'gruppo', 'group', 'konzern', 'holding', 'unternehmensgruppe', 'groupement', 'firmengruppe', 'gruppen']);
+// The months of a date next to the employer's name (read only beside a number, never as a general neutral word) («Société coopérative Migros Genève20 novembre 2026»).
+const DATE_MONTH_WORDS = new Set([
+  // French
+  'janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre',
+  // German (March also as «März» / «Maerz»)
+  'januar', 'februar', 'marz', 'maerz', 'april', 'mai', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'dezember',
+  // Italian
+  'gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre',
+  // English
+  'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december',
+]);
 const CORPORATE_DESCRIPTOR_WORDS = new Set(['consulting', 'advisory', 'services']);
 // Calls to action and sentence openers that stand next to the employer's name in its own marketing copy
 // («Why join Deloitte?», «Join Deloitte today», «Life at Deloitte»): grammar, not another name.
@@ -5621,7 +5637,8 @@ function foreignEmployerEvidenceInSegment(segment, { neutral, job, agency, known
   const nameWord = (index) => {
     const word = norm[index];
     if (!word || word.includes(' ')) return Boolean(word) && capitalised(index);
-    return capitalised(index) && !neutral.has(word) && !filler(word) && !LEGAL_FORM_TOKENS.has(raw[index]) && !EMPLOYER_KIND_WORDS.has(word);
+    // A word of grouping is never itself the name next to another group word («Acme Group Holding»).
+    return capitalised(index) && !neutral.has(word) && !filler(word) && !LEGAL_FORM_TOKENS.has(raw[index]) && !EMPLOYER_KIND_WORDS.has(word) && !CORPORATE_GROUP_WORDS.has(word);
   };
   const companyWords = jobCompanyWords(job);
   // An entity is the order's own agency only when it carries the order's distinctive name («STA») and the rest of
@@ -5675,7 +5692,7 @@ function foreignEmployerEvidenceInSegment(segment, { neutral, job, agency, known
       if (hit) return hit;
     }
     // 5. A kind of employer with a capitalised name next to it («Hotel Splendide», «Muster Bank»).
-    if (EMPLOYER_KIND_WORDS.has(norm[index]) && capitalised(index)) {
+    if ((EMPLOYER_KIND_WORDS.has(norm[index]) || CORPORATE_GROUP_WORDS.has(norm[index])) && capitalised(index)) {
       for (const neighbour of [index + 1, index - 1]) {
         if (neighbour >= 0 && neighbour < raw.length && nameWord(neighbour)) {
           const hit = found('kind_with_name', [Math.min(index, neighbour), Math.max(index, neighbour)]);
@@ -5943,6 +5960,18 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
         // A lower-case word of a sentence in normal case next to the employer's name is prose, not a name
         // («Why join Deloitte?»): only a capitalised word, a marker («other») or a kind of employer («hotel») names someone.
         if (proseWord(at) && !OTHER_EMPLOYER_MARKER_WORDS.has(words[at]) && !EMPLOYER_KIND_WORDS.has(words[at])) continue;
+        // «Teil der Migros-Gruppe», «Mitglied du groupe Migros»: a noun joined to the name by a preposition, with the group
+        // word right after the name, describes the group's member and names nobody.
+        if (step === -1 && separated && CORPORATE_GROUP_WORDS.has(words[index + 1])) continue;
+        // A month next to a number is a date («Genève20 novembre 2026»); a month on its own is a name («April GmbH»).
+        if (DATE_MONTH_WORDS.has(words[at]) && (/^\d+$/.test(words[at - 1] || '') || /^\d+$/.test(words[at + 1] || ''))) continue;
+        if (CORPORATE_GROUP_WORDS.has(words[at])) {
+          // The word on the far side of the group word: a function word, a legal form, the end of the phrase or a
+          // lower-case word of a sentence leave it the same group; a capitalised name there is someone else.
+          const farAt = at + step;
+          const far = words[farAt];
+          if (far === undefined || neutral.has(far) || filler(far) || NOT_A_NAME.has(far) || CORPORATE_GROUP_WORDS.has(far) || proseWord(farAt)) continue;
+        }
         if (!neutral.has(words[at]) && !labels?.has(words[at])
           && !(EMPLOYER_KIND_CLASS.has(words[at]) && ourKinds.has(EMPLOYER_KIND_CLASS.get(words[at])))
           && !isSelectOneLabelToken(words, at)
