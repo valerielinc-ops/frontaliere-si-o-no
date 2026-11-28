@@ -42627,14 +42627,16 @@
         ],
         "en": [
           "sanitarinstallateur-in-mit-fokus-auf-sanitarservice-fachkraft-ch-gmbh-kulm",
-          "plumbing-fitter-with-focus-on-plumbing-service-fachkraft-ch-gmbh-kulm"
+          "plumbing-fitter-with-focus-on-plumbing-service-fachkraft-ch-gmbh-kulm",
+          "sanitarinstallateur-in-mit-fokus-auf-sanitarservice-kulm-aargau-fachkraft-ch"
         ],
         "de": [
           "sanitarinstallateur-in-mit-fokus-auf-sanitarservice-fachkraft-ch-gmbh-kulm"
         ],
         "fr": [
           "sanitarinstallateur-in-mit-fokus-auf-sanitarservice-fachkraft-ch-gmbh-kulm",
-          "installateur-sanitaire-specialise-dans-le-service-sanitaire-fachkraft-ch-gmbh-kulm"
+          "installateur-sanitaire-specialise-dans-le-service-sanitaire-fachkraft-ch-gmbh-kulm",
+          "sanitarinstallateur-in-mit-fokus-auf-sanitarservice-kulm-aargau-fachkraft-ch"
         ]
       },
       "firstSeenAt": "2026-09-29T22:24:18.069Z",
@@ -42656,7 +42658,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T22:54:54.866Z",
       "validThroughSource": "last-observed-window",
-      "translationHoldReleasedAt": "2026-11-10T03:47:39.583Z"
+      "translationHoldReleasedAt": "2026-11-10T03:47:39.583Z",
+      "previousSlugCantonByLocale": {
+        "en": {
+          "sanitarinstallateur-in-mit-fokus-auf-sanitarservice-kulm-aargau-fachkraft-ch": "AG"
+        },
+        "fr": {
+          "sanitarinstallateur-in-mit-fokus-auf-sanitarservice-kulm-aargau-fachkraft-ch": "AG"
+        }
+      }
     },
     {
       "id": "fachkraft-39fdb3fde2b2",

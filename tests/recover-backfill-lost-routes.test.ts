@@ -280,6 +280,26 @@ describe('committed restorable manifest', () => {
   });
 });
 
+describe('committed ghost-to-active manifest', () => {
+  it('targets active records whose own identity held every route', () => {
+    const file = path.join(path.dirname(DEFAULT_MANIFEST_PATH), 'ghost-active-lost-routes-20261128.json');
+    const { targets } = JSON.parse(fs.readFileSync(file, 'utf8'));
+    const routes = (targets as any[]).flatMap((entry) => Object.entries(entry.routes)
+      .flatMap(([locale, slugs]) => (slugs as string[]).map((slug) => `${locale}:${slug}`)));
+
+    expect(routes.length).toBeGreaterThan(0);
+    expect(new Set(routes).size).toBe(routes.length);
+    for (const entry of targets) {
+      expect(entry.state).toBe('active');
+      expect(entry.slug && entry.companyKey && entry.crawlerKey).toBeTruthy();
+      expect(entry.proof.holderSourceIdentity).toMatch(/^url:https:/);
+      expect(entry.proof.archivedRecordSlug).toBeTruthy();
+      // The cleaner strips the master slug from the Italian bucket, so it cannot be restored there.
+      expect(entry.routes.it ?? []).not.toContain(entry.slug);
+    }
+  });
+});
+
 describe('a target that only has an active record', () => {
   const live = (bucket: string[]) => record('cuoco-acme', OWNER, {
     expiredAt: undefined,

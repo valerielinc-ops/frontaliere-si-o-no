@@ -1,0 +1,229 @@
+{
+ "analysedCommit": "511f26f2cbd",
+ "evidence": "routes left out of restorable-lost-routes-20261128.json because their archived record is a ghost of a live posting. Added to the active record only when that record names, with its own url, id or sourceIdentity (merge history excluded), the identity of the record that held the route when it stopped being served; no third record declares that identity; the archived record passed the strict ownership proof; no record serves the route; the bucket is below the cap. A route that is the active record's own Italian master slug is left out: the cleaner removes it from the bucket and the build already bridges it as an implicit previous slug.",
+ "targets": [
+  {
+   "state": "active",
+   "crawlerKey": "aldi-suisse",
+   "slug": "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-martigny",
+   "companyKey": "aldi-suisse",
+   "proof": {
+    "archivedRecordSlug": "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-vwi61l",
+    "holderSourceIdentity": "url:https://www.jobs.aldi.ch/job/1421213133",
+    "removedBy": [
+     "d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-vwi61l"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "state": "active",
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-blumen-kiosk-coop-siebnen",
+   "companyKey": "coop-ticino",
+   "proof": {
+    "archivedRecordSlug": "verkaufer-in-blumen-kiosk-coop-siebnen",
+    "holderSourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-blumen-kiosk/eebcf6d9-dba2-4641-8813-04b33a08f834",
+    "removedBy": [
+     "d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "verkaufer-in-blumen-kiosk-coop-siebnen"
+    ],
+    "de": [
+     "verkaufer-in-blumen-kiosk-coop-siebnen"
+    ],
+    "fr": [
+     "verkaufer-in-blumen-kiosk-coop-siebnen"
+    ]
+   },
+   "cantons": {
+    "en": {
+     "verkaufer-in-blumen-kiosk-coop-siebnen": "SZ"
+    },
+    "de": {
+     "verkaufer-in-blumen-kiosk-coop-siebnen": "SZ"
+    },
+    "fr": {
+     "verkaufer-in-blumen-kiosk-coop-siebnen": "SZ"
+    }
+   }
+  },
+  {
+   "state": "active",
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-frischprodukte-molkerei-coop-gebenstorf",
+   "companyKey": "coop-ticino",
+   "proof": {
+    "archivedRecordSlug": "verkaufer-in-frischprodukte-molkerei-coop-gebenstorf",
+    "holderSourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte-molkerei/d346ee66-d063-473f-85f0-d267951fafc9",
+    "removedBy": [
+     "d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "verkaufer-in-frischprodukte-molkerei-coop-gebenstorf"
+    ],
+    "de": [
+     "verkaufer-in-frischprodukte-molkerei-coop-gebenstorf"
+    ],
+    "fr": [
+     "verkaufer-in-frischprodukte-molkerei-coop-gebenstorf"
+    ]
+   },
+   "cantons": {
+    "en": {
+     "verkaufer-in-frischprodukte-molkerei-coop-gebenstorf": "AG"
+    },
+    "de": {
+     "verkaufer-in-frischprodukte-molkerei-coop-gebenstorf": "AG"
+    },
+    "fr": {
+     "verkaufer-in-frischprodukte-molkerei-coop-gebenstorf": "AG"
+    }
+   }
+  },
+  {
+   "state": "active",
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-kassen-services-coop-schwerzenbach",
+   "companyKey": "coop-ticino",
+   "proof": {
+    "archivedRecordSlug": "verkaufer-in-kassen-services-coop-schwerzenbach",
+    "holderSourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/7ba170c6-3689-4347-bbb4-f7b1b169e6f0",
+    "removedBy": [
+     "d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "verkaufer-in-kassen-services-coop-schwerzenbach"
+    ],
+    "de": [
+     "verkaufer-in-kassen-services-coop-schwerzenbach"
+    ],
+    "fr": [
+     "verkaufer-in-kassen-services-coop-schwerzenbach"
+    ]
+   },
+   "cantons": {
+    "en": {
+     "verkaufer-in-kassen-services-coop-schwerzenbach": "ZH"
+    },
+    "de": {
+     "verkaufer-in-kassen-services-coop-schwerzenbach": "ZH"
+    },
+    "fr": {
+     "verkaufer-in-kassen-services-coop-schwerzenbach": "ZH"
+    }
+   }
+  },
+  {
+   "state": "active",
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-kassen-services-coop-wohlen",
+   "companyKey": "coop-ticino",
+   "proof": {
+    "archivedRecordSlug": "verkaufer-in-kassen-services-coop-wohlen",
+    "holderSourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/a3102391-280a-4ef2-bacf-ec5344c74b31",
+    "removedBy": [
+     "d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "verkaufer-in-kassen-services-coop-wohlen"
+    ],
+    "de": [
+     "verkaufer-in-kassen-services-coop-wohlen"
+    ],
+    "fr": [
+     "verkaufer-in-kassen-services-coop-wohlen"
+    ]
+   },
+   "cantons": {
+    "en": {
+     "verkaufer-in-kassen-services-coop-wohlen": "AG"
+    },
+    "de": {
+     "verkaufer-in-kassen-services-coop-wohlen": "AG"
+    },
+    "fr": {
+     "verkaufer-in-kassen-services-coop-wohlen": "AG"
+    }
+   }
+  },
+  {
+   "state": "active",
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufsberater-in-damenkonfektion-coop-city-zurich",
+   "companyKey": "coop-ticino",
+   "proof": {
+    "archivedRecordSlug": "verkaufsberater-in-damenkonfektion-coop-city-zurich",
+    "holderSourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-damenkonfektion/c30eef5f-e74a-4ba0-98b5-fa2ed2d81930",
+    "removedBy": [
+     "d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "verkaufsberater-in-damenkonfektion-coop-city-zurich"
+    ],
+    "de": [
+     "verkaufsberater-in-damenkonfektion-coop-city-zurich"
+    ],
+    "fr": [
+     "verkaufsberater-in-damenkonfektion-coop-city-zurich"
+    ]
+   },
+   "cantons": {
+    "en": {
+     "verkaufsberater-in-damenkonfektion-coop-city-zurich": "ZH"
+    },
+    "de": {
+     "verkaufsberater-in-damenkonfektion-coop-city-zurich": "ZH"
+    },
+    "fr": {
+     "verkaufsberater-in-damenkonfektion-coop-city-zurich": "ZH"
+    }
+   }
+  },
+  {
+   "state": "active",
+   "crawlerKey": "fachkraft",
+   "slug": "installatore-trice-di-sanitari-con-particolare-attenzione-ai-servizi-igienico-sanitari-fachkraft-ch-gmbh-kulm-aargau",
+   "companyKey": "fachkraft",
+   "proof": {
+    "archivedRecordSlug": "installatore-trice-di-sanitari-con-particolare-attenzione-ai-servizi-igienico-sanitari-fachkraft-ch-gmbh-kulm",
+    "holderSourceIdentity": "url:https://www.fachkraft.ch/stellen/sanitaerinstallateur-in-kulm-dauerstelle-313530",
+    "removedBy": [
+     "d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "sanitarinstallateur-in-mit-fokus-auf-sanitarservice-kulm-aargau-fachkraft-ch"
+    ],
+    "fr": [
+     "sanitarinstallateur-in-mit-fokus-auf-sanitarservice-kulm-aargau-fachkraft-ch"
+    ]
+   },
+   "cantons": {
+    "en": {
+     "sanitarinstallateur-in-mit-fokus-auf-sanitarservice-kulm-aargau-fachkraft-ch": "AG"
+    },
+    "fr": {
+     "sanitarinstallateur-in-mit-fokus-auf-sanitarservice-kulm-aargau-fachkraft-ch": "AG"
+    }
+   }
+  }
+ ]
+}
