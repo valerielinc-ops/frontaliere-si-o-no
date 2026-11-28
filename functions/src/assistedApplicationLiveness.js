@@ -19,6 +19,7 @@
  * through scripts/assisted-application/lib/liveness.mjs and posting-liveness.mjs.
  */
 
+import { isRateLimitStatus, parseRetryAfterMs } from './lib/retryAfter.js';
 import { JOB_ACTIVE_IDS_URL, fetchJobPosting, fetchPublicPage, fetchWorkdayPosting, htmlToText } from './assistedApplicationAiJob.js';
 import { JOB_ID_RE, MAX_ACTIVE_JOB_INDEX_BYTES, parseActiveJobIdIndex } from './assistedApplicationActiveJobIndex.js';
 
@@ -281,7 +282,7 @@ function filledStatement(rawText, { applyControlVisible = false } = {}) {
 }
 
 /** `locale` is the posting-page language, from its explicit page metadata when available. */
-export function classifyLiveness({ status = 0, requestedUrl = '', finalUrl = '', bodyText: rawBodyText = '', applyControls: rawApplyControls = [], locale = '' } = {}) {
+export function classifyLiveness({ status = 0, requestedUrl = '', finalUrl = '', bodyText: rawBodyText = '', applyControls: rawApplyControls = [], locale = '', retryAfter = '' } = {}) {
   const pageLocale = normalizePageLanguage(locale);
   const bodyText = normalizeForMatch(rawBodyText);
   const applyControls = (Array.isArray(rawApplyControls) ? rawApplyControls : []).map(normalizeForMatch);
@@ -289,7 +290,15 @@ export function classifyLiveness({ status = 0, requestedUrl = '', finalUrl = '',
   if (firstUnconditionalStatementMatch(ACCESS_BLOCKED_PATTERNS, rawBodyText, pageLocale)) return { result: 'uncertain', code: 'runner_ip_blocked', reason: 'IP access blocked' };
   const botChallenge = firstMatch(BOT_CHALLENGE_PATTERNS, bodyText);
   if (botChallenge) return { result: 'uncertain', code: 'bot_challenge', reason: 'anti-bot challenge' };
-  if (status === 403 || status === 429 || status === 503) return { result: 'uncertain', code: 'access_blocked', reason: `HTTP ${status}` };
+  if (status === 403 || status === 429 || status === 503) {
+    // A 429 (or a 503 with Retry-After) is the site limiting the rate for a while, not a block of the runner:
+    // callers read `httpStatus` and `retryAfterMs` to wait instead of moving on.
+    const retryAfterMs = parseRetryAfterMs(retryAfter);
+    return {
+      result: 'uncertain', code: 'access_blocked', reason: `HTTP ${status}`,
+      ...(isRateLimitStatus(status, retryAfterMs) ? { httpStatus: status, rateLimited: true, ...(retryAfterMs ? { retryAfterMs } : {}) } : {}),
+    };
+  }
   if (status >= 500) return { result: 'uncertain', code: 'server_error', reason: `HTTP ${status}` };
   if (isWorkdayCommunityInvalidUrl(finalUrl)) return { result: 'expired', code: 'expired_url', reason: 'Workday Community invalid URL' };
   if (firstMatch(EXPIRED_URL_PATTERNS, finalUrl)) return { result: 'expired', code: 'expired_url', reason: 'error redirect' };
@@ -431,6 +440,7 @@ export async function checkPostingLiveness({ order, posting, fetchImpl = fetch, 
           bodyText: htmlToText(html),
           applyControls: applyControlsFromHtml(html),
           locale: pageLanguageFromHtml(html),
+          retryAfter: response.headers?.get?.('retry-after') || '',
         });
       } else {
         page = { result: 'uncertain', code: 'not_public', reason: 'url not fetchable' };

@@ -11,7 +11,7 @@
  * the employer withdrew (no refund).
  */
 
-import { isCaptchaHandoffReason, isInfrastructureRetryHold } from './assistedApplicationPortalRetryPolicy.js';
+import { isCaptchaHandoffReason, isInfrastructureRetryHold, isRateLimitRetryHold } from './assistedApplicationPortalRetryPolicy.js';
 import { isPortalNeedsCandidateHold, portalStopContract } from './lib/portalStopCodes.js';
 import {
   brandButton,
@@ -646,6 +646,7 @@ const PORTAL_STOPS = {
   account: 'il portale chiede di creare o verificare un account e il robot non ci è riuscito',
   rejected: 'il portale ha rifiutato l’invio automatico',
   application_region_unsupported: 'il portale ha bloccato le candidature dalla regione della connessione del runner (geolocalizza l’indirizzo IP del runner, non il candidato)',
+  portal_rate_limited: 'il portale ha limitato temporaneamente le richieste (HTTP 429): nulla è stato inviato',
   swiss_runner_offline: 'il portale accetta solo connessioni svizzere e nessun runner svizzero attivo ha preso la run',
   portal_needs_candidate: 'il robot non è riuscito a completare una pagina del portale',
   posting_mismatch: 'il modulo aperto dal link non nomina né l’azienda né il ruolo dell’annuncio: il robot non compila un modulo che potrebbe essere di un altro posto (se lo screenshot mostra quello giusto, «Riprova l’invio automatico» va avanti)',
@@ -699,6 +700,13 @@ export function describeTakeover({ reason, stage, attempts, portalAutoRetryAt })
     return {
       reason: `${STAGE_LABELS[stage] || 'il flusso automatico si è fermato'}: ${PORTAL_STOPS.swiss_runner_offline}`,
       hint: `Il candidato non deve fare nulla e non è partito nulla. Accendi il Mac con il runner svizzero (launch agent ch.frontaliere.swiss-runner, log in ~/Library/Logs/frontaliere/swiss-runner.log) e verifica che la sua uscita di rete sia svizzera.${retry}`,
+      detail: '',
+    };
+  }
+  if (stop.retryLane === 'rate_limit' && Number(portalAutoRetryAt) > 0) {
+    return {
+      reason: `l’invio sul portale si è fermato: ${PORTAL_STOPS.portal_rate_limited}`,
+      hint: `Il candidato non deve fare nulla e non è partito nulla: il sito ha risposto «troppe richieste» alla pagina dell’annuncio e il robot ha smesso di navigare per non peggiorare il limite. Riproveremo automaticamente ${formatDeadline(portalAutoRetryAt, 'it')} (fino a tre tentativi a distanza crescente); al quarto «troppe richieste» di fila l’ordine passa a te.`,
       detail: '',
     };
   }
@@ -885,7 +893,8 @@ export function buildOwnerAutomationEmail(kind, vars) {
     text.push(`Sintesi: ${vars.summary || '—'}`, facts.join(' · '));
   } else if (kind === 'owner_takeover') {
     const retryPending = (isPortalNeedsCandidateHold(vars.reason)
-      || isInfrastructureRetryHold({ heldBy: [String(vars.reason || '')] })) && Number(vars.portalAutoRetryAt) > 0;
+      || isInfrastructureRetryHold({ heldBy: [String(vars.reason || '')] })
+      || isRateLimitRetryHold({ heldBy: [String(vars.reason || '')] })) && Number(vars.portalAutoRetryAt) > 0;
     subject = retryPending
       ? `[Candidatura] Nuovo tentativo automatico previsto: ${job} — ${company}`
       : `[Candidatura] Presa in carico necessaria: ${job} — ${company}`;

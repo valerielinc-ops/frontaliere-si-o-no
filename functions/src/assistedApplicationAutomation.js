@@ -24,6 +24,7 @@
  * ASSISTED_APPLICATION_AUTOMATION ('true' = on). Default: off.
  */
 
+import { clampRetryAfterMs } from './lib/retryAfter.js';
 import { FieldValue } from 'firebase-admin/firestore';
 import { randomUUID } from 'node:crypto';
 import {
@@ -1432,6 +1433,9 @@ export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect
     reason: data.reason ? String(data.reason).slice(0, 120) : undefined,
     ...(accountFailure ? { accountFailure } : {}),
     ...(portalNetworkFailure ? { portalNetworkFailure } : {}),
+    // The portal's own `Retry-After` of a rate-limit stop, bounded (assistedApplicationPortalRetryPolicy.js).
+    ...(type === 'submit_handoff' && String(data.reason || '') === 'portal_rate_limited' && clampRetryAfterMs(data.retryAfterMs)
+      ? { retryAfterMs: clampRetryAfterMs(data.retryAfterMs) } : {}),
     questions: Array.isArray(data.questions) ? data.questions.slice(0, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT) : undefined,
     questionDetails: Array.isArray(data.questionDetails) ? data.questionDetails.slice(0, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT) : undefined,
     documents: Array.isArray(data.documents) ? data.documents.slice(0, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT) : undefined,
