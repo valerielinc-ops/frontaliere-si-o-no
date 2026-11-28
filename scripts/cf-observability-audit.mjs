@@ -52,7 +52,6 @@ const WELCOMED_UA_RE =
 
 const USER_AGENT = '$workers.event.request.headers.user-agent';
 const REQUEST_COUNTRY = '$workers.event.request.cf.country';
-const EVENT_TYPE = '$metadata.type';
 const LOG_MESSAGE = '$metadata.message';
 const STRUCTURED_EVENT = 'event';
 const ORIGIN_FAILURE_EVENT = 'origin_failure';
@@ -71,9 +70,16 @@ export function isCloudflareFullSamplingInterval(interval) {
     && interval <= 1 + FULL_SAMPLING_INTERVAL_MAX_NOISE;
 }
 
+// Workers Logs stores a structured `console.log({event, ...})` as an event of
+// `$metadata.type = "cf-worker"` with an empty `$metadata.message`; the payload
+// is indexed under the bare key `event` (probed live 2026-11-28: `event eq`
+// matches, `source.event eq` matches nothing, and `$metadata.type =
+// cf-worker-log` matches nothing). The type is therefore NOT filtered: the
+// structured key or the legacy JSON-string message identifies the signal.
+const STRUCTURED_LOG_EVENT_TYPES = new Set(['cf-worker', 'cf-worker-log']);
+
 function buildStructuredLogFilters(eventName, legacyMessageToken) {
   return [
-    filter(EVENT_TYPE, 'eq', 'cf-worker-log'),
     {
       kind: 'group',
       filterCombination: 'or',
@@ -105,7 +111,7 @@ export function buildJobCanonV1FallbackLogFilters() {
 }
 
 export function isOriginFailureLogEvent(event) {
-  if (event?.$metadata?.type !== 'cf-worker-log') return false;
+  if (!STRUCTURED_LOG_EVENT_TYPES.has(event?.$metadata?.type)) return false;
   const structuredNames = [
     event?.event,
     typeof event?.source === 'object' && event.source !== null ? event.source.event : undefined,
@@ -125,24 +131,42 @@ export function estimateMonthlyLogVolume({ events, avgEventBytes }) {
   return { ingestGb, storageGbMonth: (ingestGb / 30) * RETENTION_DAYS };
 }
 
+const isSampleInterval = (value) => Number.isFinite(value) && value >= 1;
+const round = (value, digits = 6) => Number(value.toFixed(digits));
+
+/**
+ * Probability that a v1 fallback that really happened would have gone unseen,
+ * given the per-day sample intervals of the v2 stream. Each stored event is one
+ * of `sampleInterval` real ones, so a single event is observed with probability
+ * 1/interval. A fallback is as likely on any request, so the per-event miss
+ * probability weights each day by its estimated v2 volume (count x interval).
+ * `ifNEvents` assumes independent sampling: n fallbacks all go unseen with
+ * probability p^n. This is a declared residual risk, never a proof of absence.
+ */
+export function estimateFallbackMissProbability(days) {
+  const usable = days.filter((d) => isSampleInterval(d.sampleInterval) && d.count > 0);
+  const volume = usable.reduce((sum, d) => sum + d.count * d.sampleInterval, 0);
+  if (usable.length === 0 || volume === 0) return null;
+  const perEvent = usable.reduce(
+    (sum, d) => sum + d.count * d.sampleInterval * (1 - 1 / d.sampleInterval),
+    0,
+  ) / volume;
+  return {
+    perEvent: round(perEvent),
+    ifNEvents: Object.fromEntries([1, 10, 100].map((n) => [n, round(perEvent ** n)])),
+    basis: 'v2-volume-weighted per-day sampleInterval; independent sampling assumed',
+  };
+}
+
 export function evaluateJobCanonV1Retirement(snapshot) {
-  const observedDays = [...new Set(snapshot.jobCanonV2SuccessDays ?? [])].sort();
-  const queryWindowDays = Number.isFinite(snapshot.queryWindowDays) ? snapshot.queryWindowDays : 0;
-  const windowComplete = queryWindowDays >= WINDOW_DAYS && observedDays.length >= WINDOW_DAYS;
-  const samplingHistoryBlockers = Array.isArray(snapshot.samplingHistory?.blockers)
-    ? snapshot.samplingHistory.blockers
-    : ['history:unavailable'];
-  const samplingHistoryComplete = snapshot.samplingHistory?.complete === true
-    && samplingHistoryBlockers.length === 0;
-  const v2SampleIntervals = snapshot.jobCanonV2SampleIntervals ?? [];
-  const v1SampleIntervals = snapshot.jobCanonV1SampleIntervals ?? [];
-  const signalSamplingComplete = v2SampleIntervals.length === observedDays.length
-    && v2SampleIntervals.length >= WINDOW_DAYS
-    && [...v2SampleIntervals, ...v1SampleIntervals]
-      .every(isCloudflareFullSamplingInterval);
   const expectedSamplingDays = Array.isArray(snapshot.workerLogSamplingExpectedDays)
     ? snapshot.workerLogSamplingExpectedDays
     : [];
+  const v2Daily = (Array.isArray(snapshot.jobCanonV2Daily) ? snapshot.jobCanonV2Daily : [])
+    .filter((d) => typeof d?.day === 'string' && d.count > 0);
+  const observedDays = [...new Set(v2Daily.map((d) => d.day))].sort();
+  const queryWindowDays = Number.isFinite(snapshot.queryWindowDays) ? snapshot.queryWindowDays : 0;
+  const windowComplete = queryWindowDays >= WINDOW_DAYS && observedDays.length >= WINDOW_DAYS;
   const streamSamplingBuckets = Array.isArray(snapshot.workerLogSamplingBuckets)
     ? snapshot.workerLogSamplingBuckets
     : [];
@@ -165,9 +189,6 @@ export function evaluateJobCanonV1Retirement(snapshot) {
     if (bucket.rows !== 1 || !Number.isFinite(bucket.count) || bucket.count <= 0) {
       streamSamplingBlockers.push(`coverage:${day}:empty-or-ambiguous`);
     }
-    if (!isCloudflareFullSamplingInterval(bucket.sampleInterval)) {
-      streamSamplingBlockers.push(`sample-interval:${day}:${bucket.sampleInterval ?? 'unknown'}`);
-    }
   }
   for (const day of bucketsByDay.keys()) {
     if (!expectedSamplingDays.includes(day)) streamSamplingBlockers.push(`coverage:${day}:unexpected`);
@@ -180,23 +201,27 @@ export function evaluateJobCanonV1Retirement(snapshot) {
     : 0;
   const blockers = [];
   if (!windowComplete) blockers.push(`v2-days:${observedDays.length}/${WINDOW_DAYS}`);
-  if (snapshot.samplingRate !== 1) blockers.push(`sampling-current:${snapshot.samplingRate ?? 'unknown'}`);
-  for (const blocker of samplingHistoryBlockers) blockers.push(`sampling-${blocker}`);
-  if (!samplingHistoryComplete && samplingHistoryBlockers.length === 0) {
-    blockers.push('sampling-history:incomplete');
+  // Partial sampling is admitted: the effective interval is recorded below.
+  // Only a missing or malformed interval is ambiguous and blocks.
+  const badV2Intervals = v2Daily.filter((d) => !isSampleInterval(d.sampleInterval));
+  if (badV2Intervals.length > 0) {
+    blockers.push(`sampling-signal:invalid:${badV2Intervals.map((d) => d.day).join(',')}`);
   }
-  if (!signalSamplingComplete) {
-    const intervals = [...v2SampleIntervals, ...v1SampleIntervals];
-    blockers.push(`sampling-signal:${intervals.length
-      ? intervals.map((interval) => interval ?? 'unknown').join(',')
-      : 'missing'}`);
+  const badStreamIntervals = streamSamplingBuckets.filter(
+    (bucket) => bucket?.count > 0 && !isSampleInterval(bucket.sampleInterval),
+  );
+  if (badStreamIntervals.length > 0) {
+    blockers.push(`sampling-stream:invalid:${badStreamIntervals.map((b) => b.day).join(',')}`);
   }
   for (const blocker of streamSamplingBlockers) blockers.push(`sampling-stream:${blocker}`);
   if (v2SuccessLogs === 0) blockers.push('v2-success:0');
   if (v1FallbackLogs !== 0) blockers.push(`v1-fallback:${v1FallbackLogs}`);
 
+  const sampleIntervalsByDay = Object.fromEntries(
+    v2Daily.map((d) => [d.day, d.sampleInterval ?? null]),
+  );
   return {
-    schemaVersion: 2,
+    schemaVersion: 3,
     windowDays: WINDOW_DAYS,
     queryWindowDays,
     observedV2Days: observedDays.length,
@@ -205,8 +230,11 @@ export function evaluateJobCanonV1Retirement(snapshot) {
     v2SuccessLogs,
     v1FallbackLogs,
     samplingRate: snapshot.samplingRate ?? null,
-    v2SampleIntervals,
-    v1SampleIntervals,
+    // Informational: the receipt no longer requires full sampling.
+    sampleIntervalsByDay,
+    v2Daily,
+    v1Daily: Array.isArray(snapshot.jobCanonV1Daily) ? snapshot.jobCanonV1Daily : [],
+    fallbackMissProbability: estimateFallbackMissProbability(v2Daily),
     workerLogSamplingExpectedDays: expectedSamplingDays,
     workerLogSamplingBuckets: streamSamplingBuckets,
     samplingHistory: snapshot.samplingHistory ?? null,
@@ -605,19 +633,26 @@ export async function collectSnapshot(now = Date.now()) {
   for (const ua of WAF_BLOCKED_UAS) blockedRequests[ua] = await count(...buildBlockedUaFilters(ua));
   let versionRequests = 0;
   for (const path of VERSION_PATHS) versionRequests += await count(filter(PATH, 'eq', path));
-  const jobCanonV2SuccessByDay = await query(
+  // Group by the structured `day` key of the event: the real log carries an
+  // empty `$metadata.message`, so the day cannot be read from the message.
+  const dailyRows = (result) => (result.aggregates ?? [])
+    .filter((row) => typeof row.groupKey === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(row.groupKey))
+    .map((row) => ({
+      day: row.groupKey,
+      count: row.value ?? 0,
+      sampleInterval: Number.isFinite(row.sampleInterval) ? row.sampleInterval : null,
+    }))
+    .sort((a, b) => a.day.localeCompare(b.day));
+  const jobCanonV2Daily = dailyRows(await query(
     buildJobCanonV2SuccessLogFilters(),
-    LOG_MESSAGE,
+    'day',
     WINDOW_DAYS + 2,
-  );
-  const jobCanonV2SuccessRows = jobCanonV2SuccessByDay.aggregates ?? [];
-  const jobCanonV2SuccessDays = jobCanonV2SuccessRows
-    .map((row) => typeof row.groupKey === 'string'
-      ? row.groupKey.match(/"day":"(\d{4}-\d{2}-\d{2})"/)?.[1]
-      : null)
-    .filter(Boolean);
-  const jobCanonV1Fallback = await query(buildJobCanonV1FallbackLogFilters());
-  const jobCanonV1FallbackRows = jobCanonV1Fallback.aggregates ?? [];
+  ));
+  const jobCanonV1Daily = dailyRows(await query(
+    buildJobCanonV1FallbackLogFilters(),
+    'day',
+    WINDOW_DAYS + 2,
+  ));
   // Cloudflare accepts granularity as a millisecond bucket width and returns
   // these daily series aligned to 00:00:00 UTC. The aggregate is deliberately
   // ignored: each intersecting day must independently prove exact ingestion.
@@ -665,13 +700,10 @@ export async function collectSnapshot(now = Date.now()) {
     // therefore measures the structured signal only; it cannot claim a 1:1
     // relationship with the independently aggregated response-status rows.
     originFailureLogs: await count(...buildOriginFailureLogFilters()),
-    jobCanonV2SuccessLogs: jobCanonV2SuccessRows.reduce((sum, row) => sum + (row.value ?? 0), 0),
-    jobCanonV2SuccessDays,
-    jobCanonV2SampleIntervals: jobCanonV2SuccessRows.map((row) => row.sampleInterval ?? null),
-    jobCanonV1FallbackLogs: jobCanonV1FallbackRows.reduce((sum, row) => sum + (row.value ?? 0), 0),
-    jobCanonV1SampleIntervals: jobCanonV1FallbackRows
-      .filter((row) => (row.value ?? 0) > 0)
-      .map((row) => row.sampleInterval ?? null),
+    jobCanonV2SuccessLogs: jobCanonV2Daily.reduce((sum, row) => sum + row.count, 0),
+    jobCanonV2Daily,
+    jobCanonV1FallbackLogs: jobCanonV1Daily.reduce((sum, row) => sum + row.count, 0),
+    jobCanonV1Daily,
     workerLogSamplingExpectedDays: utcDaysInTimeframe(timeframe),
     workerLogSamplingBuckets: workerLogSamplingBuckets(workerLogSamplingCalculation),
     samplingHistory,
