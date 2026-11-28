@@ -242,6 +242,15 @@ describe('trade compounds and legal-notice lines are no other employer', () => {
     expect(namesAnotherEmployer(`${line}\nGroup CFO`, damiani)).toBe(false);
   });
 
+  it('removes only the legal part of a notice line and still reads another name on it', () => {
+    expect(namesAnotherEmployer('Jobcenter AG © Copyright 2026', sta)).toBe(true);
+    expect(namesAnotherEmployer('Willkommen\nJobcenter AG © Copyright 2026', sta)).toBe(false); // body: no entity evidence far from the name
+    expect(namesAnotherEmployer('Willkommen\nMuster STA © 2026 All rights reserved', sta)).toBe(true);
+    expect(namesAnotherEmployer('© 2026 Jobcenter AG', sta)).toBe(true);
+    expect(namesAnotherEmployer('Group CFO\nDamiani Group Valenza 2019 © All rights reserved', damiani)).toBe(false);
+    expect(namesAnotherEmployer('Group CFO\n© 2019 Damiani Group Valenza', damiani)).toBe(false);
+  });
+
   it('keeps the same name next to the employer a conflict outside a legal notice', () => {
     expect(namesAnotherEmployer('Group CFO\nDamiani Group Valenza', damiani)).toBe(true);
   });

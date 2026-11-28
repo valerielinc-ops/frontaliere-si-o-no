@@ -5658,9 +5658,21 @@ function foreignEmployerEvidence(line, { neutral, job, ownSegment = () => false 
 }
 
 // A copyright or legal-notice line of a page footer («Damiani Group Valenza 2019 © All rights reserved», «Impressum»)
-// names the site's publisher, the place of its seat and a year: never evidence of another employer.
+// names the site's publisher, the place of its seat and a year. Only the legal part is removed (the indicator, the
+// years, «All rights reserved» and what follows it); what remains is the notice's owner: when it starts with the
+// order's own name («Damiani Group Valenza») the place and the year next to it are no evidence, so the line goes;
+// any other name stays to be read («Jobcenter AG © Copyright 2026» keeps «Jobcenter AG»).
 const LEGAL_NOTICE_LINE_RE = /©|\(c\)\s*\d{4}|\bcopyright\b|all rights reserved|alle rechte vorbehalten|tous droits r[ée]serv|tutti i diritti riservati|\bimpressum\b/iu;
-const withoutLegalNoticeLines = (text) => String(text || '').split(/\r?\n/).map((line) => (LEGAL_NOTICE_LINE_RE.test(line) ? '' : line)).join('\n');
+const LEGAL_NOTICE_PART_RE = /©|\(c\)|\bcopyright\b|\bimpressum\b|(?:all rights reserved|alle rechte vorbehalten|tous droits r[ée]serv|tutti i diritti riservati)[^\n]*|\b(?:19|20)\d{2}\b/giu;
+function withoutLegalNoticeLines(text, ours) {
+  return String(text || '').split(/\r?\n/).map((line) => {
+    if (!LEGAL_NOTICE_LINE_RE.test(line)) return line;
+    const owner = line.replace(LEGAL_NOTICE_PART_RE, ' ').replace(/\s+/g, ' ').trim();
+    // The owner starts with the order's own name: what follows it (the seat, a year) is no other employer.
+    if (!owner || ours.has(normalizeWords(owner).split(' ').find(Boolean))) return '';
+    return owner;
+  }).join('\n');
+}
 
 export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation = false, evidence = null } = {}) {
   // With an `evidence` object the call also says which line and entity made it a conflict (run diagnostics only).
@@ -5683,7 +5695,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   const ours = new Set(identityWords.filter((word) => word.length > 1));
   if (!ours.size) return false;
   const ourKinds = employerKindsOf([...ours]);
-  const text = withoutLegalNoticeLines(formText).replace(EMAIL_ADDRESS_RE, ' ');
+  const text = withoutLegalNoticeLines(formText, ours).replace(EMAIL_ADDRESS_RE, ' ');
   const postingLocationWords = allowPostingLocation
     ? new Set([
       ...nameWords(job.location),
