@@ -486,8 +486,17 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
           if (previousPassword) mask(previousPassword);
         } catch { previousPassword = ''; }
       }
+      // The last password that made a verified sign-in (mark() keeps it): never overwritten by a staged one.
+      let lastGoodPassword = '';
+      if (entry.lastGoodPasswordEnc) {
+        try {
+          lastGoodPassword = decryptJson(entry.lastGoodPasswordEnc, key)?.password || '';
+          if (lastGoodPassword) mask(lastGoodPassword);
+        } catch { lastGoodPassword = ''; }
+      }
       return {
         ...(previousPassword && previousPassword !== password ? { previousPassword } : {}),
+        ...(lastGoodPassword && lastGoodPassword !== password && lastGoodPassword !== previousPassword ? { lastGoodPassword } : {}),
         email: entry.email,
         password,
         createdAt: entry.createdAt || null,
@@ -568,7 +577,8 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
           return;
         }
         if (requests.length >= 2) {
-          result = { status: 'rate_limited' };
+          // The window frees when the second-to-last request leaves it.
+          result = { status: 'rate_limited', retryAt: requests[requests.length - 2] + RECOVERY_WINDOW_MS };
           return;
         }
         const nextAllowedAt = Number(current.recoveryNextAllowedAt) || 0;
@@ -745,7 +755,57 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
     async mark(host, patch) {
       const current = (await ref.get()).data()?.[hostKey(host)];
       if (!current) return;
-      await ref.set({ [hostKey(host)]: { ...current, ...patch } }, { merge: true });
+      // A verified sign-in proves the stored password: keep it apart, so a later staged password (a recovery that
+      // never completed) cannot be the only one left.
+      const verified = Boolean(patch?.verifiedAt) && Boolean(current.passwordEnc) && current.status !== 'recovering';
+      await ref.set({ [hostKey(host)]: { ...current, ...patch, ...(verified ? { lastGoodPasswordEnc: current.passwordEnc, lastGoodAt: nowMs() } : {}) } }, { merge: true });
+    },
+    /**
+     * The new passwords the portal e-mailed to the alias after a reset request, newest first. A portal that
+     * resets the password the moment the request is sent (umantis: «Durch einen Klick auf Senden wird Ihr Passwort
+     * zurückgesetzt») holds the NEWEST of them, even when the run that asked never read the e-mail.
+     */
+    async resetPasswordCandidates(host, { limit = 3 } = {}) {
+      const normalizedHost = String(host || '').toLowerCase();
+      const snapshot = await inbox.get();
+      const found = [];
+      for (const doc of snapshot.docs) {
+        const message = doc.data();
+        if (String(message.passwordResetHost || '').toLowerCase() !== normalizedHost || !message.passwordResetLinkEnc) continue;
+        try {
+          const payload = decryptJson(message.passwordResetLinkEnc, key);
+          const secret = typeof payload?.temporaryPassword === 'string' && !/[\r\n]/.test(payload.temporaryPassword) ? payload.temporaryPassword : '';
+          if (secret) found.push({ secret, receivedAt: Number(message.receivedAt) || 0 });
+        } catch { /* An unreadable message is no candidate. */ }
+      }
+      const ordered = [...new Map(found.sort((left, right) => right.receivedAt - left.receivedAt).map(item => [item.secret, item])).values()];
+      for (const item of ordered) mask(item.secret);
+      return ordered.slice(0, Math.max(0, limit)).map(item => item.secret);
+    },
+    /** A password the portal accepted in a sign-in: stored as the account's, the recovery state cleared. */
+    async adoptPassword(host, password) {
+      const entryKey = hostKey(host);
+      if (typeof password !== 'string' || !password || /[\r\n]/.test(password)) return false;
+      mask(password);
+      let result = false;
+      await db.runTransaction(async (transaction) => {
+        const current = ((await transaction.get(ref)).data() || {})[entryKey];
+        if (!current) return;
+        transaction.set(ref, { [entryKey]: {
+          ...current,
+          passwordEnc: encryptJson({ password }, key),
+          lastGoodPasswordEnc: encryptJson({ password }, key),
+          lastGoodAt: nowMs(),
+          status: 'created',
+          verifiedAt: nowMs(),
+          recoveryPrevious: null,
+          recoveryRequestedAt: null,
+          recoveryRequestId: null,
+          recoveryFailure: null,
+        } }, { merge: true });
+        result = true;
+      });
+      return result;
     },
     /** Message ids already present before a portal asks us to resend a code. */
     async verificationMessageIds() {

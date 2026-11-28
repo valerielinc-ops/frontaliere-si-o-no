@@ -46,12 +46,15 @@ const registerOnlyPage = () => ({
 });
 const inlineSigninPage = () => ({ ...loginPage(), text: 'Bewerbung. Bereits registriert? Anmelden' });
 
-type Store = { current: any; load: any; abortRecovery: any; mark: any };
+type Store = { current: any; load: any; abortRecovery: any; mark: any; adoptPassword: any; resetPasswordCandidates: any; beginRecovery: any };
 function makeStore(account: any): Store {
   const store: any = { current: account };
   store.load = vi.fn(async () => store.current);
   store.abortRecovery = vi.fn(async () => true);
   store.mark = vi.fn(async () => {});
+  store.adoptPassword = vi.fn(async () => true);
+  store.resetPasswordCandidates = vi.fn(async () => []);
+  store.beginRecovery = vi.fn(async () => ({ status: 'started', requestedAt: 1 }));
   return store;
 }
 
@@ -214,7 +217,7 @@ describe('probe of an ATS sign-in with a registration form beside it (entry -> L
 describe('rejected sign-in: the previous password, then one recovery of the alias account', () => {
   const alias = account.email;
 
-  it('tries the password that was valid before an unconfirmed recovery, and restores it when it works', async () => {
+  it('tries the password that was valid before an unconfirmed recovery, and keeps it as the account\'s when it works', async () => {
     const store = makeStore({ ...account, password: 'staged-never-applied', previousPassword: 'old-valid-one' });
     const recover = vi.fn();
     const { run, log } = harness({ accepted: ['old-valid-one'], store, recover, allowRecovery: true, aliasEmail: alias });
@@ -222,8 +225,8 @@ describe('rejected sign-in: the previous password, then one recovery of the alia
     expect(proof.applicationExists).toMatchObject({ vacancyId: '6604' });
     expect(recover).not.toHaveBeenCalled();
     expect(log.filter(entryLog => entryLog.method === 'POST')).toHaveLength(2);
-    expect(store.abortRecovery).toHaveBeenCalledWith(HOST, expect.objectContaining({ reason: 'previous_password_valid' }));
-    expect(proof.trace).toEqual(expect.arrayContaining([expect.objectContaining({ kind: 'account', reason: 'previous_password_restored' })]));
+    expect(store.adoptPassword).toHaveBeenCalledWith(HOST, 'old-valid-one');
+    expect(proof.trace).toEqual(expect.arrayContaining([expect.objectContaining({ kind: 'account', reason: 'password_adopted' })]));
   });
 
   it('recovers once through the portal\'s /Password/ routes, then signs in with the new password and reads the route', async () => {
@@ -279,6 +282,51 @@ describe('rejected sign-in: the previous password, then one recovery of the alia
   });
 });
 
+describe('the portal resets the password when the request is sent: the e-mailed ones are candidates before any new request', () => {
+  const alias = account.email;
+
+  it('signs in with the newest e-mailed password, adopts it, and asks for no new reset', async () => {
+    const store = makeStore({ ...account, password: 'rejected-one' });
+    store.resetPasswordCandidates = vi.fn(async () => ['temp-newest', 'temp-older']);
+    const recover = vi.fn();
+    const { run, log } = harness({ accepted: ['temp-newest'], store, recover, allowRecovery: true, aliasEmail: alias });
+    const proof: any = await run();
+    expect(proof.applicationExists).toMatchObject({ vacancyId: '6604' });
+    expect(store.resetPasswordCandidates).toHaveBeenCalledWith(HOST, { limit: 2 });
+    expect(store.adoptPassword).toHaveBeenCalledWith(HOST, 'temp-newest');
+    expect(recover).not.toHaveBeenCalled();
+    expect(log.filter(entryLog => entryLog.method === 'POST')).toHaveLength(2);
+  });
+
+  it('also tries the last password that made a verified sign-in, never the same one twice, and at most three more', async () => {
+    const store = makeStore({ ...account, password: 'rejected-one', previousPassword: 'rejected-one', lastGoodPassword: 'good-before' });
+    store.resetPasswordCandidates = vi.fn(async () => ['temp-newest', 'rejected-one', 'temp-older', 'temp-oldest']);
+    const { run, log } = harness({ accepted: ['good-before'], store, recover: vi.fn(), allowRecovery: false, aliasEmail: alias });
+    const proof: any = await run();
+    // The stored one once, then temp-newest, temp-older, temp-oldest (a duplicate is never tried twice): the last
+    // good one is beyond the cap of three more sign-ins.
+    expect(log.filter(entryLog => entryLog.method === 'POST')).toHaveLength(4);
+    expect(proof.stopReason).toBe('login_not_accepted');
+    const second = makeStore({ ...account, password: 'rejected-one', lastGoodPassword: 'good-before' });
+    const again = harness({ accepted: ['good-before'], store: second });
+    expect(((await again.run()) as any).applicationExists).toMatchObject({ vacancyId: '6604' });
+    expect(second.adoptPassword).toHaveBeenCalledWith(HOST, 'good-before');
+  });
+
+  it('records the store\'s answer to a recovery request (rate limit with its retry time) when no click was made', async () => {
+    const store = makeStore({ ...account, password: 'rejected-one' });
+    store.beginRecovery = vi.fn(async () => ({ status: 'rate_limited', retryAt: 1_700_000_000_000 }));
+    const recover = vi.fn(async ({ ctx }: any) => {
+      await ctx.accounts.beginRecovery(HOST, { email: alias, password: 'staged' });
+      return { handoff: 'account_recovery_timeout', accountFailure: { code: 'account_recovery_timeout', stage: 'login' } };
+    });
+    const { run } = harness({ accepted: [], store, recover, allowRecovery: true, aliasEmail: alias });
+    const proof: any = await run();
+    expect(proof.recovery).toMatchObject({ attempted: true, accepted: false, begin: 'rate_limited', retryAt: 1_700_000_000_000 });
+    expect(proof.trace).toEqual(expect.arrayContaining([expect.objectContaining({ kind: 'recovery_begin', reason: 'rate_limited', retryAt: 1_700_000_000_000 })]));
+  });
+});
+
 describe('the account store keeps the password that was valid before an unconfirmed recovery', () => {
   it('exposes it as previousPassword while the recovery is unconfirmed, and restores it on abort', async () => {
     const db = createMemoryFirestore({ 'assisted_applications/order_store_test': { paymentStatus: 'paid' } }).db;
@@ -291,5 +339,43 @@ describe('the account store keeps the password that was valid before an unconfir
     await store.abortRecovery(HOST, { requestSubmitted: true, reason: 'previous_password_valid' });
     expect(await store.load(HOST)).toMatchObject({ password: 'valid-before' });
     expect((await store.load(HOST))?.previousPassword).toBeUndefined();
+  });
+
+  it('keeps the last password of a verified sign-in apart, and reads the portal\'s e-mailed resets from the alias inbox, newest first', async () => {
+    const { encryptJson } = await import('../scripts/assisted-application/lib/secure-run.mjs');
+    const key = Buffer.alloc(32, 5);
+    const mem = createMemoryFirestore({ 'assisted_applications/order_store_two': { paymentStatus: 'paid' } });
+    const store = portalAccountStore({ db: mem.db, orderId: 'order_store_two', key });
+    await store.save(HOST, { email: account.email, password: 'first-valid' });
+    await store.mark(HOST, { status: 'created', verifiedAt: 1000 });
+    await store.beginRecovery(HOST, { email: account.email, password: 'staged-never-applied' });
+    expect(await store.load(HOST)).toMatchObject({ password: 'staged-never-applied', previousPassword: 'first-valid' });
+    const accountsDoc = mem.read('assisted_applications/order_store_two/automation/accounts') as any;
+    expect(Object.values(accountsDoc)[0]).toMatchObject({ lastGoodAt: expect.any(Number) });
+    const inbox = mem.db.collection('assisted_applications').doc('order_store_two').collection('inbox');
+    await inbox.add({ passwordResetHost: HOST, receivedAt: 2000, passwordResetLinkEnc: encryptJson({ temporaryPassword: 'older-temp' }, key) });
+    await inbox.add({ passwordResetHost: HOST, receivedAt: 3000, passwordResetLinkEnc: encryptJson({ temporaryPassword: 'newest-temp' }, key) });
+    await inbox.add({ passwordResetHost: 'other.example', receivedAt: 4000, passwordResetLinkEnc: encryptJson({ temporaryPassword: 'foreign' }, key) });
+    expect(await store.resetPasswordCandidates(HOST, { limit: 3 })).toEqual(['newest-temp', 'older-temp']);
+    expect(await store.adoptPassword(HOST, 'newest-temp')).toBe(true);
+    expect(await store.load(HOST)).toMatchObject({ password: 'newest-temp', status: 'created' });
+    expect((await store.load(HOST))?.previousPassword).toBeUndefined();
+  });
+
+  it('tells when a rate-limited recovery may be asked again', async () => {
+    let now = Date.UTC(2026, 10, 27, 6, 0);
+    const mem = createMemoryFirestore({ 'assisted_applications/order_store_three': { paymentStatus: 'paid' } });
+    const store = portalAccountStore({ db: mem.db, orderId: 'order_store_three', key: Buffer.alloc(32, 6), nowMs: () => now });
+    await store.save(HOST, { email: account.email, password: 'valid' });
+    const first = now;
+    expect(await store.beginRecovery(HOST, { email: account.email, password: 'staged-one' })).toMatchObject({ status: 'started' });
+    await store.abortRecovery(HOST, { requestSubmitted: true, reason: 'timeout' });
+    now += 16 * 60_000;
+    const second = now;
+    expect(await store.beginRecovery(HOST, { email: account.email, password: 'staged-two' })).toMatchObject({ status: 'started' });
+    await store.abortRecovery(HOST, { requestSubmitted: true, reason: 'timeout' });
+    now += 3 * 3_600_000;
+    expect(await store.beginRecovery(HOST, { email: account.email, password: 'staged-three' })).toEqual({ status: 'rate_limited', retryAt: first + 24 * 3_600_000 });
+    expect(second).toBeGreaterThan(first);
   });
 });
