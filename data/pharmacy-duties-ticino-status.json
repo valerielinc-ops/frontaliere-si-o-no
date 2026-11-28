@@ -7,29 +7,26 @@
     "https://www.ofct.ch/biasca-e-valli/",
     "https://www.farmacielocarnese.ch/"
   ],
-  "_fetchedAt": "2026-11-28T13:32:04.507Z",
-  "_attemptedAt": "2026-11-28T13:32:04.507Z",
-  "_lastSuccessfulFetchAt": "2026-11-28T13:32:04.507Z",
-  "_lastStaticRefreshAt": "2026-11-28T13:32:04.507Z",
+  "_fetchedAt": "2026-11-28T21:17:36.030Z",
+  "_attemptedAt": "2026-11-28T21:17:36.030Z",
+  "_lastSuccessfulFetchAt": "2026-11-28T21:17:36.030Z",
+  "_lastStaticRefreshAt": "2026-11-28T21:17:36.030Z",
   "_successfulRegions": [
     "mendrisiotto",
     "luganese",
     "bellinzonese",
-    "biasca-e-valli"
-  ],
-  "_preservedRegions": [
+    "biasca-e-valli",
     "locarnese"
   ],
+  "_preservedRegions": [],
   "_allRegionsFailed": false,
-  "_errors": [
-    "locarnese: 1 Locarnese row(s) have no unique Ticino catalogue identity"
-  ],
+  "_errors": [],
   "_warnings": [
     "mendrisiotto: last source row retained as boundary-only and not published",
     "luganese: last source row retained as boundary-only and not published",
     "bellinzonese: last source row retained as boundary-only and not published",
     "biasca-e-valli: last source row retained as boundary-only and not published",
-    "locarnese: preserved 9 previous interval(s); fetchedAt not renewed"
+    "locarnese: last source row retained as boundary-only and not published"
   ],
   "_release": {
     "version": 1,
@@ -45,17 +42,17 @@
       ]
     },
     "timezone": "Europe/Zurich",
-    "state": "partial",
+    "state": "fresh",
     "snapshots": {
       "catalogue": {
         "path": "data/pharmacies-ticino-complete.json",
-        "sha256": "546333abe2113a9f1ba9d9378bda1c3a88d35a3679fbb770f88d4bc351cbb52e",
-        "fetchedAt": "2026-11-28T13:32:59.414Z"
+        "sha256": "9f040802de7f804c4a076535de83e31c3f3d60626b4c880ed5b781ffb4f59d67",
+        "fetchedAt": "2026-11-28T21:18:31.366Z"
       },
       "duties": {
         "path": "data/pharmacy-duties-ticino.json",
-        "sha256": "53100e731dd55efe394f45cd8209947f27056e260e61fe00c9df75cd3f68384b",
-        "fetchedAt": "2026-11-28T13:32:04.507Z"
+        "sha256": "39f02de58137f1e4e5012995113d04da80501b363180835c1a09777369dbb64f",
+        "fetchedAt": "2026-11-28T21:17:36.030Z"
       }
     },
     "regions": {
@@ -63,7 +60,7 @@
         "name": "Mendrisiotto",
         "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
         "dutyCount": 14,
-        "fetchedAt": "2026-11-28T13:32:04.507Z",
+        "fetchedAt": "2026-11-28T21:17:36.030Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -73,7 +70,7 @@
         "name": "Luganese",
         "sourceUrl": "https://www.ofct.ch/luganese/",
         "dutyCount": 8,
-        "fetchedAt": "2026-11-28T13:32:04.507Z",
+        "fetchedAt": "2026-11-28T21:17:36.030Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -83,7 +80,7 @@
         "name": "Bellinzonese",
         "sourceUrl": "https://www.ofct.ch/bellinzonese/",
         "dutyCount": 9,
-        "fetchedAt": "2026-11-28T13:32:04.507Z",
+        "fetchedAt": "2026-11-28T21:17:36.030Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -93,7 +90,7 @@
         "name": "Biasca e Valli",
         "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
         "dutyCount": 8,
-        "fetchedAt": "2026-11-28T13:32:04.507Z",
+        "fetchedAt": "2026-11-28T21:17:36.030Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -103,13 +100,13 @@
         "name": "Locarnese",
         "sourceUrl": "https://www.farmacielocarnese.ch/",
         "dutyCount": 9,
-        "fetchedAt": "2026-11-27T14:16:33.130Z",
+        "fetchedAt": "2026-11-28T21:17:36.030Z",
         "freshness": "fresh",
-        "coverage": "partial",
-        "state": "partial",
-        "preserved": true
+        "coverage": "covered",
+        "state": "fresh",
+        "preserved": false
       }
     },
-    "releaseId": "pharmacy-v1-4c4e2b6fdea06a24c8ffe8128434fcbb7731c605c5537397a7300cfe4755c41a"
+    "releaseId": "pharmacy-v1-fec5a193e2d64d8520e727a8b4d6a9d1c43f83a5eebadbff35119023f27229c8"
   }
 }

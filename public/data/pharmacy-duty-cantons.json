@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-28T13:32:53.434Z",
+  "generatedAt": "2026-11-28T21:18:24.808Z",
   "windowDays": 7,
   "dutyHubPath": "/farmacie-di-turno/",
   "cantons": {
@@ -8,19 +8,110 @@
       "members": [
         "TI"
       ],
-      "state": "partial",
-      "fetchedAt": "2026-11-28T13:32:04.507Z",
+      "state": "fresh",
+      "fetchedAt": "2026-11-28T21:17:36.030Z",
       "sourceUrl": "https://www.ofct.ch/farmacieturno/",
       "sourceType": "official",
-      "duties": [],
-      "unresolvedDuties": 0
+      "duties": [
+        {
+          "pharmacy": "Riviera",
+          "city": "Lodrino",
+          "coverageName": "Biasca e Valli",
+          "dutyType": "day",
+          "startsAt": "2026-11-27T17:00:00.000Z",
+          "endsAt": "2026-12-04T17:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/biasca-e-valli/"
+        },
+        {
+          "pharmacy": "MGM Azione",
+          "city": "Bellinzona",
+          "coverageName": "Bellinzonese",
+          "dutyType": "day",
+          "startsAt": "2026-11-27T17:30:00.000Z",
+          "endsAt": "2026-11-30T17:30:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/bellinzonese/"
+        },
+        {
+          "pharmacy": "Farmacia Castagnola",
+          "city": "Castagnola",
+          "coverageName": "Luganese",
+          "dutyType": "day",
+          "startsAt": "2026-11-28T07:00:00.000Z",
+          "endsAt": "2026-12-05T07:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/luganese/"
+        },
+        {
+          "pharmacy": "Ronchi",
+          "city": "Castel San Pietro",
+          "coverageName": "Mendrisiotto",
+          "dutyType": "day",
+          "startsAt": "2026-11-28T07:00:00.000Z",
+          "endsAt": "2026-12-01T07:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
+        },
+        {
+          "pharmacy": "della Posta",
+          "city": "Sementina",
+          "coverageName": "Bellinzonese",
+          "dutyType": "day",
+          "startsAt": "2026-11-30T17:30:00.000Z",
+          "endsAt": "2026-12-04T17:30:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/bellinzonese/"
+        },
+        {
+          "pharmacy": "San Giorgio",
+          "city": "Morbio Inferiore",
+          "coverageName": "Mendrisiotto",
+          "dutyType": "day",
+          "startsAt": "2026-12-01T07:00:00.000Z",
+          "endsAt": "2026-12-05T07:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
+        },
+        {
+          "pharmacy": "Visagno",
+          "city": "Claro",
+          "coverageName": "Biasca e Valli",
+          "dutyType": "day",
+          "startsAt": "2026-12-04T17:00:00.000Z",
+          "endsAt": "2026-12-07T17:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/biasca-e-valli/"
+        },
+        {
+          "pharmacy": "Malè",
+          "city": "Bellinzona",
+          "coverageName": "Bellinzonese",
+          "dutyType": "day",
+          "startsAt": "2026-12-04T17:30:00.000Z",
+          "endsAt": "2026-12-08T08:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/bellinzonese/"
+        },
+        {
+          "pharmacy": "Amavita Lurà",
+          "city": "Mendrisio",
+          "coverageName": "Mendrisiotto",
+          "dutyType": "day",
+          "startsAt": "2026-12-05T07:00:00.000Z",
+          "endsAt": "2026-12-08T07:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
+        },
+        {
+          "pharmacy": "Farmacia Viganello",
+          "city": "Lugano",
+          "coverageName": "Luganese",
+          "dutyType": "day",
+          "startsAt": "2026-12-05T07:00:00.000Z",
+          "endsAt": "2026-12-07T07:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/luganese/"
+        }
+      ],
+      "unresolvedDuties": 3
     },
     "GE": {
       "members": [
         "GE"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-28T13:32:52.067Z",
+      "fetchedAt": "2026-11-28T21:18:23.549Z",
       "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/",
       "sourceType": "association",
       "duties": [
@@ -104,7 +195,7 @@
         "JU"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-28T13:32:53.434Z",
+      "fetchedAt": "2026-11-28T21:18:24.808Z",
       "sourceUrl": "https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html",
       "sourceType": "official",
       "duties": [
@@ -224,6 +315,15 @@
           "startsAt": "2026-12-05T07:00:00.000Z",
           "endsAt": "2026-12-12T07:00:00.000Z",
           "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/cf870cc726e98e945551d2d9bf14db412111d06a31ed96503068c955fe97873e.pdf/Plan-de-garde-des-pharmacies-dAjoie-de-mars-2026-a-fevrier-2027.pdf?download=1"
+        },
+        {
+          "pharmacy": "Gare",
+          "city": "Moutier",
+          "coverageName": "Moutier",
+          "dutyType": "night",
+          "startsAt": "2026-12-05T17:30:00.000Z",
+          "endsAt": "2026-12-06T07:00:00.000Z",
+          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
         }
       ],
       "unresolvedDuties": 0
@@ -233,7 +333,7 @@
         "BS"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-28T13:32:53.434Z",
+      "fetchedAt": "2026-11-28T21:18:24.808Z",
       "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt",
       "sourceType": "official",
       "duties": [
@@ -317,7 +417,7 @@
         "ZH"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-28T13:32:53.434Z",
+      "fetchedAt": "2026-11-28T21:18:24.808Z",
       "sourceUrl": "https://www.avkz.ch/notfalldienst",
       "sourceType": "association",
       "duties": [
@@ -401,7 +501,7 @@
         "SO"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-28T13:32:53.434Z",
+      "fetchedAt": "2026-11-28T21:18:24.808Z",
       "sourceUrl": "https://avso.ch/notfalldienst-apotheken/",
       "sourceType": "association",
       "duties": [
