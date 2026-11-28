@@ -67,8 +67,8 @@ type FakeWindow = {
     pushState: (...args: unknown[]) => void;
     replaceState: (...args: unknown[]) => void;
   };
-  addEventListener: (type: string, listener: () => void) => void;
-  dispatchEvent: (event: { type: string }) => boolean;
+  addEventListener: (type: string, listener: (event?: unknown) => void) => void;
+  dispatchEvent: (event: { type: string; detail?: unknown }) => boolean;
   localStorage: { getItem: (key: string) => string | null };
   document: { cookie: string };
   googlefc?: {
@@ -79,6 +79,7 @@ type FakeWindow = {
   };
   __ftFcAdBlockBridge?: boolean;
   __ftAdBlock?: { blocked?: boolean; adsAllowed?: boolean };
+  __ftAdBlockReady?: boolean;
   __ftOfferwallGate?: { state?: string; release?: (showOfferwall?: boolean) => boolean };
 };
 
@@ -103,7 +104,7 @@ function install(
   }: { consent?: string | null; cookie?: string; preset?: FakeWindow['googlefc'] } = {},
 ): FakeWindow {
   const store: Record<string, string> = consent ? { [ADS_CONSENT_STORAGE_KEY]: consent } : {};
-  const listeners = new Map<string, Array<() => void>>();
+  const listeners = new Map<string, Array<(event?: unknown) => void>>();
   const win = {
     location: { pathname },
     history: {
@@ -114,13 +115,13 @@ function install(
         if (url !== undefined && url !== null) win.location.pathname = new URL(String(url), 'https://example.test').pathname;
       },
     },
-    addEventListener: (type: string, listener: () => void) => {
+    addEventListener: (type: string, listener: (event?: unknown) => void) => {
       const entries = listeners.get(type) ?? [];
       entries.push(listener);
       listeners.set(type, entries);
     },
-    dispatchEvent: (event: { type: string }) => {
-      for (const listener of listeners.get(event.type) ?? []) listener();
+    dispatchEvent: (event: { type: string; detail?: unknown }) => {
+      for (const listener of listeners.get(event.type) ?? []) listener(event);
       return true;
     },
     localStorage: { getItem: (key: string) => store[key] ?? null },
@@ -390,9 +391,103 @@ describe.each(CASES)('%s', (_name, src, ENUM) => {
     expect(first.calls).toEqual([[false, [ENUM.AD_BLOCKING]]]);
     expect(second.calls).toEqual([[false, [ENUM.AD_BLOCKING]]]);
 
+    // The permit is single use (FU-2026-11-27-007): a later callback is held
+    // until a new click, it is not allowed through on the old one.
     const late = message();
     win.googlefc!.controlledMessagingFunction!(late);
-    expect(late.calls).toEqual([[false, [ENUM.AD_BLOCKING]]]);
+    expect(late.calls).toEqual([]);
+    expect(win.__ftOfferwallGate?.state).toBe('held');
+  });
+
+  it('spends the release permit on the click: a second Funding Choices callback is held, and a new click releases it', () => {
+    const win = install(src, '/cerca-lavoro-ticino/');
+    win.googlefc!.MessageTypeEnum = ENUM;
+    const first = message();
+    win.googlefc!.controlledMessagingFunction!(first);
+    expect(win.__ftOfferwallGate!.release!()).toBe(true);
+    expect(first.calls).toEqual([[false, [ENUM.AD_BLOCKING]]]);
+    expect(win.__ftOfferwallGate?.state).toBe('released');
+
+    const second = message();
+    win.googlefc!.controlledMessagingFunction!(second);
+    expect(second.calls).toEqual([]);
+    expect(win.__ftOfferwallGate?.state).toBe('held');
+    const third = message();
+    win.googlefc!.controlledMessagingFunction!(third);
+    expect(third.calls).toEqual([]);
+
+    expect(win.__ftOfferwallGate!.release!()).toBe(true);
+    expect(second.calls).toEqual([[false, [ENUM.AD_BLOCKING]]]);
+    expect(third.calls).toEqual([[false, [ENUM.AD_BLOCKING]]]);
+  });
+
+  it('suppresses a second callback when a blocker is confirmed after the permit was spent', () => {
+    const win = install(src, '/cerca-lavoro-ticino/');
+    win.googlefc!.MessageTypeEnum = ENUM;
+    win.googlefc!.controlledMessagingFunction!(message());
+    win.__ftOfferwallGate!.release!();
+    win.__ftAdBlock = { blocked: true, adsAllowed: false };
+    const second = message();
+    win.googlefc!.controlledMessagingFunction!(second);
+    expect(second.calls).toEqual([[false, [ENUM.AD_BLOCKING, ENUM.OFFERWALL]]]);
+    expect(win.__ftOfferwallGate?.state).toBe('suppressed');
+  });
+
+  it('a ready result without a blocker releases, even when the global is explicitly flagged ready', () => {
+    const win = install(src, '/cerca-lavoro-ticino/');
+    win.__ftFcAdBlockBridge = true;
+    win.googlefc!.MessageTypeEnum = ENUM;
+    const held = message();
+    win.googlefc!.controlledMessagingFunction!(held);
+    expect(win.__ftOfferwallGate!.release!()).toBe(false);
+
+    win.__ftAdBlockReady = true;
+    expect(win.__ftOfferwallGate!.release!()).toBe(true);
+    expect(held.calls).toEqual([[false, [ENUM.AD_BLOCKING]]]);
+    expect(win.__ftOfferwallGate?.state).toBe('released');
+  });
+
+  it('reads the blocker result from the event payload when the global is stale', () => {
+    const win = install(src, '/cerca-lavoro-ticino/');
+    win.__ftFcAdBlockBridge = true;
+    win.googlefc!.MessageTypeEnum = ENUM;
+    const held = message();
+    win.googlefc!.controlledMessagingFunction!(held);
+
+    win.dispatchEvent({ type: 'frontaliere:adblock-data', detail: { blocked: true, adsAllowed: false } });
+    expect(held.calls).toEqual([[false, [ENUM.AD_BLOCKING, ENUM.OFFERWALL]]]);
+    expect(win.__ftOfferwallGate?.state).toBe('suppressed');
+  });
+
+  it('a payload without a blocker does not suppress, whatever a stale global says', () => {
+    const win = install(src, '/cerca-lavoro-ticino/');
+    win.__ftFcAdBlockBridge = true;
+    win.__ftAdBlock = { blocked: true, adsAllowed: false };
+    win.googlefc!.MessageTypeEnum = ENUM;
+    win.__ftAdBlock = undefined;
+    const held = message();
+    win.googlefc!.controlledMessagingFunction!(held);
+    win.dispatchEvent({ type: 'frontaliere:adblock-data', detail: { blocked: false, adsAllowed: true } });
+    expect(held.calls).toEqual([]);
+    expect(win.__ftOfferwallGate?.state).toBe('held');
+  });
+
+  it('keeps working with an older bridge whose event carries no detail', () => {
+    const win = install(src, '/cerca-lavoro-ticino/');
+    win.__ftFcAdBlockBridge = true;
+    win.googlefc!.MessageTypeEnum = ENUM;
+    const held = message();
+    win.googlefc!.controlledMessagingFunction!(held);
+    win.__ftAdBlock = { blocked: true, adsAllowed: false };
+    win.dispatchEvent({ type: 'frontaliere:adblock-data' });
+    expect(held.calls).toEqual([[false, [ENUM.AD_BLOCKING, ENUM.OFFERWALL]]]);
+
+    const win2 = install(src, '/cerca-lavoro-ticino/');
+    win2.__ftFcAdBlockBridge = true;
+    win2.googlefc!.MessageTypeEnum = ENUM;
+    win2.googlefc!.controlledMessagingFunction!(message());
+    win2.__ftAdBlock = { blocked: false, adsAllowed: false };
+    expect(win2.__ftOfferwallGate!.release!()).toBe(true);
   });
 
   it('composes a pre-existing callback without bypassing the Offerwall gate', () => {
