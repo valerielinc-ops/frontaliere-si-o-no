@@ -38,6 +38,11 @@ on:
         required: false
         type: string
         default: ''
+      crawler_timeout_seconds:
+        description: 'Dry run only: kill each crawler after N seconds (0 = no limit) so the phase log shows where time goes.'
+        required: false
+        type: string
+        default: '0'
       history_since:
         description: 'Walk only commits newer than this git date (default 45 days ago; "all" = unbounded).'
         required: false
@@ -602,6 +607,8 @@ jobs:
         timeout-minutes: 95
         env:
           DRYRUN_RUN_BUDGET_SECONDS: '4800'
+          CRAWLER_TIMEOUT_SECONDS: ${{ inputs.crawler_timeout_seconds || '0' }}
+          BACKFILL_PHASE_LOG: '1'
           MAX_COMMITS: ${{ inputs.max_commits || '0' }}
           CRAWLER_KEYS: ${{ inputs.crawler_keys || '' }}
           HISTORY_SINCE: ${{ inputs.history_since || '45 days ago' }}
@@ -659,12 +666,19 @@ jobs:
               fi
               echo "──── Dry-run crawler: $key ────" | tee -a "$log"
               set +e
+              crawler_timeout=()
+              if [ "${CRAWLER_TIMEOUT_SECONDS:-0}" -gt 0 ]; then
+                crawler_timeout=(timeout "$CRAWLER_TIMEOUT_SECONDS")
+              fi
               DRY_RUN=1 BACKFILL_REPORT_PATH="$report_dir/$key.json" CRAWLER_KEYS="$key" \
-                node scripts/backfill-expired-from-history.mjs 2>&1 | tee -a "$log"
+                "${crawler_timeout[@]}" node scripts/backfill-expired-from-history.mjs 2>&1 | tee -a "$log"
               rc="${PIPESTATUS[0]}"
               set -e
               # 3 = refused (expected, reported); anything else is a real error.
-              if [ "$rc" -ne 0 ] && [ "$rc" -ne 3 ]; then
+              if [ "$rc" -eq 124 ]; then
+                # Probe timeout: keep going, the summary lists the crawler as missing.
+                echo "::warning::Dry-run of $key stopped by its ${CRAWLER_TIMEOUT_SECONDS}s probe timeout"
+              elif [ "$rc" -ne 0 ] && [ "$rc" -ne 3 ]; then
                 echo "::error::Dry-run of $key exited with $rc"
                 exit "$rc"
               fi

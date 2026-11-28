@@ -1354,6 +1354,15 @@ export function processSlice(sliceFile, {
     walkStats.parses[relPath] = (walkStats.parses[relPath] || 0) + 1;
   };
   const crawlerKey = path.basename(sliceFile, '.json');
+  const phaseStartedAt = performance.now();
+  // Opt-in progress lines (BACKFILL_PHASE_LOG=1) so a run that is killed by a
+  // timeout still shows which phase was slow.
+  const phase = (name) => {
+    if (process.env.BACKFILL_PHASE_LOG !== '1') return;
+    const seconds = Math.round((performance.now() - phaseStartedAt) / 1000);
+    const rssMb = Math.round(process.memoryUsage().rss / (1024 * 1024));
+    console.error(`[phase] ${crawlerKey} ${name} +${seconds}s rss=${rssMb}MB`);
+  };
   const currentRel = `data/jobs/by-crawler/${sliceFile}`;
   // The archive is the monolith plus its `<key>.shard-NNN.json` files
   // (scripts/lib/expired-slice-store.mjs). Include paths found in Git history,
@@ -1472,7 +1481,10 @@ export function processSlice(sliceFile, {
   // on the loop is a no-op by construction (sets and first-wins maps only).
   let activeRun = null;
   const previousExpiredOids = new Map();
+  let walked = 0;
   for (const sha of sliceCommits) {
+    if (walked % 25 === 0) phase(`walk ${walked}/${sliceCommits.length}`);
+    walked += 1;
     const oids = resolveHistoricalOids(sha, [currentRel, ...expiredRels], rootDir);
     const activeStartedAt = performance.now();
     const activeOid = oids.get(currentRel);
@@ -1676,6 +1688,7 @@ export function processSlice(sliceFile, {
     }
     walkStats.expiredWalkMs += performance.now() - expiredStartedAt;
   }
+  phase('walk done');
   const walkFinishedAt = performance.now();
   if (report) {
     report.timings = {
@@ -1695,6 +1708,7 @@ export function processSlice(sliceFile, {
   // company-and-primary-route scope, never by a bare slug.
   // Monolith + shards through the store. An unreadable file fails the run:
   // starting fresh would rewrite it with only the recovered rows.
+  phase('reading existing archive');
   const existingShards = readExpiredSliceShards(crawlerKey, { dir: expiredDir });
   const existing = existingShards.flatMap((shard) => shard.rows);
   const snapshotBefore = report ? routeOwnerSnapshot(existing, activeSnapshotBefore) : null;
@@ -1871,6 +1885,7 @@ export function processSlice(sliceFile, {
   // The archive writer merges only within companyKey::locale:slug. A proven
   // same-posting pair still cannot merge if one locale slug emitted two
   // different canton-qualified paths.
+  phase('archive ownership checks');
   const refusedArchiveRoutePaths = new Set();
   for (const owner of historicalExpiredOwners.values()) {
     const stillProven = [...owner.commonPostingIdentities].some((identity) => (
@@ -1950,6 +1965,7 @@ export function processSlice(sliceFile, {
   // Plan route transfers first so an ambiguous identity or a route already
   // claimed by another active page refuses the whole slice before either file
   // can be written.
+  phase('active route merge plans');
   const activeRouteMergePlans = [];
   const recoveredCandidateOwnersByPath = new Map();
   const recoveredCandidates = new Set([
@@ -2118,6 +2134,7 @@ export function processSlice(sliceFile, {
   // with routes the current slice or a planned active alias will actually emit.
   // Historical snapshots and active-route evidence are ownership evidence,
   // not output by themselves; transferred aliases enter the map as planned.
+  phase('recovered route collisions');
   const recoveredExpiredRouteCollisions = new Set();
   for (const [candidate, archiveCandidate] of recoveredCandidateEntries) {
     let suppressedRoute = true;
@@ -2175,6 +2192,7 @@ export function processSlice(sliceFile, {
     }
   }
 
+  phase('route-only collisions done');
   const alreadyServedRouteKeys = new Set([
     ...currentRouteKeys,
     ...existing.flatMap((entry) => [...emittedRouteKeys(entry || {})]),
@@ -2474,6 +2492,7 @@ export function processSlice(sliceFile, {
   // Collapse by the archive writer's company-scoped route ownership before
   // writing. The preflight above already refused any exact public-path overlap
   // or unrepresentable canton history.
+  phase('collapsing archive');
   const archived = collapseDuplicateRouteEntries(
     [...archiveEntries].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
     { source: 'backfill-expired-from-history' },
