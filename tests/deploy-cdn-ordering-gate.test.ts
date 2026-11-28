@@ -1397,6 +1397,11 @@ describe('job-canon CDN releases keep the build marker after the complete payloa
       'raw-digest-mismatch',
       'raw-count-mismatch',
       'wrong-shard',
+      'entry-mismatch',
+      'foreign-v2',
+      'logical-entries-mismatch',
+      'logical-aliases-mismatch',
+      'logical-digest-mismatch',
       'duplicate-v2-key',
       'non-object-v2',
       'extra-v2',
@@ -1632,6 +1637,11 @@ type PagesJobCanonMutation =
   | 'raw-digest-mismatch'
   | 'raw-count-mismatch'
   | 'wrong-shard'
+  | 'entry-mismatch'
+  | 'foreign-v2'
+  | 'logical-entries-mismatch'
+  | 'logical-aliases-mismatch'
+  | 'logical-digest-mismatch'
   | 'duplicate-v2-key'
   | 'non-object-v2'
   | 'extra-v2';
@@ -1823,6 +1833,36 @@ function runPagesPublisher(
           rewriteManifest();
           break;
         }
+        case 'entry-mismatch':
+        case 'foreign-v2': {
+          // The shard is altered AFTER the manifest was written, but its raw
+          // bytes/sha256 are re-declared so only the canonical per-shard and
+          // logical digests (the manifest is the remaining source of truth)
+          // can reveal the change.
+          const v2Path = join(jobCanon, 'v2', firstV2Filename);
+          const parsed = JSON.parse(readFileSync(v2Path, 'utf8')) as PagesJobCanonMap;
+          const [slug] = Object.keys(parsed);
+          if (options.jobCanonMutation === 'entry-mismatch') parsed[slug] = { it: '/foreign-section' };
+          else parsed['foreign-shared'] = { en: '/en/foreign-jobs' };
+          const raw = Buffer.from(JSON.stringify(parsed), 'utf8');
+          writeFileSync(v2Path, raw);
+          manifest.v2.files[firstV2Filename].bytes = raw.length;
+          manifest.v2.files[firstV2Filename].sha256 = createHash('sha256').update(raw).digest('hex');
+          rewriteManifest();
+          break;
+        }
+        case 'logical-entries-mismatch':
+          manifest.logical.entries += 1;
+          rewriteManifest();
+          break;
+        case 'logical-aliases-mismatch':
+          manifest.logical.aliases += 1;
+          rewriteManifest();
+          break;
+        case 'logical-digest-mismatch':
+          manifest.logical.canonicalEntriesSha256 = '0'.repeat(64);
+          rewriteManifest();
+          break;
         case 'raw-count-mismatch':
           manifest.v2.files[firstV2Filename].bytes += 1;
           rewriteManifest();
