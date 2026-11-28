@@ -1916,7 +1916,8 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
     // moves a record's slug to a deterministic alias, so a by-slug merge would miss
     // it and mint a second record. This call passes no `activeJobs`, so a route a
     // still-active posting has taken over is judged from the slice itself: the
-    // record's own routes and aliases, or another record's.
+    // record's own routes or another record's. Otherwise the route is merged back
+    // and the assembly repair moves it to the alias the record already holds.
     const archived = archiveRemovedJobsToSlice(verdict.disappearedJobs, crawlerKey);
     if (archived > 0) {
       console.warn(`  📦 Archived ${archived} expired job(s) → data/jobs/expired/by-crawler/${crawlerKey}.json (soft-landing pages preserved).`);
