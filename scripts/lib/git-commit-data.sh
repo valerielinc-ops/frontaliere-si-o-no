@@ -2682,6 +2682,59 @@ stage_isolated_blob() {
   fi
 }
 
+# The expired archive of a crawler is one logical array in several files. Redo
+# as a whole the keys the per-file merge above cannot handle exactly: a row that
+# changed file while both sides changed the archive, or a merged file above the
+# push-safety ceiling (scripts/lib/expired-archive-tree-merge.mjs).
+merge_expired_archives_in_index() {
+  local index_file="$1" base_sha="$2" remote_sha="$3" scratch_root="$4"
+  local f blob keys key key_work label
+  local helper
+  helper="$(dirname "$0")/expired-archive-tree-merge.mjs"
+  scratch_root="$scratch_root/expired-archive"
+  rm -rf -- "$scratch_root"
+  mkdir -p -- "$scratch_root"
+  : > "$scratch_root/locals.tsv"
+  for f in "${RESOLVED_FILES[@]}"; do
+    [[ "$f" == data/jobs/expired/by-crawler/*.json ]] || continue
+    if [ "$GROUP_BATCH" = true ]; then
+      [ "${_BATCH_SNAPSHOT_OPERATION[$f]:-unchanged}" != unchanged ] || continue
+      blob=absent
+      [ "${_BATCH_SNAPSHOT_STATE[$f]}" != present ] || blob="${_BATCH_SNAPSHOT_BLOB[$f]}"
+    elif [ -f "$f" ]; then
+      git check-ignore -q "$f" 2>/dev/null && continue
+      blob="$(git hash-object -w -- "$f")" || return 1
+    else
+      [ "$EXTRA_ONLY" = true ] || continue
+      blob=absent
+    fi
+    printf '%s\t%s\n' "$f" "$blob" >> "$scratch_root/locals.tsv"
+  done
+  [ -s "$scratch_root/locals.tsv" ] || return 0
+
+  if ! keys="$(node "$helper" plan --base "$base_sha" --remote "$remote_sha" \
+    --index "$index_file" --locals "$scratch_root/locals.tsv" --work "$scratch_root")"; then
+    echo "❌ grouped-isolated: could not plan the whole-archive expired merge — refusing to publish"
+    return 1
+  fi
+  for key in $keys; do
+    key_work="$scratch_root/$key"
+    label="data/jobs/expired/by-crawler/${key}.json"
+    # Three whole archives are in memory at once (coop-ticino: 135 MB each on
+    # 2026-11-28), well above what any single slice merge needs.
+    if ! NODE_OPTIONS="${NODE_OPTIONS:-} --max-old-space-size=8192" \
+      merge_data_json_3way "$key_work/base.json" "$key_work/remote.json" "$key_work/local.json" \
+      "$key_work/merged.json" url "$label" \
+      || ! node "$(dirname "$0")/../ci/canonicalize-expired-archive-slice.mjs" "$key_work/merged.json" "$label" \
+      || ! node "$helper" apply --key "$key" --remote "$remote_sha" --index "$index_file" --work "$scratch_root"; then
+      echo "❌ grouped-isolated: whole-archive merge failed for expired archive ${key} — refusing to publish"
+      return 1
+    fi
+    rm -rf -- "$key_work"
+  done
+  rm -rf -- "$scratch_root"
+}
+
 # Prints the tree id on stdout. This function runs with errexit suspended
 # (its caller is invoked through `||`), so a failed write must be turned into
 # a return code here: an empty tree id used to flow into `commit-tree`, and
@@ -3498,6 +3551,7 @@ commit_isolated_from_worktree() {
     echo "ℹ️ grouped-isolated attempt ${push_attempt}: ${computed_count} file(s) computed, ${reused_count} reused from the previous attempt"
 
     isolated_mark phase_started
+    merge_expired_archives_in_index "$tmp_index" "$base_sha" "$remote_sha" "$merge_dir" || return 1
     new_tree="$(write_isolated_tree "$tmp_index")" || return 1
     if [ "$compat_store_touched" = true ]; then
       repair_compat_manifest_in_index "$tmp_index" "$new_tree" "$merge_dir" || return 1
