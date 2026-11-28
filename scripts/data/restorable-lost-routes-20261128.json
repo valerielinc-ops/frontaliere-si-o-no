@@ -1,0 +1,6351 @@
+{
+ "baseCommit": "6ad2a15f4fd",
+ "analysedCommit": "0637a356319",
+ "evidence": "each route had one holder at the commit that stopped serving it; exactly one record today declares the company, sourceIdentity (possibly absent on both) and slug of that holder; no active or expired record serves the route. decontaminate rules: the current decontaminate keeps it on a replay of the parent file. flat-only rules: the same record served the slug flat-only (all four locales) and today holds it in a bucket. Targets that the fleet-wide ghost reconciliation of the analysed commit removes are left out: a route added there would not survive that gate.",
+ "targets": [
+  {
+   "crawlerKey": "abb-svizzera-sede-ticino",
+   "slug": "80-100-r-d-ingegnere-energy-storage-systems-abb-svizzera-sede-ticino-quartino-ticino-qt8s1o",
+   "companyKey": "abb-svizzera-sede-ticino",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "80-100-r-d-engineer-energy-storage-systems-abb-svizzera-sede-ticino-quartino-ticino-qt8s1o",
+     "80-100-r-d-ingenieur-energy-storage-systems-abb-svizzera-sede-ticino-quartino-ticino-qt8s1o"
+    ],
+    "en": [
+     "80-100-r-d-ingegnere-energy-storage-systems-abb-svizzera-sede-ticino-quartino-ticino-qt8s1o",
+     "80-100-r-d-ingenieur-energy-storage-systems-abb-svizzera-sede-ticino-quartino-ticino-qt8s1o"
+    ],
+    "de": [
+     "80-100-r-d-engineer-energy-storage-systems-abb-svizzera-sede-ticino-quartino-ticino-qt8s1o",
+     "80-100-r-d-ingegnere-energy-storage-systems-abb-svizzera-sede-ticino-quartino-ticino-qt8s1o"
+    ],
+    "fr": [
+     "80-100-r-d-engineer-energy-storage-systems-abb-svizzera-sede-ticino-quartino-ticino-qt8s1o",
+     "80-100-r-d-ingegnere-energy-storage-systems-abb-svizzera-sede-ticino-quartino-ticino-qt8s1o"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "aldi-suisse",
+   "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-kussnacht-am-rigi-02b40f4d",
+   "companyKey": "aldi-suisse",
+   "sourceIdentity": "url:https://www.jobs.aldi.ch/job/1445029733",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "mitarbeiter-verkauf-m-w-d-aldi-suisse-b78872f7-03bc899a"
+    ],
+    "en": [
+     "mitarbeiter-verkauf-m-w-d-aldi-suisse-b78872f7-03bc899a"
+    ],
+    "fr": [
+     "mitarbeiter-verkauf-m-w-d-aldi-suisse-b78872f7-03bc899a"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "aldi-suisse",
+   "slug": "lernender-detailhandel-m-w-d-aldi-suisse-j4acnn-c2cdc62a",
+   "companyKey": "aldi-suisse",
+   "sourceIdentity": "url:https://www.jobs.aldi.ch/job/1420613033",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "lernender-detailhandel-m-w-d-aldi-suisse-j4acnn-c2cdc62a"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "alpiq",
+   "slug": "da-id-power-trader-uk-focus-alpiq-switzerland",
+   "companyKey": "alpiq",
+   "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/196",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "da-id-power-trader-uk-focus-alpiq-switzerland"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "da-id-power-trader-uk-focus-alpiq-switzerland": "VD"
+    }
+   }
+  },
+  {
+   "crawlerKey": "alpiq",
+   "slug": "mba-intern-green-power-business-development-alpiq-switzerland",
+   "companyKey": "alpiq",
+   "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/328",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "mba-intern-green-power-business-development-alpiq-switzerland"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "mba-intern-green-power-business-development-alpiq-switzerland": "VD"
+    }
+   }
+  },
+  {
+   "crawlerKey": "ameos-ch",
+   "slug": "collaboratore-trice-m-w-d-roomservice-ameos-schweiz-einsiedeln-0a4cb195",
+   "companyKey": "ameos-ch",
+   "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/12421-mitarbeiter-roomservice-in-einsiedeln",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln-84f8d5cf"
+    ],
+    "en": [
+     "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln-84f8d5cf"
+    ],
+    "fr": [
+     "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln-84f8d5cf"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "anker-swiss",
+   "slug": "pittura-100-anker-swiss-ticino-ag-bern-268da418-ffc5a5cd",
+   "companyKey": "anker-swiss",
+   "sourceIdentity": "url:https://anker-swiss.ch/stellen/maler-1294280",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "maler-100-anker-swiss-ticino-ag-bern-268da418-87da04bd"
+    ],
+    "en": [
+     "maler-100-anker-swiss-ticino-ag-bern-268da418-87da04bd"
+    ],
+    "fr": [
+     "maler-100-anker-swiss-ticino-ag-bern-268da418-87da04bd"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "anker-swiss",
+   "slug": "pittura-100-anker-swiss-ticino-ag-bern-b93bdfdd-9a214cce",
+   "companyKey": "anker-swiss",
+   "sourceIdentity": "url:https://anker-swiss.ch/stellen/maler-1187047",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "maler-100-anker-swiss-ticino-ag-bern-b93bdfdd-0050f55b"
+    ],
+    "en": [
+     "maler-100-anker-swiss-ticino-ag-bern-b93bdfdd-0050f55b"
+    ],
+    "fr": [
+     "maler-100-anker-swiss-ticino-ag-bern-b93bdfdd-0050f55b"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "apleona-schweiz-ag",
+   "slug": "apprendistato-come-un-commerciante-commerciante-efz-specializzazione-treuhand-immobiliare-a-partire-da-1-agosto-2027",
+   "companyKey": "apleona-schweiz-ag",
+   "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2542/description/1",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "apprendistato-come-un-commerciante-commerciante-efz-specializzazione-treuhand-immobiliare-a-partire-da-1-agosto-2027"
+    ],
+    "de": [
+     "apprendistato-come-un-commerciante-commerciante-efz-specializzazione-treuhand-immobiliare-a-partire-da-1-agosto-2027"
+    ],
+    "fr": [
+     "apprendistato-come-un-commerciante-commerciante-efz-specializzazione-treuhand-immobiliare-a-partire-da-1-agosto-2027"
+    ]
+   },
+   "cantons": {
+    "en": {
+     "apprendistato-come-un-commerciante-commerciante-efz-specializzazione-treuhand-immobiliare-a-partire-da-1-agosto-2027": "SG"
+    },
+    "de": {
+     "apprendistato-come-un-commerciante-commerciante-efz-specializzazione-treuhand-immobiliare-a-partire-da-1-agosto-2027": "SG"
+    },
+    "fr": {
+     "apprendistato-come-un-commerciante-commerciante-efz-specializzazione-treuhand-immobiliare-a-partire-da-1-agosto-2027": "SG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "audemars-piguet",
+   "slug": "pr-influence-coordinatore-audemars-piguet-le-brassus-vd-switzerland-0cb761a6",
+   "companyKey": "audemars-piguet",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "pr-influence-coordinator-audemars-piguet-le-brassus-vd-switzerland-42b52ebe"
+    ],
+    "de": [
+     "pr-influence-coordinator-audemars-piguet-le-brassus-vd-switzerland-42b52ebe"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "axa-svizzera",
+   "slug": "responsabile-claims-per-l-assicurazione-supplementare-sanitaria-vvg-salute-tutti-i-generi-axa-svizzera-winterthur",
+   "companyKey": "axa-svizzera",
+   "sourceIdentity": "url:https://jobs.axa.ch/posizioni-aperte/head-of-claims-krankenzusatzversicherung-vvg-gesundheitsvorsorge-all-genders/4eac1ed3-b14d-487b-bdfa-c737fff0a2cc",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "responsabile-claims-per-l-assicurazione-supplementare-sanitaria-vvg-salute-tutti-i-generi-axa-svizzera-winterthur"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "badrutts-palace",
+   "slug": "capopartita-m-f-d-badrutt-s-palace-hotel-st-moritz",
+   "companyKey": "badrutts-palace",
+   "sourceIdentity": "url:https://jobs.badruttscareers.com/en-gb/jobs/6412797-chef-de-partie-m-f-d",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "fr": [
+     "chef-de-partie-m-w-d-badrutts-palace-ch"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "bcv",
+   "slug": "consulente-specializzato-per-le-pmi-chablais-banque-cantonale-vaudoise-aigle-4c41e1a8",
+   "companyKey": "bcv",
+   "sourceIdentity": "url:https://jobs.bcv.ch/job/aigle-conseiller-pme-sp%c3%a9cialis%c3%a9-chablais/1407738733",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "en": [
+     "conseiller-pme-specialise-chablais-bcv-aigle-04b785b0"
+    ],
+    "de": [
+     "conseiller-pme-specialise-chablais-bcv-aigle-04b785b0"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "belimo",
+   "slug": "impiegata-impiegato-in-logistica-temporar-belimo-hinwil-1b020a99",
+   "companyKey": "belimo",
+   "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-operator-warehouse-&-distribution-z%c3%bcri-8340/1165121155",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "logistiker-in-temporar-belimo-hinwil-5046e55e"
+    ],
+    "en": [
+     "logistiker-in-temporar-belimo-hinwil-5046e55e"
+    ],
+    "fr": [
+     "logistiker-in-temporar-belimo-hinwil-5046e55e"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "bkw",
+   "slug": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-brig-glis-74a96fcd",
+   "companyKey": "bkw",
+   "sourceIdentity": "url:https://job.bkw.com/offene-stellen/lehrstelle-elektroinstallateur-in-efz-alle/e34c8113-feef-420f-8ffb-566ad9f34edb",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-c2748939"
+    ],
+    "de": [
+     "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-5-8951ffda"
+    ],
+    "fr": [
+     "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-c2748939"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "bkw",
+   "slug": "apprendistato-sanitarpraktiker-in-afp-alle-bkw-luzern-0ed36e10",
+   "companyKey": "bkw",
+   "sourceIdentity": "url:https://job.bkw.com/offene-stellen/lehrstelle-sanitaerpraktiker-in-eba-alle/82c451d9-dee6-42a1-a957-6d5f1dc4314e",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch-d66ac1ae"
+    ],
+    "fr": [
+     "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch-d66ac1ae"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "brack-alltron",
+   "slug": "servizi-a-valore-aggiunto-teamlead-brack-alltron-ag-willisau",
+   "companyKey": "brack-alltron",
+   "sourceIdentity": "url:https://jobs.brackalltron.ch/offene-stellen/teamlead-value-added-services/d070758a-bd09-4977-9138-2241852b58a6",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "teamlead-value-added-services-brack-alltron-ag-willisau"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "buehler",
+   "slug": "engineering-intern-buehler-santa-ana-tlapaltitlan",
+   "companyKey": "buehler",
+   "sourceIdentity": "url:https://jobs.buhlergroup.com/job-vacancies/engineering-intern/7ee499c6-b019-46d7-80b7-c559568bacee",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "engineering-intern-buehler-santa-ana-tlapaltitlan"
+    ],
+    "de": [
+     "engineering-intern-buehler-santa-ana-tlapaltitlan"
+    ],
+    "fr": [
+     "engineering-intern-buehler-santa-ana-tlapaltitlan"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "buehler",
+   "slug": "product-manager-portafoglio-cioccolato-buhler-group-uzwil",
+   "companyKey": "buehler",
+   "sourceIdentity": "url:https://jobs.buhlergroup.com/job-vacancies/product-manager-chocolate-portfolio/7d31f1f7-9d85-476c-b9e6-6e300a7c2b07",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "de": [
+     "product-manager-chocolate-portfolio-buehler-uzwil"
+    ],
+    "fr": [
+     "product-manager-chocolate-portfolio-buehler-uzwil"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "c-and-a-schweiz",
+   "slug": "addetto-a-alle-vendite-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-0d05cec7",
+   "companyKey": "c-and-a-schweiz",
+   "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-verkauf-mwd-60-schwerpunkt-service-in-zurich-city-65987-de-de",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "mitarbeiter-verkauf-m-w-d-60-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch-10911a2b"
+    ],
+    "en": [
+     "mitarbeiter-verkauf-m-w-d-60-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch-10911a2b"
+    ],
+    "fr": [
+     "mitarbeiter-verkauf-m-w-d-60-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch-10911a2b"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "cern",
+   "slug": "tecnico-per-l-installazione-di-rivelatori-atlas-ep-atl-po-2026-178-grae-cern-geneva-geneva-switzerland",
+   "companyKey": "cern",
+   "sourceIdentity": "url:https://jobs.smartrecruiters.com/cern/744000135412509-atlas-detector-installation-technician-ep-atl-po-2026-178-grae-?oga=true",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "atlas-detector-installation-technician-ep-atl-po-2026-178-grae-cern-geneva-geneva"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "atlas-detector-installation-technician-ep-atl-po-2026-178-grae-cern-geneva-geneva": "GE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "clinique-de-genolier",
+   "slug": "infermiera-hpci-clinique-de-genolier-genolier-beef224d",
+   "companyKey": "clinique-de-genolier",
+   "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000125071544-infirmiere-hpci",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "krankenschwester-hpci-clinique-de-genolier-genolier-f2c7460a",
+     "nurse-hpci-clinique-de-genolier-genolier-e7f27fce"
+    ],
+    "en": [
+     "krankenschwester-hpci-clinique-de-genolier-genolier-f2c7460a"
+    ],
+    "de": [
+     "nurse-hpci-clinique-de-genolier-genolier-e7f27fce"
+    ],
+    "fr": [
+     "krankenschwester-hpci-clinique-de-genolier-genolier-f2c7460a",
+     "nurse-hpci-clinique-de-genolier-genolier-e7f27fce"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "confederazione-ticino",
+   "slug": "apprendista-kaufmann-frau-cfc-sportlehre-musiklehre-confederazione-svizzera-bern-amp-zimmerwald",
+   "companyKey": "confederazione-ticino",
+   "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lernende-r-kaufmann-frau-efz-sportlehre-musiklehre/52550469-140f-419c-8a69-8a8c217d9cfc",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "apprendista-kaufmann-frau-cfc-sportlehre-musiklehre-confederazione-svizzera-bern-amp-zimmerwald"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "apprendista-kaufmann-frau-cfc-sportlehre-musiklehre-confederazione-svizzera-bern-amp-zimmerwald": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "confederazione-ticino",
+   "slug": "organizzatore-trice-della-formazione-organizzatore-trice-aziendale-senior-confederazione-svizzera-bern",
+   "companyKey": "confederazione-ticino",
+   "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/organisator-in-ausbildung-unternehmensorganisator-in-senior/11652057-2c0b-40ac-a6d8-3d80c82bdce7",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "organizzatore-trice-della-formazione-organizzatore-trice-aziendale-senior-confederazione-svizzera-bern"
+    ],
+    "de": [
+     "organizzatore-trice-della-formazione-organizzatore-trice-aziendale-senior-confederazione-svizzera-bern"
+    ],
+    "fr": [
+     "organizzatore-trice-della-formazione-organizzatore-trice-aziendale-senior-confederazione-svizzera-bern"
+    ]
+   },
+   "cantons": {
+    "en": {
+     "organizzatore-trice-della-formazione-organizzatore-trice-aziendale-senior-confederazione-svizzera-bern": "BE"
+    },
+    "de": {
+     "organizzatore-trice-della-formazione-organizzatore-trice-aziendale-senior-confederazione-svizzera-bern": "BE"
+    },
+    "fr": {
+     "organizzatore-trice-della-formazione-organizzatore-trice-aziendale-senior-confederazione-svizzera-bern": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "confederazione-ticino",
+   "slug": "specialista-fiscale-diritto-iva-confederazione-svizzera-bern",
+   "companyKey": "confederazione-ticino",
+   "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/steuerspezialist-in-recht-mwst/525239ae-e3c1-4753-8cad-ab04e14d25c3",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "tax-specialist-in-law-vat-confederazione-svizzera-bern"
+    ],
+    "de": [
+     "tax-specialist-in-law-vat-confederazione-svizzera-bern"
+    ],
+    "fr": [
+     "tax-specialist-in-law-vat-confederazione-svizzera-bern"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "tax-specialist-in-law-vat-confederazione-svizzera-bern": "BE"
+    },
+    "de": {
+     "tax-specialist-in-law-vat-confederazione-svizzera-bern": "BE"
+    },
+    "fr": {
+     "tax-specialist-in-law-vat-confederazione-svizzera-bern": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "confederazione-ticino",
+   "slug": "wissenschaftliche-r-collaboratore-trice-in-prospektivplanung-confederazione-svizzera-bern",
+   "companyKey": "confederazione-ticino",
+   "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-prospektivplanung/38c4f71a-da2b-4c44-bf4c-81ef64b0c7ed",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "wissenschaftliche-r-collaboratore-trice-in-prospektivplanung-confederazione-svizzera-bern"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "wissenschaftliche-r-collaboratore-trice-in-prospektivplanung-confederazione-svizzera-bern": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "convit-holding",
+   "slug": "vendite-finanza-previdenza-entrata-laterale-fisso-bonus-convit-holding-gmbh-giubiasco",
+   "companyKey": "convit-holding",
+   "sourceIdentity": "url:https://www.careers-page.com/convit-holding-gmbh/job/93rx63r4",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "de": [
+     "sales-finanza-previdenza-entrata-laterale-fisso-bonus-convit-giubiasco"
+    ],
+    "fr": [
+     "sales-finanza-previdenza-entrata-laterale-fisso-bonus-convit-giubiasco"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "2-vice-direttore-direttrice-coop-genossenschaft-bern-d80a0658",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/2-stv-geschaeftsfuehrer-in/4ced354c-6865-472c-9039-4a0bd5334827",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "2-stv-geschaftsfuhrer-in-coop-bern-7duz17-4598e962"
+    ],
+    "en": [
+     "2-stv-geschaftsfuhrer-in-coop-bern-7duz17-4598e962"
+    ],
+    "fr": [
+     "2-stv-geschaftsfuhrer-in-coop-bern-7duz17-4598e962"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "addetto-a-alla-vendita-nel-settore-alimentare-con-responsabilita-giornaliera-coop-genossenschaft-wangen-an-der-aare",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food-mit-tagesverantwortung/01c0f567-65d9-4dc3-83bf-c292d80c4827",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-mit-tagesverantwortung-coop-wangen-an-der-aare-a55r68"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-food-mit-tagesverantwortung-coop-wangen-an-der-aare-a55r68": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "addetto-a-alle-casse-e-servizi-coop-genossenschaft-zurich-699daa93",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/5f240de2-436e-4fff-b9f8-e45be3397c04",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-kassen-services-coop-zurich-s13tot-d8661c82"
+    ],
+    "en": [
+     "verkaufer-in-kassen-services-coop-zurich-s13tot-d8661c82"
+    ],
+    "fr": [
+     "verkaufer-in-kassen-services-coop-zurich-s13tot-d8661c82"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "aspirant-e-releve-futur-e-cadre-coop-neuchatel",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/postes-vacantes/aspirante-releve-future-cadre/3d3c71f8-428f-405e-864e-6d38d21442c0",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "aspirant-e-releve-futur-e-cadre-coop-neuchatel"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "aspirant-e-releve-futur-e-cadre-coop-neuchatel": "NE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "assistente-alle-vendite-per-riserve-servizi-di-convenienza-coop-genossenschaft-bern-af88467e",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food-convenience/a71bd5d4-d326-429f-b9b2-ef6771f2dbc2",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-convenience-coop-bern-qr3a1n-dfdf56b1"
+    ],
+    "en": [
+     "verkaufer-in-food-convenience-coop-bern-qr3a1n-dfdf56b1"
+    ],
+    "fr": [
+     "verkaufer-in-food-convenience-coop-bern-qr3a1n-dfdf56b1"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "assistente-di-vendita-coop-coop-grigioni-3d0fc74a",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/5f45d707-ad11-4c0c-b7b7-b371f6e59222",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "detailhandelsassistent-in-eba-coop-grigioni-2sfgum-cb8175d9"
+    ],
+    "en": [
+     "detailhandelsassistent-in-eba-coop-grigioni-2sfgum-cb8175d9"
+    ],
+    "fr": [
+     "detailhandelsassistent-in-eba-coop-grigioni-2sfgum-cb8175d9"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "boucher-ere-charcutier-ere-coop-suisse",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/postes-vacantes/boucherere-charcutierere/59683e5d-9af9-4f8c-84f8-d4f004954691",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "boucher-ere-charcutier-ere-coop-suisse"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "boucher-ere-charcutier-ere-coop-suisse": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "collaboratrice-collaborateur-restaurant-m-w-d-coop-ristorante-lausanne",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/postes-vacantes/collaboratrice-collaborateur-restaurant-f-h-d/fd0c5a88-882c-4c6b-8247-2806d760c308",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "collaboratrice-collaborateur-restaurant-m-w-d-coop-ristorante-lausanne"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "collaboratrice-collaborateur-restaurant-m-w-d-coop-ristorante-lausanne": "VD"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "consulente-commerciale-tessile-coop-genossenschaft-olten",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-textil/2b97172b-6ab1-4fff-be02-e6e76bb5873e",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "sales-consultant-textile-coop-genossenschaft-olten",
+     "verkaufsberater-in-textil-coop-genossenschaft-olten"
+    ],
+    "en": [
+     "verkaufsberater-in-textil-coop-genossenschaft-olten"
+    ],
+    "de": [
+     "sales-consultant-textile-coop-genossenschaft-olten"
+    ],
+    "fr": [
+     "sales-consultant-textile-coop-genossenschaft-olten",
+     "verkaufsberater-in-textil-coop-genossenschaft-olten"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "cucinare-cucinare-f-m-d-coop-genossenschaft-zurich-e569f6c4",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/koechin-koch-w-m-d/b0aa44c9-9114-4e0a-b404-afc6376880e9",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "kochin-koch-m-w-d-coop-genossenschaft-zurich-5inhf3-a46aeb59",
+     "kochin-koch-m-w-d-coop-ristorante-zurich-5inhf3-29866805"
+    ],
+    "en": [
+     "kochin-koch-m-w-d-coop-genossenschaft-zurich-5inhf3-a46aeb59"
+    ],
+    "de": [
+     "kochin-koch-m-w-d-coop-ristorante-zurich-5inhf3-29866805"
+    ],
+    "fr": [
+     "kochin-koch-m-w-d-coop-genossenschaft-zurich-5inhf3-a46aeb59"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "kochin-koch-m-w-d-coop-ristorante-olten",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/koechin-koch-w-m-d/c1955a30-fa8d-41da-8e90-0b7c129715f2",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "kochin-koch-m-w-d-coop-ristorante-olten"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "konditor-in-coop-zurich-2",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/konditor-in/754a2d4c-d359-48a7-8f71-fd15d2863c3a",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "konditor-in-coop-genossenschaft-zurich-5a6a6cbd"
+    ],
+    "en": [
+     "confessore-coop-genossenschaft-zurich-c1887c64",
+     "konditor-in-coop-genossenschaft-zurich-5a6a6cbd"
+    ],
+    "de": [
+     "confessore-coop-genossenschaft-zurich-c1887c64"
+    ],
+    "fr": [
+     "confessore-coop-genossenschaft-zurich-c1887c64",
+     "konditor-in-coop-genossenschaft-zurich-5a6a6cbd"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "kundenberater-in-depositenkasse-im-stundenlohn-zug-luzern-30-coop-cassa-depositi-zug",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/kundenberater-in-depositenkasse-im-stundenlohn-zug-luzern/91965e50-7b31-40b7-af4a-d8c2586fc787",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "kundenberater-in-depositenkasse-im-stundenlohn-zug-luzern-30-coop-cassa-depositi-zug"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "kundenberater-in-depositenkasse-im-stundenlohn-zug-luzern-30-coop-cassa-depositi-zug": "ZG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "lagermitarbeiter-in-kommissionierung-coop-oberbuchsiten-2",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/lagermitarbeiter-in-kommissionierung/a351c5e1-599f-4629-bbb3-c73a0800fc94",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "lagermitarbeiter-in-kommissionierung-coop-oberbuchsiten-2"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "lagermitarbeiter-in-kommissionierung-coop-oberbuchsiten-2": "SO"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "lagermitarbeiter-in-warenausgang-coop-oberbuchsiten-2",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/lagermitarbeiter-in-warenausgang/e8b5588f-42df-4f8a-ae4a-e8af7322082b",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "en": [
+     "lagermitarbeiter-in-warenausgang-coop-genossenschaft-oberbuchsiten"
+    ],
+    "fr": [
+     "lagermitarbeiter-in-warenausgang-coop-genossenschaft-oberbuchsiten"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "liegenschaftsbewirtschafter-in-coop-immobilien-dietikon",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/liegenschaftsbewirtschafter-in/d328e1f0-6d8f-42db-9ca0-1b5eea080a0f",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "liegenschaftsbewirtschafter-in-coop-immobilien-dietikon"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "liegenschaftsbewirtschafter-in-coop-immobilien-dietikon": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-muri-ag",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/f8b9f519-9a8c-4ec3-a0e7-514651728592",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "en": [
+     "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-muri-ag"
+    ],
+    "de": [
+     "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-muri-ag"
+    ],
+    "fr": [
+     "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-muri-ag"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "magaziner-in-verkauf-coop-schiers",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/magaziner-in-verkauf/80bc06f5-6a12-4fdd-bbef-03acac574af6",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "magaziner-in-verkauf-coop-schiers"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "magaziner-in-verkauf-coop-schiers": "GR"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "mediamatiker-in-efz-coop-basel",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/mediamatiker-in-efz/2cbef474-34eb-419f-abff-1b9974659a5e",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "mediamatiker-in-efz-coop-basel",
+     "mediamatiker-in-efz-coop-basel-6boih0"
+    ],
+    "en": [
+     "mediamatiker-in-efz-coop-basel-6boih0"
+    ],
+    "fr": [
+     "mediamatiker-in-efz-coop-basel-6boih0"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "mediamatiker-in-efz-coop-basel": "BS"
+    },
+    "en": {
+     "mediamatiker-in-efz-coop-basel-6boih0": "BS"
+    },
+    "fr": {
+     "mediamatiker-in-efz-coop-basel-6boih0": "BS"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-bubendorf",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/dc88cb0a-2136-4c1e-9f19-486b34ab84d7",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-bubendorf"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-dudingen",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/b6cf66f4-decb-4b0a-8745-1f0802d7890d",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-dudingen"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-dudingen": "FR"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-koniz-bern-qzj10i",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/11c01024-8cf3-429e-b24d-f7126b995da4",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-koniz-bern-lv1cye-0dcbef85"
+    ],
+    "en": [
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-koniz-bern-lv1cye-0dcbef85"
+    ],
+    "fr": [
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-koniz-bern-lv1cye-0dcbef85"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-kussnacht",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/89a95c2c-46b8-4539-97ef-5c1a1abf3610",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-kussnacht"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-kussnacht": "SZ"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-lenzburg",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/6e39ae6f-c252-4279-9f85-e7e373b331ac",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-lenzburg"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-lenzburg": "AG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-oberburg-bei-burgdorf",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/d920e492-bb52-4eed-bc6c-e8cf931fd48e",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-oberburg-bei-burgdorf"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-oberburg-bei-burgdorf": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-oberriet",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/61bfac5f-38e9-47cc-9764-ea88ea9f764d",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-oberriet"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-oberriet": "SG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-rickenbach",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/a305164d-2ef1-41cf-979c-8d0100fc3316",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-rickenbach"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-rickenbach": "TG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-unterkulm",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/9c83aaea-5f7b-4fc1-a681-563581c20a15",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-unterkulm"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-unterkulm": "AG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-jwc8rn-8f4f571b",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/2d40ddaa-6e88-4691-b3f6-f066a8ff22eb",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-jwc8rn-8f4f571b"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/d9e36bbb-f37d-470f-abe9-309149f99151",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "mitarbeiter-in-gastronomie-coop-ristorante-frauenfeld",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-gastronomie/13a7f468-5beb-47a0-9c6e-fae47d32ecda",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373",
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "mitarbeiter-in-gastronomie-coop-ristorante-frauenfeld"
+    ],
+    "de": [
+     "mitarbeiter-in-gastronomie-coop-ristorante-frauenfeld"
+    ],
+    "fr": [
+     "mitarbeiter-in-gastronomie-coop-ristorante-frauenfeld"
+    ],
+    "it": [
+     "mitarbeiter-in-gastronomie-coop-ristorante-frauenfeld"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "mitarbeiter-in-gastronomie-coop-ristorante-frauenfeld": "TG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "mitarbeiter-in-gastronomie-coop-ristorante-seewen",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-gastronomie/a1a6ee05-1f15-4056-970b-a1cb8ad1d19b",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "mitarbeiter-in-gastronomie-coop-ristorante-seewen"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "mitarbeiter-in-gastronomie-coop-ristorante-seewen": "SZ"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "rayonleiter-in-brot-backwaren-coop-burgdorf",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-brot-backwaren/28adc6d7-6a79-40be-a410-e0ef4bf966cd",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "rayonleiter-in-brot-backwaren-coop-burgdorf"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "rayonleiter-in-brot-backwaren-coop-burgdorf": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "rayonleiter-in-grundnahrungsmittel-coop-wadenswil-ea716af3",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-grundnahrungsmittel/feaf6f23-8792-43b9-998b-fc64a54cdb99",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "rayonleiter-in-grundnahrungsmittel-coop-wadenswil-ea716af3"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "rayonleiter-in-grundnahrungsmittel-coop-wadenswil-ea716af3": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "rayonleiter-in-grundnahrungsmittel-coop-wadenswil-f7c67679",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-grundnahrungsmittel/d3284104-8d5c-4582-bb93-b9fa51596c89",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "rayonleiter-in-grundnahrungsmittel-coop-wadenswil-f7c67679"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "rayonleiter-in-grundnahrungsmittel-coop-wadenswil-f7c67679": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "rayonleiter-in-molkerei-eier-kase-coop-zug",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-molkerei-eier-kaese/5687ab4d-e175-4fe2-855c-5cbc3af4161a",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "rayonleiter-in-molkerei-eier-kase-coop-zug"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "rayonleiter-in-molkerei-eier-kase-coop-zurich",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-molkerei-eier-kaese/817cedd2-944f-480d-b497-26edf0054683",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "rayonleiter-in-molkerei-eier-kase-coop-zurich"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "rayonleiter-in-molkerei-eier-kase-coop-zurich": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "rayonleiter-in-nonfood-coop-koniz",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-nonfood/5479ba37-aacc-4525-b0d7-32ca865530c1",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "rayonleiter-in-nonfood-coop-koniz"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "rayonleiter-in-nonfood-coop-koniz": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "rayonleiter-in-nonfood-coop-muri-bei-bern",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-nonfood/a27b2f99-89c2-4cc8-b3e9-bf0b2e77f6b2",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "rayonleiter-in-nonfood-coop-muri-bei-bern"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "rayonleiter-in-nonfood-coop-muri-bei-bern": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "rayonleiter-in-wein-getranke-coop-lachen",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-wein-getraenke/5eb5fe7a-e58e-4d38-9013-3c8a6335cbca",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "rayonleiter-in-wein-getranke-coop-lachen"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "rayonleiter-in-wein-getranke-coop-lachen": "SZ"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "rayonleiter-in-wein-getranke-coop-wohlen-bei-bern",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-wein-getraenke/424f8034-51b8-4498-8dff-f804f6ad9a9d",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "rayonleiter-in-wein-getranke-coop-wohlen-bei-bern"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "rayonleiter-in-wein-getranke-coop-wohlen-bei-bern": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "sachbearbeiter-in-kundendienst-coop-basel",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/sachbearbeiter-in-kundendienst/3e79c4a0-fb39-4054-92f3-5c955ef55738",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "sachbearbeiter-in-kundendienst-coop-basel"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "sachbearbeiter-in-kundendienst-coop-basel": "BS"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "sachbearbeiter-in-kundendienst-coop-city-dietikon",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/sachbearbeiter-in-kundendienst/14371d61-c3d2-4324-8592-f59cffe26eb3",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "sachbearbeiter-in-kundendienst-coop-city-dietikon"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "sachbearbeiter-in-kundendienst-coop-city-dietikon": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "sachbearbeiter-in-liegenschafts-controlling-80-coop-immobilien-bern",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/sachbearbeiter-in-liegenschafts-controlling/6af16038-68aa-4029-b24b-1f58160fb423",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "sachbearbeiter-in-liegenschafts-controlling-80-coop-immobilien-bern"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "sachbearbeiter-in-liegenschafts-controlling-80-coop-immobilien-bern": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "stage-d-orientation-professionnelle-coop-muttenz-59",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/stage-d-orientation-professionnelle/70494f60-7798-4add-b13f-2cef0ec284e9",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "berufsorientierungs-praktikum-coop-muttenz-9cf773",
+     "professional-orientation-stage-coop-muttenz-9cf773"
+    ],
+    "en": [
+     "berufsorientierungs-praktikum-coop-muttenz-9cf773",
+     "stage-d-orientation-professionnelle-coop-muttenz-61xfqv"
+    ],
+    "de": [
+     "professional-orientation-stage-coop-muttenz-9cf773",
+     "stage-d-orientation-professionnelle-coop-muttenz-61xfqv"
+    ],
+    "fr": [
+     "berufsorientierungs-praktikum-coop-muttenz-9cf773",
+     "professional-orientation-stage-coop-muttenz-9cf773"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "vendeuse-vendeur-food-m-w-d-coop-epalinges",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/postes-vacantes/vendeuse-vendeur-food-f-h-d/61d8763f-7062-4a04-8233-dd3a95cd34ca",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "vendeuse-vendeur-food-m-w-d-coop-epalinges"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "vendita-prodotti-alimentari-coop-genossenschaft-bern-d85373-32676e10",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/0d3f24d7-72a6-4c32-9f13-f926e4acdaa4",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-bern-141mls-1cf41fa2"
+    ],
+    "en": [
+     "verkaufer-in-food-coop-bern-141mls-1cf41fa2"
+    ],
+    "fr": [
+     "verkaufer-in-food-coop-bern-141mls-1cf41fa2"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "vendita-prodotti-alimentari-coop-genossenschaft-lengnau",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/8ce124e0-711b-48da-8470-6ff6675401e3",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-lengnau-b29arl"
+    ],
+    "en": [
+     "verkaufer-in-food-coop-lengnau-b29arl"
+    ],
+    "fr": [
+     "verkaufer-in-food-coop-lengnau-b29arl"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-food-coop-lengnau-b29arl": "BE"
+    },
+    "en": {
+     "verkaufer-in-food-coop-lengnau-b29arl": "BE"
+    },
+    "fr": {
+     "verkaufer-in-food-coop-lengnau-b29arl": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "vendita-prodotti-alimentari-coop-genossenschaft-rapperswil-jona",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/98fb8b47-681e-4896-8a53-2bc7d2a9e9c6",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "de": [
+     "seller-food-coop-genossenschaft-rapperswil-jona"
+    ],
+    "fr": [
+     "seller-food-coop-genossenschaft-rapperswil-jona"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "venditore-in-cassa-servizi-coop-genossenschaft-zollikofen-bern-815b9668",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/4353ce48-704d-4184-a53a-b8e6e234f7a3",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-kassen-services-coop-zollikofen-bern-mg1hqw-88440abc"
+    ],
+    "en": [
+     "verkaufer-in-kassen-services-coop-zollikofen-bern-mg1hqw-88440abc"
+    ],
+    "fr": [
+     "verkaufer-in-kassen-services-coop-zollikofen-bern-mg1hqw-88440abc"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "venditore-in-food-coop-genossenschaft-zurich-fc46cc-79faad1d",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/c24e75fb-e0f9-400d-a0d8-b8cb7323ca1b",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-zurich-v2z79t-f40487f8"
+    ],
+    "en": [
+     "verkaufer-in-food-coop-zurich-v2z79t-f40487f8"
+    ],
+    "fr": [
+     "verkaufer-in-food-coop-zurich-v2z79t-f40487f8"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-blumen-kiosk-coop-klosters-serneus",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-blumen-kiosk/db2cbcd9-6b55-4af5-a908-7646db79730a",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-blumen-kiosk-coop-klosters-serneus"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-blumen-kiosk-coop-klosters-serneus": "GR"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-blumen-kiosk-coop-winterthur",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-blumen-kiosk/0fcc4daa-dfa7-4f9c-b106-5de766380456",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-blumen-kiosk-coop-winterthur"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-blumen-kiosk-coop-winterthur": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-fisch-coop-sarnen",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-fisch/2c9aabd3-aa63-4017-8b97-1fc507ade5d3",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-fisch-coop-sarnen"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-fisch-coop-sarnen": "OW"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-coop-arosa-2",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/ebcd6c3b-15f8-4e99-96c0-a9703dcb8c35",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-arosa-2"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-food-coop-arosa-2": "GR"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-coop-baden-dattwil",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/160b3a9b-7f62-47df-9516-19573d666f9f",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-baden-dattwil"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-food-coop-baden-dattwil": "AG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-coop-bern-50fof1-6b2ea912",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/40c6f29e-4d9b-4fda-a272-55b95f42c57d",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-bern-50fof1-6b2ea912"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-coop-bern-iln2p5-8da68a62",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/40c6f29e-4d9b-4fda-a272-55b95f42c57d",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-bern-iln2p5-8da68a62"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-coop-ettingen",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/fb21f531-9e8c-4cdd-ab43-a63b23ab3dcc",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-ettingen"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-food-coop-ettingen": "BL"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-coop-horgen",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/5d9d8d9b-8e33-4abd-a3bd-a2c31a944d5d",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-horgen"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-food-coop-horgen": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-coop-killwangen",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/dc24edf1-d8d9-443f-9dab-84689a67c72f",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-killwangen"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-food-coop-killwangen": "AG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-coop-lauterbrunnen-bern",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/6d3c5212-5169-4719-baf2-3e73ce4b177d",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "verkaufer-in-food-coop-lauterbrunnen-bern-lfbaoc-01cf34e7"
+    ],
+    "de": [
+     "verkaufer-in-food-coop-lauterbrunnen-bern-lfbaoc-01cf34e7"
+    ],
+    "fr": [
+     "verkaufer-in-food-coop-lauterbrunnen-bern-lfbaoc-01cf34e7"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-coop-lutzelfluh",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/448aa63d-866f-43af-bcc0-62d96ee76941",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-lutzelfluh"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-food-coop-lutzelfluh": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-coop-luzern-4qrp2s-d9144ed6",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/10819ca8-47b2-4bff-a307-368940205723",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-luzern-4qrp2s-d9144ed6"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-coop-luzern-kw5lyv-8c661337",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/e09ec106-5f32-4cc7-859c-1570b86b0e1a",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-luzern-kw5lyv-8c661337"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-coop-luzern-ynrzzb-441e13c4",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/3182f155-499b-4725-8b56-c200037a98de",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-luzern-ynrzzb-441e13c4"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-coop-meiringen",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/b00fe902-5015-4896-9e8b-df318406c209",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-meiringen"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-food-coop-meiringen": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-coop-reichenburg",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/73fd5ee3-e1cf-437c-b6db-2f2d3f424522",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-reichenburg"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-food-coop-reichenburg": "SZ"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-coop-sankt-margrethen",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/a4846d65-e115-45f2-8779-9d2817bb44f8",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-sankt-margrethen"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-food-coop-sankt-margrethen": "SG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-coop-seuzach",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/43b6afba-9d73-4907-8648-83fd0b4efef3",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-seuzach"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-food-coop-seuzach": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-coop-solothurn-3kgfz4-489d87f5",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/97b0fd29-01de-4641-936b-aa9d7dce9d26",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-solothurn-3kgfz4-489d87f5"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-coop-solothurn-o6jb85-e3498e07",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/94e639a7-6e5c-42f3-9520-9fc88fabacb1",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-solothurn-o6jb85-e3498e07"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-coop-thun-bern-2zshlj-93744abe",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/7b61888f-b22f-4b0f-be14-5dcb1ce5fa14",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-thun-bern-2zshlj-93744abe"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-coop-thun-bern-awtob4-ffd040df",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/66d8e41c-9828-444c-9abd-f2816d5219aa",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-thun-bern-awtob4-ffd040df"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-coop-uitikon-waldegg",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/5b4aeb46-3aed-4b97-8164-664f453ac979",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-uitikon-waldegg"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-food-coop-uitikon-waldegg": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-coop-zurich-4ta6ix-18e3b91c",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/c24e75fb-e0f9-400d-a0d8-b8cb7323ca1b",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-zurich-4ta6ix-18e3b91c"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-frischprodukte-coop-zurich-be3ead11",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food-frischprodukte/59973cd2-8fe0-4f6f-a724-9232f5a22473",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-frischprodukte-coop-zurich-be3ead11"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-food-frischprodukte-coop-zurich-be3ead11": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-frischprodukte-fruchte-gemuse-coop-hinwil",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food-frischprodukte-fruechte-gemuese/7b797b4f-d83b-4f58-a190-285b0e75608f",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-frischprodukte-fruchte-gemuse-coop-hinwil"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-food-frischprodukte-fruchte-gemuse-coop-hinwil": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-getranke-coop-horgen",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food-getraenke/14c3407f-f949-479f-b400-89c7f5777a86",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-getranke-coop-horgen"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-food-getranke-coop-horgen": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-getranke-samstags-coop-bassersdorf",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food-getraenke-samstags/1a8c0bce-cb6f-4637-8541-ec26b2a9fe57",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-getranke-samstags-coop-bassersdorf",
+     "verkaufer-in-food-getranke-samstags-coop-genossenschaft-bassersdorf"
+    ],
+    "en": [
+     "verkaufer-in-food-getranke-samstags-coop-genossenschaft-bassersdorf"
+    ],
+    "fr": [
+     "verkaufer-in-food-getranke-samstags-coop-genossenschaft-bassersdorf"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-food-getranke-samstags-coop-bassersdorf": "ZH",
+     "verkaufer-in-food-getranke-samstags-coop-genossenschaft-bassersdorf": "ZH"
+    },
+    "en": {
+     "verkaufer-in-food-getranke-samstags-coop-genossenschaft-bassersdorf": "ZH"
+    },
+    "fr": {
+     "verkaufer-in-food-getranke-samstags-coop-genossenschaft-bassersdorf": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-inkl-2-stellvertretung-der-geschaftsfuhrung-coop-eschenbach",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food-inkl-2-stellvertretung-der-geschaeftsfuehrung/742d7ed1-ee61-440c-a3d0-de17ca8bce25",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-inkl-2-stellvertretung-der-geschaftsfuhrung-coop-eschenbach"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-food-inkl-2-stellvertretung-der-geschaftsfuhrung-coop-eschenbach": "SG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-studentenaushilfe-coop-ins",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food-studentenaushilfe/84b95a9b-8be8-4a61-88c8-5786ecdc5640",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-studentenaushilfe-coop-ins"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-food-studentenaushilfe-coop-ins": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-food-tiefkuhlprodukte-coop-lupfig",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food-tiefkuehlprodukte/1ca2daeb-3b80-4838-8bc2-46c4b176a35a",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-tiefkuhlprodukte-coop-lupfig"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-food-tiefkuhlprodukte-coop-lupfig": "AG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-frischprodukte-6-00-10-00-uhr-coop-bubendorf",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte-6-00-10-00-uhr/2115c074-103f-41c8-9086-633b9d66541e",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-frischprodukte-6-00-10-00-uhr-coop-bubendorf"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-frischprodukte-brot-backwaren-molkerei-fruchte-gemuse-coop-dielsdorf",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte-brot-backwaren-molkerei-fruechte-gemuese/2ba8db7e-66a5-4436-b6ee-c20496a44525",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-frischprodukte-brot-backwaren-molkerei-fruchte-gemuse-coop-dielsdorf"
+    ],
+    "en": [
+     "verkaufer-in-frischprodukte-brot-backwaren-molkerei-fruchte-gemuse-coop-dielsdorf"
+    ],
+    "de": [
+     "verkaufer-in-frischprodukte-brot-backwaren-molkerei-fruchte-gemuse-coop-dielsdorf"
+    ],
+    "fr": [
+     "verkaufer-in-frischprodukte-brot-backwaren-molkerei-fruchte-gemuse-coop-dielsdorf"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-frischprodukte-brot-backwaren-molkerei-fruchte-gemuse-coop-dielsdorf": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-frischprodukte-coop-buchs",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte/ee606804-1045-4f2f-87b7-7fec3097dc98",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-frischprodukte-coop-buchs"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-frischprodukte-coop-buchs": "AG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-frischprodukte-coop-feuerthalen-zurich-h7jr0w-0c1d8dc1",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte/60d79249-860a-4f04-96bf-a62389736db3",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-frischprodukte-coop-feuerthalen-zurich-h7jr0w-0c1d8dc1"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-frischprodukte-coop-gebenstorf",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte/24f90bb5-cd79-46a9-88b3-e2f5ba9996e5",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-frischprodukte-coop-gebenstorf"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-frischprodukte-coop-gebenstorf": "AG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-frischprodukte-coop-rickenbach",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte/33c4b38c-25f7-43c4-ab70-b212b792121c",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-frischprodukte-coop-rickenbach"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-frischprodukte-coop-rickenbach": "TG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-frischprodukte-coop-schoftland",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte/03a23239-57ab-4ba1-9bb3-9ec107d273f5",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-frischprodukte-coop-schoftland"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-frischprodukte-coop-schoftland": "AG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-frischprodukte-coop-wurenlingen-aargau-5piubn-959550bd",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte/ea0c8be9-00fc-4c7b-831c-e090029cc466",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-frischprodukte-coop-wurenlingen-aargau-5piubn-959550bd"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-frischprodukte-coop-zurich-1ewa3f-08c4169a",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte/3931fb82-8d85-4b66-8239-51ee21c6a62a",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-frischprodukte-coop-zurich-1ewa3f-08c4169a"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-frischprodukte-fleisch-convenience-coop-embrach",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte-fleisch-convenience/976354f9-f533-4f0e-8aa1-aea7a59465ac",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-frischprodukte-fleisch-convenience-coop-embrach"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-frischprodukte-fleisch-convenience-coop-embrach": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-frischprodukte-milchprodukte-abteilung-coop-wohlen",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte-milchprodukte-abteilung/55102def-d8ba-4ae9-bf9d-ebe59cb01d7a",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-frischprodukte-milchprodukte-abteilung-coop-wohlen"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-frischprodukte-milchprodukte-abteilung-coop-wohlen": "AG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-frischprodukte-produktion-coop-unterentfelden",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte-produktion/b0a4dcb9-99c0-43c4-9411-91eb63e40739",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-frischprodukte-produktion-coop-unterentfelden"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-frischprodukte-produktion-coop-unterentfelden": "AG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-kassen-services-coop-dietikon-zurich-eto5za-0b0d2fe6",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/cd88b01c-b2fd-41e6-b068-603bbbbb6d0e",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-kassen-services-coop-dietikon-zurich-eto5za-0b0d2fe6"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-kassen-services-coop-entlebuch-9abd38a5",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/8e3fee5e-e917-4be9-92f9-91d83f915c48",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-kassen-services-coop-entlebuch-9abd38a5"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-kassen-services-coop-entlebuch-9abd38a5": "LU"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-kassen-services-coop-toffen",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/8354ec9d-9f7d-4df2-b10c-a0eb03b9e90a",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-kassen-services-coop-genossenschaft-toffen",
+     "verkaufer-in-kassen-services-coop-toffen"
+    ],
+    "en": [
+     "verkaufer-in-kassen-services-coop-genossenschaft-toffen"
+    ],
+    "fr": [
+     "verkaufer-in-kassen-services-coop-genossenschaft-toffen"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-kassen-services-coop-toffen": "BE",
+     "verkaufer-in-kassen-services-coop-genossenschaft-toffen": "BE"
+    },
+    "en": {
+     "verkaufer-in-kassen-services-coop-genossenschaft-toffen": "BE"
+    },
+    "fr": {
+     "verkaufer-in-kassen-services-coop-genossenschaft-toffen": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-kassen-services-coop-unterentfelden-aargau-xzlxd3-87440754",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/0271c16c-0318-4dd5-b922-40aa3f05f632",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-kassen-services-coop-unterentfelden-aargau-xzlxd3-87440754"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-kassen-services-coop-zollikon",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/1cf8536a-9683-4d3a-9673-4732972c6a3c",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-kassen-services-coop-zollikon"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-kassen-services-coop-zollikon": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-kassen-services-studentenaushilfe-coop-baar",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services-studentenaushilfe/ab27fb17-94a7-4620-b927-b981e3c5203a",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-kassen-services-studentenaushilfe-coop-baar",
+     "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-baar"
+    ],
+    "en": [
+     "verkaufer-in-kassen-services-studentenaushilfe-coop-baar",
+     "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-baar"
+    ],
+    "de": [
+     "verkaufer-in-kassen-services-studentenaushilfe-coop-baar"
+    ],
+    "fr": [
+     "verkaufer-in-kassen-services-studentenaushilfe-coop-baar",
+     "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-baar"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-kassen-services-studentenaushilfe-coop-baar": "ZG",
+     "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-baar": "ZG"
+    },
+    "en": {
+     "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-baar": "ZG"
+    },
+    "fr": {
+     "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-baar": "ZG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-s32z4e",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services-studentenaushilfe/b582671b-428e-43f9-b7b6-e4380a4f8fc6",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-w8dke5-b67cea7e"
+    ],
+    "fr": [
+     "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-w8dke5-b67cea7e"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-kiosk-kassen-services-coop-belp",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kiosk-kassen-services/9720e953-4245-4788-aa1c-ea19fbf20c8b",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-kiosk-kassen-services-coop-belp"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-kiosk-kassen-services-coop-belp": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-nonfood-coop-biberist",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-nonfood/e1c9ec36-3fda-4622-8edc-91c48d7231ed",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-nonfood-coop-biberist"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-nonfood-coop-biberist": "SO"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-nonfood-coop-zurich-2",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-nonfood/e69e531d-8e6d-41bf-b1bd-cf3697fe301b",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-nonfood-coop-zurich-2"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-nonfood-coop-zurich-2": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-nonfood-postagentur-coop-erlenbach",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-nonfood-postagentur/f5f5bdc9-9b5f-47d5-a105-3a6facd58b08",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-nonfood-postagentur-coop-erlenbach"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "weihnachtsaushilfe-coop-city-volketswil",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/weihnachtsaushilfe/d598e5b3-075d-4407-9cc4-7d0e49f74f25",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "weihnachtsaushilfe-coop-city-volketswil"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "weihnachtsaushilfe-coop-city-volketswil": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "weinverkoster-in-coop-burgdorf",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/weinverkoster-in/9aebf78b-b1e4-4a0b-8bb9-72577c186a01",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "weinverkoster-in-coop-burgdorf"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "weinverkoster-in-coop-burgdorf": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coopers",
+   "slug": "gestione-del-prodotto-m-w-d-coopers-group-ag-aargau-4fed54cd",
+   "companyKey": "coopers",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "instandhaltung-sap-prozesse-m-w-d-coopers-aargau-ec050e63"
+    ],
+    "en": [
+     "instandhaltung-sap-prozesse-m-w-d-coopers-aargau-ec050e63"
+    ],
+    "fr": [
+     "instandhaltung-sap-prozesse-m-w-d-coopers-aargau-ec050e63"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "denner",
+   "slug": "addetto-a-alle-vendite-con-paga-oraria-denner-bubendorf",
+   "companyKey": "denner",
+   "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/47f20e1d-9198-4afe-9f26-aeffaa6bcfdf",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-im-stundenlohn-denner-de4b3d89"
+    ],
+    "en": [
+     "verkaufer-in-im-stundenlohn-denner-de4b3d89"
+    ],
+    "fr": [
+     "verkaufer-in-im-stundenlohn-denner-de4b3d89"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-im-stundenlohn-denner-de4b3d89": "BL"
+    },
+    "en": {
+     "verkaufer-in-im-stundenlohn-denner-de4b3d89": "BL"
+    },
+    "fr": {
+     "verkaufer-in-im-stundenlohn-denner-de4b3d89": "BL"
+    }
+   }
+  },
+  {
+   "crawlerKey": "denner",
+   "slug": "addetto-a-alle-vendite-con-paga-oraria-denner-emmenbrucke-505d3a",
+   "companyKey": "denner",
+   "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/f1d047dc-7698-4915-aec3-9940ea9b1341",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-im-stundenlohn-denner-9779616b"
+    ],
+    "en": [
+     "verkaufer-in-im-stundenlohn-denner-9779616b"
+    ],
+    "fr": [
+     "verkaufer-in-im-stundenlohn-denner-9779616b"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "denner",
+   "slug": "assistent-in-filialleitung-denner-steinhausen-cefdc34e",
+   "companyKey": "denner",
+   "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/905ad735-7e64-4cf7-bb0a-122b57d27f74",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "assistent-in-filialleitung-denner-steinhausen-cefdc34e"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "denner",
+   "slug": "assistente-nella-direzione-della-filiale-denner-st-margrethen-ce3ff234",
+   "companyKey": "denner",
+   "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/294dddee-0d96-47c5-8930-bf98ce2d1a71",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "assistent-in-filialleitung-denner-5f19bec2-ab5c9703"
+    ],
+    "en": [
+     "assistent-in-filialleitung-denner-5f19bec2-ab5c9703"
+    ],
+    "fr": [
+     "assistent-in-filialleitung-denner-5f19bec2-ab5c9703"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "denner",
+   "slug": "venditore-con-retribuzione-oraria-denner-brunnen",
+   "companyKey": "denner",
+   "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/e1cc624f-f8ee-451e-b84f-75c8febad8de",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-im-stundenlohn-denner-d09407f0"
+    ],
+    "en": [
+     "verkaufer-in-im-stundenlohn-denner-d09407f0"
+    ],
+    "fr": [
+     "verkaufer-in-im-stundenlohn-denner-d09407f0"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "denner",
+   "slug": "venditore-denner-zug-82746e21aa-64eb8324",
+   "companyKey": "denner",
+   "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/6e01e1a9-cb32-40f9-b199-26b7a6b59b82",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "verkaufer-in-denner-6b775216"
+    ],
+    "fr": [
+     "verkaufer-in-denner-6b775216"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "denner",
+   "slug": "venditore-nel-salario-orario-denner-ag-unterageri-12712806",
+   "companyKey": "denner",
+   "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/c82f2b9e-3711-4326-83f1-a683dd0de6be",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-im-stundenlohn-denner-ag-unterageri-gtqwt1-30749d2c"
+    ],
+    "en": [
+     "verkaufer-in-im-stundenlohn-denner-ag-unterageri-gtqwt1-30749d2c"
+    ],
+    "fr": [
+     "verkaufer-in-im-stundenlohn-denner-ag-unterageri-gtqwt1-30749d2c"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "denner",
+   "slug": "venditore-trice-denner-rapperswil-sg",
+   "companyKey": "denner",
+   "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/b7c2b911-c529-4a34-8bde-cd7b1b7b61f8",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-denner-cd8bdd1c"
+    ],
+    "en": [
+     "verkaufer-in-denner-cd8bdd1c"
+    ],
+    "fr": [
+     "verkaufer-in-denner-cd8bdd1c"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-denner-cd8bdd1c": "SG"
+    },
+    "en": {
+     "verkaufer-in-denner-cd8bdd1c": "SG"
+    },
+    "fr": {
+     "verkaufer-in-denner-cd8bdd1c": "SG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "denner",
+   "slug": "venditore-trice-denner-sissach-193cebfe",
+   "companyKey": "denner",
+   "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/3af924e2-e320-45c0-a538-8591eef3cf6e",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "verkaufer-in-denner-4084be65"
+    ],
+    "fr": [
+     "verkaufer-in-denner-4084be65"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "ehc-vd",
+   "slug": "assistente-sanitario-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+   "companyKey": "ehc-vd",
+   "sourceIdentity": "url:https://emploi.ehc-vd.ch/fr/nos-offres/auxiliaire-de-sante-fh-3764",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373",
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "auxiliaire-de-sante-f-h-ehc-vd-aubonne",
+     "gesundheitsassistent-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
+    ],
+    "de": [
+     "auxiliaire-de-sante-f-h-ehc-vd-aubonne",
+     "health-assistant-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
+    ],
+    "it": [
+     "gesundheitsassistent-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+     "health-assistant-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
+    ],
+    "fr": [
+     "gesundheitsassistent-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+     "health-assistant-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
+    ]
+   },
+   "cantons": {
+    "en": {
+     "auxiliaire-de-sante-f-h-ehc-vd-aubonne": "VD"
+    },
+    "de": {
+     "auxiliaire-de-sante-f-h-ehc-vd-aubonne": "VD"
+    },
+    "it": {
+     "health-assistant-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne": "VD",
+     "gesundheitsassistent-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne": "VD"
+    }
+   }
+  },
+  {
+   "crawlerKey": "ehc-vd",
+   "slug": "medico-specialista-in-endocrinologia-f-h-ensemble-hospitalier-de-la-cote-ehc-morges-4ef8f50e",
+   "companyKey": "ehc-vd",
+   "sourceIdentity": "url:https://emploi.ehc-vd.ch/fr/nos-offres/medecin-specialiste-en-endocrinologie-fh-3564",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "medecin-specialiste-en-endocrinologie-f-h-ehc-vd-morges-69e51ee8"
+    ],
+    "en": [
+     "medecin-specialiste-en-endocrinologie-f-h-ehc-vd-morges-69e51ee8"
+    ],
+    "de": [
+     "medecin-specialiste-en-endocrinologie-f-h-ehc-vd-morges-69e51ee8"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "emmi",
+   "slug": "meccanica-aziendale-in-emmi-bischofszell-thurgau",
+   "companyKey": "emmi",
+   "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/e9bddc2f-6de7-4820-b9f1-8a75cd57ba48",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "en": [
+     "betriebsmechaniker-in-emmi-ch-b3d1a45d"
+    ],
+    "fr": [
+     "betriebsmechaniker-in-emmi-ch-b3d1a45d"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "epfl",
+   "slug": "icp-systems-engineer-epfl-lausanne",
+   "companyKey": "epfl",
+   "sourceIdentity": "url:https://careers.epfl.ch/job/lausanne-icp-systems-engineer/1165342955",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "icp-systems-engineer-epfl-lausanne"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "icp-systems-engineer-epfl-lausanne": "VD"
+    }
+   }
+  },
+  {
+   "crawlerKey": "epi-stiftung",
+   "slug": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-2286a7ac",
+   "companyKey": "epi-stiftung",
+   "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh/6614132c-a28a-4376-ba44-02d861dbf0d2",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "dipl-nursing-professional-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-6fe92218",
+     "dipl-professionnels-des-soins-infirmiers-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-9d89923e"
+    ],
+    "en": [
+     "dipl-professionnels-des-soins-infirmiers-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-9d89923e"
+    ],
+    "de": [
+     "dipl-nursing-professional-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-6fe92218",
+     "dipl-professionnels-des-soins-infirmiers-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-9d89923e"
+    ],
+    "fr": [
+     "dipl-nursing-professional-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-6fe92218"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "equans",
+   "slug": "construction-manager-r-installer-elektro-equans-switzerland-chur-145016a06f",
+   "companyKey": "equans",
+   "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/8be0a7c0-f5da-44d8-9582-47a9e9504d53",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "bauleitende-r-installateur-in-elektro-equans-chur-ea9c8e97"
+    ],
+    "fr": [
+     "bauleitende-r-installateur-in-elektro-equans-chur-ea9c8e97"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "equans",
+   "slug": "tagliatori-sanitari-equans-switzerland-chur-334c435dd7",
+   "companyKey": "equans",
+   "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/d5268711-9529-4b43-adc1-e71fdf21e980",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "sanitarmonteur-in-equans-chur-6ccef11c"
+    ],
+    "fr": [
+     "sanitarmonteur-in-equans-chur-6ccef11c"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "etat-de-vaud",
+   "slug": "responsabile-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+   "companyKey": "etat-de-vaud",
+   "sourceIdentity": "url:https://offres-emploi.vd.ch/",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "project-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+    ],
+    "de": [
+     "project-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+    ],
+    "fr": [
+     "project-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "project-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne": "VD"
+    }
+   }
+  },
+  {
+   "crawlerKey": "etavis",
+   "slug": "installatore-trice-elettrico-a-m-w-d-80-100-etavis-raetus-chur",
+   "companyKey": "etavis",
+   "sourceIdentity": "url:https://etavis.softgarden.io/job/67497802/elektroinstallateur-w-m-d-80-100-?jobdbpvid=287979771&l=de",
+   "proof": {
+    "rules": [
+     "removed by decontaminate 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "elektroinstallateur-w-m-d-80-100-etavis-chur-0379c6e5"
+    ],
+    "en": [
+     "elektroinstallateur-w-m-d-80-100-etavis-chur-0379c6e5"
+    ],
+    "fr": [
+     "elektroinstallateur-w-m-d-80-100-etavis-chur-0379c6e5"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "fachkraft",
+   "slug": "costruttore-trice-metallico-a-per-il-montaggio-e-le-costruzioni-in-acciaio-fachkraft-ch-gmbh-aarau-382343eb79",
+   "companyKey": "fachkraft",
+   "sourceIdentity": "url:https://www.fachkraft.ch/stellen/metallbauer-in-aarau-temporaer-313624",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "metallbauer-in-fur-montage-und-stahlbau-aarau-aargau-fachkraft-ch-f9e26b6c"
+    ],
+    "fr": [
+     "metallbauer-in-fur-montage-und-stahlbau-aarau-aargau-fachkraft-ch-f9e26b6c"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "fachkraft",
+   "slug": "costruzione-di-impianti-e-impianti-per-la-costruzione-di-impianti-e-tubazioni-fachkraft-ch-gmbh-hochdorf-luzern",
+   "companyKey": "fachkraft",
+   "sourceIdentity": "url:https://www.fachkraft.ch/stellen/anlagen-und-apparatebauer-in-hochdorf-temporaer-295209",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "construction-d-installations-et-d-appareils-pour-la-construction-d-installations-et-de-pipelines-fachkraft-ch-gmbh"
+    ],
+    "en": [
+     "construction-d-installations-et-d-appareils-pour-la-construction-d-installations-et-de-pipelines-fachkraft-ch-gmbh"
+    ],
+    "de": [
+     "construction-d-installations-et-d-appareils-pour-la-construction-d-installations-et-de-pipelines-fachkraft-ch-gmbh"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "construction-d-installations-et-d-appareils-pour-la-construction-d-installations-et-de-pipelines-fachkraft-ch-gmbh": "LU"
+    },
+    "en": {
+     "construction-d-installations-et-d-appareils-pour-la-construction-d-installations-et-de-pipelines-fachkraft-ch-gmbh": "LU"
+    },
+    "de": {
+     "construction-d-installations-et-d-appareils-pour-la-construction-d-installations-et-de-pipelines-fachkraft-ch-gmbh": "LU"
+    }
+   }
+  },
+  {
+   "crawlerKey": "fachkraft",
+   "slug": "gartner-in-hilfsarbeiter-in-per-gartenunterhalt-e-pflege-fachkraft-ch-gmbh-lugano",
+   "companyKey": "fachkraft",
+   "sourceIdentity": "url:https://www.fachkraft.ch/stellen/gaertner-in-hilfsarbeiter-in-sursee-temporaer-293119",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "gardener-auxiliary-worker-for-garden-maintenance-and-care-fachkraft-ch-gmbh-sursee-luzern",
+     "jardinier-ouvrier-auxiliaire-pour-l-entretien-et-l-entretien-du-jardin-fachkraft-ch-gmbh-sursee-luzern"
+    ],
+    "en": [
+     "jardinier-ouvrier-auxiliaire-pour-l-entretien-et-l-entretien-du-jardin-fachkraft-ch-gmbh-sursee-luzern"
+    ],
+    "de": [
+     "gardener-auxiliary-worker-for-garden-maintenance-and-care-fachkraft-ch-gmbh-sursee-luzern",
+     "jardinier-ouvrier-auxiliaire-pour-l-entretien-et-l-entretien-du-jardin-fachkraft-ch-gmbh-sursee-luzern"
+    ],
+    "fr": [
+     "gardener-auxiliary-worker-for-garden-maintenance-and-care-fachkraft-ch-gmbh-sursee-luzern"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "gardener-auxiliary-worker-for-garden-maintenance-and-care-fachkraft-ch-gmbh-sursee-luzern": "LU",
+     "jardinier-ouvrier-auxiliaire-pour-l-entretien-et-l-entretien-du-jardin-fachkraft-ch-gmbh-sursee-luzern": "LU"
+    },
+    "en": {
+     "jardinier-ouvrier-auxiliaire-pour-l-entretien-et-l-entretien-du-jardin-fachkraft-ch-gmbh-sursee-luzern": "LU"
+    },
+    "de": {
+     "gardener-auxiliary-worker-for-garden-maintenance-and-care-fachkraft-ch-gmbh-sursee-luzern": "LU",
+     "jardinier-ouvrier-auxiliaire-pour-l-entretien-et-l-entretien-du-jardin-fachkraft-ch-gmbh-sursee-luzern": "LU"
+    },
+    "fr": {
+     "gardener-auxiliary-worker-for-garden-maintenance-and-care-fachkraft-ch-gmbh-sursee-luzern": "LU"
+    }
+   }
+  },
+  {
+   "crawlerKey": "fachkraft",
+   "slug": "holzbaubearbeiter-in-con-erfahrung-per-renovationen-e-innenausbau-fachkraft-ch-gmbh-lugano-30fbea6f",
+   "companyKey": "fachkraft",
+   "sourceIdentity": "url:https://www.fachkraft.ch/stellen/37577-spzzg",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "holzbaubearbeiter-in-mit-erfahrung-fur-renovationen-und-innenausbau-fachkraft-ch-10f97803"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "fachkraft",
+   "slug": "holzbaubearbeiter-in-con-montage-e-serviceerfahrung-fachkraft-ch-gmbh-lugano-24a3e920",
+   "companyKey": "fachkraft",
+   "sourceIdentity": "url:https://www.fachkraft.ch/stellen/21595-spffr",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "holzbaubearbeiter-in-mit-montage-und-serviceerfahrung-fachkraft-ch-59e27259"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "fachkraft",
+   "slug": "installatore-elettrico-per-nuovi-e-progetti-di-conversione-fachkraft-ch-gmbh-luzern-luzern",
+   "companyKey": "fachkraft",
+   "sourceIdentity": "url:https://www.fachkraft.ch/stellen/elektroinstallateur-in-luzern-temporaer-295295",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "installation-electrique-pour-nouveaux-projets-et-projets-de-conversion-fachkraft-ch-gmbh-luzern-luzern"
+    ],
+    "en": [
+     "installation-electrique-pour-nouveaux-projets-et-projets-de-conversion-fachkraft-ch-gmbh-luzern-luzern"
+    ],
+    "de": [
+     "installation-electrique-pour-nouveaux-projets-et-projets-de-conversion-fachkraft-ch-gmbh-luzern-luzern"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "installation-electrique-pour-nouveaux-projets-et-projets-de-conversion-fachkraft-ch-gmbh-luzern-luzern": "LU"
+    },
+    "en": {
+     "installation-electrique-pour-nouveaux-projets-et-projets-de-conversion-fachkraft-ch-gmbh-luzern-luzern": "LU"
+    },
+    "de": {
+     "installation-electrique-pour-nouveaux-projets-et-projets-de-conversion-fachkraft-ch-gmbh-luzern-luzern": "LU"
+    }
+   }
+  },
+  {
+   "crawlerKey": "fachkraft",
+   "slug": "installatore-sanitario-per-nuovi-edifici-fachkraft-ch-gmbh-luzern-luzern",
+   "companyKey": "fachkraft",
+   "sourceIdentity": "url:https://www.fachkraft.ch/stellen/sanitaerinstallateur-in-luzern-temporaer-295367",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "installation-sanitaire-pour-les-nouveaux-batiments-fachkraft-ch-gmbh-luzern-luzern",
+     "sanitary-installer-for-new-buildings-fachkraft-ch-gmbh-luzern-luzern"
+    ],
+    "en": [
+     "installation-sanitaire-pour-les-nouveaux-batiments-fachkraft-ch-gmbh-luzern-luzern"
+    ],
+    "de": [
+     "installation-sanitaire-pour-les-nouveaux-batiments-fachkraft-ch-gmbh-luzern-luzern",
+     "sanitary-installer-for-new-buildings-fachkraft-ch-gmbh-luzern-luzern"
+    ],
+    "fr": [
+     "sanitary-installer-for-new-buildings-fachkraft-ch-gmbh-luzern-luzern"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "sanitary-installer-for-new-buildings-fachkraft-ch-gmbh-luzern-luzern": "LU",
+     "installation-sanitaire-pour-les-nouveaux-batiments-fachkraft-ch-gmbh-luzern-luzern": "LU"
+    },
+    "en": {
+     "installation-sanitaire-pour-les-nouveaux-batiments-fachkraft-ch-gmbh-luzern-luzern": "LU"
+    },
+    "de": {
+     "sanitary-installer-for-new-buildings-fachkraft-ch-gmbh-luzern-luzern": "LU",
+     "installation-sanitaire-pour-les-nouveaux-batiments-fachkraft-ch-gmbh-luzern-luzern": "LU"
+    },
+    "fr": {
+     "sanitary-installer-for-new-buildings-fachkraft-ch-gmbh-luzern-luzern": "LU"
+    }
+   }
+  },
+  {
+   "crawlerKey": "fachkraft",
+   "slug": "installatore-trice-elettrico-a-in-con-handlungsspielraum-fachkraft-ch-gmbh-baden",
+   "companyKey": "fachkraft",
+   "sourceIdentity": "url:https://www.fachkraft.ch/stellen/elektroinstallateur-in-baden-dauerstelle-303103",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "elektroinstallateur-in-mit-handlungsspielraum-baden-aargau-fachkraft-ch",
+     "installateur-trice-electricien-ne-mit-handlungsspielraum-fachkraft-ch-gmbh-baden-aargau"
+    ],
+    "de": [
+     "electrical-installer-mit-handlungsspielraum-fachkraft-ch-gmbh-baden-aargau",
+     "installateur-trice-electricien-ne-mit-handlungsspielraum-fachkraft-ch-gmbh-baden-aargau"
+    ],
+    "fr": [
+     "electrical-installer-mit-handlungsspielraum-fachkraft-ch-gmbh-baden-aargau",
+     "elektroinstallateur-in-mit-handlungsspielraum-baden-aargau-fachkraft-ch"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "fachkraft",
+   "slug": "maler-in-per-kundenmalerei-e-renovationen-fachkraft-ch-gmbh-winterthur",
+   "companyKey": "fachkraft",
+   "sourceIdentity": "url:https://www.fachkraft.ch/stellen/maler-in-winterthur-temporaer-304256",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "maler-in-per-kundenmalerei-e-renovationen-fachkraft-ch-gmbh-winterthur"
+    ],
+    "de": [
+     "maler-in-per-kundenmalerei-e-renovationen-fachkraft-ch-gmbh-winterthur"
+    ],
+    "fr": [
+     "maler-in-per-kundenmalerei-e-renovationen-fachkraft-ch-gmbh-winterthur"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "fachkraft",
+   "slug": "maler-in-per-kundenmalerei-e-renovationsobjekte-fachkraft-ch-gmbh-lugano-16e53a27",
+   "companyKey": "fachkraft",
+   "sourceIdentity": "url:https://www.fachkraft.ch/stellen/36899-spbba",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "maler-in-fur-kundenmalerei-und-renovationsobjekte-fachkraft-ch-5218812a"
+    ],
+    "en": [
+     "maler-in-fur-kundenmalerei-und-renovationsobjekte-fachkraft-ch-5218812a"
+    ],
+    "fr": [
+     "maler-in-fur-kundenmalerei-und-renovationsobjekte-fachkraft-ch-5218812a"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "fachkraft",
+   "slug": "metallbauer-in-con-kundenmontage-e-serviceerfahrung-fachkraft-ch-gmbh-lugano",
+   "companyKey": "fachkraft",
+   "sourceIdentity": "url:https://www.fachkraft.ch/stellen/metallbauer-in-schaffhausen-dauerstelle-286669",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "metalworker-avec-l-experience-de-montage-et-de-service-client-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+     "metalworker-with-customer-assembly-and-service-experience-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
+    ],
+    "en": [
+     "metalworker-avec-l-experience-de-montage-et-de-service-client-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
+    ],
+    "de": [
+     "metalworker-avec-l-experience-de-montage-et-de-service-client-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+     "metalworker-with-customer-assembly-and-service-experience-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
+    ],
+    "fr": [
+     "metalworker-with-customer-assembly-and-service-experience-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "metalworker-with-customer-assembly-and-service-experience-fachkraft-ch-gmbh-schaffhausen-schaffhausen": "SH",
+     "metalworker-avec-l-experience-de-montage-et-de-service-client-fachkraft-ch-gmbh-schaffhausen-schaffhausen": "SH"
+    },
+    "en": {
+     "metalworker-avec-l-experience-de-montage-et-de-service-client-fachkraft-ch-gmbh-schaffhausen-schaffhausen": "SH"
+    },
+    "de": {
+     "metalworker-with-customer-assembly-and-service-experience-fachkraft-ch-gmbh-schaffhausen-schaffhausen": "SH",
+     "metalworker-avec-l-experience-de-montage-et-de-service-client-fachkraft-ch-gmbh-schaffhausen-schaffhausen": "SH"
+    },
+    "fr": {
+     "metalworker-with-customer-assembly-and-service-experience-fachkraft-ch-gmbh-schaffhausen-schaffhausen": "SH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "fachkraft",
+   "slug": "metallbauer-in-hilfsarbeiter-in-per-gelander-fachkraft-ch-gmbh-lugano-1c2275a8",
+   "companyKey": "fachkraft",
+   "sourceIdentity": "url:https://www.fachkraft.ch/stellen/36753-spbba",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "metallbauer-in-hilfsarbeiter-in-fur-gelander-fachkraft-ch-fbc1cc60"
+    ],
+    "en": [
+     "metallbauer-in-hilfsarbeiter-in-fur-gelander-fachkraft-ch-fbc1cc60"
+    ],
+    "de": [
+     "metallbauer-in-hilfsarbeiter-in-fur-gelander-fachkraft-ch-fbc1cc60"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "fachkraft",
+   "slug": "pittore-con-esperienza-nella-pittura-e-nelle-tecniche-di-spruzzatura-fachkraft-ch-gmbh-zurich-zurich",
+   "companyKey": "fachkraft",
+   "sourceIdentity": "url:https://www.fachkraft.ch/stellen/maler-in-zuerich-temporaer-293123",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "painter-with-experience-in-painting-and-spraying-techniques-fachkraft-ch-gmbh-zurich-zurich",
+     "peintre-avec-experience-dans-la-peinture-et-les-techniques-de-pulverisation-fachkraft-ch-gmbh-zurich-zurich"
+    ],
+    "en": [
+     "peintre-avec-experience-dans-la-peinture-et-les-techniques-de-pulverisation-fachkraft-ch-gmbh-zurich-zurich"
+    ],
+    "de": [
+     "painter-with-experience-in-painting-and-spraying-techniques-fachkraft-ch-gmbh-zurich-zurich",
+     "peintre-avec-experience-dans-la-peinture-et-les-techniques-de-pulverisation-fachkraft-ch-gmbh-zurich-zurich"
+    ],
+    "fr": [
+     "painter-with-experience-in-painting-and-spraying-techniques-fachkraft-ch-gmbh-zurich-zurich"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "painter-with-experience-in-painting-and-spraying-techniques-fachkraft-ch-gmbh-zurich-zurich": "ZH",
+     "peintre-avec-experience-dans-la-peinture-et-les-techniques-de-pulverisation-fachkraft-ch-gmbh-zurich-zurich": "ZH"
+    },
+    "en": {
+     "peintre-avec-experience-dans-la-peinture-et-les-techniques-de-pulverisation-fachkraft-ch-gmbh-zurich-zurich": "ZH"
+    },
+    "de": {
+     "painter-with-experience-in-painting-and-spraying-techniques-fachkraft-ch-gmbh-zurich-zurich": "ZH",
+     "peintre-avec-experience-dans-la-peinture-et-les-techniques-de-pulverisation-fachkraft-ch-gmbh-zurich-zurich": "ZH"
+    },
+    "fr": {
+     "painter-with-experience-in-painting-and-spraying-techniques-fachkraft-ch-gmbh-zurich-zurich": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "fachkraft",
+   "slug": "pittore-in-vista-di-un-lavoro-permanente-top-fachkraft-ch-gmbh-munchwilen-tg-thurgau",
+   "companyKey": "fachkraft",
+   "sourceIdentity": "url:https://www.fachkraft.ch/stellen/16811-stssg",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "maler-in-mit-aussicht-auf-eine-top-festanstellung-fachkraft-ch"
+    ],
+    "fr": [
+     "maler-in-mit-aussicht-auf-eine-top-festanstellung-fachkraft-ch"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "fachkraft",
+   "slug": "polymechaniker-in-per-maschinen-e-anlagenbau-fachkraft-ch-gmbh-zofingen-fdcf43f5",
+   "companyKey": "fachkraft",
+   "sourceIdentity": "url:https://www.fachkraft.ch/stellen/polymechaniker-in-zofingen-dauerstelle-301682",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "polymechaniker-in-per-maschinen-e-anlagenbau-fachkraft-ch-gmbh-zofingen-fdcf43f5"
+    ],
+    "de": [
+     "polymechaniker-in-per-maschinen-e-anlagenbau-fachkraft-ch-gmbh-zofingen-fdcf43f5"
+    ],
+    "fr": [
+     "polymechaniker-in-per-maschinen-e-anlagenbau-fachkraft-ch-gmbh-zofingen-fdcf43f5"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "ffs-officine-ferrovie-federali",
+   "slug": "specialista-in-acquisto-ffs-officine-ferrovie-federali-bern-7ba31be4",
+   "companyKey": "ffs-officine-ferrovie-federali",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "spezialist-in-einkauf-ffs-officine-ferrovie-federali-bern-126aa331"
+    ],
+    "en": [
+     "spezialist-in-einkauf-ffs-officine-ferrovie-federali-bern-126aa331"
+    ],
+    "fr": [
+     "spezialist-in-einkauf-ffs-officine-ferrovie-federali-bern-126aa331"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "fmi",
+   "slug": "addetto-a-alle-pulizie-fornitura-di-biancheria-70-spitaler-fmi-ag-unterseen-19974aad",
+   "companyKey": "fmi",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "mitarbeiter-in-raumpflege-wascheversorgung-70-fmi-unterseen-b6871555"
+    ],
+    "en": [
+     "mitarbeiter-in-raumpflege-wascheversorgung-70-fmi-unterseen-b6871555"
+    ],
+    "fr": [
+     "mitarbeiter-in-raumpflege-wascheversorgung-70-fmi-unterseen-b6871555"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "fust",
+   "slug": "2nd-level-support-engineer-fust-otelfingen",
+   "companyKey": "fust",
+   "sourceIdentity": "url:https://jobs.fust.ch/offene-stellen/2nd-level-support-engineer/ca91ccbd-2a8e-4b07-83a4-b8ab904910ef",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "2nd-level-support-engineer-fust-otelfingen"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "2nd-level-support-engineer-fust-otelfingen": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "fust",
+   "slug": "bauleiter-in-fust-wallisellen",
+   "companyKey": "fust",
+   "sourceIdentity": "url:https://jobs.fust.ch/offene-stellen/bauleiter-in/554d4fd5-7cd4-406e-8bfd-95c7c230ec14",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "bauleiter-in-fust-wallisellen"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "bauleiter-in-fust-wallisellen": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "fust",
+   "slug": "bauleiter-in-fust-zurich",
+   "companyKey": "fust",
+   "sourceIdentity": "url:https://jobs.fust.ch/offene-stellen/bauleiter-in/1135e3e1-ba40-442f-a8e1-2d751235424d",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "bauleiter-in-fust-zurich"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "bauleiter-in-fust-zurich": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "fust",
+   "slug": "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-schaffhausen",
+   "companyKey": "fust",
+   "sourceIdentity": "url:https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/145540d5-6238-45bb-8215-0abd642fd598",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-schaffhausen"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-schaffhausen": "SH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "galenica",
+   "slug": "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-bern",
+   "companyKey": "galenica",
+   "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-bern"
+    ],
+    "de": [
+     "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-bern"
+    ],
+    "fr": [
+     "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-bern"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "galenica",
+   "slug": "assistente-farmaceutico-assistente-farmaceutica-m-f-d-galenica-ag-galenica-luzern",
+   "companyKey": "galenica",
+   "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-luzern"
+    ],
+    "en": [
+     "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-luzern"
+    ],
+    "fr": [
+     "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-luzern"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-luzern": "LU"
+    },
+    "en": {
+     "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-luzern": "LU"
+    },
+    "fr": {
+     "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-luzern": "LU"
+    }
+   }
+  },
+  {
+   "crawlerKey": "galenica",
+   "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-lyss",
+   "companyKey": "galenica",
+   "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-lyss"
+    ],
+    "de": [
+     "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-lyss"
+    ],
+    "fr": [
+     "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-lyss"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "galenica",
+   "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-niederbipp",
+   "companyKey": "galenica",
+   "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-niederbipp"
+    ],
+    "de": [
+     "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-niederbipp"
+    ],
+    "fr": [
+     "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-niederbipp"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "galenica",
+   "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-ostermundigen",
+   "companyKey": "galenica",
+   "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-ostermundigen"
+    ],
+    "de": [
+     "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-ostermundigen"
+    ],
+    "fr": [
+     "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-ostermundigen"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "galenica",
+   "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-weinfelden",
+   "companyKey": "galenica",
+   "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-weinfelden"
+    ],
+    "de": [
+     "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-weinfelden"
+    ],
+    "fr": [
+     "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-weinfelden"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "galenica",
+   "slug": "farmacia-assistent-m-f-galenica-ag-galenica-bern-7e15a5",
+   "companyKey": "galenica",
+   "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "galenica-galenica-ag-pharma-assistent-w-m-bern"
+    ],
+    "fr": [
+     "galenica-galenica-ag-pharma-assistent-w-m-bern"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "galenica",
+   "slug": "farmacia-m-w-d-galenica-ag-galenica-bern",
+   "companyKey": "galenica",
+   "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
+     "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nx6nk9",
+     "pharmacie-m-w-d-galenica-ag-galenica-bern"
+    ],
+    "en": [
+     "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nx6nk9",
+     "pharmacie-m-w-d-galenica-ag-galenica-bern"
+    ],
+    "de": [
+     "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
+     "pharmacie-m-w-d-galenica-ag-galenica-bern"
+    ],
+    "fr": [
+     "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
+     "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nx6nk9"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern": "BE"
+    },
+    "de": {
+     "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern": "BE"
+    },
+    "fr": {
+     "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "galenica",
+   "slug": "farmacista-farmacista-m-f-d-galenica-galenica-volketswil",
+   "companyKey": "galenica",
+   "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil"
+    ],
+    "en": [
+     "farmacista-farmacista-m-f-d-galenica-galenica-volketswil",
+     "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil"
+    ],
+    "de": [
+     "farmacista-farmacista-m-f-d-galenica-galenica-volketswil"
+    ],
+    "fr": [
+     "farmacista-farmacista-m-f-d-galenica-galenica-volketswil",
+     "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil": "ZH"
+    },
+    "en": {
+     "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil": "ZH"
+    },
+    "fr": {
+     "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "galenica",
+   "slug": "farmacista-m-f-d-galenica-ag-galenica-wettingen",
+   "companyKey": "galenica",
+   "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "farmacista-m-f-d-galenica-ag-galenica-wettingen"
+    ],
+    "de": [
+     "farmacista-m-f-d-galenica-ag-galenica-wettingen"
+    ],
+    "fr": [
+     "farmacista-m-f-d-galenica-ag-galenica-wettingen"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "galenica",
+   "slug": "galenica-galenica-ag-assistante-en-pharmacie-assistant-en-pharmacie-f-h-d-bern",
+   "companyKey": "galenica",
+   "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "de": [
+     "galenica-galenica-ag-assistante-en-pharmacie-assistant-en-pharmacie-f-h-d-bern"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "galenica",
+   "slug": "galenica-galenica-ag-conseiller-conseillere-en-parfumerie-f-h-d-montreux",
+   "companyKey": "galenica",
+   "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "galenica-galenica-ag-conseiller-conseillere-en-parfumerie-f-h-d-montreux"
+    ],
+    "de": [
+     "galenica-galenica-ag-conseiller-conseillere-en-parfumerie-f-h-d-montreux"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "galenica",
+   "slug": "galenica-galenica-ag-pharmacien-pharmacienne-f-h-d-bern",
+   "companyKey": "galenica",
+   "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "de": [
+     "galenica-galenica-ag-pharmacien-pharmacienne-f-h-d-bern"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "galenica",
+   "slug": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
+   "companyKey": "galenica",
+   "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "fr": [
+     "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
+    ]
+   },
+   "cantons": {
+    "fr": {
+     "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "galenica",
+   "slug": "galenica-galenica-pharmacien-pharmacienne-f-h-d-aigle",
+   "companyKey": "galenica",
+   "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "galenica-galenica-pharmacien-pharmacienne-f-h-d-aigle"
+    ],
+    "de": [
+     "galenica-galenica-pharmacien-pharmacienne-f-h-d-aigle"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "galenica",
+   "slug": "galenica-galenica-pharmacien-pharmacienne-f-h-d-bern",
+   "companyKey": "galenica",
+   "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "de": [
+     "galenica-galenica-pharmacien-pharmacienne-f-h-d-bern"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "galenica",
+   "slug": "galenica-galenica-pharmacien-pharmacienne-f-h-d-echallens",
+   "companyKey": "galenica",
+   "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "galenica-galenica-pharmacien-pharmacienne-f-h-d-echallens"
+    ],
+    "de": [
+     "galenica-galenica-pharmacien-pharmacienne-f-h-d-echallens"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "galenica",
+   "slug": "galenica-galenica-pharmacien-pharmacienne-f-h-d-rennaz",
+   "companyKey": "galenica",
+   "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "galenica-galenica-pharmacien-pharmacienne-f-h-d-rennaz"
+    ],
+    "de": [
+     "galenica-galenica-pharmacien-pharmacienne-f-h-d-rennaz"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "galliker",
+   "slug": "diagnostica-per-camion-a-galliker-transport-ag-altishofen-33f823dcd1",
+   "companyKey": "galliker",
+   "sourceIdentity": "url:https://apply.refline.ch/878019/0150/pub/27/index.html",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "lkw-diagnostiker-a-galliker-altishofen-4d15d718"
+    ],
+    "en": [
+     "lkw-diagnostiker-a-galliker-altishofen-4d15d718"
+    ],
+    "fr": [
+     "lkw-diagnostiker-a-galliker-altishofen-4d15d718"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "galliker",
+   "slug": "elettricisti-commerciali-a-galliker-transport-ag-altishofen-ad430e5dde",
+   "companyKey": "galliker",
+   "sourceIdentity": "url:https://apply.refline.ch/878019/0382/pub/22/index.html",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "business-electricians-a-galliker-transport-ag-altishofen-98abdf20",
+     "electriciens-d-affaires-a-galliker-transport-ag-altishofen-9785e9eb"
+    ],
+    "en": [
+     "electriciens-d-affaires-a-galliker-transport-ag-altishofen-9785e9eb"
+    ],
+    "de": [
+     "business-electricians-a-galliker-transport-ag-altishofen-98abdf20",
+     "electriciens-d-affaires-a-galliker-transport-ag-altishofen-9785e9eb"
+    ],
+    "fr": [
+     "business-electricians-a-galliker-transport-ag-altishofen-98abdf20"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "galliker",
+   "slug": "responsabile-hr-altishofen-a-galliker-transport-ag-altishofen-379fb3c5ea",
+   "companyKey": "galliker",
+   "sourceIdentity": "url:https://apply.refline.ch/878019/0476/pub/3/index.html",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "leiter-hr-altishofen-a-galliker-altishofen-6c82dbef"
+    ],
+    "en": [
+     "leiter-hr-altishofen-a-galliker-altishofen-6c82dbef"
+    ],
+    "fr": [
+     "leiter-hr-altishofen-a-galliker-altishofen-6c82dbef"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "galliker",
+   "slug": "ritorno-tecnico-del-impiegato-a-galliker-transport-ag-altishofen-b178d7-5a34d166",
+   "companyKey": "galliker",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "rapport-du-commis-technique-a-galliker-transport-ag-altishofen-e920e00e",
+     "technical-clerk-return-a-galliker-transport-ag-altishofen-23fb8b58",
+     "technischer-sachbearbeiter-rucklauf-a-galliker-altishofen-3b5b92d8"
+    ],
+    "en": [
+     "rapport-du-commis-technique-a-galliker-transport-ag-altishofen-e920e00e",
+     "technischer-sachbearbeiter-rucklauf-a-galliker-altishofen-3b5b92d8"
+    ],
+    "de": [
+     "rapport-du-commis-technique-a-galliker-transport-ag-altishofen-e920e00e",
+     "technical-clerk-return-a-galliker-transport-ag-altishofen-23fb8b58"
+    ],
+    "fr": [
+     "technical-clerk-return-a-galliker-transport-ag-altishofen-23fb8b58",
+     "technischer-sachbearbeiter-rucklauf-a-galliker-altishofen-3b5b92d8"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "geberit",
+   "slug": "meccanica-lorda-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona-5fa853e3",
+   "companyKey": "geberit",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch-71cc80c7"
+    ],
+    "en": [
+     "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch-71cc80c7"
+    ],
+    "fr": [
+     "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch-71cc80c7"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "gesundheitszentrum-fricktal",
+   "slug": "infermiera-hf-m-f-gesundheitszentrum-fricktal-rheinfelden-82478415",
+   "companyKey": "gesundheitszentrum-fricktal",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "infermiera-hf-m-f-gesundheitszentrum-fricktal-rheinfelden-82478415"
+    ],
+    "de": [
+     "infermiera-hf-m-f-gesundheitszentrum-fricktal-rheinfelden-82478415"
+    ],
+    "fr": [
+     "infermiera-hf-m-f-gesundheitszentrum-fricktal-rheinfelden-82478415"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "giardino",
+   "slug": "chef-de-rang-giardino-group-champfer",
+   "companyKey": "giardino",
+   "sourceIdentity": "url:https://giardinohotels.ch/talents/en/job-chef-de-rang.html",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "chef-de-rang-giardino-group-champfer"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "chef-de-rang-giardino-group-champfer": "GR"
+    }
+   }
+  },
+  {
+   "crawlerKey": "google-switzerland",
+   "slug": "senior-partner-forward-deployed-ingegnere-google-cloud-french-german-google-switzerland-zurich-071cc5ee",
+   "companyKey": "google-switzerland",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "senior-partner-forward-deployed-engineer-google-cloud-french-german-google-switzerland-d979ea05"
+    ],
+    "de": [
+     "senior-partner-forward-deployed-engineer-google-cloud-french-german-google-switzerland-d979ea05"
+    ],
+    "fr": [
+     "senior-partner-forward-deployed-engineer-google-cloud-french-german-google-switzerland-d979ea05"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "grand-resort-bad-ragaz",
+   "slug": "collaboratore-trice-gasteservice-vendita-40-80-m-w-i-grand-resort-bad-ragaz-76673d59",
+   "companyKey": "grand-resort-bad-ragaz",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-3d7aacf2"
+    ],
+    "en": [
+     "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-3d7aacf2"
+    ],
+    "fr": [
+     "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz-3d7aacf2"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "groupe-mutuel",
+   "slug": "apprenti-dipendente-commerciale-salute-e-assicurazione-sociale-m-f-100-groupe-mutuel-fribourg",
+   "companyKey": "groupe-mutuel",
+   "sourceIdentity": "url:https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4305?c=groupemutuel&lang=fr-fr",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "de": [
+     "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
+    ]
+   },
+   "cantons": {
+    "de": {
+     "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel": "VS"
+    }
+   }
+  },
+  {
+   "crawlerKey": "helvetia",
+   "slug": "consigliere-legale-m-f-d-part-time-fulltime-helvetia-versicherungen-basel",
+   "companyKey": "helvetia",
+   "sourceIdentity": "url:https://jobs.helvetia.com/offene-stellen/legal-counsel-m-w-d-teilzeit-vollzeit/ced13993-696b-47db-bb85-2dc958c47d7d",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "legal-counsel-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
+     "legal-counsel-m-w-d-teilzeit-vollzeit-helvetia-basel"
+    ],
+    "en": [
+     "legal-counsel-m-w-d-teilzeit-vollzeit-helvetia-basel"
+    ],
+    "de": [
+     "legal-counsel-m-f-d-part-time-full-time-helvetia-versicherungen-basel"
+    ],
+    "fr": [
+     "legal-counsel-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
+     "legal-counsel-m-w-d-teilzeit-vollzeit-helvetia-basel"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "legal-counsel-m-w-d-teilzeit-vollzeit-helvetia-basel": "BS"
+    },
+    "en": {
+     "legal-counsel-m-w-d-teilzeit-vollzeit-helvetia-basel": "BS"
+    },
+    "fr": {
+     "legal-counsel-m-w-d-teilzeit-vollzeit-helvetia-basel": "BS"
+    }
+   }
+  },
+  {
+   "crawlerKey": "hilcona",
+   "slug": "apprendistato-come-automatiker-in-efz-2027-bell-schweiz-ag-basel",
+   "companyKey": "hilcona",
+   "sourceIdentity": "url:https://career.bellfoodgroup.com/de/stelle/lehrstelle-als-automatiker-in-efz-2027-3062",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "apprendistato-come-automatiker-in-efz-2027-bell-schweiz-ag-basel"
+    ],
+    "de": [
+     "apprendistato-come-automatiker-in-efz-2027-bell-schweiz-ag-basel"
+    ],
+    "fr": [
+     "apprendistato-come-automatiker-in-efz-2027-bell-schweiz-ag-basel"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "hirslanden",
+   "slug": "assistant-e-en-soins-et-sante-communautaire-a-80-flessibile-hirslanden-klinik-search-52c77c4f",
+   "companyKey": "hirslanden",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "assistant-e-en-soins-et-sante-communautaire-a-80-flexible-hirslanden-lausanne-41f533f7",
+     "assistant-e-en-soins-et-sante-communautaire-a-80-flexible-hirslanden-search-5fbde7e4"
+    ],
+    "en": [
+     "assistant-e-en-soins-et-sante-communautaire-a-80-flexible-hirslanden-lausanne-41f533f7",
+     "assistant-e-en-soins-et-sante-communautaire-a-80-flexible-hirslanden-search-5fbde7e4"
+    ],
+    "de": [
+     "assistant-e-en-soins-et-sante-communautaire-a-80-flexible-hirslanden-search-5fbde7e4"
+    ],
+    "fr": [
+     "assistant-e-en-soins-et-sante-communautaire-a-80-flexible-hirslanden-lausanne-41f533f7"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "hirslanden",
+   "slug": "dipl-exp-notfallpflege-dipl-pflegefachfrau-pflegefachmann-uws-mitarbeitenden-pool-a-80-100",
+   "companyKey": "hirslanden",
+   "sourceIdentity": "url:https://careers.mediclinic.com/hirslanden/job/hirslanden-klinik-hirslanden-dipl_-exp_-notfallpflege-dipl_-pflegefachfrau-pflegefachmann-%c3%9cws-mitarbeitenden-pool-%28a%29-80-100-z%c3%bcri-8032/898820401",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "dipl-exp-notfallpflege-dipl-pflegefachfrau-pflegefachmann-uws-mitarbeitenden-pool-a-80-100"
+    ],
+    "en": [
+     "dipl-exp-notfallpflege-dipl-pflegefachfrau-pflegefachmann-uws-mitarbeitenden-pool-a-80-100"
+    ],
+    "fr": [
+     "dipl-exp-notfallpflege-dipl-pflegefachfrau-pflegefachmann-uws-mitarbeitenden-pool-a-80-100"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "dipl-exp-notfallpflege-dipl-pflegefachfrau-pflegefachmann-uws-mitarbeitenden-pool-a-80-100": "ZH"
+    },
+    "en": {
+     "dipl-exp-notfallpflege-dipl-pflegefachfrau-pflegefachmann-uws-mitarbeitenden-pool-a-80-100": "ZH"
+    },
+    "fr": {
+     "dipl-exp-notfallpflege-dipl-pflegefachfrau-pflegefachmann-uws-mitarbeitenden-pool-a-80-100": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "hirslanden",
+   "slug": "dipl-expertin-experte-intensivpflege-nds-a-50-100-hirslanden-hirslanden-klinik-st-anna",
+   "companyKey": "hirslanden",
+   "sourceIdentity": "url:https://careers.mediclinic.com/hirslanden/job/hirslanden-klinik-st_-anna-dipl_-expertin-experte-intensivpflege-nds-%28a%29-50-100-luce-6003/1236653501",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "dipl-expertin-experte-intensivpflege-nds-a-50-100-hirslanden-hirslanden-klinik-st-anna"
+    ],
+    "en": [
+     "dipl-expertin-experte-intensivpflege-nds-a-50-100-hirslanden-hirslanden-klinik-st-anna"
+    ],
+    "fr": [
+     "dipl-expertin-experte-intensivpflege-nds-a-50-100-hirslanden-hirslanden-klinik-st-anna"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "dipl-expertin-experte-intensivpflege-nds-a-50-100-hirslanden-hirslanden-klinik-st-anna": "LU"
+    }
+   }
+  },
+  {
+   "crawlerKey": "hirslanden",
+   "slug": "expertin-experte-notfallpflege-oder-pflegefachfrau-pflegefachmann-imc-60-100-hirslanden",
+   "companyKey": "hirslanden",
+   "sourceIdentity": "url:https://careers.mediclinic.com/hirslanden/job/hirslanden-klinik-aarau-expertin-experte-notfallpflege-oder-pflegefachfrau-pflegefachmann-imc-60-100-aara-5001/750944901",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "expertin-experte-notfallpflege-oder-pflegefachfrau-pflegefachmann-imc-60-100-hirslanden"
+    ],
+    "en": [
+     "expertin-experte-notfallpflege-oder-pflegefachfrau-pflegefachmann-imc-60-100-hirslanden"
+    ],
+    "fr": [
+     "expertin-experte-notfallpflege-oder-pflegefachfrau-pflegefachmann-imc-60-100-hirslanden"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "expertin-experte-notfallpflege-oder-pflegefachfrau-pflegefachmann-imc-60-100-hirslanden": "AG"
+    },
+    "en": {
+     "expertin-experte-notfallpflege-oder-pflegefachfrau-pflegefachmann-imc-60-100-hirslanden": "AG"
+    },
+    "fr": {
+     "expertin-experte-notfallpflege-oder-pflegefachfrau-pflegefachmann-imc-60-100-hirslanden": "AG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "hirslanden",
+   "slug": "il-tuo-raggio-d-azione-hirslanden-klinik-search-db2643-05575af0",
+   "companyKey": "hirslanden",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "dipl-pflegefachfrau-dipl-pflegefachmann-mit-fachberatungsfunktion-orthopadie-a-80-9538aa5e"
+    ],
+    "en": [
+     "dipl-pflegefachfrau-dipl-pflegefachmann-mit-fachberatungsfunktion-orthopadie-a-80-9538aa5e"
+    ],
+    "fr": [
+     "dipl-pflegefachfrau-dipl-pflegefachmann-mit-fachberatungsfunktion-orthopadie-a-80-9538aa5e"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "hitachi-energy",
+   "slug": "global-manufacturing-process-definition-improvement-specialista-professional-hitachi-energy-remote-zurich",
+   "companyKey": "hitachi-energy",
+   "sourceIdentity": "url:https://www.hitachienergy.com/careers/open-jobs/details/jid3-216989",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "global-manufacturing-process-definition-improvement-specialista-professional-hitachi-energy-remote-zurich"
+    ],
+    "de": [
+     "global-manufacturing-process-definition-improvement-specialista-professional-hitachi-energy-remote-zurich"
+    ],
+    "fr": [
+     "global-manufacturing-process-definition-improvement-specialista-professional-hitachi-energy-remote-zurich"
+    ]
+   },
+   "cantons": {
+    "en": {
+     "global-manufacturing-process-definition-improvement-specialista-professional-hitachi-energy-remote-zurich": "ZH"
+    },
+    "de": {
+     "global-manufacturing-process-definition-improvement-specialista-professional-hitachi-energy-remote-zurich": "ZH"
+    },
+    "fr": {
+     "global-manufacturing-process-definition-improvement-specialista-professional-hitachi-energy-remote-zurich": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "hitachi-energy",
+   "slug": "monteur-in-im-leistungslabor-80-100-m-w-d-befristet-per-12-monate-hitachi-energy-baden",
+   "companyKey": "hitachi-energy",
+   "sourceIdentity": "url:https://www.hitachienergy.com/careers/open-jobs/details/jid3-218950",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "monteur-in-im-leistungslabor-80-100-m-w-d-befristet-per-12-monate-hitachi-energy-baden"
+    ],
+    "en": [
+     "monteur-in-im-leistungslabor-80-100-m-w-d-befristet-per-12-monate-hitachi-energy-baden"
+    ],
+    "de": [
+     "monteur-in-im-leistungslabor-80-100-m-w-d-befristet-per-12-monate-hitachi-energy-baden"
+    ],
+    "fr": [
+     "monteur-in-im-leistungslabor-80-100-m-w-d-befristet-per-12-monate-hitachi-energy-baden"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "monteur-in-im-leistungslabor-80-100-m-w-d-befristet-per-12-monate-hitachi-energy-baden": "AG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "hoch-health",
+   "slug": "dipl-professionista-50-100-hoch-health-ostschweiz-wil",
+   "companyKey": "hoch-health",
+   "sourceIdentity": "url:https://jobs.h-och.ch/job/wil-dipl_-pflegefachfrau-mann-50-100/1434674433",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "dipl-pflegefachfrau-mann-50-100-hoch-health-wil-ea0a43ec"
+    ],
+    "fr": [
+     "dipl-pflegefachfrau-mann-50-100-hoch-health-wil-ea0a43ec"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "hoch-health",
+   "slug": "oberarztin-arzt-100-hoch-health-st-gallen-77663a5c",
+   "companyKey": "hoch-health",
+   "sourceIdentity": "url:https://jobs.h-och.ch/job/st_-gallen-ober%c3%a4rztin-arzt-100/1407631933",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "oberarztin-arzt-100-hoch-health-st-gallen-77663a5c"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "oberarztin-arzt-100-hoch-health-st-gallen-77663a5c": "SG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "hornbach",
+   "slug": "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-biel-bienne",
+   "companyKey": "hornbach",
+   "sourceIdentity": "url:https://jobs.hornbach.ch/offer/lehrstelle-detailhandel-efz-do-it/77cd4762-3779-4366-8b58-8406c28a68be?showapplicationform=false",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-biel-bienne"
+    ],
+    "de": [
+     "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-biel-bienne"
+    ],
+    "fr": [
+     "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-biel-bienne"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "hornbach",
+   "slug": "apprendistato-impiegata-impiegato-in-logistica-cfc-hornbach-luzern-littau",
+   "companyKey": "hornbach",
+   "sourceIdentity": "url:https://jobs.hornbach.ch/offer/lehrstelle-logistikerin-efz/afb481e9-39e5-4d37-a7ec-7c08e78c2368?showapplicationform=false",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "apprendistato-impiegata-impiegato-in-logistica-cfc-hornbach-luzern-littau"
+    ],
+    "de": [
+     "apprendistato-impiegata-impiegato-in-logistica-cfc-hornbach-luzern-littau"
+    ],
+    "fr": [
+     "apprendistato-impiegata-impiegato-in-logistica-cfc-hornbach-luzern-littau"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "ipersonal",
+   "slug": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-erlen-thurgau",
+   "companyKey": "ipersonal",
+   "sourceIdentity": "url:https://med-ipersonal.ch/jobs/dipl-expertin-experte-anaesthesiepflege-nds-80-100-fuer-erlen-gesucht-hoechste-praezision-in-der-patientenversorgung",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-erlen-thurgau"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-erlen-thurgau": "TG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "ipersonal",
+   "slug": "dipl-expertin-experte-intensivpflege-nds-medipersonal-walenstadt-st-gallen",
+   "companyKey": "ipersonal",
+   "sourceIdentity": "url:https://med-ipersonal.ch/jobs/dipl-expertin-experte-intensivpflege-nds-80-100-fuer-walenstadt-gesucht-hoechste-qualitaet-in-der-intensivpflege",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "dipl-expertin-experte-intensivpflege-nds-medipersonal-walenstadt-st-gallen"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "dipl-expertin-experte-intensivpflege-nds-medipersonal-walenstadt-st-gallen": "SG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "ipersonal",
+   "slug": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-muri-aargau",
+   "companyKey": "ipersonal",
+   "sourceIdentity": "url:https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-80-100-in-muri-und-umgebung-gesucht-wissenschaftliche-kompetenz-fuer-eine-exzellente-pflege",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-muri-aargau"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "ipersonal",
+   "slug": "dipl-pflegefachfrau-pflegefachmann-uberwachungspflege-ndk-medipersonal-giswil-obwalden",
+   "companyKey": "ipersonal",
+   "sourceIdentity": "url:https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-pflegefachmann-ueberwachungspflege-ndk-80-100-in-giswil-gesucht-deine-expertise-fuer-eine-sichere-patientenbetreuung",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "dipl-pflegefachfrau-pflegefachmann-uberwachungspflege-ndk-medipersonal-giswil-obwalden"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "dipl-pflegefachfrau-pflegefachmann-uberwachungspflege-ndk-medipersonal-giswil-obwalden": "OW"
+    }
+   }
+  },
+  {
+   "crawlerKey": "jumbo",
+   "slug": "consulente-di-vendita-deco-jumbo-unterentfelden",
+   "companyKey": "jumbo",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-deco/0ec59790-b39d-4cad-a07e-685b6d92d69c",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufsberater-in-deco-jumbo-unterentfelden-41aaa60f"
+    ],
+    "en": [
+     "verkaufsberater-in-deco-jumbo-unterentfelden-41aaa60f"
+    ],
+    "fr": [
+     "verkaufsberater-in-deco-jumbo-unterentfelden-41aaa60f"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "jumbo",
+   "slug": "responsabile-di-reparto-garden-inclusa-la-sostituzione-della-direzione-jumbo-mels",
+   "companyKey": "jumbo",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-garden-inkl-stellvertretung-der-geschaeftsfuehrung/f5aac0df-497a-4aa6-a071-f1585cf537a2",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "rayonleiter-in-garden-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-mels-52a9aa2a"
+    ],
+    "fr": [
+     "rayonleiter-in-garden-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-mels-52a9aa2a"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "jysk",
+   "slug": "venditore-in-a-20-nel-ramo-dietlikon-jysk-dietlikon-12f5ffd6",
+   "companyKey": "jysk",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-a-20-in-der-filiale-dietlikon-jysk-dietlikon-j95ket-cb7bb9e8"
+    ],
+    "en": [
+     "verkaufer-in-a-20-in-der-filiale-dietlikon-jysk-dietlikon-j95ket-cb7bb9e8"
+    ],
+    "fr": [
+     "verkaufer-in-a-20-in-der-filiale-dietlikon-jysk-dietlikon-j95ket-cb7bb9e8"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "kanton-basel-landschaft",
+   "slug": "corte-di-giustizia-kantonale-verwaltung-basel-landschaft-liestal",
+   "companyKey": "kanton-basel-landschaft",
+   "sourceIdentity": "url:https://jobs.baselland.ch/offene-stellen/gerichtsschreiberin-gerichtsschreiber/6d91eeaf-8ab7-4080-b6a9-a8d9818db966",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "gerichtsschreiberin-gerichtsschreiber-kanton-basel-landschaft-liestal-d830215c"
+    ],
+    "fr": [
+     "gerichtsschreiberin-gerichtsschreiber-kanton-basel-landschaft-liestal-d830215c"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "kanton-basel-landschaft",
+   "slug": "lehrperson-per-2-klasse-kantonale-verwaltung-basel-landschaft-therwil-165680b1",
+   "companyKey": "kanton-basel-landschaft",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "lehrperson-fur-2-klasse-kanton-basel-landschaft-therwil-cd700795"
+    ],
+    "en": [
+     "lehrperson-fur-2-klasse-kanton-basel-landschaft-therwil-cd700795"
+    ],
+    "fr": [
+     "lehrperson-fur-2-klasse-kanton-basel-landschaft-therwil-cd700795"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "kanton-gr",
+   "slug": "sachbearbeiter-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur-1668f1d2",
+   "companyKey": "kanton-gr",
+   "sourceIdentity": "url:https://apply.refline.ch/514915/2811/pub/1/index.html",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "sachbearbeiter-in-wertschriftenbesteuerung-kanton-gr-ch-8f3c97ca"
+    ],
+    "en": [
+     "sachbearbeiter-in-wertschriftenbesteuerung-kanton-gr-ch-8f3c97ca"
+    ],
+    "fr": [
+     "sachbearbeiter-in-wertschriftenbesteuerung-kanton-gr-ch-8f3c97ca"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "kanton-zuerich",
+   "slug": "capogruppo-progetti-di-riduzione-del-rumore-kantonale-verwaltung-zurich-zurich-9c4e4c7b91",
+   "companyKey": "kanton-zuerich",
+   "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4088759",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "gruppenleiter-in-larmschutzprojekte-kanton-zuerich-zurich-ef811be3"
+    ],
+    "fr": [
+     "gruppenleiter-in-larmschutzprojekte-kanton-zuerich-zurich-ef811be3"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "kanton-zuerich",
+   "slug": "insegnante-di-scuola-secondaria-mba-per-francese-kantonale-verwaltung-zurich-zurich-2a5fbb97",
+   "companyKey": "kanton-zuerich",
+   "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4064024",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "mittelschullehrperson-mba-fur-franzosisch-kanton-zuerich-zurich-1c6738f2"
+    ],
+    "de": [
+     "secondary-school-teacher-mba-for-french-kantonale-verwaltung-zurich-zurich-09ece6a3"
+    ],
+    "fr": [
+     "mittelschullehrperson-mba-fur-franzosisch-kanton-zuerich-zurich-1c6738f2",
+     "secondary-school-teacher-mba-for-french-kantonale-verwaltung-zurich-zurich-09ece6a3"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "kanton-zuerich",
+   "slug": "interner-revisor-kantonale-verwaltung-zurich-zurich-72ba477d",
+   "companyKey": "kanton-zuerich",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "interner-revisor-kanton-zuerich-zurich-5fd52d7e"
+    ],
+    "en": [
+     "interner-revisor-kanton-zuerich-zurich-5fd52d7e"
+    ],
+    "fr": [
+     "interner-revisor-kanton-zuerich-zurich-5fd52d7e"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "kanton-zuerich",
+   "slug": "lavoratori-qualificati-manutenzione-stradale-kantonale-verwaltung-zurich-wila-87dec3ae08",
+   "companyKey": "kanton-zuerich",
+   "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4089263",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "facharbeiter-in-strassenunterhalt-kanton-zuerich-wila"
+    ],
+    "fr": [
+     "facharbeiter-in-strassenunterhalt-kanton-zuerich-wila"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "kantonsspital-uri",
+   "slug": "mitarbeiter-in-raumpflege-in-der-spezialreinigung-w-m-d-100-kantonsspital-uri-altdorf",
+   "companyKey": "kantonsspital-uri",
+   "sourceIdentity": "url:https://stellen.ksuri.ch/mitarbeiterin-raumpflege-in-der-spezialreinigung-wmd-100-de-j436.html",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "mitarbeiter-in-raumpflege-in-der-spezialreinigung-w-m-d-100-kantonsspital-uri-altdorf"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "mitarbeiter-in-raumpflege-in-der-spezialreinigung-w-m-d-100-kantonsspital-uri-altdorf": "UR"
+    }
+   }
+  },
+  {
+   "crawlerKey": "ksbl",
+   "slug": "mitarbeiterin-collaboratore-trice-verpflegungsservice-bettenstation-a-kantonsspital-baselland-ksbl-liestal-07481241",
+   "companyKey": "ksbl",
+   "sourceIdentity": "url:https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/mitarbeiterin-mitarbeiter-verpflegungsservice-bettenstation-a/a24e4876-0df7-4988-b001-fe2aef1602c8",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "mitarbeiterin-mitarbeiter-verpflegungsservice-bettenstation-a-ksbl-liestal-3891793d"
+    ],
+    "en": [
+     "mitarbeiterin-mitarbeiter-verpflegungsservice-bettenstation-a-ksbl-liestal-3891793d"
+    ],
+    "fr": [
+     "mitarbeiterin-mitarbeiter-verpflegungsservice-bettenstation-a-ksbl-liestal-3891793d"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "mitarbeiterin-mitarbeiter-verpflegungsservice-bettenstation-a-ksbl-liestal-3891793d": "BL"
+    },
+    "en": {
+     "mitarbeiterin-mitarbeiter-verpflegungsservice-bettenstation-a-ksbl-liestal-3891793d": "BL"
+    },
+    "fr": {
+     "mitarbeiterin-mitarbeiter-verpflegungsservice-bettenstation-a-ksbl-liestal-3891793d": "BL"
+    }
+   }
+  },
+  {
+   "crawlerKey": "ksbl",
+   "slug": "mpa-ambulatorium-interdisciplinare-a-kantonsspital-baselland-ksbl-liestal",
+   "companyKey": "ksbl",
+   "sourceIdentity": "url:https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/mpa-interdisziplinaeres-ambulatorium-a/a086154b-acc9-498f-be4f-8ec4ab2c12e5",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "fr": [
+     "mpa-interdisziplinares-ambulatorium-a-ksbl-liestal"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "ksb",
+   "slug": "staff-nella-produzione-citostatica-70-kantonsspital-baden-ksb-baden",
+   "companyKey": "ksb",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "mitarbeiter-in-zytostatikaherstellung-70-ksb-ch"
+    ],
+    "fr": [
+     "mitarbeiter-in-zytostatikaherstellung-70-ksb-ch"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "ksw",
+   "slug": "assistente-di-pratica-medica-assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur-1118260d",
+   "companyKey": "ksw",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch-4ce1def2"
+    ],
+    "en": [
+     "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch-4ce1def2"
+    ],
+    "fr": [
+     "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch-4ce1def2"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "kulm-hotel",
+   "slug": "commissione-di-cuisine-m-f-d-kulm-hotel-st-moritz-pontresina",
+   "companyKey": "kulm-hotel",
+   "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/746",
+   "proof": {
+    "rules": [
+     "removed by decontaminate d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz"
+    ],
+    "de": [
+     "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz"
+    ],
+    "fr": [
+     "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz": "GR"
+    },
+    "de": {
+     "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz": "GR"
+    },
+    "fr": {
+     "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz": "GR"
+    }
+   }
+  },
+  {
+   "crawlerKey": "lidl-svizzera",
+   "slug": "catena-di-alimentazione-aggiuntiva-e-controllo-m-f-d-80-100-lidl-svizzera-weinfelden-0ab52a62",
+   "companyKey": "lidl-svizzera",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "catena-di-alimentazione-aggiuntiva-e-controllo-m-f-d-80-100-lidl-svizzera-weinfelden-0ab52a62"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "lindenhofgruppe",
+   "slug": "med-praxisassistent-in-o-fachfrau-mann-gesundheit-lindenhofgruppe-lindenhofspital-09deae08",
+   "companyKey": "lindenhofgruppe",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "med-praxisassistent-in-oder-fachfrau-mann-gesundheit-lindenhofgruppe-ch-1b5df7e1"
+    ],
+    "en": [
+     "med-praxisassistent-in-oder-fachfrau-mann-gesundheit-lindenhofgruppe-ch-1b5df7e1"
+    ],
+    "fr": [
+     "med-praxisassistent-in-oder-fachfrau-mann-gesundheit-lindenhofgruppe-ch-1b5df7e1"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "marriott",
+   "slug": "restaurant-supervisore-marriott-international-geneva-09f16828",
+   "companyKey": "marriott",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "restaurant-supervisor-marriott-geneva-0af3f46a"
+    ],
+    "de": [
+     "restaurant-supervisor-marriott-geneva-0af3f46a"
+    ],
+    "fr": [
+     "restaurant-supervisor-marriott-geneva-0af3f46a"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "mcdonald-s-switzerland",
+   "slug": "crew-mcdonalds-switzerland-winterthur-p8-319503-1-5b38fff7",
+   "companyKey": "mcdonald-s-switzerland",
+   "sourceIdentity": "url:https://jobs.mcdonalds.ch/fr-ch/crew/job/p8-319503-1",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "crew-mcdonalds-switzerland-winterthur-p8-319503-1-5b38fff7"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "med-ipersonal",
+   "slug": "immobilienvermarkter-region-hinwil-ipersonal-ag-hinwil-zurich",
+   "companyKey": "med-ipersonal",
+   "sourceIdentity": "url:https://www.ipersonal.ch/jobs/immobilienvermarkter-100-fuer-die-region-hinwil-stellenangebot",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "immobilienvermarkter-region-hinwil-ipersonal-ag-hinwil-zurich"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "migros-ticino",
+   "slug": "addetto-a-al-reparto-freschi-genossenschaft-migros-aare-bern-1c88bb-9e50c7ba",
+   "companyKey": "migros-ticino",
+   "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/mitarbeiterin-frische/ead961de-8064-4325-973c-50cba6be0e1c",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "mitarbeiter-in-frische-genossenschaft-migros-aare-bern-7fvbuh-fd67c2cf"
+    ],
+    "en": [
+     "mitarbeiter-in-frische-genossenschaft-migros-aare-bern-7fvbuh-fd67c2cf"
+    ],
+    "fr": [
+     "mitarbeiter-in-frische-genossenschaft-migros-aare-bern-7fvbuh-fd67c2cf"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "mitarbeiter-in-frische-genossenschaft-migros-aare-bern-7fvbuh-fd67c2cf": "BE"
+    },
+    "en": {
+     "mitarbeiter-in-frische-genossenschaft-migros-aare-bern-7fvbuh-fd67c2cf": "BE"
+    },
+    "fr": {
+     "mitarbeiter-in-frische-genossenschaft-migros-aare-bern-7fvbuh-fd67c2cf": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "migros-ticino",
+   "slug": "addetto-alle-vendite-polivalente-m-f-d-societe-cooperative-migros-vaud-renens",
+   "companyKey": "migros-ticino",
+   "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-vaud/vendeur-polyvalent-hfd/d3b70455-5f1e-4efb-994c-418e797628c8",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "polyvalenter-verkaufer-m-w-d-societe-cooperative-migros-vaud-renens"
+    ],
+    "fr": [
+     "polyvalenter-verkaufer-m-w-d-societe-cooperative-migros-vaud-renens"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "migros-ticino",
+   "slug": "gestionnaire-de-vente-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly-b23dd096",
+   "companyKey": "migros-ticino",
+   "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-vaud/vendeur-polyvalent-hfd/653903c2-ea4b-4d40-9a97-34f3e5951613",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "gestionnaire-de-vente-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly-o8vdxl-d42d7228"
+    ],
+    "en": [
+     "gestionnaire-de-vente-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly-o8vdxl-d42d7228"
+    ],
+    "de": [
+     "gestionnaire-de-vente-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly-o8vdxl-d42d7228"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "migros-ticino",
+   "slug": "gestionnaire-de-vente-ultra-frais-societe-cooperative-migros-vaud-la-tour-de-peilz-503cbf10",
+   "companyKey": "migros-ticino",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "gestionnaire-de-vente-ultra-frais-societe-cooperative-migros-vaud-la-tour-de-peilz-houxyt-bf3070e4"
+    ],
+    "en": [
+     "gestionnaire-de-vente-ultra-frais-societe-cooperative-migros-vaud-la-tour-de-peilz-houxyt-bf3070e4"
+    ],
+    "de": [
+     "gestionnaire-de-vente-ultra-frais-societe-cooperative-migros-vaud-la-tour-de-peilz-houxyt-bf3070e4"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "mobiliar",
+   "slug": "kv-apprendistato-cfc-2027-m-w-d-agenzia-generale-schaffhausen-die-mobiliar-schaffhausen-00c94771",
+   "companyKey": "mobiliar",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "kv-lehrstelle-efz-2027-w-m-d-generalagentur-schaffhausen-mobiliar-ch-3dfe6b49"
+    ],
+    "en": [
+     "kv-lehrstelle-efz-2027-w-m-d-generalagentur-schaffhausen-mobiliar-ch-3dfe6b49"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "paraplegie",
+   "slug": "addetto-a-all-elaborazione-degli-ordini-schweizer-paraplegiker-gruppe-nottwil",
+   "companyKey": "paraplegie",
+   "sourceIdentity": "url:https://jobs.paraplegie.ch/offene-stellen/sachbearbeiter-in-auftragsbearbeitung/43da021c-63ff-4aeb-b00e-711364f81e18",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "sachberarbeiter-in-auftragsbearbeitung-paraplegie-nottwil"
+    ],
+    "fr": [
+     "sachberarbeiter-in-auftragsbearbeitung-paraplegie-nottwil"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "pbl",
+   "slug": "psicologo-psicologa-m-f-d-60-in-ambito-psichiatrico-infantile-e-adolescenziale-psychiatrie-baselland-liestal-124cf1f7",
+   "companyKey": "pbl",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "psychologe-psychologin-m-w-d-60-stationar-in-der-kinder-und-jugendpsychiatrie-pbl-liestal-f4e83881"
+    ],
+    "en": [
+     "psychologe-psychologin-m-w-d-60-stationar-in-der-kinder-und-jugendpsychiatrie-pbl-liestal-f4e83881"
+    ],
+    "fr": [
+     "psychologe-psychologin-m-w-d-60-stationar-in-der-kinder-und-jugendpsychiatrie-pbl-liestal-f4e83881"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "pdgr",
+   "slug": "collaboratore-trice-in-raumpflege-psychiatrische-dienste-graubunden-chur",
+   "companyKey": "pdgr",
+   "sourceIdentity": "url:https://www.pdgr.ch/jobs/mitarbeiter-in-raumpflege-3",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "mitarbeiter-in-raumpflege-pdgr-ch-2c629612"
+    ],
+    "en": [
+     "mitarbeiter-in-raumpflege-pdgr-ch-2c629612"
+    ],
+    "fr": [
+     "mitarbeiter-in-raumpflege-pdgr-ch-2c629612"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "psgn",
+   "slug": "assistente-psicologo-psicologo-assistito-psychiatrie-st-gallen-pfafers",
+   "companyKey": "psgn",
+   "sourceIdentity": "url:https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzpsychologin-assistenzpsychologe/ae95c72f-36b5-42bb-905c-37004bdf417f",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "assistenzpsychologin-assistenzpsychologe-psgn-pfafers"
+    ],
+    "fr": [
+     "assistenzpsychologin-assistenzpsychologe-psgn-pfafers"
+    ]
+   },
+   "cantons": {
+    "en": {
+     "assistenzpsychologin-assistenzpsychologe-psgn-pfafers": "SG"
+    },
+    "fr": {
+     "assistenzpsychologin-assistenzpsychologe-psgn-pfafers": "SG"
+    }
+   }
+  },
+  {
+   "crawlerKey": "richemont",
+   "slug": "group-l-d-tirocinante-richemont-bellevue-2c850fae",
+   "companyKey": "richemont",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "group-l-d-intern-richemont-bellevue-d89ae529"
+    ],
+    "de": [
+     "group-l-d-intern-richemont-bellevue-d89ae529"
+    ],
+    "fr": [
+     "group-l-d-intern-richemont-bellevue-d89ae529"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "roche",
+   "slug": "finanza-business-partner-roche-mexico-city-1313fb19",
+   "companyKey": "roche",
+   "sourceIdentity": "url:https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/mexico-city/finance-business-partner_202608-122212-2",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "finance-business-partner-roche-mexico-city-7b2eb704"
+    ],
+    "en": [
+     "finance-business-partner-roche-mexico-city-7b2eb704"
+    ],
+    "de": [
+     "finance-business-partner-roche-mexico-city-7b2eb704"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "roche",
+   "slug": "partner-del-viaggio-paziente-oftalmologia-roche-kolkata-95b09311",
+   "companyKey": "roche",
+   "sourceIdentity": "url:https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/kolkata/patient-journey-partner---ophthalmology_202609-123176",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "patient-journey-partner-ophthalmology-roche-ch-3-b2487731",
+     "patient-journey-partner-ophthalmology-roche-ch-ec4ddd47"
+    ],
+    "en": [
+     "patient-journey-partner-ophthalmology-roche-ch-3-b2487731"
+    ],
+    "fr": [
+     "patient-journey-partner-ophthalmology-roche-ch-3-b2487731"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "rolex",
+   "slug": "senior-management-assistant-h-f-rolex-geneve-022f997c",
+   "companyKey": "rolex",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "assistant-de-direction-h-f-rolex-ch-8062a779"
+    ],
+    "en": [
+     "assistant-de-direction-h-f-rolex-ch-8062a779"
+    ],
+    "de": [
+     "assistant-de-direction-h-f-rolex-ch-8062a779"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "schulthess-klinik",
+   "slug": "med-assistente-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-zurich",
+   "companyKey": "schulthess-klinik",
+   "sourceIdentity": "url:https://job.schulthess-klinik.ch/offene-stellen/med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation/325df460-7ca5-4c5f-8931-d867bd6bd673",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess-195c1ead"
+    ],
+    "fr": [
+     "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess-195c1ead"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "soh-solothurner-spitaeler",
+   "slug": "chef-dietetico-bp-f-m-d-solothurner-spitaler-ag-soh-solothurn-0cb98c1f",
+   "companyKey": "soh-solothurner-spitaeler",
+   "sourceIdentity": "url:https://jobs.so-h.ch/offene-stellen/diaetkoechin-diaetkoch-efa-w-m-d/398adcbd-d5e7-40b1-a95e-90f4bd326200",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "diatkochin-diatkoch-bp-w-m-d-soh-solothurner-spitaeler-solothurn-7c2a4038"
+    ],
+    "en": [
+     "diatkochin-diatkoch-bp-w-m-d-soh-solothurner-spitaeler-solothurn-7c2a4038"
+    ],
+    "fr": [
+     "diatkochin-diatkoch-bp-w-m-d-soh-solothurner-spitaeler-solothurn-7c2a4038"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "spital-emmental",
+   "slug": "dipl-infermiera-con-opzione-responsabilita-professionale-nursing-a-spital-emmental-langnau-b3fd0915",
+   "companyKey": "spital-emmental",
+   "sourceIdentity": "url:https://live.solique.ch/spital-emmental/job/details/4067145",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-langnau-323a1754"
+    ],
+    "en": [
+     "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-langnau-323a1754"
+    ],
+    "fr": [
+     "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-langnau-323a1754"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "spital-emmental",
+   "slug": "infermiera-a-spital-emmental-burgdorf-e7fba2",
+   "companyKey": "spital-emmental",
+   "sourceIdentity": "url:https://live.solique.ch/spital-emmental/job/details/4087774",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "de": [
+     "dipl-pflegefachperson-a-spital-emmental-burgdorf-3"
+    ]
+   },
+   "cantons": {
+    "de": {
+     "dipl-pflegefachperson-a-spital-emmental-burgdorf-3": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "spital-limmattal",
+   "slug": "dipl-centro-di-assistenza-professionale-hf-o-fh-spital-limmattal-schlieren-4556cda6",
+   "companyKey": "spital-limmattal",
+   "sourceIdentity": "url:https://apply.refline.ch/486538/0616/pub/10/index.html",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "dipl-pflegefachperson-hf-oder-fh-pflegezentrum-spital-limmattal-ch-78c690c8"
+    ],
+    "en": [
+     "dipl-pflegefachperson-hf-oder-fh-pflegezentrum-spital-limmattal-ch-78c690c8"
+    ],
+    "fr": [
+     "dipl-pflegefachperson-hf-oder-fh-pflegezentrum-spital-limmattal-ch-78c690c8"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "spital-limmattal",
+   "slug": "interno-in-stazione-a-letto-spital-limmattal-schlieren",
+   "companyKey": "spital-limmattal",
+   "sourceIdentity": "url:https://apply.refline.ch/486538/0307/pub/5/index.html",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "praktikant-in-bettenstation-spital-limmattal-ch-db7a7ea3"
+    ],
+    "en": [
+     "praktikant-in-bettenstation-spital-limmattal-ch-db7a7ea3"
+    ],
+    "fr": [
+     "praktikant-in-bettenstation-spital-limmattal-ch-db7a7ea3"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "sro",
+   "slug": "infermiere-a-diplomato-a-sss-sup-70-100-medicina-generale-sro-ag-spital-region-oberaargau-langenthal-4da42550",
+   "companyKey": "sro",
+   "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/b690a522-ca97-4757-84fb-31320e36ad9c",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal-7c4498c6"
+    ],
+    "fr": [
+     "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal-7c4498c6"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "stadt-zuerich",
+   "slug": "assistente-sociale-per-l-assistenza-sociale-e-la-protezione-degli-adulti-stadt-zurich-zurich-d95bd840-caea9cfb",
+   "companyKey": "stadt-zuerich",
+   "sourceIdentity": "url:https://jobs.stadt-zuerich.ch/job/sozialarbeiterin-sozialhilfe-&-erwachsenenschutz/1376234957",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-52110-cc4c18c9-327a47f1"
+    ],
+    "en": [
+     "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-52110-cc4c18c9-327a47f1"
+    ],
+    "fr": [
+     "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-52110-cc4c18c9-327a47f1"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "stadt-zuerich",
+   "slug": "hauswart-in-o-instandhaltungsfachmann-frau-stadt-zurich-17821540",
+   "companyKey": "stadt-zuerich",
+   "sourceIdentity": "url:https://jobs.stadt-zuerich.ch/job/hauswartin-oder-instandhaltungsfachmann-frau/1370057157",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "hauswart-in-oder-instandhaltungsfachmann-frau-stadt-zuerich-zurigo-51321-245b0517"
+    ],
+    "fr": [
+     "hauswart-in-oder-instandhaltungsfachmann-frau-stadt-zuerich-zurigo-51321-245b0517"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "stellenpartner",
+   "slug": "carpentieri-per-progetti-di-interior-design-e-ristrutturazione-stellenpartner-ag-zurzach-aargau-5c12882f",
+   "companyKey": "stellenpartner",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "schreiner-in-fur-innenausbau-und-renovationsprojekte-zurzach-aargau-stellenpartner-ch-6baca77b"
+    ],
+    "en": [
+     "schreiner-in-fur-innenausbau-und-renovationsprojekte-zurzach-aargau-stellenpartner-ch-6baca77b"
+    ],
+    "fr": [
+     "schreiner-in-fur-innenausbau-und-renovationsprojekte-zurzach-aargau-stellenpartner-ch-6baca77b"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "sulzer",
+   "slug": "macchinista-cnc-sulzer-barboursville-1d53c1bd",
+   "companyKey": "sulzer",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "machinist-cnc-sulzer-ch-10cf783b"
+    ],
+    "de": [
+     "machinist-cnc-sulzer-ch-10cf783b"
+    ],
+    "fr": [
+     "machinist-cnc-sulzer-ch-10cf783b"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "sulzer",
+   "slug": "service-installationstekniker-sulzer-winterthur-9872d634",
+   "companyKey": "sulzer",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "service-installationstekniker-sulzer-ch-57662a1c"
+    ],
+    "de": [
+     "service-installationstekniker-sulzer-ch-57662a1c"
+    ],
+    "fr": [
+     "service-installationstekniker-sulzer-ch-57662a1c"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "szb-chb",
+   "slug": "apprendistato-kaufmann-frau-cfc-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne-8ccb3de6",
+   "companyKey": "szb-chb",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "lehrstelle-kaufmann-frau-efz-szb-chb-biel-bienne-fd1e2a4a"
+    ],
+    "en": [
+     "lehrstelle-kaufmann-frau-efz-szb-chb-biel-bienne-fd1e2a4a"
+    ],
+    "fr": [
+     "lehrstelle-kaufmann-frau-efz-szb-chb-biel-bienne-fd1e2a4a"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "szb-chb",
+   "slug": "risorse-umane-generalist-in-payroll-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne-3202e035",
+   "companyKey": "szb-chb",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "hr-generalist-in-payroll-80-100-szb-chb-biel-bienne-c61af280"
+    ],
+    "de": [
+     "hr-generalist-in-payroll-80-100-szb-chb-biel-bienne-c61af280"
+    ],
+    "fr": [
+     "hr-generalist-in-payroll-80-100-szb-chb-biel-bienne-c61af280"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "tertianum",
+   "slug": "fachfrau-mann-gesundheit-cfc-nachtwache-tertianum-zurich-2a0bbe99",
+   "companyKey": "tertianum",
+   "sourceIdentity": "url:https://jobs.tertianum.ch/job/z%c3%bcrich-fachfrau-fachmann-gesundheit-efz-100-im-nachtdienst-z%c3%bcri-8002/1424666233",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "fachfrau-mann-gesundheit-efz-nachtwache-tertianum-zurich-d0995619"
+    ],
+    "en": [
+     "fachfrau-mann-gesundheit-efz-nachtwache-tertianum-zurich-d0995619"
+    ],
+    "fr": [
+     "fachfrau-mann-gesundheit-efz-nachtwache-tertianum-zurich-d0995619"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "tschuggen",
+   "slug": "front-office-manager-con-impiego-annuale-a-tempo-indeterminato-m-f-d-tschuggen-collection-arosa-49c07502",
+   "companyKey": "tschuggen",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "front-office-manager-in-unbefristeter-jahresanstellung-m-w-d-tschuggen-ch-0df1daa7"
+    ],
+    "en": [
+     "front-office-manager-in-unbefristeter-jahresanstellung-m-w-d-tschuggen-ch-0df1daa7"
+    ],
+    "fr": [
+     "front-office-manager-in-unbefristeter-jahresanstellung-m-w-d-tschuggen-ch-0df1daa7"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "ubs",
+   "slug": "2027-apprendistato-bancario-formazione-commerciale-di-base-kv-zurigo-ubs-zurich-8fc3295d",
+   "companyKey": "ubs",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "2027-banklehre-kaufmannische-grundbildung-kv-zurich-ubs-zurich-7a6c65a6"
+    ],
+    "en": [
+     "2027-banklehre-kaufmannische-grundbildung-kv-zurich-ubs-zurich-7a6c65a6"
+    ],
+    "fr": [
+     "2027-banklehre-kaufmannische-grundbildung-kv-zurich-ubs-zurich-7a6c65a6"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "unibe",
+   "slug": "responsabile-dell-applicazione-r-it-universitat-bern-bern-6ae9a8bc",
+   "companyKey": "unibe",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "applikationsverantwortliche-r-it-unibe-bern-23cb84b5"
+    ],
+    "en": [
+     "applikationsverantwortliche-r-it-unibe-bern-23cb84b5"
+    ],
+    "fr": [
+     "applikationsverantwortliche-r-it-unibe-bern-23cb84b5"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "usz",
+   "slug": "medico-assistente-medico-assistente-m-f-d-clinica-di-immunologia-80-100-universitatsspital-zurich-usz-zurich",
+   "companyKey": "usz",
+   "sourceIdentity": "url:https://jobs.usz.ch/offene-stellen/assistenzaerztin-assistenzarzt-w-m-d-klinik-fuer-immunologie/cca11374-6059-460e-881f-b446a42580ac",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-immunologie-80-100-usz-ch-56de6c55"
+    ],
+    "fr": [
+     "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-immunologie-80-100-usz-ch-56de6c55"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "vtg",
+   "slug": "collaboratore-trice-in-sattlerei-swiss-armed-forces-vtg-bern-au3a1j-85ff302a",
+   "companyKey": "swiss-armed-forces-vtg",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "mitarbeiter-in-sattlerei-swiss-armed-forces-vtg-bern-au3a1j-68a3cf2f"
+    ],
+    "en": [
+     "mitarbeiter-in-sattlerei-swiss-armed-forces-vtg-bern-au3a1j-68a3cf2f"
+    ],
+    "fr": [
+     "mitarbeiter-in-sattlerei-swiss-armed-forces-vtg-bern-au3a1j-68a3cf2f"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "vz-vermoegenszentrum",
+   "slug": "associate-consulente-unternehmensnachfolge-vz-vermogenszentrum-bern",
+   "companyKey": "vz-vermoegenszentrum",
+   "sourceIdentity": "url:https://jobs.vermoegenszentrum.ch/offene-stellen/associate-consultant-unternehmensnachfolge/ff89e612-dfc8-4711-b21a-f4db480fd336",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch"
+    ],
+    "fr": [
+     "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "weisse-arena",
+   "slug": "collaboratore-trice-gasteservice-ticketing-kasse-falera-weisse-arena-gruppe-laax-33d24ca6",
+   "companyKey": "weisse-arena",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "mitarbeiter-in-gasteservice-ticketing-kasse-falera-weisse-arena-ch-72dab72c"
+    ],
+    "en": [
+     "mitarbeiter-in-gasteservice-ticketing-kasse-falera-weisse-arena-ch-72dab72c"
+    ],
+    "fr": [
+     "mitarbeiter-in-gasteservice-ticketing-kasse-falera-weisse-arena-ch-72dab72c"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "yellowshark",
+   "slug": "falegname-m-f-yellowshark-ag-bern-be-14ae5f40",
+   "companyKey": "yellowshark",
+   "sourceIdentity": "url:https://jobs.yellowshark.com/job/sa036219",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "carpenter-m-f-yellowshark-ag-bern-be-39606905",
+     "schreiner-m-w-bern-be-yellowshark-ch-01df3b0a"
+    ],
+    "en": [
+     "schreiner-m-w-bern-be-yellowshark-ch-01df3b0a"
+    ],
+    "de": [
+     "carpenter-m-f-yellowshark-ag-bern-be-39606905"
+    ],
+    "fr": [
+     "carpenter-m-f-yellowshark-ag-bern-be-39606905",
+     "schreiner-m-w-bern-be-yellowshark-ch-01df3b0a"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "yellowshark",
+   "slug": "senior-project-manager-riscaldamento-freddo-100-m-f-yellowshark-ag-st-gallen",
+   "companyKey": "yellowshark",
+   "sourceIdentity": "url:https://jobs.yellowshark.com/job/sa067178",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "senior-projektleiter-heizung-kalte-100-m-w-st-gallen-sg-yellowshark-ch-d798c149"
+    ],
+    "en": [
+     "senior-projektleiter-heizung-kalte-100-m-w-st-gallen-sg-yellowshark-ch-d798c149"
+    ],
+    "fr": [
+     "senior-projektleiter-heizung-kalte-100-m-w-st-gallen-sg-yellowshark-ch-d798c149"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "zurzach-care",
+   "slug": "specialista-sanitario-80-100-dipartimento-di-neurologia-zurzach-care-bad-zurzach-62d676bd",
+   "companyKey": "zurzach-care",
+   "proof": {
+    "rules": [
+     "removed by decontaminate cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "fachfrau-fachmann-gesundheit-80-100-fachbereich-neurologie-zurzach-care-bad-zurzach-cd6ab19d"
+    ],
+    "en": [
+     "fachfrau-fachmann-gesundheit-80-100-fachbereich-neurologie-zurzach-care-bad-zurzach-cd6ab19d"
+    ],
+    "fr": [
+     "fachfrau-fachmann-gesundheit-80-100-fachbereich-neurologie-zurzach-care-bad-zurzach-cd6ab19d"
+    ]
+   },
+   "cantons": {}
+  }
+ ]
+}
