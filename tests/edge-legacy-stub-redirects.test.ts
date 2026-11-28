@@ -25,6 +25,7 @@ import {
 } from '../build-plugins/shared/edgeLegacyStubRedirects';
 import { readHardcodedRedirects } from '../build-plugins/shared/articleRedirects.mjs';
 import { buildCanonicalBridgePage } from '../build-plugins/constants';
+import { REDIRECT_STUB_MARKER } from '../build-plugins/shared/redirectStubMarker.mjs';
 import { renderProfessionBelowFloorBridge } from '../build-plugins/shared/professionJobsFloor';
 import { renderSalaryStatsBridge, salaryStatsBridgeTarget } from '../build-plugins/shared/salaryStatsBridge';
 import { listAllProfessionCantonPaths } from '../build-plugins/professionCantonData';
@@ -69,6 +70,25 @@ const stubHtml = (to: string) => buildCanonicalBridgePage({
   crossPageSignals: false,
 });
 const LIVE_HTML = '<!DOCTYPE html><html lang="it"><head><meta name="robots" content="index,follow"><title>Live</title></head><body>live page</body></html>';
+
+function streamedHtmlResponse(chunks: string[], headers: Record<string, string>) {
+  const state = { chunksRead: 0, cancelled: false };
+  let index = 0;
+  const response = new Response(new ReadableStream<Uint8Array>({
+    pull(controller) {
+      if (index === chunks.length) {
+        controller.close();
+        return;
+      }
+      state.chunksRead += 1;
+      controller.enqueue(new TextEncoder().encode(chunks[index++]));
+    },
+    cancel() {
+      state.cancelled = true;
+    },
+  }), { status: 200, headers });
+  return { response, state };
+}
 
 describe('below-floor salary bridge HTTP recovery', () => {
   it('covers every producer of the shared salary-stats bridge in all locales', () => {
@@ -259,21 +279,129 @@ describe('edge HTTP contract', () => {
     }
   });
 
-  it('a live page re-served after the body check carries no stale encoding headers', async () => {
-    // The Workers runtime hands text() the decoded body but keeps the origin's
-    // Content-Encoding/Content-Length; re-labelling decoded bytes as gzip would
-    // make the page undecodable for the client.
+  it('leaves a live response and its headers untouched after the streaming probe', async () => {
     const listed = ownPaths[0];
-    const origin = new Response(LIVE_HTML, {
+    const liveHead = '<!DOCTYPE html><html><head><title>Live</title></head><body>';
+    const liveBody = 'x'.repeat(256 * 1024 + 1);
+    const liveHtml = `${liveHead}${liveBody}</body></html>`;
+    const liveBodyChunks = [...Array.from({ length: 32 }, () => 'x'.repeat(8192)), 'x'];
+    const originalHeaders = {
       status: 200,
-      headers: { 'Content-Type': 'text/html; charset=utf-8', 'Content-Encoding': 'gzip', 'Content-Length': '123', 'Cache-Control': 'public, max-age=60' },
+      headers: {
+        'Content-Type': 'text/html; charset=utf-8',
+        'Content-Encoding': 'gzip',
+        'Content-Length': String(new TextEncoder().encode(liveHtml).byteLength),
+        'Cache-Control': 'public, max-age=60',
+      },
+    };
+    const origin = new Response(liveHtml, originalHeaders);
+    const probeChunks = [liveHead, ...liveBodyChunks, '</body></html>'];
+    const { response: probe, state } = streamedHtmlResponse(probeChunks, {
+      'Content-Type': 'text/html; charset=utf-8',
+      'Content-Length': String(new TextEncoder().encode(liveHtml).byteLength),
     });
-    const out = await upgradeLegacyStub(new Request(`${APEX}${listed}`), origin, async () => origin);
+    const headersBefore = [...origin.headers];
+    const out = await upgradeLegacyStub(new Request(`${APEX}${listed}`), origin, async () => probe);
     expect(out.status).toBe(200);
-    expect(out.headers.get('Content-Encoding')).toBeNull();
-    expect(out.headers.get('Content-Length')).toBeNull();
+    expect(out).toBe(origin);
+    expect([...out.headers]).toEqual(headersBefore);
+    expect(out.headers.get('Content-Encoding')).toBe('gzip');
+    expect(out.headers.get('Content-Length')).toBe(String(new TextEncoder().encode(liveHtml).byteLength));
     expect(out.headers.get('Cache-Control')).toBe('public, max-age=60');
-    expect(await out.text()).toBe(LIVE_HTML);
+    expect(out.bodyUsed).toBe(false);
+    expect(await out.text()).toBe(liveHtml);
+    expect(state.cancelled).toBe(true);
+    expect(state.chunksRead).toBeLessThan(probeChunks.length);
+  });
+
+  it('upgrades a listed synthetic bridge larger than 256 KiB when its head has the marker', async () => {
+    const listed = ownPaths[0];
+    const head = `<!DOCTYPE html><html><head>${REDIRECT_STUB_MARKER}</head>`;
+    const bodyChunks = Array.from({ length: 40 }, () => 'x'.repeat(8192));
+    const chunks = [head, ...bodyChunks, '</html>'];
+    const contentLength = chunks.reduce((total, chunk) => total + new TextEncoder().encode(chunk).byteLength, 0);
+    expect(contentLength).toBeGreaterThan(256 * 1024);
+    const { response: probe, state } = streamedHtmlResponse(chunks, {
+      'Content-Type': 'text/html; charset=utf-8',
+      'Content-Length': String(contentLength),
+    });
+    const originalBody = `<!DOCTYPE html><html><head>${REDIRECT_STUB_MARKER}</head><body>${'y'.repeat(256 * 1024 + 1)}</body></html>`;
+    const originalContentLength = new TextEncoder().encode(originalBody).byteLength;
+    expect(originalContentLength).toBeGreaterThan(256 * 1024);
+    const origin = new Response(originalBody, {
+      headers: {
+        'Content-Type': 'text/html',
+        'Content-Length': String(originalContentLength),
+      },
+    });
+    const out = await upgradeLegacyStub(
+      new Request(`${APEX}${listed}?source=synthetic`),
+      origin,
+      async () => probe,
+    );
+    expect(out.status).toBe(301);
+    expect(out.headers.get('Location')).toBe(`${STUB_TABLE[listed]}?source=synthetic`);
+    expect(state.cancelled).toBe(true);
+    expect(state.chunksRead).toBeLessThan(chunks.length);
+    expect(origin.bodyUsed).toBe(false);
+  });
+
+  it('detects the redirect marker split across stream chunks', async () => {
+    const listed = ownPaths[0];
+    const splitAt = REDIRECT_STUB_MARKER.length - 5;
+    const { response: probe } = streamedHtmlResponse([
+      `<!DOCTYPE html><html><head>${REDIRECT_STUB_MARKER.slice(0, splitAt)}`,
+      `${REDIRECT_STUB_MARKER.slice(splitAt)}</head><body>synthetic bridge</body></html>`,
+    ], { 'Content-Type': 'text/html' });
+    const origin = new Response('original', { headers: { 'Content-Type': 'text/html' } });
+    const out = await upgradeLegacyStub(new Request(`${APEX}${listed}`), origin, async () => probe);
+    expect(out.status).toBe(301);
+  });
+
+  it('does not treat a marker after </head> as a bridge marker', async () => {
+    const listed = ownPaths[0];
+    const chunks = [
+      '<!DOCTYPE html><html><head><title>Live</title></head>',
+      `${REDIRECT_STUB_MARKER}<body>synthetic live page</body></html>`,
+      ...Array.from({ length: 8 }, () => 'remaining synthetic live content'),
+    ];
+    const { response: probe, state } = streamedHtmlResponse(chunks, { 'Content-Type': 'text/html' });
+    const origin = new Response(LIVE_HTML, { headers: { 'Content-Type': 'text/html' } });
+    const out = await upgradeLegacyStub(new Request(`${APEX}${listed}`), origin, async () => probe);
+    expect(out).toBe(origin);
+    expect(state.cancelled).toBe(true);
+    expect(state.chunksRead).toBeLessThan(chunks.length);
+  });
+
+  it('fails open when the GET probe is not HTML', async () => {
+    const listed = ownPaths[0];
+    const origin = new Response(LIVE_HTML, { headers: { 'Content-Type': 'text/html' } });
+    const probe = new Response(REDIRECT_STUB_MARKER, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+    const out = await upgradeLegacyStub(new Request(`${APEX}${listed}`), origin, async () => probe);
+    expect(out).toBe(origin);
+  });
+
+  it('fails open when the GET probe is non-200, unreadable or throws', async () => {
+    const listed = ownPaths[0];
+    const origin = new Response(LIVE_HTML, { headers: { 'Content-Type': 'text/html' } });
+    const request = new Request(`${APEX}${listed}`);
+    const notFound = new Response(REDIRECT_STUB_MARKER, {
+      status: 404,
+      headers: { 'Content-Type': 'text/html' },
+    });
+    const unreadable = new Response(new ReadableStream<Uint8Array>({
+      start(controller) {
+        controller.error(new Error('synthetic unreadable stream'));
+      },
+    }), { headers: { 'Content-Type': 'text/html' } });
+
+    expect(await upgradeLegacyStub(request, origin, async () => notFound)).toBe(origin);
+    expect(await upgradeLegacyStub(request, origin, async () => unreadable)).toBe(origin);
+    expect(await upgradeLegacyStub(request, origin, async () => {
+      throw new Error('synthetic probe failure');
+    })).toBe(origin);
   });
 
   it('does not touch unlisted paths, non-200 answers or other methods', async () => {
