@@ -97,13 +97,14 @@ import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestion
 // questions; a passport stated at upload remains the higher-priority fact, and an unknown nationality stays open.
 // v14 (2026-11-12): passport questions share one fact; verified platform answers plus a foreign permit can
 // establish EU/EFTA, while an explicit candidate blank keeps the passport unknown.
+// v18 (2026-11-28): the From/To dates of a work-experience row of the portal's form, from the CV's periods.
 // v17 (2026-11-28): the field of study («Major», «Fachrichtung») from the CV's highest title, and a free-text
 // language row («Language») from the CV's strongest language: a text field the CV answers is never asked.
 // v16 (2026-11-27): «Risiedi in Svizzera?» answered from the stated address country, and a residence-or-permit
 // question answered yes only by a held permit (never no from the lack of one): the waits on them are read again.
 // v15 (2026-11-24): deduce birth-year estimate from work experience when education lacks dates (unblocking
 // civil-status deduction), and deduce category B driving licence from own-car evidence or decision.
-export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v17';
+export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v18';
 
 /** The street names a required street field receives when the CV has none (owner list, 2026-11-09). */
 export const PLATFORM_STREETS = Object.freeze([
@@ -627,7 +628,67 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
     drivingLicenceBRejected,
     drivingLicenceB: !drivingLicenceBRejected,
     physicalFitnessRejected: hasPhysicalFitnessRejection({ questions, answers }),
+    // The From/To dates of the work-experience rows of the portal's form, from the CV's own periods.
+    historyRowDates: historyRowDates({ questions, experience: profile?.experience }),
   };
+}
+
+// ── Work-experience rows (census 2026-11-28: Rituals, 14 dates asked of a candidate whose CV had every one) ──
+// A portal that repeats a block «Work Experience N» (From, To, Job title, Company…) asks the dates of every
+// row. The CV's own periods answer them: row N is the Nth experience of the profile, the order the planner fills
+// the rows in (plan.mjs, «one entry per item, in the order given»). Fail closed: the rows must be numbered 1..k
+// with no gap, the profile must have k job entries, each row asks one From and one To, and a period that cannot
+// be read for sure, an ongoing one (a To the CV leaves open) or a row beyond the CV stays a question.
+const HISTORY_ROW_OWNER = /^(?:(?:work|employment|professional|career|job) (?:experience|history)|esperienza (?:lavorativa|professionale)|experience professionnelle|berufserfahrung|arbeitserfahrung) (\d{1,2})$/;
+const HISTORY_ROW_FROM = /^(?:from|start|start date|begin|begin date|date from|da|dal|data inizio|data di inizio|inizio|von|beginn|startdatum|de|du|debut|date de debut)$/;
+const HISTORY_ROW_TO = /^(?:to|end|end date|until|date to|a|al|fino a|data fine|data di fine|fine|bis|ende|enddatum|au|fin|jusqu a|date de fin)$/;
+
+function historyRowOf(question) {
+  if (typeOf(question) !== 'date') return null;
+  const owners = [];
+  const contract = addressContextContract(question);
+  if (contract) owners.push(contract.section, ...contract.owners);
+  if (typeof question?.context === 'string') owners.push(question.context.split('·')[0]);
+  const row = owners.map((owner) => HISTORY_ROW_OWNER.exec(fold(owner))).find(Boolean);
+  if (!row) return null;
+  const labels = [question?.applicationQuestion, question?.question, question?.label]
+    .filter((value) => typeof value === 'string' && value.trim()).map(fold);
+  const field = labels.some((text) => HISTORY_ROW_FROM.test(text)) ? 'from' : labels.some((text) => HISTORY_ROW_TO.test(text)) ? 'to' : '';
+  return field ? { row: Number(row[1]), field } : null;
+}
+
+function periodDate(raw) {
+  const endpoint = parseEndpoint(raw);
+  if (endpoint && endpoint !== 'ongoing') return `${endpoint.year}-${String(endpoint.month || 1).padStart(2, '0')}-01`;
+  return endpoint ? '' : isoDateOf(String(raw ?? ''));
+}
+
+/**
+ * The date of each From/To field of a work-experience row, by question id, from the CV's experience entries.
+ * @returns {Record<string, string>} ISO dates; {} when the rows cannot be aligned with the CV for sure.
+ */
+export function historyRowDates({ questions = [], experience = [] } = {}) {
+  const rows = new Map();
+  for (const question of Array.isArray(questions) ? questions : []) {
+    const found = question?.id ? historyRowOf(question) : null;
+    if (!found) continue;
+    if (!rows.has(found.row)) rows.set(found.row, { from: [], to: [] });
+    rows.get(found.row)[found.field].push(String(question.id));
+  }
+  const jobs = Array.isArray(experience) ? experience : [];
+  const numbers = [...rows.keys()].sort((left, right) => left - right);
+  if (!numbers.length || numbers.length > jobs.length || numbers.some((number, index) => number !== index + 1)) return {};
+  if (jobs.slice(0, numbers.length).some((entry) => entry?.kind && entry.kind !== 'job')) return {};
+  const result = {};
+  for (const [number, fields] of rows) {
+    const entry = jobs[number - 1];
+    for (const [field, raw] of [['from', entry?.start], ['to', entry?.end]]) {
+      if (fields[field].length !== 1) continue;
+      const iso = periodDate(raw);
+      if (iso) result[fields[field][0]] = iso;
+    }
+  }
+  return result;
 }
 
 const OWN_CAR_FACT_QUESTION = /\b(?:automunit[oa]|propri[ao]\s+(?:aut[oa]|veicol[oa]|mezzo)|aut[oa]\s+propri[ao]|mezzo\s+proprio|own\s+(?:car|vehicle)|eigenes?\s+(?:auto|fahrzeug|pkw)|voiture\s+personnelle|vehicule\s+personnel|disporre\s+di\s+(?:un[a']?\s+)?(?:aut[oa]|veicol[oa])|possied[ei]\s+(?:un[a']?\s+)?(?:aut[oa]|veicol[oa]))\b/;
@@ -2381,6 +2442,12 @@ function salaryValue(question, facts) {
  */
 export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
   const topic = platformQuestionTopic(question, { ownedAddressFields: facts?.ownedAddressFields });
+  // A From/To date of a work-experience row: the CV's period (historyRowDates), never the start-date rule.
+  const rowDate = question?.id && facts?.historyRowDates ? facts.historyRowDates[String(question.id)] : '';
+  if (rowDate && historyRowOf(question)) {
+    const value = dateValue(question, rowDate, languageOf(locale || facts.locale));
+    return value ? { value, topic: 'platform:history_row_date', source: 'policy_default', version: PLATFORM_DEFAULTS_VERSION } : null;
+  }
   if (!topic) return null;
   const known = facts || basePlatformFacts(Date.now(), locale);
   const lang = languageOf(locale || known.locale);
