@@ -591,7 +591,10 @@ describe('canton base cadence filter', () => {
     const rcReads: string[] = [];
     const fetchImpl = vi.fn(async (url: string) => url.includes('canton-generation-slots.json')
       ? new Response(JSON.stringify({ schema: 1, entries }))
-      : new Response('{}', { status: 500 }));
+      // Workflow lookups answer with a workflow that still carries its native
+      // schedule: the slot stays in shadow mode, so it is reported with its
+      // generationSlot without opening the Firestore ledger or dispatching.
+      : responseForWorkflow(cantonWorkflow.replace('on:\n', "on:\n  schedule:\n    - cron: '14 * * * *'\n")));
     const report = await dispatchLoopClock({
       scheduledAt: new Date(tick),
       entries: [{ id: 'idle', repo: 'site', workflow: 'idle.yml', everyMinutes: 1440 }],
