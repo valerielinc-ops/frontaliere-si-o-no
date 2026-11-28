@@ -1305,16 +1305,7 @@ async function recoverEmployerProfileAlias(url, origin) {
   return new Response(null, { status: 301, headers: { Location: target + url.search, 'Cache-Control': RETIRED_MOVED_CACHE_CONTROL } });
 }
 
-// Shard key for the legacy /job-canon/<sk>.json. MIRRORS public/404.html +
-// the plugin's v1 shardKey(): first 2 chars of the lowercased slug,
-// non-alphanumerics → '_', padded to length 2.
-function jobCanonShardKey(slug) {
-  let sk = slug.slice(0, 2).replace(/[^a-z0-9]/g, '_');
-  if (sk.length < 2) sk = (sk + '__').slice(0, 2);
-  return sk;
-}
-
-// The v1 live corpus was measured before the hash migration; 4096 buckets
+// The retired v1 corpus was measured before the hash migration; 4096 buckets
 // remove its prefix skew and keep individual lookup payloads operationally
 // manageable. Shard bytes are reported as manifest telemetry, not a hard cap.
 const JOB_CANON_V2_SHARD_COUNT = 4096;
@@ -1335,7 +1326,7 @@ function jobCanonMapUrl(path, buildId) {
   const prefix = '/job-canon/';
   if (!path.startsWith(prefix)) return null;
   const relativePath = path.slice(prefix.length);
-  if (!/^(?:v2\/[0-9a-f]{3}|[a-z0-9_]{2})\.json$/.test(relativePath)) return null;
+  if (!/^v2\/[0-9a-f]{3}\.json$/.test(relativePath)) return null;
   // The marker selects immutable origin bytes through the pathname itself.
   // Query strings are not part of the generation contract because R2 may
   // ignore them when resolving an object key.
@@ -1357,49 +1348,31 @@ function logJobCanonV2Success() {
   }
 }
 
-// Read both Worker consumers from the same release-versioned registry path.
-// Every v1 attempt is emitted as a structured event so the seven-day S3 zero-
-// use window includes recovery and expired-job lookups alike.
+// Read both Worker consumers from the release-versioned v2 registry. The v1
+// shards (/job-canon/<sk>.json) are no longer read: a 404/410 from v2 is a
+// genuine miss (the S3 retirement receipt proved zero v1 fallbacks and v1 ⊆ v2).
 async function fetchJobCanonMap(slug, buildId) {
   if (!isValidJobCanonBuildId(buildId)) return { kind: 'missing' };
-  const mapPaths = [
-    { version: 'v2', path: `/job-canon/v2/${jobCanonV2ShardKey(slug)}.json` },
-    { version: 'v1', path: `/job-canon/${jobCanonShardKey(slug)}.json` },
-  ];
-  for (const { version, path: mapPath } of mapPaths) {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), MAP_FETCH_TIMEOUT_MS);
-    try {
-      const mapUrl = jobCanonMapUrl(mapPath, buildId);
-      if (!mapUrl) return { kind: 'missing' };
-      const resp = await fetch(mapUrl.toString(), {
-        signal: controller.signal,
-        cf: publicOriginCacheOptions(JOB_CANON_CACHE_TTL),
-      });
-      if (resp.status === 404 || resp.status === 410) {
-        if (version === 'v2') {
-          try {
-            console.log({ event: 'job_canon_v1_fallback' });
-          } catch {
-            // Logging must not block the v1 recovery path.
-          }
-          try { await resp.body?.cancel(); } catch { /* best-effort connection release */ }
-          continue;
-        }
-        return { kind: 'missing' };
-      }
-      if (!resp.ok) return { kind: 'unavailable' };
-      const map = await resp.json();
-      if (!isPlainObject(map)) return { kind: 'unavailable' };
-      if (version === 'v2') logJobCanonV2Success();
-      return { kind: 'map', map };
-    } catch {
-      return { kind: 'unavailable' };
-    } finally {
-      clearTimeout(timer);
-    }
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), MAP_FETCH_TIMEOUT_MS);
+  try {
+    const mapUrl = jobCanonMapUrl(`/job-canon/v2/${jobCanonV2ShardKey(slug)}.json`, buildId);
+    if (!mapUrl) return { kind: 'missing' };
+    const resp = await fetch(mapUrl.toString(), {
+      signal: controller.signal,
+      cf: publicOriginCacheOptions(JOB_CANON_CACHE_TTL),
+    });
+    if (resp.status === 404 || resp.status === 410) return { kind: 'missing' };
+    if (!resp.ok) return { kind: 'unavailable' };
+    const map = await resp.json();
+    if (!isPlainObject(map)) return { kind: 'unavailable' };
+    logJobCanonV2Success();
+    return { kind: 'map', map };
+  } catch {
+    return { kind: 'unavailable' };
+  } finally {
+    clearTimeout(timer);
   }
-  return { kind: 'unavailable' };
 }
 
 // Returns a 301 Response to the slug's current canonical page when the requested

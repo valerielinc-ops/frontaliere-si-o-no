@@ -186,7 +186,7 @@ describe('locale-router canton-drift 301', () => {
   });
 
   it.each([404, 410])(
-    'falls back to v1 only when v2 returns %i and logs the fallback event',
+    'treats a v2 %i as a genuine miss and never reads v1 shards',
     async (v2Status) => {
       const slug = 'some-job-xyz';
       const log = vi.spyOn(console, 'log').mockImplementation(() => {});
@@ -198,13 +198,10 @@ describe('locale-router canton-drift 301', () => {
 
       const res = await worker.fetch(new Request(`${APEX}/en/jobs-in-zurich/${slug}/`), {}, ctx);
 
-      expect(res.status).toBe(301);
-      expect(res.headers.get('Location')).toBe(`/en/find-jobs-zurich/${slug}/`);
-      expect(canonRequests).toHaveLength(2);
+      expect(res.status).toBe(404);
+      expect(canonRequests).toHaveLength(1);
       expect(canonRequests[0]).toContain(`/job-canon/releases/1001/v2/${jobCanonV2ShardKey(slug)}.json`);
-      expect(canonRequests[1]).toContain('/job-canon/releases/1001/so.json');
-      expect(log).toHaveBeenCalledTimes(1);
-      expect(log).toHaveBeenCalledWith({ event: 'job_canon_v1_fallback' });
+      expect(log).not.toHaveBeenCalled();
     },
   );
 
@@ -532,7 +529,7 @@ describe('locale-router canton-drift 301', () => {
     expect(log).toHaveBeenCalledTimes(cases.length);
   });
 
-  it('builds the same versioned v2 then v1 shard URLs as public/404.html', async () => {
+  it('builds the same versioned v2 shard URL as public/404.html and stops there', async () => {
     const slug = 'legacy-en-v1';
     const workerRequests = mockVersionedFetch({
       v2Status: 404,
@@ -540,28 +537,24 @@ describe('locale-router canton-drift 301', () => {
       v1Map: { [slug]: { en: '/en/find-jobs-zurich' } },
     });
     const workerResponse = await worker.fetch(new Request(`${APEX}/en/jobs-in-zurich/${slug}/`), {}, ctx);
-    expect(workerResponse.status).toBe(301);
+    expect(workerResponse.status).toBe(404);
+    expect(workerRequests).toHaveLength(1);
 
     const browserRequests: string[] = [];
     const browserFetchJobCanonMap = loadBrowserJobCanonMapFetcher();
-    await expect(browserFetchJobCanonMap(slug, (async (input: string | URL | Request) => {
+    await browserFetchJobCanonMap(slug, (async (input: string | URL | Request) => {
       const url = fetchUrl(input);
       if (new URL(url).pathname === '/cdn-build-id.txt') return new Response('1001');
       browserRequests.push(url);
       return browserRequests.length === 1
         ? new Response('v2 missing', { status: 404 })
         : Response.json({ [slug]: { en: '/en/find-jobs-zurich' } });
-    }) as typeof fetch)).resolves.toEqual({ kind: 'map', value: { [slug]: { en: '/en/find-jobs-zurich' } } });
+    }) as typeof fetch);
 
-    expect(browserRequests.map((request) => {
-      const url = new URL(request);
-      return url.pathname;
-    })).toEqual(workerRequests.map((request) => {
-      const url = new URL(request);
-      return url.pathname;
-    }));
-    expect(browserRequests.map((request) => new URL(request).pathname.match(/\/releases\/([0-9]{1,20})\//)?.[1]))
-      .toEqual(['1001', '1001']);
+    // The browser 404 page still carries its own v1 fallback; its first (v2)
+    // request must be byte-identical to the Worker's only request.
+    expect(new URL(browserRequests[0]).pathname).toBe(new URL(workerRequests[0]).pathname);
+    expect(new URL(workerRequests[0]).pathname).toMatch(/^\/job-canon\/releases\/1001\/v2\/[0-9a-f]{3}\.json$/);
   });
 
   it('301s a known orphan slug to its current canonical page', async () => {
