@@ -3584,7 +3584,7 @@ export async function clickPortalLink(page, link, { context = null } = {}) {
       resolve(opened);
     });
   }) : null;
-  if (opened) return opened;
+  if (opened) return adoptOpenedPage(page, opened, { href, baseUrl: before });
   if (page.url() !== before) return null;
   if (clickError) {
     if (!href || /^(?:#|javascript:|mailto:|tel:)/i.test(String(href).trim())) throw clickError;
@@ -3611,6 +3611,32 @@ export async function clickPortalLink(page, link, { context = null } = {}) {
   const target = opensAnotherWindow(linkTarget) ? linkNavigationTarget(href, before) : '';
   if (target && target !== before) await page.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
   return null;
+}
+
+/**
+ * A window the click opened is adopted only once it has left about:blank: Chromium announces it before its first
+ * navigation, and settle() waits the full POPUP_WAIT_TIMEOUT_MS for that. One that is still blank after that wait
+ * never answered (the portal_needs_candidate on an empty /blank page): it is closed and the link's own http(s)
+ * address (a relative href resolved against the origin URL captured before the click, since the click may move the
+ * origin) is opened once in the page the click came from, where it loads or fails as a navigation
+ * (net::ERR_*, timeout: navigation_unavailable in submit.mjs, retried by the transport ladder). Without such an
+ * address the run stops the same way. Nothing is ever sent from a blank page.
+ */
+async function adoptOpenedPage(origin, opened, { href = '', baseUrl = '' } = {}) {
+  if (!opened || opened === origin) return opened || origin;
+  if (await waitForNonBlankPage(opened)) return opened;
+  await opened.close?.().catch?.(() => {});
+  const target = linkNavigationTarget(href, baseUrl || origin.url());
+  if (!target) throw blankPopupNeverNavigated();
+  await origin.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+  if (origin.url() === 'about:blank') throw blankPopupNeverNavigated();
+  return origin;
+}
+
+function blankPopupNeverNavigated() {
+  const error = new Error('popup_never_navigated: the window the application entry opened stayed about:blank');
+  error.code = 'popup_never_navigated';
+  return error;
 }
 
 /** A link target that opens another browsing context: `_blank` or a named window, not this page or its parents. */
@@ -4969,8 +4995,9 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         page = (await clickPortalLink(page, locatorFor(page, manual || apply), { context })) || page;
       } else {
         const popup = context.waitForEvent('page', { timeout: POPUP_GRACE_MS }).catch(() => null);
+        const urlBeforeClick = page.url();
         await clickButton(page, manual || apply);
-        page = (await popup) || page;
+        page = await adoptOpenedPage(page, await popup, { href: (manual || apply)?.href, baseUrl: urlBeforeClick });
       }
     } else {
       followedApplicationEntryThisHop = true;
@@ -13214,7 +13241,10 @@ const RATE_LIMITED_PAGE_STOPS = new Set([
 // a navigation is its own «this job can no longer be applied for», which reads as another posting, as no
 // application stage, or (with no form control left) as a page for the candidate. The closure is the cause
 // (the flow notifies and refunds it), not a page to teach.
-const CLOSURE_RECHECK_STOPS = new Set(['posting_mismatch', 'application_stage_unknown', 'portal_needs_candidate']);
+const CLOSURE_RECHECK_STOPS = new Set(['posting_mismatch', 'application_stage_unknown', 'portal_needs_candidate', 'posting_unbound']);
+// Stops on a page that names no posting (a portal's home or hub): only the order's own address can say whether the
+// posting still exists.
+const POSTING_NOT_NAMED_STOPS = new Set(['posting_unbound', 'posting_mismatch']);
 const PORTAL_AUTH_FIELD_RE = /(?:login|sign[\s-]?in|username|user\s*id|password|account|anmeldung|connexion|identifiant|accedi|accesso)/iu;
 
 function isApplicationOwnedPortalField(field) {
@@ -13342,6 +13372,7 @@ export async function submitViaPortal(ctx) {
   const keptCvUrls = new Set();
   const cvFileNames = documentPaths(ctx.files, 'cv').map((file) => path.basename(file));
   let accountRecoveryUsed = false;
+  let unboundPostingRecheckUsed = false;
   let recoveryMarkerUnreadable = false;
   let recoveredApplicationHistoryChecked = false;
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
@@ -13366,9 +13397,43 @@ export async function submitViaPortal(ctx) {
           applyControls,
           locale: ctx.language,
         });
-        if (isHardClosed(current)) {
+        // The current page of a stop that names no posting is not bound to the order's posting, so its closure
+        // text (a hub saying another job is filled) proves nothing: only the order-URL recheck decides.
+        if (!POSTING_NOT_NAMED_STOPS.has(reason) && isHardClosed(current)) {
           evidence.livenessAtStop = { result: current.result, code: current.code, stop: reason };
           return { event: { type: 'posting_closed', reason: current.code }, evidence };
+        }
+        // A page with no application field and no posting id (a portal's home or hub) says nothing of the posting
+        // itself: read the order's own posting address once, through the entry URL, and stop as closed only on a
+        // hard closure. Bounded by a marker, never presses the final submit; a live posting keeps its stop.
+        if (POSTING_NOT_NAMED_STOPS.has(reason) && !unboundPostingRecheckUsed) {
+          unboundPostingRecheckUsed = true;
+          const recheckUrl = portalEntryUrl(ctx);
+          if (recheckUrl) {
+            try {
+              const recheckResponse = await page.goto(recheckUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+              await settle(page);
+              const recheckSnapshot = await extractFields(page, NAVIGATION).catch(() => null);
+              const recheck = classifyLiveness({
+                status: recheckResponse?.status?.() || 0,
+                requestedUrl: recheckUrl,
+                finalUrl: page.url(),
+                bodyText: await pageText(page).catch(() => ''),
+                applyControls: [
+                  ...(recheckSnapshot?.buttons || []).map((button) => button.text || button.label || ''),
+                  ...(recheckSnapshot?.links || []).map((link) => link.text || link.label || ''),
+                ],
+                locale: ctx.language,
+              });
+              evidence.unboundPostingRecheck = { result: recheck.result, code: recheck.code, reentered: true };
+              if (isHardClosed(recheck)) {
+                evidence.livenessAtStop = { result: recheck.result, code: recheck.code, stop: reason };
+                return { event: { type: 'posting_closed', reason: recheck.code }, evidence };
+              }
+            } catch {
+              evidence.unboundPostingRecheck = { result: 'uncertain', code: 'recheck_failed', reentered: true };
+            }
+          }
         }
       }
     }

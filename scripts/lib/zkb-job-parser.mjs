@@ -13,10 +13,19 @@ import { createHash } from 'node:crypto';
 import { fetchJson, slugify } from './crawler-template.mjs';
 import { fetchHtml } from './hospital-custom-html-helpers.mjs';
 import { detectLang, hqPostalCodeForLocality } from './dedicated-crawler-common.mjs';
-import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
+import {
+  inferAnyCanton,
+  inferSwissTargetCanton,
+  isKnownSwissCity,
+  normalizeCantonCode,
+} from './target-swiss-locations.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
-import { parsePostJobDetail } from './postch-job-parser.mjs';
+import {
+  extractRtlTextAlignEligibleSpans,
+  htmlBlockToTextWithBullets,
+  parsePostJobDetail,
+} from './postch-job-parser.mjs';
 import { parseCsbDetailPage } from './successfactors-shared-job-parser-common.mjs';
 
 export const ZKB_KEY = 'zkb';
@@ -183,13 +192,41 @@ async function fetchZkbListings() {
   throw new Error(`ZKB recruiting API pagination exceeded ${API_MAX_PAGES} pages.`);
 }
 
+/**
+ * Canton of a bare municipality name from the short API location. A name the
+ * shared resolver already places (Zürich, Winterthur, ...) keeps that canton.
+ * A name it leaves open because it is a homonym across cantons (Küsnacht,
+ * Rüti) is read inside the issuer's own canton: ZKB is the Zürich cantonal
+ * bank, so a municipality that exists in ZH and in no other known canton by
+ * this resolver is a ZH one. A name that is not a Swiss municipality, or that
+ * the resolver already assigns elsewhere (Bern), stays unresolved.
+ */
+function resolveShortLocationCanton(city = '') {
+  const target = inferSwissTargetCanton(city);
+  if (target) return target;
+  if (inferAnyCanton(city)) return '';
+  return isKnownSwissCity(city, DEFAULT_CANTON) ? DEFAULT_CANTON : '';
+}
+
 function parseApiLocation(record = {}) {
   const locations = Array.isArray(record.jobLocationShort)
     ? record.jobLocationShort
     : (record.jobLocationShort ? [record.jobLocationShort] : []);
 
   for (const rawLocation of locations) {
-    const parts = String(rawLocation || '').split('|').map(normalizeSpace);
+    const rawText = String(rawLocation || '');
+    if (!rawText.includes('|')) {
+      // Short form `Zürich<br/>`: no country discriminator, only a city. Strip
+      // the markup and resolve the city against the Swiss target cantons; a
+      // city outside them (or one that is not Swiss) stays discarded.
+      const shortCity = normalizeSpace(
+        rawText.replace(/<[^>]*>/g, ' ').replace(/&nbsp;/gi, ' ').split(',')[0],
+      );
+      const shortCanton = shortCity ? resolveShortLocationCanton(shortCity) : '';
+      if (shortCanton) return { city: shortCity, canton: shortCanton };
+      continue;
+    }
+    const parts = rawText.split('|').map(normalizeSpace);
     const city = parts[0] || '';
     const countryCode = (parts[4] || parts.at(-1) || '').toUpperCase();
     if (!city || !isSwissCountry(countryCode)) continue;
@@ -228,6 +265,28 @@ function wordCount(value = '') {
 }
 
 /**
+ * The live jobs.zkb.ch detail page has no 19-token Post.ch layout and no
+ * JSON-LD: the header card (title, Funktion, Arbeitsort, Pensum) is the
+ * `itemprop="description"` span and the vacancy itself is a separate rich-text
+ * `.rtltextaligneligible` span, followed by a short FAQ span of portal chrome.
+ * The header card carries `zkb-job-header` and the FAQ card `zkb-job-footer`
+ * (checked on live jobs.zkb.ch detail pages: one header, one footer, and the
+ * vacancy as the only span with neither). The vacancy is selected by that
+ * container identity, never by length, so a longer FAQ can not win. When the
+ * container is not identifiable (zero or several unmarked spans) the body is
+ * left empty and the caller's source-body floor rejects the posting.
+ */
+function readZkbRichTextBody(html = '') {
+  const bodies = [];
+  for (const inner of extractRtlTextAlignEligibleSpans(html)) {
+    if (/zkb-job-(?:header|footer)/i.test(inner)) continue;
+    const text = htmlBlockToTextWithBullets(inner);
+    if (text) bodies.push(text);
+  }
+  return bodies.length === 1 ? bodies[0] : '';
+}
+
+/**
  * Parse both current NES detail markup and the older CSB property-id markup.
  * The second parser is a bounded compatibility path for pages during the
  * vendor migration; neither path invents a vacancy body.
@@ -236,9 +295,13 @@ export function parseZkbDetailPage(html = '', url = '') {
   const nes = parsePostJobDetail(html, url);
   const csb = parseCsbDetailPage(html) || {};
   const nesTitle = /^stellendetails$/i.test(String(nes.title || '').trim()) ? '' : nes.title;
-  const description = wordCount(nes.description) >= wordCount(csb.descriptionText)
+  let description = wordCount(nes.description) >= wordCount(csb.descriptionText)
     ? nes.description
     : (csb.descriptionText || nes.description || '');
+  if (!meetsSourceBodyFloor(description)) {
+    const richTextBody = readZkbRichTextBody(html);
+    if (wordCount(richTextBody) > wordCount(description)) description = richTextBody;
+  }
   const placeCountry = nes.places?.find((place) => place?.address?.addressCountry)?.address?.addressCountry || '';
 
   return {
