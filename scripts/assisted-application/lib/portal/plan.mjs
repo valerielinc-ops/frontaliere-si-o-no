@@ -1303,10 +1303,11 @@ export function candidateAnswerForQuestion(candidate, question, context = '', me
   // is only a compatibility fallback when the current candidate record has no
   // value; it must not overwrite a corrected country from the CV/profile.
   const canonical = addressQuestionAnswer(candidate, topic);
-  const answer = (canonical && recordedAnswerForQuestion(candidate, question, context, metadata, true))
-    || canonical
-    || recordedAnswerForQuestion(candidate, question, context, metadata);
-  return validatedAddressAnswer(candidate, topic, answer, { explicit: Boolean(answer) && answer !== canonical });
+  const recordedCurrent = canonical ? recordedAnswerForQuestion(candidate, question, context, metadata, true) : '';
+  const recordedAny = canonical ? '' : recordedAnswerForQuestion(candidate, question, context, metadata);
+  const answer = recordedCurrent || canonical || recordedAny;
+  // A recorded candidate answer stays explicit even when its text equals the profile's.
+  return validatedAddressAnswer(candidate, topic, answer, { explicit: Boolean(recordedCurrent || recordedAny) });
 }
 
 /**

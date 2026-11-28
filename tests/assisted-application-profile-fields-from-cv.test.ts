@@ -79,6 +79,7 @@ function extract(html: string) {
 
 afterEach(() => { vi.unstubAllGlobals(); });
 
+import { candidateAnswerForQuestion } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { portalQuestionId } from '../scripts/assisted-application/lib/portal/question-key.mjs';
 
 const byDom = (snapshot: any, domId: string) => snapshot.fields.find((field: any) => field.domId === domId);
@@ -141,6 +142,16 @@ describe('the address of the profile is never asked (SuccessFactors «* Address�
     const answered = { ...who, portalQuestionsAnswered: [{ answerId: portalQuestionId(pair), question: pair.label, answer: 'Strada Vicinale del Lago',
       source: 'answers', current: true, context: '', addressContext: pair.addressContext }] };
     expect(candidateAnswerForField(answered, pair)?.value).toBe('Strada Vicinale del Lago');
+  });
+});
+
+describe('a recorded answer equal to the profile street stays the candidate\'s own answer', () => {
+  it('returns «Via Roma» for a street-and-number pair when the profile holds the same street', () => {
+    const addressContext = { section: 'Residence', owners: ['Residence'], unknown: false };
+    const who: any = { identity: { name: 'Ada Rossi', address: { street: 'Via Roma', city: 'Como', postalCode: '22100', country: 'Italia' } },
+      profile: { address: { street: 'Via Roma', city: 'Como' } }, answers: {},
+      portalQuestionsAnswered: [{ question: 'Street and house number', answer: 'Via Roma', source: 'answers', current: true, context: '', addressContext }] };
+    expect(candidateAnswerForQuestion(who, 'Street and house number', '', { addressContext })).toBe('Via Roma');
   });
 });
 
