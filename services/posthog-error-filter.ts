@@ -42,6 +42,16 @@ import {
   readErrorDetailsSafely,
   readErrorEventDetailsSafely,
 } from './benignErrorPatterns';
+// The origin allow-list and the all-third-party verdict live in a dependency-light
+// module shared with the GA4 `app_error` pipeline (services/analytics.ts), so the
+// two sinks cannot drift.
+import {
+  THIRD_PARTY_STACK_ORIGINS,
+  NATIVE_CODE_FRAME_PATTERN,
+  areAllOriginsThirdParty,
+} from './thirdPartyStackOrigins';
+
+export { THIRD_PARTY_STACK_ORIGINS, NATIVE_CODE_FRAME_PATTERN };
 
 /** Patterns that match benign / unactionable exception messages. */
 export const BENIGN_MESSAGES: readonly RegExp[] = [
@@ -52,52 +62,6 @@ export const BENIGN_MESSAGES: readonly RegExp[] = [
   // covered (or noise) — the wrapper itself carries no actionable stack.
   /Non-Error promise rejection/i,
 ];
-
-/**
- * Script origins that are known third-party, cross-origin, and outside our
- * control. When an exception's ENTIRE resolved stack lives inside one of
- * these origins, it cannot be a bug in our own code — see #3407 above.
- * Keep this list as narrow/closed as BENIGN_MESSAGES: only add an origin
- * once confirmed via a live stack-trace sample, never speculatively.
- */
-export const THIRD_PARTY_STACK_ORIGINS: readonly RegExp[] = [
-  // Google Identity Services (One Tap / Sign in with Google) — #3407.
-  /^https:\/\/accounts\.google\.com\/gsi\//i,
-  // Browser extension content scripts (Chrome / Firefox / Safari) — #3673.
-  // They run in page context but are entirely third-party; no fix possible.
-  // Anchored wrapper around the shared literal in benignErrorPatterns.ts.
-  new RegExp(`^${BROWSER_EXTENSION_ORIGIN_PATTERN.source}`, 'i'),
-  // Microsoft Clarity session recording — #3760, #19026.
-  // The tag bootstrap is served from www.clarity.ms, while the runtime that
-  // throws is served from scripts.clarity.ms. Both are Clarity-owned and
-  // third-party. Companion to the `standardSelectors` message pattern added
-  // to UNIVERSAL_BENIGN_PATTERNS (covers cross-origin, no-frame case).
-  /^https:\/\/(?:www|scripts)\.clarity\.ms\//i,
-  // Google Publisher Tags (GPT) — third-party stack audit.
-  // The library is third-party and can throw errors entirely inside its own
-  // securepubads.g.doubleclick.net frames; no first-party fix is possible.
-  /^https:\/\/securepubads\.g\.doubleclick\.net\//i,
-  // Google Funding Choices CMP — #19705.
-  // The reported PostHog sample is a RangeError whose resolved frames are
-  // Funding Choices
-  // runtime URLs interleaved with `[native code]`; the recursion is inside the
-  // vendor CMP, not the page. Keep the origin check narrow and fail open for
-  // any first-party frame.
-  /^https:\/\/fundingchoicesmessages\.google\.com\//i,
-  // Google reCAPTCHA Enterprise — #19025.
-  // The live PostHog sample was `reCAPTCHA Timeout (b)` with every resolved
-  // frame in Google's gstatic reCAPTCHA release; the timeout is inside the
-  // vendor client and cannot be fixed by this application.
-  /^https:\/\/www\.gstatic\.com\/recaptcha\//i,
-];
-
-/**
- * V8/WebKit can expose native frames alongside the URL-bearing frames of a
- * third-party runtime. They carry no ownership information, so they are
- * neutral in the all-third-party verdict; a stack containing only native
- * frames still fails open.
- */
-export const NATIVE_CODE_FRAME_PATTERN = /^\[native code\]$/i;
 
 /**
  * Minimal PostHog event shape we depend on. Avoids importing posthog-js
@@ -185,11 +149,7 @@ function eventPageUrl(event: PostHogExceptionEvent): string {
  * NOT considered third-party-only (nothing to go on — fail open, keep visible).
  */
 function isThirdPartyStackOnly(event: PostHogExceptionEvent): boolean {
-  const origins = extractStackFrameOrigins(event);
-  if (origins.length === 0) return false;
-  const ownershipBearingOrigins = origins.filter((origin) => !NATIVE_CODE_FRAME_PATTERN.test(origin));
-  if (ownershipBearingOrigins.length === 0) return false;
-  return ownershipBearingOrigins.every((origin) => THIRD_PARTY_STACK_ORIGINS.some((pattern) => pattern.test(origin)));
+  return areAllOriginsThirdParty(extractStackFrameOrigins(event));
 }
 
 // ──────────────────────────────────────────────────────────────────────────
