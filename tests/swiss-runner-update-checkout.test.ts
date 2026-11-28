@@ -64,11 +64,15 @@ describe('install-swiss-runner update_checkout', () => {
     writeFileSync(join(f.site, 'scripts/assisted-application/local-runner.mjs'), 'console.log(`STATE=${process.env.SWISS_RUNNER_CODE_STATE || ""}`); // local edit\n');
     writeFileSync(join(f.site, 'data/ledger.jsonl'), 'changed\n');
     f.advanceOrigin();
+    const before = git(f.site, 'rev-parse', 'HEAD');
 
     expect(f.run()).toContain('STATE=stale_code');
     expect(readFileSync(join(f.site, 'scripts/assisted-application/local-runner.mjs'), 'utf8')).toContain('local edit');
     expect(readFileSync(join(f.site, 'data/ledger.jsonl'), 'utf8')).toBe('changed\n');
-    expect(git(f.site, 'rev-parse', 'HEAD')).not.toBe(git(f.site, 'rev-parse', 'origin/main'));
+    // HEAD stays where it was (no update with code changes) and origin's real tip (read from the origin repo,
+    // since the stopped cycle does not even fetch) is ahead of it.
+    expect(git(f.site, 'rev-parse', 'HEAD')).toBe(before);
+    expect(git(join(f.home, 'origin.git'), 'rev-parse', 'main')).not.toBe(before);
     expect(f.log()).toContain('local CODE changes');
   });
 
