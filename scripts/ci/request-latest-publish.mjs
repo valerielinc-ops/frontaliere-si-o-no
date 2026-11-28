@@ -518,13 +518,45 @@ function authToken() {
   return token;
 }
 
+export const GITHUB_READ_RETRY_DELAYS_MS = Object.freeze([2_000, 8_000]);
+
+/**
+ * Bounded retry for one idempotent GitHub read. A 5xx, a timeout or a dropped
+ * connection is retried; any other status (403, 404, 422, 429) fails at once.
+ * One 502 or one 20 s timeout used to turn the whole reconcile tick red (runs
+ * 46019766508, 46084714317, 46154523414). Reads only: the dispatch POST is not
+ * idempotent and is never repeated.
+ */
+export async function readWithRetry(attempt, {
+  delaysMs = GITHUB_READ_RETRY_DELAYS_MS,
+  sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
+} = {}) {
+  for (let index = 0; ; index += 1) {
+    try {
+      return await attempt();
+    } catch (error) {
+      const status = error?.httpStatus;
+      const transient = status === undefined
+        ? ['TimeoutError', 'AbortError', 'TypeError'].includes(error?.name)
+        : status >= 500;
+      if (!transient || index >= delaysMs.length) throw error;
+      console.warn(`::warning::GitHub read failed (${String(error?.message || error).split('\n')[0]}); retry ${index + 1}/${delaysMs.length}`);
+      await sleep(delaysMs[index]);
+    }
+  }
+}
+
 async function ghJson(urlPath) {
-  const response = await fetch(`${API}${urlPath}`, {
-    headers: githubApiHeaders(authToken()),
-    signal: AbortSignal.timeout(20_000),
+  return readWithRetry(async () => {
+    const response = await fetch(`${API}${urlPath}`, {
+      headers: githubApiHeaders(authToken()),
+      signal: AbortSignal.timeout(20_000),
+    });
+    if (!response.ok) {
+      throw Object.assign(new Error(`GitHub API ${urlPath} → HTTP ${response.status}`), { httpStatus: response.status });
+    }
+    return response.json();
   });
-  if (!response.ok) throw new Error(`GitHub API ${urlPath} → HTTP ${response.status}`);
-  return response.json();
 }
 
 async function ghPost(urlPath, body) {

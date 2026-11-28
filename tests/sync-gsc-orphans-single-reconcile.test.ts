@@ -15,4 +15,11 @@ describe('GSC orphan workflow assembly reconciliation', () => {
     expect(steps[assembleIndex].env.JOBS_SKIP_RECONCILIATION).toBe('1');
     expect(steps[reconcileIndex].run).toBe('node scripts/reconcile-job-slugs.mjs');
   });
+
+  it('gives the orphan sync the 8 GB heap it ran out of without', () => {
+    const sync = workflow.jobs['sync-orphans'].steps
+      .find((step: { name?: string }) => step.name === 'Sync GSC orphan slugs + enrich');
+
+    expect(sync.env.NODE_OPTIONS).toBe('--max-old-space-size=8192');
+  });
 });

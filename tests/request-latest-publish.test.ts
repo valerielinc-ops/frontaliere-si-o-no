@@ -10,6 +10,7 @@ import {
   publishBackoffMs,
   publishToolchainPathHit,
   readToolchainChange,
+  readWithRetry,
 } from '../scripts/ci/request-latest-publish.mjs';
 import {
   BUILD_BLOCKED_ISSUE_PREFIX,
@@ -621,6 +622,62 @@ describe('shared blocked-issue module', () => {
     } finally {
       if (was !== undefined) process.env.PUBLISH_ISSUE_UPDATE = was;
     }
+  });
+});
+
+describe('readWithRetry', () => {
+  const httpError = (httpStatus: number) => Object.assign(new Error(`HTTP ${httpStatus}`), { httpStatus });
+  const timeout = () => Object.assign(new Error('aborted due to timeout'), { name: 'TimeoutError' });
+  const failingThenOk = (failures: Error[]) => {
+    let calls = 0;
+    return {
+      calls: () => calls,
+      attempt: async () => {
+        const failure = failures[calls++];
+        if (failure) throw failure;
+        return 'ok';
+      },
+    };
+  };
+  const options = () => {
+    const waits: number[] = [];
+    return { waits, delaysMs: [1, 2], sleep: async (ms: number) => { waits.push(ms); } };
+  };
+
+  it.each([
+    ['a 502', () => httpError(502)],
+    ['a read timeout', timeout],
+    ['a dropped connection', () => new TypeError('fetch failed')],
+  ])('retries %s and returns the later answer', async (_label, make) => {
+    const read = failingThenOk([make(), make()]);
+    const { waits, ...opts } = options();
+    await expect(readWithRetry(read.attempt, opts)).resolves.toBe('ok');
+    expect(read.calls()).toBe(3);
+    expect(waits).toEqual([1, 2]);
+  });
+
+  it('stops after the bounded attempts with the last error', async () => {
+    const read = failingThenOk([httpError(502), httpError(503), httpError(504)]);
+    await expect(readWithRetry(read.attempt, options())).rejects.toThrow('HTTP 504');
+    expect(read.calls()).toBe(3);
+  });
+
+  it.each([
+    ['a 404', () => httpError(404)],
+    ['a 403', () => httpError(403)],
+    ['a 429', () => httpError(429)],
+    ['a malformed body', () => new SyntaxError('Unexpected token')],
+    ['a missing token', () => new Error('GH_TOKEN or GITHUB_TOKEN required')],
+  ])('does not repeat %s', async (_label, make) => {
+    const read = failingThenOk([make()]);
+    await expect(readWithRetry(read.attempt, options())).rejects.toBeInstanceOf(Error);
+    expect(read.calls()).toBe(1);
+  });
+
+  it('is never applied to the non-idempotent dispatch POST', () => {
+    const source = readFileSync(resolve('scripts/ci/request-latest-publish.mjs'), 'utf8');
+    const post = source.slice(source.indexOf('async function ghPost'), source.indexOf('function repository'));
+    expect(post).not.toContain('readWithRetry');
   });
 });
 
