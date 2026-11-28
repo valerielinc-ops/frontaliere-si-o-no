@@ -1,9 +1,9 @@
 {
-  "generatedFor": "2026-11-27",
+  "generatedFor": "2026-11-28",
   "windowDays": 7,
   "current": {
-    "weekStart": "2026-11-20",
-    "weekEnd": "2026-11-26",
+    "weekStart": "2026-11-21",
+    "weekEnd": "2026-11-27",
     "perCrossing": {
       "anieres": {
         "weightedAvgMinutes": 0,
@@ -21,7 +21,7 @@
         "canton": "AG"
       },
       "bardonnex": {
-        "weightedAvgMinutes": 4.23404255319149,
+        "weightedAvgMinutes": 4.127659574468085,
         "totalSamples": 47,
         "canton": "GE"
       },
@@ -151,17 +151,17 @@
         "canton": "VD"
       },
       "chiasso-brogeda": {
-        "weightedAvgMinutes": 1.1914893617021276,
+        "weightedAvgMinutes": 1.0212765957446808,
         "totalSamples": 47,
         "canton": "TI"
       },
       "chiasso-centro": {
-        "weightedAvgMinutes": 0.1702127659574468,
+        "weightedAvgMinutes": 0.5106382978723404,
         "totalSamples": 47,
         "canton": "TI"
       },
       "chiasso-strada": {
-        "weightedAvgMinutes": 0.1702127659574468,
+        "weightedAvgMinutes": 0.5106382978723404,
         "totalSamples": 47,
         "canton": "TI"
       },
@@ -241,7 +241,7 @@
         "canton": "JU"
       },
       "ferney-voltaire-grand-saconnex": {
-        "weightedAvgMinutes": 3.0638297872340425,
+        "weightedAvgMinutes": 2.382978723404255,
         "totalSamples": 47,
         "canton": "GE"
       },
@@ -491,7 +491,7 @@
         "canton": "SH"
       },
       "meyrin-cern": {
-        "weightedAvgMinutes": 0.5106382978723404,
+        "weightedAvgMinutes": 0.3404255319148936,
         "totalSamples": 47,
         "canton": "GE"
       },
@@ -531,7 +531,7 @@
         "canton": "GR"
       },
       "perly": {
-        "weightedAvgMinutes": 0.6808510638297872,
+        "weightedAvgMinutes": 0.851063829787234,
         "totalSamples": 47,
         "canton": "GE"
       },
@@ -713,8 +713,8 @@
     }
   },
   "previous": {
-    "weekStart": "2026-11-13",
-    "weekEnd": "2026-11-19",
+    "weekStart": "2026-11-14",
+    "weekEnd": "2026-11-20",
     "perCrossing": {
       "anieres": {
         "weightedAvgMinutes": 0,
@@ -732,7 +732,7 @@
         "canton": "AG"
       },
       "bardonnex": {
-        "weightedAvgMinutes": 4.25531914893617,
+        "weightedAvgMinutes": 3.765957446808511,
         "totalSamples": 47,
         "canton": "GE"
       },
@@ -867,12 +867,12 @@
         "canton": "TI"
       },
       "chiasso-centro": {
-        "weightedAvgMinutes": 0.1702127659574468,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "TI"
       },
       "chiasso-strada": {
-        "weightedAvgMinutes": 0.1702127659574468,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "TI"
       },
@@ -962,7 +962,7 @@
         "canton": "GR"
       },
       "gaggiolo": {
-        "weightedAvgMinutes": 1.702127659574468,
+        "weightedAvgMinutes": 1.872340425531915,
         "totalSamples": 47,
         "canton": "TI"
       },
@@ -1327,7 +1327,7 @@
         "canton": "GR"
       },
       "san-pietro": {
-        "weightedAvgMinutes": 1.702127659574468,
+        "weightedAvgMinutes": 1.872340425531915,
         "totalSamples": 47,
         "canton": "TI"
       },
