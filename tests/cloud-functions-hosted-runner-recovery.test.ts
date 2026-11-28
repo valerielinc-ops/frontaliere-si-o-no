@@ -195,8 +195,8 @@ describe('bounded Cloud Functions hosted-runner recovery', () => {
     const recoveryTokenStep = recovery.jobs.retry.steps.find((step: any) => step.name === 'Load recovery API token from Remote Config');
     expect(recoveryTokenStep?.run).toContain('node scripts/load-rc-env.mjs --only-env=GITHUB_PAT');
     const recoveryScript = recovery.jobs.retry.steps.at(-1).with.script;
-    expect(recoveryScript).toContain("const { getOctokit: createOctokit } = require('@actions/github');");
-    expect(recoveryScript).toContain('createOctokit(recoveryToken)');
+    expect(recoveryScript).not.toContain("require('@actions/github')");
+    expect(recoveryScript).toContain('const recoveryGithub = getOctokit(recoveryToken);');
     expect(recoveryScript).toContain('process.env.GITHUB_PAT');
     expect(recoveryScript).toContain('recoveryGithub.rest.actions.listJobsForWorkflowRunAttempt');
     expect(recoveryScript).toContain('recoveryGithub.rest.checks.listAnnotations');
