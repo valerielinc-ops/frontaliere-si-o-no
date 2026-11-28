@@ -116,6 +116,13 @@ function passwordResetAccessibleName(control) {
 }
 
 const PASSWORD_RESET_CONFIRM_RE = /(?:reset|change|update|save|submit|continue|confirm|set\s+(?:new\s+)?password|zurücksetzen|zuruecksetzen|speichern|setzen|vergeben|festlegen|absenden|bestätigen|bestaetigen|ändern|aendern|modifier|enregistrer|réinitialiser|reinitialiser|définir|definir|salva|aggiorna|reimposta|imposta)/i;
+// What a portal prints once it has taken a reset request. Avature (Deloitte CH, 2026-11-28) answers every address alike,
+// «If the email address you entered is associated with an account in our records, you will receive an email…», so the
+// page proves the request was taken, never that this address has an account.
+const PASSWORD_RESET_ACKNOWLEDGED_RE = /(?:check your e-?mail|(?:if|wenn)\s+(?:the\s+)?e-?mail(?:\s+address)?[^.]{0,80}(?:associated|account|records|konto|zugeordnet)|we(?: have|['’]ve) (?:sent|e-?mailed)\b[^.]{0,60}(?:link|instructions)|(?:link|instructions)[^.]{0,60}\b(?:has|have) been sent|pr[üu]fen sie ihr(?:e)? e-?mail|v[ée]rifiez (?:votre|vos) (?:e-?mails?|bo[iî]te)|controlla (?:la tua )?(?:e-?mail|posta))/iu;
+export function passwordResetRequestAcknowledged(text) {
+  return PASSWORD_RESET_ACKNOWLEDGED_RE.test(String(text || '').normalize('NFKC').replace(/\s+/gu, ' '));
+}
 const PASSWORD_RESET_REFUSED_RE = /(?:expired|invalid|not valid|cannot be used|could not be reset|abgelaufen|ungültig|nicht gültig|expiré|invalide|scadut[oa]|non valido|rifiutat[oa])/i;
 const ALREADY_APPLIED_RE = /(?:already applied|application already (?:exists|submitted|received)|you have already applied|déjà postulé|déjà candidaté|bereits beworben|bereits eine bewerbung|già candid(?:at[oa]|at[oa])|hai già inviato la candidatura|già presentata la candidatura)/iu;
 const APPLICATION_HISTORY_RE = /(?:my applications|mes candidatures|mes demandes de candidature|meine bewerbungen|le mie candidature|i miei invii)/iu;
@@ -10757,6 +10764,7 @@ export async function recoverAccountPassword({ page, snapshot, ctx, host, accoun
   recoveryAttempts.add(host);
   let requestAt = Number(account?.recoveryRequestedAt) || 0;
   let resetMessage = null;
+  let requestAcknowledged = false;
   let resolvedSignInUrl = authPageKind(snapshot) === 'sign_in' ? page.url() : '';
   const existingRequestActive = account?.status === 'recovering' && requestAt > 0
     && Date.now() - requestAt < 15 * 60 * 1000 && Boolean(account.password);
@@ -10813,13 +10821,16 @@ export async function recoverAccountPassword({ page, snapshot, ctx, host, accoun
       await ctx.accounts.abortRecovery(host, { requestSubmitted: false });
       return recoveryHandoff('account_recovery_rejected', 'reset_request_click_failed');
     }
+    // The portal's own answer to the request, read before the wait: said in the evidence if no mail follows.
+    await settle(page).catch(() => {});
+    requestAcknowledged = passwordResetRequestAcknowledged(await pageText(page).catch(() => ''));
     resetMessage = await ctx.accounts.waitForPasswordReset({ host, sinceMs: requestAt });
   }
   const resetUrl = exactHttpsPortalHostUrl(resetMessage?.url, host);
   const temporaryPassword = typeof resetMessage?.temporaryPassword === 'string'
     ? resetMessage.temporaryPassword : '';
   if (!resetUrl && !temporaryPassword) {
-    return recoveryHandoff('account_recovery_timeout', 'reset_mail_not_received');
+    return recoveryHandoff('account_recovery_timeout', requestAcknowledged ? 'reset_mail_not_received_acknowledged' : 'reset_mail_not_received');
   }
   let resetView = null;
   if (resetUrl) {
