@@ -89,6 +89,25 @@ export const PASTAHR_RUN_USER_AGENT =
 export const PASTAHR_ENDPOINT = 'https://www.publicjobs.ch/widget';
 
 /**
+ * True only when a widget response structurally PROVES an empty board:
+ * `success === true` and `data` is an array of length 0. An HTTP error never
+ * reaches here (the fetch throws), and `success:false`, a missing/renamed
+ * `data`, or a non-object body are NOT proof (fail-closed). Callers must apply
+ * it to the FIRST page only: an empty trailing page of a paginated walk says
+ * nothing about earlier rows.
+ *
+ * @param {unknown} response parsed widget JSON
+ * @returns {boolean}
+ */
+export function isPastaHrProvenEmptyResponse(response) {
+  return Boolean(response)
+    && typeof response === 'object'
+    && response.success === true
+    && Array.isArray(response.data)
+    && response.data.length === 0;
+}
+
+/**
  * Derive the `Sec-CH-UA-Platform` client-hint value from the chosen UA string.
  * Cloudflare cross-checks the platform hint against the UA: a desktop UA that
  * says macOS/Linux paired with a `"Windows"` hint is a *mismatched* fingerprint

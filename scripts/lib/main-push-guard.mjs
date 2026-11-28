@@ -17,6 +17,24 @@ import { isInvokedDirectly } from './is-invoked-directly.mjs';
 export const DEFAULT_MIN_TREE_RATIO = 0.5;
 export const DEFAULT_PUSH_TIMEOUT_SECONDS = 180;
 
+// Push-safety ceiling of every crawler job slice, active and expired: 10 MB
+// under GitHub's 100 MB blob limit. Inlined (not imported) because callers copy
+// this guard into sparse checkouts file by file; a test pins it to
+// EXPIRED_SLICE_SIZE_LIMIT_BYTES.
+export const JOB_SLICE_CEILING_BYTES = 90 * 1024 * 1024;
+const JOB_SLICE_DIRS = ['data/jobs/by-crawler', 'data/jobs/expired/by-crawler'];
+// The expired archive opens new shards by itself; an active slice cannot, so it
+// is announced while there is still room to act.
+const ACTIVE_SLICE_WARNING_RATIO = 0.8;
+
+/** The env override exists for fixtures and can only LOWER the ceiling. */
+export function jobSliceCeilingBytes(env = process.env) {
+  const override = Number(env.JOB_SLICE_CEILING_BYTES);
+  return Number.isSafeInteger(override) && override > 0 && override < JOB_SLICE_CEILING_BYTES
+    ? override
+    : JOB_SLICE_CEILING_BYTES;
+}
+
 function optionValue(argv, index, option) {
   const value = argv[index + 1];
   if (!value || value.startsWith('--')) throw new Error(`${option} needs a value`);
@@ -156,6 +174,46 @@ function isAncestor(repo, baseSha, candidateSha, deadline) {
   throw new Error(`cannot prove ancestry ${baseSha} -> ${candidateSha}: ${(result.stderr || '').trim() || 'git error'}`);
 }
 
+function blobSize(repo, blob, deadline) {
+  try {
+    return Number(git(repo, ['cat-file', '-s', blob], { deadline, operation: 'sizing a job slice' }).trim());
+  } catch (error) {
+    if (error instanceof MainPushDeadlineError) throw error;
+    return null;
+  }
+}
+
+/**
+ * Refuse a candidate that adds or grows a job slice past the ceiling. A file
+ * already above it may still shrink, or the writer that repairs it could never
+ * publish. A new blob that is not in the local object store was not produced
+ * here (it came from the remote), so it cannot be sized without a fetch.
+ */
+function assertJobSliceCeiling(repo, baseSha, candidateSha, deadline) {
+  const ceiling = jobSliceCeilingBytes();
+  const raw = git(repo, ['diff-tree', '-r', '-z', '--no-renames', baseSha, candidateSha, '--', ...JOB_SLICE_DIRS], {
+    deadline,
+    operation: 'listing changed job slices',
+  }).split('\0');
+  const oversize = [];
+  for (let index = 0; index + 1 < raw.length; index += 2) {
+    const [, , oldBlob, newBlob, status] = raw[index].split(' ');
+    const filePath = raw[index + 1];
+    if (status === 'D' || !filePath.endsWith('.json')) continue;
+    const size = blobSize(repo, newBlob, deadline);
+    if (size === null) continue;
+    if (size > ceiling) {
+      const previous = status === 'A' ? null : blobSize(repo, oldBlob, deadline);
+      if (previous === null || size > previous) oversize.push(`${filePath} (${size} bytes)`);
+    } else if (filePath.startsWith('data/jobs/by-crawler/') && size > ceiling * ACTIVE_SLICE_WARNING_RATIO) {
+      console.error(`::warning::main push guard: ${filePath} is ${size} bytes, near the ${ceiling} byte job slice ceiling; active slices do not shard`);
+    }
+  }
+  if (oversize.length > 0) {
+    throw new Error(`job slice above the ${ceiling} byte push-safety ceiling (GitHub refuses 100 MB): ${oversize.join(', ')}`);
+  }
+}
+
 /**
  * Validate a candidate without changing refs or pushing anything.
  *
@@ -193,6 +251,8 @@ export function inspectMainPushCandidate({
       + `minimum is ${minimumEntries} (${minTreeRatio * 100}% of base)`,
     );
   }
+
+  assertJobSliceCeiling(repo, baseSha, candidateSha, sharedDeadline);
 
   return { baseSha, candidateSha, baseEntries, candidateEntries, minimumEntries };
 }

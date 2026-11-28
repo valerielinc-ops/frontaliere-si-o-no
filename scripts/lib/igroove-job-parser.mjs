@@ -37,6 +37,7 @@ import {
   swissCityFromLocationField,
 } from './target-swiss-locations.mjs';
 import { resolveSwissLocalityCanton, resolveSwissPostalCodePlace } from './swiss-locality-directory.mjs';
+import { isAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { fetchPersonioJobs } from './ats-clients/personio-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -226,6 +227,8 @@ export async function fetchAllIgrooveJobs() {
 
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
+    // Keep the source-proven-empty stamp (non-enumerable) intact.
+    if (isAuthoritativeEmptySnapshot(listings)) return listings;
     return [];
   }
 

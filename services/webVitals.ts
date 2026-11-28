@@ -14,7 +14,7 @@
 
 import { isAnalyticsGranted } from '@/services/consentService';
 import { deriveAnalyticsPageContext } from '@/services/analyticsPageContext';
-import { buildCwvAttributionEvent } from '@/services/webVitalsAttribution';
+import { buildCwvAttributionEvent, INTERACTION_EVENT_TYPES, recordInteraction } from '@/services/webVitalsAttribution';
 
 // Session-level sampling: all CWV metrics for a session are included or excluded
 // together so p75 calculations remain consistent across metrics.
@@ -172,6 +172,16 @@ function sendToPostHog(metric: WebVitalMetric) {
  * Uses Google's `web-vitals` library for accurate, spec-compliant measurements.
  */
 export function initWebVitals() {
+ // Remember the target of recent interactions at the time they happen: when
+ // the INP report arrives the node is often gone (list re-render on click).
+ // Passive + capture, O(1) body (see recordInteraction): must not add INP.
+ try {
+ for (const type of INTERACTION_EVENT_TYPES) {
+ document.addEventListener(type, (event) => recordInteraction(event, location.pathname), { capture: true, passive: true });
+ }
+ } catch {
+ // No document (non-browser): nothing to record.
+ }
  import('web-vitals/attribution').then(({ onCLS, onLCP, onFCP, onTTFB, onINP }) => {
  const report = (metric: WebVitalMetric) => {
  sendToGA4(metric);

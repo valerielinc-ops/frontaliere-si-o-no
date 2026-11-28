@@ -2,7 +2,7 @@
 /**
  * ATEC Personal AG job parser — Fetcher and job builder.
  *
- * Source: https://atec-personal.ch/stellenangebot/prozessverantwortlicher-pruef-und-messmittel-80-100-a-3186-duedingen/cac94c1f-e85d-40e7-814b-e9f55ab36b29/
+ * Source: https://atec-personal.ch/stellen/
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllAtecPersonalJobs()  — Fetch and parse all jobs
@@ -24,7 +24,7 @@ export const ATEC_PERSONAL_KEY = 'atec-personal';
 export const ATEC_PERSONAL_COMPANY_NAME = 'ATEC Personal AG';
 export const ATEC_PERSONAL_COMPANY_DOMAIN = 'atec-personal.ch';
 
-const CAREER_URL = 'https://atec-personal.ch/stellenangebot/prozessverantwortlicher-pruef-und-messmittel-80-100-a-3186-duedingen/cac94c1f-e85d-40e7-814b-e9f55ab36b29/';
+const CAREER_URL = 'https://atec-personal.ch/stellen/';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 

@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';
 import {
   ATEC_PERSONAL_KEY,
@@ -6,6 +7,7 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/atec-personal-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 
 describe('ATEC Personal AG crawler parser', () => {
   // ── Constants ──
@@ -125,5 +127,34 @@ describe('ATEC Personal AG crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+describe('ATEC Personal AG prospector spec', () => {
+  const spec = JSON.parse(readFileSync(
+    new URL('../data/prospector/crawlers/atec-personal.json', import.meta.url),
+    'utf8',
+  ));
+  // Invented vacancy paths with the structure of the real detail URLs.
+  const detailUrl = 'https://atec-personal.ch/stellenangebot/beispiel-stelle-80-100-musterstadt/00000000-0000-4000-8000-000000000000';
+
+  it('seeds the vacancy board, never a single vacancy detail page', () => {
+    expect(spec.seedUrls).toEqual(['https://atec-personal.ch/stellen/']);
+    const template = templateToRegex(spec.detailTemplate);
+    expect(template.test(new URL(spec.seedUrls[0]).pathname)).toBe(false);
+  });
+
+  it('matches vacancy details through a wildcard template and enriches them', () => {
+    expect(spec.mode).toBe('known-template');
+    expect(spec.detailEnrichment).toBe(true);
+    expect(templateToRegex(spec.detailTemplate).test(new URL(detailUrl).pathname)).toBe(true);
+  });
+
+  it('keeps the parser source URL aligned with the spec seed', () => {
+    const parser = readFileSync(
+      new URL('../scripts/lib/atec-personal-job-parser.mjs', import.meta.url),
+      'utf8',
+    );
+    expect(parser).toContain(`const CAREER_URL = '${spec.seedUrls[0]}';`);
   });
 });
