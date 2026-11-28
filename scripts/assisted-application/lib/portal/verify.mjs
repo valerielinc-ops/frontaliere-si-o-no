@@ -1,6 +1,6 @@
 /** Protected inspection: existing-account sign-in, GET reads, no application actions. */
 import { isStealthBrowser, launchStealthOrChromium } from '../../../lib/stealth-browser.mjs';
-import { COOKIE_REJECT_RE, headedBrowser, recoverAccountPassword } from './portal.mjs';
+import { COOKIE_REJECT_RE, headedBrowser, recoverAccountPassword, signInEmailValue } from './portal.mjs';
 import { extractFields } from './fields.mjs';
 import { SIGN_IN_RE, authPageKind, loginFields } from './account.mjs';
 import { applyActions, findButton, locatorFor } from './fill.mjs';
@@ -308,9 +308,16 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       }
     };
     // One sign-in attempt with one password: null when the portal let the account through, else why not.
+    const reopenLogin = async () => {
+      await page.goto(targetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      snapshot = await extractFields(page, { listboxOptions: false });
+      await prepareLoginPage();
+    };
     let loadedAccount = null;
     const getAccount = async () => { loadedAccount ??= await accounts.load(new URL(page.url()).hostname); return loadedAccount; };
-    const attemptSignin = async (secretOverride = '') => {
+    // Whether the sign-in field cuts the account's address (umantis: maxlength 50 on UserName, the alias is 51 long).
+    let usernameClamped = false;
+    const attemptSignin = async (secretOverride = '', { emailVariant = 'full' } = {}) => {
       // The trust is in the form's own action below (the vacancy's login route), on any page of the order's vacancy.
       if (!(signinOk(page.url()) || (probe && applicationExistsProbeNavigation(page.url(), probe)))) return { reason: 'login_page_not_trusted' };
       // A sign-in page can carry a registration form next to the sign-in one (two password fields): the sign-in
@@ -340,7 +347,26 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       loginAction = owned.action;
       loginPosted = false;
       navigationTargets.add(loginAction);
-      await applyActions(page, [email, password], [{ fieldId: email.id, action: 'fill', value: account.email }, { fieldId: password.id, action: 'fill', value: secret }], {});
+      // The address is typed in full by default (the runner's own sign-in does the same, `preserveFullValue`: the
+      // field's client-side cap is raised so the whole address reaches the portal, which holds the account under the
+      // full one); the cut variant is only the second try.
+      const fullAddress = String(account.email).trim();
+      const limit = Number(email.maxLength);
+      usernameClamped = Number.isFinite(limit) && limit >= 20 && fullAddress.length > limit;
+      const typedAddress = emailVariant === 'truncated' ? signInEmailValue(email, fullAddress) : fullAddress;
+      note('login_identity', page.url(), emailVariant, { length: typedAddress.length, ...(Number.isFinite(limit) && limit > 0 ? { limit } : {}) });
+      await applyActions(page, [email, password], [
+        { fieldId: email.id, action: 'fill', value: typedAddress, ...(emailVariant === 'full' ? { preserveFullValue: true } : {}) },
+        { fieldId: password.id, action: 'fill', value: secret },
+      ], {});
+      // What the field really holds, by its length only: a control that still cut the address is no sign-in.
+      const emailLocator = locatorFor(page, email);
+      if (emailVariant === 'full' && typeof emailLocator?.inputValue === 'function') {
+        // A value that cannot be read is as good as a cut one: nothing is clicked on an identity that may still be cut.
+        const held = await emailLocator.inputValue().catch(() => null);
+        if (typeof held !== 'string') return { reason: 'login_username_cut', extra: { readable: false, wanted: typedAddress.length } };
+        if (held.length !== typedAddress.length) return { reason: 'login_username_cut', extra: { typed: held.length, wanted: typedAddress.length } };
+      }
       loginArmed = true;
       await locatorFor(page, signin).click({ timeout: 6000 });
       await page.waitForLoadState('domcontentloaded').catch(() => {});
@@ -409,13 +435,31 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       await page.goto(targetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
       snapshot = await extractFields(page, { listboxOptions: false });
       await prepareLoginPage();
-      return (await attemptSignin()) || null;
+      const first = await attemptSignin('', { emailVariant: 'full' });
+      if (!first) return null;
+      if (usernameClamped && (first.reason === 'login_not_accepted' || first.reason === 'login_username_cut')) {
+        await reopenLogin();
+        return snapshot.passwordVisible ? attemptSignin('', { emailVariant: 'truncated' }) : null;
+      }
+      return first;
     };
     stage = 'login';
     await prepareLoginPage();
     if (snapshot.passwordVisible) {
       const host = new URL(page.url()).hostname;
+      let emailVariant = 'full';
       let failure = await attemptSignin();
+      // The full address first, then (only when the field cuts it) the address as the field keeps it: both are
+      // identities the portal may hold the account under, and a rejected one says nothing about the password.
+      if ((failure?.reason === 'login_not_accepted' || failure?.reason === 'login_username_cut') && usernameClamped) {
+        await reopenLogin();
+        if (snapshot.passwordVisible) {
+          // The portal refused the whole address (or the field cut it): from here on the account is looked for under the
+          // address as the field keeps it, for this password and for every other candidate, before any recovery.
+          emailVariant = 'truncated';
+          failure = await attemptSignin('', { emailVariant });
+        } else failure = null;
+      }
       let adopted = '';
       if (failure?.reason === 'login_not_accepted') {
         // Every password the store or the alias inbox can still offer, once each (at most three more sign-ins): the
@@ -432,7 +476,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
           snapshot = await extractFields(page, { listboxOptions: false });
           await prepareLoginPage();
           if (!snapshot.passwordVisible) { failure = null; break; }
-          failure = await attemptSignin(secret);
+          failure = await attemptSignin(secret, { emailVariant });
           if (!failure) { adopted = secret; break; }
           if (failure.reason !== 'login_not_accepted') break;
         }
