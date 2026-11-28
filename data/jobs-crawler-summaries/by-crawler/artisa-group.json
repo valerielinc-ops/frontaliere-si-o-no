@@ -1,7 +1,7 @@
 {
   "key": "artisa-group",
   "label": "Artisa Group",
-  "generatedAt": "2026-11-27T21:37:47.136Z",
+  "generatedAt": "2026-11-28T09:24:20.668Z",
   "total": 2,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": true,
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 3268,
-  "avgDurationMs": 3268,
+  "durationMs": 3349,
+  "avgDurationMs": 3349,
   "durationHistory": [
-    3268
+    3349
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-27T21:37:27.897Z",
+      "validThrough": "2026-12-28T09:24:00.908Z",
       "id": "artisa-group-602dc2ab62a9",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -53,7 +53,7 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-27T21:37:27.897Z",
+      "crawledAt": "2026-11-28T09:24:00.908Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -86,7 +86,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-01-06T21:37:27.897Z",
+      "validThrough": "2027-01-06T09:24:00.908Z",
       "id": "artisa-group-ce53cb93ea60",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -97,7 +97,7 @@
       "firstSeenAt": "2026-10-07T21:40:39.703Z",
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-27T21:37:27.897Z",
+      "crawledAt": "2026-11-28T09:24:00.908Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://artisagroup.com/carriera",
       "_qualityScore": 95,
@@ -109,5 +109,5 @@
       }
     }
   ],
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
 }

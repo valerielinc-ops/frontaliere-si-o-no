@@ -1,7 +1,7 @@
 {
   "key": "bcvs",
   "label": "Banque Cantonale du Valais",
-  "generatedAt": "2026-11-27T21:36:15.715Z",
+  "generatedAt": "2026-11-28T09:47:04.903Z",
   "total": 11,
   "discovered": null,
   "parsed": 11,
@@ -13,16 +13,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 61708,
-  "avgDurationMs": 61708,
+  "durationMs": 10231,
+  "avgDurationMs": 10231,
   "durationHistory": [
-    61708
+    10231
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "bcvs-53c8ca0b7344",
       "slug": "privatkundenberater-in-banque-cantonale-du-valais-visp",
@@ -35,7 +36,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/privatkundenberater-in-2762",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:34:59.227Z",
+      "crawledAt": "2026-11-28T09:46:42.284Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -52,26 +53,24 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/privatkundenberater-in-2762",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-27T21:34:59.227Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "3930",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-25T21:34:59.227Z",
+      "validThrough": "2027-02-26T09:46:42.284Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-27T21:34:59.227Z",
-      "_qualityScore": 82,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -86,7 +85,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-back-office-credits-2513",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:35:03.765Z",
+      "crawledAt": "2026-11-28T09:46:47.558Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -121,7 +120,7 @@
       },
       "streetAddress": "Rue des Cèdres 8",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T21:35:03.765Z",
+      "validThrough": "2026-12-28T09:46:47.558Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -143,7 +142,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-ia-2693",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:35:03.350Z",
+      "crawledAt": "2026-11-28T09:46:46.961Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -178,7 +177,7 @@
       },
       "streetAddress": "Rue des Cèdres 8",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-31T21:35:03.350Z",
+      "validThrough": "2026-12-31T09:46:46.961Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -200,7 +199,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-des-prives-individuelle-2671",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:35:02.845Z",
+      "crawledAt": "2026-11-28T09:46:46.362Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -235,7 +234,7 @@
       },
       "streetAddress": "Rue des Cèdres 8",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T21:35:02.845Z",
+      "validThrough": "2027-01-13T09:46:46.362Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -257,7 +256,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/specialiste-tresorerie-devises-1-2732",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:35:02.339Z",
+      "crawledAt": "2026-11-28T09:46:45.899Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -292,7 +291,7 @@
       },
       "streetAddress": "Rue des Cèdres 8",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-01T21:35:02.339Z",
+      "validThrough": "2027-02-01T09:46:45.899Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -314,7 +313,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-conseillere-clientele-des-entreprises-2730",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:35:01.828Z",
+      "crawledAt": "2026-11-28T09:46:45.301Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -349,7 +348,7 @@
       },
       "streetAddress": "Rue des Cèdres 8",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-01T21:35:01.828Z",
+      "validThrough": "2027-02-01T09:46:45.301Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -371,7 +370,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-conseillere-bancaire-2741",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:35:01.412Z",
+      "crawledAt": "2026-11-28T09:46:44.845Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -406,7 +405,7 @@
       },
       "streetAddress": "Rue des Cèdres 8",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T21:35:01.412Z",
+      "validThrough": "2027-02-11T09:46:44.845Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -428,7 +427,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gerant-e-dimmeubles-2743",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:35:00.994Z",
+      "crawledAt": "2026-11-28T09:46:44.249Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -463,7 +462,7 @@
       },
       "streetAddress": "Rue des Cèdres 8",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T21:35:00.994Z",
+      "validThrough": "2027-02-11T09:46:44.249Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -485,7 +484,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-data-ia-2691",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:35:00.578Z",
+      "crawledAt": "2026-11-28T09:46:43.787Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -520,7 +519,7 @@
       },
       "streetAddress": "Rue des Cèdres 8",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T21:35:00.578Z",
+      "validThrough": "2026-12-28T09:46:43.787Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -542,7 +541,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/data-analyst-bi-expert-2695",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:35:00.071Z",
+      "crawledAt": "2026-11-28T09:46:43.192Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -577,7 +576,7 @@
       },
       "streetAddress": "Rue des Cèdres 8",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T21:35:00.071Z",
+      "validThrough": "2026-12-28T09:46:43.192Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -599,7 +598,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/chef-fe-de-projets-it-business-analyste-2752",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:34:59.648Z",
+      "crawledAt": "2026-11-28T09:46:42.739Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -634,7 +633,7 @@
       },
       "streetAddress": "Rue des Cèdres 8",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-29T21:34:59.648Z",
+      "validThrough": "2026-12-30T09:46:42.739Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -645,5 +644,5 @@
       }
     }
   ],
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
 }

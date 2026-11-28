@@ -1,7 +1,7 @@
 {
   "crawlerKey": "mpa-praxisstellen-ch",
-  "assembledAt": "2026-11-27T21:22:19.137Z",
-  "runId": "46068240937",
+  "assembledAt": "2026-11-28T09:20:15.010Z",
+  "runId": "46128989728",
   "jobs": [
     {
       "id": "mpa-praxisstellen-ch-445577b9d250",
@@ -34,7 +34,7 @@
       "url": "https://www.pks-personal.ch/stellen/disponent-internationale-landverkehre-100-basel/basel/logistik-spedition/90afef0b",
       "source": "mpa-praxisstellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:22:12.617Z",
+      "crawledAt": "2026-11-28T09:20:05.446Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -85,7 +85,7 @@
       },
       "streetAddress": "Binningen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:22:12.617Z",
+      "validThrough": "2027-01-27T09:20:05.446Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://www.pks-personal.ch/stellen/zolldeklarant-in-import-export-50/basel/logistik-spedition/74191d9a",
       "source": "mpa-praxisstellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:22:12.615Z",
+      "crawledAt": "2026-11-28T09:20:05.443Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -170,7 +170,7 @@
       },
       "streetAddress": "Binningen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:22:12.615Z",
+      "validThrough": "2027-01-27T09:20:05.443Z",
       "validThroughSource": "last-observed-window"
     }
   ]

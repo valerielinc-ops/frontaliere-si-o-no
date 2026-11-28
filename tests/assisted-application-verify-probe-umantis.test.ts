@@ -7,7 +7,7 @@ vi.mock('../scripts/assisted-application/lib/portal/fields.mjs', async importOri
 vi.mock('../scripts/assisted-application/lib/portal/fill.mjs', async importOriginal => ({
   ...await importOriginal<any>(), applyActions: async (_page: any, fields: any[], actions: any[]) => { state.filled = fields; state.actions = actions; return []; },
 }));
-import { verifyPortalApplication } from '../scripts/assisted-application/lib/portal/verify.mjs';
+import { safeErrorInfo, verifyPortalApplication } from '../scripts/assisted-application/lib/portal/verify.mjs';
 import { applicationExistsProbeEntry, applicationExistsProbeNavigation } from '../functions/src/lib/applicationExistsReconciliation.js';
 import { portalAccountStore } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
@@ -21,9 +21,10 @@ const existsUrl = `https://${HOST}/Vacancies/6604/FurtherApplication/Application
 const account = { email: 'maria.rossi.abcd@candidature.frontaliereticino.ch', password: 'test-only-credential' };
 
 // A Login page of this ATS carries a registration form next to the sign-in form: three password fields in all.
+let usernameLimit: number | undefined;
 const loginPage = () => ({
   fields: [
-    { id: 'u1', kind: 'text', inputType: 'text', label: 'Benutzername:', frame: 0, formId: 'login' },
+    { id: 'u1', kind: 'text', inputType: 'text', label: 'Benutzername:', frame: 0, formId: 'login', ...(usernameLimit ? { maxLength: usernameLimit } : {}) },
     { id: 'p1', kind: 'text', inputType: 'password', label: 'Passwort:', frame: 0, formId: 'login' },
     { id: 'r1', kind: 'text', inputType: 'email', label: 'E-Mail', frame: 0, formId: 'register' },
     { id: 'r2', kind: 'text', inputType: 'password', label: 'Passwort', frame: 0, formId: 'register' },
@@ -46,23 +47,26 @@ const registerOnlyPage = () => ({
 });
 const inlineSigninPage = () => ({ ...loginPage(), text: 'Bewerbung. Bereits registriert? Anmelden' });
 
-type Store = { current: any; load: any; abortRecovery: any; mark: any; adoptPassword: any; resetPasswordCandidates: any; beginRecovery: any };
+type Store = { current: any; load: any; abortRecovery: any; mark: any; adoptPassword: any; resetPasswordCandidates: any; beginRecovery: any; completeRecovery: any };
 function makeStore(account: any): Store {
   const store: any = { current: account };
   store.load = vi.fn(async () => store.current);
   store.abortRecovery = vi.fn(async () => true);
   store.mark = vi.fn(async () => {});
   store.adoptPassword = vi.fn(async () => true);
+  store.completeRecovery = vi.fn(async () => true);
   store.resetPasswordCandidates = vi.fn(async () => []);
   store.beginRecovery = vi.fn(async () => ({ status: 'started', requestedAt: 1 }));
   return store;
 }
 
-function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = existsUrl, entryPage = 'redirect_to_login', accepted = null, store = makeStore(account), recover = undefined, allowRecovery = false, aliasEmail = '' }: { postTo?: string; formAction?: string; signedInPage?: string; entryPage?: Entry; accepted?: string[] | null; store?: Store; recover?: any; allowRecovery?: boolean; aliasEmail?: string } = {}) {
+function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = existsUrl, entryPage = 'redirect_to_login', accepted = null, portalUsername = null, limit = undefined, cutsInput = false, unreadableInput = false, store = makeStore(account), recover = undefined, allowRecovery = false, aliasEmail = '' }: { postTo?: string; formAction?: string; signedInPage?: string; entryPage?: Entry; accepted?: string[] | null; portalUsername?: string | null; limit?: number; cutsInput?: boolean; unreadableInput?: boolean; store?: Store; recover?: any; allowRecovery?: boolean; aliasEmail?: string } = {}) {
   let handler: (route: any) => Promise<void>;
   let currentUrl = '';
   let signedIn = false;
   const log: Array<{ method: string; url: string; allowed: boolean }> = [];
+  const attempts: Array<{ user: number; password: string }> = [];
+  usernameLimit = limit;
   const subframe = { name: 'subframe' };
   const fire = async (url: string, method = 'GET', navigation = true, inSubframe = false) => {
     let allowed = false;
@@ -89,10 +93,15 @@ function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = exis
     },
     locator: () => ({ first: () => ({
       evaluate: async () => ({ action: formAction, method: 'post', credentialsOwned: true }),
+      inputValue: async () => { if (unreadableInput) throw new Error('detached'); const typedUser = String(state.actions.find((action: any) => action.fieldId === 'u1')?.value ?? ''); return cutsInput && limit ? typedUser.slice(0, limit) : typedUser; },
       click: async () => {
         const typed = state.actions.find((action: any) => action.fieldId === 'p1')?.value;
+        const userAction = state.actions.find((action: any) => action.fieldId === 'u1');
+        // What the portal receives: the whole value when the run raised the field's cap (preserveFullValue), else what the field keeps.
+        const sentUser = userAction ? (userAction.preserveFullValue || !limit ? userAction.value : String(userAction.value).slice(0, limit)) : '';
         const posted = await fire(postTo, 'POST', false);
-        signedIn = posted && (accepted === null || accepted.includes(typed));
+        if (posted) attempts.push({ user: sentUser.length, password: String(typed) });
+        signedIn = posted && (accepted === null || accepted.includes(typed)) && (portalUsername === null || sentUser === portalUsername);
       },
     }) }),
     waitForLoadState: async () => {}, waitForTimeout: async () => {}, evaluate: async () => state.snapshot.text, screenshot: async () => Buffer.from('fixture'),
@@ -100,7 +109,7 @@ function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = exis
   const context = { route: async (_pattern: string, h: typeof handler) => { handler = h; }, routeWebSocket: async () => {}, addInitScript: async () => {}, newPage: async () => page, close: async () => {} };
   const run = () => verifyPortalApplication({ applyUrl, targetUrl: entry, probe, job: {}, accounts: store as any, allowRecovery, aliasEmail, ...(recover ? { recover } : {}),
     launch: async () => ({ newContext: async () => context, close: async () => {} }) as any });
-  return { run, fire, log, store };
+  return { run, fire, log, store, attempts };
 }
 
 describe('probe of an ATS sign-in with a registration form beside it (entry -> Login -> POST -> ApplicationExists)', () => {
@@ -279,6 +288,198 @@ describe('rejected sign-in: the previous password, then one recovery of the alia
       expect(((await run()) as any).stopReason).toBe('login_not_accepted');
     }
     expect(recover).not.toHaveBeenCalled();
+  });
+});
+
+describe('the sign-in identity: the field cuts the address (umantis UserName maxlength 50, the alias is longer)', () => {
+  const longAddress = 'maria.rossi.abcdefg@candidature.frontaliereticino.ch';
+  const cutAddress = longAddress.slice(0, 50);
+  const longAccount = { email: longAddress, password: 'test-only-credential' };
+
+  it('types the whole address with the field\'s cap raised (the run of 28/11 typed the cut one and was refused for a password that was right)', async () => {
+    expect(longAddress.length).toBeGreaterThan(50);
+    const { run, log } = harness({ store: makeStore(longAccount), limit: 50, portalUsername: longAddress });
+    const proof: any = await run();
+    expect(proof.applicationExists).toMatchObject({ vacancyId: '6604' });
+    expect(state.actions.find((action: any) => action.fieldId === 'u1')).toMatchObject({ value: longAddress, preserveFullValue: true });
+    expect(log.filter(entryLog => entryLog.method === 'POST')).toHaveLength(1);
+    expect(proof.trace).toEqual(expect.arrayContaining([expect.objectContaining({ kind: 'login_identity', reason: 'full', length: longAddress.length, limit: 50 })]));
+    expect(JSON.stringify(proof)).not.toContain('maria.rossi');
+  });
+
+  it('falls back to the address as the field keeps it, once, when the portal holds the account under that one', async () => {
+    const { run, log } = harness({ store: makeStore(longAccount), limit: 50, portalUsername: cutAddress });
+    const proof: any = await run();
+    expect(proof.applicationExists).toMatchObject({ vacancyId: '6604' });
+    expect(log.filter(entryLog => entryLog.method === 'POST')).toHaveLength(2);
+    const variants = proof.trace.filter((item: any) => item.kind === 'login_identity').map((item: any) => `${item.reason}:${item.length}`);
+    expect(variants).toEqual([`full:${longAddress.length}`, `truncated:50`]);
+  });
+
+  it('a control that still cuts the typed address is no sign-in: the cut variant is tried instead, nothing is posted with the wrong one', async () => {
+    const { run, log } = harness({ store: makeStore(longAccount), limit: 50, cutsInput: true, portalUsername: cutAddress });
+    const proof: any = await run();
+    expect(proof.applicationExists).toMatchObject({ vacancyId: '6604' });
+    expect(log.filter(entryLog => entryLog.method === 'POST')).toHaveLength(1);
+  });
+
+  it('an unreadable field is a cut field: nothing is clicked, no POST, login_username_cut', async () => {
+    const { run, log } = harness({ store: makeStore(longAccount), limit: 50, unreadableInput: true, portalUsername: cutAddress });
+    const proof: any = await run();
+    // The full variant is never clicked; the cut variant (no readback needed) is the one that goes out.
+    expect(proof.trace).toEqual(expect.arrayContaining([expect.objectContaining({ kind: 'login_identity', reason: 'full' })]));
+    expect(log.filter(entryLog => entryLog.method === 'POST')).toHaveLength(1);
+    const only = harness({ store: makeStore(longAccount), limit: 50, unreadableInput: true, portalUsername: 'nobody' });
+    const refused: any = await only.run();
+    expect(refused.stopReason).not.toBe('inspection_exception');
+    expect(only.attempts.every(attempt => attempt.user === 50)).toBe(true);
+  });
+
+  it('once the whole address is refused, the other passwords are tried under the address the field keeps, and no recovery follows', async () => {
+    const store = makeStore({ ...longAccount, password: 'current', previousPassword: 'older' });
+    const recover = vi.fn();
+    const { run, attempts } = harness({ store, limit: 50, portalUsername: cutAddress, accepted: ['older'], recover, allowRecovery: true, aliasEmail: longAddress });
+    const proof: any = await run();
+    expect(proof.applicationExists).toMatchObject({ vacancyId: '6604' });
+    expect(attempts).toEqual([
+      { user: longAddress.length, password: 'current' },
+      { user: 50, password: 'current' },
+      { user: 50, password: 'older' },
+    ]);
+    expect(recover).not.toHaveBeenCalled();
+  });
+
+  it('no second identity when the field does not cut the address', async () => {
+    const { run, log } = harness({ store: makeStore(longAccount), accepted: [], recover: vi.fn(), allowRecovery: false });
+    const proof: any = await run();
+    expect(proof.stopReason).toBe('login_not_accepted');
+    expect(log.filter(entryLog => entryLog.method === 'POST')).toHaveLength(1);
+  });
+});
+
+describe('the reset e-mail\'s link and the errors of an inspection', () => {
+  const alias = account.email;
+  const resetLink = `https://${HOST}/?PasswordResetToken=SECRETTOKEN&PersID=1&customer=x&lang=ger&DesignID=2`;
+
+  it('the link the reset e-mail names is the one extra navigation the recovery may make (the run of 28/11 died on it)', async () => {
+    const store = makeStore({ ...account, password: 'rejected-one' });
+    store.waitForPasswordReset = vi.fn(async () => ({ url: resetLink, messageId: 'm', receivedAt: 2 }));
+    let fireIn: any;
+    const recover = vi.fn(async ({ ctx, host }: any) => {
+      // Before the e-mail is read, the same URL is refused; once the store names it, exactly it is allowed.
+      expect(await fireIn(resetLink)).toBe(false);
+      await ctx.accounts.waitForPasswordReset({ host, sinceMs: 1 });
+      expect(await fireIn(resetLink)).toBe(true);
+      expect(await fireIn(`https://${HOST}/?PasswordResetToken=OTHER`)).toBe(false);
+      expect(await fireIn(`https://${HOST}/Password/PWForgottenConfirm?PasswordResetToken=SECRETTOKEN`)).toBe(true);
+      return { handoff: 'account_recovery_timeout', accountFailure: { code: 'account_recovery_timeout', stage: 'login' } };
+    });
+    const h = harness({ accepted: [], store, recover, allowRecovery: true, aliasEmail: alias });
+    fireIn = h.fire;
+    const proof: any = await h.run();
+    expect(recover).toHaveBeenCalledTimes(1);
+    expect(proof.trace).toEqual(expect.arrayContaining([expect.objectContaining({ kind: 'reset_link', path: '/', params: expect.arrayContaining(['PasswordResetToken']) })]));
+    // Parameter NAMES only: the token itself is never in the evidence.
+    expect(JSON.stringify(proof)).not.toContain('SECRETTOKEN');
+  });
+
+  it('the link of a reset e-mail that already arrived (the pending one) is allowed exactly, like the one waited for', async () => {
+    const store = makeStore({ ...account, password: 'rejected-one', status: 'recovering', recoveryRequestedAt: 1 });
+    store.pendingPasswordReset = vi.fn(async () => ({ url: resetLink, messageId: 'm1', receivedAt: 2 }));
+    let fireIn: any;
+    const recover = vi.fn(async ({ ctx, host }: any) => {
+      expect(await fireIn(resetLink)).toBe(false);
+      await ctx.accounts.pendingPasswordReset(host);
+      expect(await fireIn(resetLink)).toBe(true);
+      expect(await fireIn(`${resetLink}&extra=1`)).toBe(false);
+      return { handoff: 'account_recovery_timeout', accountFailure: { code: 'account_recovery_timeout', stage: 'login' } };
+    });
+    const h = harness({ accepted: [], store, recover, allowRecovery: true, aliasEmail: alias });
+    fireIn = h.fire;
+    await h.run();
+    expect(recover).toHaveBeenCalledTimes(1);
+    expect(store.pendingPasswordReset).toHaveBeenCalledWith(HOST);
+  });
+
+  it('the reset succeeds on the portal (PasswordSetNew -> CloseWindowApplicants -> /SelfService): the redirect after the new password is allowed once, nothing else', async () => {
+    const store = makeStore({ ...account, password: 'rejected-one', status: 'recovering', recoveryRequestedAt: 1 });
+    store.pendingPasswordReset = vi.fn(async () => ({ url: resetLink, messageId: 'm1', receivedAt: 2 }));
+    let fireIn: any;
+    const recover = vi.fn(async ({ ctx, host, finishRecovery }: any) => {
+      await ctx.accounts.pendingPasswordReset(host);
+      expect(await fireIn(resetLink)).toBe(true);
+      expect(await fireIn(`https://${HOST}/Password/PasswordSetNew`)).toBe(true);
+      // Before the new password is posted, the self-service page is closed.
+      expect(await fireIn(`https://${HOST}/SelfService`)).toBe(false);
+      expect(await fireIn(`https://${HOST}/Password/PasswordSetNew`, 'POST', false)).toBe(true);
+      expect(await fireIn(`https://${HOST}/Password/CloseWindowApplicants`)).toBe(true);
+      expect(await fireIn(`https://${HOST}/SelfService`)).toBe(true);
+      expect(await fireIn(`https://${HOST}/SelfService?action=submit`)).toBe(false);
+      expect(await fireIn(`https://${HOST}/SelfService/Applicant`)).toBe(false);
+      expect(await fireIn(`https://${HOST}/SelfService`, 'POST', false)).toBe(false);
+      store.current = { ...store.current, password: 'fresh-one', status: 'pending' };
+      return { ...(await finishRecovery({})), accountRecovered: true };
+    });
+    const h = harness({ accepted: ['fresh-one'], store, recover, allowRecovery: true, aliasEmail: alias });
+    fireIn = h.fire;
+    const proof: any = await h.run();
+    expect(proof.applicationExists).toMatchObject({ vacancyId: '6604' });
+    expect(proof.recovery).toMatchObject({ attempted: true, accepted: true });
+    // The window closes with the recovery.
+    expect(await h.fire(`https://${HOST}/SelfService`)).toBe(false);
+  });
+
+  it('a staged password that the portal now holds (new password set, run died before saying so) is tried first and confirms the recovery', async () => {
+    const store = makeStore({ ...account, password: 'staged-and-set', status: 'recovering', recoveryRequestedAt: 1, previousPassword: 'older' });
+    const recover = vi.fn();
+    const { run, log } = harness({ accepted: ['staged-and-set'], store, recover, allowRecovery: true, aliasEmail: alias });
+    const proof: any = await run();
+    expect(proof.applicationExists).toMatchObject({ vacancyId: '6604' });
+    expect(recover).not.toHaveBeenCalled();
+    expect(log.filter(entryLog => entryLog.method === 'POST')).toHaveLength(1);
+    expect(store.resetPasswordCandidates).not.toHaveBeenCalled();
+    expect(store.completeRecovery).toHaveBeenCalledWith(HOST);
+    expect(store.mark).toHaveBeenCalledWith(HOST, expect.objectContaining({ status: 'created' }));
+    expect(proof.trace).toEqual(expect.arrayContaining([expect.objectContaining({ kind: 'account', reason: 'staged_password_confirmed' })]));
+  });
+
+  it('refuses a reset link on another host, or with a mutation key', async () => {
+    for (const link of [`https://other.example/?PasswordResetToken=x`, `https://${HOST}/?PasswordResetToken=x&action=submit`]) {
+      const store = makeStore({ ...account, password: 'rejected-one' });
+      store.waitForPasswordReset = vi.fn(async () => ({ url: link }));
+      let fireIn: any;
+      const recover = vi.fn(async ({ ctx, host }: any) => {
+        await ctx.accounts.waitForPasswordReset({ host, sinceMs: 1 });
+        expect(await fireIn(link)).toBe(false);
+        return { handoff: 'account_recovery_timeout', accountFailure: { code: 'account_recovery_timeout', stage: 'login' } };
+      });
+      const h = harness({ accepted: [], store, recover, allowRecovery: true, aliasEmail: alias });
+      fireIn = h.fire;
+      await h.run();
+      expect(recover).toHaveBeenCalledTimes(1);
+    }
+  });
+
+  it('an error in the middle of an inspection keeps the trace and says where and what, as identifiers only', async () => {
+    const store = makeStore({ ...account, password: 'rejected-one' });
+    const recover = vi.fn(async () => { throw Object.assign(new Error('page.goto: net::ERR_FAILED at https://recruitingapp-2800.umantis.com/?PasswordResetToken=SECRETTOKEN'), { name: 'Error' }); });
+    const { run } = harness({ accepted: [], store, recover, allowRecovery: true, aliasEmail: alias });
+    const proof: any = await run();
+    expect(proof.stopReason).toBe('inspection_exception');
+    expect(proof.error).toEqual({ stage: 'recovery', name: 'Error', message: 'net::ERR_FAILED' });
+    expect(proof.trace.length).toBeGreaterThan(3);
+    expect(proof.trace.at(-1)).toMatchObject({ kind: 'exception', reason: 'exception', stage: 'recovery' });
+    expect(JSON.stringify(proof)).not.toContain('SECRETTOKEN');
+  });
+
+  it('safeErrorInfo never lets a message through, only known tokens', () => {
+    expect(safeErrorInfo(new TypeError("Cannot read properties of undefined (reading 'password') for maria@example.test"), 'login'))
+      .toEqual({ stage: 'login', name: 'TypeError', message: 'read_of_undefined' });
+    expect(safeErrorInfo(Object.assign(new Error('Timeout 6000ms exceeded. waiting for secret page'), { name: 'TimeoutError' }), 'Entry!'))
+      .toEqual({ stage: 'ntry', name: 'TimeoutError', message: 'timeout' });
+    expect(safeErrorInfo(Object.assign(new Error('free text with a password hunter2'), { code: 'ECONNRESET' }), 'inspect'))
+      .toEqual({ stage: 'inspect', name: 'Error', code: 'ECONNRESET' });
+    expect(safeErrorInfo({ name: 'weird name!', message: 'x' }, 'x')).toEqual({ stage: 'x', name: 'Error' });
   });
 });
 

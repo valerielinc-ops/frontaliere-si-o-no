@@ -1,7 +1,7 @@
 {
   "key": "pictet",
   "label": "Pictet Group",
-  "generatedAt": "2026-11-27T21:21:47.632Z",
+  "generatedAt": "2026-11-28T09:25:55.200Z",
   "total": 8,
   "discovered": null,
   "parsed": 7,
@@ -13,19 +13,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 53137,
-  "avgDurationMs": 53137,
+  "durationMs": 39717,
+  "avgDurationMs": 39717,
   "durationHistory": [
-    53137
+    39717
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "pictet-eed4bf52d300",
-      "slug": "private-equity-investment-specialist-pictet-geneva",
+      "slug": "private-equity-investment-specialista-pictet-group-geneva",
       "company": "Pictet Group",
       "companyKey": "pictet",
       "companyDomain": "pictet.com",
@@ -35,7 +36,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125453&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T21:20:43.495Z",
+      "crawledAt": "2026-11-28T09:25:07.744Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -52,26 +53,24 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125453&selected_lang=en_GB",
       "jobReqId": "125453",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-27T21:20:43.495Z",
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-25T21:20:43.495Z",
+      "validThrough": "2027-02-26T09:25:07.744Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-27T21:20:43.495Z",
-      "_qualityScore": 87,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -86,7 +85,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125316&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T21:20:48.296Z",
+      "crawledAt": "2026-11-28T09:25:12.808Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -111,7 +110,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T21:20:48.296Z",
+      "validThrough": "2027-02-22T09:25:12.808Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -133,7 +132,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125451&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T21:20:47.831Z",
+      "crawledAt": "2026-11-28T09:25:12.301Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -157,7 +156,7 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-23T21:20:47.831Z",
+      "validThrough": "2027-01-23T09:25:12.301Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -179,7 +178,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125334&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T21:20:46.396Z",
+      "crawledAt": "2026-11-28T09:25:10.716Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -203,7 +202,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T21:20:46.396Z",
+      "validThrough": "2027-02-23T09:25:10.716Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -225,7 +224,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125291&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T21:20:45.835Z",
+      "crawledAt": "2026-11-28T09:25:10.251Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -249,7 +248,7 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T21:20:45.835Z",
+      "validThrough": "2027-02-23T09:25:10.251Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -271,7 +270,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125471&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T21:20:44.865Z",
+      "crawledAt": "2026-11-28T09:25:09.124Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -295,7 +294,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T21:20:44.865Z",
+      "validThrough": "2027-02-25T09:25:09.124Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -317,7 +316,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125310&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T21:20:44.370Z",
+      "crawledAt": "2026-11-28T09:25:08.576Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -341,7 +340,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:20:44.370Z",
+      "validThrough": "2027-01-28T09:25:08.576Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -390,7 +389,7 @@
       "validThrough": "2027-02-19T09:27:07.841Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navbarlevel=job_search&career_job_req_id=125421&selected_lang=en_gb",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -400,5 +399,5 @@
       }
     }
   ],
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
 }

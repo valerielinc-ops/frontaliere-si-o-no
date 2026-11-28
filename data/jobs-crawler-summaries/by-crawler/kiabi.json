@@ -1,7 +1,7 @@
 {
   "key": "kiabi",
   "label": "Kiabi Suisse",
-  "generatedAt": "2026-11-27T21:18:26.305Z",
+  "generatedAt": "2026-11-28T09:18:55.239Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 6829,
-  "avgDurationMs": 6829,
+  "durationMs": 6533,
+  "avgDurationMs": 6533,
   "durationHistory": [
-    6829
+    6533
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://jobs.smartrecruiters.com/KIABI/744000153728909-conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f-nb-kiabi-fribourg?oga=true",
       "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:18:08.049Z",
+      "crawledAt": "2026-11-28T09:18:37.668Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -62,7 +62,7 @@
       "salaryMax": 118500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:18:08.049Z",
+      "validThrough": "2026-12-28T09:18:37.668Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -84,7 +84,7 @@
       "url": "https://jobs.smartrecruiters.com/KIABI/744000162350620-directeur-magasin-h-f-nb-kiabi-aigle?oga=true",
       "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:18:08.046Z",
+      "crawledAt": "2026-11-28T09:18:37.659Z",
       "addressLocality": "AIGLE",
       "addressRegion": "VD",
       "streetAddress": "AIGLE",
@@ -108,7 +108,7 @@
       "salaryMax": 306000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:18:08.046Z",
+      "validThrough": "2027-02-17T09:18:37.659Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -119,5 +119,5 @@
       }
     }
   ],
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
 }

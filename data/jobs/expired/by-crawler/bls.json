@@ -1173,43 +1173,51 @@
     "sector": "Trasporti / Ferrovia",
     "expiredAt": "2026-11-26T09:25:14.499Z",
     "previousSlugs": [
-      "fahrzeugbereitsteller-in-bls-ag-spiez",
       "fornitore-del-veicolo-in-bls-ag-spiez",
       "vehicle-supplier-in-bls-ag-spiez",
       "preparateur-rice-de-vehicules-bls-ag-spiez",
-      "fahrzeugbereitsteller-in-bls-ch"
+      "fahrzeugbereitsteller-in-bls-ag-spiez",
+      "fahrzeugbereitsteller-in-bls-ch",
+      "fahrzeugbereitsteller-in-bls-ag-spiez-c4b49ecb"
     ],
     "previousSlugsByLocale": {
       "it": [
         "fahrzeugbereitsteller-in-bls-ch-d4e27f45",
-        "fahrzeugbereitsteller-in-bls-ag-spiez",
+        "fahrzeugbereitsteller-in-bls-ag-spiez-c4b49ecb",
         "fornitore-del-veicolo-in-bls-ag-spiez",
+        "fahrzeugbereitsteller-in-bls-ag-spiez",
         "fahrzeugbereitsteller-in-bls-ch"
       ],
       "en": [
-        "fahrzeugbereitsteller-in-bls-ag-spiez",
+        "fahrzeugbereitsteller-in-bls-ag-spiez-c4b49ecb",
         "vehicle-supplier-in-bls-ag-spiez",
-        "fahrzeugbereitsteller-in-bls-ch"
+        "fahrzeugbereitsteller-in-bls-ch",
+        "fahrzeugbereitsteller-in-bls-ag-spiez"
       ],
       "fr": [
-        "fahrzeugbereitsteller-in-bls-ag-spiez",
+        "fahrzeugbereitsteller-in-bls-ag-spiez-c4b49ecb",
         "preparateur-rice-de-vehicules-bls-ag-spiez",
-        "fahrzeugbereitsteller-in-bls-ch"
+        "fahrzeugbereitsteller-in-bls-ch",
+        "fahrzeugbereitsteller-in-bls-ag-spiez"
+      ],
+      "de": [
+        "fahrzeugbereitsteller-in-bls-ag-spiez",
+        "fahrzeugbereitsteller-in-bls-ch-d4e27f45"
       ]
     },
     "previousSlugCantonByLocale": {
       "it": {
-        "fahrzeugbereitsteller-in-bls-ag-spiez": "BE",
         "fornitore-del-veicolo-in-bls-ag-spiez": "BE",
-        "fahrzeugbereitsteller-in-bls-ch-d4e27f45": "BE"
+        "fahrzeugbereitsteller-in-bls-ch-d4e27f45": "BE",
+        "fahrzeugbereitsteller-in-bls-ag-spiez-c4b49ecb": "BE"
       },
       "en": {
-        "fahrzeugbereitsteller-in-bls-ag-spiez": "BE",
-        "vehicle-supplier-in-bls-ag-spiez": "BE"
+        "vehicle-supplier-in-bls-ag-spiez": "BE",
+        "fahrzeugbereitsteller-in-bls-ag-spiez-c4b49ecb": "BE"
       },
       "fr": {
-        "fahrzeugbereitsteller-in-bls-ag-spiez": "BE",
-        "preparateur-rice-de-vehicules-bls-ag-spiez": "BE"
+        "preparateur-rice-de-vehicules-bls-ag-spiez": "BE",
+        "fahrzeugbereitsteller-in-bls-ag-spiez-c4b49ecb": "BE"
       },
       "de": {
         "fahrzeugbereitsteller-in-bls-ch-d4e27f45": "BE"

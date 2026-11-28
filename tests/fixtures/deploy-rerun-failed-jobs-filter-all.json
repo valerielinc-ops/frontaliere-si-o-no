@@ -1,0 +1,245 @@
+{
+  "total_count": 24,
+  "jobs": [
+    {
+      "id": 140778659142,
+      "name": "validate production promotion trigger",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-27T23:07:25Z",
+      "completed_at": "2026-11-27T23:07:30Z",
+      "runner_id": 2
+    },
+    {
+      "id": 140778660279,
+      "name": "Reconcile the current deploy tip",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-11-27T23:07:24Z",
+      "completed_at": "2026-11-27T23:07:24Z",
+      "runner_id": null
+    },
+    {
+      "id": 140778691737,
+      "name": "matrix-setup",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-27T23:07:32Z",
+      "completed_at": "2026-11-27T23:07:38Z",
+      "runner_id": 3
+    },
+    {
+      "id": 140778733811,
+      "name": "prep",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-27T23:07:40Z",
+      "completed_at": "2026-11-27T23:31:21Z",
+      "runner_id": 4
+    },
+    {
+      "id": 140785929481,
+      "name": "build-locale (en)",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-27T23:31:24Z",
+      "completed_at": "2026-11-28T02:08:35Z",
+      "runner_id": 6
+    },
+    {
+      "id": 140785929615,
+      "name": "build-locale (de)",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-27T23:31:24Z",
+      "completed_at": "2026-11-28T02:50:09Z",
+      "runner_id": 8
+    },
+    {
+      "id": 140785929618,
+      "name": "build-locale (fr)",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-27T23:31:25Z",
+      "completed_at": "2026-11-28T02:24:39Z",
+      "runner_id": 7
+    },
+    {
+      "id": 140785929694,
+      "name": "build-locale (it)",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-27T23:31:24Z",
+      "completed_at": "2026-11-28T03:13:03Z",
+      "runner_id": 5
+    },
+    {
+      "id": 140845608561,
+      "name": "in-run deploy alarm (run without workflow_run)",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-28T03:13:05Z",
+      "completed_at": "2026-11-28T03:14:34Z",
+      "runner_id": 10
+    },
+    {
+      "id": 140845608579,
+      "name": "build-history-commit",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-28T03:13:05Z",
+      "completed_at": "2026-11-28T03:13:34Z",
+      "runner_id": 9
+    },
+    {
+      "id": 140845608986,
+      "name": "rearm",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-28T03:13:05Z",
+      "completed_at": "2026-11-28T03:14:01Z",
+      "runner_id": 11
+    },
+    {
+      "id": 140845609577,
+      "name": "close the build alarm when every leg is green",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-11-28T03:13:04Z",
+      "completed_at": "2026-11-28T03:13:04Z",
+      "runner_id": null
+    },
+    {
+      "id": 140855427376,
+      "name": "validate production promotion trigger",
+      "run_attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-27T23:07:25Z",
+      "completed_at": "2026-11-27T23:07:30Z",
+      "runner_id": 2
+    },
+    {
+      "id": 140855427756,
+      "name": "Reconcile the current deploy tip",
+      "run_attempt": 2,
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-11-28T03:52:49Z",
+      "completed_at": "2026-11-27T23:07:24Z",
+      "runner_id": null
+    },
+    {
+      "id": 140855428168,
+      "name": "matrix-setup",
+      "run_attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-27T23:07:32Z",
+      "completed_at": "2026-11-27T23:07:38Z",
+      "runner_id": 3
+    },
+    {
+      "id": 140855428367,
+      "name": "prep",
+      "run_attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-27T23:07:40Z",
+      "completed_at": "2026-11-27T23:31:21Z",
+      "runner_id": 4
+    },
+    {
+      "id": 140855428411,
+      "name": "build-locale (de)",
+      "run_attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-27T23:31:24Z",
+      "completed_at": "2026-11-28T02:50:09Z",
+      "runner_id": 8
+    },
+    {
+      "id": 140855428515,
+      "name": "build-locale (en)",
+      "run_attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-27T23:31:24Z",
+      "completed_at": "2026-11-28T02:08:35Z",
+      "runner_id": 6
+    },
+    {
+      "id": 140855429296,
+      "name": "build-locale (fr)",
+      "run_attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-28T03:52:52Z",
+      "completed_at": "2026-11-28T06:03:44Z",
+      "runner_id": 13
+    },
+    {
+      "id": 140855429339,
+      "name": "build-locale (it)",
+      "run_attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-28T03:52:52Z",
+      "completed_at": "2026-11-28T08:14:18Z",
+      "runner_id": 12
+    },
+    {
+      "id": 140917120313,
+      "name": "build-history-commit",
+      "run_attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-28T08:14:20Z",
+      "completed_at": "2026-11-28T08:14:50Z",
+      "runner_id": 14
+    },
+    {
+      "id": 140917120345,
+      "name": "in-run deploy alarm (run without workflow_run)",
+      "run_attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-28T08:14:21Z",
+      "completed_at": "2026-11-28T08:15:56Z",
+      "runner_id": 15
+    },
+    {
+      "id": 140917120571,
+      "name": "rearm",
+      "run_attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-28T08:14:21Z",
+      "completed_at": "2026-11-28T08:15:31Z",
+      "runner_id": 16
+    },
+    {
+      "id": 140917121750,
+      "name": "close the build alarm when every leg is green",
+      "run_attempt": 2,
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-11-28T08:14:19Z",
+      "completed_at": "2026-11-28T08:14:19Z",
+      "runner_id": null
+    }
+  ]
+}

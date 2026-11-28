@@ -1,7 +1,7 @@
 {
   "crawlerKey": "apg-sga",
-  "assembledAt": "2026-11-27T21:50:57.071Z",
-  "runId": "46069192930",
+  "assembledAt": "2026-11-28T09:24:51.977Z",
+  "runId": "46129649169",
   "jobs": [
     {
       "id": "apg-sga-53d6c2a2e61d",
@@ -34,7 +34,7 @@
       "url": "https://jobs.apgsga.ch/publication/sales-coordinator-airport-advertising-zuerich/kwx50lsqcs0s57kphl6u3t2orih52uw7k5pj4tjji0h62tscr18qfnt8cfyzvmky",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:50:51.140Z",
+      "crawledAt": "2026-11-28T09:24:45.340Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T21:50:51.140Z",
+      "validThrough": "2027-01-19T09:24:45.340Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -112,7 +112,7 @@
       "url": "https://jobs.apgsga.ch/publication/key-account-manager-in-zuerich/yqbyamdibr2ofdtyu4hhivzweb0vjlvst4c1j2v9hdqkhs86jpvkcplx8pcxdcy5",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:50:50.646Z",
+      "crawledAt": "2026-11-28T09:24:44.894Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -155,7 +155,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T21:50:50.646Z",
+      "validThrough": "2027-01-19T09:24:44.894Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -189,7 +189,7 @@
       "url": "https://jobs.apgsga.ch/publication/verkaufsberatung-aussendienst-bern/vkwavwpoo2jxbr09jpnr1wnddc5q0xq0o50iijpdpbrwkmeviovet7cwt7xzih7x",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:50:50.156Z",
+      "crawledAt": "2026-11-28T09:24:44.446Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -238,7 +238,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:50:50.156Z",
+      "validThrough": "2027-02-02T09:24:44.446Z",
       "validThroughSource": "last-observed-window"
     }
   ]

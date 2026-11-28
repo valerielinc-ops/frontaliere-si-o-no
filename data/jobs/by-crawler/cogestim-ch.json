@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cogestim-ch",
-  "assembledAt": "2026-11-27T21:19:21.799Z",
-  "runId": "46068240937",
+  "assembledAt": "2026-11-28T09:19:26.998Z",
+  "runId": "46128989728",
   "jobs": [
     {
       "id": "cogestim-ch-235f78413034",
@@ -34,7 +34,7 @@
       "url": "https://cogestim.ch/carriere",
       "source": "COGESTIM SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:19:13.351Z",
+      "crawledAt": "2026-11-28T09:19:16.709Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -54,10 +54,11 @@
       "applyUrl": "https://cogestim.ch/carriere",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "courtier-en-immobilier-h-f-lausanne-cogestim-ch-ch",
+        "l-039-immobilier-reste-une-affaire-d-039-equipe-lausanne-vd-cogestim-ch-ch"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "courtier-en-immobilier-h-f-lausanne-cogestim-ch-ch"
-        ],
         "it": [
           "courtier-en-immobilier-h-f-lausanne-cogestim-ch-ch",
           "l-039-immobilier-reste-une-affaire-d-039-equipe-lausanne-vd-cogestim-ch-ch"
@@ -67,12 +68,11 @@
         ],
         "de": [
           "courtier-en-immobilier-h-f-lausanne-cogestim-ch-ch"
+        ],
+        "fr": [
+          "courtier-en-immobilier-h-f-lausanne-cogestim-ch-ch"
         ]
       },
-      "previousSlugs": [
-        "courtier-en-immobilier-h-f-lausanne-cogestim-ch-ch",
-        "l-039-immobilier-reste-une-affaire-d-039-equipe-lausanne-vd-cogestim-ch-ch"
-      ],
       "firstSeenAt": "2026-11-21T21:27:39.149Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -88,7 +88,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:19:13.351Z",
+      "validThrough": "2026-12-28T09:19:16.709Z",
       "validThroughSource": "last-observed-window"
     }
   ]

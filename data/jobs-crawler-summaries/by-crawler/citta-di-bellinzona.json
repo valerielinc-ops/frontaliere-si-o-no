@@ -1,7 +1,7 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-11-27T21:19:01.152Z",
+  "generatedAt": "2026-11-28T09:18:50.236Z",
   "total": 2,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 6446,
-  "avgDurationMs": 6446,
+  "durationMs": 6086,
+  "avgDurationMs": 6086,
   "durationHistory": [
-    6446
+    6086
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -45,10 +45,10 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=c63f2847-2a77-4dfd-95e3-79a55833ca60,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-27T21:18:39.393Z",
+      "crawledAt": "2026-11-28T09:18:28.415Z",
       "firstSeenAt": "2026-11-20T09:22:26.526Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:18:39.393Z",
+      "validThrough": "2027-02-18T09:18:28.415Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -88,10 +88,10 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=6854e5d6-a43d-4166-b0cf-c8239799bdd0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-27T21:18:39.851Z",
+      "crawledAt": "2026-11-28T09:18:28.808Z",
       "firstSeenAt": "2026-11-20T09:22:26.729Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:18:39.851Z",
+      "validThrough": "2027-02-18T09:18:28.808Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -105,5 +105,5 @@
       }
     }
   ],
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
 }

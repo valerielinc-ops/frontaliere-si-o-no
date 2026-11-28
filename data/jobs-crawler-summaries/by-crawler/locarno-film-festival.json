@@ -1,33 +1,43 @@
 {
+  "detailCandidates": 0,
+  "detailGone": 0,
+  "detailRejected": 0,
   "key": "locarno-film-festival",
   "label": "Locarno Film Festival",
-  "generatedAt": "2026-11-27T21:37:43.573Z",
+  "generatedAt": "2026-11-28T09:47:16.115Z",
   "total": 0,
-  "discovered": null,
-  "parsed": null,
-  "lastFetchOutcome": "connection_error",
+  "discovered": 0,
+  "parsed": 0,
+  "lastFetchOutcome": "anti_bot_block",
   "fetchReceipt": {
     "specKey": "locarno-film-festival",
     "seedUrls": [
       "https://www.locarnofestival.ch/it/about/organization/work-with-us.html"
     ],
     "phase": "listing",
-    "pages": 1,
+    "pages": 2,
     "httpStatuses": [
       {
         "status": 403,
         "url": "https://www.locarnofestival.ch/it/about/organization/work-with-us.html"
+      },
+      {
+        "status": 200,
+        "url": "https://www.locarnofestival.ch/it/about/organization/work-with-us.html",
+        "proxiedBy": "browser"
       }
     ],
-    "listingTerminalStatus": 403,
-    "listingCompletion": null,
-    "proxiedBy": [],
-    "fetchOutcome": null,
-    "fetchDetail": "Prospector fetch failed for https://www.locarnofestival.ch/it/about/organization/work-with-us.html: HTTP 403"
+    "listingTerminalStatus": 200,
+    "listingCompletion": "incomplete",
+    "proxiedBy": [
+      "browser"
+    ],
+    "fetchOutcome": "anti_bot_block",
+    "fetchDetail": "https://www.locarnofestival.ch/it/about/organization/work-with-us.html: title=\"Locarno Film Festival · Lavora con noi\", links=113, bytes=100241"
   },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": "connection-level-fetch",
+  "abortKind": "no-jobs-parsed",
   "written": 0,
   "newCount": 0,
   "updatedCount": 0,
@@ -39,5 +49,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
 }

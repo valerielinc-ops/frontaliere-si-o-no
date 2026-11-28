@@ -1,7 +1,7 @@
 {
   "crawlerKey": "mountains-ch",
-  "assembledAt": "2026-11-27T21:48:42.259Z",
-  "runId": "46070253957",
+  "assembledAt": "2026-11-28T09:43:39.475Z",
+  "runId": "46130382584",
   "jobs": [
     {
       "id": "mountains-ch-41df2560cca5",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-risorse-umane-engadin-st-moritz-mountains-ag-st-moritz",
         "en": "mitarbeiter-in-human-resources-engadin-st-moritz-mountains-ag-st-moritz",
-        "de": "mitarbeiter-in-human-resources-7500-st-moritz-mountains-ch-ch",
+        "de": "mitarbeiter-in-human-resources-engadin-st-moritz-mountains-ag-st-moritz",
         "fr": "collaborateur-trice-en-ressources-humaines-engadin-st-moritz-mountains-ag-7500-st-moritz"
       },
       "company": "Engadin St. Moritz Mountains AG",
@@ -34,7 +34,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/mitarbeiterin-human-ressources",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:48:25.732Z",
+      "crawledAt": "2026-11-28T09:42:16.087Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
           "mitarbeiter-in-human-resources-7500-st-moritz-mountains-ch-ch"
         ],
         "de": [
-          "mitarbeiter-in-human-resources-engadin-st-moritz-mountains-ag-st-moritz"
+          "mitarbeiter-in-human-resources-7500-st-moritz-mountains-ch-ch"
         ],
         "fr": [
           "mitarbeiter-in-human-resources-engadin-st-moritz-mountains-ag-st-moritz"
@@ -98,7 +98,7 @@
         "checkedAt": "2026-11-16T15:23:08.822Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T21:48:25.732Z",
+      "validThrough": "2027-02-03T09:42:16.087Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -107,7 +107,7 @@
       "slugByLocale": {
         "it": "stage-d-orientamento-per-meccatronico-a-di-impianti-a-fune-afc-engadin-st-moritz-mountains-ag-7500-st-moritz",
         "en": "test-gauge-cableway-mechatronics-engineer-efz-engadin-st-moritz-mountains-ag-7500-st-moritz",
-        "de": "schnupperlehre-seilbahnmechatroniker-in-efz-7500-st-moritz-mountains-ch-ch",
+        "de": "schnupperlehre-seilbahnmechatroniker-in-efz-engadin-st-moritz-mountains-ag-st-moritz",
         "fr": "manometre-d-essai-ingenieur-mecatronique-a-cables-efz-engadin-st-moritz-mountains-ag-7500-st-moritz"
       },
       "company": "Engadin St. Moritz Mountains AG",
@@ -132,7 +132,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/schnupperlehre-seilbahnmechatronikerin-efz",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:48:25.731Z",
+      "crawledAt": "2026-11-28T09:42:16.083Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -165,7 +165,7 @@
           "schnupperlehre-seilbahnmechatroniker-in-efz-engadin-st-moritz-mountains-ag-st-moritz"
         ],
         "de": [
-          "schnupperlehre-seilbahnmechatroniker-in-efz-engadin-st-moritz-mountains-ag-st-moritz"
+          "schnupperlehre-seilbahnmechatroniker-in-efz-7500-st-moritz-mountains-ch-ch"
         ],
         "fr": [
           "schnupperlehre-seilbahnmechatroniker-in-efz-engadin-st-moritz-mountains-ag-st-moritz"
@@ -200,7 +200,7 @@
         "checkedAt": "2026-11-16T15:23:08.822Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T21:48:25.731Z",
+      "validThrough": "2027-02-03T09:42:16.083Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -209,7 +209,7 @@
       "slugByLocale": {
         "it": "responsabile-della-reception-e-dei-banchetti-engadin-st-moritz-mountains-ag-7500-st-moritz",
         "en": "management-of-reception-and-banquets-engadin-st-moritz-mountains-ag-7500-st-moritz",
-        "de": "leitung-rezeption-und-bankette-7500-st-moritz-mountains-ch-ch",
+        "de": "leitung-rezeption-und-bankette-engadin-st-moritz-mountains-ag-st-moritz",
         "fr": "gestion-de-la-reception-et-des-banquets-engadin-st-moritz-mountains-ag-7500-st-moritz"
       },
       "company": "Engadin St. Moritz Mountains AG",
@@ -234,7 +234,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/leitung-rezeption-und-bankette",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:48:25.725Z",
+      "crawledAt": "2026-11-28T09:42:16.081Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -256,8 +256,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leitung-rezeption-und-bankette-7500-st-moritz-mountains-ch-ch",
-        "leitung-rezeption-e-bankette-engadin-st-moritz-mountains-ag-st-moritz",
-        "leitung-rezeption-und-bankette-engadin-st-moritz-mountains-ag-st-moritz"
+        "leitung-rezeption-e-bankette-engadin-st-moritz-mountains-ag-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -268,7 +267,7 @@
           "leitung-rezeption-und-bankette-7500-st-moritz-mountains-ch-ch"
         ],
         "de": [
-          "leitung-rezeption-und-bankette-engadin-st-moritz-mountains-ag-st-moritz"
+          "leitung-rezeption-und-bankette-7500-st-moritz-mountains-ch-ch"
         ],
         "fr": [
           "leitung-rezeption-und-bankette-7500-st-moritz-mountains-ch-ch"
@@ -303,7 +302,7 @@
         "checkedAt": "2026-11-16T15:23:08.822Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T21:48:25.725Z",
+      "validThrough": "2027-02-03T09:42:16.081Z",
       "validThroughSource": "last-observed-window"
     }
   ]

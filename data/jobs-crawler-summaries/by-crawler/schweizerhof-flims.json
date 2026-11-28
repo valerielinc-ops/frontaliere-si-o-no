@@ -1,7 +1,7 @@
 {
   "key": "schweizerhof-flims",
   "label": "Schweizerhof",
-  "generatedAt": "2026-11-27T21:19:35.674Z",
+  "generatedAt": "2026-11-28T09:17:42.965Z",
   "total": 2,
   "discovered": 28,
   "parsed": 1,
@@ -17,6 +17,10 @@
       {
         "status": 200,
         "url": "https://romantikhotels.hcm4all.de/list/?l=de"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/19369"
       },
       {
         "status": 200,
@@ -49,10 +53,6 @@
       {
         "status": 200,
         "url": "https://romantikhotels.hcm4all.de/list/16251"
-      },
-      {
-        "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/19369"
       },
       {
         "status": 200,
@@ -146,19 +146,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 36418,
-  "avgDurationMs": 36418,
+  "durationMs": 54623,
+  "avgDurationMs": 54623,
   "durationHistory": [
-    36418
+    54623
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "schweizerhof-flims-77e9fbaad8f1",
-      "slug": "receptionist-in-m-w-d-flims-graubunden-schweizerhof-flims-ch",
+      "slug": "addetto-a-alla-reception-m-f-d-schweizerhof-flims",
       "company": "Schweizerhof",
       "companyKey": "schweizerhof-flims",
       "companyDomain": "romantikhotels.hcm4all.de",
@@ -168,7 +169,7 @@
       "url": "https://romantikhotels.hcm4all.de/list/18879",
       "source": "Schweizerhof Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:19:10.156Z",
+      "crawledAt": "2026-11-28T09:17:09.097Z",
       "addressLocality": "Flims",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -186,24 +187,22 @@
       "postedDate": "2026-03-09",
       "postingDateSource": "reported",
       "applyUrl": "https://romantikhotels.hcm4all.de/list/18879",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-29T21:15:02.868Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:19:10.156Z",
+      "validThrough": "2026-12-28T09:17:09.097Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-29T21:15:02.868Z",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -244,7 +243,7 @@
       "validThrough": "2026-12-27T09:21:19.329Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://romantikhotels.hcm4all.de/list/19839",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -254,5 +253,5 @@
       }
     }
   ],
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
 }

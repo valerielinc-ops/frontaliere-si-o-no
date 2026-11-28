@@ -1,7 +1,7 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-11-27T21:19:23.566Z",
+  "generatedAt": "2026-11-28T09:18:12.288Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5458,
-  "avgDurationMs": 5458,
+  "durationMs": 4676,
+  "avgDurationMs": 4676,
   "durationHistory": [
-    5458
+    4676
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://apply.refline.ch/640332/0055/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:19:00.468Z",
+      "crawledAt": "2026-11-28T09:17:51.504Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       },
       "streetAddress": "Hohenegg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T21:19:00.468Z",
+      "validThrough": "2026-12-28T09:17:51.504Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -101,7 +101,7 @@
       "url": "https://apply.refline.ch/640332/0052/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:18:59.963Z",
+      "crawledAt": "2026-11-28T09:17:50.996Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       },
       "streetAddress": "Hohenegg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T21:18:59.963Z",
+      "validThrough": "2026-12-28T09:17:50.996Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -152,5 +152,5 @@
       }
     }
   ],
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
 }

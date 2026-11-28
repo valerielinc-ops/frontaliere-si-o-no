@@ -1,7 +1,7 @@
 {
   "key": "barockjob",
   "label": "Barock Job AG",
-  "generatedAt": "2026-11-27T21:47:22.369Z",
+  "generatedAt": "2026-11-28T09:45:31.745Z",
   "total": 1,
   "discovered": 25,
   "parsed": 21,
@@ -138,10 +138,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 35953,
-  "avgDurationMs": 35953,
+  "durationMs": 30978,
+  "avgDurationMs": 30978,
   "durationHistory": [
-    35953
+    30978
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -159,7 +159,7 @@
       "url": "https://barockjob.ch/jobs/2026/08/28/betriebsmechaniker-unterhaltsmechaniker",
       "source": "Barock Job AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:46:24.420Z",
+      "crawledAt": "2026-11-28T09:45:18.497Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -182,7 +182,7 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:46:24.420Z",
+      "validThrough": "2026-12-28T09:45:18.497Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -193,5 +193,5 @@
       }
     }
   ],
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
 }

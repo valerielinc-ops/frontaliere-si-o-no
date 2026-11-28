@@ -1,7 +1,7 @@
 {
   "key": "georg-fischer",
   "label": "Georg Fischer",
-  "generatedAt": "2026-11-27T21:41:50.554Z",
+  "generatedAt": "2026-11-28T09:50:59.621Z",
   "total": 0,
   "discovered": null,
   "parsed": null,
@@ -21,13 +21,13 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee",
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64",
   "workdayRateLimit": {
     "tenant": "https://georgfischer.wd103.myworkdayjobs.com/wday/cxs/georgfischer/GeorgFischer_Careers",
     "firstRateLimitedAt": "2026-11-27T21:41:50.561Z",
-    "lastRateLimitedAt": "2026-11-27T21:41:50.561Z",
-    "consecutiveRuns": 1,
-    "nextAttemptAfter": "2026-11-28T03:41:50.561Z",
+    "lastRateLimitedAt": "2026-11-28T09:50:59.626Z",
+    "consecutiveRuns": 2,
+    "nextAttemptAfter": "2026-11-28T21:50:59.626Z",
     "outcome": "rate-limited"
   }
 }

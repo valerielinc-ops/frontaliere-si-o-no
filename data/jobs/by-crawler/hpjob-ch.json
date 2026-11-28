@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hpjob-ch",
-  "assembledAt": "2026-11-27T21:26:09.695Z",
-  "runId": "46068118413",
+  "assembledAt": "2026-11-28T09:26:12.545Z",
+  "runId": "46128906806",
   "jobs": [
     {
       "id": "hpjob-ch-3ee7c2f9df93",
@@ -34,7 +34,7 @@
       "url": "https://hpjob.ch/jobs/servicetechniker-fuer-digitale-druckmaschinen-im-weltweiten-einsatz-st-74850",
       "source": "HP Job GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:26:03.367Z",
+      "crawledAt": "2026-11-28T09:26:03.389Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T21:26:03.367Z",
+      "validThrough": "2027-02-23T09:26:03.389Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +117,7 @@
       "url": "https://hpjob.ch/jobs/inbetriebnahmetechniker-monteur-mwd-st-margrethen-1fb88",
       "source": "HP Job GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:26:03.366Z",
+      "crawledAt": "2026-11-28T09:26:03.387Z",
       "addressLocality": "St. Margrethen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -160,7 +160,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T21:26:03.366Z",
+      "validThrough": "2027-02-24T09:26:03.387Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -194,7 +194,7 @@
       "url": "https://hpjob.ch/jobs/automatiker-elektromechaniker-servicemonteur-diepoldsau-887c9",
       "source": "HP Job GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:26:03.364Z",
+      "crawledAt": "2026-11-28T09:26:03.386Z",
       "addressLocality": "Diepoldsau",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -237,7 +237,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T21:26:03.364Z",
+      "validThrough": "2027-02-24T09:26:03.386Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -271,7 +271,7 @@
       "url": "https://hpjob.ch/jobs/konstrukteur-techniker-fuer-produktmanagement-au-de7ce",
       "source": "HP Job GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:26:03.362Z",
+      "crawledAt": "2026-11-28T09:26:03.384Z",
       "addressLocality": "Au",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -314,7 +314,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T21:26:03.362Z",
+      "validThrough": "2027-02-24T09:26:03.384Z",
       "validThroughSource": "last-observed-window"
     }
   ]

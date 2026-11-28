@@ -356,6 +356,121 @@ describe('exchangeHreflangManifests', () => {
     });
   });
 
+  describe('with the job copies of "Re-run failed jobs" (run 46080670242)', () => {
+    // Real `jobs?filter=all` answer, reduced to the fields the script reads and
+    // with runner ids renumbered. GitHub lists the legs it did not run again
+    // under attempt 2, with a new id and the times of attempt 1.
+    type Job = {
+      id: number; name: string; run_attempt: number; status: string; conclusion: string | null;
+      started_at: string | null; completed_at: string | null; runner_id: number | null;
+    };
+    const fixture: { total_count: number; jobs: Job[] } = JSON.parse(fs.readFileSync(
+      path.resolve(import.meta.dirname, 'fixtures/deploy-rerun-failed-jobs-filter-all.json'),
+      'utf-8',
+    ));
+    // The it leg of attempt 2 as it was while it waited at the barrier. The
+    // answer was recorded after it had failed there.
+    const atBarrier = fixture.jobs.map((job) => (job.run_attempt === 2 && job.name === 'build-locale (it)'
+      ? { ...job, status: 'in_progress', conclusion: null, completed_at: null }
+      : job));
+    const names = (attempts: Record<string, number>) => Object.entries(attempts)
+      .map(([locale, attempt]) => manifestArtifactName(locale, RUN_ID, attempt));
+    // The manifest artifacts that existed when the it leg gave up.
+    const REAL_ARTIFACTS = names({ it: 2, fr: 2, de: 1, en: 1 }).concat(names({ it: 1 }));
+    // As the API does: `filter=latest` keeps only the newest entry of each name.
+    const api = (jobs: Job[], artifacts: string[]) => (url: string) => {
+      if (url.includes('/jobs?')) {
+        const query = new URLSearchParams(url.split('?')[1]);
+        const visible = query.get('filter') === 'all'
+          ? jobs
+          : jobs.filter((job) => !jobs.some((other) => other.name === job.name && other.run_attempt > job.run_attempt));
+        const page = Number(query.get('page') || 1);
+        return { total_count: visible.length, jobs: visible.slice((page - 1) * 100, page * 100) };
+      }
+      const name = decodeURIComponent(url.split('name=')[1]);
+      return { artifacts: artifacts.includes(name) ? [{ name, expired: false }] : [] };
+    };
+    const rerun = { runAttempt: '2', buildLocale: 'it' };
+    const downloadedBy = (calls: string[][]) => calls.filter((args) => args[0] === 'run')
+      .map((args) => args[args.indexOf('--name') + 1]);
+
+    it('reads the copied de and en legs from attempt 1, where their manifests are', async () => {
+      const { gh, calls } = fakeGh({ list: api(atBarrier, REAL_ARTIFACTS) });
+      await exchangeHreflangManifests({ ...base(), ...rerun, gh });
+      expect(downloadedBy(calls)).toEqual(names({ en: 1, de: 1, fr: 2 }));
+    });
+
+    it('does the same for the deferred publisher of a non-IT locale', async () => {
+      // The publisher runs after the source run: here its it leg went green.
+      const green = fixture.jobs.map((job) => (job.run_attempt === 2 && job.name === 'build-locale (it)'
+        ? { ...job, conclusion: 'success' }
+        : job));
+      const { gh, calls } = fakeGh({ list: api(green, REAL_ARTIFACTS) });
+      await exchangeHreflangManifests({ ...base(), ...rerun, buildLocale: 'fr', gh });
+      expect(downloadedBy(calls)).toEqual(names({ it: 2, en: 1, de: 1 }));
+    });
+
+    it('follows a copy of a copy back to the attempt that really ran', async () => {
+      // fr is green after attempt 2; attempt 3 runs only it.
+      const third = atBarrier
+        .filter((job) => job.run_attempt === 2)
+        .map((job) => ({
+          ...job,
+          id: job.id + 1_000_000,
+          run_attempt: 3,
+          ...(job.name === 'build-locale (it)' ? { started_at: '2026-11-28T09:00:00Z', runner_id: 999 } : {}),
+        }));
+      const { gh, calls } = fakeGh({ list: api([...third, ...atBarrier], REAL_ARTIFACTS.concat(names({ it: 3 }))) });
+      await exchangeHreflangManifests({ ...base(), ...rerun, runAttempt: '3', gh });
+      expect(downloadedBy(calls)).toEqual(names({ en: 1, de: 1, fr: 2 }));
+    });
+
+    it('reads every page of the job list before choosing an attempt', async () => {
+      const filler = Array.from({ length: 100 }, (_, i) => ({
+        ...atBarrier[0], id: i + 1, name: `unrelated (${i})`,
+      }));
+      const { gh, calls } = fakeGh({ list: api([...filler, ...atBarrier], REAL_ARTIFACTS) });
+      await exchangeHreflangManifests({ ...base(), ...rerun, gh });
+      expect(downloadedBy(calls)).toEqual(names({ en: 1, de: 1, fr: 2 }));
+    });
+
+    it('treats a job list shorter than its total as unreadable', async () => {
+      const full = api(atBarrier, REAL_ARTIFACTS);
+      const { gh, calls } = fakeGh({
+        list: (url) => (url.includes('/jobs?')
+          ? { total_count: 24, jobs: url.endsWith('&page=1') ? atBarrier.slice(0, 5) : [] }
+          : full(url)),
+      });
+      await expect(exchangeHreflangManifests({ ...base(), ...rerun, gh })).rejects.toThrow(/barrier timed out/);
+      expect(logs.some((line) => line.includes('incomplete job list: 5 of 24'))).toBe(true);
+      expect(downloadedBy(calls)).toEqual([]);
+    });
+
+    it('still fails closed when the manifest of a copied leg does not exist', async () => {
+      const { gh, calls } = fakeGh({ list: api(atBarrier, names({ it: 2, fr: 2, en: 1 })) });
+      await expect(exchangeHreflangManifests({ ...base(), ...rerun, gh })).rejects.toThrow(/barrier timed out waiting for de/);
+      expect(downloadedBy(calls)).toEqual([]);
+    });
+
+    it('does not take the attempt 1 manifest of a leg that really ran again', async () => {
+      // fr failed in attempt 1 and ran again: even with a file left by the
+      // failed try, only the one of attempt 2 counts.
+      const { gh } = fakeGh({ list: api(atBarrier, names({ it: 2, fr: 1, de: 1, en: 1 })) });
+      await expect(exchangeHreflangManifests({ ...base(), ...rerun, gh })).rejects.toThrow(/barrier timed out waiting for fr/);
+    });
+
+    it.each(['started_at', 'completed_at', 'runner_id'] as const)(
+      'does not call a successful rerun a copy when its %s differs',
+      async (field) => {
+        const jobs = atBarrier.map((job) => (job.run_attempt === 2 && job.name === 'build-locale (de)'
+          ? { ...job, [field]: field === 'runner_id' ? 999 : '2026-11-28T04:00:00Z' }
+          : job));
+        const { gh } = fakeGh({ list: api(jobs, REAL_ARTIFACTS) });
+        await expect(exchangeHreflangManifests({ ...base(), ...rerun, gh })).rejects.toThrow(/barrier timed out waiting for de/);
+      },
+    );
+  });
+
   it('holds the barrier until the slowest sibling publishes', async () => {
     const published = ['it', 'en', 'fr'];
     const { gh, calls } = fakeGh({ published });

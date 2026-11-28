@@ -11,7 +11,7 @@
     "https://ohws.prospective.ch/public/v1/medium/1000624/jobs?lang=it"
   ],
   "notes": "Confederazione Svizzera — CH-wide federal jobs (all 26 cantons). Fetches the unfiltered national listing from the Prospective.ch API (medium 1000624 — Stellenportal Bund / jobs.admin.ch) and keeps every job whose location resolves to a Swiss canton (inferAnyCanton); foreign \"Estero\" postings are dropped. Covers departments not handled by VTG or Agroscope crawlers: DATEC, DEFR/SECO, DFGP, TPF, etc. Includes apprenticeship and internship positions.",
-  "updatedAt": "2026-11-27T21:47:24.339Z",
+  "updatedAt": "2026-11-28T09:42:05.045Z",
   "seedMetaByUrl": {
     "https://jobs.admin.ch/posti-vacanti/leiter-in-fb-energie-der-milizorganisation-der-wl-nebenamt/b6357882-7cc7-46b0-9e56-7b0de28f6a59": {
       "location": "Bern",
@@ -405,6 +405,14 @@
       "postedDate": "2026-11-24T14:45:50Z",
       "postingDateSource": "reported"
     },
+    "https://jobs.admin.ch/posti-vacanti/informations-und-dokumentationsspezialist-in/50374272-27fd-4d22-8410-3880ee4e491e": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-11-24T23:00:00Z",
+      "postedDate": "2026-11-24T23:00:00Z",
+      "postingDateSource": "reported"
+    },
     "https://jobs.admin.ch/posti-vacanti/adjunkt-in-medien-kommunikation-1/a3618c86-38ac-4c8a-b03f-998c87583e8a": {
       "location": "Lausanne",
       "canton": "VD",
@@ -427,14 +435,6 @@
       "company": "Confederazione Svizzera",
       "datePosted": "2026-11-23T23:00:00Z",
       "postedDate": "2026-11-23T23:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/informations-und-dokumentationsspezialist-in/50374272-27fd-4d22-8410-3880ee4e491e": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-11-24T23:00:00Z",
-      "postedDate": "2026-11-24T23:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/ict-system-ingenieur-in-1144-1145-1146/e38ec5bd-63e1-496f-89ae-f7037e87b084": {
@@ -685,20 +685,20 @@
       "postedDate": "2026-11-20T11:52:31Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/ict-architekt-in-professional-1383/61d3bd9c-a0aa-4abd-b91c-ea63a936c457": {
-      "location": "Zollikofen",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-11-19T23:00:00Z",
-      "postedDate": "2026-11-19T23:00:00Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/ict-change-und-release-manager-in-senior/eb043ee3-b94d-4c1e-a32f-066e118dc180": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-11-20T11:15:55Z",
       "postedDate": "2026-11-20T11:15:55Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/ict-architekt-in-professional-1383/61d3bd9c-a0aa-4abd-b91c-ea63a936c457": {
+      "location": "Zollikofen",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-11-19T23:00:00Z",
+      "postedDate": "2026-11-19T23:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/projektleiter-in-projektmanagement/9aba25e1-cad4-4514-9bdf-041a98d88665": {
@@ -1509,20 +1509,20 @@
       "postedDate": "2026-11-10T09:03:52Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-recht/8589ffe0-e1fc-42b6-9866-a7e8e25cea8a": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-11-09T23:00:00Z",
-      "postedDate": "2026-11-09T23:00:00Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/offizier-in-ruestung-und-weiterentwicklung/0ac99ec4-5340-4d80-95d4-6045856e1656": {
       "location": "Rivera",
       "canton": "TI",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-11-04T07:25:24Z",
       "postedDate": "2026-11-04T07:25:24Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-recht/8589ffe0-e1fc-42b6-9866-a7e8e25cea8a": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-11-09T23:00:00Z",
+      "postedDate": "2026-11-09T23:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/projektleiter-in-bauherrschaft/df406c4a-c4d9-4f61-a7b2-ae7652ee971a": {
@@ -2101,14 +2101,6 @@
       "postedDate": "2026-06-30T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/ict-system-engineer-microsoft/36b11758-3dec-4abb-823a-9cf1248d44d5": {
-      "location": "Zollikofen",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-21T22:00:00Z",
-      "postedDate": "2026-10-21T22:00:00Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/stellvertretende-r-kommissariatsleiter-in/7afd60da-c323-473f-88b2-84ccfb797562": {
       "location": "Bern",
       "canton": "BE",
@@ -2155,14 +2147,6 @@
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-19T22:00:00Z",
       "postedDate": "2026-10-19T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/senior-ict-software-engineer-net-c-test-automation-engineer/e7bb2feb-ba5e-48a6-a864-3b88a136ece2": {
-      "location": "Zollikofen BE",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-21T22:00:00Z",
-      "postedDate": "2026-10-21T22:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/lernende-r-kaufmann-frau-efz/d6965a83-a611-452f-9068-37f9753ddd70": {
@@ -2589,22 +2573,6 @@
       "postedDate": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/3-lernende-automobil-mechatroniker-innen-efz-fachrichtung-nutzfahrzeuge/1d309861-35c6-475d-a810-87b830c31883": {
-      "location": "Othmarsingen, Lernbeginn August 2027",
-      "canton": "AG",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/ict-sicherheits-officer-728-30-1162/b03ce98f-08f6-4bf1-bbaa-741c86226eda": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-07-05T22:00:00Z",
-      "postedDate": "2026-07-05T22:00:00Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/uebermittlungs-informatikspezialist-in/793bdd51-2d47-4b3e-a4e0-ca5d4ba656f5": {
       "location": "STANS-OBERDORF / AUSLAND",
       "canton": "NW",
@@ -2683,6 +2651,22 @@
       "company": "Confederazione Svizzera",
       "datePosted": "2023-10-26T22:00:00Z",
       "postedDate": "2023-10-26T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/3-lernende-automobil-mechatroniker-innen-efz-fachrichtung-nutzfahrzeuge/1d309861-35c6-475d-a810-87b830c31883": {
+      "location": "Othmarsingen, Lernbeginn August 2027",
+      "canton": "AG",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/ict-sicherheits-officer-728-30-1162/b03ce98f-08f6-4bf1-bbaa-741c86226eda": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-07-05T22:00:00Z",
+      "postedDate": "2026-07-05T22:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/observer-lmt-lot-m-w/057ac591-65fa-4a62-b0d8-099cc6d69783": {

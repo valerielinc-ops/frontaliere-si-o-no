@@ -1,7 +1,7 @@
 {
   "key": "cogestim-ch",
   "label": "COGESTIM SA",
-  "generatedAt": "2026-11-27T21:19:38.478Z",
+  "generatedAt": "2026-11-28T09:19:44.264Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -47,16 +47,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 8202,
-  "avgDurationMs": 8202,
+  "unchangedCount": 1,
+  "durationMs": 8515,
+  "avgDurationMs": 8515,
   "durationHistory": [
-    8202
+    8515
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "cogestim-ch-235f78413034",
       "slug": "broker-immobiliare-m-f-cogestim-sa-lausanne",
@@ -69,7 +71,7 @@
       "url": "https://cogestim.ch/carriere",
       "source": "COGESTIM SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T21:19:13.351Z",
+      "crawledAt": "2026-11-28T09:19:16.709Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -92,7 +94,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:19:13.351Z",
+      "validThrough": "2026-12-28T09:19:16.709Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -103,7 +105,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
 }

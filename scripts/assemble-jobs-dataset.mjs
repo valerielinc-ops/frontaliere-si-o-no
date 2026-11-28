@@ -112,10 +112,12 @@ import {
   normalizeExpiredAtEntries,
   createActiveRouteOwnersIndex,
   repairExpiredRoutesAgainstActive,
+  localeRouteKeys,
 } from './lib/expired-jobs-archive.mjs';
 import { carryForwardFirstSeenAt } from './lib/first-seen-history.mjs';
 import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawler-source-hosts.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
+import { createSinglePostingProof, holdsEveryRoute, mergeGhostRoutes } from './lib/ghost-route-transfer.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 import { stampCodeCommit } from './lib/checkout-code-commit.mjs';
 import { readJsonFile } from './lib/read-large-json.mjs';
@@ -4514,6 +4516,7 @@ export function repairExpiredArchiveSlicesAgainstActive(
       details: [],
       ghostCount: 0,
       mergedSlugs: 0,
+      retainedGhostCount: 0,
     };
   }
   const slicesHeap = startHeapPhase('expired slices: route repair');
@@ -4589,6 +4592,7 @@ export function repairExpiredArchiveSlicesAgainstActive(
     details,
     ghostCount: ghostRepair.ghostCount,
     mergedSlugs: ghostRepair.mergedSlugs,
+    retainedGhostCount: ghostRepair.retainedGhostCount ?? 0,
   }
 }
 
@@ -4894,11 +4898,11 @@ export function trackSlugHistoryDrift(priorJobs, activeJobs) {
  * keeps the intended match (title+company unchanged, slug changed) while
  * rejecting the false-positive collisions across different store locations.
  *
- * Returns { cleanedExpired, ghostCount, mergedSlugs }.
+ * Returns { cleanedExpired, ghostCount, mergedSlugs, retainedGhostCount }.
  */
 export function reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir = EXPIRED_SLICES_DIR } = {}) {
   if (!activeJobs?.length || !expiredJobs?.length) {
-    return { cleanedExpired: expiredJobs || [], ghostCount: 0, mergedSlugs: 0 };
+    return { cleanedExpired: expiredJobs || [], ghostCount: 0, mergedSlugs: 0, retainedGhostCount: 0 };
   }
 
   const jobTclKey = (job) => `${(job.title || '').toLowerCase().trim()}||${(job.company || '').toLowerCase().trim()}||${(job.location || '').toLowerCase().trim()}`;
@@ -4973,6 +4977,7 @@ export function reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir = EXPI
   const ghostIds = new Set();
   const ghostEvidenceById = new Map();
   let mergedSlugs = 0;
+  const isSameSinglePosting = createSinglePostingProof(activeJobs, expiredJobs, jobTclKey);
 
   for (const ej of expiredJobs) {
     const localeSlugs = ej.slugByLocale ? Object.values(ej.slugByLocale) : [];
@@ -5061,29 +5066,32 @@ export function reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir = EXPI
       overlapJob: proofOverlapSlug ? overlapJob : null,
     });
 
-    // Merge expired slugs into active job's previousSlugs (journaled + capped,
-    // matching the write path everywhere else — see addPreviousSlugForLocale).
-    const existingSlugs = new Set([
-      ...(match.slugByLocale ? Object.values(match.slugByLocale) : []),
-      ...(match.previousSlugs || []),
-    ]);
-    let addedCount = 0;
-    if (ej.slugByLocale && typeof ej.slugByLocale === 'object') {
-      for (const [locale, s] of Object.entries(ej.slugByLocale)) {
-        if (!s || existingSlugs.has(s)) continue;
-        addPreviousSlugForLocale(match, locale, s, DEFAULT_PREV_SLUG_CAP, 'assemble-jobs-dataset.reconcileGhostExpired');
-        existingSlugs.add(s);
-        addedCount++;
-      }
-    }
-    for (const s of (ej.previousSlugs || [])) {
-      if (!s || existingSlugs.has(s)) continue;
-      addPreviousSlugForLocale(match, 'it', s, DEFAULT_PREV_SLUG_CAP, 'assemble-jobs-dataset.reconcileGhostExpired');
-      existingSlugs.add(s);
-      addedCount++;
-    }
-    mergedSlugs += addedCount;
+    // Per-locale history moves only when both records declare, for themselves,
+    // the same single posting. Nothing is evicted to make room.
+    mergedSlugs += mergeGhostRoutes(match, ej, { proven: isSameSinglePosting(ej, match) });
   }
+
+  // Ghost reconciliation runs after the active assembly's normal ownership
+  // pass and can replay a stale hash-tailed bridge carried by the expired
+  // record. Reconcile only after the complete merge, so the final in-memory
+  // active snapshot is order-independent and cannot regrow cross-job history
+  // when it is later projected back to crawler slices (#17834).
+  decontaminateJobs(activeJobs);
+
+  // A ghost record leaves only when its active match serves every route it
+  // served, judged on the final active snapshot. The deploy mines routes from
+  // the expired slices left on disk (mine-all-job-slugs.mjs), so a kept record
+  // keeps its pages. Removal is by identity: one record that must stay keeps
+  // every record sharing that identity.
+  const retainedIds = new Set();
+  let allActiveRoutes = null;
+  const activeRoutes = () => (allActiveRoutes ??= new Set(activeJobs.flatMap((job) => [...localeRouteKeys(job)])));
+  for (const ej of expiredJobs) {
+    const id = expiredGhostIdentity(ej);
+    if (!ghostIds.has(id)) continue;
+    if (!holdsEveryRoute(ghostEvidenceById.get(id)?.match, ej, activeRoutes)) retainedIds.add(id);
+  }
+  for (const id of retainedIds) ghostIds.delete(id);
 
   // Filter out ghosts
   const cleanedExpired = expiredJobs.filter(ej => {
@@ -5092,6 +5100,7 @@ export function reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir = EXPI
   });
 
   const ghostCount = ghostIds.size;
+  const retainedGhostCount = retainedIds.size;
 
   // Update per-crawler expired slices on disk — remove ONLY the detected
   // ghosts. The previous implementation kept an entry only if it appeared in
@@ -5166,14 +5175,7 @@ export function reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir = EXPI
     }
   }
 
-  // Ghost reconciliation runs after the active assembly's normal ownership
-  // pass and can replay a stale hash-tailed bridge carried by the expired
-  // record. Reconcile only after the complete merge, so the final in-memory
-  // active snapshot is order-independent and cannot regrow cross-job history
-  // when it is later projected back to crawler slices (#17834).
-  decontaminateJobs(activeJobs);
-
-  return { cleanedExpired, ghostCount, mergedSlugs };
+  return { cleanedExpired, ghostCount, mergedSlugs, retainedGhostCount };
 }
 
 /* ── Meta generation ──────────────────────────────────────────────────── */
@@ -5565,7 +5567,12 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   if (withExpired) {
     let sliceRepair = { changed: 0, repairedRoutes: 0, details: [] };
     if (assembled) sliceRepair = repairExpiredArchiveSlicesAgainstActive(publishedJobs);
-    if (assembled && sliceRepair.ghostCount > 0) {
+    if (assembled && sliceRepair.retainedGhostCount > 0) {
+      console.log(`  👻 Expired slice ghost reconciliation: kept ${sliceRepair.retainedGhostCount} ghost identities whose routes the active dataset does not hold`);
+    }
+    // A kept record can still hand slugs to its active match, so writing the
+    // active dataset back depends on the merge, not only on a removal.
+    if (assembled && (sliceRepair.ghostCount > 0 || sliceRepair.mergedSlugs > 0)) {
       console.log(
         `  👻 Expired slice ghost reconciliation: removed ${sliceRepair.ghostCount} ghost expired entries, `
         + `merged ${sliceRepair.mergedSlugs} slugs into active previousSlugs`,
@@ -5594,7 +5601,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
       // --- Ghost reconciliation: remove expired entries that match active jobs ---
       if (assembled) {
         const { cleanedExpired, ghostCount, mergedSlugs } = reconcileGhostExpired(publishedJobs, repairedExpiredJobs);
-        if (ghostCount > 0) {
+        if (ghostCount > 0 || mergedSlugs > 0) {
           console.log(`  👻 Ghost reconciliation: removed ${ghostCount} ghost expired entries, merged ${mergedSlugs} slugs into active previousSlugs`);
           // Write back active jobs with merged previousSlugs
           writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "weisse-arena",
-  "assembledAt": "2026-11-27T21:20:55.882Z",
-  "runId": "46068473611",
+  "assembledAt": "2026-11-28T09:15:04.183Z",
+  "runId": "46129152056",
   "jobs": [
     {
       "id": "weisse-arena-4ab91669ba4a",
@@ -34,7 +34,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4857&jobTitle=Multimedia+Producer",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:20:10.269Z",
+      "crawledAt": "2026-11-28T09:14:57.384Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -85,7 +85,7 @@
       "addressRegion": "GR",
       "streetAddress": "Laax",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:20:10.269Z",
+      "validThrough": "2027-02-08T09:14:57.384Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4861&jobTitle=Hilfskoch%2FHilfsk%C3%B6chin",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:20:10.266Z",
+      "crawledAt": "2026-11-28T09:14:57.383Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -141,7 +141,9 @@
       "jobNumber": "WAG02424",
       "pensum": "60 - 100%",
       "contractLabel": "Saisonanstellung",
-      "firstSeenAt": "2026-08-21T09:47:08.545Z",
+      "previousSlugs": [
+        "hilfskoch-hilfskochin-weisse-arena-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "hilfskoch-hilfskochin-weisse-arena-ch"
@@ -153,9 +155,7 @@
           "hilfskoch-hilfskochin-weisse-arena-ch"
         ]
       },
-      "previousSlugs": [
-        "hilfskoch-hilfskochin-weisse-arena-ch"
-      ],
+      "firstSeenAt": "2026-08-21T09:47:08.545Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -172,7 +172,7 @@
       "addressRegion": "GR",
       "streetAddress": "Laax",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:20:10.266Z",
+      "validThrough": "2026-12-28T09:14:57.383Z",
       "validThroughSource": "last-observed-window"
     }
   ]
