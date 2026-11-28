@@ -330,13 +330,20 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       try {
         result = await recover({
           page, snapshot: { ...snapshot, fields: form.scoped },
-          ctx: { candidate: { identity: { email: aliasEmail } }, accounts, dryRun: false },
+          // The store's own answer to the request is the reason a recovery may end without a single click on the
+          // portal (rate limit, cooldown, one still running): it goes in the trace.
+          ctx: { candidate: { identity: { email: aliasEmail } }, dryRun: false, accounts: { ...accounts, beginRecovery: async (...args) => {
+            const begun = await accounts.beginRecovery(...args);
+            proof.recovery = { ...(proof.recovery || {}), begin: String(begun?.status || '').slice(0, 30), ...(begun?.retryAt ? { retryAt: Number(begun.retryAt) } : {}) };
+            note('recovery_begin', page.url(), String(begun?.status || '').slice(0, 30), begun?.retryAt ? { retryAt: Number(begun.retryAt) } : {});
+            return begun;
+          } } },
           host: new URL(page.url()).hostname, account: await getAccount(), diagnostics: null, typedSecrets: null,
           registrationRestarts: new Map(), recoveryAttempts: new Set(),
           finishRecovery: async view => ({ snapshot: view }),
         });
       } finally { recoveryOpen = false; }
-      proof.recovery = { attempted: true, accepted: result?.accountRecovered === true, ...(result?.accountFailure?.code ? { code: String(result.accountFailure.code).slice(0, 60) } : {}) };
+      proof.recovery = { ...(proof.recovery || {}), attempted: true, accepted: result?.accountRecovered === true, ...(result?.accountFailure?.code ? { code: String(result.accountFailure.code).slice(0, 60) } : {}) };
       note('recovery', page.url(), result?.accountRecovered === true ? 'accepted' : 'refused');
       if (result?.accountRecovered !== true) return { reason: 'account_recovery_failed', extra: proof.recovery };
       loadedAccount = null;
@@ -351,23 +358,33 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
     if (snapshot.passwordVisible) {
       const host = new URL(page.url()).hostname;
       let failure = await attemptSignin();
-      let acceptedPrevious = false;
-      // The staged password of an unconfirmed recovery and the one before it are both candidates: the portal holds
-      // whichever the reset left it with. One more sign-in, with the previous one.
-      const previous = loadedAccount?.previousPassword;
-      if (failure?.reason === 'login_not_accepted' && previous) {
-        await page.goto(targetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
-        snapshot = await extractFields(page, { listboxOptions: false });
-        await prepareLoginPage();
-        if (snapshot.passwordVisible) {
-          failure = await attemptSignin(previous);
-          acceptedPrevious = !failure;
-        } else failure = null;
+      let adopted = '';
+      if (failure?.reason === 'login_not_accepted') {
+        // Every password the store or the alias inbox can still offer, once each (at most three more sign-ins): the
+        // one before an unconfirmed recovery, the newest e-mailed by the portal's own reset (it resets the password
+        // the moment the request is sent), the last one that made a verified sign-in.
+        const stored = loadedAccount || {};
+        const emailed = typeof accounts.resetPasswordCandidates === 'function' ? await accounts.resetPasswordCandidates(host, { limit: 2 }).catch(() => []) : [];
+        const tried = new Set([stored.password]);
+        const candidates = [stored.previousPassword, ...emailed, stored.lastGoodPassword].filter(secret => secret && !tried.has(secret) && tried.add(secret)).slice(0, 3);
+        note('candidates', page.url(), 'prepared', { count: candidates.length, emailed: emailed.length });
+        for (const secret of candidates) {
+          await page.goto(targetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+          snapshot = await extractFields(page, { listboxOptions: false });
+          await prepareLoginPage();
+          if (!snapshot.passwordVisible) { failure = null; break; }
+          failure = await attemptSignin(secret);
+          if (!failure) { adopted = secret; break; }
+          if (failure.reason !== 'login_not_accepted') break;
+        }
       }
       if (failure?.reason === 'login_not_accepted') failure = await recoverAndSignin();
       if (failure) return stop(failure.reason, failure.extra || {});
-      if (acceptedPrevious && typeof accounts.abortRecovery === 'function') {
-        // The password before the unconfirmed recovery is the valid one: back to it, nothing lost.
+      if (adopted && typeof accounts.adoptPassword === 'function') {
+        // A password the portal accepted is the account's from now on: nothing is lost again.
+        await accounts.adoptPassword(host, adopted).catch(() => {});
+        note('account', page.url(), 'password_adopted');
+      } else if (adopted && typeof accounts.abortRecovery === 'function') {
         await accounts.abortRecovery(host, { requestSubmitted: true, reason: 'previous_password_valid' }).catch(() => {});
         note('account', page.url(), 'previous_password_restored');
       } else if (proof.recovery?.accepted && typeof accounts.mark === 'function') {
