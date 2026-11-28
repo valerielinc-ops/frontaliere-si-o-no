@@ -3584,7 +3584,7 @@ export async function clickPortalLink(page, link, { context = null } = {}) {
       resolve(opened);
     });
   }) : null;
-  if (opened) return adoptOpenedPage(page, opened, { href });
+  if (opened) return adoptOpenedPage(page, opened, { href, baseUrl: before });
   if (page.url() !== before) return null;
   if (clickError) {
     if (!href || /^(?:#|javascript:|mailto:|tel:)/i.test(String(href).trim())) throw clickError;
@@ -3617,15 +3617,16 @@ export async function clickPortalLink(page, link, { context = null } = {}) {
  * A window the click opened is adopted only once it has left about:blank: Chromium announces it before its first
  * navigation, and settle() waits the full POPUP_WAIT_TIMEOUT_MS for that. One that is still blank after that wait
  * never answered (the portal_needs_candidate on an empty /blank page): it is closed and the link's own http(s)
- * address is opened once in the page the click came from, where it loads or fails as a navigation
+ * address (a relative href resolved against the origin URL captured before the click, since the click may move the
+ * origin) is opened once in the page the click came from, where it loads or fails as a navigation
  * (net::ERR_*, timeout: navigation_unavailable in submit.mjs, retried by the transport ladder). Without such an
  * address the run stops the same way. Nothing is ever sent from a blank page.
  */
-async function adoptOpenedPage(origin, opened, { href = '' } = {}) {
+async function adoptOpenedPage(origin, opened, { href = '', baseUrl = '' } = {}) {
   if (!opened || opened === origin) return opened || origin;
   if (await waitForNonBlankPage(opened)) return opened;
   await opened.close?.().catch?.(() => {});
-  const target = linkNavigationTarget(href, origin.url());
+  const target = linkNavigationTarget(href, baseUrl || origin.url());
   if (!target) throw blankPopupNeverNavigated();
   await origin.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
   if (origin.url() === 'about:blank') throw blankPopupNeverNavigated();
@@ -4994,8 +4995,9 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         page = (await clickPortalLink(page, locatorFor(page, manual || apply), { context })) || page;
       } else {
         const popup = context.waitForEvent('page', { timeout: POPUP_GRACE_MS }).catch(() => null);
+        const urlBeforeClick = page.url();
         await clickButton(page, manual || apply);
-        page = await adoptOpenedPage(page, await popup, { href: (manual || apply)?.href });
+        page = await adoptOpenedPage(page, await popup, { href: (manual || apply)?.href, baseUrl: urlBeforeClick });
       }
     } else {
       followedApplicationEntryThisHop = true;

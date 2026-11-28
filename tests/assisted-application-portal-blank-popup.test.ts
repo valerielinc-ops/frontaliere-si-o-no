@@ -60,4 +60,17 @@ describe('a window the application entry opened that never navigated', () => {
     expect(opened.close).not.toHaveBeenCalled();
     expect(page.goto).not.toHaveBeenCalled();
   });
+
+  it('a relative href resolves against the origin URL captured before the click, not the one after it', async () => {
+    const opened = popup();
+    let url = 'https://careers.example/jobs/123';
+    const page: any = { url: () => url, goto: vi.fn(async (target: string) => { url = target; }) };
+    const link: any = {
+      getAttribute: vi.fn(async (name: string) => (name === 'href' ? 'apply' : '_blank')),
+      click: vi.fn(async () => { url = 'https://careers.example/redirect/'; }),
+    };
+    const context: any = { waitForEvent: vi.fn(async () => opened) };
+    await clickPortalLink(page, link, { context });
+    expect(page.goto).toHaveBeenCalledWith('https://careers.example/jobs/apply', expect.objectContaining({ waitUntil: 'domcontentloaded' }));
+  });
 });
