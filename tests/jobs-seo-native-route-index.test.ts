@@ -566,3 +566,28 @@ describe('native job route ownership with interned prefixes', () => {
     console.log('NATIVE_ROUTE_HEAP_AB', JSON.stringify(samples));
   });
 });
+
+describe('expired German routes stored under a legacy non-routable section', () => {
+  const slug = 'synthetic-school-assistant-example-zurich';
+  const tracking: Tracking = {
+    [slug]: { de: `/de/jobs-im-zurich/${slug}`, en: `/en/find-jobs-zurich/${slug}` },
+    'synthetic-basel-example': { de: '/de/jobs-im-basel/synthetic-basel-example' },
+    'synthetic-moved-example': { de: '/de/jobs-in-bern/synthetic-moved-example' },
+  };
+
+  it('does not treat the canonical twin of the stored legacy route as Worker-recovered', () => {
+    const index = buildNativeJobPrefixIndex(tracking, prefixes, sections);
+    expect(nativeJobPathRecoveredByWorker('de', slug, `/de/jobs-in-zurich/${slug}/`, tracking, index)).toBe(false);
+    expect(nativeJobPathRecoveredByWorker(
+      'de', 'synthetic-basel-example', '/de/jobs-in-basel/synthetic-basel-example/', tracking, index,
+    )).toBe(false);
+  });
+
+  it('still defers to the Worker when the stored route belongs to another canton', () => {
+    const index = buildNativeJobPrefixIndex(tracking, prefixes, sections);
+    expect(nativeJobPathRecoveredByWorker(
+      'de', 'synthetic-moved-example', '/de/jobs-in-zurich/synthetic-moved-example/', tracking, index,
+    )).toBe(true);
+    expect(nativeJobPathRecoveredByWorker('de', slug, `/de/jobs-in-basel/${slug}/`, tracking, index)).toBe(true);
+  });
+});
