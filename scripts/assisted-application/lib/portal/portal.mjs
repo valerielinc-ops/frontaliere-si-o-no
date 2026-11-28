@@ -10791,6 +10791,26 @@ async function awaitPasswordResetRequestSurface(page, before) {
   return { snapshot, surface: null };
 }
 
+/**
+ * The page a reset link opens can sit behind the portal's cookie manager and draw its form late, exactly like the
+ * request page. Resolve the consent once (same origin) and observe, bounded, until the two password fields show;
+ * a page that says the link is expired or used ends the wait at once. Reads only: nothing is typed or sent here.
+ */
+async function awaitPasswordResetLinkSurface(page, view) {
+  const refused = (snapshot) => PASSWORD_RESET_REFUSED_RE.test([snapshot?.text, ...(snapshot?.errors || [])].filter(Boolean).join(' '));
+  const observations = Math.ceil(AUTH_VIEW_TIMEOUT_MS / AUTH_OUTCOME_POLL_MS) + 1;
+  let current = view;
+  if (resetPasswordFields(current)) return current;
+  // The consent layer's own text is not the portal's verdict on the link: judge only what is read after it.
+  await resolveCookieConsent(page, current).catch(() => null);
+  for (let observation = 0; observation < observations; observation += 1) {
+    current = await extractFields(page, NAVIGATION).catch(() => null) || current;
+    if (resetPasswordFields(current) || refused(current)) return current;
+    if (observation + 1 < observations) await page.waitForTimeout(AUTH_OUTCOME_POLL_MS);
+  }
+  return current;
+}
+
 function passwordResetRequestFailure(snapshot) {
   const refused = PASSWORD_RESET_REFUSED_RE.test([snapshot?.text, ...(snapshot?.errors || [])].filter(Boolean).join(' '));
   return refused ? 'account_recovery_rejected' : 'account_recovery_timeout';
@@ -10877,6 +10897,7 @@ export async function recoverAccountPassword({ page, snapshot, ctx, host, accoun
       await page.goto(resetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
       await settle(page);
       resetView = await extractFields(page, NAVIGATION);
+      if (!temporaryPassword) resetView = await awaitPasswordResetLinkSurface(page, resetView);
     }
     const pageUrl = new URL(page.url());
     const resetFields = resetView ? resetPasswordFields(resetView) : null;
