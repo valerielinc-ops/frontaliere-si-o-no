@@ -13,6 +13,8 @@ const HASH = /^[a-f0-9]{64}$/;
 const PROOF_KINDS = new Set([
   'email_provider_accepted',
   'portal_success_page',
+  // The page did not move: its form went, its thank-you became visible after an answered send request.
+  'portal_in_page_confirmation',
   'candidate_handoff_link',
   'employer_acknowledgement',
   'portal_application_exists',
@@ -54,7 +56,8 @@ function referenceFor(proofKind, evidence) {
       const messageId = String(evidence.messageId || '').trim().slice(0, 300);
       return provider && messageId ? sha256([proofKind, provider, messageId]) : null;
     }
-    case 'portal_success_page': {
+    case 'portal_success_page':
+    case 'portal_in_page_confirmation': {
       const reference = urlReference(evidence.finalUrl);
       return reference ? sha256([proofKind, reference]) : null;
     }

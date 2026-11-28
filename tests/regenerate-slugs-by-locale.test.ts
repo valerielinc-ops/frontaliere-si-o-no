@@ -3,6 +3,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import {
+  flatOnlyPreviousSlugs,
   indexServedSlugCandidateClaims,
   servedSlugCandidates,
   servedSlugSliceWriter,
@@ -211,5 +212,14 @@ describe('served slug slice writer', () => {
 
     expect(result).toMatchObject({ changed: false, reason: 'no-served-candidate' });
     expect(job).toEqual(before);
+  });
+});
+
+describe('flatOnlyPreviousSlugs', () => {
+  it('does not count a bucket for an unsupported locale as attribution', () => {
+    expect(flatOnlyPreviousSlugs({
+      previousSlugs: ['ruolo-storico', 'ruolo-attribuito'],
+      previousSlugsByLocale: { es: ['ruolo-storico'], en: ['ruolo-attribuito'] },
+    })).toEqual(['ruolo-storico']);
   });
 });

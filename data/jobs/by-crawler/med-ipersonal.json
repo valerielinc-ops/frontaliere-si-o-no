@@ -12248,10 +12248,10 @@
       "id": "med-ipersonal-458831cfa183",
       "slug": "schreiner-in-cfc-ipersonal-ag-dulliken-so",
       "slugByLocale": {
-        "it": "schreiner-in-cfc-ipersonal-ag-dulliken-so",
-        "en": "schreiner-in-efz-ipersonal-ag-dulliken-so",
         "de": "schreiner-in-efz-ipersonal-ag-dulliken-so",
-        "fr": "schreiner-in-efz-ipersonal-ag-dulliken-so"
+        "it": "falegname-afc-ipersonal-ag-dulliken-so",
+        "en": "carpenter-efz-ipersonal-ag-dulliken-so",
+        "fr": "menuisier-ere-cfc-ipersonal-ag-dulliken-so"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -12292,7 +12292,6 @@
       "postedDate": "2026-11-27",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/schreiner-in-efz-dulliken-i-2026-0077/",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -12314,6 +12313,12 @@
       "previousSlugsByLocale": {
         "it": [
           "schreiner-in-efz-ipersonal-ag-dulliken-so"
+        ],
+        "en": [
+          "schreiner-in-efz-ipersonal-ag-dulliken-so"
+        ],
+        "fr": [
+          "schreiner-in-efz-ipersonal-ag-dulliken-so"
         ]
       },
       "previousSlugs": [
@@ -12324,10 +12329,10 @@
       "id": "med-ipersonal-bb3f90603912",
       "slug": "responsabile-di-progetto-schreinerei-ipersonal-ag-dulliken-so",
       "slugByLocale": {
-        "it": "responsabile-di-progetto-schreinerei-ipersonal-ag-dulliken-so",
-        "en": "project-manager-schreinerei-ipersonal-ag-dulliken-so",
         "de": "projektleiter-in-schreinerei-ipersonal-ag-dulliken-so",
-        "fr": "chef-de-projet-schreinerei-ipersonal-ag-dulliken-so"
+        "it": "responsabile-di-progetto-per-falegnameria-ipersonal-ag-dulliken-so",
+        "en": "project-manager-carpentry-ipersonal-ag-dulliken-so",
+        "fr": "chef-fe-de-projet-en-menuiserie-ipersonal-ag-dulliken-so"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -12368,22 +12373,25 @@
       "postedDate": "2026-11-27",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/projektleiter-in-schreinerei-100-dulliken-i-2026-0076/",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-schreinerei-ipersonal-ag-dulliken-so",
           "responsabile-di-progetto-schreinerei-ipersonal-ag-dulliken"
         ],
         "en": [
-          "projektleiter-in-schreinerei-ipersonal-ag-dulliken-so"
+          "projektleiter-in-schreinerei-ipersonal-ag-dulliken-so",
+          "project-manager-schreinerei-ipersonal-ag-dulliken-so"
         ],
         "fr": [
-          "projektleiter-in-schreinerei-ipersonal-ag-dulliken-so"
+          "projektleiter-in-schreinerei-ipersonal-ag-dulliken-so",
+          "chef-de-projet-schreinerei-ipersonal-ag-dulliken-so"
         ]
       },
       "previousSlugs": [
         "projektleiter-in-schreinerei-ipersonal-ag-dulliken-so",
-        "responsabile-di-progetto-schreinerei-ipersonal-ag-dulliken"
+        "responsabile-di-progetto-schreinerei-ipersonal-ag-dulliken",
+        "project-manager-schreinerei-ipersonal-ag-dulliken-so",
+        "chef-de-projet-schreinerei-ipersonal-ag-dulliken-so"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,

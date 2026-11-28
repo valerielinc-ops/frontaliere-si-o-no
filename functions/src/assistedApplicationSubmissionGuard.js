@@ -225,7 +225,7 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
         throw new Error('submission_attempt_superseded');
       }
       if ((proofKind === 'email_provider_accepted' && channel !== 'email')
-        || (proofKind === 'portal_success_page' && ['email', 'whatsapp', 'owner', 'owner_extension', 'candidate'].includes(channel))
+        || (['portal_success_page', 'portal_in_page_confirmation'].includes(proofKind) && ['email', 'whatsapp', 'owner', 'owner_extension', 'candidate'].includes(channel))
         || (proofKind === 'portal_application_exists' && channel !== 'portal')
         || (proofKind === 'candidate_handoff_link' && channel !== 'whatsapp')
         || (proofKind === 'owner_confirmation' && !['owner', 'owner_extension'].includes(channel))
@@ -288,7 +288,7 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
         if (!EXTERNAL_PROOF_KINDS.has(proofKind) && current.state !== 'sent' && current.attemptId !== attemptId) {
           throw new Error('submission_attempt_superseded');
         }
-        if (proofKind === 'portal_success_page' && current.state !== 'sent'
+        if (['portal_success_page', 'portal_in_page_confirmation'].includes(proofKind) && current.state !== 'sent'
           && (current.channel !== 'portal' || !Number(current.clickedAt) || !/^[a-f0-9]{64}$/.test(current.formBinding || ''))) {
           throw new Error('submission_form_unbound');
         }

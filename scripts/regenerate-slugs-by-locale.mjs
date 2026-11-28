@@ -259,9 +259,10 @@ function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 }
 
-function flatOnlyPreviousSlugs(job) {
+export function flatOnlyPreviousSlugs(job) {
   const localeAware = new Set();
-  for (const values of Object.values(job?.previousSlugsByLocale || {})) {
+  for (const locale of LOCALES) {
+    const values = job?.previousSlugsByLocale?.[locale];
     if (Array.isArray(values)) {
       for (const value of values) localeAware.add(String(value || '').trim());
     }

@@ -821,7 +821,7 @@ export async function submitApplication(ctx) {
           const claim = await guard.claim('portal', Date.now());
           if (claim.status !== 'claimed') throw new Error('portal_retry_claim_unavailable');
         } : null,
-        onReceipt: guard ? async ({ finalUrl = null } = {}) => {
+        onReceipt: guard ? async ({ finalUrl = null, proofKind = '' } = {}) => {
           receiptFinalUrl = typeof finalUrl === 'string' ? finalUrl : null;
           let lastError = null;
           for (let attempt = 0; attempt < 3; attempt += 1) {
@@ -829,7 +829,8 @@ export async function submitApplication(ctx) {
               if (!armedSentRecord) throw new Error('portal_receipt_without_attempt');
               const observedAt = Date.now();
               const receipt = await guard.markSent({ channel: channelType, finalUrl: receiptFinalUrl, sent: armedSentRecord }, observedAt, {
-                kind: 'portal_success_page', observedAt, evidence: { finalUrl: receiptFinalUrl },
+                kind: proofKind === 'in_page_confirmation' ? 'portal_in_page_confirmation' : 'portal_success_page',
+                observedAt, evidence: { finalUrl: receiptFinalUrl },
               });
               receiptId = receipt?.receiptId || null;
               receiptPersisted = true;
@@ -866,7 +867,8 @@ export async function submitApplication(ctx) {
         if (event.type === 'submit_succeeded' && !receiptPersisted) {
           const observedAt = Date.now();
           const receipt = await guard.markSent({ channel: channelType, finalUrl: evidence.finalUrl || null, sent: sentRecord }, observedAt, {
-            kind: 'portal_success_page', observedAt, evidence: { finalUrl: evidence.finalUrl },
+            kind: evidence.receiptKind === 'in_page_confirmation' ? 'portal_in_page_confirmation' : 'portal_success_page',
+            observedAt, evidence: { finalUrl: evidence.finalUrl },
           });
           receiptId = receipt?.receiptId || null;
           receiptPersisted = true;

@@ -49,14 +49,18 @@ export function applicationExistsProbeEntry(applyUrl) {
   if (!match) return null;
   const host = url.hostname.toLowerCase();
   return { routeKind: 'umantis_application_exists', host, origin: url.origin, vacancyId: match[1],
-    entryUrl: `${url.origin}/Vacancies/${match[1]}/Application/New/${match[2]}` };
+    entryUrl: `${url.origin}/Vacancies/${match[1]}/Application/New/${match[2]}`,
+    // Where the portal's own sign-in page of this vacancy lives, when the entry shows only a registration form.
+    loginUrl: `${url.origin}/Vacancies/${match[1]}/Application/Login/${match[2]}` };
 }
 
 /** The only pages of the order's own vacancy a read-only inspection may navigate to or sign in on. */
 export function applicationExistsProbeNavigation(value, probe) {
   const url = httpsUrl(value);
   if (!url || !probe || url.hash || url.origin !== probe.origin) return false;
-  const match = /^\/vacancies\/(\d{1,64})\/(application\/(?:new|login)|furtherapplication\/applicationexists)\/\d+\/?$/iu.exec(url.pathname);
+  // A mutation key in the query never passes, whatever the route (same list as the inspection's GET fence).
+  if ([...url.searchParams.keys()].some((key) => /^(?:action|submit|send|withdraw|delete|cancel)$/iu.test(key))) return false;
+  const match = /^\/vacancies\/(\d{1,64})\/(application\/(?:new|login)|furtherapplication\/applicationexists|description)\/\d+\/?$/iu.exec(url.pathname);
   return Boolean(match && match[1] === probe.vacancyId);
 }
 

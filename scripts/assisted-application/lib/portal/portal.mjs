@@ -33,13 +33,14 @@ import '../../extension/apply-control.js';
 import path from 'node:path';
 import { browserEngine, isStealthBrowser, launchStealthOrChromium } from '../../../lib/stealth-browser.mjs';
 import { challengeState, passChallenge } from '../../../lib/challenge-pass.mjs';
+import { inPageConfirmation, inPageConfirmationText } from './in-page-confirmation.mjs';
 import { EXPAND_ALL_RE, applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, gravityFormsSubmissionOutcome, inPageApplicationOpeners, isApplicationRegionUnsupported, isApplicationRouteBound, isDesignatedGenericApplicationForm, portalJobKey } from './stages.mjs';
 import { BRASSRING_HOME_WITH_PRELOAD_RE, brassRingActiveFields, isBrassRingPrivacyGateText, sameBrassRingPostingAddress } from './brass-ring-route.mjs';
 import { COVER_LETTER_DOCUMENT_CONTEXT_RE, COVER_LETTER_DOCUMENT_TERMS, CV_DOCUMENT_CONTEXT_RE, CV_DOCUMENT_TERMS } from './document-labels.mjs';
 import { advancedToFinalReview } from './final-review.mjs';
 export { advancedToFinalReview } from './final-review.mjs';
 import { AGENT_MAX_RUNTIME_MS, AGENT_ROUNDS, advanceLocator, agentNavigationEnabled, clickSubmitButton, completeWithAgent, isPreDispatchLocatorClickFailure, submitLocator } from './agent.mjs';
-import { avatureProtocolMatches, readAvatureSignInRouteInPage, readPortalProtocolInPage } from './protocol.mjs';
+import { avaturePostingJobKey, avatureProtocolMatches, readAvatureSignInRouteInPage, readPortalProtocolInPage } from './protocol.mjs';
 import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, asksExistingPassword, authPageKind, codeField, hasExistingAccountPrompt, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields as extractFieldsRaw, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
@@ -2468,6 +2469,31 @@ function controlPostingIdentity(control) {
   return markers.length > 1 ? null : markers[0] || '';
 }
 
+/**
+ * Avature's posting page (`/<Namespace>/JobDetail/<slug>/<id>`) opens its application through a styled
+ * anchor «Apply» to `/<Namespace>/Login?jobId=<id>` (Deloitte CH, 2026-11-27). The portal attests itself in
+ * its own metadata and the target names the same requisition id as the posting route, on the same origin:
+ * that binds the entry to the selected vacancy with no employer-name reading. Any other path, extra
+ * parameter, origin or id is not this proof.
+ */
+export function avatureApplyEntryBelongsToPosting(href, { applyUrl = '', postingUrl = '', sourceProtocol = null } = {}) {
+  try {
+    if (sourceProtocol?.vendor !== 'avature' || sourceProtocol.page !== 'JobDetail') return false;
+    const keys = new Set([postingUrl, applyUrl].map((value) => String(value || '').trim()).filter(Boolean)
+      .map((value) => avaturePostingJobKey(value, sourceProtocol)).filter(Boolean));
+    if (keys.size !== 1) return false;
+    const target = new URL(String(href || ''));
+    if (!avatureProtocolMatches(sourceProtocol, `${sourceProtocol.origin}${sourceProtocol.path}`)
+      || target.protocol !== 'https:' || target.username || target.password || target.hash
+      || target.origin !== sourceProtocol.origin
+      || target.pathname.replace(/\/$/, '') !== `${sourceProtocol.namespace}/Login`) return false;
+    const params = [...target.searchParams.entries()];
+    return params.length === 1 && params[0][0] === 'jobId' && params[0][1] === [...keys][0];
+  } catch {
+    return false;
+  }
+}
+
 function applicationEntryBelongsToPosting(control, {
   applyUrl = '',
   postingUrl = '',
@@ -2483,6 +2509,7 @@ function applicationEntryBelongsToPosting(control, {
   if (href && samePortalRoute(href, postingUrl, postingUrl)) return true;
   if (href && isVerifiedPostingEntry({ applyUrl: href, postingUrl, postingRouteProof })) return true;
   if (href && isVerifiedPostingEntry({ applyUrl: href, postingUrl: applyUrl })) return true;
+  if (href && avatureApplyEntryBelongsToPosting(href, { applyUrl, postingUrl, sourceProtocol })) return true;
 
   // A posting can use a button with no URL (Yellowshark). Its nearest heading
   // or explicit section must contain the selected role and a unique posting
@@ -11907,6 +11934,12 @@ async function waitForOutcome(page, context = {}) {
     if (urlConfirms(page.url(), lastSnapshot, context)) return { outcome: 'confirmed', snapshot: lastSnapshot };
     if (advancedToFinalReview(lastSnapshot, { ...context, url: page.url() })) return { outcome: 'review_pending', snapshot: lastSnapshot };
     if (snapshot?.captcha) return { outcome: 'captcha', snapshot: lastSnapshot };
+    // The address did not change, the form is gone and the employer's thank-you became visible after an answered
+    // send request (in-page-confirmation.mjs): confirmed, with its own kind of receipt.
+    if (snapshot && typeof context.inPageConfirmation === 'function'
+      && context.inPageConfirmation(finalReviewEvidenceSnapshot(lastSnapshot)).confirmed) {
+      return { outcome: 'confirmed', snapshot: lastSnapshot, proofKind: 'in_page_confirmation' };
+    }
     const newValidationLine = hasNewValidationText(text, context.preSubmitText);
     const hasFieldValidationSignal = Boolean(snapshot?.errors?.length)
       || (snapshot?.fields || []).some((field) => field?.invalid === true);
@@ -12148,8 +12181,11 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
 
     const addressQuestionId = role === 'houseNumber' ? 'portal_residence_house_number'
       : role === 'street' && separateHouseNumber ? 'portal_residence_street' : 'portal_residence_address';
+    // A single «Address» / «Via» caption (role street) is filled with the street the profile holds, as the fill side does
+    // (topic address_street): a street without a trailing number, or one followed by its CAP and town, is still an answer.
+    // Only an explicit «street and number» pair needs the number to be known.
     const addressValuePresent = role === 'houseNumber' ? houseNumberPresent
-      : role === 'street' && separateHouseNumber ? streetPresent
+      : role === 'street' ? streetPresent
         : streetPresent && houseNumberPresent;
     if (['street', 'address', 'houseNumber'].includes(role) && !addressValuePresent && !hasAnswer(addressQuestionId)) {
       const id = role === 'houseNumber' ? 'portal_residence_house_number'
@@ -15452,6 +15488,9 @@ export async function submitViaPortal(ctx) {
       evidence.submissionUrl = finalUrl;
       assertPortalRuntime();
       await diagnostics.beforeSubmit(page);
+      // The text visible right before the click: a thank-you that is already visible proves nothing afterwards.
+      const beforeClickText = `${await page.title().catch(() => '')}\n${await pageText(page).catch(() => '')}\n${page.url()}`;
+      evidence.preSubmitConfirmationVisible = Boolean(inPageConfirmationText(beforeClickText));
       const guardToken = randomUUID();
       const armed = await final.locator.evaluate(armFinalFormClickGuardInPage, {
         token: guardToken,
@@ -15478,6 +15517,8 @@ export async function submitViaPortal(ctx) {
       // The native form is bound before the durable send arm. The installed
       // capture listener compares it again synchronously before portal click
       // handlers can act.
+      // Kept in the encrypted evidence: the reconciliation binds a stored run to the round's click by it.
+      evidence.formBinding = formBinding;
       if (ctx.onBeforeSubmit) await ctx.onBeforeSubmit({ uploads: evidence.uploads, formBinding });
       if (ctx.portalReplay === true) {
         if (ctx.portalReplayMetrics && typeof ctx.portalReplayMetrics === 'object') {
@@ -15511,11 +15552,15 @@ export async function submitViaPortal(ctx) {
         sourceProtocol,
         job: ctx.job,
         finalSubmission,
+        inPageConfirmation: (afterSnapshot) => inPageConfirmation({
+          beforeText: beforeClickText, afterSnapshot, submissionUrl: finalUrl, responses: diagnostics?.data?.responses || [],
+        }),
         onPortalChallenge: targetPage => passAssistedPortalChallenge(targetPage, browser, log),
       });
       const outcome = observed.outcome;
       (evidence.finalOutcomes ||= []).push(outcome);
-      if (outcome === 'confirmed' && ctx.onReceipt) await ctx.onReceipt({ finalUrl: page.url() });
+      if (observed.proofKind) evidence.receiptKind = observed.proofKind;
+      if (outcome === 'confirmed' && ctx.onReceipt) await ctx.onReceipt({ finalUrl: page.url(), ...(observed.proofKind ? { proofKind: observed.proofKind } : {}) });
       await diagnostics.afterSubmit(page, outcome);
       if (ctx.portalReplay !== true) evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
       evidence.finalUrl = page.url();

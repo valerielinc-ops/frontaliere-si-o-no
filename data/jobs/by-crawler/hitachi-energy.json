@@ -47,7 +47,6 @@
         "fr": "product-development-quality-manager-hitachi-energy-vaesteras-sweden"
       },
       "id": "hitachi-energy-c68be22eb80a",
-      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "currency": "CHF",
@@ -1588,8 +1587,8 @@
       },
       "slugByLocale": {
         "it": "gcb-gestione-delle-offerte-m-f-d-hitachi-energy-zurich",
-        "en": "gcb-tendering-manager-f-m-d-hitachi-energy-zurich-switzerland",
-        "de": "gcb-tendering-manager-f-m-d-hitachi-energy-zurich-switzerland",
+        "en": "gcb-tendering-manager-f-m-d-hitachi-energy-zurich-switzerland-fnfoag",
+        "de": "gcb-tendering-manager-f-m-d-hitachi-energy-zurich-switzerland-fnfoag",
         "fr": "gestionnaire-d-appel-d-offres-gcb-h-f-d-hitachi-energy-zurich"
       },
       "id": "hitachi-energy-761896783969",
@@ -1619,6 +1618,12 @@
           "gcb-tendering-manager-f-m-d-hitachi-energy-zurich-switzerland"
         ],
         "it": [
+          "gcb-tendering-manager-f-m-d-hitachi-energy-zurich-switzerland"
+        ],
+        "en": [
+          "gcb-tendering-manager-f-m-d-hitachi-energy-zurich-switzerland"
+        ],
+        "de": [
           "gcb-tendering-manager-f-m-d-hitachi-energy-zurich-switzerland"
         ]
       },

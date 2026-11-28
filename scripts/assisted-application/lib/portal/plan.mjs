@@ -1283,8 +1283,11 @@ function recordedAnswerForQuestion(candidate, question, context = '', metadata =
   return matches.every((item) => equivalentAnswer(question, answer, item.answer, context, metadata)) ? answer : '';
 }
 
-function validatedAddressAnswer(candidate, topic, value) {
+function validatedAddressAnswer(candidate, topic, value, { explicit = false } = {}) {
   if (!value || !['address', 'address_street', 'address_house_number'].includes(topic)) return value;
+  // The candidate's own answer to «street and number» stands when it is a street: a street without a civic number
+  // exists, and rejecting it re-asked the same question at every round. A profile value still needs its number.
+  if (explicit && topic === 'address') return addressQuestionAnswer(candidate, 'address_street', value);
   const answer = addressQuestionAnswer(candidate, topic, value);
   if (topic === 'address_street' && answer && !/\p{L}/u.test(answer)) return '';
   if (topic === 'address' && answer
@@ -1299,10 +1302,12 @@ export function candidateAnswerForQuestion(candidate, question, context = '', me
   // Contact/address facts are canonical identity data. A prior portal answer
   // is only a compatibility fallback when the current candidate record has no
   // value; it must not overwrite a corrected country from the CV/profile.
-  const answer = (addressQuestionAnswer(candidate, topic) && recordedAnswerForQuestion(candidate, question, context, metadata, true))
-    || addressQuestionAnswer(candidate, topic)
-    || recordedAnswerForQuestion(candidate, question, context, metadata);
-  return validatedAddressAnswer(candidate, topic, answer);
+  const canonical = addressQuestionAnswer(candidate, topic);
+  const recordedCurrent = canonical ? recordedAnswerForQuestion(candidate, question, context, metadata, true) : '';
+  const recordedAny = canonical ? '' : recordedAnswerForQuestion(candidate, question, context, metadata);
+  const answer = recordedCurrent || canonical || recordedAny;
+  // A recorded candidate answer stays explicit even when its text equals the profile's.
+  return validatedAddressAnswer(candidate, topic, answer, { explicit: Boolean(recordedCurrent || recordedAny) });
 }
 
 /**
@@ -1959,7 +1964,7 @@ function rawCandidateAnswerForField(candidate, field, { includeProfileWorkPermit
   if (['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic)) {
     const canonical = addressQuestionAnswer(candidate, topic);
     const current = recordedAnswerForQuestion(candidate, field?.label, field?.context, field, true);
-    const stated = validatedAddressAnswer(candidate, topic, current || canonical || previous);
+    const stated = validatedAddressAnswer(candidate, topic, current || canonical || previous, { explicit: Boolean(current) });
     if (!stated) return null;
     let value = field?.options?.length ? optionForAnswer(field, stated) : stated;
     // Workday and similar ATSs split «Street Name» from the house number.

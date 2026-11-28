@@ -313,6 +313,18 @@ export function reachableSlugs(job) {
   return out;
 }
 
+/**
+ * Flat `previousSlugs` entries with no locale bucket. Each one is served under
+ * all four locales (getPreviousSlugsForLocale), so it already covers every
+ * localized route for that slug; bucketing it would narrow it to one.
+ */
+function flatOnlySlugs(job) {
+  // Only a supported locale attributes a slug; a stray key serves no route.
+  const bucketed = new Set(LOCALES.flatMap((locale) => priorBucket(job, locale)));
+  const flat = Array.isArray(job?.previousSlugs) ? job.previousSlugs.map(normalize) : [];
+  return new Set(flat.filter((slug) => slug && !bucketed.has(slug)));
+}
+
 /** The bucket `locale` occupied in the PREVIOUS on-disk version of a job. */
 function priorBucket(beforeJob, locale) {
   const arr = locale === null
@@ -521,15 +533,24 @@ export function preserveSlugHistory(filePath, nextValue, opts = {}) {
     const beforeRoutes = reachableSlugRoutes(before);
     if (beforeRoutes.size === 0) continue;
     const afterRoutes = reachableSlugRoutes(job);
+    // Snapshot of the payload before any recapture mutates it.
+    const servedFlatOnly = flatOnlySlugs(job);
     const protectedActiveRoutes = new Set(
       [...activeSlugRoutes(before)].filter(([, route]) => (
         !denylist.has(denylistKey(base, route.slug))
       )).map(([routeKey]) => routeKey),
     );
+    // A localized route that now rests only on a flat entry must keep that
+    // entry: another route's recapture must not cap-evict it from the mirror.
+    for (const [routeKey, route] of beforeRoutes) {
+      if (route.locale !== null && !afterRoutes.has(routeKey) && servedFlatOnly.has(route.slug)
+        && !denylist.has(denylistKey(base, route.slug))) protectedActiveRoutes.add(routeKey);
+    }
 
     for (const [routeKey, route] of beforeRoutes) {
       const { slug, locale } = route;
       if (afterRoutes.has(routeKey)) continue;
+      if (locale !== null && servedFlatOnly.has(slug)) continue; // flat-only already serves it
       if (denylist.has(denylistKey(base, slug))) continue; // removed on purpose
 
       // The evidence snapshot can be several megabytes, so load it lazily and

@@ -8756,6 +8756,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assistenza-sociale-svitto-criterio-bisogno.title': 'Social assistance in Schwyz: administration and the needs-based criterion',
     'blog.article.assistenza-sociale-svitto-criterio-bisogno.excerpt': 'Social assistance is generally administered by the cantons and municipalities in Switzerland, based on the criterion of need.',
     'blog.article.assistenza-sociale-svitto-criterio-bisogno.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.voto-federale-soglie-svitto.title': 'Four federal voting dates and thresholds for initiatives',
+    'blog.article.voto-federale-soglie-svitto.excerpt': 'The source indicates four federal voting dates per year. For a popular initiative: 100\'000 signatures in 18 months.',
+    'blog.article.voto-federale-soglie-svitto.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.autorizzazione-edilizia-cantone-svitto.title': 'Building permits in the Canton of Schwyz: rules and cantonal offices',
+    'blog.article.autorizzazione-edilizia-cantone-svitto.excerpt': 'The rules and offices for building permits in the Canton of Schwyz fall under cantonal jurisdiction.',
+    'blog.article.autorizzazione-edilizia-cantone-svitto.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

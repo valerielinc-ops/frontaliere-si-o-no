@@ -32,6 +32,7 @@ import { cpSync, existsSync, mkdtempSync, mkdirSync, writeFileSync, readdirSync,
 import { tmpdir } from 'node:os';
 import YAML from 'yaml';
 import { IT_SHARD_GROUP_IDS } from '../scripts/ci/it-shard-group-plan.mjs';
+import { finalizeSectionManifestSet } from '../scripts/ci/shard-content-manifest.mjs';
 import { evaluateExpression } from './helpers/workflowNeedsSimulator';
 import { jobCanonV2ShardKey } from '../services/jobSlugShards';
 
@@ -208,6 +209,40 @@ describe('deploy-publish.yml — il CDN IT precede entrambi i fan-out (#5251)', 
     expect(gate).toMatch(/continue-on-error: true/);
     expect(gate).toMatch(/CDN_WAIT_MARGIN_WARN_S: \d+/);
     expect(push).toMatch(/bash scripts\/lib\/push-locale-shard\.sh \$\{\{ matrix\.locale \}\} "\$GITHUB_WORKSPACE\/dist"/);
+  });
+
+  it('il #2569 gate copre anche il push degli shard di sezione non-IT, fail-closed', () => {
+    const steps = workflow.jobs['publish-nonit-shards'].steps as Array<Record<string, any>>;
+    const at = (name: string) => steps.findIndex((candidate) => candidate.name === name);
+    const gateAt = at('Wait for current IT CDN build id before non-IT shard pushes');
+    const sectionAt = at('Push section shards (non-IT → frontaliere-<section>-<loc>)');
+    expect(gateAt).toBeGreaterThan(-1);
+    expect(sectionAt).toBeGreaterThan(gateAt);
+    // `== 'success'`, never `!= 'failure'`: a cancelled or unexpectedly
+    // skipped gate proves nothing. No status function, so the implicit
+    // success() still stops the push after any earlier failed step.
+    expect(steps[sectionAt].if).toBe(
+      "matrix.locale != 'it' && env.DURABLE_LOCALE_PUBLISHED != 'true' && steps.cdn-gate.outcome == 'success'",
+    );
+  });
+
+  it('un gate CDN fallito salta il finalize dei manifest di sezione, e la segnalazione del gate resta raggiungibile', () => {
+    const steps = workflow.jobs['publish-nonit-shards'].steps as Array<Record<string, any>>;
+    const finalize = steps.find((candidate) => candidate.name === 'Finalize non-IT section content manifests')!;
+    // Without a section push there is no ok-marker, hence no section manifest:
+    // finalize-sections would throw, turn the leg red and skip every later
+    // step with an implicit success(), including the two gate surfacing steps.
+    expect(() => finalizeSectionManifestSet({
+      manifests: [],
+      locale: 'fr',
+      sourceRunId: '1',
+      sourceSha: 'a'.repeat(40),
+      artifactRunId: '2',
+      requiredSections: ['ticino'],
+    })).toThrow(/required section manifests are missing/);
+    // Only the failed gate skips it: a gate skipped by the durable receipt
+    // keeps the previous behaviour.
+    expect(finalize.if).toBe("matrix.locale != 'it' && steps.cdn-gate.outcome != 'failure'");
   });
 });
 
