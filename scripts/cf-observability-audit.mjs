@@ -131,6 +131,147 @@ export function estimateMonthlyLogVolume({ events, avgEventBytes }) {
   return { ingestGb, storageGbMonth: (ingestGb / 30) * RETENTION_DAYS };
 }
 
+// Largest per-day sampleInterval at which "zero v1 fallbacks observed" still
+// counts as evidence. 10 covers the Worker head sampling of 0.1 (from
+// SAMPLING_CUTOVER) and the adaptive sampling Workers Observability applies to
+// queries. A coarser interval (the live 7-day grouped query returns 100) says
+// almost nothing about absence, so it blocks instead of being averaged away.
+export const JOB_CANON_MAX_SAMPLE_INTERVAL = 10;
+const JOB_CANON_CDN_BASE = 'https://cdn.frontaliereticino.ch';
+const JOB_CANON_V2_SHARD_COUNT = 4096;
+const PARITY_MISMATCH_EXAMPLES = 20;
+const PARITY_FETCH_CONCURRENCY = 16;
+const PARITY_FETCH_TIMEOUT_MS = 20_000;
+
+// Mirror of jobCanonV2ShardKey in infra/cloudflare-worker/locale-router.js
+// (a test pins the two together); the worker module is not imported because it
+// carries Cloudflare-only dependencies.
+export function jobCanonV2ShardKey(slug) {
+  let h = 5381;
+  for (let i = 0; i < slug.length; i++) h = ((h * 33) ^ slug.charCodeAt(i)) >>> 0;
+  return (h % JOB_CANON_V2_SHARD_COUNT).toString(16).padStart(3, '0');
+}
+
+const stableJson = (value) => {
+  if (Array.isArray(value)) return `[${value.map(stableJson).join(',')}]`;
+  if (value && typeof value === 'object') {
+    return `{${Object.keys(value).sort().map((k) => `${JSON.stringify(k)}:${stableJson(value[k])}`).join(',')}}`;
+  }
+  return JSON.stringify(value);
+};
+
+/**
+ * Structural proof that every slug of the published v1 shards is also in the v2
+ * shards with the same redirect semantics (same entry: section prefix per
+ * locale and `alias` paths). `v1Shards`/`v2Shards` map a shard key to the parsed
+ * object, or null when the shard does not exist. A v1 slug whose v2 shard is
+ * missing or lacks it, or holds a different entry, is a mismatch.
+ */
+export function evaluateJobCanonParity({ v1Shards, v2Shards, buildId = null, paritySource = null }) {
+  const mismatches = [];
+  let mismatchCount = 0;
+  let checkedV1Slugs = 0;
+  const note = (slug, reason) => {
+    mismatchCount += 1;
+    if (mismatches.length < PARITY_MISMATCH_EXAMPLES) mismatches.push({ slug, reason });
+  };
+  for (const [shardKey, shard] of Object.entries(v1Shards ?? {})) {
+    if (shard === null || shard === undefined) continue;
+    if (typeof shard !== 'object' || Array.isArray(shard)) {
+      note(`v1:${shardKey}`, 'v1-shard-malformed');
+      continue;
+    }
+    for (const [slug, entry] of Object.entries(shard)) {
+      checkedV1Slugs += 1;
+      const v2Key = jobCanonV2ShardKey(slug);
+      const v2Shard = v2Shards?.[v2Key];
+      if (v2Shard === null || v2Shard === undefined) note(slug, `v2-shard-missing:${v2Key}`);
+      else if (typeof v2Shard !== 'object' || !Object.hasOwn(v2Shard, slug)) note(slug, `v2-slug-missing:${v2Key}`);
+      else if (stableJson(v2Shard[slug]) !== stableJson(entry)) note(slug, `entry-differs:${v2Key}`);
+    }
+  }
+  return {
+    v1SubsetOfV2: mismatchCount === 0,
+    paritySource,
+    buildId,
+    checkedV1Slugs,
+    mismatchCount,
+    mismatches,
+  };
+}
+
+async function fetchShard(url, fetchImpl) {
+  const res = await fetchImpl(url, {
+    signal: AbortSignal.timeout(PARITY_FETCH_TIMEOUT_MS),
+    headers: { 'User-Agent': 'frontaliere-cf-observability-audit/1.0' },
+  });
+  if (res.status === 404 || res.status === 410) return null;
+  if (!res.ok) throw new Error(`HTTP ${res.status} ${url}`);
+  const json = await res.json();
+  if (!json || typeof json !== 'object' || Array.isArray(json)) throw new Error(`malformed shard ${url}`);
+  return json;
+}
+
+async function mapLimited(items, limit, task) {
+  const out = new Array(items.length);
+  let next = 0;
+  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, async () => {
+    while (next < items.length) {
+      const index = next++;
+      out[index] = await task(items[index]);
+    }
+  }));
+  return out;
+}
+
+/**
+ * Reads the job-canon release the Worker is serving (the `/cdn-build-id.txt`
+ * marker, then `/job-canon/releases/<buildId>/...`, exactly like the Worker)
+ * and compares v1 against v2. No durable v1/v2 parity receipt exists at publish
+ * time (the publish receipt/handshake prove identity and byte equality of the
+ * shards, not v1 vs v2), so the live release is read. Any read failure yields
+ * `v1SubsetOfV2: false` with `error`: absence of proof never reads as parity.
+ */
+export async function collectJobCanonParity({ fetchImpl = fetch, base = JOB_CANON_CDN_BASE } = {}) {
+  try {
+    const markerRes = await fetchImpl(`${base}/cdn-build-id.txt`, {
+      signal: AbortSignal.timeout(PARITY_FETCH_TIMEOUT_MS),
+      headers: { 'Cache-Control': 'no-cache', 'User-Agent': 'frontaliere-cf-observability-audit/1.0' },
+    });
+    if (!markerRes.ok) throw new Error(`build marker HTTP ${markerRes.status}`);
+    const buildId = (await markerRes.text()).trim();
+    if (!/^\d{1,20}$/.test(buildId)) throw new Error('build marker is not a numeric build id');
+    const root = `${base}/job-canon/releases/${buildId}`;
+    const alnum = [...'abcdefghijklmnopqrstuvwxyz0123456789_'];
+    const v1Keys = alnum.flatMap((a) => alnum.map((b) => `${a}${b}`));
+    const v1List = await mapLimited(v1Keys, PARITY_FETCH_CONCURRENCY, (key) => fetchShard(`${root}/${key}.json`, fetchImpl));
+    const v1Shards = Object.fromEntries(v1Keys.map((key, i) => [key, v1List[i]]));
+    const needed = new Set();
+    for (const shard of v1List) {
+      for (const slug of Object.keys(shard ?? {})) needed.add(jobCanonV2ShardKey(slug));
+    }
+    const v2Keys = [...needed].sort();
+    const v2List = await mapLimited(v2Keys, PARITY_FETCH_CONCURRENCY, (key) => fetchShard(`${root}/v2/${key}.json`, fetchImpl));
+    const v2Shards = Object.fromEntries(v2Keys.map((key, i) => [key, v2List[i]]));
+    return evaluateJobCanonParity({
+      v1Shards,
+      v2Shards,
+      buildId,
+      paritySource: `live-release:${base}/job-canon/releases/${buildId}`,
+    });
+  } catch (error) {
+    return {
+      v1SubsetOfV2: false,
+      paritySource: 'unavailable',
+      buildId: null,
+      checkedV1Slugs: 0,
+      mismatchCount: 0,
+      mismatches: [],
+      error: String(error?.message ?? error).slice(0, 200),
+    };
+  }
+}
+
 const isSampleInterval = (value) => Number.isFinite(value) && value >= 1;
 const round = (value, digits = 6) => Number(value.toFixed(digits));
 
@@ -207,6 +348,18 @@ export function evaluateJobCanonV1Retirement(snapshot) {
   if (badV2Intervals.length > 0) {
     blockers.push(`sampling-signal:invalid:${badV2Intervals.map((d) => d.day).join(',')}`);
   }
+  // Partial sampling is admitted only up to JOB_CANON_MAX_SAMPLE_INTERVAL.
+  for (const d of v2Daily) {
+    if (isSampleInterval(d.sampleInterval) && d.sampleInterval > JOB_CANON_MAX_SAMPLE_INTERVAL) {
+      blockers.push(`sampling-interval-too-coarse:${d.day}:${d.sampleInterval}`);
+    }
+  }
+  const parity = snapshot.jobCanonParity ?? null;
+  if (parity?.v1SubsetOfV2 !== true) {
+    blockers.push(parity?.error || !parity
+      ? `v1-parity:unverified:${parity?.error ?? 'missing'}`
+      : `v1-parity:mismatch:${parity.mismatchCount ?? parity.mismatches?.length ?? 'unknown'}`);
+  }
   const badStreamIntervals = streamSamplingBuckets.filter(
     (bucket) => bucket?.count > 0 && !isSampleInterval(bucket.sampleInterval),
   );
@@ -221,7 +374,7 @@ export function evaluateJobCanonV1Retirement(snapshot) {
     v2Daily.map((d) => [d.day, d.sampleInterval ?? null]),
   );
   return {
-    schemaVersion: 3,
+    schemaVersion: 4,
     windowDays: WINDOW_DAYS,
     queryWindowDays,
     observedV2Days: observedDays.length,
@@ -234,7 +387,14 @@ export function evaluateJobCanonV1Retirement(snapshot) {
     sampleIntervalsByDay,
     v2Daily,
     v1Daily: Array.isArray(snapshot.jobCanonV1Daily) ? snapshot.jobCanonV1Daily : [],
+    maxSampleInterval: JOB_CANON_MAX_SAMPLE_INTERVAL,
     fallbackMissProbability: estimateFallbackMissProbability(v2Daily),
+    v1SubsetOfV2: parity?.v1SubsetOfV2 === true,
+    paritySource: parity?.paritySource ?? null,
+    parityBuildId: parity?.buildId ?? null,
+    checkedV1Slugs: parity?.checkedV1Slugs ?? 0,
+    mismatches: Array.isArray(parity?.mismatches) ? parity.mismatches.slice(0, PARITY_MISMATCH_EXAMPLES) : [],
+    parityError: parity?.error ?? null,
     workerLogSamplingExpectedDays: expectedSamplingDays,
     workerLogSamplingBuckets: streamSamplingBuckets,
     samplingHistory: snapshot.samplingHistory ?? null,
@@ -706,6 +866,7 @@ export async function collectSnapshot(now = Date.now()) {
     jobCanonV1Daily,
     workerLogSamplingExpectedDays: utcDaysInTimeframe(timeframe),
     workerLogSamplingBuckets: workerLogSamplingBuckets(workerLogSamplingCalculation),
+    jobCanonParity: await collectJobCanonParity(),
     samplingHistory,
     queryWindowDays: (timeframe.to - timeframe.from) / 864e5,
     internalCrawlerRequests: await count(filter(USER_AGENT, 'includes', INTERNAL_CRAWLER_UA)),

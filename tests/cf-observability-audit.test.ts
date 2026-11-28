@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { jobCanonV2ShardKey as workerJobCanonV2ShardKey } from '../infra/cloudflare-worker/locale-router.js';
 import {
   buildIssueBody,
   buildBlockedUaFilters,
@@ -6,6 +7,9 @@ import {
   estimateMonthlyLogVolume,
   evaluateChecks,
   estimateFallbackMissProbability,
+  evaluateJobCanonParity,
+  JOB_CANON_MAX_SAMPLE_INTERVAL,
+  jobCanonV2ShardKey,
   evaluateJobCanonV1Retirement,
   isCloudflareFullSamplingInterval,
   isOriginFailureLogEvent,
@@ -42,6 +46,7 @@ const completeJobCanonRetirementSnapshot = () => ({
   jobCanonV1Daily: [] as { day: string; count: number; sampleInterval: number | null }[],
   jobCanonV1FallbackLogs: 0,
   samplingRate: 1,
+  jobCanonParity: { v1SubsetOfV2: true, paritySource: 'test', buildId: '1', checkedV1Slugs: 3, mismatchCount: 0, mismatches: [] as { slug: string; reason: string }[], error: undefined as string | undefined },
   samplingHistory: { complete: false, blockers: ['history:no-baseline'] },
   workerLogSamplingExpectedDays: [...retirementDays],
   workerLogSamplingBuckets: retirementDays.map((day) => ({
@@ -82,15 +87,65 @@ describe('cf-observability-audit checks', () => {
     expect(estimateFallbackMissProbability([{ day: 'a', count: 5, sampleInterval: null }])).toBeNull();
   });
 
-  it('does not block partial sampling but blocks a malformed interval', () => {
+  it('admits partial sampling up to the threshold but blocks a malformed interval', () => {
     const snapshot = completeJobCanonRetirementSnapshot();
-    snapshot.jobCanonV2Daily[0].sampleInterval = 100;
-    snapshot.workerLogSamplingBuckets[0].sampleInterval = 100;
+    snapshot.jobCanonV2Daily[0].sampleInterval = JOB_CANON_MAX_SAMPLE_INTERVAL;
     expect(evaluateJobCanonV1Retirement(snapshot).ready).toBe(true);
     snapshot.jobCanonV2Daily[1].sampleInterval = null;
     const receipt = evaluateJobCanonV1Retirement(snapshot);
     expect(receipt.ready).toBe(false);
     expect(receipt.blockers.some((b) => b.startsWith('sampling-signal:invalid'))).toBe(true);
+  });
+
+  it('is not ready with seven complete v2 days at sampleInterval 100 and no v1 observed', () => {
+    const snapshot = completeJobCanonRetirementSnapshot();
+    for (const d of snapshot.jobCanonV2Daily) d.sampleInterval = 100;
+    const receipt = evaluateJobCanonV1Retirement(snapshot);
+    expect(receipt.ready).toBe(false);
+    expect(receipt.blockers).toContain(`sampling-interval-too-coarse:${retirementDays[0]}:100`);
+    expect(receipt.fallbackMissProbability!.perEvent).toBeCloseTo(0.99, 6);
+  });
+
+  it('is not ready when v1 is not proven a subset of v2', () => {
+    const mismatch = completeJobCanonRetirementSnapshot();
+    mismatch.jobCanonParity = { ...mismatch.jobCanonParity, v1SubsetOfV2: false, mismatchCount: 1, mismatches: [{ slug: 'x', reason: 'v2-slug-missing:001' }] };
+    const receipt = evaluateJobCanonV1Retirement(mismatch);
+    expect(receipt.ready).toBe(false);
+    expect(receipt.blockers).toContain('v1-parity:mismatch:1');
+    expect(receipt.mismatches).toHaveLength(1);
+
+    const unverified = completeJobCanonRetirementSnapshot();
+    unverified.jobCanonParity = { ...unverified.jobCanonParity, v1SubsetOfV2: false, error: 'HTTP 503' };
+    expect(evaluateJobCanonV1Retirement(unverified).blockers).toContain('v1-parity:unverified:HTTP 503');
+    const missing = { ...completeJobCanonRetirementSnapshot(), jobCanonParity: undefined };
+    expect(evaluateJobCanonV1Retirement(missing).ready).toBe(false);
+  });
+
+  it('proves v1 subset of v2 structurally, with entry semantics and capped examples', () => {
+    const entry = { it: '/cerca-lavoro-zurigo', en: '/en/find-jobs-zurich' };
+    const slug = 'job-a';
+    const key = jobCanonV2ShardKey(slug);
+    const ok = evaluateJobCanonParity({
+      v1Shards: { jo: { [slug]: entry }, zz: null },
+      v2Shards: { [key]: { [slug]: { en: '/en/find-jobs-zurich', it: '/cerca-lavoro-zurigo' }, other: {} } },
+    });
+    expect(ok).toMatchObject({ v1SubsetOfV2: true, checkedV1Slugs: 1, mismatches: [] });
+    const differs = evaluateJobCanonParity({
+      v1Shards: { jo: { [slug]: entry } },
+      v2Shards: { [key]: { [slug]: { it: '/altro' } } },
+    });
+    expect(differs.v1SubsetOfV2).toBe(false);
+    expect(differs.mismatches[0].reason).toContain('entry-differs');
+    const many = Object.fromEntries(Array.from({ length: 50 }, (_, i) => [`s${i}`, entry]));
+    const missing = evaluateJobCanonParity({ v1Shards: { s_: many }, v2Shards: {} });
+    expect(missing.mismatchCount).toBe(50);
+    expect(missing.mismatches).toHaveLength(20);
+  });
+
+  it('keeps the shard-key mirror identical to the Worker', () => {
+    for (const slug of ['a', 'abteilungsleiter-in-molkerei-migros', 'élan-2026', '1-2-docente']) {
+      expect(jobCanonV2ShardKey(slug)).toBe(workerJobCanonV2ShardKey(slug));
+    }
   });
 
   it('is not ready when a v1 fallback was observed', () => {
