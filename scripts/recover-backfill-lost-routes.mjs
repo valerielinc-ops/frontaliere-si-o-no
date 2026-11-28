@@ -20,6 +20,9 @@
  * A second manifest (scripts/data/residual-lost-routes-20261127.json, all
  * removal causes) proves ownership by the posting-specific source token every
  * historical holder of the route declared; pass it with `--manifest=<path>`.
+ * A third one (scripts/data/restorable-lost-routes-20261128.json) lists routes
+ * with one holder when they stopped being served and one record today with that
+ * holder's company, source identity (possibly absent) and slug.
  * A target with `state: "active"` has no archived record: its routes go to the
  * active record through `addPreviousSlugForLocale`, and a route whose locale
  * bucket is already at DEFAULT_PREV_SLUG_CAP is skipped, never swapped for one.
@@ -131,6 +134,25 @@ function addActiveRoutes(record, routeKeys, cantons = {}) {
 }
 
 /**
+ * The Italian master of an archived record whose Italian slug differs is served
+ * only from history (`isSelfCanonicalPreviousSlug`), but the keep-all archive
+ * writer never stores the master. It goes through the canonical per-locale
+ * capture, with a cap that leaves room for it: nothing is trimmed.
+ */
+function addArchivedMasterRoute(record, routeKeys, cantons = {}) {
+  const slug = record.slug;
+  const italian = record.slugByLocale?.it;
+  const key = `it:${slug}`;
+  if (!record.expiredAt || !italian || italian === slug) return;
+  if (!routeKeys.includes(key) || localeRouteKeys(record).has(key)) return;
+  const cap = Math.max(DEFAULT_PREV_SLUG_CAP, (record.previousSlugsByLocale?.it?.length || 0) + 1);
+  addPreviousSlugForLocale(record, 'it', slug, cap, 'recover-backfill-lost-routes', { syncLegacy: false });
+  if (cantons.it?.[slug] && !record.previousSlugCantonByLocale?.it?.[slug]) {
+    setExpiredRouteCanton(record, 'it', slug, cantons.it[slug]);
+  }
+}
+
+/**
  * Add the unheld routes of `targets` to `rows` (one crawler's archive). `rows`
  * is not mutated; `heldKeys` (every route served today) is not mutated either.
  */
@@ -152,7 +174,10 @@ export function recoverCrawlerRows(rows, targets, heldKeys) {
     const [record] = matches;
     let capFull = new Set();
     if (target.state === 'active') capFull = addActiveRoutes(record, wanted, target.cantons);
-    else addExpiredRoutes(record, wanted, { cantons: target.cantons, source: 'recover-backfill-lost-routes' });
+    else {
+      addExpiredRoutes(record, wanted, { cantons: target.cantons, source: 'recover-backfill-lost-routes' });
+      addArchivedMasterRoute(record, wanted, target.cantons);
+    }
     const served = localeRouteKeys(record);
     for (const key of wanted) {
       if (served.has(key)) {

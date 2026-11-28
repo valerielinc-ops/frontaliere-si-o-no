@@ -237,6 +237,49 @@ describe('committed manifest', () => {
   });
 });
 
+describe('the Italian master of an archived record with another Italian slug', () => {
+  const archived = (bucket: string[]) => record('cuoco-acme', OWNER, {
+    slugByLocale: { it: 'cuoco-acme-0a1b2c' },
+    previousSlugsByLocale: { it: bucket },
+    previousSlugCantonByLocale: { it: { 'cuoco-acme': 'GR' } },
+  });
+  const master = target({ it: ['cuoco-acme'] }, { cantons: { it: { 'cuoco-acme': 'TI' } } });
+
+  it('is captured from history and keeps a canton already stored', () => {
+    const rows = [archived(['uno'])];
+    const result = recoverCrawlerRows(rows, [master], new Set(keys(rows)));
+
+    expect(result.added).toEqual(['it:cuoco-acme']);
+    expect(result.rows[0].previousSlugsByLocale.it).toEqual(['uno', 'cuoco-acme']);
+    expect(result.rows[0].previousSlugCantonByLocale.it['cuoco-acme']).toBe('GR');
+  });
+
+  it('never evicts an older route from a bucket past the active cap', () => {
+    const bucket = Array.from({ length: 29 }, (_, index) => `vecchio-${index}`);
+    const rows = [archived(bucket)];
+    const result = recoverCrawlerRows(rows, [master], new Set(keys(rows)));
+
+    expect(result.rows[0].previousSlugsByLocale.it).toEqual([...bucket, 'cuoco-acme']);
+  });
+});
+
+describe('committed restorable manifest', () => {
+  it('assigns each route to one target and records its proof', () => {
+    const file = path.join(path.dirname(DEFAULT_MANIFEST_PATH), 'restorable-lost-routes-20261128.json');
+    const { targets } = JSON.parse(fs.readFileSync(file, 'utf8'));
+    const routes = (targets as any[]).flatMap((entry) => Object.entries(entry.routes)
+      .flatMap(([locale, slugs]) => (slugs as string[]).map((slug) => `${locale}:${slug}`)));
+
+    expect(routes.length).toBeGreaterThan(0);
+    expect(new Set(routes).size).toBe(routes.length);
+    for (const entry of targets) {
+      expect(entry.proof.rules.length).toBeGreaterThan(0);
+      expect(entry.slug && entry.companyKey && entry.crawlerKey).toBeTruthy();
+      expect(entry.state).toBeUndefined();
+    }
+  });
+});
+
 describe('a target that only has an active record', () => {
   const live = (bucket: string[]) => record('cuoco-acme', OWNER, {
     expiredAt: undefined,
