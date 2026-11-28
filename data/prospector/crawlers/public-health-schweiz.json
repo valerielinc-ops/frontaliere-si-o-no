@@ -1,0 +1,23 @@
+{
+  "companyKey": "public-health-schweiz",
+  "companyName": "Public Health Schweiz",
+  "companyHost": "jobs.unibe.ch",
+  "verifiedEmployerDomain": "public-health.ch",
+  "platform": "unibe.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://jobs.unibe.ch/job-vacancies/scientific-coordinator-postdoc-for-the-swiss-childhood-cancer-survivor-study/5345fc6d-7734-4c63-9204-4149be0d891c"
+  ],
+  "detailTemplate": "/job-vacancies/scientific-coordinator-postdoc-for-the-swiss-childhood-cancer-survivor-study/5345fc6d-7734-4c63-9204-4149be0d891c",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Scientific coordinator / Postdoc for the Swiss Childhood Cancer Survivor Study"
+  ],
+  "canton": "BE",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-28T14:29:26.003Z",
+  "candidateKey": "public-health"
+}

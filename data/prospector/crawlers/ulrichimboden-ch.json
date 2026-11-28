@@ -1,0 +1,26 @@
+{
+  "companyKey": "ulrichimboden-ch",
+  "companyName": "Ulrich Imboden AG",
+  "companyHost": "walliser-pauer.ch",
+  "verifiedEmployerDomain": "ulrichimboden.ch",
+  "platform": "walliser-pauer.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.walliser-pauer.ch/jobs"
+  ],
+  "detailTemplate": "/offene-jobs/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "JETZT BEWERBEN",
+    "JETZT BEWERBEN",
+    "JETZT BEWERBEN",
+    "JETZT BEWERBEN"
+  ],
+  "canton": "VS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-28T14:19:45.632Z",
+  "candidateKey": "ulrich-imboden@visp"
+}

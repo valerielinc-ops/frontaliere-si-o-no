@@ -1,0 +1,23 @@
+{
+  "companyKey": "alpenrose-riederalp-ag",
+  "companyName": "Alpenrose Riederalp AG",
+  "companyHost": "my.jobalino.ch",
+  "verifiedEmployerDomain": "volken-group.ch",
+  "platform": "jobalino.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://my.jobalino.ch/de/jobpreview/13480?tabid=tab2"
+  ],
+  "detailTemplate": "/de/jobpreview/13480",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Spontanbewerbung (m/w/d) / 40% - 100%"
+  ],
+  "canton": "VS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-28T14:19:54.299Z",
+  "candidateKey": "alpenrose-riederalp@riederalp"
+}

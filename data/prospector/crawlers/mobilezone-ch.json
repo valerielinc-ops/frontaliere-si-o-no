@@ -1,0 +1,25 @@
+{
+  "companyKey": "mobilezone-ch",
+  "companyName": "mobilezone ag",
+  "companyHost": "six-group.com",
+  "verifiedEmployerDomain": "mobilezone.ch",
+  "platform": "six-group.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.six-group.com/de/careers.html"
+  ],
+  "detailTemplate": "/de/careers/apprentices/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Kauffrau/-mann Bank EFZ",
+    "Mediamatiker/in EFZ",
+    "Entwickler/in digitales Business EFZ"
+  ],
+  "canton": "ZG",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-28T14:28:43.294Z",
+  "candidateKey": "mobilezone@rotkreuz"
+}

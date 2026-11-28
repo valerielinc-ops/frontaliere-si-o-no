@@ -1,0 +1,27 @@
+{
+  "companyKey": "issworld-com-3",
+  "companyName": "ISS Facility Services AG",
+  "companyHost": "jobs.issworld.com",
+  "verifiedEmployerDomain": "issworld.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.issworld.com/search/?createNewAlert=false"
+  ],
+  "detailTemplate": "/job/*/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 20,
+  "sampleTitles": [
+    "ISS søger erfaren Service Manager med stærkt kundefokus og personaleledelse",
+    "Analytics Engineer",
+    "Data Privacy Counsel",
+    "AI Solution Team Lead",
+    "SAP Integration Suite"
+  ],
+  "canton": "ZG",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-28T14:29:33.585Z",
+  "candidateKey": "iss-facility-services@zug"
+}

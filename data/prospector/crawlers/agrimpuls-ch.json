@@ -1,0 +1,25 @@
+{
+  "companyKey": "agrimpuls-ch",
+  "companyName": "Schweizer Bauernverband (SBV)",
+  "companyHost": "sbv-usp.ch",
+  "verifiedEmployerDomain": "agrimpuls.ch",
+  "platform": "sbv-usp.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.sbv-usp.ch/de/jobs/offene-stellen/"
+  ],
+  "detailTemplate": "/de/jobs/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Unsere Lernenden stellen sich vor",
+    "Warum es sich lohnt?",
+    "Praktikum beim Schweizer Bauernverband"
+  ],
+  "canton": "SO",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-28T14:29:21.698Z",
+  "candidateKey": "schweizer-bauernverband-sbv@brugg-ag"
+}
