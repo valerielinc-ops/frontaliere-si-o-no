@@ -477,7 +477,17 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
       }
       const { password } = decryptJson(entry.passwordEnc, key);
       mask(password);
+      // A recovery whose reset the portal never confirmed leaves the staged password in place and the one that
+      // was valid in `recoveryPrevious`: it is lost to every reader that looks only at `password`.
+      let previousPassword = '';
+      if (entry.status === 'recovering' && entry.recoveryPrevious?.passwordEnc) {
+        try {
+          previousPassword = decryptJson(entry.recoveryPrevious.passwordEnc, key)?.password || '';
+          if (previousPassword) mask(previousPassword);
+        } catch { previousPassword = ''; }
+      }
       return {
+        ...(previousPassword && previousPassword !== password ? { previousPassword } : {}),
         email: entry.email,
         password,
         createdAt: entry.createdAt || null,

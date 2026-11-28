@@ -1,14 +1,16 @@
 import { describe, expect, it, vi } from 'vitest';
 
-const state = vi.hoisted(() => ({ snapshot: null as any, filled: [] as any[] }));
+const state = vi.hoisted(() => ({ snapshot: null as any, filled: [] as any[], actions: [] as any[] }));
 vi.mock('../scripts/assisted-application/lib/portal/fields.mjs', async importOriginal => ({
   ...await importOriginal<any>(), extractFields: async () => state.snapshot,
 }));
 vi.mock('../scripts/assisted-application/lib/portal/fill.mjs', async importOriginal => ({
-  ...await importOriginal<any>(), applyActions: async (_page: any, fields: any[]) => { state.filled = fields; return []; },
+  ...await importOriginal<any>(), applyActions: async (_page: any, fields: any[], actions: any[]) => { state.filled = fields; state.actions = actions; return []; },
 }));
 import { verifyPortalApplication } from '../scripts/assisted-application/lib/portal/verify.mjs';
 import { applicationExistsProbeEntry, applicationExistsProbeNavigation } from '../functions/src/lib/applicationExistsReconciliation.js';
+import { portalAccountStore } from '../scripts/assisted-application/lib/portal/account.mjs';
+import { createMemoryFirestore } from './helpers/memoryFirestore';
 
 const HOST = 'recruitingapp-0000.umantis.com';
 const applyUrl = `https://${HOST}/Vacancies/6604/Description/1`;
@@ -44,7 +46,16 @@ const registerOnlyPage = () => ({
 });
 const inlineSigninPage = () => ({ ...loginPage(), text: 'Bewerbung. Bereits registriert? Anmelden' });
 
-function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = existsUrl, entryPage = 'redirect_to_login' }: { postTo?: string; formAction?: string; signedInPage?: string; entryPage?: Entry } = {}) {
+type Store = { current: any; load: any; abortRecovery: any; mark: any };
+function makeStore(account: any): Store {
+  const store: any = { current: account };
+  store.load = vi.fn(async () => store.current);
+  store.abortRecovery = vi.fn(async () => true);
+  store.mark = vi.fn(async () => {});
+  return store;
+}
+
+function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = existsUrl, entryPage = 'redirect_to_login', accepted = null, store = makeStore(account), recover = undefined, allowRecovery = false, aliasEmail = '' }: { postTo?: string; formAction?: string; signedInPage?: string; entryPage?: Entry; accepted?: string[] | null; store?: Store; recover?: any; allowRecovery?: boolean; aliasEmail?: string } = {}) {
   let handler: (route: any) => Promise<void>;
   let currentUrl = '';
   let signedIn = false;
@@ -75,14 +86,18 @@ function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = exis
     },
     locator: () => ({ first: () => ({
       evaluate: async () => ({ action: formAction, method: 'post', credentialsOwned: true }),
-      click: async () => { signedIn = await fire(postTo, 'POST', false); },
+      click: async () => {
+        const typed = state.actions.find((action: any) => action.fieldId === 'p1')?.value;
+        const posted = await fire(postTo, 'POST', false);
+        signedIn = posted && (accepted === null || accepted.includes(typed));
+      },
     }) }),
     waitForLoadState: async () => {}, waitForTimeout: async () => {}, evaluate: async () => state.snapshot.text, screenshot: async () => Buffer.from('fixture'),
   };
   const context = { route: async (_pattern: string, h: typeof handler) => { handler = h; }, routeWebSocket: async () => {}, addInitScript: async () => {}, newPage: async () => page, close: async () => {} };
-  const run = () => verifyPortalApplication({ applyUrl, targetUrl: entry, probe, job: {}, accounts: { load: vi.fn(async () => account) } as any,
+  const run = () => verifyPortalApplication({ applyUrl, targetUrl: entry, probe, job: {}, accounts: store as any, allowRecovery, aliasEmail, ...(recover ? { recover } : {}),
     launch: async () => ({ newContext: async () => context, close: async () => {} }) as any });
-  return { run, fire, log };
+  return { run, fire, log, store };
 }
 
 describe('probe of an ATS sign-in with a registration form beside it (entry -> Login -> POST -> ApplicationExists)', () => {
@@ -193,5 +208,88 @@ describe('probe of an ATS sign-in with a registration form beside it (entry -> L
     expect(await fire(url, method)).toBe(false);
     expect(proof.blockedRequests).toBe(before + 1);
     expect(proof.trace.at(-1)).toMatchObject({ kind: 'blocked', method, reason });
+  });
+});
+
+describe('rejected sign-in: the previous password, then one recovery of the alias account', () => {
+  const alias = account.email;
+
+  it('tries the password that was valid before an unconfirmed recovery, and restores it when it works', async () => {
+    const store = makeStore({ ...account, password: 'staged-never-applied', previousPassword: 'old-valid-one' });
+    const recover = vi.fn();
+    const { run, log } = harness({ accepted: ['old-valid-one'], store, recover, allowRecovery: true, aliasEmail: alias });
+    const proof: any = await run();
+    expect(proof.applicationExists).toMatchObject({ vacancyId: '6604' });
+    expect(recover).not.toHaveBeenCalled();
+    expect(log.filter(entryLog => entryLog.method === 'POST')).toHaveLength(2);
+    expect(store.abortRecovery).toHaveBeenCalledWith(HOST, expect.objectContaining({ reason: 'previous_password_valid' }));
+    expect(proof.trace).toEqual(expect.arrayContaining([expect.objectContaining({ kind: 'account', reason: 'previous_password_restored' })]));
+  });
+
+  it('recovers once through the portal\'s /Password/ routes, then signs in with the new password and reads the route', async () => {
+    const store = makeStore({ ...account, password: 'rejected-one' });
+    let fireInRecovery: any;
+    const recover = vi.fn(async ({ finishRecovery, host, ctx }: any) => {
+      expect(host).toBe(HOST);
+      expect(ctx.candidate.identity.email).toBe(alias);
+      expect(await fireInRecovery(`https://${HOST}/Password/PWForgotten`)).toBe(true);
+      expect(await fireInRecovery(`https://${HOST}/Password/PWForgotten`, 'POST', false)).toBe(true);
+      expect(await fireInRecovery(`https://${HOST}/Password/PWForgottenConfirm?token=abc`)).toBe(true);
+      expect(await fireInRecovery(`https://${HOST}/Password/PWForgottenConfirm`, 'POST', false)).toBe(true);
+      // Nothing else: a third POST, another route, a mutation key, a foreign host.
+      expect(await fireInRecovery(`https://${HOST}/Password/PWForgottenConfirm`, 'POST', false)).toBe(false);
+      expect(await fireInRecovery(`https://${HOST}/Vacancies/6604/Application/New/1`, 'POST', false)).toBe(false);
+      expect(await fireInRecovery(`https://${HOST}/Password/PWForgotten?action=submit`)).toBe(false);
+      expect(await fireInRecovery(`https://other.example/Password/PWForgotten`)).toBe(false);
+      store.current = { ...store.current, password: 'fresh-one' };
+      return { ...(await finishRecovery({})), accountRecovered: true };
+    });
+    const h = harness({ accepted: ['fresh-one'], store, recover, allowRecovery: true, aliasEmail: alias });
+    fireInRecovery = h.fire;
+    const proof: any = await h.run();
+    expect(recover).toHaveBeenCalledTimes(1);
+    expect(proof.applicationExists).toMatchObject({ vacancyId: '6604' });
+    expect(proof.recovery).toMatchObject({ attempted: true, accepted: true });
+    expect(store.mark).toHaveBeenCalledWith(HOST, expect.objectContaining({ status: 'created' }));
+    expect(h.log.filter(entryLog => entryLog.method === 'POST' && entryLog.url === loginUrl)).toHaveLength(2);
+    // Outside the recovery the /Password/ routes are closed again.
+    expect(await h.fire(`https://${HOST}/Password/PWForgotten`)).toBe(false);
+    expect(await h.fire(`https://${HOST}/Password/PWForgotten`, 'POST', false)).toBe(false);
+  });
+
+  it('a refused recovery ends unknown with its reason, and signs in nowhere else', async () => {
+    const store = makeStore({ ...account, password: 'rejected-one' });
+    const recover = vi.fn(async () => ({ handoff: 'account_recovery_timeout', accountFailure: { code: 'account_recovery_timeout', stage: 'login' } }));
+    const { run, log } = harness({ accepted: [], store, recover, allowRecovery: true, aliasEmail: alias });
+    const proof: any = await run();
+    expect(proof).toMatchObject({ stopReason: 'account_recovery_failed', recovery: { attempted: true, accepted: false, code: 'account_recovery_timeout' } });
+    expect(proof.applicationExists ?? null).toBeNull();
+    expect(recover).toHaveBeenCalledTimes(1);
+    expect(log.filter(entryLog => entryLog.method === 'POST')).toHaveLength(1);
+    expect(store.mark).not.toHaveBeenCalled();
+  });
+
+  it('does not recover when it is not allowed or the alias is unknown', async () => {
+    const recover = vi.fn();
+    for (const options of [{ allowRecovery: false, aliasEmail: alias }, { allowRecovery: true, aliasEmail: '' }]) {
+      const { run } = harness({ accepted: [], recover, ...options });
+      expect(((await run()) as any).stopReason).toBe('login_not_accepted');
+    }
+    expect(recover).not.toHaveBeenCalled();
+  });
+});
+
+describe('the account store keeps the password that was valid before an unconfirmed recovery', () => {
+  it('exposes it as previousPassword while the recovery is unconfirmed, and restores it on abort', async () => {
+    const db = createMemoryFirestore({ 'assisted_applications/order_store_test': { paymentStatus: 'paid' } }).db;
+    const store = portalAccountStore({ db, orderId: 'order_store_test', key: Buffer.alloc(32, 3) });
+    await store.save(HOST, { email: account.email, password: 'valid-before' });
+    expect((await store.load(HOST))?.previousPassword).toBeUndefined();
+    expect(await store.beginRecovery(HOST, { email: account.email, password: 'staged-never-applied' })).toMatchObject({ status: 'started' });
+    // The reset never completed (the runner's timeout): the staged password is what `password` now says.
+    expect(await store.load(HOST)).toMatchObject({ password: 'staged-never-applied', previousPassword: 'valid-before', status: 'recovering' });
+    await store.abortRecovery(HOST, { requestSubmitted: true, reason: 'previous_password_valid' });
+    expect(await store.load(HOST)).toMatchObject({ password: 'valid-before' });
+    expect((await store.load(HOST))?.previousPassword).toBeUndefined();
   });
 });

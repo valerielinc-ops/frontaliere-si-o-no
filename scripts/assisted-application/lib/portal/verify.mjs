@@ -1,6 +1,6 @@
 /** Protected inspection: existing-account sign-in, GET reads, no application actions. */
 import { isStealthBrowser, launchStealthOrChromium } from '../../../lib/stealth-browser.mjs';
-import { COOKIE_REJECT_RE, headedBrowser } from './portal.mjs';
+import { COOKIE_REJECT_RE, headedBrowser, recoverAccountPassword } from './portal.mjs';
 import { extractFields } from './fields.mjs';
 import { SIGN_IN_RE, authPageKind, loginFields } from './account.mjs';
 import { applyActions, findButton, locatorFor } from './fill.mjs';
@@ -117,7 +117,7 @@ const routeKey = value => { try { const url = new URL(value); return `${url.orig
  * not prove that the earlier application was unsent, and never releases a claim.
  */
 export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrls = [], sourceProtocol = null, job, accounts, launch = launchAssistedVerificationBrowser,
-  allowCrossOriginNavigation = false, isPublicHost = resolvesToPublicHost, probe = null }) {
+  allowCrossOriginNavigation = false, isPublicHost = resolvesToPublicHost, probe = null, aliasEmail = '', allowRecovery = false, recover = recoverAccountPassword }) {
   // `probe` ({origin, vacancyId, entryUrl}): the order's own vacancy entry, signed in with the order's alias
   // account, to see whether the portal answers with its «application exists» page. The fence below is the same;
   // it only also admits Application/New|Login and ApplicationExists of THAT vacancy. No other click than the
@@ -158,6 +158,10 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
     let loginAction = null;
     let loginArmed = false;
     let loginPosted = false;
+    // The one password recovery of the account, when the portal rejects every stored password: only the portal's
+    // own /Password/ routes, at most two POSTs (the reset request and the new password).
+    let recoveryOpen = false;
+    let recoveryPosts = 0;
     const navigationTargets = new Set([targetUrl]);
     for (const value of observedUrls) {
       try {
@@ -203,6 +207,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
           && !signinOk(url.href)
           && !(probe && applicationExistsProbeNavigation(url.href, probe))
           && !(probe && isStaticSubframe(request, url))
+          && !(recoveryOpen && url.origin === origin && /^\/password\//i.test(url.pathname))
           && !(portalDirectory(url) === sourceDirectory(new URL(applyUrl), sourceProtocol) && /(?:^|\/)(?:home|index)\/?$/i.test(url.pathname) && !url.search)
           && !(!url.search && (url.pathname === '/' || url.pathname === sourceDirectory(new URL(applyUrl), sourceProtocol).replace(/\/$/, '')))) return block('navigation_not_allowed');
         if (request.isNavigationRequest()) note('navigation', request.url(), 'allowed', { method });
@@ -218,6 +223,11 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       if (loginArmed && !loginPosted && method === 'POST' && sameLoginRoute && signinOk(loginAction)) {
         loginPosted = true;
         note('login_post', request.url(), 'allowed', { method });
+        return route.continue();
+      }
+      if (recoveryOpen && recoveryPosts < 2 && method === 'POST' && url.origin === origin && /^\/password\//i.test(url.pathname)) {
+        recoveryPosts++;
+        note('recovery_post', request.url(), 'allowed', { method });
         return route.continue();
       }
       return block(!loginArmed ? 'mutation_not_armed' : loginPosted ? 'second_mutation' : method !== 'POST' ? 'method_not_allowed' : 'login_route_mismatch');
@@ -249,25 +259,30 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       const fields = button.formId != null ? view.fields.filter(field => String(field.formId) === String(button.formId)) : view.fields;
       return authPageKind({ fields }) === 'sign_in' ? { signin: button, scoped: fields } : null;
     };
-    if (probe && snapshot.passwordVisible && !signinFormOf(snapshot) && probe.loginUrl && new URL(page.url()).pathname !== new URL(probe.loginUrl).pathname) {
-      // An entry that shows only a registration form: the vacancy's own sign-in page, one read-only navigation.
-      navigationTargets.add(probe.loginUrl);
-      await page.goto(probe.loginUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
-      note('page', page.url(), 'login_page');
-      snapshot = await extractFields(page, { listboxOptions: false });
-    }
-    if (snapshot.passwordVisible) {
+    const prepareLoginPage = async () => {
+      if (probe && snapshot.passwordVisible && !signinFormOf(snapshot) && probe.loginUrl && new URL(page.url()).pathname !== new URL(probe.loginUrl).pathname) {
+        // An entry that shows only a registration form: the vacancy's own sign-in page, one read-only navigation.
+        navigationTargets.add(probe.loginUrl);
+        await page.goto(probe.loginUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+        note('page', page.url(), 'login_page');
+        snapshot = await extractFields(page, { listboxOptions: false });
+      }
+    };
+    // One sign-in attempt with one password: null when the portal let the account through, else why not.
+    let loadedAccount = null;
+    const getAccount = async () => { loadedAccount ??= await accounts.load(new URL(page.url()).hostname); return loadedAccount; };
+    const attemptSignin = async (secretOverride = '') => {
       // The trust is in the form's own action below (the vacancy's login route), on any page of the order's vacancy.
-      if (!(signinOk(page.url()) || (probe && applicationExistsProbeNavigation(page.url(), probe)))) return stop('login_page_not_trusted');
+      if (!(signinOk(page.url()) || (probe && applicationExistsProbeNavigation(page.url(), probe)))) return { reason: 'login_page_not_trusted' };
       // A sign-in page can carry a registration form next to the sign-in one (two password fields): the sign-in
       // is judged on the form of its own button, never on the page as a whole.
       const signin = findButton(snapshot.buttons, SIGN_IN_RE);
-      if (!signin || (signin.frame || 0) !== 0) return stop('signin_button_unresolved');
+      if (!signin || (signin.frame || 0) !== 0) return { reason: 'signin_button_unresolved' };
       const scoped = signin.formId != null ? snapshot.fields.filter(field => String(field.formId) === String(signin.formId)) : snapshot.fields;
-      if (authPageKind({ fields: scoped }) !== 'sign_in') return stop('login_form_not_sign_in', { kind: authPageKind({ fields: scoped }), fields: scoped.length });
+      if (authPageKind({ fields: scoped }) !== 'sign_in') return { reason: 'login_form_not_sign_in', extra: { kind: authPageKind({ fields: scoped }), fields: scoped.length } };
       const { email, password } = loginFields({ fields: scoped });
       if (!email || !password || new Set([email.id, password.id, signin.id]).size !== 3 || (email.frame || 0) !== (signin.frame || 0)
-        || (password.frame || 0) !== (signin.frame || 0)) return stop('login_fields_unresolved', { email: Boolean(email), password: Boolean(password) });
+        || (password.frame || 0) !== (signin.frame || 0)) return { reason: 'login_fields_unresolved', extra: { email: Boolean(email), password: Boolean(password) } };
       const owned = await locatorFor(page, signin).evaluate((element, ids) => {
         const form = element.form || element.closest('form');
         return form ? { action: element.hasAttribute('formaction') ? element.formAction : form.action,
@@ -277,14 +292,16 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
             return nodes.length === 1 && nodes[0].form === form;
           }) } : null;
       }, [email.id, password.id]);
-      if (!owned?.credentialsOwned) return stop('login_form_not_owned');
-      if (!signinOk(owned.action)) return stop('login_action_not_trusted', { action: owned.action ? new URL(owned.action, page.url()).pathname.slice(0, 120) : null });
-      if (String(owned.method).toLowerCase() !== 'post') return stop('login_method_not_post', { method: String(owned.method).slice(0, 10) });
-      const account = await accounts.load(new URL(page.url()).hostname);
-      if (!account?.email || !account.password) return stop('login_account_missing');
+      if (!owned?.credentialsOwned) return { reason: 'login_form_not_owned' };
+      if (!signinOk(owned.action)) return { reason: 'login_action_not_trusted', extra: { action: owned.action ? new URL(owned.action, page.url()).pathname.slice(0, 120) : null } };
+      if (String(owned.method).toLowerCase() !== 'post') return { reason: 'login_method_not_post', extra: { method: String(owned.method).slice(0, 10) } };
+      const account = await getAccount();
+      const secret = secretOverride || account?.password;
+      if (!account?.email || !secret) return { reason: 'login_account_missing' };
       loginAction = owned.action;
+      loginPosted = false;
       navigationTargets.add(loginAction);
-      await applyActions(page, [email, password], [{ fieldId: email.id, action: 'fill', value: account.email }, { fieldId: password.id, action: 'fill', value: account.password }], {});
+      await applyActions(page, [email, password], [{ fieldId: email.id, action: 'fill', value: account.email }, { fieldId: password.id, action: 'fill', value: secret }], {});
       loginArmed = true;
       await locatorFor(page, signin).click({ timeout: 6000 });
       await page.waitForLoadState('domcontentloaded').catch(() => {});
@@ -294,7 +311,69 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       await page.goto(targetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
       note('page', page.url(), 'entry_after_login');
       snapshot = await extractFields(page, { listboxOptions: false });
-      if (snapshot.passwordVisible || snapshot.captcha) return stop(snapshot.captcha ? 'captcha_after_login' : 'login_not_accepted');
+      if (snapshot.captcha) return { reason: 'captcha_after_login' };
+      return snapshot.passwordVisible ? { reason: 'login_not_accepted' } : null;
+    };
+    // The portal rejected every stored password: ONE recovery of the order's alias account with the runner's own
+    // flow (reset e-mail read from the alias inbox, new password stored as the runner stores it), under the fence
+    // above, then one more sign-in with the new password. Nothing else is opened.
+    const recoverAndSignin = async () => {
+      if (!allowRecovery || !probe?.loginUrl || !aliasEmail) return { reason: 'login_not_accepted', extra: { recovery: 'not_allowed' } };
+      navigationTargets.add(probe.loginUrl);
+      await page.goto(probe.loginUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      note('page', page.url(), 'recovery_start');
+      snapshot = await extractFields(page, { listboxOptions: false });
+      const form = signinFormOf(snapshot);
+      if (!form) return { reason: 'recovery_no_signin_form' };
+      let result = null;
+      recoveryOpen = true;
+      try {
+        result = await recover({
+          page, snapshot: { ...snapshot, fields: form.scoped },
+          ctx: { candidate: { identity: { email: aliasEmail } }, accounts, dryRun: false },
+          host: new URL(page.url()).hostname, account: await getAccount(), diagnostics: null, typedSecrets: null,
+          registrationRestarts: new Map(), recoveryAttempts: new Set(),
+          finishRecovery: async view => ({ snapshot: view }),
+        });
+      } finally { recoveryOpen = false; }
+      proof.recovery = { attempted: true, accepted: result?.accountRecovered === true, ...(result?.accountFailure?.code ? { code: String(result.accountFailure.code).slice(0, 60) } : {}) };
+      note('recovery', page.url(), result?.accountRecovered === true ? 'accepted' : 'refused');
+      if (result?.accountRecovered !== true) return { reason: 'account_recovery_failed', extra: proof.recovery };
+      loadedAccount = null;
+      const fresh = await getAccount();
+      if (!fresh?.email || !fresh.password) return { reason: 'recovery_password_missing' };
+      await page.goto(targetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      snapshot = await extractFields(page, { listboxOptions: false });
+      await prepareLoginPage();
+      return (await attemptSignin()) || null;
+    };
+    await prepareLoginPage();
+    if (snapshot.passwordVisible) {
+      const host = new URL(page.url()).hostname;
+      let failure = await attemptSignin();
+      let acceptedPrevious = false;
+      // The staged password of an unconfirmed recovery and the one before it are both candidates: the portal holds
+      // whichever the reset left it with. One more sign-in, with the previous one.
+      const previous = loadedAccount?.previousPassword;
+      if (failure?.reason === 'login_not_accepted' && previous) {
+        await page.goto(targetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+        snapshot = await extractFields(page, { listboxOptions: false });
+        await prepareLoginPage();
+        if (snapshot.passwordVisible) {
+          failure = await attemptSignin(previous);
+          acceptedPrevious = !failure;
+        } else failure = null;
+      }
+      if (failure?.reason === 'login_not_accepted') failure = await recoverAndSignin();
+      if (failure) return stop(failure.reason, failure.extra || {});
+      if (acceptedPrevious && typeof accounts.abortRecovery === 'function') {
+        // The password before the unconfirmed recovery is the valid one: back to it, nothing lost.
+        await accounts.abortRecovery(host, { requestSubmitted: true, reason: 'previous_password_valid' }).catch(() => {});
+        note('account', page.url(), 'previous_password_restored');
+      } else if (proof.recovery?.accepted && typeof accounts.mark === 'function') {
+        // Only after a sign-in the portal accepted: the recovered credential is now a verified one.
+        await accounts.mark(host, { status: 'created', verifiedAt: Date.now() }).catch(() => {});
+      }
     }
     const observe = async () => {
       const current = await extractFields(page, { listboxOptions: false });

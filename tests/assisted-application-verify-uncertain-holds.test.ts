@@ -85,7 +85,7 @@ describe('inspection that ends in the portal\'s «application exists» page', ()
 
   it('settles the order as sent when the vacancy, the alias account and our send agree', async () => {
     const { store, result, inspectExists } = await run({}, { vacancyId: '6604' });
-    expect(inspectExists).toHaveBeenCalledWith(expect.objectContaining({ targetUrl: `https://${HOST}/Vacancies/6604/Application/New/1`, probe: expect.objectContaining({ vacancyId: '6604' }) }));
+    expect(inspectExists).toHaveBeenCalledWith(expect.objectContaining({ targetUrl: `https://${HOST}/Vacancies/6604/Application/New/1`, probe: expect.objectContaining({ vacancyId: '6604' }), allowRecovery: true, aliasEmail: ALIAS }));
     expect(result).toMatchObject({ inspected: true, recorded: true, conclusion: 'application_exists' });
     expect(store.read(`${base}/automation/flow`)).toMatchObject({ state: 'submitted' });
     expect(store.read(`${base}/automation/submission`).r1).toMatchObject({ state: 'sent', receipt: { proofKind: 'portal_application_exists' } });

@@ -10508,7 +10508,14 @@ function exactHttpsPortalHostUrl(value, host) {
   }
 }
 
-async function recoverAccountPassword({ page, snapshot, ctx, host, account, diagnostics, typedSecrets, registrationRestarts, recoveryAttempts }) {
+/**
+ * `finishRecovery(view)`: what follows a reset the portal accepted. The runner signs in through handleAuth; the
+ * read-only inspection (verify.mjs) signs in itself under its own request fence and passes its own.
+ */
+export async function recoverAccountPassword({ page, snapshot, ctx, host, account, diagnostics, typedSecrets, registrationRestarts, recoveryAttempts, finishRecovery = null }) {
+  const signInAfterRecovery = (view) => (finishRecovery
+    ? finishRecovery(view)
+    : handleAuth({ page, snapshot: view, ctx, diagnostics, typedSecrets, registrationRestarts, recoveryAttempts }));
   const orderEmail = String(ctx.candidate?.identity?.email || '').trim().toLowerCase();
   const email = String(account?.email || orderEmail).trim().toLowerCase();
   if (!orderEmail || email !== orderEmail || !aliasLocalPart(email) || usesOtpAccountCreation(host)
@@ -10616,15 +10623,7 @@ async function recoverAccountPassword({ page, snapshot, ctx, host, account, diag
     if (!await ctx.accounts.completeRecovery(host, { password: temporaryPassword })) {
       return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
     }
-    const signedIn = await handleAuth({
-      page,
-      snapshot: resetView,
-      ctx,
-      diagnostics,
-      typedSecrets,
-      registrationRestarts,
-      recoveryAttempts,
-    });
+    const signedIn = await signInAfterRecovery(resetView);
     return { ...signedIn, accountRecovered: true };
   }
   const resetContext = /[?&](?:password_?)?reset_?token=/i.test(pageUrl.search || '')
@@ -10676,15 +10675,7 @@ async function recoverAccountPassword({ page, snapshot, ctx, host, account, diag
     return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
   }
   if (!await ctx.accounts.completeRecovery(host)) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
-  const signedIn = await handleAuth({
-    page,
-    snapshot: afterReset,
-    ctx,
-    diagnostics,
-    typedSecrets,
-    registrationRestarts,
-    recoveryAttempts,
-  });
+  const signedIn = await signInAfterRecovery(afterReset);
   return { ...signedIn, accountRecovered: true };
 }
 
