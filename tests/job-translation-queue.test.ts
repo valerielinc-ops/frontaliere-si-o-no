@@ -136,7 +136,7 @@ describe('measureTranslationQueue', () => {
     expect(mentioningWorkflows.sort()).toEqual([...matchingWorkflows, BACKFILL_WORKFLOW].sort());
     const backfillConcurrency = concurrencyConfig(BACKFILL_WORKFLOW);
     expect(backfillConcurrency.group).toBe(
-      "${{ (inputs.dry_run == true || inputs.dry_run == 'true') && 'backfill-expired-dry-run' || 'jobs-data-pipeline' }}",
+      "${{ (inputs.dry_run == true || inputs.dry_run == 'true') && format('backfill-expired-dry-run-{0}-{1}', inputs.crawler_keys, inputs.dedup_entries) || 'jobs-data-pipeline' }}",
     );
     expect(backfillConcurrency['cancel-in-progress']).toBe(false);
     expect(backfillConcurrency.queue).toBe('max');
