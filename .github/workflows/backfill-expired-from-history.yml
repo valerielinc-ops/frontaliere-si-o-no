@@ -43,6 +43,11 @@ on:
         required: false
         type: string
         default: '0'
+      dedup_entries:
+        description: 'Dry run only: skip byte-identical expired entries in the history walk (false = re-add every entry, for equivalence runs).'
+        required: false
+        type: string
+        default: 'true'
       history_since:
         description: 'Walk only commits newer than this git date (default 45 days ago; "all" = unbounded).'
         required: false
@@ -609,6 +614,7 @@ jobs:
           DRYRUN_RUN_BUDGET_SECONDS: '4800'
           CRAWLER_TIMEOUT_SECONDS: ${{ inputs.crawler_timeout_seconds || '0' }}
           BACKFILL_PHASE_LOG: '1'
+          BACKFILL_DEDUP_ENTRIES: ${{ (inputs.dedup_entries == 'false' || inputs.dedup_entries == false) && '0' || '1' }}
           MAX_COMMITS: ${{ inputs.max_commits || '0' }}
           CRAWLER_KEYS: ${{ inputs.crawler_keys || '' }}
           HISTORY_SINCE: ${{ inputs.history_since || '45 days ago' }}

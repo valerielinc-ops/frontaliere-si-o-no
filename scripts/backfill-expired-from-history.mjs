@@ -1345,6 +1345,9 @@ export function processSlice(sliceFile, {
   // Skip reading/parsing/walking a path whose blob OID equals the one just
   // processed. Off only to prove equivalence in tests.
   dedupHistoricalBlobs = true,
+  // Separate switch for the entry-level skip; BACKFILL_DEDUP_ENTRIES=0 turns it
+  // off in a dry run to compare reports on real data.
+  dedupExpiredEntries = process.env.BACKFILL_DEDUP_ENTRIES !== '0',
 } = {}) {
   const walkStats = { activeWalkMs: 0, expiredWalkMs: 0, distinctOids: {}, parses: {} };
   const noteOid = (relPath, oid) => {
@@ -1692,7 +1695,7 @@ export function processSlice(sliceFile, {
         // byte-identical to one already added is an exact duplicate: the
         // collector and the listing index only add to sets keyed by its
         // content, so re-adding it changes nothing (and costs most of the walk).
-        if (dedupHistoricalBlobs) {
+        if (dedupHistoricalBlobs && dedupExpiredEntries) {
           const digest = createHash('sha1').update(JSON.stringify(entry)).digest('base64');
           if (seenExpiredEntries.has(digest)) continue;
           seenExpiredEntries.add(digest);
@@ -1730,8 +1733,12 @@ export function processSlice(sliceFile, {
   const snapshotBefore = report ? routeOwnerSnapshot(existing, activeSnapshotBefore) : null;
   // Called at every refusal return: records what the refused slice leaves
   // unrecovered (routes of lost postings not served today). Nothing is written.
-  const refusalDetails = () => {
+  const refusalDetails = (reason = '', refusedKeys = []) => {
     if (report) {
+      report.refusalReason = reason;
+      const sortedRefused = [...refusedKeys].sort();
+      report.refusedRouteKeys = sortedRefused.slice(0, 200);
+      report.refusedRouteKeysDigest = createHash('sha1').update(sortedRefused.join('\n')).digest('hex');
       const unrestored = new Set();
       for (const job of [...lostById.values(), ...lostByStableIdentity.values()]) {
         for (const routeKey of localeRouteKeys(job || {})) {
@@ -1972,7 +1979,7 @@ export function processSlice(sliceFile, {
       enriched: 0,
       activeEnriched: 0,
       refusedRoutes: refusedArchiveRoutePaths.size,
-      ...refusalDetails(),
+      ...refusalDetails('archive-ownership', [...refusedArchiveRoutePaths]),
     };
   }
 
@@ -2184,7 +2191,7 @@ export function processSlice(sliceFile, {
       enriched: 0,
       activeEnriched: 0,
       refusedRoutes: recoveredExpiredRouteCollisions.size,
-      ...refusalDetails(),
+      ...refusalDetails('recovered-route-collision', [...recoveredExpiredRouteCollisions]),
     };
   }
 
@@ -2235,7 +2242,7 @@ export function processSlice(sliceFile, {
       enriched: 0,
       activeEnriched: 0,
       refusedRoutes: unresolvedIdlessRouteKeys.size,
-      ...refusalDetails(),
+      ...refusalDetails('unresolved-posting-identity', [...unresolvedIdlessRouteKeys]),
     };
   }
 
@@ -2288,7 +2295,7 @@ export function processSlice(sliceFile, {
         enriched: 0,
         activeEnriched: 0,
         refusedRoutes: unrepresentedRoutes.length,
-      ...refusalDetails(),
+      ...refusalDetails('unrepresented-active-route', unrepresentedRoutes.map(({ locale, slug }) => `${locale}:${slug}`)),
       };
     }
     if (routesChanged || routeCantonsChanged) activeRouteUpdatedOwners.add(owner);
@@ -2472,7 +2479,7 @@ export function processSlice(sliceFile, {
       enriched: 0,
       activeEnriched: 0,
       refusedRoutes: refusedRouteOnlyCollisionKeys.size,
-      ...refusalDetails(),
+      ...refusalDetails('route-only-collision', [...refusedRouteOnlyCollisionKeys]),
     };
   }
 
@@ -2535,7 +2542,7 @@ export function processSlice(sliceFile, {
       enriched: 0,
       activeEnriched: activeMetadata.enrichedEntries,
       refusedRoutes: droppedRoutes.length,
-      ...refusalDetails(),
+      ...refusalDetails('dropped-served-route', droppedRoutes),
     };
   }
   if (report) {
