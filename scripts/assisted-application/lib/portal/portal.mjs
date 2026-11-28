@@ -10927,13 +10927,23 @@ export async function recoverAccountPassword({ page, snapshot, ctx, host, accoun
     const pending = await ctx.accounts.pendingPasswordReset(host).catch(() => null);
     if (pending) {
       triedPending = true;
-      await ctx.accounts.consumePasswordReset?.(host, pending.messageId);
-      const resumed = await finishWithReset(pending);
-      if (resumed?.accountRecovered === true) return resumed;
-      if (resolvedSignInUrl && page.url() !== resolvedSignInUrl) {
-        await page.goto(resolvedSignInUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
-        await settle(page);
-        snapshot = await extractFields(page, NAVIGATION);
+      // The exclusive, recoverable right to open this one-use link. Without it nothing is opened: another run holds
+      // it (stop here, before any navigation) or it was used already (the normal path follows).
+      const owner = `${process.env.GITHUB_RUN_ID || 'local'}:${randomUUID()}`;
+      const claim = typeof ctx.accounts.claimPasswordReset === 'function'
+        ? await ctx.accounts.claimPasswordReset(host, pending.messageId, { owner }) : { status: 'missing' };
+      if (claim?.status === 'held') return recoveryHandoff('account_recovery_timeout', 'reset_link_claimed_elsewhere');
+      if (claim?.status === 'claimed') {
+        const resumed = await finishWithReset(pending);
+        // The outcome is known (done, or refused by the portal): the link is consumed for good. A throw before this
+        // leaves the claim to expire and the link to be found again.
+        await ctx.accounts.settlePasswordReset?.(host, pending.messageId, owner);
+        if (resumed?.accountRecovered === true) return resumed;
+        if (resolvedSignInUrl && page.url() !== resolvedSignInUrl) {
+          await page.goto(resolvedSignInUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+          await settle(page);
+          snapshot = await extractFields(page, NAVIGATION);
+        }
       }
     }
   }

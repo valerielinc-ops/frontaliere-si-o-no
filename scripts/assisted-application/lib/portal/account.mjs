@@ -743,18 +743,49 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
       if (!normalizedHost || account?.status !== 'recovering' || !Number.isFinite(since) || since <= 0) return null;
       return unusedResetMessage(account, normalizedHost, since);
     },
-    /** A reset link is used once: recorded before it is opened, so a retry never opens it again. */
-    async consumePasswordReset(host, messageId) {
+    /**
+     * The exclusive, recoverable right to open one reset link: `{messageId, owner, claimedAt, expiresAt}`, taken in a
+     * transaction. Only the owner navigates; whoever does not get it stops before the navigation. A claim that
+     * expires without an outcome frees the link, which was never recorded as used.
+     * @returns {Promise<{status:'claimed'|'held'|'consumed'|'missing', expiresAt?:number}>}
+     */
+    async claimPasswordReset(host, messageId, { owner, ttlMs = PASSWORD_RESET_TIMEOUT_MS } = {}) {
       const entryKey = hostKey(host);
       const id = String(messageId || '').slice(0, 200);
-      if (!id) return false;
-      let result = false;
+      const who = String(owner || '').slice(0, 120);
+      if (!id || !who) return { status: 'missing' };
+      let result = { status: 'missing' };
       await db.runTransaction(async (transaction) => {
         const current = ((await transaction.get(ref)).data() || {})[entryKey];
         if (!current) return;
         const used = Array.isArray(current.recoveryConsumedMessageIds) ? current.recoveryConsumedMessageIds.map(String) : [];
-        if (used.includes(id)) return;
-        transaction.set(ref, { [entryKey]: { ...current, recoveryConsumedMessageIds: [...used, id].slice(-10) } }, { merge: true });
+        if (used.includes(id)) { result = { status: 'consumed' }; return; }
+        const now = nowMs();
+        const held = current.recoveryResetClaim;
+        if (held && held.messageId === id && Number(held.expiresAt) > now && held.owner !== who) {
+          result = { status: 'held', expiresAt: Number(held.expiresAt) };
+          return;
+        }
+        const claim = { messageId: id, owner: who, claimedAt: now, expiresAt: now + Math.max(1000, Number(ttlMs) || PASSWORD_RESET_TIMEOUT_MS) };
+        transaction.set(ref, { [entryKey]: { ...current, recoveryResetClaim: claim } }, { merge: true });
+        result = { status: 'claimed', expiresAt: claim.expiresAt };
+      });
+      return result;
+    },
+    /**
+     * The outcome of the navigation is known (the reset was completed, or the portal refused the link): the link is
+     * consumed for good and the claim released. Only the claim's owner can settle it.
+     */
+    async settlePasswordReset(host, messageId, owner) {
+      const entryKey = hostKey(host);
+      const id = String(messageId || '').slice(0, 200);
+      let result = false;
+      await db.runTransaction(async (transaction) => {
+        const current = ((await transaction.get(ref)).data() || {})[entryKey];
+        const held = current?.recoveryResetClaim;
+        if (!current || !held || held.messageId !== id || held.owner !== String(owner || '')) return;
+        const used = Array.isArray(current.recoveryConsumedMessageIds) ? current.recoveryConsumedMessageIds.map(String) : [];
+        transaction.set(ref, { [entryKey]: { ...current, recoveryResetClaim: null, recoveryConsumedMessageIds: [...new Set([...used, id])].slice(-10) } }, { merge: true });
         result = true;
       });
       return result;
