@@ -63,6 +63,16 @@ describe('negated mentions do not become nav links', () => {
     const i = t.indexOf('Costo');
     expect(sentenceAt(t, i, i + 5).trim()).toBe('Costo 1.5 franchi');
   });
+
+  it('sentenceAt treats sentence punctuation followed by a closing quote or parenthesis as a boundary', () => {
+    for (const closer of ['"', '»', '”', '’', "'", ')']) {
+      const t = `Non si parla di costo della vita.${closer} Il costo è alto.`;
+      const i = t.lastIndexOf('costo');
+      expect(sentenceAt(t, i, i + 5).trim()).toBe('Il costo è alto');
+      const j = t.indexOf('costo');
+      expect(sentenceAt(t, j, j + 5).trim()).toBe('Non si parla di costo della vita');
+    }
+  });
 });
 
 describe('border needs a customs, crossing or border context in the sentence', () => {

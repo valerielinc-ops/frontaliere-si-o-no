@@ -99,9 +99,18 @@ export function rankContentDestinations(match, { title = '', excerpt = '', body 
 /** Sentence (stripped text) that contains [start, end): boundaries are `.!?` before a space/end, `;` and newlines. */
 export function sentenceAt(text, start, end) {
   let a = start;
-  while (a > 0 && !(/[;\n]/u.test(text[a - 1]) || (/[.!?]/u.test(text[a - 1]) && /\s/u.test(text[a] || ' ')))) a -= 1;
-  const rel = text.slice(end).search(/[.!?](?=\s|$)|[;\n]/u);
+  while (a > 0 && !(/[;\n]/u.test(text[a - 1]) || endsSentenceBefore(text, a))) a -= 1;
+  const rel = text.slice(end).search(/[.!?][)"»”’']*(?=\s|$)|[;\n]/u);
   return text.slice(a, rel < 0 ? text.length : end + rel);
+}
+
+// `.!?` closes a sentence also when followed by closing quotes/parentheses (`costo." Il`): walk back
+// over those closers to the punctuation, then require whitespace/end at `a`. No lookbehind (client bundle).
+function endsSentenceBefore(text, a) {
+  if (!/\s/u.test(text[a] || ' ')) return false;
+  let k = a - 1;
+  while (k >= 0 && /[)"»”’']/u.test(text[k])) k -= 1;
+  return k >= 0 && /[.!?]/u.test(text[k]);
 }
 
 // Safari/WebKit older than 16.4 throws at parse time on regex lookbehind, and this module ships in
