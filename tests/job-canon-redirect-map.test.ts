@@ -335,9 +335,9 @@ describe('jobCanonRedirectMapPlugin', () => {
     }
     const reconstructed = buildTrackedJobCanonEntries(logicalTracking, candidateSlugs);
     const emitted = new Map<string, Record<string, unknown>>();
-    for (const file of fs.readdirSync(path.join(tmp, 'dist', 'job-canon'))) {
-      if (!/^[a-z0-9_]{2}\.json$/.test(file)) continue;
-      const shard = JSON.parse(fs.readFileSync(path.join(tmp, 'dist', 'job-canon', file), 'utf8')) as Record<string, Record<string, unknown>>;
+    for (const file of fs.readdirSync(path.join(tmp, 'dist', 'job-canon', 'v2'))) {
+      if (!/^[0-9a-f]{3}\.json$/.test(file)) continue;
+      const shard = JSON.parse(fs.readFileSync(path.join(tmp, 'dist', 'job-canon', 'v2', file), 'utf8')) as Record<string, Record<string, unknown>>;
       for (const [slug, entry] of Object.entries(shard)) emitted.set(slug, entry);
     }
 
@@ -850,8 +850,9 @@ ${duplicateShardEntries.join(',\n')}
     });
   });
 
-  it('keeps the two-character shard key and the canonical path builder matches the SEO path', () => {
-    expect(fs.existsSync(path.join(tmp, 'dist', 'job-canon', 'fl.json'))).toBe(true);
+  it('keeps the v2 hash shard key and the canonical path builder matches the SEO path', () => {
+    expect(fs.existsSync(path.join(tmp, 'dist', 'job-canon', 'v2', `${jobCanonV2ShardKey('flat-old-v1')}.json`))).toBe(true);
+    expect(fs.existsSync(path.join(tmp, 'dist', 'job-canon', 'fl.json'))).toBe(false);
     expect(readShard('flat-old-v1')['flat-old-v1']).toBeDefined();
     expect(buildCanonicalJobDetailPath('it', { canton: 'ZH' }, 'parity-slug')).toBe('/cerca-lavoro-zurigo/parity-slug/');
     expect(buildCanonicalJobDetailPath('en', { canton: 'ZH' }, 'parity-slug')).toBe('/en/find-jobs-zurich/parity-slug/');

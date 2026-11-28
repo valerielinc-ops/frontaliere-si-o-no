@@ -28,7 +28,7 @@ import { describe, it, expect, beforeAll } from 'vitest';
 import { createHash } from 'node:crypto';
 import { execFile, execFileSync } from 'node:child_process';
 import { resolve, join } from 'node:path';
-import { cpSync, existsSync, mkdtempSync, mkdirSync, writeFileSync, readdirSync, readFileSync, rmSync, symlinkSync } from 'node:fs';
+import { cpSync, existsSync, mkdtempSync, mkdirSync, writeFileSync, readdirSync, readFileSync, renameSync, rmSync, symlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import YAML from 'yaml';
 import { IT_SHARD_GROUP_IDS } from '../scripts/ci/it-shard-group-plan.mjs';
@@ -1396,9 +1396,7 @@ describe('job-canon CDN releases keep the build marker after the complete payloa
       'missing-v2',
       'raw-digest-mismatch',
       'raw-count-mismatch',
-      'foreign-v2',
-      'key-mismatch',
-      'entry-mismatch',
+      'wrong-shard',
       'duplicate-v2-key',
       'non-object-v2',
       'extra-v2',
@@ -1633,9 +1631,7 @@ type PagesJobCanonMutation =
   | 'missing-v2'
   | 'raw-digest-mismatch'
   | 'raw-count-mismatch'
-  | 'foreign-v2'
-  | 'key-mismatch'
-  | 'entry-mismatch'
+  | 'wrong-shard'
   | 'duplicate-v2-key'
   | 'non-object-v2'
   | 'extra-v2';
@@ -1788,18 +1784,6 @@ function runPagesPublisher(
     } else {
       let v2Entries: PagesJobCanonMap = { [currentSlug]: { it: '/cerca-lavoro' } };
       switch (options.jobCanonMutation) {
-        case 'foreign-v2':
-          v2Entries = {
-            [currentSlug]: { it: '/cerca-lavoro' },
-            'foreign-shared': { en: '/en/foreign-jobs' },
-          };
-          break;
-        case 'key-mismatch':
-          v2Entries = { 'foreign-shared': { it: '/cerca-lavoro' } };
-          break;
-        case 'entry-mismatch':
-          v2Entries = { [currentSlug]: { it: '/foreign-section' } };
-          break;
       }
       const manifest = writePagesJobCanonRelease(jobCanon, v2Entries);
       const firstV2Filename = Object.keys(manifest.v2.files)[0];
@@ -1830,6 +1814,15 @@ function runPagesPublisher(
           manifest.v2.files[firstV2Filename].sha256 = '0'.repeat(64);
           rewriteManifest();
           break;
+        case 'wrong-shard': {
+          // The same bytes and digests, filed under a shard name the slug does not hash to.
+          const wrongName = firstV2Filename === 'fff.json' ? 'ffe.json' : 'fff.json';
+          renameSync(join(jobCanon, 'v2', firstV2Filename), join(jobCanon, 'v2', wrongName));
+          manifest.v2.files[wrongName] = manifest.v2.files[firstV2Filename];
+          delete manifest.v2.files[firstV2Filename];
+          rewriteManifest();
+          break;
+        }
         case 'raw-count-mismatch':
           manifest.v2.files[firstV2Filename].bytes += 1;
           rewriteManifest();
