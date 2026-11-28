@@ -34,6 +34,9 @@ const SAFE_ERROR_MESSAGES = [
   [/Timeout \d+ms exceeded/, () => 'timeout'],
   [/Target page, context or browser has been closed|has been closed/i, () => 'target_closed'],
   [/Execution context was destroyed/i, () => 'context_destroyed'],
+  [/frame was detached|Frame was detached/i, () => 'frame_detached'],
+  [/Navigation (?:failed|interrupted)|interrupted by another navigation/i, () => 'navigation_interrupted'],
+  [/Protocol error/i, () => 'protocol_error'],
   [/strict mode violation/i, () => 'strict_mode_violation'],
   [/Cannot read properties of (undefined|null)/, match => `read_of_${match[1]}`],
   [/is not a function/, () => 'not_a_function'],
@@ -192,6 +195,9 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
     // own /Password/ routes, at most two POSTs (the reset request and the new password).
     let recoveryOpen = false;
     let recoveryPosts = 0;
+    // True once the new password was posted to the portal's own set-password route: the portal then sends the browser on to
+    // its self-service sign-in (umantis: Password/CloseWindowApplicants -> /SelfService), the one page this allows.
+    let resetPasswordPosted = false;
     const navigationTargets = new Set([targetUrl]);
     for (const value of observedUrls) {
       try {
@@ -238,6 +244,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
           && !(probe && applicationExistsProbeNavigation(url.href, probe))
           && !(probe && isStaticSubframe(request, url))
           && !(recoveryOpen && url.origin === origin && /^\/password\//i.test(url.pathname))
+          && !(recoveryOpen && resetPasswordPosted && url.origin === origin && /^\/selfservice\/?$/i.test(url.pathname))
           && !(portalDirectory(url) === sourceDirectory(new URL(applyUrl), sourceProtocol) && /(?:^|\/)(?:home|index)\/?$/i.test(url.pathname) && !url.search)
           && !(!url.search && (url.pathname === '/' || url.pathname === sourceDirectory(new URL(applyUrl), sourceProtocol).replace(/\/$/, '')))) return block('navigation_not_allowed');
         if (request.isNavigationRequest()) note('navigation', request.url(), 'allowed', { method });
@@ -257,6 +264,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       }
       if (recoveryOpen && recoveryPosts < 2 && method === 'POST' && url.origin === origin && /^\/password\//i.test(url.pathname)) {
         recoveryPosts++;
+        if (/^\/password\/passwordsetnew\/?$/i.test(url.pathname)) resetPasswordPosted = true;
         note('recovery_post', request.url(), 'allowed', { method });
         return route.continue();
       }
@@ -391,7 +399,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
           registrationRestarts: new Map(), recoveryAttempts: new Set(),
           finishRecovery: async view => ({ snapshot: view }),
         });
-      } finally { recoveryOpen = false; }
+      } finally { recoveryOpen = false; resetPasswordPosted = false; }
       proof.recovery = { ...(proof.recovery || {}), attempted: true, accepted: result?.accountRecovered === true, ...(result?.accountFailure?.code ? { code: String(result.accountFailure.code).slice(0, 60) } : {}) };
       note('recovery', page.url(), result?.accountRecovered === true ? 'accepted' : 'refused');
       if (result?.accountRecovered !== true) return { reason: 'account_recovery_failed', extra: proof.recovery };
@@ -431,7 +439,13 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       }
       if (failure?.reason === 'login_not_accepted') failure = await recoverAndSignin();
       if (failure) return stop(failure.reason, failure.extra || {});
-      if (adopted && typeof accounts.adoptPassword === 'function') {
+      if (!adopted && !proof.recovery?.accepted && loadedAccount?.status === 'recovering' && typeof accounts.completeRecovery === 'function') {
+        // The staged password of an unconfirmed recovery is the one the portal now holds (the new password was set
+        // but the run died before saying so): the recovery is completed, the reset link consumed.
+        await accounts.completeRecovery(host).catch(() => {});
+        await accounts.mark?.(host, { status: 'created', verifiedAt: Date.now() }).catch(() => {});
+        note('account', page.url(), 'staged_password_confirmed');
+      } else if (adopted && typeof accounts.adoptPassword === 'function') {
         // A password the portal accepted is the account's from now on: nothing is lost again.
         await accounts.adoptPassword(host, adopted).catch(() => {});
         note('account', page.url(), 'password_adopted');

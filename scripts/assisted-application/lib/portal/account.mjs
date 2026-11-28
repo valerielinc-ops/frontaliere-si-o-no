@@ -710,6 +710,9 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
             recoveryCompletedAt: nowMs(),
             recoveryPrevious: null,
             recoveryFailure: null,
+            // The recovery is over: a claim on its reset link is released and the link consumed for good.
+            recoveryResetClaim: null,
+            ...(current.recoveryResetClaim?.messageId ? { recoveryConsumedMessageIds: [...new Set([...(Array.isArray(current.recoveryConsumedMessageIds) ? current.recoveryConsumedMessageIds.map(String) : []), String(current.recoveryResetClaim.messageId)])].slice(-10) } : {}),
           },
         }, { merge: true });
         result = true;
@@ -868,6 +871,7 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
           recoveryRequestedAt: null,
           recoveryRequestId: null,
           recoveryFailure: null,
+          recoveryResetClaim: null,
         } }, { merge: true });
         result = true;
       });

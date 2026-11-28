@@ -153,3 +153,20 @@ describe('the store finds the reset e-mail of the recovery in progress, once', (
     expect(await store.pendingPasswordReset(HOST)).toBeNull();
   });
 });
+
+describe('a completed recovery releases the claim on its reset link', () => {
+  it('consumes the claimed link for good and leaves nothing pending', async () => {
+    const mem = createMemoryFirestore({ 'assisted_applications/order_complete_reset': { paymentStatus: 'paid' } });
+    const store = portalAccountStore({ db: mem.db, orderId: 'order_complete_reset', key, sleep: async () => {} });
+    await store.save(HOST, { email: ALIAS, password: 'valid-before' });
+    const begun: any = await store.beginRecovery(HOST, { email: ALIAS, password: 'staged-and-set' });
+    const inbox = mem.db.collection('assisted_applications').doc('order_complete_reset').collection('inbox');
+    const ref = await inbox.add({ passwordResetHost: HOST, passwordResetRequestId: begun.requestId, receivedAt: begun.requestedAt + 4000,
+      passwordResetLinkEnc: encryptJson({ url: `https://${HOST}/?PasswordResetToken=abc` }, key) });
+    expect(await store.claimPasswordReset(HOST, ref.id, { owner: 'run-1:a' })).toMatchObject({ status: 'claimed' });
+    expect(await store.completeRecovery(HOST)).toBe(true);
+    expect(await store.load(HOST)).toMatchObject({ password: 'staged-and-set', status: 'pending' });
+    expect(await store.claimPasswordReset(HOST, ref.id, { owner: 'run-2:b' })).toEqual({ status: 'consumed' });
+    expect(await store.pendingPasswordReset(HOST)).toBeNull();
+  });
+});
