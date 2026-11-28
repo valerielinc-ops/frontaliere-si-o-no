@@ -138,7 +138,7 @@ describe('deploy.yml wiring', () => {
     expect(start).toBeGreaterThan(job.indexOf('bash scripts/ci/grow-build-swap.sh'));
     expect(start).toBeLessThan(job.indexOf('- name: Build IT Rollup bundle'));
     const step = job.slice(start, job.indexOf('- name: Setup Node.js', start));
-    expect(step).toContain("if: vars.DEPLOY_HOST_HEARTBEAT != '0'");
+    expect(step).toContain("if: format('{0}', vars.DEPLOY_HOST_HEARTBEAT) != '0'");
     expect(step).toContain('continue-on-error: true');
     expect(step).toContain('nohup bash scripts/ci/host-heartbeat.sh');
   });
@@ -146,5 +146,51 @@ describe('deploy.yml wiring', () => {
   it('keeps the token in that one step and has the scope to write statuses', () => {
     expect(workflow.match(/HEARTBEAT_TOKEN:/g)).toHaveLength(1);
     expect(job).toMatch(/\n {6}statuses: write\b/);
+  });
+});
+
+// Actions compares loosely: an undefined variable is null, and null and '0' are
+// both coerced to the number 0, so `vars.X != '0'` (meant as "on unless set to
+// 0") is false when X is absent. `format('{0}', vars.X) != '0'` compares strings.
+describe('workflow expressions on possibly undefined vars', () => {
+  // Literals that Actions coerces to 0, like null. `!= ''` is left out on
+  // purpose: skipping an unset variable is what it asks for.
+  const zeroLike = String.raw`(?:'0'|0(?![\w.])|false(?!\w))`;
+  const ref = String.raw`(?<![\w.])vars\.\w+`;
+  const unsafe = new RegExp(
+    `${ref}\\s*!=\\s*${zeroLike}|(?<![\\w'])${zeroLike}\\s*!=\\s*${ref}(?!\\w)`,
+  );
+
+  it('tells the broken form from the safe ones', () => {
+    for (const bad of ["if: vars.X != '0'", 'if: vars.X != false', 'if: vars.X!=0', "if: '0' != vars.X"]) {
+      expect(bad).toMatch(unsafe);
+    }
+    for (const good of [
+      "if: format('{0}', vars.X) != '0'",
+      "if: vars.X != '1'",
+      "if: vars.X != 'false'",
+      "if: vars.X != ''",
+      "if: env.RESOLVED_GATE != '0'",
+    ]) {
+      expect(good).not.toMatch(unsafe);
+    }
+  });
+
+  it('no workflow or composite action uses the broken form', () => {
+    const files = ['.github/workflows', '.github/actions'].flatMap((root) =>
+      (fs.readdirSync(path.resolve(root), { recursive: true }) as string[])
+        .filter((name) => /\.ya?ml$/.test(name))
+        .map((name) => path.join(root, name)),
+    );
+    expect(files).toContain(path.join('.github/workflows', 'deploy.yml'));
+    const offenders = files.flatMap((file) =>
+      fs
+        .readFileSync(path.resolve(file), 'utf8')
+        .split('\n')
+        .flatMap((line, index) =>
+          !line.trimStart().startsWith('#') && unsafe.test(line) ? [`${file}:${index + 1}: ${line.trim()}`] : [],
+        ),
+    );
+    expect(offenders).toEqual([]);
   });
 });
