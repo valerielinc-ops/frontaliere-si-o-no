@@ -1973,8 +1973,43 @@ const EDUCATION_NOT_LEVEL = /\b(?:institut\w*|school name|nome (?:della )?scuola
 
 // «Major» (SuccessFactors), «Fachrichtung», «Indirizzo di studi»: a free-text field, never a picklist of levels or schools.
 const STUDY_FIELD_LABEL = /^(?:major|field of study|area of study|study (?:field|area|subject|program(?:me)?)|subject of study|course of study|degree (?:subject|major)|fachrichtung|studienrichtung|studienfach|studiengang|indirizzo di studi[o]?|campo di studi[o]?|ambito di studio|corso di laurea|domaine d etudes?|filiere d etudes?)$/;
-function isStudyFieldQuestion(question) {
-  return STUDY_FIELD_LABEL.test(label(question)) && ['text', 'textarea', ''].includes(typeOf(question)) && optionsOf(question).length === 0;
+export function isStudyFieldQuestion(question) {
+  // An editable autocomplete (SuccessFactors «Major») is a combobox with input type text and no catalogue read.
+  const kind = typeOf(question);
+  const editable = kind === 'combobox' && question?.selectLike !== true;
+  return STUDY_FIELD_LABEL.test(label(question)) && (['text', 'textarea', ''].includes(kind) || editable) && optionsOf(question).length === 0;
+}
+
+// A portal's list of fields of study names them in English and in its own words; the CV says «contabilità»,
+// «ragioneria», «informatica». The keys to type in an autocomplete, most specific first: the CV's own words are
+// tried before them and only an option the portal really lists is ever chosen.
+const STUDY_FIELD_KEYS = [
+  [/contabil|ragioneri|accounting|rechnungswesen|comptabilit/, ['Accounting', 'Finance', 'Business Administration', 'Economics']],
+  [/finanz|financ|banc|bank/, ['Finance', 'Banking', 'Economics', 'Business Administration']],
+  [/informatic|computer|software|informatik|informatique/, ['Computer Science', 'Information Technology', 'Information Systems']],
+  [/ingegner|engineer|ingenieur/, ['Engineering']],
+  [/econom|aziend|commerc|business|management|marketing|amministraz|wirtschaft|gestion/, ['Business Administration', 'Economics', 'Management', 'Marketing']],
+  [/giurisprud|diritto|\blaw\b|recht|droit/, ['Law']],
+  [/lettere|letteratur|literature|filolog/, ['Literature', 'Humanities']],
+  [/psicolog|psycholog/, ['Psychology']],
+  [/medicin|medicine/, ['Medicine']],
+  [/biolog/, ['Biology']],
+  [/chimic|chemi/, ['Chemistry']],
+  [/fisic|physic/, ['Physics']],
+  [/matemat|math/, ['Mathematics']],
+  [/architett|architecture/, ['Architecture']],
+  [/turism|tourism|hotel|hospitality|alberghier/, ['Hospitality', 'Tourism']],
+  [/scienze politiche|political/, ['Political Science']],
+  [/grafic|design/, ['Design']],
+];
+
+/** The search keys of a field of study: the CV's words first, then the portal-style names they stand for. */
+export function studyFieldSearchKeys(value) {
+  const text = fold(value);
+  if (!text) return [];
+  const keys = [clean(value, 120)];
+  for (const [re, names] of STUDY_FIELD_KEYS) if (re.test(text)) keys.push(...names);
+  return [...new Map(keys.map((key) => [fold(key), key])).values()];
 }
 
 function isEducationLevelQuestion(question) {

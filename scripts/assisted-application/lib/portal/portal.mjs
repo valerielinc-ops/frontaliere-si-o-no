@@ -11897,18 +11897,26 @@ export async function requiredLeftEmpty(page, uploaded = new Set(), uploadedKeyF
  * (a file or a password is another flow). A field the plan never saw (it appears after another one is chosen, or the
  * planner skipped it) must reach the candidate, never end in a silent handoff (Damiani «Major is required», 2026-11-28).
  */
-export function emptyRequiredAsQuestions(fields) {
+export function emptyRequiredAsQuestions(fields, offered = new Map()) {
   return (Array.isArray(fields) ? fields : [])
     .filter((field) => field?.kind !== 'file' && field?.inputType !== 'file' && field?.inputType !== 'password' && String(field?.label || '').trim())
-    .map((field) => ({
-      fieldId: field.id,
-      applicationQuestion: String(field.label).trim(),
-      question: String(field.label).trim(),
-      why: '',
-      type: Array.isArray(field.options) && field.options.length ? 'choice' : 'text',
-      options: Array.isArray(field.options) ? field.options : [],
-    }));
+    .map((field) => {
+      const suggestions = offered.get(suggestionKey(field)) || [];
+      const options = suggestions.length ? suggestions : Array.isArray(field.options) ? field.options : [];
+      return {
+        fieldId: field.id,
+        applicationQuestion: String(field.label).trim(),
+        question: String(field.label).trim(),
+        why: '',
+        type: options.length ? 'choice' : 'text',
+        options,
+        ...(suggestions.length ? { applicationOptions: suggestions } : {}),
+      };
+    });
 }
+
+/** A field is told apart across two readings of the page by its caption, not by its generated id. */
+export const suggestionKey = (field) => String(field?.label || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 
 /**
  * The page's send and step buttons: a usual name, or one a confirmed
@@ -12486,7 +12494,11 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           unreadableFields.push(field?.id || item.fieldId || 'unknown');
           continue;
         }
-        const liveOptions = field ? editableCombobox(field) ? [] : field.options || [] : item.applicationOptions || item.options || [];
+        // An editable autocomplete lists nothing until typed into; the suggestions the fill saw (its failure diagnostics)
+        // are the portal's own options, and the only ones a candidate may choose.
+        const liveOptions = field
+          ? editableCombobox(field) ? (Array.isArray(item.applicationOptions) ? item.applicationOptions : []) : field.options || []
+          : item.applicationOptions || item.options || [];
         const readableOptions = liveOptions.filter(portalUsableChoiceOption);
         const applicationOptions = readableOptions
           .map((option) => typeof option === 'string' ? option : option?.label)
@@ -14216,11 +14228,17 @@ export async function submitViaPortal(ctx) {
     // One deterministic replan of a page whose required fields stayed empty (the plan can fill them once the page shows them),
     // then a question to the candidate for what is still empty; never a silent handoff while a question can be asked.
     let requiredEmptyReplanUsed = false;
+    // The suggestions an autocomplete offered when its fill found no listed option, by field caption.
+    const offeredSuggestions = new Map();
+    const emptyRequiredNow = () => requiredEmptyFields(page, uploaded,
+      (field, fields, url) => uploadKeyForField(field.id, fields, url, pageEpoch));
     const requiredEmptyRecovery = async (current) => {
-      const empty = emptyRequiredAsQuestions(await requiredEmptyFields(page, uploaded,
-        (field, fields, url) => uploadKeyForField(field.id, fields, url, pageEpoch)));
+      const emptyFields = await emptyRequiredNow();
+      const empty = emptyRequiredAsQuestions(emptyFields, offeredSuggestions);
       if (!empty.length) return null;
-      if (!requiredEmptyReplanUsed) {
+      // A field whose autocomplete was already tried is not planned again: it goes to the candidate with the portal's options.
+      const alreadyTried = emptyFields.every((field) => offeredSuggestions.has(suggestionKey(field)));
+      if (!requiredEmptyReplanUsed && !alreadyTried) {
         requiredEmptyReplanUsed = true;
         return { snapshot: await awaitFields(page, await extractFields(page)) };
       }
@@ -15197,6 +15215,11 @@ export async function submitViaPortal(ctx) {
         }
         evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
         evidence.steps.at(-1).failures = results.filter((result) => !result.ok);
+        for (const result of results) {
+          const suggestions = result?.optionDiagnostics?.suggestions;
+          const failed = snapshot.fields.find((item) => item.id === result?.fieldId);
+          if (!result?.ok && Array.isArray(suggestions) && suggestions.length && failed?.label) offeredSuggestions.set(suggestionKey(failed), suggestions);
+        }
         // A consent checkbox is part of the submission contract. If the
         // browser did not register the check, do not press Next/Submit and
         // turn a failed consent into an ambiguous portal outcome. The filler
@@ -15623,7 +15646,12 @@ export async function submitViaPortal(ctx) {
       if (await requiredLeftEmpty(page, uploaded, (field, fields, url) => uploadKeyForField(field.id, fields, url, pageEpoch))) {
         evidence.steps.at(-1).requiredFieldsUnfilled = true;
         const repairUrl = page.url();
-        const repair = await runAgent(after, 'required_fields_unfilled');
+        // Required autocompletes whose suggestions were read and did not hold the answer go straight to the candidate: the
+        // agent only retyped the same text for 24 rounds (Damiani «Major», 2026-11-28).
+        const emptyBeforeRepair = await emptyRequiredNow();
+        const onlyTriedAutocompletes = emptyBeforeRepair.length > 0
+          && emptyBeforeRepair.every((field) => offeredSuggestions.has(suggestionKey(field)));
+        const repair = onlyTriedAutocompletes ? { status: 'AUTOCOMPLETE_UNMATCHED' } : await runAgent(after, 'required_fields_unfilled');
         if (repair?.status === 'READY_TO_SUBMIT') agentSubmitRefForPage = repair.submitRef;
         if (repair?.status === 'NEEDS_CANDIDATE') {
           const request = await askCandidate(repair.questions, after);
