@@ -7,6 +7,7 @@ import {
   JOB_DETAIL_HEADER_CONTENT_RESERVE_CLASS,
   JOB_DETAIL_METADATA_RESERVE_1_CLASS,
   JOB_DETAIL_METADATA_RESERVE_2_CLASS,
+  JOB_DETAIL_METADATA_RESERVE_3_CLASS,
 } from '@/components/community/jobDetailHeaderGeometry';
 import {
   JOB_DETAIL_HEADER_CONTENT_CLASS,
@@ -78,6 +79,9 @@ describe('job detail header reserved geometry', () => {
     const two = minHeights(JOB_DETAIL_METADATA_RESERVE_2_CLASS);
     expect(two.base).toBe(24 + 8 + 24);
     expect(two.sm).toBe(24);
+    const three = minHeights(JOB_DETAIL_METADATA_RESERVE_3_CLASS);
+    expect(three.base).toBe(24 * 3 + 8 * 2);
+    expect(three.sm).toBe(24);
   });
 
   it('the metadata row applies the reserve without stretching wrapped lines', () => {
@@ -86,6 +90,10 @@ describe('job detail header reserved geometry', () => {
     expect(one.props.className).toContain(JOB_DETAIL_METADATA_RESERVE_1_CLASS);
     expect(two.props.className).toContain(JOB_DETAIL_METADATA_RESERVE_2_CLASS);
     expect(two.props.className).toContain('content-start');
+  });
+
+  it('the expired job header reserves three pill rows (six pills incl. two warnings)', () => {
+    expect(readFileSync(resolve(process.cwd(), 'components/community/JobExpiredView.tsx'), 'utf8')).toMatch(/<JobDetailMetadataRow reserveRows=\{3\}>/);
   });
 
   it('the live job header asks for two pill rows and the skeleton paints the same box', () => {

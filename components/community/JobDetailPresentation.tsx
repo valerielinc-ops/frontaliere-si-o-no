@@ -5,6 +5,7 @@ import {
   JOB_DETAIL_HEADER_CONTENT_RESERVE_CLASS,
   JOB_DETAIL_METADATA_RESERVE_1_CLASS,
   JOB_DETAIL_METADATA_RESERVE_2_CLASS,
+  JOB_DETAIL_METADATA_RESERVE_3_CLASS,
 } from './jobDetailHeaderGeometry';
 
 export const JOB_DETAIL_HEADER_CONTENT_CLASS = `flex items-start gap-3 sm:gap-4 ${JOB_DETAIL_HEADER_CONTENT_RESERVE_CLASS}`;
@@ -43,8 +44,8 @@ export function JobDetailHeaderCard({
 }
 
 interface JobDetailMetadataRowProps extends HTMLAttributes<HTMLDivElement> {
- /** Pill rows to reserve below `sm` (a live job wraps to two; default one). */
- reserveRows?: 1 | 2;
+ /** Pill rows to reserve below `sm` (a live job wraps to two, an expired one to three; default one). */
+ reserveRows?: 1 | 2 | 3;
 }
 
 export function JobDetailMetadataRow({
@@ -53,7 +54,11 @@ export function JobDetailMetadataRow({
  reserveRows = 1,
  ...props
 }: JobDetailMetadataRowProps) {
- const reserve = reserveRows === 2 ? JOB_DETAIL_METADATA_RESERVE_2_CLASS : JOB_DETAIL_METADATA_RESERVE_1_CLASS;
+ const reserve = reserveRows === 3
+  ? JOB_DETAIL_METADATA_RESERVE_3_CLASS
+  : reserveRows === 2
+   ? JOB_DETAIL_METADATA_RESERVE_2_CLASS
+   : JOB_DETAIL_METADATA_RESERVE_1_CLASS;
  return (
   <div
    {...props}

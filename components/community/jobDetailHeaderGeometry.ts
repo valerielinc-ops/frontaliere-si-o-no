@@ -22,5 +22,7 @@ export const JOB_DETAIL_HEADER_CONTENT_RESERVE_CLASS = 'min-h-[98px] sm:min-h-[8
 
 /** One pill row (default: expired/orphan views show 1-2 pills). */
 export const JOB_DETAIL_METADATA_RESERVE_1_CLASS = 'min-h-[24px]';
+/** Three wrapped rows below `sm` (expired job: up to six pills, two of them warnings): 3 x 24 + 2 x 8 = 88px. */
+export const JOB_DETAIL_METADATA_RESERVE_3_CLASS = 'min-h-[88px] sm:min-h-[24px]';
 /** Two wrapped rows below `sm`, one from `sm` (live job: 4-5 pills at 390px wrap). */
 export const JOB_DETAIL_METADATA_RESERVE_2_CLASS = 'min-h-[56px] sm:min-h-[24px]';
