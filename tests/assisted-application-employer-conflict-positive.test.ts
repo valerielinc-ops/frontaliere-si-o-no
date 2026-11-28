@@ -92,7 +92,9 @@ describe('positive evidence keeps the real conflicts', () => {
     expect(namesAnotherEmployer('Bei Fragen melden Sie sich', job)).toBe(false);
     expect(namesAnotherEmployer('Concierge bei Fragen', job)).toBe(false);
     expect(namesAnotherEmployer('Concierge | Grand Hotel Esempio AG', job)).toBe(false);
-    expect(namesAnotherEmployer('Metallbauer | Beispiel Personal AG', { title: 'Metallbauer', company: 'Muster Staffing AG' })).toBe(false);
+    // Another agency is another employer, even for an agency's order: only the order's own distinctive name binds.
+    expect(namesAnotherEmployer('Metallbauer | Beispiel Personal AG', { title: 'Metallbauer', company: 'Muster Staffing AG' })).toBe(true);
+    expect(namesAnotherEmployer('Metallbauer | Muster Personal AG', { title: 'Metallbauer', company: 'Muster Staffing AG' })).toBe(false);
     expect(namesAnotherEmployer('Metallbauer | Beispiel Industrie AG', { title: 'Metallbauer', company: 'Muster Staffing AG' })).toBe(true);
   });
 
@@ -195,6 +197,10 @@ describe('a placement agency\'s name variants are one employer', () => {
     expect(namesAnotherEmployer('Willkommen\nSTA Muster Personal AG', job)).toBe(true);
     expect(namesAnotherEmployer('STA Personal AG – Kunde: Siemens AG', job)).toBe(true);
     expect(namesAnotherEmployer('Bewerbung bei Siemens AG', job)).toBe(true);
+    // Trade words alone do not make another agency the order's: the order's distinctive name («STA») must be in it.
+    expect(namesAnotherEmployer('Bewerbung bei Muster Personalpartner AG', job)).toBe(true);
+    expect(namesAnotherEmployer('Concierge | Muster Staffing AG', job)).toBe(true);
+    expect(namesAnotherEmployer('Bewerbung bei STA Personalpartner AG', job)).toBe(false);
     // For an employer that is not an agency, «Partners» next to the name is still another name.
     expect(namesAnotherEmployer('Welcome\nSTA Partners', { title, company: 'STA AG' })).toBe(true);
   });

@@ -5525,13 +5525,17 @@ function foreignEmployerEvidenceInSegment(segment, { neutral, job, agency, known
     return capitalised(index) && !neutral.has(word) && !filler(word) && !LEGAL_FORM_TOKENS.has(raw[index]) && !EMPLOYER_KIND_WORDS.has(word);
   };
   const companyWords = jobCompanyWords(job);
-  // An agency naming itself with its own trade words («STA Personal AG» for the order of «STA»), or any agency
-  // when the order is an agency's, names no other employer.
+  // An entity is the order's own agency only when it carries the order's distinctive name («STA») and the rest of
+  // it is trade words and variants: «STA Personalpartner AG» is the agency of «STA Personal AG»,
+  // «Muster Personalpartner AG» is another one.
+  const distinctiveCompanyWords = [...companyWords].filter((word) => !isAgencyVariantWord(word));
   const exempt = (indexes) => {
     const words = indexes.map((index) => norm[index]);
     const unknown = words.filter((word) => word && !neutral.has(word) && !filler(word) && !NOT_A_NAME.has(word));
-    if (agency && words.some(isAgencyTradeWord)) return true;
-    return words.some((word) => companyWords.has(word)) && unknown.every(isAgencyTradeWord);
+    if (!unknown.every(isAgencyVariantWord)) return false;
+    return distinctiveCompanyWords.length
+      ? words.some((word) => distinctiveCompanyWords.includes(word))
+      : words.some((word) => companyWords.has(word));
   };
   const found = (reason, indexes) => (exempt(indexes) ? null : { reason, entity: indexes.map((index) => raw[index]).join(' ') });
   for (let index = 0; index < raw.length; index += 1) {
