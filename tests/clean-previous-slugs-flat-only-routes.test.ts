@@ -213,4 +213,37 @@ describe('flat-only previous slug that is one locale active slug', () => {
       expect(getPreviousSlugsForLocale(record, locale)).toContain(ACTIVE.en);
     }
   });
+
+  const reviewInput = (flat: string): any => ({
+    slug: 'master',
+    slugByLocale: { it: 'it-new', en: 'old', de: 'de-new', fr: 'fr-new' },
+    previousSlugs: [flat],
+    previousSlugsByLocale: { en: ['old'] },
+  });
+
+  it('identical flat and en bucket: it, de and fr never served the slug, and no route is lost over two passes', () => {
+    const record = reviewInput('old');
+    for (const locale of ['it', 'de', 'fr']) {
+      expect(getPreviousSlugsForLocale(record, locale)).toEqual([]);
+    }
+    const before = localeRouteKeys(record);
+    expect([...before].filter((route) => route.endsWith(':old'))).toEqual(['en:old']);
+
+    for (const pass of [1, 2]) {
+      cleanPreviousSlugsPerLocale(record);
+
+      expect({ pass, lost: lost(before, localeRouteKeys(record)) }).toEqual({ pass, lost: [] });
+      expect([...localeRouteKeys(record)].filter((route) => route.endsWith(':old'))).toEqual(['en:old']);
+    }
+  });
+
+  it('padded flat "old " beside an en bucket "old": fr keeps serving old over two passes', () => {
+    const record = reviewInput('old ');
+
+    for (const pass of [1, 2]) {
+      cleanPreviousSlugsPerLocale(record);
+
+      expect({ pass, fr: getPreviousSlugsForLocale(record, 'fr') }).toEqual({ pass, fr: ['old'] });
+    }
+  });
 });

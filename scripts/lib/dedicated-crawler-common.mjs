@@ -9178,7 +9178,10 @@ export function cleanPreviousSlugsPerLocale(job) {
   // Read before the bucket pass: a flat value that mirrors a bucket is served
   // by that bucket alone, even if the pass below empties it. Membership is on
   // the stored value, as in getPreviousSlugsForLocale: a bucket value that only
-  // looks alike once normalized leaves the flat entry flat-only.
+  // looks alike once normalized leaves the flat entry flat-only. With an
+  // identical bucket value the reader gives the slug to that locale alone, so
+  // materializing it when that bucket empties would create routes never served
+  // (fleet measure: 383 on 116 records, none served before the cleanup).
   const bucketedOnEntry = new Set(
     Object.values(job.previousSlugsByLocale || {})
       .flatMap((arr) => (Array.isArray(arr) ? arr : [])),
