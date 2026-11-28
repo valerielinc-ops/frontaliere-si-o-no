@@ -16,6 +16,7 @@ import {
   createContentKeywordMatcher,
   scoreSharedKeywords,
 } from '../packages/articles/engine/shared/contentKeywordMatcher.mjs';
+import { matchContentLinks } from '../packages/articles/engine/shared/contentLinkVocabulary.mjs';
 
 const cantonSource: CrossSectionSource = {
   articleId: 'ti-1',
@@ -31,8 +32,16 @@ const national = (over: Partial<CrossSectionCandidate> & { title?: string; href?
   datePub: over.datePub ?? '2026-11-20',
   indexable: over.indexable,
   locales: over.locales ?? {
-    it: { title: over.title ?? 'Cassa malati frontalieri: la scelta del 2027', href: over.href ?? '/blog/cassa-malati-2027/' },
-    en: { title: 'Health insurance for cross-border workers: the 2027 choice', href: '/en/blog/health-insurance-2027/' },
+    it: {
+      title: over.title ?? 'Cassa malati frontalieri: la franchigia giusta nel 2027',
+      excerpt: 'Premi, franchigia e cassa malati: come scegliere.',
+      href: over.href ?? '/blog/cassa-malati-2027/',
+    },
+    en: {
+      title: 'Health insurance: choosing the deductible in 2027',
+      excerpt: 'Premiums and deductible explained for cross-border workers.',
+      href: '/en/blog/health-insurance-2027/',
+    },
   },
 });
 
@@ -47,6 +56,7 @@ describe('pickCrossSectionRelated', () => {
 
   it('emits nothing when no candidate clears the relevance floor (never a filler)', () => {
     const offTopic = national({ title: 'Traffico ai valichi: code di sabato', href: '/blog/code/' });
+    offTopic.locales.it!.excerpt = 'Le attese del fine settimana.';
     const siteWords = national({ articleId: 'fr-2', title: 'Frontalieri in Ticino: novita della settimana', href: '/blog/novita/' });
     expect(pickCrossSectionRelated(cantonSource, [offTopic, siteWords])).toEqual([]);
     expect(pickCrossSectionRelated(cantonSource, [])).toEqual([]);
@@ -69,7 +79,7 @@ describe('pickCrossSectionRelated', () => {
 
   it('keeps the four languages coherent: same-locale version only', () => {
     const en = pickCrossSectionRelated(
-      { ...cantonSource, locale: 'en', title: 'Health insurance in Ticino: choosing the deductible', excerpt: 'Premiums and deductible.' },
+      { ...cantonSource, locale: 'en', title: 'Health insurance in Ticino: choosing the deductible', excerpt: 'Premiums and deductible explained.' },
       [national()],
     );
     expect(en).toHaveLength(1);
@@ -102,6 +112,73 @@ describe('pickCrossSectionRelated', () => {
   it('keeps total related items within the ceiling', () => {
     expect(RELATED_TOTAL_MAX).toBe(7);
     expect(CROSS_SECTION_MAX_LINKS).toBeLessThanOrEqual(2);
+  });
+});
+
+const filler = (i: number, title: string): CrossSectionCandidate => ({
+  articleId: `pool-${i}`,
+  section: 'frontaliere',
+  datePub: '2026-01-01',
+  locales: { it: { title, href: `/blog/pool-${i}/` } },
+});
+
+describe('relevance: specific subject, not the skeleton of a templated title', () => {
+  const jobs = ['ottico', 'piastrellista', 'elettricista', 'idraulico', 'falegname', 'muratore', 'cuoco', 'barista', 'cameriere',
+    'infermiere', 'dentista', 'veterinario', 'architetto', 'geometra', 'meccanico', 'carrozziere', 'giardiniere', 'panettiere',
+    'macellaio', 'parrucchiere'];
+  const templated = jobs.map((job, i) => filler(i, `Lavorare come ${job} in Ticino: stipendio, requisiti e riconoscimento titolo`));
+  const source = (job: string): CrossSectionSource => ({
+    articleId: 'src', section: 'svizzera', locale: 'it',
+    title: `Lavorare come ${job} in Ticino: stipendio, requisiti e riconoscimento titolo`,
+    excerpt: 'Stipendio medio, permesso G e riconoscimento del titolo.',
+  });
+
+  it('does not link two articles that share only the words of a title model', () => {
+    // the model words recur in 20 of the candidates: they are computed as template from the pool
+    expect(pickCrossSectionRelated(source('tipografo'), templated)).toEqual([]);
+    expect(pickCrossSectionRelated(source('ottico'), templated)).toEqual([]);
+  });
+
+  it('still links on a subject shared beyond the model', () => {
+    const real = filler(99, 'Permesso G per apprendisti: tirocinio e permesso di lavoro in Ticino');
+    real.locales.it!.excerpt = 'Apprendisti, tirocinio e permesso G.';
+    const src: CrossSectionSource = { articleId: 'src', section: 'svizzera', locale: 'it',
+      title: 'Apprendisti frontalieri: il permesso G per il tirocinio', excerpt: 'Il tirocinio con permesso G.' };
+    const links = pickCrossSectionRelated(src, [...templated, real]);
+    expect(links.map((l) => l.articleId)).toEqual(['pool-99']);
+  });
+
+  it('keeps an ambiguous alias out unless the context is pension-related', () => {
+    const credit = national({ articleId: 'bank', title: "Crédit Agricole, l'Italia secondo pilastro della banca", href: '/blog/bank/' });
+    const lpp = national({ articleId: 'lpp', title: 'Prelievo del secondo pilastro LPP per frontalieri: regole', href: '/blog/lpp/' });
+    lpp.locales.it!.excerpt = 'Prelievo del capitale LPP e tassazione.';
+    const src: CrossSectionSource = { articleId: 'src', section: 'svizzera', locale: 'it',
+      title: 'Secondo pilastro LPP: guida al prelievo', excerpt: 'Prelievo del capitale LPP.' };
+    expect(pickCrossSectionRelated(src, [credit]).map((l) => l.articleId)).toEqual([]);
+    expect(pickCrossSectionRelated(src, [credit, lpp]).map((l) => l.articleId)).toEqual(['lpp']);
+    const match = (title: string) => buildKeywordProfile({ title }, { match: matchContentLinks, locale: 'it', tokenize });
+    expect(match("L'Italia secondo pilastro della banca").entities.has('pension')).toBe(false);
+    expect(match('Il secondo pilastro LPP').entities.has('pension')).toBe(true);
+  });
+
+  it('needs more than one entity and one word: a lone shared token is not a link', () => {
+    const lone = national({ title: 'Cassa malati: tutele per mamme', href: '/blog/lone/' });
+    lone.locales.it!.excerpt = 'Informazioni varie.';
+    const src = { ...cantonSource, title: 'Cassa malati e pensione: tutele', excerpt: 'Dettagli sulla scelta.' };
+    expect(pickCrossSectionRelated(src, [lone])).toEqual([]);
+  });
+});
+
+describe('cost: profiles are computed once per pool and locale', () => {
+  it('serves a source from the inverted index in well under 20 ms', () => {
+    const pool = Array.from({ length: 3000 }, (_, i) => filler(i, `Articolo numero ${i} su argomento${i % 400} e tema${i % 97}`));
+    pool.push(national({ articleId: 'target' }));
+    pickCrossSectionRelated(cantonSource, pool); // builds the index
+    const started = performance.now();
+    for (let i = 0; i < 50; i++) pickCrossSectionRelated({ ...cantonSource, articleId: `s${i}` }, pool);
+    const perSource = (performance.now() - started) / 50;
+    expect(perSource).toBeLessThan(20);
+    expect(pickCrossSectionRelated(cantonSource, pool).map((l) => l.articleId)).toEqual(['target']);
   });
 });
 

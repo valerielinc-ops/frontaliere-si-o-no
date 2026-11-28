@@ -523,8 +523,33 @@ export interface CrossSectionLink {
   shared: string[];
 }
 
-/** Minimum relevance: one entity in both titles, or three shared title tokens. */
-export const CROSS_SECTION_MIN_SCORE = 3;
+/**
+ * Minimum relevance. A link needs a shared SPECIFIC subject: an entity of the
+ * shared vocabulary in the title of both articles plus at least one specific
+ * shared token, or two specific tokens with a total score of
+ * {@link CROSS_SECTION_STRONG_SCORE}; either way at least
+ * {@link CROSS_SECTION_MIN_CONTEXT_TOKENS} specific tokens must be shared across
+ * title, tags and excerpt. Words that recur across the whole pool of
+ * candidates (the skeleton of templated titles: «stipendio, requisiti e
+ * riconoscimento titolo») are not specific and never count.
+ */
+export const CROSS_SECTION_MIN_SCORE = 4;
+/** Score that lets two specific shared tokens pass without an entity in both titles. */
+export const CROSS_SECTION_STRONG_SCORE = 5;
+/**
+ * A token present in more than this share of the candidates of a locale (and in
+ * at least {@link CROSS_SECTION_TEMPLATE_MIN_DOCS} of them) is template, not subject.
+ * Computed from the pool itself: nothing is listed by hand.
+ */
+export const CROSS_SECTION_TEMPLATE_DF_RATIO = 0.003;
+export const CROSS_SECTION_TEMPLATE_MIN_DOCS = 12;
+export const CROSS_SECTION_CONTEXT_DF_RATIO = 0.01;
+/**
+ * Tokens shared anywhere (title, tags, excerpt) that must corroborate a title
+ * match: a single shared word in the titles, with nothing else in common, is
+ * coincidence more often than topic.
+ */
+export const CROSS_SECTION_MIN_CONTEXT_TOKENS = 2;
 /** At most this many cross-section links per article, one per target section. */
 export const CROSS_SECTION_MAX_LINKS = 2;
 /** Ceiling on every related item of an article page (hub link included). */
@@ -533,30 +558,108 @@ export const RELATED_TOTAL_MAX = 7;
 const splitKeywords = (raw?: string): string[] =>
   raw ? raw.split(',').map((k) => k.trim()).filter(Boolean) : [];
 
-const profileOf = (locale: CrossSectionLocale, v: { title: string; excerpt?: string; keywords?: string }) =>
+type KeywordProfile = ReturnType<typeof buildKeywordProfile>;
+
+const profileOf = (locale: CrossSectionLocale, v: { title: string; excerpt?: string; keywords?: string }): KeywordProfile =>
   buildKeywordProfile(
     { title: v.title, excerpt: v.excerpt, tags: locale === 'it' ? splitKeywords(v.keywords) : [] },
     { match: matchContentLinks, locale, tokenize },
   );
 
+interface IndexedVersion {
+  candidate: CrossSectionCandidate;
+  version: CrossSectionLocaleVersion;
+  profile: KeywordProfile;
+}
+
+/** The candidates of one locale, profiled once, with an inverted index by entity and token. */
+interface LocaleIndex {
+  docs: IndexedVersion[];
+  postings: Map<string, number[]>;
+  /** Title/tag tokens too frequent in the pool to be a subject (template words). */
+  templateTokens: Set<string>;
+  /** The same for the tokens of the whole context (title, tags, excerpt). */
+  templateContext: Set<string>;
+}
+
+const localeIndexes = new WeakMap<readonly CrossSectionCandidate[], Map<CrossSectionLocale, LocaleIndex>>();
+
+/**
+ * Build (once per candidate array and locale) the profiles and the inverted index.
+ * The array is treated as immutable: pass a new one to change the pool.
+ */
+function indexFor(candidates: readonly CrossSectionCandidate[], locale: CrossSectionLocale): LocaleIndex {
+  let perLocale = localeIndexes.get(candidates);
+  if (!perLocale) localeIndexes.set(candidates, (perLocale = new Map()));
+  const cached = perLocale.get(locale);
+  if (cached) return cached;
+  const docs: IndexedVersion[] = [];
+  const postings = new Map<string, number[]>();
+  const tokenDf = new Map<string, number>();
+  const contextDf = new Map<string, number>();
+  for (const candidate of candidates) {
+    if (candidate.indexable === false) continue;
+    const version = candidate.locales[locale];
+    if (!version?.title || !version.href.startsWith('/')) continue;
+    if (version.canonical && version.canonical !== version.href) continue;
+    const profile = profileOf(locale, version);
+    const at = docs.push({ candidate, version, profile }) - 1;
+    const add = (key: string) => {
+      const list = postings.get(key);
+      if (list) list.push(at); else postings.set(key, [at]);
+    };
+    for (const id of profile.entities.keys()) add(`e:${id}`);
+    for (const token of profile.tokens.keys()) {
+      add(`t:${token}`);
+      tokenDf.set(token, (tokenDf.get(token) ?? 0) + 1);
+    }
+    for (const token of profile.contextTokens) contextDf.set(token, (contextDf.get(token) ?? 0) + 1);
+  }
+  const ceiling = Math.max(CROSS_SECTION_TEMPLATE_MIN_DOCS, Math.ceil(docs.length * CROSS_SECTION_TEMPLATE_DF_RATIO));
+  const templateTokens = new Set<string>();
+  for (const [token, df] of tokenDf) if (df >= ceiling) templateTokens.add(token);
+  // Excerpts are long prose: their ordinary words are common, so the ceiling for the
+  // corroborating context is wider than the one for title tokens.
+  const contextCeiling = Math.max(CROSS_SECTION_TEMPLATE_MIN_DOCS, Math.ceil(docs.length * CROSS_SECTION_CONTEXT_DF_RATIO));
+  const templateContext = new Set<string>();
+  for (const [token, df] of contextDf) if (df >= contextCeiling) templateContext.add(token);
+  const index = { docs, postings, templateTokens, templateContext };
+  perLocale.set(locale, index);
+  return index;
+}
+
 /**
  * Pick the cross-section links of one article. Pure and deterministic: ties break
- * on date (newer first) and then on id.
+ * on date (newer first) and then on id. Cost per call is proportional to the
+ * postings of the source's own keywords, not to the size of the pool.
  */
 export function pickCrossSectionRelated(
   source: CrossSectionSource,
   candidates: readonly CrossSectionCandidate[],
 ): CrossSectionLink[] {
   if (candidates.length === 0) return [];
-  const sourceProfile = profileOf(source.locale, source);
+  const index = indexFor(candidates, source.locale);
+  const full = profileOf(source.locale, source);
+  const specific = new Map([...full.tokens].filter(([token]) => !index.templateTokens.has(token)));
+  const sourceProfile: KeywordProfile = {
+    entities: full.entities,
+    tokens: specific,
+    titleKeys: full.titleKeys,
+    contextTokens: new Set([...full.contextTokens].filter((token) => !index.templateContext.has(token))),
+  };
+
+  const touched = new Set<number>();
+  for (const id of sourceProfile.entities.keys()) for (const at of index.postings.get(`e:${id}`) ?? []) touched.add(at);
+  for (const token of specific.keys()) for (const at of index.postings.get(`t:${token}`) ?? []) touched.add(at);
+
   const scored: Array<CrossSectionLink & { date: string }> = [];
-  for (const c of candidates) {
-    if (c.section === source.section || c.indexable === false) continue;
-    const version = c.locales[source.locale];
-    if (!version?.title || !version.href.startsWith('/')) continue;
-    if (version.canonical && version.canonical !== version.href) continue;
-    const result = scoreSharedKeywords(sourceProfile, profileOf(source.locale, version));
-    if (result.score < CROSS_SECTION_MIN_SCORE || !result.anchored) continue;
+  for (const at of touched) {
+    const { candidate: c, version, profile } = index.docs[at];
+    if (c.section === source.section) continue;
+    const result = scoreSharedKeywords(sourceProfile, profile);
+    if (result.score < CROSS_SECTION_MIN_SCORE || !result.anchored || result.tokenCount < 1) continue;
+    if (result.contextCount < CROSS_SECTION_MIN_CONTEXT_TOKENS) continue;
+    if (!result.titleEntity && !(result.tokenCount >= 2 && result.score >= CROSS_SECTION_STRONG_SCORE)) continue;
     scored.push({
       articleId: c.articleId,
       section: c.section,
