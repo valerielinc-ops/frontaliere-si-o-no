@@ -26,6 +26,7 @@ import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendatio
 import { releaseExpiredArchiveRowAfterRender } from './shared/expiredArchiveRetention';
 import { pruneSelfHealTracking, pruneSelfHealTrackingRow } from './shared/pruneSelfHealTracking';
 import { resolveExpiredEmitPath } from './shared/expiredEmitPath';
+import { resolveLegacyGermanSectionPath } from './shared/legacyGermanSectionAliases';
 import { CompactLocalePathClaims } from './shared/compactLocalePathClaims';
 import { CompactStringHashSet } from './shared/compactStringHashSet';
 /**
@@ -848,6 +849,19 @@ export function appendNativeJobPrefixIndex(
  return index;
 }
 
+/**
+ * A stored German route under a legacy non-routable `jobs-im-<canton>` section
+ * is the same route as its canonical `jobs-in-<canton>` twin: the Worker cannot
+ * serve the legacy form, so it must never count as a different native owner
+ * (that made the canonicalized expired page look "recovered by the Worker",
+ * which then 301ed to the legacy prefix and 404ed).
+ */
+function canonicalGermanRoutePath(locale: JobSeoLocale, path: string): string {
+ if (locale !== 'de') return path;
+ const legacy = resolveLegacyGermanSectionPath(path);
+ return legacy ? normalizedRoutePath(legacy.canonicalPath) : path;
+}
+
 export function nativeJobPathRecoveredByWorker(
  locale: JobSeoLocale,
  slug: string,
@@ -858,13 +872,20 @@ export function nativeJobPathRecoveredByWorker(
  if (locale === 'it') return false;
  const normalized = normalizedRoutePath(relPath);
  const registryPath = tracking[slug]?.[locale];
- if (registryPath && normalizedRoutePath(registryPath) !== normalized) return true;
+ if (registryPath
+  && canonicalGermanRoutePath(locale, normalizedRoutePath(registryPath)) !== canonicalGermanRoutePath(locale, normalized)) return true;
  const routeEnd = normalized.length - 1;
  const routeStart = normalized.lastIndexOf('/', routeEnd - 1) + 1;
  const routeSlug = normalized.slice(routeStart, routeEnd);
  if (!routeSlug) return false;
  const nativePrefix = nativeJobPrefixByLocaleAndSlug.nativePrefixFor(locale, routeSlug, tracking);
- return nativePrefix !== undefined && nativePrefix !== normalized.slice(0, -(routeSlug.length + 1));
+ if (nativePrefix === undefined) return false;
+ const routePrefix = normalized.slice(0, -(routeSlug.length + 1));
+ if (nativePrefix === routePrefix) return false;
+ // Different prefixes: same owner only when they are a legacy German section
+ // and its canonical twin; every other difference stays Worker-recovered.
+ return canonicalGermanRoutePath(locale, `${nativePrefix}${routeSlug}/`)
+  !== canonicalGermanRoutePath(locale, normalized);
 }
 
 // Shared anti-doorway floor (AGENTS.md non-negotiable #4 — no thin indexed
