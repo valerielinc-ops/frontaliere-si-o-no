@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { fetchAllFusalpJobs, parseListingPage } from '../scripts/lib/fusalp-job-parser.mjs';
+import { classifyFusalpCountry, fetchAllFusalpJobs, parseListingPage } from '../scripts/lib/fusalp-job-parser.mjs';
 
 // Structure of the live WelcomeKit board; every text value is invented.
 const card = (attrs: string, href: string, title: string, contract: string, office: string) => `
@@ -90,5 +90,72 @@ describe('Fusalp listing markup', () => {
     expect(jobs).toHaveLength(1);
     expect((jobs as any).discoveredCount).toBe(3);
     expect(jobs[0].country).toBe('CH');
+  }, 15000);
+
+  it('counts raw card nodes, including cards that cannot be parsed', () => {
+    const html = `<ul>${[
+      card('class="jobs-list-item"', '/jobs/role-a_paris', 'Role A', 'CDI', 'Paris'),
+      card('class="jobs-list-item"', '', '', 'CDI', 'Zermatt'),
+    ].join('')}</ul>`;
+    const jobs = parseListingPage(html);
+    expect(jobs).toHaveLength(1);
+    expect((jobs as any).cardCount).toBe(2);
+  });
+
+  it('recognises Swiss spellings and only known foreign countries', () => {
+    for (const swiss of ['CH', 'che', 'Switzerland', 'Schweiz', 'Suisse', 'Svizzera', ' SUISSE ', 'Confédération suisse']) {
+      expect(classifyFusalpCountry(swiss)).toBe('CH');
+    }
+    for (const foreign of ['France', 'Germany', 'Allemagne', 'Italia', 'Luxembourg', 'FR', 'DEU']) {
+      expect(classifyFusalpCountry(foreign)).toBe('foreign');
+    }
+    for (const unknown of ['', undefined, null, 'Atlantis', 'Europe']) {
+      expect(classifyFusalpCountry(unknown)).toBe('unknown');
+    }
+  });
+
+  it('does not claim filtered_empty for a recognised foreign card, a Suisse card and an unparsable card', async () => {
+    const html = `<ul>${[
+      card('class="jobs-list-item"', '/jobs/role-a_paris', 'Role A', 'CDI', 'Paris'),
+      card('class="jobs-list-item"', '/jobs/role-c_zermatt', 'Role C', 'CDI', 'Zermatt'),
+      card('class="jobs-list-item"', '', '', 'CDI', 'Sion'),
+    ].join('')}</ul>`;
+    stubFetch({
+      '/': html,
+      '/jobs/role-a_paris': detail('France'),
+      '/jobs/role-c_zermatt': detail('Suisse'),
+    });
+    const jobs = await fetchAllFusalpJobs();
+    expect((jobs as any).fetchOutcome).not.toBe('filtered_empty');
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].country).toBe('CH');
+  }, 15000);
+
+  it('does not claim filtered_empty when foreign cards are accompanied by an unparsable card', async () => {
+    const html = `<ul>${[
+      card('class="jobs-list-item"', '/jobs/role-a_paris', 'Role A', 'CDI', 'Paris'),
+      card('class="jobs-list-item"', '/jobs/role-b_lyon', 'Role B', 'CDI', 'Lyon'),
+      card('class="jobs-list-item"', '', '', 'CDI', 'Sion'),
+    ].join('')}</ul>`;
+    stubFetch({
+      '/': html,
+      '/jobs/role-a_paris': detail('France'),
+      '/jobs/role-b_lyon': detail('France'),
+    });
+    const jobs = await fetchAllFusalpJobs();
+    expect(jobs).toHaveLength(0);
+    expect((jobs as any).fetchOutcome).toBeUndefined();
+  }, 15000);
+
+  it('does not claim filtered_empty when a country value is not recognised', async () => {
+    stubFetch({
+      '/': LISTING,
+      '/jobs/role-a_paris': detail('France'),
+      '/jobs/role-b_lyon': detail('France'),
+      '/jobs/role-c_zermatt': detail('Atlantis'),
+    });
+    const jobs = await fetchAllFusalpJobs();
+    expect(jobs).toHaveLength(0);
+    expect((jobs as any).fetchOutcome).toBeUndefined();
   }, 15000);
 });
