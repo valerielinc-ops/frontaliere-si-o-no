@@ -292,6 +292,72 @@ describe('crawler generation dispatch protocol', () => {
     });
   });
 
+  // Run 46128375214: from group 10 the POSTs created their runs while the reads
+  // with the same PAT were refused for quota, so 16 launched groups were
+  // reported as failed and the wave was rejected.
+  const quotaRefusal = () => new Response(
+    JSON.stringify({ message: 'API rate limit exceeded for user ID 1.' }),
+    { status: 403, headers: { 'x-ratelimit-remaining': '0', 'x-ratelimit-reset': '1795858000' } },
+  );
+  const acceptedPost = () => new Response(JSON.stringify({
+    workflow_run_id: 7001,
+    run_url: `https://api.github.com/repos/${repository}/actions/runs/7001`,
+    html_url: `https://github.com/${repository}/actions/runs/7001`,
+  }), { status: 200 });
+  const bearer = (init?: RequestInit) => (init?.headers as Record<string, string>).authorization;
+
+  it.each([
+    ['confirms the accepted run through the read fallback', 'read-token', corpusCodeCommit,
+      { status: 'direct', runId: '7001' }],
+    ['keeps the run unconfirmed without a read fallback', null, corpusCodeCommit,
+      { status: 'missing', runId: null }],
+    ['validates the fallback answer like the primary one', 'read-token', 'c'.repeat(40),
+      { status: 'binding_mismatch', runId: null }],
+  ])('when the dispatch PAT reads are refused for quota, %s', async (_label, readFallbackToken, headSha, expected) => {
+    const writes: string[] = [];
+    const refusals: any[] = [];
+    const fetchImpl = vi.fn(async (_input: RequestInfo | URL, init?: RequestInit) => {
+      if (init?.method === 'POST') {
+        writes.push(bearer(init));
+        return acceptedPost();
+      }
+      if (bearer(init) !== 'Bearer read-token') return quotaRefusal();
+      return new Response(
+        JSON.stringify({ ...boundRun('01', 7001, corpusCodeCommit), head_sha: headSha }),
+        { status: 200 },
+      );
+    });
+    const request = createGitHubActionsRequester({
+      apiUrl: 'https://api.github.test', token: 'pat', readFallbackToken, fetchImpl,
+      onRateLimitRefusal: (refusal) => refusals.push(refusal),
+    });
+
+    await expect(dispatchWorkflowOnce({
+      repository, workflowFile: 'crawler-group-01.yml', group: '01', generationToken, corpusCodeCommit,
+      inputs: { generation_token: generationToken }, request, sleep: async () => {},
+    })).resolves.toEqual(expected);
+    expect(writes).toEqual(['Bearer pat']);
+    expect(refusals[0]).toMatchObject({
+      method: 'GET', status: 403, remaining: '0', fallbackStatus: readFallbackToken ? 200 : null,
+    });
+  });
+
+  it.each([
+    ['a refused write', 'POST', quotaRefusal],
+    ['a permission 403 on a read', 'GET', () => new Response(
+      JSON.stringify({ message: 'Resource not accessible by personal access token' }),
+      { status: 403, headers: { 'x-ratelimit-remaining': '4000' } },
+    )],
+  ])('never sends %s to the read fallback token', async (_label, method, answer) => {
+    const fetchImpl = vi.fn(async (_input: RequestInfo | URL, _init?: RequestInit) => answer());
+    const request = createGitHubActionsRequester({
+      apiUrl: 'https://api.github.test', token: 'pat', readFallbackToken: 'read-token', fetchImpl,
+    });
+
+    await expect(request({ method, path: '/repos/x/y' })).resolves.toMatchObject({ status: 403 });
+    expect(fetchImpl.mock.calls.map(([, init]) => bearer(init))).toEqual(['Bearer pat']);
+  });
+
   it('pins one corpus ref so main advancing between dispatches cannot split workflow code', async () => {
     let nextRunId = 7100;
     let mainCommit = 'c'.repeat(40);

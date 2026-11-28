@@ -983,7 +983,8 @@ const CANTON_ROOT_GUARD_TIMEOUT_MS = 2000;
 // same canton) cost a single origin round trip. ORIGIN_CACHE_TTL (2 h) reused
 // for the same reason it exists elsewhere: bounds a 404-vs-200 flip around a
 // deploy without inventing a parallel TTL knob.
-async function redirectTargetAvailability(pathname, origin) {
+// `probe`, when given, receives why the answer was 'unavailable' (log only).
+async function redirectTargetAvailability(pathname, origin, probe = null) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), CANTON_ROOT_GUARD_TIMEOUT_MS);
   try {
@@ -994,8 +995,10 @@ async function redirectTargetAvailability(pathname, origin) {
     });
     if (resp.status === 200) return 'live';
     if (resp.status === 404 || resp.status === 410) return 'missing';
+    if (probe) Object.assign(probe, { cause: 'http-status', upstreamStatus: resp.status });
     return 'unavailable';
-  } catch {
+  } catch (error) {
+    if (probe) Object.assign(probe, verificationFailure(error, controller.signal));
     return 'unavailable';
   } finally {
     clearTimeout(timer);
@@ -1008,12 +1011,29 @@ async function redirectTargetIsLive(pathname, origin) {
   return (await redirectTargetAvailability(pathname, origin)) === 'live';
 }
 
-function aliasVerificationUnavailable(url) {
+// Why a verification fetch or its JSON parse threw. Only the error class is
+// logged: the message could quote the requested URL.
+function verificationFailure(error, signal) {
+  if (signal?.aborted) return { cause: 'timeout' };
+  if (error instanceof SyntaxError) return { cause: 'invalid-json' };
+  return { cause: 'exception', error: error instanceof Error ? error.name : 'NonErrorThrow' };
+}
+
+function httpStatusFailure(response) {
+  return { cause: 'http-status', upstreamStatus: response.status };
+}
+
+// A deliberate fail-closed 503: the Worker could not prove that the redirect
+// target is live or absent. `stage` names the check that could not answer and
+// `cause` why, so these lines can be told apart from `router-exception`. Both
+// are log fields only; the response is the same for every stage and cause.
+function aliasVerificationUnavailable(url, stage, failure) {
   return edgeFailureResponse(
     url,
     'alias-verification',
     'Redirect verification temporarily unavailable',
     { 'Retry-After': '60', 'Cache-Control': 'no-store' },
+    { stage, ...failure },
   );
 }
 
@@ -1202,12 +1222,14 @@ async function recoverArticleAlias(url, origin, corpusEntry = null) {
       cf: publicOriginCacheOptions(300),
     });
     if (response.status === 404 || response.status === 410) return null;
-    if (!response.ok) return aliasVerificationUnavailable(url);
+    if (!response.ok) return aliasVerificationUnavailable(url, 'article-registry', httpStatusFailure(response));
     const registry = await response.json();
-    if (!articleAliasRows(route, registry)) return aliasVerificationUnavailable(url);
+    if (!articleAliasRows(route, registry)) {
+      return aliasVerificationUnavailable(url, 'article-registry', { cause: 'invalid-shape' });
+    }
     target = articleAliasTarget(url.pathname, registry);
-  } catch {
-    return aliasVerificationUnavailable(url);
+  } catch (error) {
+    return aliasVerificationUnavailable(url, 'article-registry', verificationFailure(error, controller.signal));
   } finally {
     clearTimeout(timer);
   }
@@ -1216,14 +1238,17 @@ async function recoverArticleAlias(url, origin, corpusEntry = null) {
   let targetEntry = corpusEntry;
   if (targetRoute && !targetEntry) {
     const sections = await loadCorpusSectionRegistry();
-    if (!sections) return aliasVerificationUnavailable(url);
+    if (!sections) {
+      return aliasVerificationUnavailable(url, 'article-section-registry', { cause: 'registry-unavailable' });
+    }
     targetEntry = sections.sections[targetRoute.section];
     if (!targetEntry || targetEntry.status !== 'live') return null;
   }
   if (targetEntry && (targetEntry.gone.has(target) || targetEntry.redirects.has(target))) return null;
+  const probe = {};
   const availability = await redirectTargetAvailability(targetRoute ? corpusSectionCdnKey(target) : target,
-    targetRoute ? new URL(CDN_BASE).hostname : origin);
-  if (availability === 'unavailable') return aliasVerificationUnavailable(url);
+    targetRoute ? new URL(CDN_BASE).hostname : origin, probe);
+  if (availability === 'unavailable') return aliasVerificationUnavailable(url, 'article-target', probe);
   if (availability !== 'live') return null;
   return new Response(null, {
     status: 301,
@@ -1269,14 +1294,24 @@ async function recoverOrphanQueryAlias(url, origin, originIsLive = false) {
       cf: publicOriginCacheOptions(300),
     });
     if (response.status === 404 || response.status === 410) return null;
-    if (!response.ok) return originIsLive ? null : aliasVerificationUnavailable(url);
+    if (!response.ok) {
+      return originIsLive ? null
+        : aliasVerificationUnavailable(url, 'orphan-query-registry', httpStatusFailure(response));
+    }
     const registry = await response.json();
-    if (!orphanQueryAliasRows(registry)) return originIsLive ? null : aliasVerificationUnavailable(url);
+    if (!orphanQueryAliasRows(registry)) {
+      return originIsLive ? null
+        : aliasVerificationUnavailable(url, 'orphan-query-registry', { cause: 'invalid-shape' });
+    }
     target = orphanQueryAliasTarget(url.pathname, registry);
-  } catch { return originIsLive ? null : aliasVerificationUnavailable(url); } finally { clearTimeout(timer); }
+  } catch (error) {
+    return originIsLive ? null
+      : aliasVerificationUnavailable(url, 'orphan-query-registry', verificationFailure(error, controller.signal));
+  } finally { clearTimeout(timer); }
   if (!target) return null;
-  const availability = await redirectTargetAvailability(target, origin);
-  if (availability === 'unavailable') return aliasVerificationUnavailable(url);
+  const probe = {};
+  const availability = await redirectTargetAvailability(target, origin, probe);
+  if (availability === 'unavailable') return aliasVerificationUnavailable(url, 'orphan-query-target', probe);
   if (availability !== 'live') return null;
   return new Response(null, { status: 301, headers: { Location: target + url.search, 'Cache-Control': RETIRED_MOVED_CACHE_CONTROL } });
 }
@@ -1299,8 +1334,9 @@ async function recoverEmployerProfileAlias(url, origin) {
   if (!match || !Object.prototype.hasOwnProperty.call(EMPLOYER_PROFILE_ALIAS_SLUGS, match[2])) return null;
   const target = `${match[1]}${EMPLOYER_PROFILE_ALIAS_SLUGS[match[2]]}/`;
   if (lookupRetired(target) !== undefined) return null;
-  const availability = await redirectTargetAvailability(target, origin);
-  if (availability === 'unavailable') return aliasVerificationUnavailable(url);
+  const probe = {};
+  const availability = await redirectTargetAvailability(target, origin, probe);
+  if (availability === 'unavailable') return aliasVerificationUnavailable(url, 'employer-profile-target', probe);
   if (availability !== 'live') return null;
   return new Response(null, { status: 301, headers: { Location: target + url.search, 'Cache-Control': RETIRED_MOVED_CACHE_CONTROL } });
 }
@@ -1363,13 +1399,13 @@ async function fetchJobCanonMap(slug, buildId) {
       cf: publicOriginCacheOptions(JOB_CANON_CACHE_TTL),
     });
     if (resp.status === 404 || resp.status === 410) return { kind: 'missing' };
-    if (!resp.ok) return { kind: 'unavailable' };
+    if (!resp.ok) return { kind: 'unavailable', failure: httpStatusFailure(resp) };
     const map = await resp.json();
-    if (!isPlainObject(map)) return { kind: 'unavailable' };
+    if (!isPlainObject(map)) return { kind: 'unavailable', failure: { cause: 'invalid-shape' } };
     logJobCanonV2Success();
     return { kind: 'map', map };
-  } catch {
-    return { kind: 'unavailable' };
+  } catch (error) {
+    return { kind: 'unavailable', failure: verificationFailure(error, controller.signal) };
   } finally {
     clearTimeout(timer);
   }
@@ -1497,9 +1533,13 @@ async function recoverCantonDriftOrphan(url, locale, aliasCacheKey, ctx, buildId
   const slug = lowerSegment(m[1]);
   const mapResult = await fetchJobCanonMap(slug, buildId);
   if (mapResult.kind === 'missing') return CANTON_DRIFT_CANONICAL_NULL;
-  if (mapResult.kind === 'unavailable') return aliasVerificationUnavailable(url);
+  if (mapResult.kind === 'unavailable') {
+    return aliasVerificationUnavailable(url, 'job-canon-map', mapResult.failure);
+  }
   const map = mapResult.map;
-  if (!isPlainObject(map)) return aliasVerificationUnavailable(url);
+  if (!isPlainObject(map)) {
+    return aliasVerificationUnavailable(url, 'job-canon-map', { cause: 'invalid-shape' });
+  }
   const entry = map[slug];
   // Per-locale object only: a legacy string value (IT-only map from a stale
   // deploy) or a missing per-locale prefix → null, so we never 301 cross-locale.
@@ -1525,12 +1565,13 @@ async function recoverCantonDriftOrphan(url, locale, aliasCacheKey, ctx, buildId
     if (!targetOrigin) return null;
     let availability = 'missing';
     const fannedSections = await sectionTreeLayoutReader.sections();
+    const probe = {};
     for (const physical of sectionShardPhysicalPaths(canonical, route, fannedSections)) {
-      const state = await redirectTargetAvailability(physical, targetOrigin);
+      const state = await redirectTargetAvailability(physical, targetOrigin, probe);
       if (state === 'live') { availability = 'live'; break; }
       if (state === 'unavailable') availability = 'unavailable';
     }
-    if (availability === 'unavailable') return aliasVerificationUnavailable(url);
+    if (availability === 'unavailable') return aliasVerificationUnavailable(url, 'job-canon-target', probe);
     if (availability !== 'live') return null;
     destinationVerified = true;
   }
@@ -3435,11 +3476,14 @@ async function recoverFuelStationAlias(url, origin) {
 // recoverCantonDriftOrphan, so on the 404 chain this is an edge-cache hit.
 // 'unknown' = the shard is absent or has no row for the slug; 'unavailable' =
 // the registry could not be read, which must not be mistaken for absence.
-async function jobCanonSlugState(slug, buildId) {
+async function jobCanonSlugState(slug, buildId, probe = null) {
   if (!isValidJobCanonBuildId(buildId)) return 'unknown';
   const mapResult = await fetchJobCanonMap(slug, buildId);
   if (mapResult.kind === 'missing') return 'unknown';
-  if (mapResult.kind === 'unavailable' || !isPlainObject(mapResult.map)) return 'unavailable';
+  if (mapResult.kind === 'unavailable' || !isPlainObject(mapResult.map)) {
+    if (probe) Object.assign(probe, mapResult.failure ?? { cause: 'invalid-shape' });
+    return 'unavailable';
+  }
   return Object.prototype.hasOwnProperty.call(mapResult.map, slug) && isPlainObject(mapResult.map[slug])
     ? 'known'
     : 'unknown';
@@ -3467,8 +3511,9 @@ async function recoverExpiredJobToCantonRoot(url, origin, buildId) {
   // Loop guard (unreachable: JOB_DETAIL_RE always leaves a trailing slug segment
   // beyond the section root), kept for parity with the sibling recoveries.
   if (url.pathname.replace(/\/+$/, '') + '/' === sectionRoot) return null;
-  const slugState = await jobCanonSlugState(lowerSegment(m[1]), buildId);
-  if (slugState === 'unavailable') return aliasVerificationUnavailable(url);
+  const probe = {};
+  const slugState = await jobCanonSlugState(lowerSegment(m[1]), buildId, probe);
+  if (slugState === 'unavailable') return aliasVerificationUnavailable(url, 'expired-job-slug', probe);
   if (slugState !== 'known') return null; // unknown slug → real 404, not a soft one
   if (!(await redirectTargetIsLive(sectionRoot, origin))) return null; // unverified → 404
   const location = sectionRoot + url.search + url.hash;

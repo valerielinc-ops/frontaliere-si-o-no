@@ -216,6 +216,9 @@ jobs:
         id: generation_preflight
         env:
           GITHUB_API_URL: ${{ github.api_url }}
+          # Second quota for reads only, when GITHUB_PAT_NANAKO is rate limited
+          # (public repositories; run 46128375214).
+          CRAWLER_GENERATION_READ_FALLBACK_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GENERATION_PREFLIGHT_OUTPUT: ${{ runner.temp }}/crawler-generation-dispatch/preflight.json
         run: >-
           node scripts/crawler-generation-dispatch.mjs preflight
@@ -229,6 +232,7 @@ jobs:
         if: steps.generation_preflight.outputs.ready == 'true'
         env:
           GITHUB_API_URL: ${{ github.api_url }}
+          CRAWLER_GENERATION_READ_FALLBACK_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GENERATION_TOKEN: ${{ github.run_id }}-${{ github.run_attempt }}
           SITE_CODE_COMMIT: ${{ steps.generation_preflight.outputs.site_code_commit || github.sha }}
           CORPUS_CODE_COMMIT: ${{ steps.generation_preflight.outputs.corpus_commit }}
@@ -256,6 +260,7 @@ jobs:
         continue-on-error: true
         env:
           GITHUB_API_URL: ${{ github.api_url }}
+          CRAWLER_GENERATION_READ_FALLBACK_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GENERATION_TOKEN: ${{ github.run_id }}-${{ github.run_attempt }}
           SHADOW_READY: ${{ steps.generation_wave.outputs.shadow_ready || 'false' }}
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
@@ -379,6 +384,7 @@ jobs:
           && steps.generation_sentinel.outputs.accepted == 'true'
         env:
           GITHUB_API_URL: ${{ github.api_url }}
+          CRAWLER_GENERATION_READ_FALLBACK_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GENERATION_TOKEN: ${{ github.run_id }}-${{ github.run_attempt }}
           CORPUS_CODE_COMMIT: ${{ steps.generation_preflight.outputs.corpus_commit }}
         run: |
@@ -418,10 +424,24 @@ jobs:
             echo "ℹ️ GITHUB_PAT_NANAKO not loaded — skipping the translate-pending cross-repo dispatch (its three daily crons remain the safety net)."
             exit 0
           fi
+          dispatch_log="$(mktemp)"
           for attempt in 1 2 3; do
             if GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run translate-pending.yml \
-                --repo nanakokyobashi-rgb/frontaliere-articles --ref main; then
+                --repo nanakokyobashi-rgb/frontaliere-articles --ref main 2>"$dispatch_log"; then
+              cat "$dispatch_log" >&2
               echo "✅ translate-pending.yml dispatched onto nanakokyobashi-rgb/frontaliere-articles"
+              exit 0
+            fi
+            cat "$dispatch_log" >&2
+            # `gh workflow run` reads the workflow before it POSTs. In run
+            # 46128375214 that read was refused for quota three times while
+            # POSTs with the same PAT were accepted. A 403 refusal dispatched
+            # nothing, so the direct POST cannot start a second run.
+            if grep -q 'HTTP 403: API rate limit exceeded' "$dispatch_log" \
+                && GH_TOKEN="$GITHUB_PAT_NANAKO" gh api --method POST \
+                  repos/nanakokyobashi-rgb/frontaliere-articles/actions/workflows/translate-pending.yml/dispatches \
+                  -f ref=main; then
+              echo "✅ translate-pending.yml dispatched with a direct POST after a refused workflow read"
               exit 0
             fi
             echo "⚠️  dispatch attempt $attempt failed, retrying in 5s..."

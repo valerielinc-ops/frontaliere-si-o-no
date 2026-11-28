@@ -43,6 +43,7 @@ jobs:
             /scripts/ci/overlay-durable-loop-fleet-ledger.sh
             /scripts/ci/lib/run-listing-window.mjs
             /scripts/lib/canonical-json-digest.mjs
+            /scripts/lib/l9-artifact-privacy.mjs
             /scripts/lib/loop-fleet-ledger-files.mjs
             /.github/workflows/loop-fleet-ledger-reconcile.yml
           sparse-checkout-cone-mode: false

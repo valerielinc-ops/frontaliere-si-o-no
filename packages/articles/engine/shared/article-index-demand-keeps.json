@@ -1,0 +1,40 @@
+{
+  "_doc": "Articoli del ledger di rilevanza (article-index-exclusions.json) che restano indicizzabili perche' Search Console ha mostrato clic reali sulle loro pagine. Il ledger decide per tema (fuori-tema, senza-ancore) e non vede la domanda: senza questo file un articolo con clic diventa noindex,follow e il traffico si perde. Letto da loadArticleIndexExclusions (engine/shared/articleIndexExclusions.mjs): sottrae le chiavi `sezione|id` dal ledger per TUTTI i consumer (robots della pagina, RSS, sitemap del corpus). Vive in engine/ e non in content/ perche' mirror-articles-engine.yml porta engine/** al corpus che rende le pagine, mentre pull-articles-corpus.mjs cancellerebbe un file solo-sito sotto content/. Regola per aggiungere una riga: l'articolo ha almeno un clic GSC su una qualunque versione di lingua nella finestra indicata e un corpo vero (>= 50 parole). Il test tests/article-index-exclusions.test.ts verifica forma, unicita' e che ogni id esista nel registro slug.",
+  "keeps": [
+    {
+      "section": "frontaliere",
+      "id": "gare-ciclismo-varese-ottobre",
+      "clicks": 38,
+      "window": "2026-09-21..2026-10-04",
+      "note": "it 14, de 12, en 10, fr 2"
+    },
+    {
+      "section": "frontaliere",
+      "id": "varese-lentigione-pareggio-mangano",
+      "clicks": 4,
+      "window": "2026-09-21..2026-10-04",
+      "note": "it 3, fr 1"
+    },
+    {
+      "section": "frontaliere",
+      "id": "basket-varese-bologna-esordio-lba",
+      "clicks": 1,
+      "window": "2026-09-21..2026-10-04",
+      "note": "it 1"
+    },
+    {
+      "section": "frontaliere",
+      "id": "ippodromo-varese-svicc-allenatori",
+      "clicks": 1,
+      "window": "2026-09-21..2026-10-04",
+      "note": "it 1"
+    },
+    {
+      "section": "frontaliere",
+      "id": "festa-zucca-gavirate-weekend-ottobre",
+      "clicks": 1,
+      "window": "2026-09-21..2026-10-04",
+      "note": "en 1"
+    }
+  ]
+}
