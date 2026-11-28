@@ -1266,6 +1266,9 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       next.portalAutoRetryAt = null;
       next.portalRateLimitRetryCount = 0; // the owner's retry starts the rate-limit ladder again
       effects = enterSubmitting(next, 'owner_retry');
+      // A hold the portal's HTTP 429 put on GitHub's exit is not lifted by sending the same run from the same exit:
+      // the owner's retry prefers the Swiss runner like the automatic one (GitHub when none is alive; same claim and lease).
+      if (isRateLimitRetryHold(current)) effects = effects.map(effect => (effect.type === 'dispatch' ? { ...effect, preferEgress: SWISS_EGRESS } : effect));
       break;
     case 'portal_auto_retry': {
       if (state !== 'owner_takeover') return ignore('not_taken_over');
