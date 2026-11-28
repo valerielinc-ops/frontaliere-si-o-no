@@ -10,7 +10,7 @@ import {
   releaseGenerationSlotClaim,
   renewGenerationSlotClaim,
 } from '../functions/src/generationSlotLedger.js';
-import { GENERATION_SLOT_ENTRIES, parseCantonGenerationSchedule } from '../functions/src/generationSlotSchedule.js';
+import { GENERATION_SLOT_ENTRIES, parseCantonGenerationSchedule, parseHighCadenceSections } from '../functions/src/generationSlotSchedule.js';
 import { dispatchLoopClock } from '../functions/src/loopClockDispatch.js';
 import {
   allowGenerationClaimRequest,
@@ -551,5 +551,102 @@ describe('generation slot dispatch', () => {
     });
     expect(result).toMatchObject({ dispatched: false, reason: 'shadow:contract_marker_missing' });
     expect(fetchImpl).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('canton base cadence filter', () => {
+  const hourly = (section: string, baseSlotHours?: unknown) => ({
+    section,
+    workflow: `generate-article-${section.slice(7)}.yml`,
+    cron: '14 * * * *',
+    ...(baseSlotHours === undefined ? {} : { baseSlotHours }),
+  });
+  const parse = (entry: Record<string, unknown>) => parseCantonGenerationSchedule({ schema: 1, entries: [entry] });
+  const known = ['canton-ow', 'canton-ti', 'canton-ge'];
+
+  it('parses valid baseSlotHours and defaults to null when absent', () => {
+    expect(parse(hourly('canton-ow'))[0].baseSlotHours).toBeNull();
+    expect(parse(hourly('canton-ow', [3, 9, 15, 21]))[0].baseSlotHours).toEqual([3, 9, 15, 21]);
+    expect(parse(hourly('canton-ow', [0, 23]))[0].baseSlotHours).toEqual([0, 23]);
+  });
+
+  it.each([[[]], [[24]], [[-1]], [[3, 3]], [[1.5]], [['3']], ['3'], [null], [{}]])(
+    'rejects invalid baseSlotHours %j with a TypeError',
+    (bad) => {
+      expect(() => parse(hourly('canton-ow', bad))).toThrow(TypeError);
+    },
+  );
+
+  it('parses high-cadence sections from codes, ids and all', () => {
+    expect([...parseHighCadenceSections('TI, canton-ge;zz', known)].sort()).toEqual(['canton-ge', 'canton-ti']);
+    expect([...parseHighCadenceSections('ow ti', known)].sort()).toEqual(['canton-ow', 'canton-ti']);
+    expect(parseHighCadenceSections('all', known).size).toBe(3);
+    expect(parseHighCadenceSections('*', known).size).toBe(3);
+    expect(parseHighCadenceSections('zz, canton-xx', known).size).toBe(0);
+    expect(parseHighCadenceSections('', known).size).toBe(0);
+    expect(parseHighCadenceSections(undefined, known).size).toBe(0);
+  });
+
+  const dueSlots = async (entries: unknown[], tick: string, rc: string | Error) => {
+    const rcReads: string[] = [];
+    const fetchImpl = vi.fn(async (url: string) => url.includes('canton-generation-slots.json')
+      ? new Response(JSON.stringify({ schema: 1, entries }))
+      // Workflow lookups answer with a workflow that still carries its native
+      // schedule: the slot stays in shadow mode, so it is reported with its
+      // generationSlot without opening the Firestore ledger or dispatching.
+      : responseForWorkflow(cantonWorkflow.replace('on:\n', "on:\n  schedule:\n    - cron: '14 * * * *'\n")));
+    const report = await dispatchLoopClock({
+      scheduledAt: new Date(tick),
+      entries: [{ id: 'idle', repo: 'site', workflow: 'idle.yml', everyMinutes: 1440 }],
+      includeGenerationSlots: true,
+      fetchImpl,
+      getRemoteConfigValueImpl: async (name: string) => {
+        rcReads.push(name);
+        if (name === 'GITHUB_PAT_NANAKO') return 'test-token';
+        if (name === 'CANTON_HIGH_CADENCE_SECTIONS') {
+          if (rc instanceof Error) throw rc;
+          return rc;
+        }
+        return '';
+      },
+    });
+    const slots = report.results
+      .map((result: { generationSlot?: string }) => result.generationSlot)
+      .filter(Boolean)
+      .sort();
+    return { slots, rcReads, warnings: report.warnings as string[] };
+  };
+  const calendar = (withBase: boolean) => [
+    hourly('canton-ow', withBase ? [3, 9, 15, 21] : undefined),
+    hourly('canton-ti', withBase ? [4, 10, 16, 22] : undefined),
+  ];
+
+  it('leaves an old calendar without baseSlotHours unchanged and never reads the list', async () => {
+    const { slots, rcReads } = await dueSlots(calendar(false), '2026-11-20T09:25:00Z', 'TI');
+    expect(slots).toEqual(['canton-ow', 'canton-ti']);
+    expect(rcReads).not.toContain('CANTON_HIGH_CADENCE_SECTIONS');
+  });
+
+  it('with an empty list runs only the base hours of each section', async () => {
+    expect((await dueSlots(calendar(true), '2026-11-20T09:25:00Z', '')).slots).toEqual(['canton-ow']);
+    expect((await dueSlots(calendar(true), '2026-11-20T10:25:00Z', '')).slots).toEqual(['canton-ti']);
+    expect((await dueSlots(calendar(true), '2026-11-20T11:25:00Z', '')).slots).toEqual([]);
+  });
+
+  it('runs a listed section on all 24 hours and the others only on base hours', async () => {
+    for (let hour = 0; hour < 24; hour += 1) {
+      const tick = `2026-11-20T${String(hour).padStart(2, '0')}:25:00Z`;
+      const { slots } = await dueSlots(calendar(true), tick, 'TI');
+      expect(slots).toContain('canton-ti');
+      expect(slots.includes('canton-ow')).toBe([3, 9, 15, 21].includes(hour));
+    }
+  });
+
+  it('treats a failed Remote Config read as an empty list and warns', async () => {
+    const off = await dueSlots(calendar(true), '2026-11-20T11:25:00Z', new Error('rc down'));
+    expect(off.slots).toEqual([]);
+    expect(off.warnings).toContain('remote_config_unavailable:CANTON_HIGH_CADENCE_SECTIONS');
+    const base = await dueSlots(calendar(true), '2026-11-20T09:25:00Z', new Error('rc down'));
+    expect(base.slots).toEqual(['canton-ow']);
   });
 });
