@@ -519,7 +519,16 @@ function rawRouteFromLocaleKey(routeKey) {
  * alias, so only persisted `sourceIdentity` provenance can preempt that merge.
  * @returns {{entries: object[], changed: number, repairedRoutes: number, details: string[]}}
  */
-export function repairExpiredRoutesWithinArchive(
+export function repairExpiredRoutesWithinArchive(entries, options = {}) {
+  return repairExpiredRoutesWithinArchiveObserved(entries, options);
+}
+
+/**
+ * `repairExpiredRoutesWithinArchive` plus a hook for the collapse driver:
+ * `beforeFirstMutation` is called once, before the first record this call may
+ * mutate, so the caller can still observe the state it is about to change.
+ */
+function repairExpiredRoutesWithinArchiveObserved(
   entries,
   {
     source = 'expired-jobs-archive.repairExpiredRoutesWithinArchive',
@@ -528,6 +537,7 @@ export function repairExpiredRoutesWithinArchive(
     repairSharedIdentityCollisionScopes = undefined,
     sourceIdentityOnly = false,
   } = {},
+  beforeFirstMutation = null,
 ) {
   if (!Array.isArray(entries) || entries.length < 2) {
     return {
@@ -557,9 +567,15 @@ export function repairExpiredRoutesWithinArchive(
   for (const entry of ordered) {
     if (!entry || typeof entry !== 'object' || !entry.companyKey) continue;
 
+    // The keys only change when the record is mutated below, so they are
+    // recomputed after a mutation attempt and reused otherwise.
     const initialKeys = localeRouteKeys(entry);
+    let currentKeys = initialKeys;
+    let mutationAttempted = false;
     for (let round = 0; round < MAX_REPAIR_ROUNDS; round += 1) {
-      const ownKeys = localeRouteKeys(entry);
+      if (mutationAttempted) currentKeys = localeRouteKeys(entry);
+      mutationAttempted = false;
+      const ownKeys = currentKeys;
       const conflictingRouteKeys = [];
       for (const routeKey of ownKeys) {
         const ownerKey = `${entry.companyKey}::${routeKey}`;
@@ -591,6 +607,12 @@ export function repairExpiredRoutesWithinArchive(
           entry, route, locale, routeHolders, ownKeys,
         );
 
+        mutationAttempted = true;
+        if (beforeFirstMutation) {
+          const notify = beforeFirstMutation;
+          beforeFirstMutation = null;
+          notify();
+        }
         if (!replaceSlugRouteEverywhere(entry, route, replacement, {
           source,
           reason: 'route collides with a distinct expired posting',
@@ -606,9 +628,10 @@ export function repairExpiredRoutesWithinArchive(
       }
       if (!progressed) break;
     }
-    syncRouteHolders(routeHolders, initialKeys, localeRouteKeys(entry));
+    const finalKeys = mutationAttempted ? localeRouteKeys(entry) : currentKeys;
+    if (finalKeys !== initialKeys) syncRouteHolders(routeHolders, initialKeys, finalKeys);
 
-    for (const routeKey of localeRouteKeys(entry)) {
+    for (const routeKey of finalKeys) {
       const ownerKey = `${entry.companyKey}::${routeKey}`;
       const routeOwners = owners.get(ownerKey) || [];
       if (!routeOwners.includes(entry)) routeOwners.push(entry);
@@ -1127,6 +1150,20 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
 /** Every locale-qualified URL token served by an active or expired record. */
 export function localeRouteKeys(job = {}) {
   const routes = new Set();
+  const byLocale = job.previousSlugsByLocale;
+  // The flat entries no supported locale bucket claims are served under every
+  // locale (the `getPreviousSlugsForLocale` rule). They are the same for all
+  // four locales, so resolve them once per record instead of once per locale;
+  // the insertion order of `routes` is unchanged.
+  let unattributed = null;
+  if (Array.isArray(job.previousSlugs) && job.previousSlugs.length > 0) {
+    const attributed = new Set();
+    for (const supported of LOCALES) {
+      const arr = byLocale?.[supported];
+      if (Array.isArray(arr)) for (const s of arr) attributed.add(s);
+    }
+    unattributed = job.previousSlugs.filter((s) => !attributed.has(s));
+  }
   for (const locale of LOCALES) {
     const localeSlug = job.slugByLocale?.[locale];
     const current = localeSlug || (locale === 'it' ? job.slug : '');
@@ -1134,8 +1171,15 @@ export function localeRouteKeys(job = {}) {
     if (locale === 'it' && job.slug && (!localeSlug || localeSlug === job.slug)) {
       routes.add(`${locale}:${job.slug}`);
     }
-    for (const slug of getPreviousSlugsForLocale(job, locale)) {
-      if (slug) routes.add(`${locale}:${slug}`);
+    if (byLocale && Array.isArray(byLocale[locale])) {
+      for (const slug of byLocale[locale]) {
+        if (slug) routes.add(`${locale}:${slug}`);
+      }
+    }
+    if (unattributed) {
+      for (const slug of unattributed) {
+        if (slug) routes.add(`${locale}:${slug}`);
+      }
     }
   }
   return routes;
@@ -1503,10 +1547,12 @@ function collapseDuplicateRouteEntriesOnce(entries, { source = 'expired-archive-
     }
     return cls;
   };
-  const mergeRoutesOfClass = (entry, cls) => (entry?.companyKey
-    ? [...localeRouteKeys(entry)].map((route) => `${entry.companyKey}::${cls}::${route}`)
+  // `keys` lets the main loop compute an entry's locale routes once for all of
+  // its lookups; the entry is not mutated between them.
+  const mergeRoutesOfClass = (entry, cls, keys = null) => (entry?.companyKey
+    ? [...(keys ?? localeRouteKeys(entry))].map((route) => `${entry.companyKey}::${cls}::${route}`)
     : []);
-  const mergeRoutes = (entry) => mergeRoutesOfClass(entry, identityClass(entry));
+  const mergeRoutes = (entry, keys = null) => mergeRoutesOfClass(entry, identityClass(entry), keys);
   const otherClass = (entry) => (identityClass(entry) === 'named' ? 'unnamed' : 'named');
   let identityRefused = 0;
   // Entries are visited in a CANONICAL order, not the caller's. The collapse is
@@ -1560,21 +1606,23 @@ function collapseDuplicateRouteEntriesOnce(entries, { source = 'expired-archive-
   // ~30k-entry aggregate archive, where a full rebuild per entry would be
   // quadratic. An entry whose merge was refused is kept in `out` but claims no
   // route, so a later entry cannot try (and fail) to collapse onto it again.
-  const keep = (entry, { claimsRoutes = true, represents = [entry] } = {}) => {
+  const keep = (entry, { claimsRoutes = true, represents = [entry], routes = null } = {}) => {
     out.push(entry);
     origins.set(entry, new Set(represents));
-    if (claimsRoutes) for (const route of mergeRoutes(entry)) owners.set(route, entry);
+    if (claimsRoutes) for (const route of routes ?? mergeRoutes(entry)) owners.set(route, entry);
   };
 
   for (const entry of input) {
     // A shared route with an entry of the other identity class is left as it
     // is: counted here so the refusal is visible in the archive reports.
-    if (mergeRoutesOfClass(entry, otherClass(entry)).some((route) => owners.has(route))) {
+    const entryKeys = entry?.companyKey ? localeRouteKeys(entry) : null;
+    if (mergeRoutesOfClass(entry, otherClass(entry), entryKeys).some((route) => owners.has(route))) {
       identityRefused += 1;
     }
-    const claimed = new Set(mergeRoutes(entry).map((route) => owners.get(route)).filter(Boolean));
+    const entryRoutes = mergeRoutes(entry, entryKeys);
+    const claimed = new Set(entryRoutes.map((route) => owners.get(route)).filter(Boolean));
     if (claimed.size === 0) {
-      keep(entry);
+      keep(entry, { routes: entryRoutes });
       continue;
     }
     // One entry can bridge several previously separate records through
@@ -1704,8 +1752,17 @@ function archiveEntriesSignature(entries) {
 export function collapseDuplicateRouteEntries(entries, options = {}) {
   const routeRepair = repairExpiredRoutesWithinArchive(entries, options);
   let current = entries;
-  let currentSignature = archiveEntriesSignature(current);
-  const seenSignatures = new Set([currentSignature]);
+  // The initial state is hashed only when a pass needs it. Nothing mutates a
+  // record between here and the first mutation of the post-collapse repair
+  // (`collapseDuplicateRouteEntriesOnce` clones its survivors and never writes
+  // to its input), so the hash is taken just before that repair first writes.
+  let currentSignature = null;
+  const seenSignatures = new Set();
+  const hashInitialState = () => {
+    if (currentSignature !== null) return;
+    currentSignature = archiveEntriesSignature(current);
+    seenSignatures.add(currentSignature);
+  };
   let collapsed = 0;
   let slugsTransferred = 0;
   let firstPassCapRefused = 0;
@@ -1725,25 +1782,66 @@ export function collapseDuplicateRouteEntries(entries, options = {}) {
     // the survivor. Repair the post-collapse state before deciding that the
     // archive reached a fixed point; otherwise the first writer pass can
     // persist a slice that a second read immediately changes again.
-    const postCollapseRepair = repairExpiredRoutesWithinArchive(result.entries, {
-      ...options,
-      // A cap refusal is non-destructive only while the component remains
-      // route-unique. Shared source identity normally permits a merge, but
-      // when that merge is refused the residual duplicate needs the same
-      // deterministic alias fallback as every other proven collision.
-      repairSharedIdentityCollisions: options.repairSharedIdentityCollisions === true
-        || result.capRefused > 0,
-      repairSharedIdentityCollisionScopes: options.repairSharedIdentityCollisions === true
-        ? options.repairSharedIdentityCollisionScopes
-        : capRefusedScopes,
-    });
+    let repairMutated = false;
+    // On the first pass, a collapse that merged and refused nothing returns the
+    // very records the initial repair just left untouched, and the options below
+    // reduce to the initial ones: the repair is a deterministic function of its
+    // records and options, so repeating it can only repeat its no-op.
+    const repeatsInitialRepair = pass === 0
+      && routeRepair.changed === 0
+      && result.collapsed === 0
+      && result.capRefused === 0
+      && !options.repairSharedIdentityCollisions;
+    const postCollapseRepair = repeatsInitialRepair
+      ? { repairedRoutes: 0, details: [] }
+      : repairExpiredRoutesWithinArchiveObserved(result.entries, {
+        ...options,
+        // A cap refusal is non-destructive only while the component remains
+        // route-unique. Shared source identity normally permits a merge, but
+        // when that merge is refused the residual duplicate needs the same
+        // deterministic alias fallback as every other proven collision.
+        repairSharedIdentityCollisions: options.repairSharedIdentityCollisions === true
+          || result.capRefused > 0,
+        repairSharedIdentityCollisionScopes: options.repairSharedIdentityCollisions === true
+          ? options.repairSharedIdentityCollisionScopes
+          : capRefusedScopes,
+      }, () => {
+        repairMutated = true;
+        hashInitialState();
+      });
     repairedRoutes += postCollapseRepair.repairedRoutes;
     if (repairDetails.length < 20) {
       repairDetails.push(...postCollapseRepair.details.slice(0, 20 - repairDetails.length));
     }
 
-    const nextSignature = archiveEntriesSignature(result.entries);
-    if (nextSignature === currentSignature) {
+    // Two passes need no hash to be recognised as the fixed point.
+    //  - `settled`: nothing merged, nothing refused and nothing repaired, so the
+    //    pass handed back the same records, only in canonical order. The next
+    //    pass would sort that same sequence, repeat this very pass and return it.
+    //    A refused component is excluded: replaying it would record its
+    //    slug-journal events again.
+    //  - `unchanged`: nothing merged and nothing repaired, and the very same
+    //    records came back in the very same order, so the archive is
+    //    byte-for-byte what the last signature (or the initial state) described.
+    const noMerge = !repairMutated && result.collapsed === 0;
+    //    Never on the last pass: a pass that only reorders must still reach the
+    //    signature comparison there, because that is what raises the
+    //    non-convergence error. The guard keeps that exception identical.
+    //    Nor can `settled` hide a "cycle detected": a pass that merges, refuses
+    //    and repairs nothing leaves the sorted state T as a fixed point of the
+    //    deterministic pass, so if T had already been seen, the pass started
+    //    from T would have returned T and the cycle would have closed there.
+    const settled = noMerge && result.unmergeable === 0 && result.capRefused === 0
+      && pass < MAX_COLLAPSE_PASSES - 1;
+    const unchanged = noMerge
+      && result.entries.length === current.length
+      && result.entries.every((record, index) => record === current[index]);
+    let nextSignature = null;
+    if (!settled && !unchanged) {
+      hashInitialState();
+      nextSignature = archiveEntriesSignature(result.entries);
+    }
+    if (settled || unchanged || nextSignature === currentSignature) {
       return {
         ...resultSummary,
         collapsed,
