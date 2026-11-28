@@ -367,6 +367,55 @@ describe('job-canon publication handshake', () => {
     }
   });
 
+  it('validates a schema 3 release with 16 concurrent requests and never requests a v1 path', async () => {
+    const { root, current } = fixtureTree();
+    try {
+      const keys: string[] = [];
+      for (let index = 0; index < 40; index += 1) {
+        const bucket = index.toString(16).padStart(3, '0');
+        writeFileSync(join(current, 'v2', `${bucket}.json`), `{"s${index}":{"it":"/x"}}`);
+        keys.push(`job-canon/v2/${bucket}.json`);
+      }
+      let inFlight = 0;
+      let peak = 0;
+      const requested: string[] = [];
+      const fetchStub = (async (input: string | URL) => {
+        const url = new URL(String(input));
+        requested.push(url.pathname);
+        inFlight += 1;
+        peak = Math.max(peak, inFlight);
+        await new Promise((resolveTick) => setTimeout(resolveTick, 5));
+        inFlight -= 1;
+        return new Response(readFileSync(join(current, url.pathname.replace(/^\/job-canon\//, ''))), { status: 200 });
+      }) as typeof fetch;
+      await verifyMapFreshness(keys, current, 'https://cdn.example.test', fetchStub);
+      expect(requested).toHaveLength(40);
+      expect(requested.every((pathname) => /^\/job-canon\/v2\/[0-9a-f]{3}\.json$/.test(pathname))).toBe(true);
+      expect(peak).toBeGreaterThan(4);
+      expect(peak).toBeLessThanOrEqual(16);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('does not report carried-forward legacy v1 shards or old releases as changed when the new release has none', () => {
+    const { root, current, previous } = fixtureTree();
+    try {
+      for (const tree of [current, previous]) {
+        mkdirSync(join(tree, 'releases', '1001'), { recursive: true });
+        writeFileSync(join(tree, 'ne.json'), '{"legacy":true}');
+        writeFileSync(join(tree, 'releases', '1001', 'ab.json'), '{"old":true}');
+        writeFileSync(join(tree, 'releases', '1001', 'manifest.json'), '{"schemaVersion":2}');
+      }
+      mkdirSync(join(current, 'releases', '1002', 'v2'), { recursive: true });
+      writeFileSync(join(current, 'releases', '1002', 'v2', 'abc.json'), '{"new":true}');
+      writeFileSync(join(current, 'releases', '1002', 'manifest.json'), '{"schemaVersion":3}');
+      expect(compareMapTrees(current, previous)).toEqual(['job-canon/releases/1002/v2/abc.json']);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it.each(['BI.json', 'a-.json', 'v2/abg.json', 'v2/ab.json'])(
     'rejects invalid handshake inventory key job-canon/%s',
     (filename) => {

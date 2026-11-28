@@ -168,7 +168,7 @@ describe('the retry ladder of a rate-limited portal', () => {
       at = held.flow.portalAutoRetryAt;
       const retry = transition({ ...held.flow, dispatch }, { type: 'portal_auto_retry' }, { draft, nowMs: at });
       expect(retry.flow).toMatchObject({ state: 'submitting', portalRateLimitRetryCount: round + 1 });
-      expect(retry.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
+      expect(retry.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry', preferEgress: 'ch' }]);
       // The same due retry is not run twice: the flow is already submitting.
       expect(transition(retry.flow, { type: 'portal_auto_retry' }, { draft, nowMs: at }).ignored).toBe('not_taken_over');
       flow = { ...retry.flow, dispatch };

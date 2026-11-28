@@ -79,7 +79,7 @@ export async function requestPortalVerification({ db, orderId, round, version, n
 }
 
 export async function executePortalVerification({ db, bucket, orderId, round, nonce, version, key, nowMs = Date.now(), inspect = verifyPortalApplication, loadProtocol = readPublicPortalProtocol,
-  inspectExists = verifyPortalApplication, runEffect = null }) {
+  inspectExists = verifyPortalApplication, runEffect = null, settleExists = null }) {
   const ref = db.collection('assisted_applications').doc(orderId);
   const verificationRef = ref.collection('automation').doc('portal_verification');
   const ambiguousEvents = await ambiguousSendEvents(ref, round);
@@ -147,11 +147,21 @@ export async function executePortalVerification({ db, bucket, orderId, round, no
   // Settlement uses the same criteria as the runner's own handoff (decideApplicationExistsReconciliation): our
   // send on record, the alias account, the order's vacancy. Anything missing leaves the order held and unknown.
   let settled = null;
+  let settleError = null;
   if (probeEvidence) {
-    const { settleFromApplicationExists } = await import('../../functions/src/assistedApplicationAutomation.js');
-    const effect = runEffect || (await import('../../functions/src/assistedApplicationAutomationEffects.js')).runAutomationEffect;
-    settled = await settleFromApplicationExists({ db, orderId, evidence: probeEvidence, round, runEffect: effect, nowMs: Date.now(),
-      allowOwnerTakeover: true, actor: 'portal_verification' });
+    // Whatever goes wrong here is recorded with the verdict, never left as a verification stuck «running»: the order
+    // stays as it was and the record says where (identifiers only).
+    try {
+      stage = 'settle_import';
+      const settle = settleExists || (await import('../../functions/src/assistedApplicationAutomation.js')).settleFromApplicationExists;
+      const effect = runEffect || (await import('../../functions/src/assistedApplicationAutomationEffects.js')).runAutomationEffect;
+      stage = 'settle';
+      settled = await settle({ db, orderId, evidence: probeEvidence, round, runEffect: effect, nowMs: Date.now(),
+        allowOwnerTakeover: true, actor: 'portal_verification' });
+    } catch (error) {
+      settleError = safeErrorInfo(error, stage);
+      console.error(`[verify-portal] settlement failed: ${JSON.stringify(settleError)}`);
+    }
   }
   const conclusion = settled?.ok ? 'application_exists' : 'unknown';
   let recorded = false;
@@ -162,13 +172,13 @@ export async function executePortalVerification({ db, bucket, orderId, round, no
       const bound = current.verification?.nonce === nonce && current.verification.state === 'running' && current.verification.version === version;
       if (!bound || (!settled?.ok && (!verificationEligible({ ...current, round, nowMs: Date.now(), ambiguousEvents })
         || current.verification.binding !== verificationBinding(current)))) return false;
-      transaction.set(verificationRef, { state: 'completed', completedAt: Date.now(), proofPath, conclusion }, { merge: true });
+      transaction.set(verificationRef, { state: 'completed', completedAt: Date.now(), proofPath, conclusion, ...(settleError ? { settleError } : {}) }, { merge: true });
       return true;
     });
   } finally {
     if (!recorded) await bucket.file(proofPath).delete({ ignoreNotFound: true });
   }
-  return { inspected: true, recorded, conclusion };
+  return { inspected: true, recorded, conclusion, ...(settleError ? { settleError } : {}) };
 }
 
 if (isInvokedDirectly(import.meta.url)) {
@@ -180,6 +190,8 @@ if (isInvokedDirectly(import.meta.url)) {
   if (values.request) console.log(JSON.stringify(await requestPortalVerification({ db, orderId, round, version })));
   else {
     const { getStorage } = await import('firebase-admin/storage');
+    // A late callback of the browser must not end the process before the verdict is written: it is logged, as identifiers.
+    process.on('unhandledRejection', (error) => console.error(`[verify-portal] unhandled rejection: ${JSON.stringify(safeErrorInfo(error, 'process'))}`));
     console.log(JSON.stringify(await executePortalVerification({ db, bucket: getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET), orderId,
       round, nonce: values.nonce, version, key: runKeyFrom() })));
   }

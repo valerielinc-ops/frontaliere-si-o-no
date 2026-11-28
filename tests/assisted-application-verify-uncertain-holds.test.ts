@@ -165,3 +165,56 @@ describe('an inspection that throws is recorded with where and what, never with 
     expect(store.read(`${base}/automation/flow`)).toMatchObject({ state: 'owner_takeover' });
   });
 });
+
+describe('a settlement that fails is recorded with the verdict, never left as a verification stuck running', () => {
+  const realProof = { conclusion: 'unknown', pages: [], applicationExists:
+    { routeKind: 'umantis_application_exists', host: HOST, vacancyId: '6604', pagePath: '/Vacancies/6604/FurtherApplication/ApplicationExists/1', source: 'after_login' } };
+
+  async function prepared() {
+    const { store, seedEvents } = fixture({ events: [ambiguousEvent] });
+    await seedEvents();
+    await requestPortalVerification({ db: store.db, orderId, round: 1, version, nonce: 'test-uncertain-nonce', nowMs: now });
+    return store;
+  }
+
+  it('records the identifiers of the failure, completes the verification and keeps the order as it was and the evidence stored', async () => {
+    const store = await prepared();
+    const removed: string[] = [];
+    const kept = { file: (name: string) => ({ save: async () => {}, delete: async () => { removed.push(name); }, download: async () => { throw new Error('no_source'); } }) } as any;
+    const settleExists = vi.fn(async () => { throw new TypeError("Cannot read properties of undefined (reading 'x') for candidate@example.test"); });
+    const result: any = await executePortalVerification({ db: store.db, bucket: kept, orderId, round: 1, nonce: 'test-uncertain-nonce', version, key: Buffer.alloc(32, 7), nowMs: now + 10,
+      inspectExists: async () => realProof, settleExists, runEffect: async () => ({ ok: true }) });
+    expect(result).toMatchObject({ inspected: true, recorded: true, conclusion: 'unknown', settleError: { stage: 'settle', name: 'TypeError', message: 'read_of_undefined' } });
+    expect(JSON.stringify(result)).not.toContain('candidate@example.test');
+    expect(store.read(`${base}/automation/portal_verification`)).toMatchObject({ state: 'completed', conclusion: 'unknown', settleError: { stage: 'settle' } });
+    expect(store.read(`${base}/automation/flow`)).toMatchObject({ state: 'owner_takeover' });
+    expect(removed).toEqual([]);
+  });
+
+  it('with the exact shape of the real proof, under Firestore\'s own transaction rules (no undefined values, no read after a write), the order is settled', async () => {
+    const store = await prepared();
+    const undefinedAt = (value: any, path = 'set'): string | null => {
+      if (value === undefined) return path;
+      if (Array.isArray(value)) { for (const [index, item] of value.entries()) { const found = undefinedAt(item, `${path}[${index}]`); if (found) return found; } return null; }
+      if (value && typeof value === 'object' && value.constructor === Object) { for (const [key, item] of Object.entries(value)) { const found = undefinedAt(item, `${path}.${key}`); if (found) return found; } }
+      return null;
+    };
+    const strictDb: any = { collection: store.db.collection, async runTransaction(callback: any) {
+      return store.db.runTransaction(async (transaction: any) => {
+        let wrote = false;
+        return callback({
+          get: (target: any) => { if (wrote) throw new Error('read_after_write'); return transaction.get(target); },
+          set: (target: any, data: any, options: any) => { const bad = undefinedAt(data); if (bad) throw new Error(`undefined_value:${bad}`); wrote = true; return transaction.set(target, data, options); },
+          delete: (target: any) => transaction.delete(target),
+        });
+      });
+    } };
+    const runEffect = async (context: any) => (context.effect.type === 'mark_submitted' ? runAutomationEffect(context) : { ok: true });
+    const result: any = await executePortalVerification({ db: strictDb, bucket, orderId, round: 1, nonce: 'test-uncertain-nonce', version, key: Buffer.alloc(32, 7), nowMs: now + 10,
+      inspectExists: async () => realProof, runEffect });
+    expect(result).toMatchObject({ inspected: true, recorded: true, conclusion: 'application_exists' });
+    expect(result.settleError).toBeUndefined();
+    expect(store.read(`${base}/automation/flow`)).toMatchObject({ state: 'submitted' });
+    expect(store.read(`${base}/automation/portal_verification`)).toMatchObject({ state: 'completed', conclusion: 'application_exists' });
+  });
+});
