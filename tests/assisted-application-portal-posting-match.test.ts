@@ -299,11 +299,13 @@ describe('application form posting identity', () => {
     })).toBe('unknown');
   });
 
-  it('keeps same-kind employer names and standalone Data as conflicting evidence', () => {
+  it('keeps same-kind employer names as conflicting evidence and a lone form word as none', () => {
     expect(namesAnotherEmployer('Banca Cler — Bank Riviera', { company: 'Banca Cler' })).toBe(true);
-    expect(namesAnotherEmployer('Data', { company: 'Alfa' })).toBe(true);
-    expect(namesAnotherEmployer('Compilation', { company: 'Alfa' })).toBe(true);
-    expect(namesAnotherEmployer('Compilazione', { company: 'Alfa' })).toBe(true);
+    // A lone word of a form is no organisation: only a positive entity (legal form, «bei <Name>», …) is a conflict.
+    expect(namesAnotherEmployer('Data', { company: 'Alfa' })).toBe(false);
+    expect(namesAnotherEmployer('Compilation', { company: 'Alfa' })).toBe(false);
+    expect(namesAnotherEmployer('Compilazione', { company: 'Alfa' })).toBe(false);
+    expect(namesAnotherEmployer('Compilazione Beta SA', { company: 'Alfa' })).toBe(true);
     expect(namesAnotherEmployer('Data di compilazione:', { company: 'Alfa' })).toBe(false);
     expect(namesAnotherEmployer('Date de candidature', { company: 'Alfa' })).toBe(false);
   });

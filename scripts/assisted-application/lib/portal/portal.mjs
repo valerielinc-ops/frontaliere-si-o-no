@@ -5355,17 +5355,6 @@ const FILLER_WORDS = new Set([
   'chez', 'avec', 'aux', 'une',
 ]);
 const filler = (word) => word.length < 3 || FILLER_WORDS.has(word) || /^\d+$/.test(word);
-// Grammatical words (prepositions, articles, pronouns, conjunctions, the verbs of a call to apply) in the four
-// languages of the portals. A title line made of the order's own words and these names nobody: «Karrierechancen:
-// Für <role> (52113) bewerben». A name is a word that is none of them; this is a closed class of the grammar,
-// not a growing list of the page's vocabulary. Words that are also a name are left out («Via», «Bei»).
-const FUNCTION_WORDS = new Set([
-  'fur', 'fuer', 'zur', 'zum', 'auf', 'aus', 'nach', 'uber', 'ueber', 'wir', 'sie', 'ihre', 'ihr', 'ihren', 'ihrer', 'ihrem', 'sich', 'sind', 'ist', 'wird', 'werden', 'oder', 'als',
-  'bewerben', 'bewirb', 'bewerbt', 'postulez', 'postuler', 'candidarti', 'candidatevi', 'applying', 'apply',
-  'for', 'to', 'of', 'on', 'in', 'by', 'from', 'into', 'your', 'you', 'are', 'is', 'will', 'can',
-  'pour', 'sur', 'par', 'dans', 'votre', 'vos', 'vous', 'est', 'sont',
-  'per', 'sul', 'sulla', 'nel', 'nella', 'tuo', 'tua', 'sei', 'sono',
-]);
 // What ends a phrase: a line, a dash between spaces, a bar, a dot, a colon… never a hyphen inside a word («Other-Hotel»).
 const PHRASE_END_RE = /[\n\r—–|·•:;,.!?()\/]|\s-\s/;
 const GENERIC_APPLICATION_HEADING_WORDS = new Set([
@@ -5483,7 +5472,171 @@ const NAVIGATION_TITLE_LINE_RE = /^(?:(?:open|close)(?: main)? navigation(?: men
 // must not turn the words around the selected employer into another company.
 const EMPLOYER_TITLE_SEPARATOR_RE = /[\n\r—–|·•]|\s-\s/;
 
-export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation = false } = {}) {
+// What a title line or heading must POSITIVELY contain to name another employer (fix of the three 2026-11-27
+// orders whose titles held only a role and the page's own words). A word the vocabulary does not know is NOT
+// evidence: menus, buttons, instructions, descriptions, file names and languages are never a conflict. Evidence is
+// an organisation: a legal form, «bei/chez/presso/at <Name>», «<Name> sucht/cerca/recherche», «Other <kind>», a
+// kind of employer next to a capitalised name, or the exact name of a known other employer.
+const LEGAL_FORM_TOKENS = new Set(['AG', 'GmbH', 'GMBH', 'SA', 'Sagl', 'SAGL', 'Sarl', 'SARL', 'Srl', 'SRL', 'SpA', 'SPA', 'Ltd', 'LTD', 'Inc', 'INC', 'LLC', 'LLP', 'KG', 'KGaA', 'OHG', 'PLC', 'Plc', 'BV', 'NV', 'SAS', 'Genossenschaft', 'Cooperativa', 'Stiftung', 'Fondation', 'Fondazione']);
+const PLACEMENT_PREPOSITIONS = new Set(['bei', 'chez', 'presso', 'at']);
+const PLACEMENT_ARTICLES = new Set(['the', 'der', 'die', 'das', 'dem', 'den', 'la', 'le', 'les', 'l', 'il', 'lo', 'gli', 'i']);
+// Capitalised nouns that follow «bei» in ordinary German/Italian/French prose and name nobody.
+const PLACEMENT_PROSE_NOUNS = new Set(['fragen', 'ruckfragen', 'rueckfragen', 'interesse', 'bedarf', 'problemen', 'fehlern', 'eignung', 'erfolg', 'uns', 'ihnen', 'mir', 'dir', 'nous', 'noi', 'voi', 'vous', 'questions', 'domande', 'problemi']);
+// The generic words for an organisation: «Other Employer», «Andere Firma».
+const ORGANISATION_NOUNS = new Set(['employer', 'employers', 'arbeitgeber', 'unternehmen', 'firma', 'company', 'datore', 'azienda', 'societe', 'entreprise', 'employeur']);
+// A line of business next to the employer's name is the same group's entity, not another employer: «Deloitte»,
+// «Deloitte AG» and «Deloitte Consulting AG» name one employer. International/Europe stay names (review of #12292).
+const CORPORATE_DESCRIPTOR_WORDS = new Set(['consulting', 'advisory', 'services']);
+// Calls to action and sentence openers that stand next to the employer's name in its own marketing copy
+// («Why join Deloitte?», «Join Deloitte today», «Life at Deloitte»): grammar, not another name.
+const EMPLOYER_COPY_WORDS = new Set(['join', 'joining', 'why', 'discover', 'meet', 'visit', 'explore', 'learn', 'today', 'now', 'here', 'working', 'life', 'about', 'choose', 'careers']);
+const HIRING_VERBS = new Set(['sucht', 'cerca', 'recherche', 'recrute', 'engagiert', 'embauche']);
+const HIRING_SUBJECT_NON_NAMES = new Set(['wir', 'noi', 'nous', 'we', 'firma', 'unternehmen', 'azienda', 'societe', 'company', 'team', 'betrieb', 'arbeitgeber']);
+const STAFFING_AGENCY_WORDS = new Set(['personal', 'personnel', 'staffing', 'recruiting', 'recruitment', 'rekrutierung', 'temporary', 'interim', 'manpower', 'adecco', 'randstad', 'kelly', 'hays', 'synergie', 'workforce', 'personaldienstleistungen', 'personaldienstleistung', 'stellenvermittlung', 'arbeitsvermittlung', 'collocamento', 'reclutamento', 'somministrazione', 'temporaire', 'placement']);
+const isStaffingAgencyCompany = (company) => normalizeWords(company).split(' ').some((word) => STAFFING_AGENCY_WORDS.has(word));
+
+// «S.p.A.», «S.A.», «S.à r.l.» written with dots: collapse them before the line is cut at its full stops.
+function collapseDottedLegalForms(value) {
+  return String(value || '')
+    .replace(/S\s*\.\s*à\s*r\s*\.\s*l\s*\.?/giu, 'Sarl')
+    .replace(/(?<![\p{L}\p{N}.])((?:\p{L}\s*\.\s*){1,4}\p{L})\s*\.?(?![\p{L}\p{N}])/gu, (whole, dotted) => {
+      const letters = dotted.replace(/[\s.]/g, '');
+      return /^(?:SA|SpA|SAS|AG|LLC|LLP|Srl|Sagl)$/i.test(letters) ? letters.toUpperCase() : whole;
+    });
+}
+
+function foreignEmployerEvidenceInSegment(segment, { neutral, job, agency, knownOthers }) {
+  const compact = String(segment || '');
+  const raw = compact.split(/\s+/u).map((token) => token.replace(/^[^\p{L}\p{N}&]+|[^\p{L}\p{N}&]+$/gu, '')).filter(Boolean);
+  if (!raw.length) return null;
+  const norm = raw.map((token) => normalizeWords(token).trim());
+  const capitalised = (index) => /^[\p{Lu}\p{N}]/u.test(raw[index] || '');
+  const nameWord = (index) => {
+    const word = norm[index];
+    if (!word || word.includes(' ')) return Boolean(word) && capitalised(index);
+    return capitalised(index) && !neutral.has(word) && !filler(word) && !LEGAL_FORM_TOKENS.has(raw[index]) && !EMPLOYER_KIND_WORDS.has(word);
+  };
+  const companyWords = jobCompanyWords(job);
+  // An agency naming itself with its own trade words («STA Personal AG» for the order of «STA»), or any agency
+  // when the order is an agency's, names no other employer.
+  const exempt = (indexes) => {
+    const words = indexes.map((index) => norm[index]);
+    const unknown = words.filter((word) => word && !neutral.has(word) && !filler(word) && !NOT_A_NAME.has(word));
+    if (agency && words.some((word) => STAFFING_AGENCY_WORDS.has(word))) return true;
+    return words.some((word) => companyWords.has(word)) && unknown.every((word) => STAFFING_AGENCY_WORDS.has(word));
+  };
+  const found = (reason, indexes) => (exempt(indexes) ? null : { reason, entity: indexes.map((index) => raw[index]).join(' ') });
+  for (let index = 0; index < raw.length; index += 1) {
+    // 1. A legal form after at least one name word.
+    if (LEGAL_FORM_TOKENS.has(raw[index]) && index > 0) {
+      const run = [];
+      for (let back = index - 1; back >= 0 && run.length < 4 && (capitalised(back) || raw[back] === '&'); back -= 1) run.unshift(back);
+      const names = run.filter(nameWord);
+      if (names.length) {
+        const hit = found('legal_form', [...run, index]);
+        if (hit) return hit;
+      }
+    }
+    // 2. «bei/chez/presso/at <Name>»: not at the start of the segment, a capitalised name (or a kind next to one) after it.
+    if (PLACEMENT_PREPOSITIONS.has(norm[index]) && index > 0) {
+      let at = index + 1;
+      while (at < raw.length && PLACEMENT_ARTICLES.has(norm[at])) at += 1;
+      const run = [];
+      for (let next = at; next < raw.length && run.length < 4 && capitalised(next); next += 1) run.push(next);
+      if (run.some(nameWord) && !PLACEMENT_PROSE_NOUNS.has(norm[run[0]])) {
+        const hit = found('placement_preposition', run);
+        if (hit) return hit;
+      }
+    }
+    // 3. «<Name> sucht/cerca/recherche».
+    if (HIRING_VERBS.has(norm[index]) && index > 0) {
+      const run = [];
+      for (let back = index - 1; back >= 0 && run.length < 4 && capitalised(back); back -= 1) run.unshift(back);
+      if (run.length && !run.some((position) => HIRING_SUBJECT_NON_NAMES.has(norm[position])) && run.some(nameWord)) {
+        const hit = found('hiring_verb', run);
+        if (hit) return hit;
+      }
+    }
+    // 4. «Other <kind of employer>» («Other Resort», «Andere Klinik»).
+    if (OTHER_EMPLOYER_MARKER_WORDS.has(norm[index]) && index + 1 < raw.length
+      && (EMPLOYER_KIND_WORDS.has(norm[index + 1]) || ORGANISATION_NOUNS.has(norm[index + 1]) || LEGAL_FORM_TOKENS.has(raw[index + 1]))) {
+      const hit = found('other_employer_marker', [index, index + 1]);
+      if (hit) return hit;
+    }
+    // 5. A kind of employer with a capitalised name next to it («Hotel Splendide», «Muster Bank»).
+    if (EMPLOYER_KIND_WORDS.has(norm[index]) && capitalised(index)) {
+      for (const neighbour of [index + 1, index - 1]) {
+        if (neighbour >= 0 && neighbour < raw.length && nameWord(neighbour)) {
+          const hit = found('kind_with_name', [Math.min(index, neighbour), Math.max(index, neighbour)]);
+          if (hit) return hit;
+        }
+      }
+    }
+  }
+  // 6. The exact name of a known other employer.
+  const normalizedSegment = ` ${norm.join(' ')} `;
+  for (const name of knownOthers) {
+    if (name.length && normalizedSegment.includes(` ${name.join(' ')} `)) return { reason: 'known_other_employer', entity: name.join(' ') };
+  }
+  return null;
+}
+
+function jobCompanyWords(job) {
+  return new Set([...companyIdentityWords(job.company), ...companyLongFormWords(job.company)]);
+}
+
+/** The first positive evidence that a title line or heading names an employer other than the order's, or null. */
+function foreignEmployerEvidence(line, { neutral, job, ownSegment = () => false }) {
+  const agency = isStaffingAgencyCompany(job.company);
+  const originalLine = String(line || '');
+  line = collapseDottedLegalForms(line);
+  const knownOthers = (Array.isArray(job.otherEmployerNames) ? job.otherEmployerNames : [])
+    .map((name) => normalizeWords(name).split(' ').filter(Boolean))
+    .filter((words) => words.length && !words.every((word) => neutral.has(word)));
+  // A title segment (cut on visual separators only) that names the order's own employer is its own, commas and
+  // all («Acme, young affiliate of Example Group»); any other one is read phrase by phrase.
+  for (const titleSegment of String(line || '').split(EMPLOYER_TITLE_SEPARATOR_RE)) {
+    if (!titleSegment.trim() || ownSegment(titleSegment)) continue;
+    for (const segment of titleSegment.split(PHRASE_END_RE)) {
+      if (!segment.trim()) continue;
+      const evidence = foreignEmployerEvidenceInSegment(segment, { neutral, job, agency, knownOthers });
+      if (evidence) return { ...evidence, line: originalLine };
+    }
+  }
+  // The employer slot of an ATS document title: «<Name> - My application» holds a name (one capitalised token is enough) next to the
+  // application wording (the stage is generic chrome, the other side is who runs it).
+  const titleSegments = String(line || '').split(EMPLOYER_TITLE_SEPARATOR_RE).map((segment) => segment.trim()).filter(Boolean);
+  if (titleSegments.length > 1) {
+    const isApplicationChrome = (segment) => {
+      const words = normalizeWords(segment).split(' ').filter(Boolean);
+      return words.some((word) => /^(?:application|applications|bewerbung|candidatura|candidature|candidacy|postulation)$/.test(word))
+        && words.every((word) => FORM_CHROME_WORDS.has(word) || GENERIC_APPLICATION_HEADING_WORDS.has(word) || FORM_VOCABULARY.has(word) || /^\d+$/.test(word));
+    };
+    if (titleSegments.some(isApplicationChrome)) {
+      for (const segment of titleSegments) {
+        if (isApplicationChrome(segment) || ownSegment(segment)) continue;
+        // An isolated «&» between capitalised tokens joins one company name (A & B, Procter & Gamble, Ernst & Young):
+        // the whole group is a name and its one-letter tokens are not filler.
+        const tokens = segment.split(/\s+/u).map((token) => (token === '&' ? token : token.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, ''))).filter(Boolean);
+        const joined = new Set();
+        tokens.forEach((token, index) => {
+          if (token === '&' && /^\p{Lu}/u.test(tokens[index - 1] || '') && /^\p{Lu}/u.test(tokens[index + 1] || '')) [index - 1, index, index + 1].forEach((at) => joined.add(at));
+        });
+        const names = tokens.filter((token, index) => joined.has(index)
+          || (/^\p{Lu}/u.test(token) && ![...normalizeWords(token).split(' ')].every((word) => !word || neutral.has(word) || filler(word))));
+        if (names.length >= 1 && names.length === tokens.length) return { reason: 'employer_slot_of_title', entity: tokens.join(' '), line: originalLine };
+      }
+    }
+  }
+  return null;
+}
+
+export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation = false, evidence = null } = {}) {
+  // With an `evidence` object the call also says which line and entity made it a conflict (run diagnostics only).
+  const hit = (reason, entity, line) => {
+    if (evidence && typeof evidence === 'object') Object.assign(evidence, { reason, entity: String(entity || '').slice(0, 80), line: String(line || '').slice(0, 160) });
+    return true;
+  };
   // With the name the posting's own data gives the employer (`organization`), when it is the same employer's.
   const equivalentEmployerPhrases = alternateEmployerNamePhrases(job.company);
   const isEquivalentEmployerPhrase = (words) => {
@@ -5517,6 +5670,8 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     ...jobTitleCandidates(job).flatMap(title => nameWords(title)),
     ...postingLocationSuffixWords(text, ours, postingLocationWords),
     ...NOT_A_NAME,
+    ...CORPORATE_DESCRIPTOR_WORDS,
+    ...EMPLOYER_COPY_WORDS,
     // Vacancy cards can flatten their rows into one line («Coop Genossenschaft Standort Rickenbach»).
     // On an already-bound posting, the location-field label is metadata, not another employer name.
     ...(allowPostingLocation ? FIELD_LABEL_WORDS : []),
@@ -5548,25 +5703,13 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     && /^\p{Lu}\p{Ll}+$/u.test(titleWordsRaw[0])
     && titleWordsRaw.slice(1).every((word) => /^\p{Ll}+(?:['’]\p{Ll}+)?[.!?…]*$/u.test(word))
     && titleWordsRaw.slice(1).some((word) => JOINING_WORDS.has(normalizeWords(word).replace(/[.!?…]+$/u, '')));
-  // A title can put the selected employer and a different employer-like phrase
-  // on the same line («Grand Hotel — Other Resort»). Compare the non-kind
-  // words before the ordinary neighbour scan lets the selected employer
-  // neutralize the line as a whole; the segment check also covers an employer
-  // and another organization separated by a dash.
-  if (titleNamesOwnEmployer(titleLine)) {
-    const titleSegments = titleLine.split(EMPLOYER_TITLE_SEPARATOR_RE).map((segment) => normalizeWords(segment).split(' ').filter(Boolean));
-    if (titleSegments.some((words) => !titleNamesOwnEmployer(words.join(' '))
-      && words.some((word) => !neutral.has(word) && !filler(word) && !FUNCTION_WORDS.has(word)))) return true;
+  // The title line names another employer only with positive evidence (a legal form, «bei <Name>», «<Name> sucht»,
+  // «Other <kind>», a kind next to a name, a known other employer), segment by segment: a segment that names the
+  // order's own employer is its own. A word the page's vocabulary does not know is no evidence.
+  if (!isFormDateFieldLabel(titleLine) && !titleLooksLikeSentenceCopy) {
+    const titleEvidence = foreignEmployerEvidence(titleLine, { neutral, job, ownSegment: titleNamesOwnEmployer });
+    if (titleEvidence) return hit(titleEvidence.reason, titleEvidence.entity, titleEvidence.line);
   }
-  // Page chrome may precede the posting's own heading. Ignore only known
-  // navigation labels as a title candidate; the employer check below still
-  // reads every phrase in the full page text.
-  const title = normalizeWords(titleLine).split(' ').filter(Boolean);
-  if (!isFormDateFieldLabel(titleLine) && !titleNamesOwnEmployer(titleLine)
-    && !titleLooksLikeSentenceCopy
-    && title.some((word, index) => !filler(word) && !FUNCTION_WORDS.has(word) && !neutral.has(word)
-    && !FORM_TITLE_FIELD_WORDS.has(word)
-    && !EMPLOYER_KIND_WORDS.has(word) && !isSelectOneLabelToken(title, index))) return true;
   // The order's employer named whole: its name, its name without the short form in brackets, or that short form.
   for (const phrase of text.split(PHRASE_END_RE)) {
     if (isFormDateFieldLabel(phrase)) continue;
@@ -5615,7 +5758,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
           && /\brefers\s+to\s+one\s+or\s+more\s+of\b[^\n]{1,180}\b(?:network\s+of\s+member\s+firms|member\s+firms?\b[^\n]{0,80}\b(?:legal(?:ly)?\s+separate|independent\s+entit(?:y|ies)|related\s+entities))\b/iu.test(line)
           && !normalizeWords(line).split(' ').some((word) => OTHER_EMPLOYER_MARKER_WORDS.has(word)));
         if (isMemberFirmBoilerplate) continue;
-        return true;
+        return hit('network_definition', phrase, phrase);
       }
     }
     for (const [index, word] of words.entries()) {
@@ -5640,9 +5783,12 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
         // still declare someone else.
         const whole = step === -1 ? wholeStarts.has(index) : wholeEnds.has(index);
         if (whole && ((step === -1 && separated) || proseWord(at))) continue;
+        // A lower-case word of a sentence in normal case next to the employer's name is prose, not a name
+        // («Why join Deloitte?»): only a capitalised word, a marker («other») or a kind of employer («hotel») names someone.
+        if (proseWord(at) && !OTHER_EMPLOYER_MARKER_WORDS.has(words[at]) && !EMPLOYER_KIND_WORDS.has(words[at])) continue;
         if (!neutral.has(words[at]) && !labels?.has(words[at])
           && !(EMPLOYER_KIND_CLASS.has(words[at]) && ourKinds.has(EMPLOYER_KIND_CLASS.get(words[at])))
-          && !isSelectOneLabelToken(words, at)) return true;
+          && !isSelectOneLabelToken(words, at)) return hit('name_next_to_ours', `${words[at]} next to ${word}`, phrase);
       }
     }
   }
@@ -6109,6 +6255,24 @@ function successFactorsCaptionNamesOtherRequisition(captions, job, applyUrl, pag
   });
 }
 
+/**
+ * On the tenant of the order's module route, a caption «<role> (<requisition>)» whose role is not the order's names
+ * another vacancy, whatever its requisition id says. A different role is no longer read as «another employer» (a
+ * word the vocabulary does not know is no evidence of one), so this is its own positive check.
+ */
+function successFactorsCaptionNamesOtherRole(captions, job, applyUrl, pageUrl) {
+  try {
+    const module = successFactorsModuleIdentity(new URL(String(applyUrl || '')));
+    if (!module || new URL(String(pageUrl || '')).origin !== module.origin || !isSuccessFactorsCareerPath(pageUrl)) return false;
+  } catch {
+    return false;
+  }
+  return captions.some((caption) => {
+    const match = /^(.*\S)\s*\(\s*\d{1,20}\s*\)\s*$/u.exec(String(caption || '').trim());
+    return Boolean(match) && !titleMatchesJob(match[1], job);
+  });
+}
+
 /** The page address names no requisition other than the one of the order's module route (a session address names none). */
 function successFactorsAddressKeepsRequisition(pageUrl, applyUrl) {
   try {
@@ -6455,7 +6619,12 @@ export function formPostingMatch(formText, job = {}, {
           postingLocationBound: (() => { try { return postingLocationBound; } catch { return ''; } })(),
           postingEntry, applicationEntry, postingMatched,
         }),
-        conflictLines: () => String(formText || '').split(/\r?\n/).map((line) => line.trim()).filter((line) => line && !/^https?:\/\//i.test(line)).slice(0, 400).filter((line) => namesAnotherEmployer(line, job, { allowPostingLocation: true })),
+        // The line and the entity that made the text a conflict, with the reason (one entry per source: the page, each heading).
+        conflictLines: () => [formText, ...headingCandidates].flatMap((source) => {
+          const found = {};
+          return namesAnotherEmployer(source, job, { allowPostingLocation: true, evidence: found })
+            ? [`${found.reason}: «${found.entity}» in «${found.line}»`] : [];
+        }),
         conflictHeadings: () => headingCandidates.filter((heading) => namesAnotherEmployer(heading, job, { allowPostingLocation: true })),
       });
     }
@@ -6625,6 +6794,7 @@ export function formPostingMatch(formText, job = {}, {
   // On the SuccessFactors tenant of the module the order entered (same host, session address included), a caption
   // that carries the order's role with ANOTHER requisition id is another vacancy, whatever the employer words say.
   if (successFactorsCaptionNamesOtherRequisition([...headingCandidates, ...requisitionSections], job, applyUrl, pageUrl)) return decide('requisition_mismatch');
+  if (successFactorsCaptionNamesOtherRole([...headingCandidates, ...requisitionSections], job, applyUrl, pageUrl)) return decide('requisition_role_mismatch');
   const explicitRoleConflict = roleHeading === 'unknown'
     && rawDirect === 'mismatch'
     && hasExplicitFormRoleHeading(formText, job);

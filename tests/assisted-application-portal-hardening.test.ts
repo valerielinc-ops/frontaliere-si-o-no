@@ -1591,7 +1591,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     const verified = isVerifiedPostingEntry({ applyUrl, postingUrl });
 
     expect(verified).toBe(true);
-    expect(namesAnotherEmployer(form, job)).toBe(true);
+    expect(namesAnotherEmployer(form, job)).toBe(false); // lower-case prose around the employer's name (its own questions) is no other employer
     expect(formPostingMatch(form, job, {
       postingMatched: verified,
       postingEntry: verified,
@@ -1643,7 +1643,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     ].join('\n');
     const verified = isVerifiedPostingEntry({ applyUrl: applicationUrl, postingUrl });
 
-    expect(namesAnotherEmployer(form, job)).toBe(true);
+    expect(namesAnotherEmployer(form, job)).toBe(false); // lower-case prose around the employer's name (its own questions) is no other employer
     expect(formPostingMatch(form, job, {
       postingMatched: verified,
       postingEntry: verified,
@@ -1815,8 +1815,9 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(formPostingMatch('Infermiera — Hospital application', { title: 'Infermiera', company: 'Clinica Esempio' }, { postingMatched: true })).toBe('match');
     // …but next to a word of the order's company it is a name: «Esempio Resort» is not «Grand Hotel Esempio».
     expect(formPostingMatch('Concierge — Esempio Resort', job, { postingMatched: true })).toBe('mismatch');
-    // A place in the title is a stop too (Valerie's retry goes on): never a guess about what the word is.
-    expect(viaPosting('Concierge | Pontresina')).toBe('mismatch');
+    // A bare place in the title is no organisation: it is not read as another employer (a legal form, «bei <Name>»… would be).
+    expect(namesAnotherEmployer('Concierge | Pontresina', job)).toBe(false);
+    expect(namesAnotherEmployer('Concierge | Pontresina AG', job)).toBe(true);
     // 2. Below the title, only the word next to a word of the order's company counts.
     expect(viaPosting('Concierge — Other Hotel', { ...job, company: 'Grand Hotel Esempio AG' })).toBe('mismatch');
     expect(viaPosting('Concierge\nWelcome to the Other Hotel careers page')).toBe('mismatch');
