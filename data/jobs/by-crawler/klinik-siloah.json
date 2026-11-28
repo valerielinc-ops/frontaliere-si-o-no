@@ -1,7 +1,7 @@
 {
   "crawlerKey": "klinik-siloah",
-  "assembledAt": "2026-11-28T09:21:38.609Z",
-  "runId": "46129319996",
+  "assembledAt": "2026-11-28T21:25:50.381Z",
+  "runId": "46190326540",
   "jobs": [
     {
       "id": "klinik-siloah-36afa7a5da3f",
@@ -36,7 +36,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000161057390-dipl-pflegefachperson-hf-fh-mit-berufsbildnerfunktion-80-100-",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:21:29.242Z",
+      "crawledAt": "2026-11-28T21:25:39.666Z",
       "addressLocality": "Muri bei Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:21:29.242Z",
+      "validThrough": "2027-02-09T21:25:39.666Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000162460319-dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:21:29.241Z",
+      "crawledAt": "2026-11-28T21:25:39.665Z",
       "addressLocality": "Muri bei Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -187,7 +187,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-17T09:21:29.241Z",
+      "validThrough": "2027-02-17T21:25:39.665Z",
       "validThroughSource": "last-observed-window"
     }
   ]
