@@ -22,6 +22,7 @@ import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { isSliceFile } from '../lib/crawler-slice-files.mjs';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 
@@ -87,7 +88,7 @@ export async function probeAssembleKeyInputsChanged(baseSha, head = 'HEAD') {
   });
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   try {
     const result = await probeAssembleKeyInputsChanged(process.argv[2], process.argv[3] || 'HEAD');
     process.stdout.write(`${JSON.stringify(result)}\n`);

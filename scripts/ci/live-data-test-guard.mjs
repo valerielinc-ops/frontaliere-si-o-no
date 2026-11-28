@@ -540,6 +540,13 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     reason: 'scansiona solo i file regolari di services/locales, tradotti a mano: i blog-meta e blog-body del corpus sono symlink e listFiles li salta con entry.isFile()',
   },
   {
+    file: 'tests/ci/assemble-key-inputs-changed.test.ts',
+    roots: ['data/job-canton-pins.json', 'data/jobs-crawler-summaries/', 'data/jobs.json', 'data/jobs/', 'data/url-first-seen/'],
+    since: '2026-11-28',
+    evidence: 'review',
+    reason: 'i letterali data/... sono solo stringhe passate a una funzione pura che confronta path; dal checkout il test legge soltanto il sorgente di assemble-jobs-dataset.mjs, mai i file in data/',
+  },
+  {
     file: 'tests/git-commit-data-decontamination.test.ts',
     roots: ['data/jobs/'],
     reason: 'il test crea le slice data/jobs/by-crawler solo sotto mkdtemp e passa quella root sintetica al loader; non legge le slice vive del checkout',
