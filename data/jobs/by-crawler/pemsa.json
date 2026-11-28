@@ -1746,7 +1746,7 @@
       },
       "slugByLocale": {
         "it": "elettricista-pemsa-lugano",
-        "en": "elettricista-pemsa-lugano",
+        "en": "electricity-pemsa-lugano",
         "de": "elettricista-pemsa-lugano",
         "fr": "elettricista-pemsa-lugano"
       },
@@ -1774,7 +1774,7 @@
       "firstSeenAt": "2026-08-06T11:37:56.117Z",
       "previousSlugsByLocale": {
         "en": [
-          "electricity-pemsa-lugano"
+          "elettricista-pemsa-lugano"
         ],
         "de": [
           "strom-pemsa-lugano"
@@ -1784,9 +1784,9 @@
         ]
       },
       "previousSlugs": [
-        "electricity-pemsa-lugano",
         "strom-pemsa-lugano",
-        "electricite-pemsa-lugano"
+        "electricite-pemsa-lugano",
+        "elettricista-pemsa-lugano"
       ],
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/elettricista-2707144"
     },
@@ -6969,7 +6969,7 @@
       },
       "slugByLocale": {
         "it": "installatore-di-impianti-di-ventilazione-pemsa-geneve",
-        "en": "installatore-di-impianti-di-ventilazione-pemsa-geneve",
+        "en": "installation-of-ventilation-systems-pemsa-geneve",
         "de": "installatore-di-impianti-di-ventilazione-pemsa-geneve",
         "fr": "installatore-di-impianti-di-ventilazione-pemsa-geneve"
       },
@@ -6997,7 +6997,7 @@
       "firstSeenAt": "2026-11-04T21:36:10.669Z",
       "previousSlugsByLocale": {
         "en": [
-          "installation-of-ventilation-systems-pemsa-geneve"
+          "installatore-di-impianti-di-ventilazione-pemsa-geneve"
         ],
         "de": [
           "installation-von-luftungssystemen-pemsa-geneve"
@@ -7007,9 +7007,9 @@
         ]
       },
       "previousSlugs": [
-        "installation-of-ventilation-systems-pemsa-geneve",
         "installation-von-luftungssystemen-pemsa-geneve",
-        "installation-des-systemes-de-ventilation-pemsa-geneve"
+        "installation-des-systemes-de-ventilation-pemsa-geneve",
+        "installatore-di-impianti-di-ventilazione-pemsa-geneve"
       ],
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-di-impianti-di-ventilazione-2706020"
     },
