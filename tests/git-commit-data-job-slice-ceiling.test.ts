@@ -21,6 +21,7 @@ const GUARD_PATH = resolve(ROOT, 'scripts/lib/main-push-guard.mjs');
 const BASH_BIN = ['/opt/homebrew/bin/bash', '/usr/local/bin/bash'].find(existsSync) ?? 'bash';
 const MONOLITH = 'data/jobs/expired/by-crawler/acme.json';
 const SHARD = 'data/jobs/expired/by-crawler/acme.shard-001.json';
+const SHARD_2 = 'data/jobs/expired/by-crawler/acme.shard-002.json';
 const CEILING = 6_000;
 
 const roots: string[] = [];
@@ -110,7 +111,7 @@ function commitData(repo: string, env: Record<string, string> = {}) {
 function published(origin: string) {
   const files = git(origin, 'ls-tree', '--name-only', 'main', 'data/jobs/expired/by-crawler/').split('\n').filter(Boolean);
   const byFile = files.map((file) => {
-    const raw = execFileSync('git', ['show', `main:${file}`], { cwd: origin });
+    const raw = execFileSync('git', ['show', `main:${file}`], { cwd: origin, maxBuffer: 16 * 1024 * 1024 });
     return { file, bytes: raw.length, rows: JSON.parse(raw.toString('utf8')) as Row[] };
   });
   return { byFile, rows: byFile.flatMap((entry) => entry.rows) };
@@ -146,6 +147,49 @@ describe('git-commit-data: whole-archive merge of the sharded expired archive', 
     const { rows } = published(origin);
     expect(slugs(rows)).toEqual(['posting-1', 'posting-2', 'posting-3']);
     expect(routes(rows.find((entry) => entry.slug === 'posting-3'))).toContain('local-old-route');
+  });
+
+  // Not --extra-only: the deleted shard reaches the script through the directory
+  // expansion, and the whole-archive merge must see it as deleted.
+  function threeFiles(deletedRow: Row = row(3)) {
+    const t = harness({ [MONOLITH]: [row(1), row(2)], [SHARD]: [deletedRow], [SHARD_2]: [row(4), row(5)] });
+    // The remote moves posting-5 to another file.
+    publish(t.other, { [MONOLITH]: [row(1), row(2), row(5)], [SHARD_2]: [row(4)] });
+    write(t.writer, SHARD_2, [withOldRoute(row(4), 'local-old-route'), row(5)]);
+    return t;
+  }
+
+  it('keeps the rows of a shard this writer deleted out of the published archive', () => {
+    const { origin, writer } = threeFiles();
+    rmSync(join(writer, SHARD));
+
+    const result = commitData(writer);
+    expect(result.status, result.log).toBe(0);
+    expect(result.log).toContain('whole-archive merge of acme');
+    const { rows } = published(origin);
+    expect(slugs(rows)).toEqual(['posting-1', 'posting-2', 'posting-4', 'posting-5']);
+    expect(routes(rows.find((entry) => entry.slug === 'posting-4'))).toContain('local-old-route');
+  });
+
+  it('does not read a shard the sparse checkout never materialised as deleted', () => {
+    const { origin, writer } = threeFiles();
+    git(writer, 'update-index', '--skip-worktree', SHARD);
+    rmSync(join(writer, SHARD));
+
+    const result = commitData(writer);
+    expect(result.status, result.log).toBe(0);
+    expect(result.log).toContain('whole-archive merge of acme');
+    expect(slugs(published(origin).rows)).toEqual(['posting-1', 'posting-2', 'posting-3', 'posting-4', 'posting-5']);
+  });
+
+  it('refuses a whole-archive merge in which a deleted file empties most of the archive', () => {
+    const { origin, writer } = threeFiles(row(3, { description: 'x'.repeat(1_400_000) }));
+    rmSync(join(writer, SHARD));
+
+    const result = commitData(writer);
+    expect(result.status, result.log).toBe(1);
+    expect(result.log).toContain('whole-archive merge failed for expired archive acme');
+    expect(slugs(published(origin).rows)).toContain('posting-3');
   });
 
   it('shards a merge whose two sides fit the ceiling but whose union does not', () => {

@@ -2682,6 +2682,26 @@ stage_isolated_blob() {
   fi
 }
 
+# A missing worktree file is a deletion only when git says so. A path the sparse
+# checkout never materialised is skip-worktree, not deleted: read as deleted, the
+# whole-archive merge would drop every row it holds.
+expired_file_deleted_since_checkout() {
+  local base_sha="$1" file_path="$2"
+  [[ "$(git ls-files -t -- "$file_path")" != "S "* ]] || return 1
+  [ -n "$(git diff --no-renames --name-only --diff-filter=D "$base_sha" -- "$file_path")" ]
+}
+
+# A deleted file skips the per-file integrity guard on this path, so judge the
+# whole archive: rows may leave it with their file, but not most of its bytes.
+guard_expired_archive_deletion() {
+  local locals="$1" key="$2" key_work="$3" label="$4"
+  awk -F '\t' -v key="$key" '
+    $2 == "absent" { name = $1; sub(/.*\//, "", name); sub(/(\.shard-[0-9]+)?\.json$/, "", name); if (name == key) found = 1 }
+    END { exit !found }
+  ' "$locals" || return 0
+  node "$(dirname "$0")/crawler-slice-integrity.mjs" "$label" "$key_work/remote.json" "$key_work/merged.json"
+}
+
 # The expired archive of a crawler is one logical array in several files. Redo
 # as a whole the keys the per-file merge above cannot handle exactly: a row that
 # changed file while both sides changed the archive, or a merged file above the
@@ -2705,7 +2725,7 @@ merge_expired_archives_in_index() {
       git check-ignore -q "$f" 2>/dev/null && continue
       blob="$(git hash-object -w -- "$f")" || return 1
     else
-      [ "$EXTRA_ONLY" = true ] || continue
+      [ "$EXTRA_ONLY" = true ] || expired_file_deleted_since_checkout "$base_sha" "$f" || continue
       blob=absent
     fi
     printf '%s\t%s\n' "$f" "$blob" >> "$scratch_root/locals.tsv"
@@ -2726,6 +2746,7 @@ merge_expired_archives_in_index() {
       merge_data_json_3way "$key_work/base.json" "$key_work/remote.json" "$key_work/local.json" \
       "$key_work/merged.json" url "$label" \
       || ! node "$(dirname "$0")/../ci/canonicalize-expired-archive-slice.mjs" "$key_work/merged.json" "$label" \
+      || ! guard_expired_archive_deletion "$scratch_root/locals.tsv" "$key" "$key_work" "$label" \
       || ! node "$helper" apply --key "$key" --remote "$remote_sha" --index "$index_file" --work "$scratch_root"; then
       echo "❌ grouped-isolated: whole-archive merge failed for expired archive ${key} — refusing to publish"
       return 1
