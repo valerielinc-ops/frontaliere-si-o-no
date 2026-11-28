@@ -2,7 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
 import { LIST_PROMPT_RE, extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { candidateAnswerForField, guardPlan, planPage } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { candidateForForm, portalRequirementsFromMissingRequired } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { candidateForForm, emptyRequiredAsQuestions, portalRequirementsFromMissingRequired } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import {
   educationLevelRank,
   platformCandidateFacts,
@@ -166,7 +166,7 @@ describe('Major and a free-text language row come from the CV', () => {
 
   it('asks Major exactly once when no title states a field, and not again once answered', () => {
     const snapshot = extract(emptyMajor(SUCCESSFACTORS_PROFILE_PAGE));
-    const education = [{ degree: 'Diploma di perito informatico', institution: 'Istituto tecnico', start: '2008', end: '2013' }];
+    const education = [{ degree: 'Diploma di Maturità', institution: 'Istituto tecnico', start: '2008', end: '2013' }];
     const { ids, plan } = asked(snapshot, person({ address: { ...base, street: 'Via Roma 12' }, education }));
     expect(ids.filter((id: string) => id.startsWith('portal_major'))).toHaveLength(1);
     const once = ids.find((id: string) => id.startsWith('portal_major'));
@@ -186,6 +186,17 @@ describe('Major and a free-text language row come from the CV', () => {
     expect(platformStudyField({ education: [{ degree: 'Laurea in Fisica' }, { degree: 'Laurea in Chimica' }] })).toBe('');
     expect(platformStudyField({ education: [{ degree: 'Laurea in Fisica' }, { degree: 'Laurea' }] })).toBe('');
     expect(platformStudyField({ education: [{ degree: 'Maturita scientifica' }, { degree: 'Laurea in Fisica' }] })).toBe('Fisica');
+    // A school diploma that writes its course gives the course; a typographic apostrophe stands for the accent.
+    const diploma = (degree: string) => platformStudyField({ education: [{ degree }] });
+    expect(diploma('Diploma di Maturita’ analista contabile finanziario')).toBe('analista contabile finanziario');
+    expect(diploma("Diploma di Maturità analista contabile finanziario, ITC Esempio, 2013")).toBe('analista contabile finanziario');
+    expect(diploma('Diploma di perito informatico')).toBe('informatico');
+    expect(diploma('Maturità scientifica')).toBe('scientifica');
+    expect(diploma('Diplôme d’ingénieur en génie civil')).toBe('génie civil');
+    expect(diploma('Matura (Kanton Zürich), Schwerpunkt Wirtschaft und Recht')).toBe('Wirtschaft und Recht');
+    expect(diploma('Bachelor of Arts in Storia')).toBe('Storia');
+    // «Maturità» alone, or with only the place and the year, names no field.
+    for (const bare of ['Maturità', 'Diploma di maturita’', 'Diploma di Maturità, 2013', 'Maturità conseguita nel 2013']) expect(diploma(bare)).toBe('');
     // «Diploma di …» names a title, not a field.
     expect(platformStudyField({ education: [{ degree: 'Diploma di perito informatico' }, { degree: 'Diploma di maturita' }] })).toBe('');
     expect(platformStudyField({ education: [] })).toBe('');
@@ -198,5 +209,36 @@ describe('Major and a free-text language row come from the CV', () => {
     expect(platformDefaultAnswer(row('Lingua'), facts)?.value).toBe('Italiano');
     // Outside a competency section a bare text «Language» is not provably a row.
     expect(platformDefaultAnswer({ ...row('Language'), context: 'Contact', addressContext: { section: 'Contact', owners: ['Contact'], unknown: false } }, facts)).toBeNull();
+  });
+});
+
+describe('Damiani «Major is required» (2026-11-28): a diploma with its course, nothing left silent', () => {
+  const emptyMajor = (html: string) => html.replace('value="Information technology"', 'value=""');
+  const education = [{ degree: 'Diploma di Maturita’ analista contabile finanziario', institution: '', start: '2008', end: '2013' }];
+
+  it('fills Major from the course written in the diploma and the level from the diploma', () => {
+    const snapshot = extract(emptyMajor(SUCCESSFACTORS_PROFILE_PAGE));
+    const { plan, ids } = asked(snapshot, person({ address: { ...base, street: 'Via Roma 12' }, education }));
+    const action = (domId: string) => plan.actions.find((item: any) => item.fieldId === byDom(snapshot, domId).id);
+    expect(action('major')).toMatchObject({ action: 'fill', value: 'analista contabile finanziario', source: 'policy_default' });
+    expect(action('education')).toMatchObject({ action: 'select', value: 'High School Diploma' });
+    expect(ids.some((id: string) => id.startsWith('portal_major') || id.startsWith('portal_education'))).toBe(false);
+  });
+
+  it('with only «Maturità» the empty Major becomes one question, never a missing action', () => {
+    const snapshot = extract(emptyMajor(SUCCESSFACTORS_PROFILE_PAGE));
+    const { plan, ids } = asked(snapshot, person({ address: { ...base, street: 'Via Roma 12' }, education: [{ degree: 'Diploma di Maturita’' }] }));
+    expect(plan.actions.find((item: any) => item.fieldId === byDom(snapshot, 'major').id)).toBeUndefined();
+    expect(ids.filter((id: string) => id.startsWith('portal_major'))).toHaveLength(1);
+  });
+
+  it('a required field still empty after the fill is turned into a candidate question by the runner recovery', () => {
+    const snapshot = extract(emptyMajor(SUCCESSFACTORS_PROFILE_PAGE));
+    const major = byDom(snapshot, 'major');
+    const items = emptyRequiredAsQuestions([major, { id: 'f9', kind: 'file', label: 'CV' }, { id: 'f10', inputType: 'password', label: 'Password' }]);
+    expect(items.map((item: any) => item.fieldId)).toEqual([major.id]);
+    const who = person({ address: { ...base, street: 'Via Roma 12' }, education: [{ degree: 'Diploma di Maturita’' }] });
+    const requirements: any = portalRequirementsFromMissingRequired(snapshot.fields, items, { candidate: who });
+    expect((requirements.questions || requirements).map((question: any) => question.applicationQuestion).filter((label: string) => /major/i.test(label))).toEqual(['* Major']);
   });
 });

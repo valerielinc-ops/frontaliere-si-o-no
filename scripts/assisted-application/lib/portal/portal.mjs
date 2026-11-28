@@ -11757,10 +11757,11 @@ async function typeOwnPassword({ page, snapshot, ctx, passwords, allowSaveInDryR
  * is never kept in the snapshot (`holdsValue` counts it empty), so we read only
  * non-empty presence (`files.length > 0` / `Boolean(value)`) on the DOM control.
  */
-export async function requiredLeftEmpty(page, uploaded = new Set(), uploadedKeyForField = null) {
+export async function requiredEmptyFields(page, uploaded = new Set(), uploadedKeyForField = null, { first = false } = {}) {
   const url = page.url();
   const snapshot = await extractFields(page, NAVIGATION);
   const fields = snapshot.fields || [];
+  const empty = [];
   for (const field of fields) {
     if (!field.required) continue;
     const uploadedKey = uploadedKeyForField ? uploadedKeyForField(field, fields, url) : uploadedPortalFieldKey(url, field);
@@ -11770,9 +11771,33 @@ export async function requiredLeftEmpty(page, uploaded = new Set(), uploadedKeyF
       : field.inputType === 'password'
         ? await locatorFor(page, field).evaluate((element) => Boolean(element.value), null, { timeout: 2000 }).catch(() => false)
         : holdsValue(field);
-    if (!filled) return true;
+    if (filled) continue;
+    empty.push(field);
+    if (first) break;
   }
-  return false;
+  return empty;
+}
+
+export async function requiredLeftEmpty(page, uploaded = new Set(), uploadedKeyForField = null) {
+  return (await requiredEmptyFields(page, uploaded, uploadedKeyForField, { first: true })).length > 0;
+}
+
+/**
+ * A required text or choice field still empty after the fill, as the candidate question the planner would have raised
+ * (a file or a password is another flow). A field the plan never saw (it appears after another one is chosen, or the
+ * planner skipped it) must reach the candidate, never end in a silent handoff (Damiani «Major is required», 2026-11-28).
+ */
+export function emptyRequiredAsQuestions(fields) {
+  return (Array.isArray(fields) ? fields : [])
+    .filter((field) => field?.kind !== 'file' && field?.inputType !== 'file' && field?.inputType !== 'password' && String(field?.label || '').trim())
+    .map((field) => ({
+      fieldId: field.id,
+      applicationQuestion: String(field.label).trim(),
+      question: String(field.label).trim(),
+      why: '',
+      type: Array.isArray(field.options) && field.options.length ? 'choice' : 'text',
+      options: Array.isArray(field.options) ? field.options : [],
+    }));
 }
 
 /**
@@ -14074,6 +14099,20 @@ export async function submitViaPortal(ctx) {
     };
     // The questions the decision engine already decided or left in this run: each is tried once.
     const engineTried = new Set();
+    // One deterministic replan of a page whose required fields stayed empty (the plan can fill them once the page shows them),
+    // then a question to the candidate for what is still empty; never a silent handoff while a question can be asked.
+    let requiredEmptyReplanUsed = false;
+    const requiredEmptyRecovery = async (current) => {
+      const empty = emptyRequiredAsQuestions(await requiredEmptyFields(page, uploaded,
+        (field, fields, url) => uploadKeyForField(field.id, fields, url, pageEpoch)));
+      if (!empty.length) return null;
+      if (!requiredEmptyReplanUsed) {
+        requiredEmptyReplanUsed = true;
+        return { snapshot: await awaitFields(page, await extractFields(page)) };
+      }
+      const request = await askCandidate(empty, current);
+      return request ? { result: request } : null;
+    };
     const askCandidate = async (questions, current = snapshot, { decide = false } = {}) => {
       const questionSnapshot = await snapshotWithPortalOptions(current);
       const requirements = portalRequirementsFromMissingRequired(questionSnapshot.fields, questions, {
@@ -15449,7 +15488,12 @@ export async function submitViaPortal(ctx) {
           step -= 1;
           continue;
         }
-        if (!['REACHED_FORM', 'READY_TO_SUBMIT'].includes(repair?.status)) return await handoff('portal_required_fields_unfilled');
+        if (!['REACHED_FORM', 'READY_TO_SUBMIT'].includes(repair?.status)) {
+          const recovered = await requiredEmptyRecovery(after);
+          if (recovered?.result) return recovered.result;
+          if (recovered?.snapshot) { snapshot = recovered.snapshot; step -= 1; continue; }
+          return await handoff('portal_required_fields_unfilled');
+        }
         if (repair.navigationOccurred || page.url() !== repairUrl) {
           pageEpoch += 1;
           snapshot = await awaitFields(page, await extractFields(page));
@@ -15458,6 +15502,9 @@ export async function submitViaPortal(ctx) {
         }
         after = await extractFields(page, NAVIGATION);
         if (await requiredLeftEmpty(page, uploaded, (field, fields, url) => uploadKeyForField(field.id, fields, url, pageEpoch))) {
+          const recovered = await requiredEmptyRecovery(after);
+          if (recovered?.result) return recovered.result;
+          if (recovered?.snapshot) { snapshot = recovered.snapshot; step -= 1; continue; }
           return await handoff('portal_required_fields_unfilled');
         }
         const repairedControls = await controlsFor(after, known);
