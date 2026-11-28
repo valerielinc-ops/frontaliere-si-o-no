@@ -31,7 +31,12 @@ import { isLegacyRouteCapRefusal } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
-import { deleteExpiredSlice, readExpiredSliceShards, writeExpiredSliceRows } from './lib/expired-slice-store.mjs';
+import {
+  deleteExpiredSlice,
+  readExpiredSliceShards,
+  rebalanceOversizeExpiredSlices,
+  writeExpiredSliceRows,
+} from './lib/expired-slice-store.mjs';
 import { readJsonFile } from './lib/read-large-json.mjs';
 // Route identity and history transfer now live with the archive WRITERS, which
 // need the same two primitives to stop emitting duplicate routes in the first
@@ -545,7 +550,11 @@ export function auditExpiredArchiveRouteOverlaps(slices) {
  * before an optional atomic write; the legacy-cap refusal remains reportable
  * and leaves that component untouched.
  */
-export function sweepExpiredArchiveSlices({ dir = EXPIRED_SLICES_DIR, apply = false } = {}) {
+export function sweepExpiredArchiveSlices({
+  dir = EXPIRED_SLICES_DIR,
+  apply = false,
+  ceilingOptions = {},
+} = {}) {
   const slices = listSliceFileNames(dir).map((file) => {
     const filePath = path.join(dir, file);
     let jobs;
@@ -689,6 +698,12 @@ export function sweepExpiredArchiveSlices({ dir = EXPIRED_SLICES_DIR, apply = fa
       activeRollbackJournal?.capture(slice.filePath);
       writeJsonAtomic(slice.filePath, slice.jobs);
     }
+    // A collapse moves routes onto the surviving row, possibly across files.
+    rebalanceOversizeExpiredSlices({
+      ...ceilingOptions,
+      dir,
+      onBeforeWrite: (file) => activeRollbackJournal?.capture(file),
+    });
   }
   return {
     filesScanned: slices.length,

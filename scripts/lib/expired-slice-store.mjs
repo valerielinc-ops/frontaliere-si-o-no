@@ -320,6 +320,34 @@ function unchangedOnDisk(filePath, rows) {
 }
 
 /**
+ * Re-place the rows of every crawler that has a file above the ceiling on disk.
+ *
+ * For the writers that rewrite ONE expired file in place (the route sweep and
+ * the assembler's route repair): they add routes to a row without going through
+ * `writeExpiredSliceRows`, and a monolith the store spilled sits right under
+ * the ceiling. Call it after the last in-place write, with the whole directory
+ * in the commit (a spill can open a new shard). Files under the ceiling are not
+ * read.
+ *
+ * @returns {Array<{ key: string, written: string[] }>}
+ */
+export function rebalanceOversizeExpiredSlices(opts = {}) {
+  const dir = opts.dir || DEFAULT_EXPIRED_SLICES_DIR;
+  const hardCeiling = opts.hardCeilingBytes ?? EXPIRED_SLICE_SIZE_LIMIT_BYTES;
+  const keys = new Set();
+  for (const name of listNames(dir)) {
+    const key = expiredSliceKeyOf(name);
+    if (key && fs.statSync(path.join(dir, name)).size > hardCeiling) keys.add(key);
+  }
+  return [...keys].sort().map((key) => {
+    const existing = readExpiredSliceShards(key, { dir });
+    const rows = existing.flatMap((shard) => shard.rows);
+    const { written } = writeExpiredSliceRows(key, rows, { ...opts, dir, existing });
+    return { key, written };
+  });
+}
+
+/**
  * Lossless offline migration: split the monolith `<key>.json` into
  * `<key>.shard-001.json`… (contiguous chunks, same order, each within the
  * target) and remove the monolith. Reading the key before and after returns

@@ -27,10 +27,13 @@ import {
   listExpiredSliceKeys,
   readExpiredSliceRows,
   readExpiredSliceShards,
+  rebalanceOversizeExpiredSlices,
   splitExpiredSliceMonolith,
   writeExpiredSliceRows,
 } from '../../scripts/lib/expired-slice-store.mjs';
 import { archiveRemovedJobsToSlice, readExpiredSlice } from '../../scripts/lib/expired-jobs-archive.mjs';
+import { sweepExpiredArchiveSlices } from '../../scripts/reconcile-crawler-company-ownership.mjs';
+import { repairExpiredArchiveSlicesAgainstActive } from '../../scripts/assemble-jobs-dataset.mjs';
 import { FileSizeCeilingError } from '../../scripts/lib/assert-file-size-ceiling.mjs';
 import { EXPIRED_SLICE_SIZE_LIMIT_BYTES } from '../../scripts/lib/related-search-output-limit.mjs';
 import { listJobsSeoExpiredSliceFiles } from '../../build-plugins/shared/jobsSeoDeterministicInputs';
@@ -277,6 +280,58 @@ describe('expired slice writer', () => {
     })).toThrow(FileSizeCeilingError);
     expect(filesOf(dir)).toEqual(['coop-ticino.json']);
     expect(fs.readFileSync(path.join(dir, 'coop-ticino.json'), 'utf8')).toBe(before);
+  });
+});
+
+describe('per-file writers and the ceiling', () => {
+  // Rows are ~600 bytes: five fit under the ceiling, six do not.
+  const rows = (from: number, count: number) => Array.from(
+    { length: count },
+    (_, n) => entry(from + n, 'x'.repeat(300)),
+  );
+  const bytes = (list: unknown[]) => Buffer.byteLength(`${JSON.stringify(list, null, 2)}\n`);
+  const limits = () => {
+    const ceiling = bytes(rows(0, 5)) + 100;
+    return { hardCeilingBytes: ceiling, shardTargetBytes: ceiling - 100 };
+  };
+  const slugs = (list: Array<{ slug: string }>) => list.map((row) => row.slug).sort();
+  const expectRebalanced = (dir: string, expected: Array<{ slug: string }>) => {
+    for (const name of filesOf(dir)) {
+      expect(fs.statSync(path.join(dir, name)).size).toBeLessThanOrEqual(limits().hardCeilingBytes);
+    }
+    expect(slugs(readExpiredSliceRows('coop-ticino', { dir }))).toEqual(slugs(expected));
+  };
+
+  it('spills a file another writer left above the ceiling, losing no row', () => {
+    const dir = tmpExpiredDir();
+    writeRaw(dir, 'coop-ticino.json', rows(0, 8));
+    writeRaw(dir, 'roche.json', [entry(90)]);
+    const untouched = fs.readFileSync(path.join(dir, 'roche.json'), 'utf8');
+
+    expect(rebalanceOversizeExpiredSlices({ dir, ...limits() }).map((r) => r.key)).toEqual(['coop-ticino']);
+    expectRebalanced(dir, rows(0, 8));
+    expect(filesOf(dir)).toEqual(['coop-ticino.json', 'coop-ticino.shard-001.json', 'roche.json']);
+    expect(fs.readFileSync(path.join(dir, 'roche.json'), 'utf8')).toBe(untouched);
+    expect(rebalanceOversizeExpiredSlices({ dir, ...limits() })).toEqual([]);
+  });
+
+  it('the route sweep leaves no file above the ceiling when it applies', () => {
+    const dir = tmpExpiredDir();
+    writeRaw(dir, 'coop-ticino.json', rows(0, 8));
+    const before = fs.readFileSync(path.join(dir, 'coop-ticino.json'), 'utf8');
+
+    sweepExpiredArchiveSlices({ dir, apply: false, ceilingOptions: limits() });
+    expect(fs.readFileSync(path.join(dir, 'coop-ticino.json'), 'utf8')).toBe(before);
+    sweepExpiredArchiveSlices({ dir, apply: true, ceilingOptions: limits() });
+    expectRebalanced(dir, rows(0, 8));
+  });
+
+  it('the assembler route repair leaves no file above the ceiling', () => {
+    const dir = tmpExpiredDir();
+    writeRaw(dir, 'coop-ticino.json', rows(0, 8));
+
+    repairExpiredArchiveSlicesAgainstActive([], { sliceDir: dir, ceilingOptions: limits() });
+    expectRebalanced(dir, rows(0, 8));
   });
 });
 
