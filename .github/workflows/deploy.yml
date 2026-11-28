@@ -700,8 +700,10 @@ jobs:
       # `deploy-host/<locale>`. Campi e lettura nello script. Il token resta
       # nell'ambiente di questo step: gli step di build non lo vedono.
       # Spegnimento: variabile di repository DEPLOY_HOST_HEARTBEAT=0.
+      # format() confronta stringhe: con `vars.X != '0'` una variabile assente
+      # (null → 0, come '0') faceva saltare lo step (run 46169147819).
       - name: Start off-runner host heartbeat
-        if: vars.DEPLOY_HOST_HEARTBEAT != '0'
+        if: format('{0}', vars.DEPLOY_HOST_HEARTBEAT) != '0'
         continue-on-error: true
         env:
           HEARTBEAT_TOKEN: ${{ github.token }}
