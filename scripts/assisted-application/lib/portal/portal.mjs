@@ -11900,6 +11900,14 @@ export async function requiredEmptyFields(page, uploaded = new Set(), uploadedKe
   return empty;
 }
 
+/** Why a required field counts as unfilled, without its value: the caption and a reason, for the run's evidence. */
+export function requiredEmptyDetail(field) {
+  const kind = field?.kind === 'file' || field?.inputType === 'file' ? 'file_not_attached'
+    : field?.inputType === 'password' ? 'password_empty'
+      : !String(field?.value || '').trim() ? 'empty' : 'value_not_recognised';
+  return { label: String(field?.label || field?.name || field?.id || '').replace(/\s+/g, ' ').trim().slice(0, 80), kind: String(field?.kind || ''), reason: kind };
+}
+
 export async function requiredLeftEmpty(page, uploaded = new Set(), uploadedKeyForField = null) {
   return (await requiredEmptyFields(page, uploaded, uploadedKeyForField, { first: true })).length > 0;
 }
@@ -15677,8 +15685,11 @@ export async function submitViaPortal(ctx) {
       // A normal send button is not evidence that the portal form is complete.
       // Let the agent repair any required fields the deterministic fill missed;
       // never click Send while a required answer or upload is still empty.
-      if (await requiredLeftEmpty(page, uploaded, (field, fields, url) => uploadKeyForField(field.id, fields, url, pageEpoch))) {
+      const unfilledNow = await requiredEmptyFields(page, uploaded, (field, fields, url) => uploadKeyForField(field.id, fields, url, pageEpoch));
+      if (unfilledNow.length) {
+        // The flag and the named fields are this check's own reading of the page, never a value kept from a step before.
         evidence.steps.at(-1).requiredFieldsUnfilled = true;
+        evidence.steps.at(-1).requiredFieldsUnfilledFields = unfilledNow.slice(0, 12).map(requiredEmptyDetail);
         const repairUrl = page.url();
         // Required autocompletes whose suggestions were read and did not hold the answer go straight to the candidate: the
         // agent only retyped the same text for 24 rounds (Damiani «Major», 2026-11-28).
@@ -15711,7 +15722,10 @@ export async function submitViaPortal(ctx) {
           continue;
         }
         after = await extractFields(page, NAVIGATION);
-        if (await requiredLeftEmpty(page, uploaded, (field, fields, url) => uploadKeyForField(field.id, fields, url, pageEpoch))) {
+        const unfilledAfterRepair = await requiredEmptyFields(page, uploaded, (field, fields, url) => uploadKeyForField(field.id, fields, url, pageEpoch));
+        evidence.steps.at(-1).requiredFieldsUnfilled = unfilledAfterRepair.length > 0;
+        evidence.steps.at(-1).requiredFieldsUnfilledFields = unfilledAfterRepair.slice(0, 12).map(requiredEmptyDetail);
+        if (unfilledAfterRepair.length) {
           const recovered = await requiredEmptyRecovery(after);
           if (recovered?.result) return recovered.result;
           if (recovered?.snapshot) { snapshot = recovered.snapshot; step -= 1; continue; }
