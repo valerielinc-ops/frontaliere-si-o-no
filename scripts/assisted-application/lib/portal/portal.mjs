@@ -1,5 +1,6 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { APPLICATION_EXISTS_REASON, applicationExistsRoute, vacancyBoundToOrder } from '../../../../functions/src/lib/applicationExistsReconciliation.js';
+import { isRateLimitStatus, parseRetryAfterMs } from '../../../../functions/src/lib/retryAfter.js';
 import { hasAddressContextOwnership } from '../../../../functions/src/lib/addressContextContract.js';
 import { isPhotoRequirement } from '../../../../functions/src/lib/assistedApplicationDocumentKind.js';
 import { PORTAL_QUESTION_PLACEHOLDERS, readablePortalQuestionText, portalQuestionText } from '../../../../functions/src/lib/portalQuestionText.js';
@@ -3069,6 +3070,17 @@ export function hasApplicationSurface(snapshot, { pageUrl = '', postingUrl = '',
  * that the application belongs to a different posting. Challenges take the
  * CAPTCHA handoff; only the confirmed IP block takes the egress recovery lane.
  */
+/** `{ retryAfterMs }` when a main-document response is the site limiting the rate (429, or 503 with Retry-After). */
+export function portalRateLimitOf(response) {
+  try {
+    const status = Number(response?.status?.());
+    const retryAfter = response?.headers?.()?.['retry-after'];
+    return isRateLimitStatus(status, String(retryAfter ?? '')) ? { retryAfterMs: parseRetryAfterMs(retryAfter) } : null;
+  } catch {
+    return null;
+  }
+}
+
 export function initialPortalHandoffReason({ snapshot = {}, liveness = {} } = {}) {
   if (liveness?.code === 'runner_ip_blocked') return 'application_region_unsupported';
   return snapshot?.captcha || liveness?.code === 'bot_challenge' ? 'captcha' : null;
@@ -13065,6 +13077,12 @@ export async function readPortalQuestions(ctx) {
 // stopped under four different reasons). handoff() reports them as the gate
 // when the page states it.
 const REGION_GATED_STOPS = new Set(['portal_control_click_unresolved', 'cookie_preferences_unresolved']);
+// The stops a page that never loaded produces (HTTP 429 on its main document): reported as the limit that caused
+// them, which the retry ladder clears, never as an unknown page (run of 2026-11-28: `application_stage_unknown`).
+const RATE_LIMITED_PAGE_STOPS = new Set([
+  'posting_mismatch', 'application_stage_unknown', 'posting_unbound', 'portal_reader_failed',
+  'portal_control_click_unresolved', 'cookie_preferences_unresolved', 'portal_needs_candidate', 'unclear_fields',
+]);
 // Stops that a posting closed meanwhile also produces: the page the portal shows after the registration or
 // a navigation is its own «this job can no longer be applied for», which reads as another posting, as no
 // application stage, or (with no form control left) as a page for the candidate. The closure is the cause
@@ -13233,6 +13251,14 @@ export async function submitViaPortal(ctx) {
     // banner. Report the cause, which another runner can clear, not its symptom.
     if (REGION_GATED_STOPS.has(reason) && page && evidence.steps.length === 0
       && isApplicationRegionUnsupported(await pageText(page).catch(() => ''))) reason = 'application_region_unsupported';
+    // The main document answered 429 (or 503 with Retry-After) and no later page loaded: that is why the page is
+    // unknown. Nothing was clicked, so it is a transient limit of the site, not a stop of the application.
+    const pageRateLimit = evidence.diagnostics?.rateLimit;
+    if (pageRateLimit && RATE_LIMITED_PAGE_STOPS.has(reason) && !Number.isSafeInteger(finalClickAttempt)) {
+      reason = 'portal_rate_limited';
+      if (!metadata.retryAfterMs && pageRateLimit.retryAfterMs) metadata = { ...metadata, retryAfterMs: pageRateLimit.retryAfterMs };
+      evidence.rateLimit = { host: pageRateLimit.host, path: pageRateLimit.path, status: pageRateLimit.status };
+    }
     reason = portalHandoffReason(reason, {
       diagnostics: evidence.diagnostics,
       attempt: diagnostics?.currentAttempt(),
@@ -13243,7 +13269,7 @@ export async function submitViaPortal(ctx) {
       // What a fixer needs to teach the runner this page (level 3); a CAPTCHA
       // is no code fix, nor is a regional gate on the runner's IP (#17112 and
       // #17132 tried to click through it): the retry ladder owns that one.
-      if (!['captcha', 'captcha_provider_unavailable', 'application_region_unsupported'].includes(reason)) {
+      if (!['captcha', 'captcha_provider_unavailable', 'application_region_unsupported', 'portal_rate_limited'].includes(reason)) {
         const seen = await extractFields(page, NAVIGATION).catch(() => null);
         // Only the stable name of the binding guard goes public; its inputs stay in the encrypted evidence.
         const bindingGuard = reason === 'posting_unbound'
@@ -13254,6 +13280,7 @@ export async function submitViaPortal(ctx) {
     }
     const failure = serializeAccountFailure(metadata.accountFailure);
     return { event: { type: 'submit_handoff', reason, ...(failure ? { accountFailure: failure } : {}),
+      ...(reason === 'portal_rate_limited' && metadata.retryAfterMs ? { retryAfterMs: metadata.retryAfterMs } : {}),
       ...(metadata.applicationExists ? { applicationExists: metadata.applicationExists } : {}) }, evidence };
   };
   // The portal's own «you already applied to this vacancy» route (lib/applicationExistsReconciliation.js). It says
@@ -13478,6 +13505,10 @@ export async function submitViaPortal(ctx) {
     await diagnostics.beginAttempt();
     let response = await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     workdayApplicationEntryProven = isWorkdayApplicationRouteBound(entryUrl, ctx.applyUrl);
+    // The entry page answered HTTP 429 (or 503 with Retry-After): the site is limiting us. Stop here, before any
+    // search, goto or click that would only lengthen the limit; the retry ladder comes back later.
+    const entryRateLimit = portalRateLimitOf(response);
+    if (entryRateLimit) return await handoff('portal_rate_limited', entryRateLimit);
     await settle(page);
     const initialChallenge = await passAssistedPortalChallenge(page, browser, log);
     if (!initialChallenge.passed) return await handoff('captcha');
@@ -14339,6 +14370,9 @@ export async function submitViaPortal(ctx) {
     };
 
     const runNavigationRecovery = async (current, hint, existingAgent = null, { diversionRetry = false } = {}) => {
+      // The page in front of the runner never loaded because of a rate limit: no agent step, search or goto
+      // may follow; it would only lengthen the limit.
+      if (evidence.diagnostics?.rateLimit && !Number.isSafeInteger(finalClickAttempt)) return { result: await handoff('portal_rate_limited') };
       const sourcePage = page;
       const sourceUrl = page.url();
       const agent = existingAgent || await runAgent(current, hint);

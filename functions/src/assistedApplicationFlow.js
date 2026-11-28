@@ -35,7 +35,7 @@ import { operationalDefaultAnswer, withOperationalQuestionAnswers } from './assi
 import { portalCodeVersion } from './assistedApplicationPortalRecoveryPolicy.js';
 import { openRequiredDocuments, requiredDocumentsFor } from './assistedApplicationExtraDocuments.js';
 import { sendOutcomeUnconfirmed } from './lib/applicationExistsReconciliation.js';
-import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalAutoRetryCountValue, portalExhaustedRecoveryPending, portalFinalReviewAmbiguousRecoveryPending, portalRetryDueAt, PORTAL_AUTO_RETRY_DELAYS_MS as PORTAL_RETRY_DELAYS, PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION, SWISS_EGRESS_NETWORK_RECOVERY_VERSION, TRANSPORT_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
+import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, isRateLimitRetryHold, rateLimitRetryCountValue, RATE_LIMIT_RETRY_AFTER_CAP_MS, portalAutoRetryCountValue, portalExhaustedRecoveryPending, portalFinalReviewAmbiguousRecoveryPending, portalRetryDueAt, PORTAL_AUTO_RETRY_DELAYS_MS as PORTAL_RETRY_DELAYS, PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION, SWISS_EGRESS_NETWORK_RECOVERY_VERSION, TRANSPORT_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
 import { DRAFT_AUTO_RETRY_MAX_ATTEMPTS, draftAutoRetryAttemptsRemaining, draftAutoRetryCountValue, draftRetryDelayMs, draftRetryDueAt, draftRetryMaxAttempts, isCodexUsageLimitError } from './assistedApplicationDraftRetryPolicy.js';
 import { codexBrokerInfrastructureFailure } from './assistedApplicationTransportRetryPolicy.js';
 import { dispatchRecoveryCountValue, dispatchRecoveryDueAt } from './assistedApplicationDispatchRetryPolicy.js';
@@ -525,6 +525,7 @@ function base(flow) {
     ...(portalCodeVersion(flow?.portalExhaustedRecoveryVersion)
       ? { portalExhaustedRecoveryVersion: portalCodeVersion(flow.portalExhaustedRecoveryVersion) } : {}),
     transportAutoRetryCount: Number(flow?.transportAutoRetryCount) || 0,
+    portalRateLimitRetryCount: Number(flow?.portalRateLimitRetryCount) || 0,
     ...(networkFailures.length ? { swissEgressNetworkFailures: networkFailures } : {}),
     factRepairAttempts: Number(flow?.factRepairAttempts) || 0,
   };
@@ -880,15 +881,26 @@ function portalTakeover(next, current, event, nowMs, attemptsOverride = null) {
   const prefix = reason === 'email_provider_unavailable' || reason.startsWith('codex_') ? 'transport' : 'portal';
   next.heldBy = [`${prefix}:${reason.slice(0, 60)}`];
   const infrastructure = isInfrastructureRetryHold(next);
-  const attempts = Number(infrastructure ? current.transportAutoRetryCount : current.portalAutoRetryCount) || 0;
+  // A site that answered HTTP 429 has its own slow ladder (30 min, 2 h, 6 h) with its own consecutive count: the
+  // fourth 429 in a row has no step left and is the owner's. Any other stop starts that count again.
+  const rateLimited = isRateLimitRetryHold(next);
+  const rateLimitAttempts = rateLimited ? (rateLimitRetryCountValue(current) ?? Number.MAX_SAFE_INTEGER) : 0;
+  if (!rateLimited) next.portalRateLimitRetryCount = 0;
+  const attempts = rateLimited ? rateLimitAttempts
+    : Number(infrastructure ? current.transportAutoRetryCount : current.portalAutoRetryCount) || 0;
   const delays = autoRetryDelaysForFlow(next);
-  const delay = delays[infrastructure ? Math.min(attempts, delays.length - 1) : attempts];
+  let delay = delays[infrastructure ? Math.min(attempts, delays.length - 1) : attempts];
+  // The site said when to come back: wait at least that long, never less than the ladder step.
+  if (rateLimited && delay) {
+    const retryAfterMs = Math.min(Math.max(Number(event.retryAfterMs) || 0, 0), RATE_LIMIT_RETRY_AFTER_CAP_MS);
+    delay = Math.max(delay, retryAfterMs);
+  }
   next.portalAutoRetryAt = isAutoRetryablePortalHold(next) && delay
     ? nowMs + delay
     : null;
   // Infrastructure retries continue after the short backoff ladder. Notify
   // operations once, without handing every affected application to a human.
-  if (next.portalAutoRetryAt && infrastructure && attempts !== delays.length) return null;
+  if (next.portalAutoRetryAt && (infrastructure || rateLimited) && attempts !== delays.length) return null;
   return {
     type: 'email',
     kind: 'owner_takeover',
@@ -1251,6 +1263,7 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       if ((sendMayHaveLeft || ambiguousSendOpen || sendOutcomeUnconfirmed(current)) && event.confirmedNotSent !== true) return ignore('send_outcome_unconfirmed');
       next.ambiguousSubmit = null;
       next.portalAutoRetryAt = null;
+      next.portalRateLimitRetryCount = 0; // the owner's retry starts the rate-limit ladder again
       effects = enterSubmitting(next, 'owner_retry');
       break;
     case 'portal_auto_retry': {
@@ -1265,11 +1278,14 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       // by itself while the outcome of a send is unconfirmed.
       if ((sendMayHaveLeft || ambiguousSendOpen || sendOutcomeUnconfirmed(current)) && !portalFinalReviewAmbiguousRecoveryPending(current)) return ignore('send_outcome_unconfirmed');
       const infrastructure = isInfrastructureRetryHold(current);
-      const attempts = Number(infrastructure ? current.transportAutoRetryCount : current.portalAutoRetryCount) || 0;
-      if (!infrastructure && attempts >= autoRetryDelaysForFlow(current).length
+      const rateLimited = isRateLimitRetryHold(current);
+      const counterField = rateLimited ? 'portalRateLimitRetryCount' : infrastructure ? 'transportAutoRetryCount' : 'portalAutoRetryCount';
+      const attempts = Number(current[counterField]) || 0;
+      if (rateLimited && attempts >= autoRetryDelaysForFlow(current).length) return ignore('portal_retry_limit');
+      if (!infrastructure && !rateLimited && attempts >= autoRetryDelaysForFlow(current).length
         && !portalExhaustedRecoveryPending(current) && !portalFinalReviewAmbiguousRecoveryPending(current)) return ignore('portal_retry_limit');
       if (!Number.isSafeInteger(attempts) || attempts < 0) return ignore('invalid_retry_count');
-      next[infrastructure ? 'transportAutoRetryCount' : 'portalAutoRetryCount'] = attempts + 1;
+      next[counterField] = attempts + 1;
       next.portalAutoRetryAt = null;
       effects = enterSubmitting(next, 'portal_auto_retry');
       break;
