@@ -26,7 +26,9 @@ function makeHarness({ runs = [], caches = () => [] } = {}) {
     warning: vi.fn(),
   };
   const context = { repo: { owner: 'example', repo: 'jobs' } };
-  return { github, core, context, outputs };
+  // Probe iniettata di default: i test non lanciano il sotto-processo reale.
+  const keyInputsChanged = vi.fn(async () => ({ changed: false, path: null }));
+  return { github, core, context, outputs, keyInputsChanged };
 }
 
 describe('waitForMainAssembleCache', () => {
@@ -118,5 +120,51 @@ describe('waitForMainAssembleCache', () => {
     expect(ready).toBe(false);
     expect(harness.outputs.get('cache_ready')).toBe('false');
     expect(harness.github.rest.actions.listWorkflowRunsForRepo).not.toHaveBeenCalled();
+  });
+
+  describe('key input probe', () => {
+    it('does not wait when the PR changes an input of the cache key', async () => {
+      const harness = makeHarness({ runs: [MAIN_SEED] });
+      const keyInputsChanged = vi.fn(async () => ({ changed: true, path: 'scripts/assemble-jobs-dataset.mjs' }));
+
+      const ready = await waitForMainAssembleCache({ ...harness, cacheKey: CACHE_KEY, baseSha: BASE_SHA, keyInputsChanged });
+
+      expect(ready).toBe(false);
+      expect(keyInputsChanged).toHaveBeenCalledWith(BASE_SHA);
+      expect(harness.outputs.get('cache_ready')).toBe('false');
+      expect(harness.github.rest.actions.getActionsCacheList).not.toHaveBeenCalled();
+      expect(harness.core.info).toHaveBeenCalledWith(expect.stringContaining('scripts/assemble-jobs-dataset.mjs'));
+    });
+
+    it('waits as before when no key input changed', async () => {
+      const harness = makeHarness({ runs: [MAIN_SEED], caches: () => [{ key: CACHE_KEY }] });
+      const keyInputsChanged = vi.fn(async () => ({ changed: false, path: null }));
+
+      const ready = await waitForMainAssembleCache({ ...harness, cacheKey: CACHE_KEY, baseSha: BASE_SHA, keyInputsChanged });
+
+      expect(ready).toBe(true);
+      expect(keyInputsChanged).toHaveBeenCalledTimes(1);
+      expect(harness.github.rest.actions.getActionsCacheList).toHaveBeenCalledTimes(1);
+    });
+
+    it('fails open and waits when the probe throws', async () => {
+      const harness = makeHarness({ runs: [MAIN_SEED], caches: () => [{ key: CACHE_KEY }] });
+      const keyInputsChanged = vi.fn(async () => { throw new Error('git exploded'); });
+
+      const ready = await waitForMainAssembleCache({ ...harness, cacheKey: CACHE_KEY, baseSha: BASE_SHA, keyInputsChanged });
+
+      expect(ready).toBe(true);
+      expect(harness.github.rest.actions.getActionsCacheList).toHaveBeenCalledTimes(1);
+      expect(harness.core.info).toHaveBeenCalledWith(expect.stringContaining('git exploded'));
+    });
+
+    it('does not run the probe when no main run is in flight', async () => {
+      const harness = makeHarness();
+      const keyInputsChanged = vi.fn(async () => ({ changed: true, path: 'x' }));
+
+      await waitForMainAssembleCache({ ...harness, cacheKey: CACHE_KEY, baseSha: BASE_SHA, keyInputsChanged });
+
+      expect(keyInputsChanged).not.toHaveBeenCalled();
+    });
   });
 });
