@@ -10,6 +10,7 @@
  * Source: https://fusalp.welcomekit.co/
  */
 import { createHash } from 'node:crypto';
+import { JSDOM } from 'jsdom';
 import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -131,25 +132,34 @@ async function fetchPage(url) {
 
 /**
  * Parse the listing page HTML to extract job URLs and titles.
+ *
+ * WelcomeKit serves `<li class="jobs-list-item" data-office=...>` with extra
+ * attributes and double quotes (a regex on `class='jobs-list-item'` matched
+ * zero cards). A real HTML parser is independent of quote style, attribute
+ * order and nested `<li>` details. Contract comes from
+ * `.jobs-list-item-contract-type`.
  */
-function parseListingPage(html) {
-  const items = html.match(/<li\s+class='jobs-list-item'[\s\S]*?<\/li>/g) || [];
+export function parseListingPage(html = '') {
+  const document = new JSDOM(String(html || '')).window.document;
   const jobs = [];
 
-  for (const item of items) {
-    const hrefMatch = item.match(/href="([^"]+)"/);
-    const titleMatch = item.match(/<h3[^>]*>([\s\S]*?)<\/h3>/);
-    const contractMatch = item.match(/jobs-list-item-contract['"]\s*>([\s\S]*?)</);
-
-    if (hrefMatch && titleMatch) {
-      jobs.push({
-        path: hrefMatch[1],
-        title: normalizeSpace(stripHtml(titleMatch[1])),
-        contract: contractMatch ? normalizeSpace(stripHtml(contractMatch[1])) : '',
-      });
-    }
+  for (const item of document.querySelectorAll('li.jobs-list-item')) {
+    const href = item.querySelector('a[href]')?.getAttribute('href') || '';
+    const title = normalizeSpace(item.querySelector('.jobs-list-item-title, h3')?.textContent || '');
+    const contract = normalizeSpace(item.querySelector('.jobs-list-item-contract-type')?.textContent || '');
+    if (href && title) jobs.push({ path: href, title, contract });
   }
 
+  return jobs;
+}
+
+function attachFetchMetadata(jobs, { discoveredCount, fetchOutcome } = {}) {
+  if (Number.isFinite(discoveredCount)) {
+    Object.defineProperty(jobs, 'discoveredCount', { value: discoveredCount, enumerable: false, configurable: true });
+  }
+  if (fetchOutcome) {
+    Object.defineProperty(jobs, 'fetchOutcome', { value: fetchOutcome, enumerable: false, configurable: true });
+  }
   return jobs;
 }
 
@@ -248,13 +258,16 @@ export async function fetchAllFusalpJobs() {
 
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings found on WelcomeKit page.');
-    return [];
+    return attachFetchMetadata([], { discoveredCount: 0, fetchOutcome: 'selector_miss' });
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
 
   // Step 2: Fetch each detail page for JSON-LD
   const jobs = [];
+  // Every card must be observed (detail fetched, country read) and found
+  // non-Swiss before an empty result may claim `filtered_empty`.
+  let nonSwissObserved = 0;
   for (const listing of listings) {
     const detailUrl = `${CAREER_URL}${listing.path}`;
     console.log(`  📄 Fetching detail: ${listing.title}`);
@@ -285,6 +298,7 @@ export async function fetchAllFusalpJobs() {
       // Skip non-Swiss jobs — this is a Swiss frontaliere board
       if (country !== 'CH') {
         console.log(`  ⏭️  Skipped non-Swiss: ${listing.title} in ${city}, ${country || '?'}`);
+        if (addressCountry) nonSwissObserved += 1;
         await new Promise((r) => setTimeout(r, 500));
         continue;
       }
@@ -357,5 +371,9 @@ export async function fetchAllFusalpJobs() {
   }
 
   console.log(`\n📋 Total Fusalp jobs discovered: ${jobs.length}`);
-  return jobs;
+  const allFiltered = jobs.length === 0 && nonSwissObserved === listings.length;
+  return attachFetchMetadata(jobs, {
+    discoveredCount: listings.length,
+    ...(allFiltered ? { fetchOutcome: 'filtered_empty' } : {}),
+  });
 }
