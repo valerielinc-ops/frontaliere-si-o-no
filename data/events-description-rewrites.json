@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-28T18:59:24.263Z",
+  "generatedAt": "2026-11-28T19:44:59.719Z",
   "model": "gpt-6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -18822,6 +18822,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T22:30:24.098Z"
     },
+    "ge-agenda:pablo-benzo-different-measure-time-exposition-solo::79da20a5ac5f4ecd6e1d63a6301824d4a6d66abcc6195f643597e4389681e4d4": {
+      "id": "ge-agenda:pablo-benzo-different-measure-time-exposition-solo",
+      "sourceDescriptionHash": "79da20a5ac5f4ecd6e1d63a6301824d4a6d66abcc6195f643597e4389681e4d4",
+      "description": "A Ginevra, L’Appartement presenta una mostra dedicata a Pablo Benzo. È la sua prima esposizione personale in galleria.",
+      "descriptionByLocale": {
+        "it": "A Ginevra, L’Appartement presenta una mostra dedicata a Pablo Benzo. È la sua prima esposizione personale in galleria.",
+        "en": "In Geneva, L’Appartement presents an exhibition devoted to Pablo Benzo. It is his first solo exhibition at the gallery.",
+        "de": "In Genf zeigt L’Appartement eine Ausstellung mit Arbeiten von Pablo Benzo. Es ist seine erste Einzelausstellung in der Galerie.",
+        "fr": "À Genève, L’Appartement présente une exposition consacrée à Pablo Benzo. Il s’agit de sa première exposition personnelle dans cette galerie."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T19:20:19.744Z"
+    },
     "ge-agenda:pages-0::972a65c7f449cd3b1cfe21ec9860895941770c81f0c1f59eedd7bb197af42a0a": {
       "id": "ge-agenda:pages-0",
       "sourceDescriptionHash": "972a65c7f449cd3b1cfe21ec9860895941770c81f0c1f59eedd7bb197af42a0a",
@@ -23259,6 +23273,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T22:30:56.867Z"
+    },
+    "ge-agenda:solstice-psychomanteon::0b18787795aab559b7c8d012fdaacc910d9b032c79c27fd96ebe9786cb54c49a": {
+      "id": "ge-agenda:solstice-psychomanteon",
+      "sourceDescriptionHash": "0b18787795aab559b7c8d012fdaacc910d9b032c79c27fd96ebe9786cb54c49a",
+      "description": "Questo appuntamento teatrale a Ginevra si inserisce nel periodo del solstizio d’inverno. La serata riunisce cibo, danza e una dimensione politica, evocando un passaggio tra il mondo visibile e quello invisibile.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento teatrale a Ginevra si inserisce nel periodo del solstizio d’inverno. La serata riunisce cibo, danza e una dimensione politica, evocando un passaggio tra il mondo visibile e quello invisibile.",
+        "en": "This theatrical event in Geneva is framed around the winter solstice. Its evening brings together eating, dancing and a political dimension, while evoking a passage between visible and invisible worlds.",
+        "de": "Die Theaterveranstaltung in Genf steht im Zeichen der Wintersonnenwende. Der Abend verbindet Essen, Tanz und eine politische Dimension und deutet einen Übergang zwischen sichtbarer und unsichtbarer Welt an.",
+        "fr": "Cette proposition théâtrale à Genève s’inscrit dans le cadre du solstice d’hiver. La soirée associe repas, danse et dimension politique, en évoquant un passage entre les mondes visible et invisible."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T19:20:13.467Z"
     },
     "ge-agenda:sometimes-imagine-them-party-daniela-magnani-huller-projection::cccbb296f1d20601a90ecc3ba73467b2f88b3eafc4103ee0731e23ad40f6a9f4": {
       "id": "ge-agenda:sometimes-imagine-them-party-daniela-magnani-huller-projection",
@@ -35832,6 +35860,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T00:34:52.007Z"
     },
+    "guidle:Abbii7e::ff7acad6bccc1d96c98b87cf081b76a32eb664485365e4a2839a17f6c3ed9cd0": {
+      "id": "guidle:Abbii7e",
+      "sourceDescriptionHash": "ff7acad6bccc1d96c98b87cf081b76a32eb664485365e4a2839a17f6c3ed9cd0",
+      "description": "La vicenda porta Wassilissa nella foresta da Baba Jaga, alla ricerca del fuoco spento dalle sorellastre. Una bambola lasciatale dalla madre l’accompagna nelle prove del racconto, presentato nella sala comunale di Binn.",
+      "descriptionByLocale": {
+        "it": "La vicenda porta Wassilissa nella foresta da Baba Jaga, alla ricerca del fuoco spento dalle sorellastre. Una bambola lasciatale dalla madre l’accompagna nelle prove del racconto, presentato nella sala comunale di Binn.",
+        "en": "Vasilisa goes into the forest to seek fire from Baba Yaga after her stepsisters put it out. A doll left by her mother accompanies her through the tale’s trials, which are presented at the Gemeindesaal in Binn.",
+        "de": "Im Mittelpunkt steht Wassilissa, die nach dem erloschenen Feuer bei Baba Jaga suchen muss. Eine Puppe, die ihre Mutter ihr hinterlassen hat, begleitet sie bei den Aufgaben des Märchens im Gemeindesaal Binn.",
+        "fr": "Vassilissa part dans la forêt chercher du feu auprès de Baba Yaga, après que ses demi-sœurs l’ont éteint. La poupée que sa mère lui a laissée l’accompagne dans les épreuves de ce conte présenté à la salle communale de Binn."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T19:38:34.219Z"
+    },
     "guidle:ABBvwXu::88303fbc56028e9a92c36aad5d7178b1885b183a9609ff250a70b0f4a07b3700": {
       "id": "guidle:ABBvwXu",
       "sourceDescriptionHash": "88303fbc56028e9a92c36aad5d7178b1885b183a9609ff250a70b0f4a07b3700",
@@ -46247,6 +46289,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T03:14:27.107Z"
+    },
+    "guidle:AgwQYeG::2a3494e2141ea4359a458331475c3e3eea82ae572475db43ee7d9a7345ce5cba": {
+      "id": "guidle:AgwQYeG",
+      "sourceDescriptionHash": "2a3494e2141ea4359a458331475c3e3eea82ae572475db43ee7d9a7345ce5cba",
+      "description": "Gli scacchi sono al centro di questo appuntamento ricorrente all’Hostellerie d’Orzival. L’incontro è rivolto sia a chi è alle prime esperienze sia a giocatori amatoriali o esperti.",
+      "descriptionByLocale": {
+        "it": "Gli scacchi sono al centro di questo appuntamento ricorrente all’Hostellerie d’Orzival. L’incontro è rivolto sia a chi è alle prime esperienze sia a giocatori amatoriali o esperti.",
+        "en": "Chess is the focus of this recurring evening at the Hostellerie d'Orzival. The event includes newcomers as well as casual and experienced players.",
+        "de": "Bei diesem wiederkehrenden Abend in der Hostellerie d’Orzival steht das Schachspiel im Mittelpunkt. Eingeladen sind sowohl Einsteiger als auch Freizeit- und erfahrene Spieler.",
+        "fr": "Les échecs sont au cœur de cette soirée récurrente à l’Hostellerie d’Orzival. La rencontre s’adresse aussi bien aux débutants qu’aux joueurs amateurs ou chevronnés."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T19:19:04.608Z"
     },
     "guidle:AGWSTkU::d9121ab2d43459c49525da0204ed2466cd41a6fa54833a8571ae044ad2171500": {
       "id": "guidle:AGWSTkU",
@@ -58385,6 +58441,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-21T13:20:25.549Z"
+    },
+    "guidle:APZ32RA::dc959d787d49a761053384a786ab8647c8b4b35fff5cf2e98423a2c80a79ed7a": {
+      "id": "guidle:APZ32RA",
+      "sourceDescriptionHash": "dc959d787d49a761053384a786ab8647c8b4b35fff5cf2e98423a2c80a79ed7a",
+      "description": "L’evento annuncia la riapertura del Restaurant Briand nel comprensorio di Torrent, a Leukerbad. La ripresa è legata all’avvio del periodo invernale nell’area sciistica.",
+      "descriptionByLocale": {
+        "it": "L’evento annuncia la riapertura del Restaurant Briand nel comprensorio di Torrent, a Leukerbad. La ripresa è legata all’avvio del periodo invernale nell’area sciistica.",
+        "en": "Restaurant Briand is reopening in the Torrent ski area in Leukerbad. The event marks the venue’s return for the winter period.",
+        "de": "Das Restaurant Briand im Skigebiet Torrent in Leukerbad wird wiedereröffnet. Der Anlass ist mit dem Beginn der Winterzeit dort verbunden.",
+        "fr": "Le Restaurant Briand rouvre dans le domaine skiable de Torrent, à Leukerbad. Cette reprise marque le retour de l’établissement pour la période hivernale."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T19:34:49.469Z"
     },
     "guidle:AQ1Jpwp::1165bf1a07e7cbaaa636b34a4f87a993ef7bbe04c16a5d1e9647b56f900afd64": {
       "id": "guidle:AQ1Jpwp",
@@ -207388,6 +207458,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-25T19:21:56.527Z"
     },
+    "tio-agenda:65217::186d1b86f1d082f2e35a9da3530660ca85eb96dfcda5dd1234fad8307d12b38c": {
+      "id": "tio-agenda:65217",
+      "sourceDescriptionHash": "186d1b86f1d082f2e35a9da3530660ca85eb96dfcda5dd1234fad8307d12b38c",
+      "description": "L’appuntamento è dedicato alla donazione di sangue. Il prelievo si svolge presso la Scuola comunale di Bellinzona e richiede una prenotazione.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è dedicato alla donazione di sangue. Il prelievo si svolge presso la Scuola comunale di Bellinzona e richiede una prenotazione.",
+        "en": "This event is dedicated to donating blood. The collection takes place at the Scuola comunale in Bellinzona and requires an appointment.",
+        "de": "Bei dieser Veranstaltung geht es um die Blutspende. Die Blutentnahme findet in der Scuola comunale in Bellinzona statt und erfordert eine Anmeldung.",
+        "fr": "Ce rendez-vous est consacré au don de sang. Le prélèvement a lieu à la Scuola comunale de Bellinzona et nécessite une réservation."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T19:26:08.300Z"
+    },
     "tio-agenda:65219::219ef1e838671c74d3e560190d404c709ccd27820cadadbb5ce22afa3342ce61": {
       "id": "tio-agenda:65219",
       "sourceDescriptionHash": "219ef1e838671c74d3e560190d404c709ccd27820cadadbb5ce22afa3342ce61",
@@ -207794,6 +207878,34 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-28T16:25:46.839Z"
     },
+    "tio-agenda:65270::f3205833864dd90829e77eae1541939a89f66c8c8dfe7df4ead8f81ef0ec6f5a": {
+      "id": "tio-agenda:65270",
+      "sourceDescriptionHash": "f3205833864dd90829e77eae1541939a89f66c8c8dfe7df4ead8f81ef0ec6f5a",
+      "description": "L’incontro riflette su come il lavoro venga narrato e rappresentato, mettendo a confronto prospettive artistiche, letterarie ed economiche. Il dialogo prende spunto da opere esposte e da un altorilievo del Museo Vincenzo Vela che ricorda le persone morte durante la costruzione di un tunnel ferroviario.",
+      "descriptionByLocale": {
+        "it": "L’incontro riflette su come il lavoro venga narrato e rappresentato, mettendo a confronto prospettive artistiche, letterarie ed economiche. Il dialogo prende spunto da opere esposte e da un altorilievo del Museo Vincenzo Vela che ricorda le persone morte durante la costruzione di un tunnel ferroviario.",
+        "en": "The gathering considers how work is narrated and represented, bringing artistic, literary and economic perspectives together. The discussion draws on works in an exhibition and on a relief at the Museo Vincenzo Vela commemorating people who died during the construction of a railway tunnel.",
+        "de": "Die Veranstaltung befasst sich damit, wie Arbeit erzählt und dargestellt wird, und bringt künstlerische, literarische und wirtschaftliche Perspektiven zusammen. Ausgangspunkte sind Werke einer Ausstellung und ein Relief im Museo Vincenzo Vela, das an Menschen erinnert, die beim Bau eines Eisenbahntunnels ums Leben kamen.",
+        "fr": "La rencontre examine la manière de raconter et de représenter le travail, en croisant des perspectives artistiques, littéraires et économiques. La discussion s’appuie sur des œuvres exposées et sur un haut-relief du Museo Vincenzo Vela qui commémore les personnes mortes lors de la construction d’un tunnel ferroviaire."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T19:18:59.779Z"
+    },
+    "tio-agenda:65271::eb03ecb775ce6c3d29bf0f5e6e9c3ce0a36dfb1719c66cb5e04fc45e396877c1": {
+      "id": "tio-agenda:65271",
+      "sourceDescriptionHash": "eb03ecb775ce6c3d29bf0f5e6e9c3ce0a36dfb1719c66cb5e04fc45e396877c1",
+      "description": "Adele Venneri presenta il suo libro durante un incontro alla Libreria Locarnese di Locarno. La conversazione affronta i temi dell’opera, tra cui l’ascolto e il significato del ricevere.",
+      "descriptionByLocale": {
+        "it": "Adele Venneri presenta il suo libro durante un incontro alla Libreria Locarnese di Locarno. La conversazione affronta i temi dell’opera, tra cui l’ascolto e il significato del ricevere.",
+        "en": "At Libreria Locarnese in Locarno, Adele Venneri presents her book at a meeting. The discussion explores themes of the work, including listening and what it means to receive.",
+        "de": "Adele Venneri stellt ihr Buch bei einer Begegnung in der Libreria Locarnese in Locarno vor. Im Gespräch geht es um Themen des Werks, darunter das Zuhören und die Bedeutung des Empfangens.",
+        "fr": "Adele Venneri présente son livre lors d’une rencontre à la Libreria Locarnese, à Locarno. La discussion aborde des thèmes de l’ouvrage, notamment l’écoute et le sens de la réception."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T19:33:18.030Z"
+    },
     "tio-agenda:65272::283051569754ae4047e859bd28d61fccea143ee30b0aeb372cc88265ff469b19": {
       "id": "tio-agenda:65272",
       "sourceDescriptionHash": "283051569754ae4047e859bd28d61fccea143ee30b0aeb372cc88265ff469b19",
@@ -208181,8 +208293,8 @@
       "id": "ge-agenda:classiques-noel-casse-noisette-cygnes-belle-bois-dormant",
       "sourceDescriptionHash": "6edce6809d008c422ebf0889ea7b0d7693859904cbda0c6f08acdc32abee80b3",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T16:50:20.540Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T19:40:37.227Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -208280,8 +208392,8 @@
       "id": "ge-agenda:fondation-presente-exposition-lignes-traverse-artiste-genevoise-olivia-malena-vidal",
       "sourceDescriptionHash": "4c3cbba181e664d68d6d74b5919cfa28a78377177e73121514dc572083b3f65b",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T16:20:45.190Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T19:21:05.611Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -208519,15 +208631,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "ge-agenda:pablo-benzo-different-measure-time-exposition-solo::79da20a5ac5f4ecd6e1d63a6301824d4a6d66abcc6195f643597e4389681e4d4": {
-      "id": "ge-agenda:pablo-benzo-different-measure-time-exposition-solo",
-      "sourceDescriptionHash": "79da20a5ac5f4ecd6e1d63a6301824d4a6d66abcc6195f643597e4389681e4d4",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T16:19:54.846Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "ge-agenda:place-lieu-amener-jeunes-engager-politique::a31c90a96c497d61ffcea1b09a1bc58ec9dc4466f586f4a486df078eef9f97e0": {
       "id": "ge-agenda:place-lieu-amener-jeunes-engager-politique",
       "sourceDescriptionHash": "a31c90a96c497d61ffcea1b09a1bc58ec9dc4466f586f4a486df078eef9f97e0",
@@ -208651,15 +208754,6 @@
       "code": "new-number",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-17T11:31:20.431Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "ge-agenda:solstice-psychomanteon::0b18787795aab559b7c8d012fdaacc910d9b032c79c27fd96ebe9786cb54c49a": {
-      "id": "ge-agenda:solstice-psychomanteon",
-      "sourceDescriptionHash": "0b18787795aab559b7c8d012fdaacc910d9b032c79c27fd96ebe9786cb54c49a",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T16:46:42.582Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -209239,15 +209333,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:Abbii7e::ff7acad6bccc1d96c98b87cf081b76a32eb664485365e4a2839a17f6c3ed9cd0": {
-      "id": "guidle:Abbii7e",
-      "sourceDescriptionHash": "ff7acad6bccc1d96c98b87cf081b76a32eb664485365e4a2839a17f6c3ed9cd0",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T16:58:22.655Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:ABBiqdY::bc8e4699a310e2d3897a853c862bd07a1ecea6518cb63607ce89eff8954ae8cb": {
       "id": "guidle:ABBiqdY",
       "sourceDescriptionHash": "bc8e4699a310e2d3897a853c862bd07a1ecea6518cb63607ce89eff8954ae8cb",
@@ -209405,8 +209490,8 @@
       "id": "guidle:Ad15dpT",
       "sourceDescriptionHash": "72dfc3cca70009a6721b30454391e3ef1aed8ebadbbe766e6bf97be213549b8b",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T16:57:21.585Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T19:39:31.236Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -210040,6 +210125,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "guidle:Akta3jB::a79ac6f53a49ce52127bb22d34f5a9465f0cc22dcc9acf720cbd9bec2fb39c73": {
+      "id": "guidle:Akta3jB",
+      "sourceDescriptionHash": "a79ac6f53a49ce52127bb22d34f5a9465f0cc22dcc9acf720cbd9bec2fb39c73",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-28T19:23:15.961Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "guidle:AKw4naT::f6d9139b38b727a721c90cea77b4651c7b37d5a2a209605a17a1fbfe2a9b874e": {
       "id": "guidle:AKw4naT",
       "sourceDescriptionHash": "f6d9139b38b727a721c90cea77b4651c7b37d5a2a209605a17a1fbfe2a9b874e",
@@ -210508,15 +210602,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:APZ32RA::dc959d787d49a761053384a786ab8647c8b4b35fff5cf2e98423a2c80a79ed7a": {
-      "id": "guidle:APZ32RA",
-      "sourceDescriptionHash": "dc959d787d49a761053384a786ab8647c8b4b35fff5cf2e98423a2c80a79ed7a",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T16:51:05.848Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:AQA4fRt::885c0bcdd56bf539087cc805d63709acd28f26d7b2099b1f5d68faff5b6c9e91": {
       "id": "guidle:AQA4fRt",
       "sourceDescriptionHash": "885c0bcdd56bf539087cc805d63709acd28f26d7b2099b1f5d68faff5b6c9e91",
@@ -210628,9 +210713,9 @@
     "guidle:ARBbSuc::a5fc01226c6d171d2c753edb229f7a70a5aa3d8a4ce0910637ade5d77e09a8ac": {
       "id": "guidle:ARBbSuc",
       "sourceDescriptionHash": "a5fc01226c6d171d2c753edb229f7a70a5aa3d8a4ce0910637ade5d77e09a8ac",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T16:48:14.833Z",
+      "code": "source-ngram-8",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T19:19:22.631Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -216335,8 +216420,8 @@
       "id": "tio-agenda:63982",
       "sourceDescriptionHash": "41c4ddf37fdf0e758d01c49a73e5ed2a45d2aa925e5f534c39bafaa56edc1d4a",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T16:44:47.748Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T19:37:41.918Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -216883,9 +216968,9 @@
     "tio-agenda:65065::1632899a6706528e219a8fac51f789c981f3e6e4cd73fb80d060e58a9f290142": {
       "id": "tio-agenda:65065",
       "sourceDescriptionHash": "1632899a6706528e219a8fac51f789c981f3e6e4cd73fb80d060e58a9f290142",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T16:43:50.158Z",
+      "code": "new-number",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T19:36:49.963Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -216893,8 +216978,8 @@
       "id": "tio-agenda:65086",
       "sourceDescriptionHash": "c72d7936b33e59599f2ecfce2093f6c0ca79dfaf5ee5fd444e813547056bc34e",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T16:52:01.674Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T19:35:53.709Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -216910,9 +216995,9 @@
     "tio-agenda:65184::41f5d53f2f7bef16228df1176c4ef95c25099c3f9c7371c1006da92c0b178006": {
       "id": "tio-agenda:65184",
       "sourceDescriptionHash": "41f5d53f2f7bef16228df1176c4ef95c25099c3f9c7371c1006da92c0b178006",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T16:46:02.407Z",
+      "code": "new-number",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T19:29:25.467Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -216920,8 +217005,8 @@
       "id": "tio-agenda:65204",
       "sourceDescriptionHash": "2a45677bbd7411d3ca6efa31ac6dfc9ea29e476511e541b40b342c87c7e9e4e6",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T16:33:53.017Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T19:23:57.337Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -216931,15 +217016,6 @@
       "code": "new-number",
       "rejectedRuns": 2,
       "lastAttemptAt": "2026-11-28T18:47:31.642Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:65217::186d1b86f1d082f2e35a9da3530660ca85eb96dfcda5dd1234fad8307d12b38c": {
-      "id": "tio-agenda:65217",
-      "sourceDescriptionHash": "186d1b86f1d082f2e35a9da3530660ca85eb96dfcda5dd1234fad8307d12b38c",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T16:24:26.697Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -216955,9 +217031,9 @@
     "tio-agenda:65221::bda4a14dc56682f72bb56b81c69001f32715ff63aa3a3553ee64cfb6a1d910cb": {
       "id": "tio-agenda:65221",
       "sourceDescriptionHash": "bda4a14dc56682f72bb56b81c69001f32715ff63aa3a3553ee64cfb6a1d910cb",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T16:31:08.795Z",
+      "code": "new-date-or-price",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T19:25:55.534Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -216982,9 +217058,9 @@
     "tio-agenda:65247::5f38bd2968b21e854f5770ba9b486b33669cce6df4f37d87f23bf16c99994df5": {
       "id": "tio-agenda:65247",
       "sourceDescriptionHash": "5f38bd2968b21e854f5770ba9b486b33669cce6df4f37d87f23bf16c99994df5",
-      "code": "promotional-language",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T16:37:46.014Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T19:30:23.767Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -217001,8 +217077,8 @@
       "id": "tio-agenda:65255",
       "sourceDescriptionHash": "fa44fa7a6bc09535b36b44d5dbc9f3d84408140b3714a0492d9a647da20aefd7",
       "code": "new-date-or-price",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T16:29:54.512Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T19:24:48.770Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -217019,8 +217095,8 @@
       "id": "tio-agenda:65268",
       "sourceDescriptionHash": "bda2ed4cc084c4b34ea4ace0ad344e75c880fc84d194357f1d80b378aa7a388d",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T16:38:57.060Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T19:32:34.107Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -217028,26 +217104,8 @@
       "id": "tio-agenda:65269",
       "sourceDescriptionHash": "9d5fb37f9bdb43204bf065dab983fdb0f53e18efb19cd6ae8361b62dbc6ddd0c",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T16:27:11.818Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:65270::f3205833864dd90829e77eae1541939a89f66c8c8dfe7df4ead8f81ef0ec6f5a": {
-      "id": "tio-agenda:65270",
-      "sourceDescriptionHash": "f3205833864dd90829e77eae1541939a89f66c8c8dfe7df4ead8f81ef0ec6f5a",
-      "code": "source-ngram-8",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T16:26:03.999Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:65271::eb03ecb775ce6c3d29bf0f5e6e9c3ce0a36dfb1719c66cb5e04fc45e396877c1": {
-      "id": "tio-agenda:65271",
-      "sourceDescriptionHash": "eb03ecb775ce6c3d29bf0f5e6e9c3ce0a36dfb1719c66cb5e04fc45e396877c1",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-28T16:40:35.615Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-28T19:20:06.955Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
