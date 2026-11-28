@@ -2514,44 +2514,11 @@ const App: React.FC = () => {
  // the centre ~1120px at 1500px while still serving side-rail ads ≥1400px.
  const sideRailEligible = !staticOverlay && !['admin', 'blog', 'job-board', 'plate-auctions', 'petition'].includes(activeTab);
 
- // Collapse a side-rail's reserved 160px gutter to zero once its ad stack
- // reports nothing filled (no GAM creative, no AdSense backfill), so an unfilled
- // rail leaves no tall blank column — content reflows into the freed width. A
- // filled rail keeps its 160px (ArticleRailAdStack resolves `true` only when
- // EVERY panel is empty), so a paying creative is never squeezed into a
- // zero-width track. Starts reserved (`false`) and stays so until the rail's own
- // no-fill verdict arrives. No per-tab reset: the rail stack stays mounted across
- // SPA navigations and the persistent GPT slot is not re-requested, so the
- // resolved fill state — and thus the collapse — correctly persists across tabs
- // (resetting here would re-reserve a known-empty rail → the blank column would
- // flash back on every tab switch).
- const [railsCollapsed, setRailsCollapsed] = useState<{ left: boolean; right: boolean }>({ left: false, right: false });
- const handleLeftRailEmpty = useCallback((allEmpty: boolean) => {
- setRailsCollapsed((s) => (s.left === allEmpty ? s : { ...s, left: allEmpty }));
- }, []);
- const handleRightRailEmpty = useCallback((allEmpty: boolean) => {
- setRailsCollapsed((s) => (s.right === allEmpty ? s : { ...s, right: allEmpty }));
- }, []);
-
- // Same collapse-on-empty behaviour as the SPA rail above, applied to the
- // staticOverlay rail gutter. `.ft-rail-grid` is build-time HTML
- // outside #root (build-plugins/shared/railGutters.ts), not a React element,
- // so the width is driven by direct DOM mutation instead of a style prop.
- // Scoped out as a follow-up when the SPA rails were fixed — #2830: "300px
- // blog/job/static reading rails ... left as follow-up" — this closes the
- // static half of it.
- useEffect(() => {
- if (!staticOverlay) return;
- const grid = document.querySelector<HTMLElement>('.ft-rail-grid');
- if (!grid) return;
- const applyRailColumns = () => {
-   const railWidth = window.innerWidth >= 1400 ? '300px' : '160px';
-   grid.style.gridTemplateColumns = `${railsCollapsed.left ? '0px' : railWidth} minmax(0,1fr) ${railsCollapsed.right ? '0px' : railWidth}`;
- };
- applyRailColumns();
- window.addEventListener('resize', applyRailColumns);
- return () => window.removeEventListener('resize', applyRailColumns);
- }, [staticOverlay, railsCollapsed]);
+ // Rail geometry is CONSTANT after first paint (CLS, #20409/#20411): the
+ // 160px gutters stay reserved whatever the ad stacks resolve (adblock / no
+ // fill leaves an empty gutter instead of a post-paint column shift). Never
+ // write grid-template-columns from an effect or a `style` prop here; the
+ // columns come from classes / `--ft-rail-w-*` custom properties only.
 
  return (
  <ErrorBoundary>
@@ -2579,7 +2546,7 @@ const App: React.FC = () => {
      sticky descendant (the rails went blank past the first screenful on long
      articles). overflow-y stays visible (the min-h-screen column grows with
      content, so nothing vertical was ever clipped). */}
- <div className={`app-shell-col ${(staticOverlay || staticSnapshotOwnsBody) ? '' : 'min-h-screen'} relative flex flex-col font-sans text-strong transition-colors duration-300 overflow-x-clip`}>
+ <div className={`app-shell-col min-h-screen relative flex flex-col font-sans text-strong transition-colors duration-300 overflow-x-clip`}>
  {/* Skip-to-content: first focusable element so keyboard users — and browser
   * AI agents reading the accessibility tree — can bypass the nav/header chrome
   * and jump straight to <main id="main-content"> (WCAG 2.4.1 Bypass Blocks;
@@ -3233,16 +3200,11 @@ const App: React.FC = () => {
    // padding, so what mounts inside measures the layout it will be shown in,
    // and nothing of <main> changes (or transitions) at the swap.
    ? 'h-0 overflow-hidden invisible'
-   : sideRailEligible ? 'ft-rail-grid-spa contents xlw:grid xlw:flex-grow xlw:gap-4' : 'contents'}
- // Track widths are JS-driven so an unfilled rail collapses to 0 (see
- // railsCollapsed). Default 160px keeps the gutter reserved for SSR /
- // pre-verdict / no-JS, matching the old fixed grid-cols. Ignored below the
- // `xlw` (≥1400px) breakpoint where the wrapper is `display:contents`.
- style={sideRailEligible ? { gridTemplateColumns: `${railsCollapsed.left ? '0px' : '160px'} minmax(0,1fr) ${railsCollapsed.right ? '0px' : '160px'}` } : undefined}
+   : sideRailEligible ? 'ft-rail-grid-spa contents xlw:grid xlw:grid-cols-[160px_minmax(0,1fr)_160px] xlw:flex-grow xlw:gap-4' : 'contents'}
  >
  {sideRailEligible && (
  <aside className="ft-rail-aside hidden xlw:flex xlw:flex-col">
- <SafeLazy boundary="rail-ad-left"><ArticleRailAdStack side="left" narrow onEmptyResolved={handleLeftRailEmpty} /></SafeLazy>
+ <SafeLazy boundary="rail-ad-left"><ArticleRailAdStack side="left" narrow /></SafeLazy>
  </aside>
  )}
  <main id="main-content" tabIndex={-1} className={`flex-grow min-h-dvh mx-auto py-4 lg:py-8 scroll-mt-20 focus:outline-none transition-[max-width,padding] duration-300 ease-out relative z-10${activeTab === 'plate-auctions' ? ' plate-auctions-main' : ''} ${
@@ -3627,7 +3589,7 @@ const App: React.FC = () => {
  </main>
  {sideRailEligible && (
  <aside className="ft-rail-aside hidden xlw:flex xlw:flex-col">
- <SafeLazy boundary="rail-ad-right"><ArticleRailAdStack side="right" narrow onEmptyResolved={handleRightRailEmpty} /></SafeLazy>
+ <SafeLazy boundary="rail-ad-right"><ArticleRailAdStack side="right" narrow /></SafeLazy>
  </aside>
  )}
  </div>
@@ -3646,8 +3608,8 @@ const App: React.FC = () => {
    if (!leftTarget && !rightTarget) return null;
    return (
  <SafeLazy boundary="rail-ad-static">
- {leftTarget && createPortal(<ArticleRailAdStack side="left" desktopRail onEmptyResolved={handleLeftRailEmpty} />, leftTarget)}
- {rightTarget && createPortal(<ArticleRailAdStack side="right" desktopRail onEmptyResolved={handleRightRailEmpty} />, rightTarget)}
+ {leftTarget && createPortal(<ArticleRailAdStack side="left" desktopRail />, leftTarget)}
+ {rightTarget && createPortal(<ArticleRailAdStack side="right" desktopRail />, rightTarget)}
  </SafeLazy>
    );
  })()}
