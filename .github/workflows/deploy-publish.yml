@@ -2398,7 +2398,11 @@ jobs:
       # push ok-marker.
       - name: Push section shards (non-IT → frontaliere-<section>-<loc>)
         id: push-section-shards-nonit
-        if: matrix.locale != 'it' && env.DURABLE_LOCALE_PUBLISHED != 'true'
+        # Same #2569 ordering gate as "Push locale shard": each section shard
+        # is live as soon as it is pushed, and push-section-shard.sh has no
+        # build-order check of its own. The gate is continue-on-error, so
+        # without this term a superseded or timed-out gate would still publish.
+        if: matrix.locale != 'it' && env.DURABLE_LOCALE_PUBLISHED != 'true' && steps.cdn-gate.outcome == 'success'
         continue-on-error: true
         env:
           SHARD_TICINO_IT_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_IT_DEPLOY_KEY }}
@@ -3051,7 +3055,9 @@ jobs:
           overwrite: true
 
       - name: Finalize non-IT section content manifests
-        if: matrix.locale != 'it'
+        # A failed CDN gate pushes no section, so no manifest exists. Failing
+        # here would skip the gate's own surfacing steps further down.
+        if: matrix.locale != 'it' && steps.cdn-gate.outcome != 'failure'
         id: finalize-section-manifests-nonit
         env:
           SOURCE_RUN_ID: ${{ inputs.source_run_id }}
