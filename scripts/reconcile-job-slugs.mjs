@@ -49,6 +49,7 @@ import { mergePreviousSlugsCapped } from './lib/slug-history-journal.mjs';
 import { localeMapKey } from './lib/locale-map-diff.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import { localeRouteKeys } from './lib/expired-jobs-archive.mjs';
+import { addGhostSlugWithoutEviction } from './lib/ghost-route-transfer.mjs';
 import {
   buildGhostExpiredProofIndex,
   findGhostExpiredReconciliationMatch,
@@ -1161,7 +1162,7 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
       }
       for (const s of uniqueNew) {
         const locale = slugLocaleMap.get(s) || detectSlugLocale(s);
-        addPreviousSlugForLocale(job, locale, s, DEFAULT_PREV_SLUG_CAP, 'reconcile-job-slugs.reconcileExpiredSlugs');
+        addGhostSlugWithoutEviction(job, locale, s, 'reconcile-job-slugs.reconcileExpiredSlugs');
       }
     }
 
