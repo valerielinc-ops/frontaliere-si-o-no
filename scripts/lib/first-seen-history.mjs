@@ -128,15 +128,27 @@ export function createFirstSeenMetadataIndex() {
     index.set(key, candidates);
   }
 
-  function add(record) {
+  /**
+   * `memo` is an optional caller-owned object that caches the pure derivation
+   * of one record's content (candidate and slug keys); the index never mutates
+   * a candidate, so equal-content records may share it.
+   */
+  function add(record, memo = null) {
     if (!record || typeof record !== 'object') return;
-    const candidate = historicalCandidate(record);
+    let candidate = memo?.candidate;
+    let slugKeys = memo?.slugKeys;
+    if (!candidate) {
+      candidate = historicalCandidate(record);
+      slugKeys = [...routeSlugs(candidate)].map((slug) => `slug:${slug}`);
+      if (memo) {
+        memo.candidate = candidate;
+        memo.slugKeys = slugKeys;
+      }
+    }
     if (candidate.sourceIdentity) {
       addCandidateToIndex(byIdentity, candidate.sourceIdentity, candidate);
     }
-    for (const slug of routeSlugs(candidate)) {
-      addCandidateToIndex(bySlug, `slug:${slug}`, candidate);
-    }
+    for (const key of slugKeys) addCandidateToIndex(bySlug, key, candidate);
   }
 
   function findMatches(entry) {

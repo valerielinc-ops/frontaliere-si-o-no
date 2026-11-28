@@ -238,7 +238,7 @@ function compactStringObjectMap(value) {
 }
 
 /** Only fields used by identity proof, ambiguity grouping, and emitted routes. */
-function compactOwnerEvidence(job, { active = false } = {}) {
+function compactOwnerEvidence(job, { active = false, identityOnly = false } = {}) {
   const identityFields = {};
   for (const key of ['id', 'externalId', 'jobId', 'url', 'sourceIdentity']) {
     if (job?.[key] !== undefined) identityFields[key] = job[key];
@@ -254,6 +254,7 @@ function compactOwnerEvidence(job, { active = false } = {}) {
         return identity;
       });
   }
+  if (identityOnly) return { ...identityFields, companyKey: String(job?.companyKey || '') };
   const routeFields = {
     ...(typeof job?.slug === 'string' ? { slug: job.slug } : {}),
     slugByLocale: compactStringMap(job?.slugByLocale),
@@ -281,7 +282,10 @@ const OWNER_IDENTITY_ROUTE_FIELDS = new Set([
 ]);
 
 function compactOwnerIdentityEvidence(job) {
-  return Object.fromEntries(Object.entries(compactOwnerEvidence(job))
+  // The identity half of compactOwnerEvidence, without computing the route
+  // half (emitted routes, slug maps) only to filter it out again.
+  const evidence = compactOwnerEvidence(job, { identityOnly: true });
+  return Object.fromEntries(Object.entries(evidence)
     .filter(([key]) => !OWNER_IDENTITY_ROUTE_FIELDS.has(key)));
 }
 
@@ -591,6 +595,93 @@ export function createHistoricalExpiredOwnerCollector() {
     add,
     values: () => owners.values(),
   };
+}
+
+// Pure values derived from one ACTIVE-slice job. The active walk re-reads a
+// slice of ~10k jobs on almost every commit and most jobs are unchanged. Rows
+// come from JSON.parse, so JSON.stringify is a faithful content key.
+const ACTIVE_DERIVED_LIMIT = 30000;
+let activeDerivedCurrent = new Map();
+let activeDerivedPrevious = new Map();
+
+function activeDerivedForJob(job) {
+  const digest = createHash('sha1').update(JSON.stringify(job)).digest('base64');
+  let derived = activeDerivedCurrent.get(digest);
+  if (derived === undefined) {
+    derived = activeDerivedPrevious.get(digest);
+    if (derived === undefined) derived = { digest, job: null };
+    if (activeDerivedCurrent.size >= ACTIVE_DERIVED_LIMIT) {
+      activeDerivedPrevious = activeDerivedCurrent;
+      activeDerivedCurrent = new Map();
+    }
+    activeDerivedCurrent.set(digest, derived);
+  }
+  if (derived.held === undefined) {
+    derived.held = isHeldFromPublication(job);
+    derived.routes = emittedRouteEntries(job, { active: true });
+    derived.routeKeys = new Set(derived.routes.map(({ emittedPath }) => emittedPath));
+    derived.routePaths = [...derived.routeKeys];
+    derived.firstSeen = {};
+    derived.owner = null;
+    derived.idless = null;
+    derived.evidence = null;
+  }
+  return derived;
+}
+
+function activeOwnerDerived(job, derived) {
+  if (derived.owner) return derived.owner;
+  const identityEvidence = compactOwnerIdentityEvidence(job);
+  const fingerprint = payloadFingerprint(job);
+  derived.owner = {
+    identityEvidence,
+    fingerprint,
+    accumulatorKey: historicalOwnerAccumulatorKey(identityEvidence, fingerprint),
+    routes: derived.routes.map((route) => ({
+      route,
+      routeKey: stableStringify([route.localeSlugKey, route.emittedPath, route.canton || '']),
+    })),
+  };
+  return derived.owner;
+}
+
+/**
+ * addHistoricalOwnerSighting(index, job, { active: true }) with the pure
+ * derivation memoized. When the owner's last applied job has identical
+ * content, its route maps and evidence already equal what re-applying would
+ * produce (they depend only on the maps and that job), so only that work is
+ * skipped.
+ */
+function addActiveHistoricalOwnerSighting(index, job, derived) {
+  const values = activeOwnerDerived(job, derived);
+  let owner = index.get(values.accumulatorKey);
+  if (!owner) {
+    owner = {
+      identityEvidence: values.identityEvidence,
+      evidence: null,
+      firstPayloadFingerprint: values.fingerprint,
+      hasDistinctPayload: false,
+    };
+    index.set(values.accumulatorKey, owner);
+  }
+  if (owner.firstPayloadFingerprint !== values.fingerprint) owner.hasDistinctPayload = true;
+  if (owner.lastAppliedDigest === derived.digest && owner.evidence) return owner;
+  owner.routeEvidenceByPath ||= new Map();
+  owner.routeSlugsByLocale ||= new Map();
+  owner.routeCantonsByLocale ||= new Map();
+  for (const { route: sharedRoute, routeKey } of values.routes) {
+    const route = { ...sharedRoute };
+    owner.routeEvidenceByPath.set(routeKey, route);
+    const slugs = owner.routeSlugsByLocale.get(route.locale) || new Set();
+    slugs.add(route.slug);
+    owner.routeSlugsByLocale.set(route.locale, slugs);
+    const cantons = owner.routeCantonsByLocale.get(route.locale) || new Map();
+    if (route.canton && !cantons.has(route.slug)) cantons.set(route.slug, route.canton);
+    owner.routeCantonsByLocale.set(route.locale, cantons);
+  }
+  rebuildOwnerEvidence(owner, job);
+  owner.lastAppliedDigest = derived.digest;
+  return owner;
 }
 
 function mergeHistoricalOwnerAccumulator(index, incoming) {
@@ -1084,22 +1175,39 @@ function buildExpiredEntry(job) {
  * to route-only slug evidence. A generated title/company fallback is not
  * enough evidence to decide that an old route belongs to one posting.
  */
-function idlessBackfillIdentity(job, listingIdentities) {
+function idlessPureValues(job) {
   const identities = archiveRecordSourceIdentities(job);
-  const declared = String(job?.sourceIdentity || '').trim();
-  const stableJobIdentity = buildStableJobIdentity(job || {});
-  const postingIdentities = [...identities].filter((identity) => namesOnePosting(identity));
+  const slug = String(job?.slug || job?.slugByLocale?.it || '').trim();
+  return {
+    identities,
+    declared: String(job?.sourceIdentity || '').trim(),
+    stableJobIdentity: buildStableJobIdentity(job || {}),
+    postingIdentities: [...identities].filter((identity) => namesOnePostingMemo(identity)),
+    nonPostingIdentities: [...identities].filter((identity) => !namesOnePostingMemo(identity)),
+    slugIdentity: slug ? buildStableJobIdentity({ slug }) : '',
+  };
+}
+
+function idlessBackfillIdentity(job, listingIdentities, pure = idlessPureValues(job)) {
+  const {
+    identities,
+    declared,
+    stableJobIdentity,
+    postingIdentities,
+    nonPostingIdentities,
+    slugIdentity,
+  } = pure;
   const usableSourceIdentities = postingIdentities.filter((candidate) => (
     !listingIdentities.isAmbiguous(candidate)
   ));
-  const ambiguousListingIdentities = [...identities].filter((candidate) => (
-    !namesOnePosting(candidate) && listingIdentities.isAmbiguous(candidate)
+  const ambiguousListingIdentities = nonPostingIdentities.filter((candidate) => (
+    listingIdentities.isAmbiguous(candidate)
   ));
   const declaredIsUsable = declared
-    && namesOnePosting(declared)
+    && namesOnePostingMemo(declared)
     && !listingIdentities.isAmbiguous(declared);
   const stableIsUsable = /^(?:url|id):/u.test(stableJobIdentity)
-    && namesOnePosting(stableJobIdentity)
+    && namesOnePostingMemo(stableJobIdentity)
     && !listingIdentities.isAmbiguous(stableJobIdentity);
   const identity = (declaredIsUsable ? declared : '')
     || (stableIsUsable ? stableJobIdentity : '')
@@ -1121,15 +1229,13 @@ function idlessBackfillIdentity(job, listingIdentities) {
   // source provenance. A truly ambiguous posting identity remains unknown.
   if (ambiguousListingIdentities.length > 0) return null;
   if (postingIdentities.length > 0) return null;
-  const slug = String(job?.slug || job?.slugByLocale?.it || '').trim();
-  const slugIdentity = slug ? buildStableJobIdentity({ slug }) : '';
   if (!slugIdentity.startsWith('slug:')) return null;
 
   return {
     identity: slugIdentity,
     sourceIdentities: [],
     ambiguousSourceIdentities: [],
-    listingIdentities: [...identities].filter((candidate) => !namesOnePosting(candidate)),
+    listingIdentities: [...nonPostingIdentities],
     routeOnly: identities.size > 0,
   };
 }
@@ -1590,8 +1696,12 @@ export function processSlice(sliceFile, {
       if (reason) unresolvedIdlessRouteReasons.set(routeKey, reason);
     }
   };
-  const noteUncoveredIdlessRoutes = (job, coveredRoutes = currentRouteKeys) => {
-    noteUncoveredRouteKeys(emittedRouteKeys(job, { active: true }), coveredRoutes);
+  const noteUncoveredIdlessRoutes = (
+    job,
+    coveredRoutes = currentRouteKeys,
+    routeKeys = emittedRouteKeys(job, { active: true }),
+  ) => {
+    noteUncoveredRouteKeys(routeKeys, coveredRoutes);
   };
   const refuseIdlessRoutes = (job, reason, routeKeys = emittedRouteKeys(job, { active: true })) => {
     for (const routeKey of routeKeys) {
@@ -1635,12 +1745,14 @@ export function processSlice(sliceFile, {
       if (activeOid !== previousActiveOid) listingIdentities.addVersion(jobs);
       previousActiveOid = activeOid;
       if (!skipActiveLoop) for (const job of jobs) {
-        historicalIndex.add(job);
-        if (!isHeldFromPublication(job)) {
-          const activeRoutes = emittedRouteEntries(job, { active: true });
-          if (activeRoutes.length > 0) {
-            addHistoricalOwnerSighting(historicalActiveOwners, job, { active: true });
-            for (const { emittedPath } of activeRoutes) historicalActiveRoutePaths.add(emittedPath);
+        const derived = activeDerivedForJob(job);
+        const held = derived.held;
+        const jobRouteKeys = derived.routeKeys;
+        historicalIndex.add(job, derived.firstSeen);
+        if (!held) {
+          if (derived.routes.length > 0) {
+            addActiveHistoricalOwnerSighting(historicalActiveOwners, job, derived);
+            for (const emittedPath of derived.routePaths) historicalActiveRoutePaths.add(emittedPath);
           }
         }
         if (!job?.slug) {
@@ -1648,14 +1760,14 @@ export function processSlice(sliceFile, {
           // location even when the stored root slug is blank. Do not infer a
           // posting identity from those routes; refuse any uncovered path
           // below unless another exact owner already serves it.
-          if (!isHeldFromPublication(job)) noteUncoveredIdlessRoutes(job);
+          if (!held) noteUncoveredIdlessRoutes(job, currentRouteKeys, jobRouteKeys);
           continue;
         }
         if (job?.id) {
           if (currentIds.has(job.id)) continue;
           if (currentSlugs.has(job.slug)) continue; // same slug, different id — treat as kept
           if (lostById.has(job.id) || heldLostIds.has(job.id)) continue;
-          if (isHeldFromPublication(job)) {
+          if (held) {
             heldLostIds.add(job.id);
             continue;
           }
@@ -1663,42 +1775,44 @@ export function processSlice(sliceFile, {
           continue;
         }
 
-        const stable = idlessBackfillIdentity(job, listingIdentities);
+        derived.idless ||= idlessPureValues(job);
+        const stable = idlessBackfillIdentity(job, listingIdentities, derived.idless);
         if (!stable) {
-          if (isHeldFromPublication(job)) {
+          if (held) {
             const heldIdentity = buildStableJobIdentity(job);
             if (heldIdentity && !heldIdentity.startsWith('fallback:')) {
               heldLostStableIdentities.add(heldIdentity);
             }
             continue;
           }
-          const matchingSpecificIdentities = [...archiveRecordSourceIdentities(job)].filter((identity) => (
-            namesOnePosting(identity) && currentSourceIdentities.has(identity)
+          const matchingSpecificIdentities = [...derived.idless.identities].filter((identity) => (
+            namesOnePostingMemo(identity) && currentSourceIdentities.has(identity)
           ));
           if (matchingSpecificIdentities.length > 0) {
             refuseIdlessRoutes(
               job,
               'source identity or active owner is ambiguous; no route target was selected',
+              jobRouteKeys,
             );
             continue;
           }
-          noteUncoveredIdlessRoutes(job);
+          noteUncoveredIdlessRoutes(job, currentRouteKeys, jobRouteKeys);
           continue; // unknown identity is refused below if its route would be lost
         }
         if (heldLostStableIdentities.has(stable.identity)) continue;
-        if (isHeldFromPublication(job)) {
+        if (held) {
           heldLostStableIdentities.add(stable.identity);
           continue;
         }
         if (stable.routeOnly) {
-          const jobRoutes = [...emittedRouteKeys(job, { active: true })];
+          const jobRoutes = [...jobRouteKeys];
           if (jobRoutes.every((routeKey) => currentRouteKeys.has(routeKey))) continue;
         } else {
           const matchingSourceIdentities = stable.sourceIdentities.filter((identity) => (
             currentSourceIdentities.has(identity)
           ));
           const sourceIdentityAlreadyActive = matchingSourceIdentities.length > 0;
-          const jobRoutes = [...emittedRouteKeys(job, { active: true })];
+          const jobRoutes = [...jobRouteKeys];
           const matchingActiveOwners = new Set(matchingSourceIdentities.flatMap((identity) => (
             [...(currentOwnersBySpecificSourceIdentity.get(identity) || [])]
           )));
@@ -1718,9 +1832,16 @@ export function processSlice(sliceFile, {
             continue;
           }
           if (sourceIdentityAlreadyActive) {
-            const routePayload = compactActiveRoutePayload(job);
-            const ownerEvidence = compactOwnerEvidence(job, { active: true });
-            const evidenceKey = stableStringify({ ownerEvidence, routePayload });
+            if (!derived.evidence) {
+              const routePayload = compactActiveRoutePayload(job);
+              const ownerEvidence = compactOwnerEvidence(job, { active: true });
+              derived.evidence = {
+                routePayload,
+                ownerEvidence,
+                evidenceKey: stableStringify({ ownerEvidence, routePayload }),
+              };
+            }
+            const { routePayload, ownerEvidence, evidenceKey } = derived.evidence;
             const previousEvidence = activeRouteEvidenceByKey.get(evidenceKey);
             if (previousEvidence) {
               for (const identity of matchingSourceIdentities) previousEvidence.matchingSourceIdentities.add(identity);
@@ -1728,7 +1849,7 @@ export function processSlice(sliceFile, {
               activeRouteEvidenceByKey.set(evidenceKey, {
                 ownerEvidence,
                 routePayload,
-                routeEntries: emittedRouteEntries(job, { active: true }),
+                routeEntries: derived.routes.map((route) => ({ ...route })),
                 matchingSourceIdentities: new Set(matchingSourceIdentities),
               });
             }
@@ -1739,7 +1860,7 @@ export function processSlice(sliceFile, {
             && currentSlugIdentities.has(stable.identity)) continue;
         }
 
-        const snapshotRouteKeys = new Set(emittedRouteKeys(job, { active: true }));
+        const snapshotRouteKeys = new Set(jobRouteKeys);
         if (!stable.routeOnly) {
           const historicalSnapshotRoutes = historicalSnapshotRoutesByStableIdentity.get(stable.identity) || new Set();
           for (const routeKey of snapshotRouteKeys) historicalSnapshotRoutes.add(routeKey);
@@ -1753,7 +1874,7 @@ export function processSlice(sliceFile, {
               ...currentRouteKeys,
               ...emittedRouteKeys(previousCandidate, { active: true }),
             ]);
-            noteUncoveredIdlessRoutes(job, coveredRoutes);
+            noteUncoveredIdlessRoutes(job, coveredRoutes, jobRouteKeys);
             continue;
           }
 
