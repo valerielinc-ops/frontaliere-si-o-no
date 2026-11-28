@@ -9,7 +9,7 @@ import { retentionPurgeDueAt, talentPoolConsentActive } from '../../functions/sr
 import { roundWasSent } from '../../functions/src/assistedApplicationFlow.js';
 import { currentPortalCodeVersion } from './lib/portal-code-version.mjs';
 import { portalAccountStore } from './lib/portal/account.mjs';
-import { verificationTarget, verifyPortalApplication } from './lib/portal/verify.mjs';
+import { safeErrorInfo, verificationTarget, verifyPortalApplication } from './lib/portal/verify.mjs';
 import { applicationExistsEvidenceOf, applicationExistsProbeEntry, applicationExistsRoute, vacancyBoundToOrder } from '../../functions/src/lib/applicationExistsReconciliation.js';
 import { portalJobKey } from './lib/portal/stages.mjs';
 import { readPublicPortalProtocol } from './lib/portal/protocol.mjs';
@@ -103,6 +103,7 @@ export async function executePortalVerification({ db, bucket, orderId, round, no
   const sourcePath = clickedClaim ? `assisted-application-uploads/${orderId}/run-${claim.startedAt}-submit-portal-submit_failed.json.enc` : null;
   let proof = { conclusion: 'unknown', reason: 'source_unavailable' };
   let probeEvidence = null;
+  let stage = 'source';
   try {
     const accounts = portalAccountStore({ db, orderId, key, mask: value => maskValues([value]) });
     if (clickedClaim) {
@@ -114,20 +115,24 @@ export async function executePortalVerification({ db, bucket, orderId, round, no
       const targetUrl = validSource ? verificationTarget({ applyUrl, evidence: source.evidence, sourceProtocol }) : null;
       if (targetUrl) proof = await inspect({ applyUrl, targetUrl, sourceProtocol, observedUrls: (source.evidence.steps || []).map(step => step.url).filter(Boolean), job: state.draft.job || {}, accounts });
     } else {
+      stage = 'probe_entry';
       const probe = applicationExistsProbeEntry(applyUrl);
       if (!probe) proof = { conclusion: 'unknown', reason: 'portal_without_application_exists_route' };
       else {
+        stage = 'inspect';
         proof = await inspectExists({ applyUrl, targetUrl: probe.entryUrl, probe, job: state.draft.job || {}, accounts,
           aliasEmail: String(state.order.candidateAlias?.address || ''), allowRecovery: true });
+        stage = 'route';
         const live = applicationExistsRoute(proof.applicationExists ? `https://${proof.applicationExists.host}${proof.applicationExists.pagePath}` : '');
         const urls = [state.draft.channel?.applyUrl, state.draft.channel?.postingUrl, state.draft.job?.applyUrl, state.draft.job?.postingUrl, state.order.jobUrl];
         // The whole vacancy id comes from the live URL; the binding is to the order's own posting URLs.
         probeEvidence = live ? applicationExistsEvidenceOf({ ...live, vacancyBound: vacancyBoundToOrder(live, urls) }) : null;
       }
     }
-  } catch {
-    // Fail closed without putting credentials or portal/candidate text in logs.
-    proof = { conclusion: 'unknown', reason: 'inspection_unavailable' };
+  } catch (error) {
+    // Fail closed without putting credentials or portal/candidate text in logs: where it failed and what class of
+    // error, as identifiers only (safeErrorInfo), never the message.
+    proof = { conclusion: 'unknown', reason: 'inspection_unavailable', error: safeErrorInfo(error, stage) };
     probeEvidence = null;
   }
   const mayStore = await db.runTransaction(async transaction => {

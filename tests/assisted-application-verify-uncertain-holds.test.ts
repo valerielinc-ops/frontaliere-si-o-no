@@ -133,3 +133,22 @@ describe('the read-only fence of the inspection', () => {
     expect(applicationExistsProbeNavigation(url, probe)).toBe(allowed);
   });
 });
+
+describe('an inspection that throws is recorded with where and what, never with its message', () => {
+  it('stores the stage and the error class as identifiers, and stays unknown', async () => {
+    const { decryptJson } = await import('../scripts/assisted-application/lib/secure-run.mjs');
+    const key = Buffer.alloc(32, 7);
+    const saved: string[] = [];
+    const capturing = { file: () => ({ save: async (data: string) => { saved.push(data); }, delete: async () => {}, download: async () => { throw new Error('no_source'); } }) } as any;
+    const { store, seedEvents } = fixture({ events: [ambiguousEvent] });
+    await seedEvents();
+    await requestPortalVerification({ db: store.db, orderId, round: 1, version, nonce: 'test-uncertain-nonce', nowMs: now });
+    const inspectExists = vi.fn(async () => { throw new TypeError("Cannot read properties of undefined (reading 'secret-field') for candidate@example.test"); });
+    const result = await executePortalVerification({ db: store.db, bucket: capturing, orderId, round: 1, nonce: 'test-uncertain-nonce', version, key, nowMs: now + 10, inspectExists });
+    expect(result).toMatchObject({ inspected: true, conclusion: 'unknown' });
+    const payload: any = decryptJson(JSON.parse(saved[0]), key);
+    expect(payload.proof).toEqual({ conclusion: 'unknown', reason: 'inspection_unavailable', error: { stage: 'inspect', name: 'TypeError', message: 'read_of_undefined' } });
+    expect(JSON.stringify(payload)).not.toContain('candidate@example.test');
+    expect(store.read(`${base}/automation/flow`)).toMatchObject({ state: 'owner_takeover' });
+  });
+});
