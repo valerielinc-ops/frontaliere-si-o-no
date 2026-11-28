@@ -151,7 +151,7 @@ describe('jobsSeoPagesPlugin wires the feed the renderer actually emits', () => 
   const source = fs.readFileSync(JOBS_SEO_PLUGIN, 'utf8');
 
   it('feeds the active page input with the memoized rendered block', () => {
-    expect(source).toContain('const recentArticlesHtml = recentArticlesHtmlFor(locale);');
+    expect(source).toContain('const recentArticlesHtml = recentArticlesHtmlFor(locale, {');
     expect(source).toContain('relatedArticlesHtml: recentArticlesHtml,');
     expect(source).toContain('hreflangHtml,');
     expect(source).toContain('employerHubPath,');
@@ -167,7 +167,7 @@ describe('jobsSeoPagesPlugin wires the feed the renderer actually emits', () => 
     const callSites = source
       .split('\n')
       .filter((line) => !/^\s*(\/\/|\*)/.test(line))
-      .filter((line) => line.includes('recentArticlesHtmlFor(locale)'));
+      .filter((line) => line.includes('recentArticlesHtmlFor(locale'));
     expect(callSites).toHaveLength(1);
     expect(source.match(/relatedArticlesHtml:/g) || []).toHaveLength(1);
   });

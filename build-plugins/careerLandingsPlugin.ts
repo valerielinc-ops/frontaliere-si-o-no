@@ -36,6 +36,14 @@
  * (`npm run build:ci`) always exercises this plugin — exit 0 required.
  */
 
+import { loadArticleLinkIndex } from './shared/publishedArticleLinkIndex';
+import {
+  CAREER_LANDING_TOPICS,
+  RELEVANT_ARTICLES_LABEL,
+  renderRelevantArticlesBlock,
+  selectRelevantArticles,
+  type ArticleLinkIndex,
+} from './shared/relevantArticleLinks';
 import { reportedSalaryNote } from './shared/reportedSalaryNote';
 import fs from 'node:fs';
 import np from 'node:path';
@@ -378,6 +386,21 @@ function renderFaqBlock(faqs: CareerLandingCopy['faqs']): string {
     .join('');
 }
 
+// F6.3c: published article index for relevance-based reverse links (null = no block).
+let articleLinkIndex: ArticleLinkIndex | null = null;
+
+function renderRelevantArticles(locale: CareerLocale, id: CareerLandingId): string {
+  const topic = CAREER_LANDING_TOPICS[id];
+  if (!articleLinkIndex || !topic) return '';
+  const selected = selectRelevantArticles(articleLinkIndex, {
+    locale, canton: 'TI', groups: topic.groups, keywords: topic.keywords,
+  });
+  return renderRelevantArticlesBlock(selected, RELEVANT_ARTICLES_LABEL[locale], {
+    sectionClass: 's-KZc0LQ', headingStyle: H2_STYLE, listClass: 's-Bidr8Y', itemClass: 's-Pkexk_',
+    linkStyle: LINK_ACCENT_STYLE,
+  }, esc);
+}
+
 function renderRelatedLinks(locale: CareerLocale, label: string): string {
   const items = RELATED_LINKS[locale]
     .map(
@@ -647,7 +670,7 @@ function renderPage(opts: {
     .map((s) => renderSection(s.title, s.paragraphs))
     .join('');
   const faqHtml = renderFaqBlock(copy.faqs);
-  const relatedHtml = renderRelatedLinks(locale, copy.relatedLabel);
+  const relatedHtml = renderRelevantArticles(locale, id) + renderRelatedLinks(locale, copy.relatedLabel);
   const sourcesHtml = renderSources(copy.sources, copy.sourcesLabel);
 
   const body = `
@@ -775,6 +798,8 @@ export function careerLandingsPlugin(rootDir: string): Plugin {
       if (!fs.existsSync(distDir)) return;
 
       const dateStamp = new Date().toISOString().slice(0, 10);
+
+      articleLinkIndex = await loadArticleLinkIndex();
 
       // Aggregate live signal once per build (module-level cached).
       const snapshots = aggregateCareerLandings(rootDir);
