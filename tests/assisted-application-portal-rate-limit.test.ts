@@ -40,6 +40,19 @@ describe('Retry-After and the rate-limit status', () => {
     expect(isRateLimitStatus(503, new Date(T0 - HOUR).toUTCString())).toBe(true);
     expect(isRateLimitStatus(503, '')).toBe(false);
     expect(isRateLimitStatus(503, 'soon')).toBe(false);
+    // One grammar for every consumer (RFC 9110): delay-seconds or an HTTP-date, never an ISO date or free text.
+    for (const header of ['0', '120', 'Sun, 06 Nov 1994 08:49:37 GMT', 'Sunday, 06-Nov-94 08:49:37 GMT', 'Sun Nov  6 08:49:37 1994',
+      new Date(T0 + HOUR).toUTCString(), new Date(T0 - HOUR).toUTCString()]) {
+      expect(isRateLimitStatus(503, header)).toBe(true);
+    }
+    for (const header of ['2027-10-20', '2027-10-20T00:00:00Z', '12.5', '-1', 'Sun, 6 Nov 1994 08:49:37 GMT', 'tomorrow', '1e3']) {
+      expect(isRateLimitStatus(503, header)).toBe(false);
+      expect(parseRetryAfterMs(header, T0)).toBe(0);
+      expect(classifyLiveness({ status: 503, retryAfter: header })).toEqual({ result: 'uncertain', code: 'access_blocked', reason: 'HTTP 503' });
+      expect(portalRateLimitOf({ status: () => 503, headers: () => ({ 'retry-after': header }) })).toBeNull();
+    }
+    // A 429 is a limit with or without a readable header.
+    expect(isRateLimitStatus(429, '2027-10-20')).toBe(true);
     expect(isRateLimitStatus(403)).toBe(false);
     expect(isRateLimitStatus(200)).toBe(false);
   });
