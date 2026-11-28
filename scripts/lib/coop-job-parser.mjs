@@ -669,7 +669,9 @@ export function collapseRepublishedCoopVacancies(jobs = [], {
     const postalCode = normalizeSpace(job?.postalCode || '');
     const streetAddress = normalizeSpace(job?.streetAddress || '');
     const description = normalizeSpace(job?.description || '');
-    if (postalCode && streetAddress && description) {
+    // `to-enrich` is the writer's placeholder (the locality, not a street):
+    // two postings that share it share no store.
+    if (postalCode && streetAddress && description && job?.streetAddressSource !== 'to-enrich') {
       return `address\u0000${[job?.title, job?.location, postalCode, streetAddress, description]
       .map((value) => normalizeSpace(value || '').toLowerCase())
       .join('\u0000')}`;
@@ -723,6 +725,24 @@ export function collapseRepublishedCoopVacancies(jobs = [], {
     onRouteHistoryOverflow(routeHistoryOverflow, kept);
   }
   return { kept, collapsed };
+}
+
+/**
+ * Hook for `writeJobsCrawlerSlice({ collapseRepublishedJobs })`: collapses the
+ * republished vacancies of the slice about to be persisted, i.e. the whole
+ * stock after the writer's address, body and first-seen normalization, not
+ * only the records the runner held before it. `collapsedCount` accumulates
+ * across calls so the runner can correct its own summary total.
+ */
+export function createRepublishedCollapseForSliceWrite(label = 'Coop-family', options = {}) {
+  const hook = (jobs) => {
+    const { kept, collapsed } = collapseRepublishedCoopVacancies(jobs, options);
+    for (const { url, keptUrl } of collapsed) console.log(`  ↪️ Republished ${label} vacancy ${url} collapsed into ${keptUrl} (final slice)`);
+    hook.collapsedCount += collapsed.length;
+    return kept;
+  };
+  hook.collapsedCount = 0;
+  return hook;
 }
 
 /**

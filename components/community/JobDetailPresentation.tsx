@@ -1,8 +1,14 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import { Users, ExternalLink } from 'lucide-react';
 import { getLinkedInPeopleSearchUrl } from '../../services/referralPeople';
+import {
+  JOB_DETAIL_HEADER_CONTENT_RESERVE_CLASS,
+  JOB_DETAIL_METADATA_RESERVE_1_CLASS,
+  JOB_DETAIL_METADATA_RESERVE_2_CLASS,
+  JOB_DETAIL_METADATA_RESERVE_3_CLASS,
+} from './jobDetailHeaderGeometry';
 
-export const JOB_DETAIL_HEADER_CONTENT_CLASS = 'flex items-start gap-3 sm:gap-4';
+export const JOB_DETAIL_HEADER_CONTENT_CLASS = `flex items-start gap-3 sm:gap-4 ${JOB_DETAIL_HEADER_CONTENT_RESERVE_CLASS}`;
 export const JOB_DETAIL_HEADER_LOGO_FRAME_CLASS = 'w-14 h-14 sm:w-20 sm:h-20 rounded-xl bg-surface/90 flex items-center justify-center overflow-hidden border border-edge shrink-0 shadow-sm';
 export const JOB_DETAIL_HEADER_LOGO_IMAGE_CLASS = 'w-10 h-10 sm:w-14 sm:h-14 object-contain';
 export const JOB_DETAIL_HEADER_COPY_CLASS = 'min-w-0 flex-1';
@@ -37,15 +43,26 @@ export function JobDetailHeaderCard({
  );
 }
 
+interface JobDetailMetadataRowProps extends HTMLAttributes<HTMLDivElement> {
+ /** Pill rows to reserve below `sm` (a live job wraps to two, an expired one to three; default one). */
+ reserveRows?: 1 | 2 | 3;
+}
+
 export function JobDetailMetadataRow({
  children,
  className = '',
+ reserveRows = 1,
  ...props
-}: HTMLAttributes<HTMLDivElement>) {
+}: JobDetailMetadataRowProps) {
+ const reserve = reserveRows === 3
+  ? JOB_DETAIL_METADATA_RESERVE_3_CLASS
+  : reserveRows === 2
+   ? JOB_DETAIL_METADATA_RESERVE_2_CLASS
+   : JOB_DETAIL_METADATA_RESERVE_1_CLASS;
  return (
   <div
    {...props}
-   className={`mt-4 flex flex-wrap gap-2 text-xs${className ? ` ${className}` : ''}`}
+   className={`mt-4 flex flex-wrap content-start gap-2 text-xs ${reserve}${className ? ` ${className}` : ''}`}
    data-job-detail-metadata=""
   >
    {children}

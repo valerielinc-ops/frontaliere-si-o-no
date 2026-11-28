@@ -3,10 +3,12 @@ import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
+import { reconcilePayments } from '../scripts/lib/payments-health-data.mjs';
 import {
   collectStripeSignals,
   collectSumUpSignals,
   countSumUpWebhookFailures,
+  lookupStripeCheckouts,
   paymentsHealthExitCode,
   runPaymentsHealth,
 } from '../scripts/payments-health.mjs';
@@ -392,7 +394,7 @@ describe('payments health runtime', () => {
     const fixture = runtimeFixture({ orders: true });
     const summary = await runPaymentsHealth({ ...fixture, nowMs, notify: true });
     expect(summary.reconciliation).toEqual({
-      matched: 4, providerPaidAppUnpaid: 2, appPaidProviderIncompatible: 2, grace: 1, unknown: 12,
+      matched: 4, providerPaidAppUnpaid: 2, appPaidProviderIncompatible: 2, grace: 1, unknown: 12, delegated: 0,
     });
     expect(summary.sumup?.checkouts).toMatchObject({ OPEN: 1, PENDING: 1 });
     expect(summary.incomplete).toEqual(['reconciliation.insufficient_evidence']);
@@ -523,5 +525,96 @@ describe('payments health runtime', () => {
       vi.unstubAllEnvs();
       await rm(directory, { recursive: true, force: true });
     }
+  });
+});
+
+
+describe('reconciliation evidence', () => {
+  const record = (over: Record<string, unknown>) => ({
+    collection: 'assisted_applications', id: 'app_x', modified: nowMs - 30 * minute,
+    state: 'paid', stripeId: null, sumupId: null, delegated: false, ...over,
+  });
+  const sumup = (status: string, id = 'app_x') => ({ checkouts: [{ id: 'su_x', status, createdMs: null, checkoutReference: id }] });
+  const stripeRow = (over: Record<string, unknown>) => ({
+    id: 'cs_x', created: 1, status: 'complete', paymentStatus: 'paid', product: 'assisted_application',
+    reader: false, publisher: false, referenceConflict: false, orderId: 'app_x', serviceId: null,
+    clientReferenceId: null, ...over,
+  });
+
+  it('treats an unpaid row with a checkout still being collected as consistent', () => {
+    expect(reconcilePayments([record({ state: 'pending', sumupId: 'su_x' })], undefined, sumup('PENDING'), nowMs))
+      .toMatchObject({ matched: 1, unknown: 0 });
+    expect(reconcilePayments([record({ state: 'pending', sumupId: 'su_x' })], undefined, sumup('OPEN'), nowMs))
+      .toMatchObject({ matched: 1, unknown: 0 });
+    expect(reconcilePayments([record({ state: 'paid', sumupId: 'su_x' })], undefined, sumup('PENDING'), nowMs))
+      .toMatchObject({ matched: 0, unknown: 1 });
+  });
+
+  it('counts a refunded row as consistent only when the provider shows the payment', () => {
+    expect(reconcilePayments([record({ state: 'refunded', sumupId: 'su_x' })], undefined, sumup('PAID'), nowMs))
+      .toMatchObject({ matched: 1, unknown: 0 });
+    expect(reconcilePayments([record({ state: 'refunded', sumupId: 'su_x' })], undefined, sumup('FAILED'), nowMs))
+      .toMatchObject({ matched: 0, unknown: 1 });
+    expect(reconcilePayments([record({ state: 'refunded' })], undefined, undefined, nowMs))
+      .toMatchObject({ matched: 0, unknown: 1 });
+  });
+
+  it('keeps rows covered by a parent service out of the provider comparison', () => {
+    expect(reconcilePayments([record({ delegated: true })], undefined, undefined, nowMs))
+      .toMatchObject({ delegated: 1, unknown: 0, matched: 0 });
+  });
+
+  it('matches a session found only by id lookup and keeps unknown when it is absent', () => {
+    const rec = record({ state: 'refunded', stripeId: 'cs_x' });
+    expect(reconcilePayments([rec], { lookedUpCheckouts: [stripeRow({})] }, undefined, nowMs))
+      .toMatchObject({ matched: 1, unknown: 0 });
+    expect(reconcilePayments([rec], {}, undefined, nowMs)).toMatchObject({ matched: 0, unknown: 1 });
+  });
+});
+
+describe('Stripe lookup by id', () => {
+  it('reads each missing session once, with bounded concurrency and a projected shape', async () => {
+    let active = 0;
+    let peak = 0;
+    const fetchImpl = vi.fn(async (input: URL | string) => {
+      active++;
+      peak = Math.max(peak, active);
+      await new Promise((resolve) => setTimeout(resolve, 1));
+      active--;
+      const id = new URL(input).pathname.split('/').at(-1);
+      return json({ id, created: 1, status: 'complete', payment_status: 'paid', metadata: { product: 'assisted_application', orderId: 'app_x' }, ...sensitive });
+    });
+    const rows = await lookupStripeCheckouts({
+      apiKey: key, ids: ['cs_1', 'cs_2', 'cs_1', 'cs_3', 'cs_4', 'cs_5', 'cs_6'], nowMs, fetchImpl,
+    });
+    expect(rows.map((row: { id: string }) => row.id)).toEqual(['cs_1', 'cs_2', 'cs_3', 'cs_4', 'cs_5', 'cs_6']);
+    expect(fetchImpl).toHaveBeenCalledTimes(6);
+    expect(peak).toBeLessThanOrEqual(4);
+    expect(JSON.stringify(rows)).not.toMatch(/private@|card-fixture|1234/);
+  });
+
+  it('reports a failed or mismatched lookup as incomplete instead of failing the batch', async () => {
+    const codes: string[] = [];
+    const fetchImpl = vi.fn(async (input: URL | string) => {
+      const id = new URL(input).pathname.split('/').at(-1);
+      if (id === 'cs_bad') return new Response('{}', { status: 404 });
+      return json({ id: id === 'cs_swap' ? 'cs_other' : id, created: 1, status: 'complete', payment_status: 'paid', metadata: {} });
+    });
+    const rows = await lookupStripeCheckouts({
+      apiKey: key, ids: ['cs_ok', 'cs_bad', 'cs_swap'], nowMs, fetchImpl, onIncomplete: (code: string) => codes.push(code),
+    });
+    expect(rows.map((row: { id: string }) => row.id)).toEqual(['cs_ok']);
+    expect(codes.sort()).toEqual(['stripe.checkout_lookup.http_error', 'stripe.checkout_lookup.invalid_response']);
+  });
+
+  it('flags a lookup set above the cap', async () => {
+    const codes: string[] = [];
+    const ids = Array.from({ length: 51 }, (_, i) => `cs_${i}`);
+    const fetchImpl = vi.fn(async (input: URL | string) => json({
+      id: new URL(input).pathname.split('/').at(-1), created: 1, status: 'expired', payment_status: 'unpaid', metadata: {},
+    }));
+    const rows = await lookupStripeCheckouts({ apiKey: key, ids, nowMs, fetchImpl, onIncomplete: (code: string) => codes.push(code) });
+    expect(rows).toHaveLength(50);
+    expect(codes).toEqual(['stripe.checkout_lookup.lookup_limit']);
   });
 });

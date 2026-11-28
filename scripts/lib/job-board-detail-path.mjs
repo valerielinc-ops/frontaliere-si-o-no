@@ -70,11 +70,24 @@ const NON_DETAIL_EXACT_SLUGS = new Set([
   'categoria', 'category', 'kategorie', 'categorie',
   'ricerca', 'recherche', 'search', 'suche',
 ]);
+const CATEGORY_HUB_SLUG_PREFIXES = ['categoria-', 'category-', 'kategorie-', 'categorie-'];
 const NON_DETAIL_SLUG_PREFIXES = [
   'ricerca-', 'search-', 'suche-', 'recherche-',
-  'categoria-', 'category-', 'kategorie-', 'categorie-',
+  ...CATEGORY_HUB_SLUG_PREFIXES,
   'pagina-', 'page-', 'seite-',
 ];
+
+/**
+ * True for a job-board category hub (`/<locale>/<canton section>/categoria-*`
+ * and its localized siblings). These are sitemap-listed but are not details,
+ * so `isJobBoardSitemapDetailPath` never selects them: cleanup of a hub that
+ * is no longer emitted needs this separate, equally positive predicate.
+ */
+export function isJobBoardCategoryHubPath(input) {
+  if (!isJobBoardDetailPath(input)) return false;
+  const slug = String(input).split('/').filter(Boolean).at(-1)?.toLowerCase() || '';
+  return CATEGORY_HUB_SLUG_PREFIXES.some((prefix) => slug.startsWith(prefix));
+}
 
 /**
  * True only for a job-detail-shaped route, excluding the hub families that

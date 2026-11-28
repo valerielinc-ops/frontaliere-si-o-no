@@ -419,7 +419,7 @@ import {
  shouldAwaitLocaleJobsSplitFlushed,
 } from './shared/buildSignals';
 import { registerJobsSeoPagesProducer } from './shared/buildSignals';
-import { getTiHubLatestJobsBlocks, setActiveJobSitemapLocs, setJobSitemapAllowlist, setTiHubLatestJobsBlocks } from './shared/buildSignals';
+import { getTiHubLatestJobsBlocks, setActiveJobSitemapLocs, setEmittedJobCategoryHubLocs, setJobSitemapAllowlist, setTiHubLatestJobsBlocks } from './shared/buildSignals';
 import { renderTiHubLatestJobsBlock, summarizeTiHubInventory, TI_HUB_LATEST_JOBS_LIMIT } from './shared/tiHubLatestJobs';
 import { listJobsSeoAdapterFiles, listJobsSeoExpiredSliceFiles } from './shared/jobsSeoDeterministicInputs';
 import type { EmittedEmployerProfile } from './shared/buildSignals';
@@ -511,6 +511,49 @@ export function groupCategoryListingJobs<T extends CategoryListingJob>(jobs: rea
   else grouped.set(category, [job]);
  }
  return grouped;
+}
+
+/** Minimum jobs in one (canton, category) bucket for its hub page to be emitted. */
+export const CATEGORY_LISTING_MIN_JOBS = 3;
+
+/**
+ * The single decision "is this category hub emitted?". Both the page emitter
+ * and the published-sitemap cleanup of the jobs fast publisher read it, so a
+ * hub whose category dropped below the floor is never advertised again.
+ * `acceptLocale` narrows the emitted paths to the locales one process renders;
+ * the default keeps every locale (the sitemap lists all of them).
+ */
+export function collectEmittedCategoryHubPaths(
+  jobs: readonly (CategoryListingJob & Record<string, unknown>)[],
+  locales: readonly ('it' | 'en' | 'de' | 'fr')[],
+  legacySectionByLocale: Record<'it' | 'en' | 'de' | 'fr', string>,
+  acceptLocale: (locale: 'it' | 'en' | 'de' | 'fr') => boolean = () => true,
+): {
+  paths: Set<string>;
+  jobsByCanton: Map<string, Map<JobCategoryKey, (CategoryListingJob & Record<string, unknown>)[]>>;
+} {
+  const paths = new Set<string>();
+  const jobsByCanton = new Map<string, Map<JobCategoryKey, (CategoryListingJob & Record<string, unknown>)[]>>();
+  for (const canton of SHARED_ALL_CANTON_CODES) {
+    if (canton === 'TI') continue;
+    const categoryJobs = groupCategoryListingJobs(selectJobBoardInventory(jobs as never[], canton) as (CategoryListingJob & Record<string, unknown>)[]);
+    jobsByCanton.set(canton, categoryJobs);
+    for (const [catKey, catJobs] of categoryJobs) {
+      if (catJobs.length < CATEGORY_LISTING_MIN_JOBS) continue;
+      for (const locale of locales) {
+        if (!acceptLocale(locale)) continue;
+        paths.add(buildJobCategoryPath(locale, sharedResolveCantonSection(locale, canton), catKey));
+      }
+    }
+  }
+  for (const [catKey, catJobs] of groupCategoryListingJobs(jobs)) {
+    if (catJobs.length < CATEGORY_LISTING_MIN_JOBS) continue;
+    for (const locale of locales) {
+      if (!acceptLocale(locale)) continue;
+      paths.add(buildJobCategoryPath(locale, legacySectionByLocale[locale], catKey));
+    }
+  }
+  return { paths, jobsByCanton };
 }
 
 // Bound repeated company-job payloads only at the shared in-feed boundary.
@@ -3091,6 +3134,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // with an empty/jobless sitemap instead of awaiting writes that never run.
  setActiveJobSitemapLocs(new Set());
  setJobSitemapAllowlist(new Set());
+ setEmittedJobCategoryHubLocs(null);
  resolveJobsSeoPagesFlushed();
  return;
  }
@@ -4229,6 +4273,11 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  }
  setActiveJobSitemapLocs(activeJobSitemapLocs);
  setJobSitemapAllowlist(new Set(jobSitemapLocOwner.keys()));
+ // Category hubs the full build emits, in every locale: the fast publisher prunes
+ // published hub URLs outside this set (cross-locale safe by construction).
+ setEmittedJobCategoryHubLocs(new Set(
+  [...collectEmittedCategoryHubPaths(validJobs, localeList, sectionByLocale).paths].map((p) => `${BASE_URL}${p}`),
+ ));
  if (options.fastLaneSitemapOnly) {
   if (activeJobIds === null || activeJobIds.size > 0) {
    throw new Error('[jobs-seo-pages] fastLaneSitemapOnly requires an empty activeJobIds batch');
@@ -9713,34 +9762,13 @@ ${staticAnalyticsHtml}
  let categoryPageCount = 0;
  const categorySitemapEntries: string[] = [];
  const legacyCategoryJobs = groupCategoryListingJobs(sortedForPagination);
- const categoryListingJobsByCanton = new Map<string, Map<JobCategoryKey, typeof validJobs>>();
- const emittedCategoryListingPaths = new Set<string>();
-
  // The per-canton category emitter and every category navigator must consume
  // the same de-duplicated job-board inventory. Keeping the floor and canonical
  // path in this precomputed set prevents a nav-only category alias from being
  // emitted when its listing page was skipped.
- for (const canton of SHARED_ALL_CANTON_CODES) {
-  if (canton === 'TI') continue;
-  const categoryJobs = groupCategoryListingJobs(selectJobBoardInventory(validJobs, canton));
-  categoryListingJobsByCanton.set(canton, categoryJobs);
-  for (const [catKey, catJobs] of categoryJobs) {
-   if (catJobs.length < 3) continue;
-   for (const locale of localeList) {
-    if (!shouldEmitLocale(locale)) continue;
-    emittedCategoryListingPaths.add(
-     buildJobCategoryPath(locale, sharedResolveCantonSection(locale, canton), catKey),
-    );
-   }
-  }
- }
- for (const [catKey, catJobs] of legacyCategoryJobs) {
-  if (catJobs.length < 3) continue;
-  for (const locale of localeList) {
-   if (!shouldEmitLocale(locale)) continue;
-   emittedCategoryListingPaths.add(buildJobCategoryPath(locale, sectionByLocale[locale], catKey));
-  }
- }
+ const emittedCategoryHubs = collectEmittedCategoryHubPaths(validJobs, localeList, sectionByLocale, shouldEmitLocale);
+ const categoryListingJobsByCanton = emittedCategoryHubs.jobsByCanton as unknown as Map<string, Map<JobCategoryKey, typeof validJobs>>;
+ const emittedCategoryListingPaths = emittedCategoryHubs.paths;
 
  for (const catKey of JOB_CATEGORY_KEYS) {
  const catJobs = legacyCategoryJobs.get(catKey) ?? [];

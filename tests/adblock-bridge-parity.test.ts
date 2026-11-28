@@ -346,3 +346,34 @@ describe('AD_BLOCK_DATA_READY bridge — the two copies answer identically', () 
     }
   });
 });
+
+describe.each(COPIES)('AD_BLOCK_DATA_READY bridge — readiness contract (%s)', (_where, src) => {
+  it('flags the result ready and carries it in the event detail before listeners run', () => {
+    const googlefc: Record<string, unknown> = {
+      AdBlockerStatusEnum: FULL_STATUS_ENUM,
+      AllowAdsStatusEnum: FULL_ALLOW_ENUM,
+      getAdBlockerStatus: () => FULL_STATUS_ENUM.NO_AD_BLOCKER,
+      getAllowAdsStatus: () => FULL_ALLOW_ENUM.ADS_NOT_ALLOWED,
+    };
+    const seen: Array<{ ready: unknown; detail: unknown }> = [];
+    const win: Record<string, unknown> = {
+      googlefc,
+      dispatchEvent: (event: { detail?: unknown }) => {
+        seen.push({ ready: win.__ftAdBlockReady, detail: event.detail });
+        return true;
+      },
+    };
+    const FakeCustomEvent = function FakeCustomEvent(this: { detail?: unknown }, _type: string, init?: { detail?: unknown }) {
+      this.detail = init?.detail;
+    };
+    // eslint-disable-next-line no-new-func
+    new Function('window', 'CustomEvent', src)(win, FakeCustomEvent);
+    const queue = (win.googlefc as { callbackQueue: Array<Record<string, () => void>> }).callbackQueue;
+    queue[0].AD_BLOCK_DATA_READY();
+
+    expect(win.__ftAdBlockReady).toBe(true);
+    expect(seen).toHaveLength(1);
+    expect(seen[0].ready).toBe(true);
+    expect(seen[0].detail).toBe(win.__ftAdBlock);
+  });
+});

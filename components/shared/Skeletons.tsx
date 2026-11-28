@@ -1,5 +1,9 @@
 import React from 'react';
 import { isNewsletterCtaEligible } from '@/services/newsletterCtaState';
+import {
+  JOB_DETAIL_HEADER_CONTENT_RESERVE_CLASS,
+  JOB_DETAIL_METADATA_RESERVE_2_CLASS,
+} from '@/components/community/jobDetailHeaderGeometry';
 
 // ---- Skeleton Primitives ----
 
@@ -370,20 +374,23 @@ export const SkeletonJobDetail: React.FC = () => (
  {/* Back button */}
  <div className={`${pulse} w-32 h-5 rounded`} />
 
- {/* Job header card — logo + title + meta badges */}
- <div className="bg-surface rounded-2xl border border-edge p-5 space-y-3">
- <div className="flex items-start gap-4">
- <div className={`${pulse} w-12 h-12 rounded-lg flex-shrink-0`} />
- <div className="flex-1 min-w-0 space-y-2">
- <SkeletonLine height="h-6" width="w-4/5" />
- <div className="flex flex-wrap gap-3">
- <SkeletonLine height="h-4" width="w-28" />
- <SkeletonLine height="h-4" width="w-20" />
- <SkeletonLine height="h-4" width="w-16" />
- </div>
- </div>
- </div>
- {/* Description preview area (~5 lines, matching blurred teaser min-height) */}
+ {/* Job header card — same box as JobDetailHeaderCard (p-4 sm:p-6, reserved
+     content row and two pill rows), so the swap to the real header does not move
+     what is below it (CLS, issue 20412). */}
+<div className="bg-surface rounded-3xl border border-edge p-4 sm:p-6 space-y-3">
+<div className={`flex items-start gap-3 sm:gap-4 ${JOB_DETAIL_HEADER_CONTENT_RESERVE_CLASS}`}>
+<div className={`${pulse} w-14 h-14 sm:w-20 sm:h-20 rounded-xl flex-shrink-0`} />
+<div className="flex-1 min-w-0 space-y-2">
+<SkeletonLine height="h-6" width="w-4/5" />
+<SkeletonLine height="h-4" width="w-1/2" />
+</div>
+</div>
+<div className={`mt-4 flex flex-wrap content-start gap-2 ${JOB_DETAIL_METADATA_RESERVE_2_CLASS}`}>
+<SkeletonLine height="h-6" width="w-24" className="rounded-full" />
+<SkeletonLine height="h-6" width="w-20" className="rounded-full" />
+<SkeletonLine height="h-6" width="w-16" className="rounded-full" />
+</div>
+{/* Description preview area (~5 lines, matching blurred teaser min-height) */}
  <div className="mt-3 space-y-2">
  <SkeletonLine height="h-4" />
  <SkeletonLine height="h-4" />

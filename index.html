@@ -480,9 +480,19 @@
             message.proceed(false);
           }
         }
-        function adBlockConfirmed(){
-          var signal = window.__ftAdBlock;
+        function adBlockResultReady(){
+          return window.__ftAdBlockReady === true || !!window.__ftAdBlock;
+        }
+        function adBlockConfirmed(result){
+          var signal = result || window.__ftAdBlock;
           return !!signal && signal.blocked === true && signal.adsAllowed !== true;
+        }
+        // The release permit is single use: the click that grants it spends it
+        // on the callbacks it releases; any later callback needs a new click.
+        function consumeOfferwallRelease(w){
+          if (!w || w.permit !== true) return false;
+          w.permit = false;
+          return true;
         }
         function hold(w, entry, offerwall){
           w.held = w.held || [];
@@ -491,21 +501,26 @@
           w.state = 'held';
           w.release = function(showOfferwall){
             if (w.state !== 'held') return false;
-            if (showOfferwall !== false && window.__ftFcAdBlockBridge && !window.__ftAdBlock) return false;
+            if (showOfferwall !== false && window.__ftFcAdBlockBridge && !adBlockResultReady()) return false;
             var show = showOfferwall !== false && !adBlockConfirmed();
             w.state = show ? 'released' : 'suppressed';
+            w.permit = show;
+            var allow = show && consumeOfferwallRelease(w);
             var h = w.held.splice(0);
             for (var i = 0; i < h.length; i++) {
-              try { deliver(h[i].message, h[i].previous, show
+              try { deliver(h[i].message, h[i].previous, allow
                 ? { allow: true }
                 : { allow: false, types: [w.offerwall] }); } catch (e) {}
             }
             return true;
           };
         }
-        function releaseForAdBlock(){
+        function releaseForAdBlock(event){
           var w = window.__ftOfferwallGate;
-          if (w && w.state === 'held' && adBlockConfirmed() && typeof w.release === 'function') {
+          var detail = event && event.detail;
+          // Older bridges dispatch the event without a payload: read the global.
+          var result = detail && typeof detail === 'object' ? detail : window.__ftAdBlock;
+          if (w && w.state === 'held' && adBlockConfirmed(result) && typeof w.release === 'function') {
             w.release(false);
           }
         }
@@ -589,8 +604,14 @@
           }
           var w = window.__ftOfferwallGate = window.__ftOfferwallGate || { state: 'idle', held: [] };
           if (w.state === 'released') {
-            deliver(message, previous, { allow: true });
-            return;
+            if (consumeOfferwallRelease(w)) {
+              deliver(message, previous, { allow: true });
+              return;
+            }
+            // The permit was spent by the click that released: a later
+            // callback waits for a new click.
+            w.state = 'idle';
+            w.release = undefined;
           }
           if (w.state === 'suppressed') {
             deliver(message, previous, { allow: false, types: [E.OFFERWALL] });
@@ -686,7 +707,7 @@ g.callbackQueue.push({'CONSENT_DATA_READY':function(){if(!tcfApiReady&&typeof wi
          give, both from the same missing check. Funding Choices currently
          documents EXTENSION_AD_BLOCKER in its enum table and uses the older
          EXTENSION_LEVEL_AD_BLOCKER name in its sample; accept both. -->
-    <script>(function(){if(window.__ftFcAdBlockBridge)return;window.__ftFcAdBlockBridge=1;var g=window.googlefc=window.googlefc||{};g.callbackQueue=g.callbackQueue||[];g.callbackQueue.push({'AD_BLOCK_DATA_READY':function(){try{var E=g.AdBlockerStatusEnum||{},A=g.AllowAdsStatusEnum||{};var s=typeof g.getAdBlockerStatus==='function'?g.getAdBlockerStatus():null;var a=typeof g.getAllowAdsStatus==='function'?g.getAllowAdsStatus():null;function eq(v,e){return v!==undefined&&e!==undefined&&v===e;}window.__ftAdBlock={status:s,allowAds:a,blocked:eq(s,E.EXTENSION_AD_BLOCKER)||eq(s,E.EXTENSION_LEVEL_AD_BLOCKER)||eq(s,E.NETWORK_LEVEL_AD_BLOCKER),adsAllowed:eq(a,A.ADS_ALLOWED)};try{window.dispatchEvent(new CustomEvent('frontaliere:adblock-data'));}catch(e){}}catch(e){}}});})();</script>
+    <script>(function(){if(window.__ftFcAdBlockBridge)return;window.__ftFcAdBlockBridge=1;var g=window.googlefc=window.googlefc||{};g.callbackQueue=g.callbackQueue||[];g.callbackQueue.push({'AD_BLOCK_DATA_READY':function(){try{var E=g.AdBlockerStatusEnum||{},A=g.AllowAdsStatusEnum||{};var s=typeof g.getAdBlockerStatus==='function'?g.getAdBlockerStatus():null;var a=typeof g.getAllowAdsStatus==='function'?g.getAllowAdsStatus():null;function eq(v,e){return v!==undefined&&e!==undefined&&v===e;}window.__ftAdBlock={status:s,allowAds:a,blocked:eq(s,E.EXTENSION_AD_BLOCKER)||eq(s,E.EXTENSION_LEVEL_AD_BLOCKER)||eq(s,E.NETWORK_LEVEL_AD_BLOCKER),adsAllowed:eq(a,A.ADS_ALLOWED)};var r=window.__ftAdBlock;window.__ftAdBlockReady=true;try{window.dispatchEvent(new CustomEvent('frontaliere:adblock-data',{detail:r}));}catch(e){}}catch(e){}}});})();</script>
 
     <!-- PERF: Funding Choices' consent loader is deferred until after first
          paint to protect mobile LCP. Its ad-block signal is stashed for the

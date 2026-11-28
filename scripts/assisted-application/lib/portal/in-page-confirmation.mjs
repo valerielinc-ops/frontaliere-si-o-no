@@ -15,12 +15,28 @@ import { CONFIRM_RE, REFUSED_RE, SUBMIT_RE, hasNewValidationText } from './fill.
 // What CONFIRM_RE does not read: the confirmations of employer pages that speak without «your/la tua» before the
 // noun (it is the shared vocabulary, extended here, never copied).
 const IN_PAGE_CONFIRM_EXTRA_RE = /(?:candidatura\s+(?:è|e['’]|e)\s+stata\s+(?:correttamente\s+)?(?:inviata|inoltrata|ricevuta)|grazie\s+per\s+(?:esserti|esservi|essersi)\s+candidat[oae]|bewerbung\s+wurde\s+(?:erfolgreich\s+)?(?:gesendet|übermittelt|versendet|abgeschickt|eingereicht)|vielen\s+dank\s+für\s+(?:ihre|deine)\s+bewerbung|candidature\s+a\s+bien\s+été\s+(?:envoyée|transmise|reçue)|merci\s+(?:de|d['’]\s*)avoir\s+postulé|thank\s+you\s+for\s+(?:applying|your\s+application)|(?:your\s+)?application\s+(?:has\s+been|was)\s+(?:successfully\s+)?(?:submitted|sent|received))/iu;
+// Contact and application forms that confirm the SEND («Ihre Nachricht wurde erfolgreich gesendet», STA): past
+// tense only, with Unicode word edges (`\b` does not see accents). Futures («wird gesendet», «sera envoyé»),
+// conditionals and negations («konnte nicht gesendet werden») have no past participle after «wurde/a été/è stato»,
+// so they never match; a «nicht/non/pas» just before the match is dropped by NEGATED_BEFORE_RE.
+const EDGE_L = '(?<![\\p{L}\\p{N}])';
+const EDGE_R = '(?![\\p{L}\\p{N}])';
+const MESSAGE_SENT_RE = new RegExp(`${EDGE_L}(?:`
+  + '(?:ihre|deine)\\s+(?:nachricht|bewerbung)\\s+wurde\\s+(?:erfolgreich\\s+)?(?:gesendet|versendet|übermittelt|abgeschickt)'
+  + '|(?:erfolgreich\\s+(?:gesendet|versendet|übermittelt))'
+  + '|vielen\\s+dank\\s+für\\s+(?:ihre|deine)\\s+(?:nachricht|bewerbung)'
+  + '|votre\\s+message\\s+a\\s+bien\\s+été\\s+(?:envoyé|transmis)e?'
+  + '|message\\s+(?:envoyé|transmis)\\s+avec\\s+succès'
+  + '|(?:il\\s+tuo|il\\s+suo|il\\s+vostro)\\s+messaggio\\s+(?:è|e[\'’]?)\\s+stato\\s+(?:inviato|trasmesso)(?:\\s+con\\s+successo)?'
+  + '|your\\s+message\\s+(?:has\\s+been|was)\\s+(?:successfully\\s+)?(?:sent|submitted|delivered)(?:\\s+successfully)?'
+  + '|message\\s+sent\\s+successfully'
+  + `)${EDGE_R}`, 'iu');
 const NEGATED_BEFORE_RE = /\b(?:non|not|nicht|kein|keine|pas|never|nie|n['’]a)\s+(?:\w+\s+){0,2}$/iu;
 
 /** The confirming sentence in `text`, or ''. A negated one («non è stata inviata») is no confirmation. */
 export function inPageConfirmationText(text = '') {
-  const value = String(text || '').replace(/[ \t]+/gu, ' ');
-  for (const pattern of [IN_PAGE_CONFIRM_EXTRA_RE, CONFIRM_RE]) {
+  const value = String(text || '').normalize('NFC').replace(/[ \t]+/gu, ' ');
+  for (const pattern of [IN_PAGE_CONFIRM_EXTRA_RE, MESSAGE_SENT_RE, CONFIRM_RE]) {
     const match = new RegExp(pattern.source, `${pattern.flags.replace('g', '')}g`);
     for (let found = match.exec(value); found; found = match.exec(value)) {
       if (!NEGATED_BEFORE_RE.test(value.slice(Math.max(0, found.index - 24), found.index))) return found[0];
