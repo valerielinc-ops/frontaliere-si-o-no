@@ -93,12 +93,33 @@ describe('a SuccessFactors autocomplete takes only a listed option (Damiani «Ma
     expect(f.input.value).not.toBe('Biology');
   });
 
-  it('never picks by position or by a key shared by two options', () => {
-    expect(pickSuggestionLabel(['Accounting Technology', 'Accounting Services'], 'Accounting', { literal: false })).toBe(-1);
+  it('never picks by position, by a longer name that holds the key, or by a key shared by two options', () => {
+    expect(pickSuggestionLabel(['Software Engineering'], 'Engineering', { literal: false })).toBe(-1);
+    expect(pickSuggestionLabel(['Accounting Services'], 'Accounting', { literal: false })).toBe(-1);
     expect(pickSuggestionLabel(['Accounting', 'Accounting Services'], 'accounting', { literal: false })).toBe(0);
-    expect(pickSuggestionLabel(['Accounting Services'], 'Accounting', { literal: false })).toBe(0);
-    expect(pickSuggestionLabel(['Accounting Services'], 'Accounting', { literal: true })).toBe(-1);
     expect(pickSuggestionLabel(['Accountancy'], 'Accounting', { literal: false })).toBe(-1);
+    // Exact up to case, accents, spaces, punctuation and «&»/«and».
+    expect(pickSuggestionLabel(['Banking & Finance'], 'banking and  finance', { literal: false })).toBe(0);
+    expect(pickSuggestionLabel(['Économie'], 'economie', { literal: false })).toBe(0);
+    expect(pickSuggestionLabel(['Computer-Science'], 'Computer Science', { literal: true })).toBe(0);
+  });
+
+  it('hands a CV «Engineering» to the candidate with the portal options instead of choosing «Software Engineering»', async () => {
+    const f = autocomplete(['Software Engineering', 'Biology']);
+    const [result] = await f.run('ingegneria');
+    expect(result).toMatchObject({ ok: false, error: 'option_not_found' });
+    for (const label of ['Software Engineering', 'Biology']) expect((result as any).optionDiagnostics.suggestions).toContain(label);
+    expect(f.input.value).not.toBe('Software Engineering');
+  });
+
+  it('keeps the emptied list\'s options besides the ones the typed keys already showed', async () => {
+    // Typing «Finance» lists «Unrelated Finance Group»; the emptied box lists the whole catalogue.
+    const f = autocomplete(['Unrelated Finance Group', 'Accounting Services', 'Biology']);
+    const [result] = await f.run('contabilita');
+    expect(result).toMatchObject({ ok: false, error: 'option_not_found' });
+    const offered = (result as any).optionDiagnostics.suggestions;
+    for (const label of ['Unrelated Finance Group', 'Accounting Services', 'Biology']) expect(offered).toContain(label);
+    expect(new Set(offered).size).toBe(offered.length);
   });
 });
 

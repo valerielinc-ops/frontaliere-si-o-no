@@ -522,16 +522,17 @@ async function pickSuggestion(page, field, locator, value) {
  * the suggestions read, and one real option chosen: the label equal to the key, else the only suggestion that holds
  * the key as whole words. Never a positional pick. Every label seen is kept for the question to the candidate.
  */
-export function pickSuggestionLabel(labels, key, { literal }) {
-  const wanted = normalizedChoice(key);
+export function pickSuggestionLabel(labels, key, { literal = false } = {}) {
+  void literal;
+  const wanted = suggestionForm(key);
   if (!wanted) return -1;
-  const exact = labels.map((label, index) => ({ label, index })).filter(({ label }) => normalizedChoice(label) === wanted);
-  if (exact.length === 1) return exact[0].index;
-  if (exact.length > 1 || literal) return -1;
-  const whole = labels.map((label, index) => ({ label, index }))
-    .filter(({ label }) => ` ${normalizedChoice(label)} `.includes(` ${wanted} `));
-  return whole.length === 1 ? whole[0].index : -1;
+  // Only the exact label, as the portal writes it up to case, accents, spaces, punctuation and «&»/«and»: a key
+  // held inside a longer name («Software Engineering» for «Engineering») is another field of study.
+  const exact = labels.map((label, index) => ({ index, same: suggestionForm(label) === wanted })).filter((item) => item.same);
+  return exact.length === 1 ? exact[0].index : -1;
 }
+
+const suggestionForm = (value) => normalizedChoice(value).replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, ' ').replace(/\s+/g, ' ').trim();
 
 async function visibleSuggestionLabels(frame) {
   const visible = frame.locator('[role="option"]:visible');
@@ -594,14 +595,13 @@ async function fillCombobox(page, field, locator, value) {
       if (isStudyFieldQuestion({ label: field.label, kind: 'combobox', selectLike: false })) {
         const chosen = await chooseBySearchKeys(page, field, locator, frame, value, seen);
         if (chosen) return chosen;
-        if (!seen.length) {
-          // Nothing matched any key: read what the emptied box lists, so the candidate can choose among the portal's own options.
-          await Promise.resolve(locator.press('ControlOrMeta+A')).catch(() => {});
-          await Promise.resolve(locator.press('Backspace')).catch(() => {});
-          await Promise.resolve(locator.press('ArrowDown')).catch(() => {});
-          await frame.locator('[role="option"]:visible').first().waitFor({ state: 'visible', timeout: 2500 }).catch(() => {});
-          for (const label of await visibleSuggestionLabels(frame)) if (!seen.includes(label) && seen.length < 40) seen.push(label);
-        }
+        // Nothing matched any key: always read what the emptied box lists too, so the candidate can choose among the
+        // portal's own options (the filtered lists seen so far may hold only part of them).
+        await Promise.resolve(locator.press('ControlOrMeta+A')).catch(() => {});
+        await Promise.resolve(locator.press('Backspace')).catch(() => {});
+        await Promise.resolve(locator.press('ArrowDown')).catch(() => {});
+        await frame.locator('[role="option"]:visible').first().waitFor({ state: 'visible', timeout: 2500 }).catch(() => {});
+        for (const label of await visibleSuggestionLabels(frame)) if (!seen.includes(label) && seen.length < 40) seen.push(label);
       }
       await locator.press('Escape').catch(() => {});
       const failure = new Error('option_not_found');
