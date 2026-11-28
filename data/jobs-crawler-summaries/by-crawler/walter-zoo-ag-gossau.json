@@ -1,7 +1,7 @@
 {
   "key": "walter-zoo-ag-gossau",
   "label": "WALTER ZOO AG GOSSAU",
-  "generatedAt": "2026-11-27T21:15:38.889Z",
+  "generatedAt": "2026-11-28T09:15:16.283Z",
   "total": 3,
   "discovered": 5,
   "parsed": 3,
@@ -54,19 +54,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 9952,
-  "avgDurationMs": 9952,
+  "durationMs": 46266,
+  "avgDurationMs": 46266,
   "durationHistory": [
-    9952
+    46266
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "walter-zoo-ag-gossau-0afebe294b4b",
-      "slug": "praktikant-in-igelpflege-gossau-sg-sg-walter-zoo-ag-gossau-ch",
+      "slug": "tirocinante-nella-cura-dei-ricci-walter-zoo-ag-gossau-gossau-sg",
       "company": "WALTER ZOO AG GOSSAU",
       "companyKey": "walter-zoo-ag-gossau",
       "companyDomain": "link.ostendis.com",
@@ -76,7 +77,7 @@
       "url": "https://link.ostendis.com/publication/praktikant-in-igelpflege/033lm0aswed5h7sdpy7jtkdwy6m513dlct5a2uyi3hkvbkiiiis4s00etzkqm3q6",
       "source": "WALTER ZOO AG GOSSAU Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:15:14.433Z",
+      "crawledAt": "2026-11-28T09:14:20.424Z",
       "addressLocality": "Gossau SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -94,19 +95,18 @@
       "postedDate": "2026-11-27",
       "postingDateSource": "reported",
       "applyUrl": "https://link.ostendis.com/publication/praktikant-in-igelpflege/033lm0aswed5h7sdpy7jtkdwy6m513dlct5a2uyi3hkvbkiiiis4s00etzkqm3q6",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-27T21:15:14.433Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-25T21:15:14.433Z",
+      "validThrough": "2027-02-25T09:14:20.424Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-27T21:15:14.433Z",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -122,7 +122,7 @@
       "url": "https://link.ostendis.com/publication/leiter-in-schimpansenrevier/zd53zb5ywa3vhcawb2ihslfwdgrdf5wm4br0y9y8ejxcnxml8o8502k2dcyxtyx7",
       "source": "WALTER ZOO AG GOSSAU Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:15:14.431Z",
+      "crawledAt": "2026-11-28T09:14:20.423Z",
       "addressLocality": "Gossau SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -140,24 +140,22 @@
       "postedDate": "2026-11-26",
       "postingDateSource": "reported",
       "applyUrl": "https://link.ostendis.com/publication/leiter-in-schimpansenrevier/zd53zb5ywa3vhcawb2ihslfwdgrdf5wm4br0y9y8ejxcnxml8o8502k2dcyxtyx7",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-27T21:15:14.431Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-24T21:15:14.431Z",
+      "validThrough": "2027-02-24T09:14:20.423Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-27T21:15:14.431Z",
-      "_qualityScore": 91,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -172,7 +170,7 @@
       "url": "https://link.ostendis.com/publication/praktikant-in-tierpflege/ifxcx5w7j27ktusu6yw8b7qjgwq4sj426s7hakpf1ecsofijiafrjlo6ylec7rth",
       "source": "WALTER ZOO AG GOSSAU Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T21:15:14.434Z",
+      "crawledAt": "2026-11-28T09:14:20.425Z",
       "addressLocality": "Gossau SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -195,7 +193,7 @@
       "salaryMax": 73000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:15:14.434Z",
+      "validThrough": "2027-01-21T09:14:20.425Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -206,5 +204,5 @@
       }
     }
   ],
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
 }
