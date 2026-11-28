@@ -46,13 +46,14 @@ const registerOnlyPage = () => ({
 });
 const inlineSigninPage = () => ({ ...loginPage(), text: 'Bewerbung. Bereits registriert? Anmelden' });
 
-type Store = { current: any; load: any; abortRecovery: any; mark: any; adoptPassword: any; resetPasswordCandidates: any; beginRecovery: any };
+type Store = { current: any; load: any; abortRecovery: any; mark: any; adoptPassword: any; resetPasswordCandidates: any; beginRecovery: any; completeRecovery: any };
 function makeStore(account: any): Store {
   const store: any = { current: account };
   store.load = vi.fn(async () => store.current);
   store.abortRecovery = vi.fn(async () => true);
   store.mark = vi.fn(async () => {});
   store.adoptPassword = vi.fn(async () => true);
+  store.completeRecovery = vi.fn(async () => true);
   store.resetPasswordCandidates = vi.fn(async () => []);
   store.beginRecovery = vi.fn(async () => ({ status: 'started', requestedAt: 1 }));
   return store;
@@ -324,6 +325,48 @@ describe('the reset e-mail\'s link and the errors of an inspection', () => {
     await h.run();
     expect(recover).toHaveBeenCalledTimes(1);
     expect(store.pendingPasswordReset).toHaveBeenCalledWith(HOST);
+  });
+
+  it('the reset succeeds on the portal (PasswordSetNew -> CloseWindowApplicants -> /SelfService): the redirect after the new password is allowed once, nothing else', async () => {
+    const store = makeStore({ ...account, password: 'rejected-one', status: 'recovering', recoveryRequestedAt: 1 });
+    store.pendingPasswordReset = vi.fn(async () => ({ url: resetLink, messageId: 'm1', receivedAt: 2 }));
+    let fireIn: any;
+    const recover = vi.fn(async ({ ctx, host, finishRecovery }: any) => {
+      await ctx.accounts.pendingPasswordReset(host);
+      expect(await fireIn(resetLink)).toBe(true);
+      expect(await fireIn(`https://${HOST}/Password/PasswordSetNew`)).toBe(true);
+      // Before the new password is posted, the self-service page is closed.
+      expect(await fireIn(`https://${HOST}/SelfService`)).toBe(false);
+      expect(await fireIn(`https://${HOST}/Password/PasswordSetNew`, 'POST', false)).toBe(true);
+      expect(await fireIn(`https://${HOST}/Password/CloseWindowApplicants`)).toBe(true);
+      expect(await fireIn(`https://${HOST}/SelfService`)).toBe(true);
+      expect(await fireIn(`https://${HOST}/SelfService?action=submit`)).toBe(false);
+      expect(await fireIn(`https://${HOST}/SelfService/Applicant`)).toBe(false);
+      expect(await fireIn(`https://${HOST}/SelfService`, 'POST', false)).toBe(false);
+      store.current = { ...store.current, password: 'fresh-one', status: 'pending' };
+      return { ...(await finishRecovery({})), accountRecovered: true };
+    });
+    const h = harness({ accepted: ['fresh-one'], store, recover, allowRecovery: true, aliasEmail: alias });
+    fireIn = h.fire;
+    const proof: any = await h.run();
+    expect(proof.applicationExists).toMatchObject({ vacancyId: '6604' });
+    expect(proof.recovery).toMatchObject({ attempted: true, accepted: true });
+    // The window closes with the recovery.
+    expect(await h.fire(`https://${HOST}/SelfService`)).toBe(false);
+  });
+
+  it('a staged password that the portal now holds (new password set, run died before saying so) is tried first and confirms the recovery', async () => {
+    const store = makeStore({ ...account, password: 'staged-and-set', status: 'recovering', recoveryRequestedAt: 1, previousPassword: 'older' });
+    const recover = vi.fn();
+    const { run, log } = harness({ accepted: ['staged-and-set'], store, recover, allowRecovery: true, aliasEmail: alias });
+    const proof: any = await run();
+    expect(proof.applicationExists).toMatchObject({ vacancyId: '6604' });
+    expect(recover).not.toHaveBeenCalled();
+    expect(log.filter(entryLog => entryLog.method === 'POST')).toHaveLength(1);
+    expect(store.resetPasswordCandidates).not.toHaveBeenCalled();
+    expect(store.completeRecovery).toHaveBeenCalledWith(HOST);
+    expect(store.mark).toHaveBeenCalledWith(HOST, expect.objectContaining({ status: 'created' }));
+    expect(proof.trace).toEqual(expect.arrayContaining([expect.objectContaining({ kind: 'account', reason: 'staged_password_confirmed' })]));
   });
 
   it('refuses a reset link on another host, or with a mutation key', async () => {
