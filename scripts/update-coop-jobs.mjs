@@ -64,6 +64,7 @@ import { runQualityGuards } from './lib/crawler-quality-guards.mjs';
 import {
   fetchCoopDetailPage,
   collapseRepublishedCoopVacancies,
+  createRepublishedCollapseForSliceWrite,
   composeCoopFamilyDescription,
   coopDescHtmlToMarkdown,
   validateCoopDescription,
@@ -1316,7 +1317,16 @@ async function main() {
 
   // Step 5: Write per-crawler slice and assemble global dataset
   if (stats.coopJobs && stats.coopJobs.length > 0) {
-    writeJobsCrawlerSlice(COOP_KEY, stats.coopJobs);
+    // Collapse on the exact records the writer persists: the post-process pass
+    // above runs before the writer resolves addresses and normalizes bodies, so
+    // it cannot see a repost that only matches after that (#20424).
+    const finalCollapse = createRepublishedCollapseForSliceWrite('Coop', {
+      onRouteHistoryOverflow: (overflowJobs, activeJobs) => {
+        archiveRemovedJobsToSlice(overflowJobs, COOP_KEY, { activeJobs });
+      },
+    });
+    writeJobsCrawlerSlice(COOP_KEY, stats.coopJobs, { collapseRepublishedJobs: finalCollapse });
+    const publishedTotal = stats.coopJobs.length - finalCollapse.collapsedCount;
 
     const durationMs = getCrawlerElapsedMs();
     const diff = stats.crawlDiff || { newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: [], unchangedCount: 0 };
@@ -1324,10 +1334,10 @@ async function main() {
       key: COOP_KEY,
       label: 'Coop',
       generatedAt: new Date().toISOString(),
-      total: stats.coopJobs.length,
+      total: publishedTotal,
       discovered: summaryCounts.discovered,
       parsed: summaryCounts.parsed,
-      written: stats.coopJobs.length,
+      written: publishedTotal,
       lastFetchOutcome: 'ok',
       newCount: crawlDiff.newJobs.length,
       updatedCount: crawlDiff.updatedJobs.length,
