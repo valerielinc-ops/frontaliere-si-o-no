@@ -134,6 +134,8 @@ import {
 import { createExpiredJobEdgeDatasetWriter } from '../scripts/lib/expired-job-edge-dataset-writer.mjs';
 import { normalizeExpiredJobEdgePath, parseExpiredJobEdgeSections } from '../scripts/lib/expired-job-edge-dataset.mjs';
 import { truncateCodeUnits } from './shared/safeTruncate';
+import { loadArticleLinkIndex } from './shared/publishedArticleLinkIndex';
+import { selectRelevantArticles, renderRelevantArticlesBlock } from './shared/relevantArticleLinks';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { editorialSitemapEmitGate } from './shared/editorialSitemapEmitGate';
@@ -2699,6 +2701,8 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  };
 
  // ── Load blog article data for cross-linking (SEO: internal links from job → article pages) ──
+ // Published article index (HTTP, fail-soft → null) for relevance-based reverse links (F6.3c).
+ const articleLinkIndex = await loadArticleLinkIndex();
  interface RecentArticle { id: string; category: string; date: string; image: string }
  let recentArticles: RecentArticle[] = [];
  const articleSlugByLocale: Record<'it' | 'en' | 'de' | 'fr', Record<string, string>> = { it: {}, en: {}, de: {}, fr: {} };
@@ -2780,7 +2784,31 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // template literal, by which point every closeBundle-scoped const is
  // initialized.
  const _recentArticlesHtmlCache: Partial<Record<'it' | 'en' | 'de' | 'fr', string>> = {};
- const recentArticlesHtmlFor = (locale: 'it' | 'en' | 'de' | 'fr'): string => {
+ const _relevantArticlesHtmlCache = new Map<string, string>();
+ const recentArticlesHtmlFor = (
+ locale: 'it' | 'en' | 'de' | 'fr',
+ jobCtx?: { canton?: string | null; title?: string; category?: string },
+ ): string => {
+ // F6.3c: with the published article index, pick articles relevant to THIS
+ // offer (canton, profession/sector, title keywords; fallback latest of the
+ // canton section, then frontaliere). Without the index (offline build,
+ // vitest, API down) keep the previous "latest 5" block byte for byte.
+ if (articleLinkIndex && jobCtx) {
+ const selected = selectRelevantArticles(articleLinkIndex, {
+ locale, canton: jobCtx.canton ?? null, title: jobCtx.title, category: jobCtx.category,
+ });
+ if (selected.length > 0) {
+ const key = `${locale}|${selected.map((x) => x.article.href).join('|')}`;
+ const hit = _relevantArticlesHtmlCache.get(key);
+ if (hit !== undefined) return hit;
+ const html = renderRelevantArticlesBlock(selected, recentArticlesLabel[locale], {
+ sectionClass: 'related s-Duf2at', headingClass: 's-F8Mkz3', listClass: 's-QkRjp8',
+ itemClass: 's-86Qi7h', linkClass: 's-KkZ9xy',
+ }, esc);
+ _relevantArticlesHtmlCache.set(key, html);
+ return html;
+ }
+ }
  const cached = _recentArticlesHtmlCache[locale];
  if (cached !== undefined) return cached;
  const html = buildRecentArticlesHtml(locale);
@@ -4719,7 +4747,11 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // The page itself is still emitted with its own URL (breadcrumbs,
  // JobPosting, etc. describe THIS page) so existing backlinks resolve.
  const effectiveCanonicalUrl = resolveCanonicalUrl(perLocaleSlug[locale], canonicalUrl);
- const recentArticlesHtml = recentArticlesHtmlFor(locale);
+ const recentArticlesHtml = recentArticlesHtmlFor(locale, {
+  canton: jobCanton,
+  title: String(job?.titleByLocale?.[locale] || job.title || ''),
+  category: String(job.category || ''),
+ });
  // `relatedArticlesHtml` is the SAME string the template below interpolates:
  // the publish input digests exactly the bytes the page emits, so the two
  // cannot drift apart. The reuse input keeps the hreflang/employer context,
