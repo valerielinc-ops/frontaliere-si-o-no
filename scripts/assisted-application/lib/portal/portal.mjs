@@ -5301,7 +5301,7 @@ const FORM_VOCABULARY = new Set([
   'process', 'prozess', 'processo', 'processus', 'recruiting', 'recruitment', 'applicant', 'candidate', 'kandidat', 'candidato', 'candidat',
   'employee', 'employees', 'staff', 'dipendente', 'dipendenti', 'mitarbeiter', 'mitarbeiterin', 'mitarbeitende',
   'collaborator', 'collaborators', 'collaboratore', 'collaboratori', 'collaboratrice', 'collaborateur', 'collaborateurs', 'employe', 'employes',
-  'stellenangebot', 'stellenanzeige', 'karriereportal', 'jobportal', 'bewerbungsformular', 'onlinebewerbung', 'page', 'seite', 'pagina',
+  'stellenangebot', 'stellenanzeige', 'stellenportal', 'stellenmarkt', 'jobboerse', 'jobborse', 'karriereportal', 'jobportal', 'bewerbungsformular', 'onlinebewerbung', 'page', 'seite', 'pagina',
   // SuccessFactors titles every page with its careers section: «Opportunités de carrière : Créer un
   // compte» (Rolex, 2026-10-03), «Karrierechancen: Anmelden» (Coop), «Career Opportunities: …».
   'opportunity', 'opportunities', 'opportunite', 'opportunites', 'opportunita', 'karrierechancen', 'chancen',
@@ -5550,6 +5550,17 @@ const PLACEMENT_PROSE_NOUNS = new Set(['fragen', 'ruckfragen', 'rueckfragen', 'i
 const ORGANISATION_NOUNS = new Set(['employer', 'employers', 'arbeitgeber', 'unternehmen', 'firma', 'company', 'datore', 'azienda', 'societe', 'entreprise', 'employeur']);
 // A line of business next to the employer's name is the same group's entity, not another employer: «Deloitte»,
 // «Deloitte AG» and «Deloitte Consulting AG» name one employer. International/Europe stay names (review of #12292).
+// A word of corporate grouping next to the order's distinctive name says the same group, for any employer: «du groupe
+// Migros» (the portal's own header «Le portail de l'emploi du groupe Migros»), «X-Gruppe», «X Holding». It is another
+// employer only when what stands on its far side is another name («Migros Group Beta», «Migros Gruppe Muster»), or
+// when it forms its own legal entity elsewhere (the title rules: «Muster Group AG»).
+const CORPORATE_GROUP_WORDS = new Set(['groupe', 'gruppe', 'gruppo', 'group', 'konzern', 'holding', 'unternehmensgruppe', 'groupement', 'firmengruppe', 'gruppen']);
+// The months of a date line next to the employer's name («Société coopérative Migros Genève20 novembre 2026»).
+const DATE_MONTH_WORDS = new Set([
+  'janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre',
+  'januar', 'februar', 'marz', 'juli', 'dezember', 'gennaio', 'febbraio', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'dicembre',
+  'january', 'february', 'march', 'april', 'june', 'july', 'august', 'september', 'october', 'november', 'december',
+]);
 const CORPORATE_DESCRIPTOR_WORDS = new Set(['consulting', 'advisory', 'services']);
 // Calls to action and sentence openers that stand next to the employer's name in its own marketing copy
 // («Why join Deloitte?», «Join Deloitte today», «Life at Deloitte»): grammar, not another name.
@@ -5646,7 +5657,7 @@ function foreignEmployerEvidenceInSegment(segment, { neutral, job, agency, known
       if (hit) return hit;
     }
     // 5. A kind of employer with a capitalised name next to it («Hotel Splendide», «Muster Bank»).
-    if (EMPLOYER_KIND_WORDS.has(norm[index]) && capitalised(index)) {
+    if ((EMPLOYER_KIND_WORDS.has(norm[index]) || CORPORATE_GROUP_WORDS.has(norm[index])) && capitalised(index)) {
       for (const neighbour of [index + 1, index - 1]) {
         if (neighbour >= 0 && neighbour < raw.length && nameWord(neighbour)) {
           const hit = found('kind_with_name', [Math.min(index, neighbour), Math.max(index, neighbour)]);
@@ -5794,6 +5805,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     ...postingLocationSuffixWords(text, ours, postingLocationWords),
     ...NOT_A_NAME,
     ...CORPORATE_DESCRIPTOR_WORDS,
+    ...DATE_MONTH_WORDS,
     ...EMPLOYER_COPY_WORDS,
     // Vacancy cards can flatten their rows into one line («Coop Genossenschaft Standort Rickenbach»).
     // On an already-bound posting, the location-field label is metadata, not another employer name.
@@ -5914,6 +5926,16 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
         // A lower-case word of a sentence in normal case next to the employer's name is prose, not a name
         // («Why join Deloitte?»): only a capitalised word, a marker («other») or a kind of employer («hotel») names someone.
         if (proseWord(at) && !OTHER_EMPLOYER_MARKER_WORDS.has(words[at]) && !EMPLOYER_KIND_WORDS.has(words[at])) continue;
+        // «Teil der Migros-Gruppe», «Mitglied du groupe Migros»: a noun joined to the name by a preposition, with the group
+        // word right after the name, describes the group's member and names nobody.
+        if (step === -1 && separated && CORPORATE_GROUP_WORDS.has(words[index + 1])) continue;
+        if (CORPORATE_GROUP_WORDS.has(words[at])) {
+          // The word on the far side of the group word: a function word, a legal form, the end of the phrase or a
+          // lower-case word of a sentence leave it the same group; a capitalised name there is someone else.
+          const farAt = at + step;
+          const far = words[farAt];
+          if (far === undefined || neutral.has(far) || filler(far) || NOT_A_NAME.has(far) || proseWord(farAt)) continue;
+        }
         if (!neutral.has(words[at]) && !labels?.has(words[at])
           && !(EMPLOYER_KIND_CLASS.has(words[at]) && ourKinds.has(EMPLOYER_KIND_CLASS.get(words[at])))
           && !isSelectOneLabelToken(words, at)

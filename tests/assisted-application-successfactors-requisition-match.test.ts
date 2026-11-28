@@ -100,15 +100,18 @@ it('distinguishes native Coop questions from the employer heading', () => {
   for (const marker of ['•', '-', '–', '＊']) {
     const marked = text.replace('* ' + question, marker + ' ' + question);
     expect(formPostingMatch(marked, coop, opts)).toBe('match');
-    expect(formPostingMatch(marked, coop, { ...opts, formFieldLabels: [] })).toBe('mismatch');
+    // «presso il Gruppo Coop» is the order's own group, field label or not (R6); a name behind it is not.
+    expect(formPostingMatch(marked, coop, { ...opts, formFieldLabels: [] })).toBe('match');
+    expect(formPostingMatch(marked + ' Muster', coop, { ...opts, formFieldLabels: [] })).toBe('mismatch');
   }
-  expect(formPostingMatch(text, coop, { ...opts, formFieldLabels: [] })).toBe('mismatch');
+  expect(formPostingMatch(text, coop, { ...opts, formFieldLabels: [] })).toBe('match');
   const icon = '\uE1C4';
   const withIcon = text + icon;
   expect(formPostingMatch(withIcon, coop, opts)).toBe('match');
-  expect(formPostingMatch(withIcon, coop, { ...opts, formFieldLabels: [] })).toBe('mismatch');
+  expect(formPostingMatch(withIcon, coop, { ...opts, formFieldLabels: [] })).toBe('match');
   expect(formPostingMatch(withIcon + ' Siemens AG', coop, opts)).toBe('mismatch');
   expect(formPostingMatch(text + '\nCoop Siemens AG', coop, opts)).toBe('mismatch');
   expect(formPostingMatch(text, coop, { ...opts, pageHeadings: ['Bewerbung bei Siemens AG'] })).toBe('mismatch');
-  expect(formPostingMatch(text, coop, { ...opts, applyUrl: opts.applyUrl.replace('171248', '171249') })).toBe('mismatch');
+  // Another requisition: the page's own heading carries the id, and the stop no longer rests on the group word.
+  expect(formPostingMatch(text, coop, { ...opts, pageHeadings: [title + ' (171248)'], applyUrl: opts.applyUrl.replace('171248', '171249') })).toBe('mismatch');
 });
