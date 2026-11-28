@@ -4,27 +4,27 @@
   "generatorSha256": "c464aa87ea5cb2476be08c910b48bfcafb54d1662eaea601982188313f1cbaca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "16ed9130a2d702a4c74c1470a3dbaaa74b362368",
-  "sourceCommitVerified": true,
+  "sourceCommit": "a93684753e521c8e46e0a0e71f6d516945b35c0b",
+  "sourceCommitVerified": false,
   "artifactObservation": {
     "generatorSha256": "c464aa87ea5cb2476be08c910b48bfcafb54d1662eaea601982188313f1cbaca",
     "sourceRef": "main",
-    "sourceCommit": "16ed9130a2d702a4c74c1470a3dbaaa74b362368"
+    "sourceCommit": "a93684753e521c8e46e0a0e71f6d516945b35c0b"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 713,
+  "crawlerCount": 715,
   "crawlerRosterCardinality": {
-    "sourceCommit": "16ed9130a2d702a4c74c1470a3dbaaa74b362368",
+    "sourceCommit": "a93684753e521c8e46e0a0e71f6d516945b35c0b",
     "groupCount": 25,
     "artifactCount": 26,
-    "crawlerCount": 713
+    "crawlerCount": 715
   },
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:b463c1753db4d3570860bfe8aa101fed18a926f7fe5cb90f9e2e4eb21e6c807d",
+    "rosterDigest": "sha256:812d81140e077a6b616159ec00e207d456854437bab6812ea049988b807a9830",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -228,6 +228,7 @@
     "scripts/update-deloitte-jobs.mjs",
     "scripts/update-dic-sa-jobs.mjs",
     "scripts/update-dormakaba-jobs.mjs",
+    "scripts/update-ducksch-anliker-ag-jobs.mjs",
     "scripts/update-duferco-jobs.mjs",
     "scripts/update-ecam-jobs.mjs",
     "scripts/update-edmond-de-rothschild-jobs.mjs",
@@ -346,6 +347,7 @@
     "scripts/update-invias-swiss-jobs.mjs",
     "scripts/update-ipersonal-jobs.mjs",
     "scripts/update-ipw-jobs.mjs",
+    "scripts/update-jensen-ag-jobs.mjs",
     "scripts/update-jobdoor-ch-jobs.mjs",
     "scripts/update-josef-mueller-jobs.mjs",
     "scripts/update-jsafrasarasin-jobs.mjs",
@@ -836,8 +838,8 @@
     {
       "file": "crawler-group-04.yml",
       "sourceLogic": "crawler-group-04-logic.yml",
-      "sourceSha256": "2767796a7b296478cd320c066306f865ee3dea411f7c7ba0390688636e884661",
-      "artifactSha256": "4dbde28d41e3ee983bcfa49b76b82b49efc655c1dd8e6b62257c7a443d62b252",
+      "sourceSha256": "4b32160b619a88f48e127072c423af00bc01ef2e161e208799f1789975e74cb2",
+      "artifactSha256": "f35e390d98b8931938fa56a54da93c76385f3f261c78cb7f3163afad2150009a",
       "generatorSha256": "c464aa87ea5cb2476be08c910b48bfcafb54d1662eaea601982188313f1cbaca",
       "members": [
         "spital-limmattal",
@@ -870,7 +872,8 @@
         "hospice-general",
         "pole-sante-pays-enhaut",
         "medimeo",
-        "opacc-software-ag"
+        "opacc-software-ag",
+        "jensen-ag"
       ]
     },
     {
@@ -1634,8 +1637,8 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "8039da77f410c273330e3a7c03600b30bd874f83257cd557e7cf46c32e88162a",
-      "artifactSha256": "250d980e80abc81a9ada7bc56c58f696fa9773678bfca68892119bbd967f2928",
+      "sourceSha256": "5e35e08dbb86d04779d2ec427e8bb5492c4d69e1edbce0e812df095ac85d9a14",
+      "artifactSha256": "0a3a9da74f21a75bcd36761e3186c5d05aad447c4c2e714d4ced2d5cc6bbb288",
       "generatorSha256": "c464aa87ea5cb2476be08c910b48bfcafb54d1662eaea601982188313f1cbaca",
       "members": [
         "seco-jobroom",
@@ -1668,7 +1671,8 @@
         "data-unit-ag",
         "prodyna-com",
         "benisasa-ch",
-        "barockjob"
+        "barockjob",
+        "ducksch-anliker-ag"
       ]
     },
     {

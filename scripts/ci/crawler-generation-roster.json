@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 713,
+  "crawlerCount": 715,
   "groups": {
     "10": [
       "atec-personal",
@@ -479,6 +479,7 @@
       "creditx-ch",
       "csl-immobilien-ag",
       "data-unit-ag",
+      "ducksch-anliker-ag",
       "eqe-ch",
       "favresa-ch",
       "freestarinformatik",
@@ -584,6 +585,7 @@
       "hitachi-energy",
       "honegger",
       "hospice-general",
+      "jensen-ag",
       "jsafrasarasin",
       "kanton-basel-landschaft",
       "klinik-im-hasel",
@@ -954,6 +956,7 @@
     "denner": "data/jobs/by-crawler/denner.json",
     "dic-sa": "data/jobs/by-crawler/dic-sa.json",
     "dormakaba": "data/jobs/by-crawler/dormakaba.json",
+    "ducksch-anliker-ag": "data/jobs/by-crawler/ducksch-anliker-ag.json",
     "duferco": "data/jobs/by-crawler/duferco.json",
     "dxt-commodities": "data/jobs/by-crawler/dxt-commodities.json",
     "ecam": "data/jobs/by-crawler/ecam.json",
@@ -1101,6 +1104,7 @@
     "invias-swiss": "data/jobs/by-crawler/invias-swiss.json",
     "ipersonal": "data/jobs/by-crawler/ipersonal.json",
     "ipw": "data/jobs/by-crawler/ipw.json",
+    "jensen-ag": "data/jobs/by-crawler/jensen-ag.json",
     "jobdoor-ch": "data/jobs/by-crawler/jobdoor-ch.json",
     "josef-mueller": "data/jobs/by-crawler/josef-mueller.json",
     "jsafrasarasin": "data/jobs/by-crawler/jsafrasarasin.json",
@@ -1482,5 +1486,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:b463c1753db4d3570860bfe8aa101fed18a926f7fe5cb90f9e2e4eb21e6c807d"
+  "digest": "sha256:812d81140e077a6b616159ec00e207d456854437bab6812ea049988b807a9830"
 }
