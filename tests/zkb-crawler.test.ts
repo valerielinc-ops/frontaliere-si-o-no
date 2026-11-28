@@ -66,6 +66,28 @@ describe('ZKB current SuccessFactors source', () => {
     expect(parsed.description).toMatch(/\n- Du konzipierst skalierbare Services/);
   });
 
+  it('reads the vacancy body from the live rich-text span, not the header card or the FAQ', () => {
+    const body = '<div><H2><b>Deine Aufgaben</b></H2></div><div><ul>'
+      + '<li>Du konzipierst und betreibst skalierbare Services für die Plattform unserer Bank.</li>'
+      + '<li>Du arbeitest eng mit den Teams zusammen und verbesserst laufend die Stabilität im Betrieb.</li>'
+      + '<li>Du wertest Kennzahlen aus und leitest daraus konkrete Verbesserungen für unsere Kundinnen ab.</li>'
+      + '</ul></div><div><H2><b>Dein Profil</b></H2></div><div><ul>'
+      + '<li>Mehrjährige Erfahrung im Betrieb von Cloud-Infrastruktur und in der Automatisierung von Abläufen.</li>'
+      + '<li>Sehr gute Deutschkenntnisse in Wort und Schrift sowie Freude an der Zusammenarbeit im Team.</li>'
+      + '</ul></div>';
+    const html = `<div id="search-wrapper">
+      <div class="joblayouttoken displayDTM "><span itemprop="description" class="rtltextaligneligible"><div class="zkb-job-header"><h1>Platform Engineer Observability (m/w/d)</h1><div class="zkb-job-header__cat"><span class="zkb-job-header__cat-heading">Pensum</span> <span class="zkb-job-header__cat-text"> 100 % </span></div></div><p><img src="x.png"></p></span></div>
+      <div class="joblayouttoken displayDTM "><span class="rtltextaligneligible">${body}</span></div>
+      <div class="joblayouttoken displayMDT "><span class="rtltextaligneligible"><div><H2><b>Fragen zur Stelle?</b></H2></div><p>Die häufigsten Fragen haben wir beantwortet.</p></span></div>
+    </div>`;
+    const parsed = parseZkbDetailPage(html, 'https://jobs.zkb.ch/job/Role/68-de_DE/');
+    expect(parsed.description).toContain('Deine Aufgaben');
+    expect(parsed.description).toMatch(/\n- Du konzipierst und betreibst skalierbare Services/);
+    expect(parsed.description).not.toContain('Fragen zur Stelle');
+    expect(parsed.description).not.toContain('Pensum');
+    expect(parsed.description.split(/\s+/).filter(Boolean).length).toBeGreaterThan(50);
+  });
+
   it('discovers ZKB postings from the official recruiting API and detail page', async () => {
     const requests: Array<{ url: string; init?: RequestInit }> = [];
     vi.stubGlobal('fetch', vi.fn(async (url: string, init?: RequestInit) => {
@@ -117,6 +139,26 @@ describe('ZKB current SuccessFactors source', () => {
       { places: [] },
       { jobLocationShort: ['Zürich||ZH||CHE'] },
     )).toEqual({ city: 'Zürich', canton: 'ZH' });
+  });
+
+  it('resolves the markup-wrapped short location the live API now returns', () => {
+    expect(resolveZkbLocation({ places: [] }, { jobLocationShort: ['Zürich<br/>'] }))
+      .toEqual({ city: 'Zürich', canton: 'ZH' });
+    expect(resolveZkbLocation({ places: [] }, { jobLocationShort: ['<p>Zürich </p><br>'] }))
+      .toEqual({ city: 'Zürich', canton: 'ZH' });
+  });
+
+  it('resolves homonym ZH municipalities in the issuer canton and discards non-Swiss short locations', () => {
+    expect(resolveZkbLocation({ places: [] }, { jobLocationShort: ['Küsnacht<br/>'] }))
+      .toEqual({ city: 'Küsnacht', canton: 'ZH' });
+    expect(resolveZkbLocation({ places: [] }, { jobLocationShort: ['Rüti<br/>'] }))
+      .toEqual({ city: 'Rüti', canton: 'ZH' });
+    // A Swiss city the shared resolver places elsewhere keeps its own canton.
+    expect(resolveZkbLocation({ places: [] }, { jobLocationShort: ['Bern<br/>'] }))
+      .toEqual({ city: 'Bern', canton: 'BE' });
+    expect(resolveZkbLocation({ places: [] }, { jobLocationShort: ['Berlin<br/>'] })).toBeNull();
+    expect(resolveZkbLocation({ places: [] }, { jobLocationShort: ['<br/>'] })).toBeNull();
+    expect(resolveZkbLocation({ places: [] }, { jobLocationShort: ['Berlin|Berlin|BE||DEU'] })).toBeNull();
   });
 });
 
