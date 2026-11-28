@@ -1,21 +1,19 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-11-28T09:20:26.597Z",
+  "generatedAt": "2026-11-28T21:34:44.893Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 8,
-  "durationMs": 4790,
-  "avgDurationMs": 4790,
+  "unchangedCount": 0,
+  "durationMs": 2846,
+  "avgDurationMs": 2846,
   "durationHistory": [
-    4790
+    2846
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Product Manager – Critical Power",
       "slug": "responsabile-prodotto-potenza-critica-centiel-cadro-lugano",
@@ -37,7 +35,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-28T09:20:12.009Z",
+      "validThrough": "2026-12-28T21:34:34.226Z",
       "id": "centiel-5b2ad723a13f",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -51,8 +49,9 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-28T09:20:12.009Z",
+      "crawledAt": "2026-11-28T21:34:34.226Z",
       "crawledAtSource": "slice-writer",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -82,7 +81,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-28T09:20:12.009Z",
+      "validThrough": "2026-12-28T21:34:34.226Z",
       "id": "centiel-6c09b1f01934",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -96,12 +95,13 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-28T09:20:12.009Z",
+      "crawledAt": "2026-11-28T21:34:34.226Z",
       "crawledAtSource": "slice-writer",
-      "_qualityScore": 91,
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 20,
         "translation": 25,
         "completeness": 23
       }
@@ -127,7 +127,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-28T09:20:12.009Z",
+      "validThrough": "2026-12-28T21:34:34.226Z",
       "id": "centiel-5d6623fa2ed6",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -141,12 +141,13 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-28T09:20:12.009Z",
+      "crawledAt": "2026-11-28T21:34:34.226Z",
       "crawledAtSource": "slice-writer",
-      "_qualityScore": 91,
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 20,
         "translation": 25,
         "completeness": 23
       }
@@ -172,7 +173,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-28T09:20:12.009Z",
+      "validThrough": "2026-12-28T21:34:34.226Z",
       "id": "centiel-807453cca7cd",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -186,12 +187,13 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-28T09:20:12.009Z",
+      "crawledAt": "2026-11-28T21:34:34.226Z",
       "crawledAtSource": "slice-writer",
-      "_qualityScore": 91,
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 20,
         "translation": 25,
         "completeness": 23
       }
@@ -217,7 +219,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-28T09:20:12.009Z",
+      "validThrough": "2026-12-28T21:34:34.226Z",
       "id": "centiel-53535134c4ae",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -231,8 +233,9 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-28T09:20:12.009Z",
+      "crawledAt": "2026-11-28T21:34:34.226Z",
       "crawledAtSource": "slice-writer",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -262,7 +265,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-28T09:20:12.009Z",
+      "validThrough": "2026-12-28T21:34:34.226Z",
       "id": "centiel-bcf08d3b0c73",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -276,12 +279,13 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-28T09:20:12.009Z",
+      "crawledAt": "2026-11-28T21:34:34.226Z",
       "crawledAtSource": "slice-writer",
-      "_qualityScore": 91,
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 20,
         "translation": 25,
         "completeness": 23
       }
@@ -307,7 +311,7 @@
       "postedDate": "",
       "employmentType": "100%",
       "contractType": "full-time",
-      "validThrough": "2026-12-28T09:20:12.009Z",
+      "validThrough": "2026-12-28T21:34:34.226Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -321,13 +325,14 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-28T09:20:12.009Z",
+      "crawledAt": "2026-11-28T21:34:34.226Z",
       "crawledAtSource": "slice-writer",
-      "_qualityScore": 91,
+      "needsRetranslation": true,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 21,
         "completeness": 23
       }
     },
@@ -352,7 +357,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-28T09:20:12.009Z",
+      "validThrough": "2026-12-28T21:34:34.226Z",
       "salaryMin": 54000,
       "salaryMax": 73000,
       "currency": "CHF",
@@ -366,16 +371,18 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-28T09:20:12.009Z",
+      "crawledAt": "2026-11-28T21:34:34.226Z",
       "crawledAtSource": "slice-writer",
-      "_qualityScore": 73,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 18,
         "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "e60bb477e02fc78f2385473075e1dff5d9e2799a"
 }
