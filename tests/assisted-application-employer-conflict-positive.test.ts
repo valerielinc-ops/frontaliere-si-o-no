@@ -141,3 +141,15 @@ describe('the employer\'s own name and copy are not another employer', () => {
     expect(namesAnotherEmployer('Other Employer\nWelcome', { company: 'Deloitte AG', title })).toBe(true);
   });
 });
+
+describe('the employer slot of an ATS title accepts a single-token name', () => {
+  it('reads another one-word employer as a conflict and the order\'s own variants as none', () => {
+    const evidence: Record<string, string> = {};
+    expect(namesAnotherEmployer('Deloitte - My application', { company: 'Acme', title: 'Manager' }, { evidence })).toBe(true);
+    expect(evidence.reason).toBe('employer_slot_of_title');
+    expect(namesAnotherEmployer('Deloitte - My application', { company: 'Deloitte AG', title: 'Manager' })).toBe(false);
+    expect(namesAnotherEmployer('Deloitte Consulting AG - Bewerbung', { company: 'Deloitte', title: 'Manager' })).toBe(false);
+    expect(namesAnotherEmployer('Deloitte | Candidature', { company: 'Acme', title: 'Manager' })).toBe(true);
+  });
+});
+

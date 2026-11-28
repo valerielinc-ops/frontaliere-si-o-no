@@ -5576,7 +5576,7 @@ function foreignEmployerEvidence(line, { neutral, job, ownSegment = () => false 
       if (evidence) return { ...evidence, line: originalLine };
     }
   }
-  // The employer slot of an ATS document title: «<Name> - My application» holds a two-word name next to the
+  // The employer slot of an ATS document title: «<Name> - My application» holds a name (one capitalised token is enough) next to the
   // application wording (the stage is generic chrome, the other side is who runs it).
   const titleSegments = String(line || '').split(EMPLOYER_TITLE_SEPARATOR_RE).map((segment) => segment.trim()).filter(Boolean);
   if (titleSegments.length > 1) {
@@ -5590,7 +5590,7 @@ function foreignEmployerEvidence(line, { neutral, job, ownSegment = () => false 
         if (isApplicationChrome(segment) || ownSegment(segment)) continue;
         const tokens = segment.split(/\s+/u).map((token) => token.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '')).filter(Boolean);
         const names = tokens.filter((token) => /^\p{Lu}/u.test(token) && ![...normalizeWords(token).split(' ')].every((word) => !word || neutral.has(word) || filler(word)));
-        if (names.length >= 2 && names.length === tokens.length) return { reason: 'employer_slot_of_title', entity: tokens.join(' '), line: originalLine };
+        if (names.length >= 1 && names.length === tokens.length) return { reason: 'employer_slot_of_title', entity: tokens.join(' '), line: originalLine };
       }
     }
   }
