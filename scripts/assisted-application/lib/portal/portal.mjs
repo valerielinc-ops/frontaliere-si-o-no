@@ -33,6 +33,7 @@ import '../../extension/apply-control.js';
 import path from 'node:path';
 import { browserEngine, isStealthBrowser, launchStealthOrChromium } from '../../../lib/stealth-browser.mjs';
 import { challengeState, passChallenge } from '../../../lib/challenge-pass.mjs';
+import { inPageConfirmation, inPageConfirmationText } from './in-page-confirmation.mjs';
 import { EXPAND_ALL_RE, applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, gravityFormsSubmissionOutcome, inPageApplicationOpeners, isApplicationRegionUnsupported, isApplicationRouteBound, isDesignatedGenericApplicationForm, portalJobKey } from './stages.mjs';
 import { BRASSRING_HOME_WITH_PRELOAD_RE, brassRingActiveFields, isBrassRingPrivacyGateText, sameBrassRingPostingAddress } from './brass-ring-route.mjs';
 import { COVER_LETTER_DOCUMENT_CONTEXT_RE, COVER_LETTER_DOCUMENT_TERMS, CV_DOCUMENT_CONTEXT_RE, CV_DOCUMENT_TERMS } from './document-labels.mjs';
@@ -11744,6 +11745,12 @@ async function waitForOutcome(page, context = {}) {
     if (urlConfirms(page.url(), lastSnapshot, context)) return { outcome: 'confirmed', snapshot: lastSnapshot };
     if (advancedToFinalReview(lastSnapshot, { ...context, url: page.url() })) return { outcome: 'review_pending', snapshot: lastSnapshot };
     if (snapshot?.captcha) return { outcome: 'captcha', snapshot: lastSnapshot };
+    // The address did not change, the form is gone and the employer's thank-you became visible after an answered
+    // send request (in-page-confirmation.mjs): confirmed, with its own kind of receipt.
+    if (snapshot && typeof context.inPageConfirmation === 'function'
+      && context.inPageConfirmation(finalReviewEvidenceSnapshot(lastSnapshot)).confirmed) {
+      return { outcome: 'confirmed', snapshot: lastSnapshot, proofKind: 'in_page_confirmation' };
+    }
     const newValidationLine = hasNewValidationText(text, context.preSubmitText);
     const hasFieldValidationSignal = Boolean(snapshot?.errors?.length)
       || (snapshot?.fields || []).some((field) => field?.invalid === true);
@@ -15289,6 +15296,9 @@ export async function submitViaPortal(ctx) {
       evidence.submissionUrl = finalUrl;
       assertPortalRuntime();
       await diagnostics.beforeSubmit(page);
+      // The text visible right before the click: a thank-you that is already visible proves nothing afterwards.
+      const beforeClickText = `${await page.title().catch(() => '')}\n${await pageText(page).catch(() => '')}\n${page.url()}`;
+      evidence.preSubmitConfirmationVisible = Boolean(inPageConfirmationText(beforeClickText));
       const guardToken = randomUUID();
       const armed = await final.locator.evaluate(armFinalFormClickGuardInPage, {
         token: guardToken,
@@ -15348,11 +15358,15 @@ export async function submitViaPortal(ctx) {
         sourceProtocol,
         job: ctx.job,
         finalSubmission,
+        inPageConfirmation: (afterSnapshot) => inPageConfirmation({
+          beforeText: beforeClickText, afterSnapshot, submissionUrl: finalUrl, responses: diagnostics?.data?.responses || [],
+        }),
         onPortalChallenge: targetPage => passAssistedPortalChallenge(targetPage, browser, log),
       });
       const outcome = observed.outcome;
       (evidence.finalOutcomes ||= []).push(outcome);
-      if (outcome === 'confirmed' && ctx.onReceipt) await ctx.onReceipt({ finalUrl: page.url() });
+      if (observed.proofKind) evidence.receiptKind = observed.proofKind;
+      if (outcome === 'confirmed' && ctx.onReceipt) await ctx.onReceipt({ finalUrl: page.url(), ...(observed.proofKind ? { proofKind: observed.proofKind } : {}) });
       await diagnostics.afterSubmit(page, outcome);
       if (ctx.portalReplay !== true) evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
       evidence.finalUrl = page.url();
