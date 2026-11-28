@@ -4,7 +4,7 @@
   "detailRejected": 0,
   "key": "brefispersonal",
   "label": "brefis personal ag",
-  "generatedAt": "2026-11-27T21:50:35.989Z",
+  "generatedAt": "2026-11-28T09:39:02.814Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
@@ -24,13 +24,13 @@
       {
         "status": 200,
         "url": "https://brefis.ch/Vacancyboard/",
-        "proxiedBy": "browser"
+        "proxiedBy": "jina"
       }
     ],
     "listingTerminalStatus": 200,
     "listingCompletion": "incomplete",
     "proxiedBy": [
-      "browser"
+      "jina"
     ],
     "fetchOutcome": null,
     "fetchDetail": null
@@ -49,5 +49,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
+  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
 }

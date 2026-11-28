@@ -1733,7 +1733,7 @@ function writePagesJobCanonRelease(
     }
   }
   const manifest = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     logical: {
       entries: logicalEntries,
       aliases: logicalAliases,
@@ -1831,7 +1831,7 @@ function runPagesPublisher(
           writeFileSync(manifestPath, '{"schemaVersion":', 'utf8');
           break;
         case 'unknown-schema':
-          manifest.schemaVersion = 2;
+          manifest.schemaVersion = 3;
           rewriteManifest();
           break;
         case 'missing-v1':
