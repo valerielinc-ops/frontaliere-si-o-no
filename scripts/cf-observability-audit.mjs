@@ -592,6 +592,79 @@ function utcDaysInTimeframe(timeframe) {
   return days;
 }
 
+// The Workers Observability query API samples adaptively PER QUERY: the live
+// 7-day grouped query returned sampleInterval 100 while a 24 h query of the
+// same filter returned 10 and a 6 h one returned 1 (probed 2026-11-28). The
+// retirement evidence is therefore queried one UTC day at a time, narrowing a
+// day into 6 h and then 1 h windows while its interval stays above the
+// threshold. The day's interval is the maximum over its final windows, so a
+// coarse sub-window is never averaged away.
+export const JOB_CANON_WINDOW_LADDER_MS = [UTC_DAY_MS, 6 * 36e5, 36e5];
+// Declared request budget for both signals of one receipt: 8 UTC days at worst
+// 1 + 4 + 24 = 29 v2 queries and as many v1 queries each would be 464, so the
+// budget caps the total. When it runs out the day keeps its last (coarse)
+// interval and the receipt blocks on it; it never throws or claims precision.
+export const JOB_CANON_MAX_WINDOW_REQUESTS = 160;
+
+/**
+ * @param {(filters: object[], from: number, to: number) => Promise<{count: number, sampleInterval: number|null}>} measure
+ */
+export async function collectJobCanonDailyWindows({
+  measure,
+  v2Filters,
+  v1Filters,
+  timeframe,
+  maxInterval = JOB_CANON_MAX_SAMPLE_INTERVAL,
+  maxRequests = JOB_CANON_MAX_WINDOW_REQUESTS,
+}) {
+  let requests = 0;
+  const bounded = async (filters, from, to) => {
+    requests += 1;
+    return measure(filters, from, to);
+  };
+  const v2Daily = [];
+  const v1Daily = [];
+  const windowsByDay = {};
+  for (const day of utcDaysInTimeframe(timeframe)) {
+    const dayStart = Date.parse(`${day}T00:00:00.000Z`);
+    const from = Math.max(dayStart, timeframe.from);
+    const to = Math.min(dayStart + UTC_DAY_MS, timeframe.to);
+    // Returns the leaf windows with their measurement; splits while coarse.
+    const narrow = async (a, b, level) => {
+      if (requests >= maxRequests) return [{ from: a, to: b, count: 0, sampleInterval: null, exhausted: true }];
+      const m = await bounded(v2Filters, a, b);
+      const coarse = m.count > 0 && Number.isFinite(m.sampleInterval) && m.sampleInterval > maxInterval;
+      const nextSize = JOB_CANON_WINDOW_LADDER_MS[level + 1];
+      if (!coarse || nextSize === undefined) return [{ from: a, to: b, ...m }];
+      const leaves = [];
+      for (let t = a; t < b; t += nextSize) leaves.push(...await narrow(t, Math.min(t + nextSize, b), level + 1));
+      return leaves;
+    };
+    const leaves = await narrow(from, to, 0);
+    const count = leaves.reduce((sum, leaf) => sum + leaf.count, 0);
+    const exhausted = leaves.some((leaf) => leaf.exhausted);
+    // Budget exhaustion makes the day unmeasurable rather than silently clean.
+    const intervals = leaves.filter((leaf) => leaf.count > 0 || leaf.exhausted).map((leaf) => leaf.exhausted ? Infinity : leaf.sampleInterval);
+    const sampleInterval = exhausted
+      ? maxInterval * 10
+      : intervals.some((v) => !Number.isFinite(v)) ? null : Math.max(...intervals);
+    windowsByDay[day] = leaves.length;
+    if (count > 0 || exhausted) v2Daily.push({ day, count, sampleInterval });
+    // v1 is probed on exactly the windows v2 needed, so absence is claimed at
+    // the same granularity as presence.
+    let v1Count = 0;
+    let v1Interval = null;
+    for (const leaf of leaves) {
+      if (requests >= maxRequests) break;
+      const m = await bounded(v1Filters, leaf.from, leaf.to);
+      v1Count += m.count;
+      if (m.count > 0 && Number.isFinite(m.sampleInterval)) v1Interval = Math.max(v1Interval ?? 0, m.sampleInterval);
+    }
+    if (v1Count > 0) v1Daily.push({ day, count: v1Count, sampleInterval: v1Interval });
+  }
+  return { v2Daily, v1Daily, requests, windowsByDay };
+}
+
 function workerLogSamplingBuckets(calculation) {
   if (!Array.isArray(calculation?.series)) return [];
   return calculation.series.map((series) => {
@@ -793,26 +866,35 @@ export async function collectSnapshot(now = Date.now()) {
   for (const ua of WAF_BLOCKED_UAS) blockedRequests[ua] = await count(...buildBlockedUaFilters(ua));
   let versionRequests = 0;
   for (const path of VERSION_PATHS) versionRequests += await count(filter(PATH, 'eq', path));
-  // Group by the structured `day` key of the event: the real log carries an
-  // empty `$metadata.message`, so the day cannot be read from the message.
-  const dailyRows = (result) => (result.aggregates ?? [])
-    .filter((row) => typeof row.groupKey === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(row.groupKey))
-    .map((row) => ({
-      day: row.groupKey,
-      count: row.value ?? 0,
-      sampleInterval: Number.isFinite(row.sampleInterval) ? row.sampleInterval : null,
-    }))
-    .sort((a, b) => a.day.localeCompare(b.day));
-  const jobCanonV2Daily = dailyRows(await query(
-    buildJobCanonV2SuccessLogFilters(),
-    'day',
-    WINDOW_DAYS + 2,
-  ));
-  const jobCanonV1Daily = dailyRows(await query(
-    buildJobCanonV1FallbackLogFilters(),
-    'day',
-    WINDOW_DAYS + 2,
-  ));
+  // Job-canon evidence is queried per UTC-day window (see
+  // collectJobCanonDailyWindows), not as one 7-day grouped query.
+  const windowMeasure = async (filters, from, to) => {
+    const result = await telemetry({
+      queryId: `cf-observability-audit-job-canon-window-${++id}`,
+      view: 'calculations',
+      limit: 1,
+      timeframe: { from, to },
+      parameters: {
+        datasets: [],
+        filters: [service, ...filters],
+        calculations: [{ operator: 'count' }],
+        limit: 1,
+        groupBys: [],
+      },
+    });
+    const row = result.calculations?.[0]?.aggregates?.[0];
+    return {
+      count: Number.isFinite(row?.value) ? row.value : 0,
+      sampleInterval: Number.isFinite(row?.sampleInterval) ? row.sampleInterval : null,
+    };
+  };
+  const { v2Daily: jobCanonV2Daily, v1Daily: jobCanonV1Daily, requests: jobCanonWindowRequests } =
+    await collectJobCanonDailyWindows({
+      measure: windowMeasure,
+      v2Filters: buildJobCanonV2SuccessLogFilters(),
+      v1Filters: buildJobCanonV1FallbackLogFilters(),
+      timeframe,
+    });
   // Cloudflare accepts granularity as a millisecond bucket width and returns
   // these daily series aligned to 00:00:00 UTC. The aggregate is deliberately
   // ignored: each intersecting day must independently prove exact ingestion.
@@ -864,6 +946,7 @@ export async function collectSnapshot(now = Date.now()) {
     jobCanonV2Daily,
     jobCanonV1FallbackLogs: jobCanonV1Daily.reduce((sum, row) => sum + row.count, 0),
     jobCanonV1Daily,
+    jobCanonWindowRequests,
     workerLogSamplingExpectedDays: utcDaysInTimeframe(timeframe),
     workerLogSamplingBuckets: workerLogSamplingBuckets(workerLogSamplingCalculation),
     jobCanonParity: await collectJobCanonParity(),

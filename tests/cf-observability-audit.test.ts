@@ -9,6 +9,8 @@ import {
   estimateFallbackMissProbability,
   evaluateJobCanonParity,
   JOB_CANON_MAX_SAMPLE_INTERVAL,
+  JOB_CANON_WINDOW_LADDER_MS,
+  collectJobCanonDailyWindows,
   jobCanonV2ShardKey,
   evaluateJobCanonV1Retirement,
   isCloudflareFullSamplingInterval,
@@ -317,5 +319,76 @@ describe('cf-observability-audit checks', () => {
     expect(issueTitle(check)).not.toMatch(/\d/);
     expect(buildIssueBody(check)).toContain('cf-observability-audit.mjs --dry-run');
     expect(buildIssueBody(check)).not.toContain('bin/rc-env.sh');
+  });
+});
+
+describe('job-canon retirement evidence in day windows', () => {
+  const DAY = 864e5;
+  const H = 36e5;
+  const base = Date.parse('2026-11-20T00:00:00Z');
+  const timeframe = { from: base, to: base + 2 * DAY };
+  const v2Filters = [{ key: 'v2' }];
+  const v1Filters = [{ key: 'v1' }];
+  // interval(length, from) decides what the fake API reports for a window.
+  const run = (interval: (len: number, from: number) => number, opts: { maxRequests?: number; v1?: number } = {}) => {
+    const calls: { key: string; len: number }[] = [];
+    const measure = async (filters: { key: string }[], from: number, to: number) => {
+      const key = filters[0].key;
+      calls.push({ key, len: to - from });
+      if (key === 'v1') return { count: opts.v1 ?? 0, sampleInterval: opts.v1 ? 1 : 0 };
+      return { count: 100, sampleInterval: interval(to - from, from) };
+    };
+    return collectJobCanonDailyWindows({ measure, v2Filters, v1Filters, timeframe, ...opts } as never)
+      .then((r) => ({ ...r, calls }));
+  };
+
+  it('keeps one query per day when the day window is already fine enough', async () => {
+    const r = await run(() => 10);
+    expect(r.v2Daily).toEqual([
+      { day: '2026-11-20', count: 100, sampleInterval: 10 },
+      { day: '2026-11-21', count: 100, sampleInterval: 10 },
+    ]);
+    expect(r.calls.filter((c) => c.key === 'v2')).toHaveLength(2);
+    expect(r.calls.filter((c) => c.key === 'v1')).toHaveLength(2);
+  });
+
+  it('splits a coarse day into 6 h windows and reports the max sub-window interval', async () => {
+    const r = await run((len) => (len === DAY ? 100 : 1));
+    expect(r.v2Daily[0]).toEqual({ day: '2026-11-20', count: 400, sampleInterval: 1 });
+    expect(r.calls.filter((c) => c.key === 'v2' && c.len === 6 * H)).toHaveLength(8);
+    // v1 absence is probed on the same fine windows.
+    expect(r.calls.filter((c) => c.key === 'v1' && c.len === 6 * H)).toHaveLength(8);
+  });
+
+  it('narrows to 1 h only where the 6 h window is still coarse', async () => {
+    const r = await run((len, from) => (len === DAY ? 100 : len === 6 * H ? (from === base ? 50 : 10) : 2));
+    expect(r.calls.filter((c) => c.key === 'v2' && c.len === H)).toHaveLength(6);
+    expect(r.v2Daily[0].sampleInterval).toBe(10);
+  });
+
+  it('keeps a day above the threshold as the max of its windows', async () => {
+    const r = await run(() => 100);
+    expect(r.v2Daily[0].sampleInterval).toBe(100);
+    expect(JOB_CANON_WINDOW_LADDER_MS).toEqual([DAY, 6 * H, H]);
+  });
+
+  it('turns an exhausted request budget into a blocking interval, not a clean day', async () => {
+    const r = await run(() => 100, { maxRequests: 3 });
+    expect(r.requests).toBeLessThanOrEqual(3);
+    expect(r.v2Daily.every((d) => (d.sampleInterval ?? 0) > JOB_CANON_MAX_SAMPLE_INTERVAL)).toBe(true);
+  });
+
+  it('records v1 fallbacks found in any window', async () => {
+    const r = await run(() => 10, { v1: 2 });
+    expect(r.v1Daily.map((d) => d.count)).toEqual([2, 2]);
+  });
+
+  it('feeds the receipt: a day that stays coarse blocks it', async () => {
+    const r = await run((_len, from) => (from >= base + DAY ? 100 : 1));
+    const snapshot = completeJobCanonRetirementSnapshot();
+    snapshot.jobCanonV2Daily = r.v2Daily.map((d) => ({ ...d }));
+    const receipt = evaluateJobCanonV1Retirement(snapshot as never);
+    expect(receipt.blockers.some((b: string) => b.startsWith('sampling-interval-too-coarse:2026-11-21:100'))).toBe(true);
+    expect(receipt.blockers.some((b: string) => b.includes('2026-11-20:'))).toBe(false);
   });
 });
