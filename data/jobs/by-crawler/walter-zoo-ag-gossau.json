@@ -1,7 +1,7 @@
 {
   "crawlerKey": "walter-zoo-ag-gossau",
-  "assembledAt": "2026-11-28T09:15:03.160Z",
-  "runId": "46129152056",
+  "assembledAt": "2026-11-28T21:44:15.128Z",
+  "runId": "46190133067",
   "jobs": [
     {
       "id": "walter-zoo-ag-gossau-566ac5cfcdc0",
@@ -34,7 +34,7 @@
       "url": "https://link.ostendis.com/publication/praktikant-in-tierpflege/ifxcx5w7j27ktusu6yw8b7qjgwq4sj426s7hakpf1ecsofijiafrjlo6ylec7rth",
       "source": "WALTER ZOO AG GOSSAU Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:14:20.425Z",
+      "crawledAt": "2026-11-28T21:44:08.300Z",
       "addressLocality": "Gossau SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -85,7 +85,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T09:14:20.425Z",
+      "validThrough": "2027-01-21T21:44:08.300Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://link.ostendis.com/publication/praktikant-in-igelpflege/033lm0aswed5h7sdpy7jtkdwy6m513dlct5a2uyi3hkvbkiiiis4s00etzkqm3q6",
       "source": "WALTER ZOO AG GOSSAU Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:14:20.424Z",
+      "crawledAt": "2026-11-28T21:44:08.299Z",
       "addressLocality": "Gossau SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -139,7 +139,9 @@
       "applyUrl": "https://link.ostendis.com/publication/praktikant-in-igelpflege/033lm0aswed5h7sdpy7jtkdwy6m513dlct5a2uyi3hkvbkiiiis4s00etzkqm3q6",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-27T21:15:14.433Z",
+      "previousSlugs": [
+        "praktikant-in-igelpflege-gossau-sg-sg-walter-zoo-ag-gossau-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-igelpflege-gossau-sg-sg-walter-zoo-ag-gossau-ch"
@@ -151,9 +153,7 @@
           "praktikant-in-igelpflege-gossau-sg-sg-walter-zoo-ag-gossau-ch"
         ]
       },
-      "previousSlugs": [
-        "praktikant-in-igelpflege-gossau-sg-sg-walter-zoo-ag-gossau-ch"
-      ],
+      "firstSeenAt": "2026-11-27T21:15:14.433Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -168,7 +168,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-25T09:14:20.424Z",
+      "validThrough": "2027-02-25T21:44:08.299Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -202,7 +202,7 @@
       "url": "https://link.ostendis.com/publication/leiter-in-schimpansenrevier/zd53zb5ywa3vhcawb2ihslfwdgrdf5wm4br0y9y8ejxcnxml8o8502k2dcyxtyx7",
       "source": "WALTER ZOO AG GOSSAU Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:14:20.423Z",
+      "crawledAt": "2026-11-28T21:44:08.297Z",
       "addressLocality": "Gossau SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-24T09:14:20.423Z",
+      "validThrough": "2027-02-24T21:44:08.297Z",
       "validThroughSource": "last-observed-window"
     }
   ]

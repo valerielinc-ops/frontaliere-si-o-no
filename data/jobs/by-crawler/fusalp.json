@@ -1,7 +1,7 @@
 {
   "crawlerKey": "fusalp",
-  "assembledAt": "2026-11-24T09:25:13.902Z",
-  "runId": "45362702540",
+  "assembledAt": "2026-11-28T21:41:53.630Z",
+  "runId": "46190133067",
   "jobs": [
     {
       "id": "fusalp-09b7a180c06e",
@@ -34,7 +34,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027_aubonne",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-24T09:25:08.786Z",
+      "crawledAt": "2026-11-28T21:41:42.800Z",
       "addressLocality": "Aubonne",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,9 +77,8 @@
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:25:08.786Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fusalp.welcomekit.co/jobs/sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027_aubonne"
+      "validThrough": "2026-12-29T21:41:42.800Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fusalp-46267c8598a6",
@@ -112,7 +111,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-winter-season-80-m-w_zermatt",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-24T09:25:00.281Z",
+      "crawledAt": "2026-11-28T21:41:34.795Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -161,9 +160,8 @@
       "addressRegion": "VS",
       "streetAddress": "Zermatt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:25:00.281Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fusalp.welcomekit.co/jobs/sales-associate-winter-season-80-m-w_zermatt"
+      "validThrough": "2027-02-08T21:41:34.795Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fusalp-0028e73f413e",
@@ -196,7 +194,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-winter-season-80_aubonne",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-24T09:24:58.869Z",
+      "crawledAt": "2026-11-28T21:41:33.369Z",
       "addressLocality": "Aubonne",
       "addressCountry": "CH",
       "country": "CH",
@@ -245,9 +243,8 @@
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:24:58.869Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fusalp.welcomekit.co/jobs/sales-associate-winter-season-80_aubonne"
+      "validThrough": "2027-02-08T21:41:33.369Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

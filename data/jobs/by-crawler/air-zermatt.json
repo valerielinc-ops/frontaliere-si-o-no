@@ -1,7 +1,7 @@
 {
   "crawlerKey": "air-zermatt",
-  "assembledAt": "2026-11-28T09:16:52.477Z",
-  "runId": "46129152056",
+  "assembledAt": "2026-11-28T21:39:18.414Z",
+  "runId": "46190133067",
   "jobs": [
     {
       "id": "air-zermatt-dfbbe85d1afb",
@@ -49,7 +49,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:16:46.631Z",
+      "crawledAt": "2026-11-28T21:39:09.463Z",
       "previousSlugs": [
         "stipendium-atc-swiss-sherpa-foundation-raron-air-zermatt",
         "borsa-di-studio-atc-swiss-sherpa-foundation-air-zermatt-ag-raron-1c66ed752c"
@@ -77,7 +77,7 @@
       },
       "streetAddress": "Raron",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:16:46.631Z",
+      "validThrough": "2026-12-28T21:39:09.463Z",
       "validThroughSource": "last-observed-window"
     }
   ]
