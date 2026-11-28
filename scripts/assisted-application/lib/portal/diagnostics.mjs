@@ -2,6 +2,7 @@
 import { build } from 'esbuild';
 import { fileURLToPath } from 'node:url';
 import { DIAGNOSTIC_BODY_LIMIT, DIAGNOSTIC_BODY_READ_LIMIT, diagnosticLocation, diagnosticText, hasBoundedBodyLength, responseErrors, settleDiagnostics } from './diagnostic-values.mjs';
+import { isRateLimitStatus, parseRetryAfterMs } from '../../../../functions/src/lib/retryAfter.js';
 import { FETCH_DIAGNOSTIC_BINDING, FETCH_DIAGNOSTIC_CONTROL } from './diagnostic-fetch.mjs';
 export { diagnosticLocation, diagnosticText, responseErrors } from './diagnostic-values.mjs';
 
@@ -138,6 +139,26 @@ export function startPortalDiagnostics(context, httpFailures = []) {
       requestAttempts.set(request, attempt);
       push(data.requests, { ...metadata(request), attempt });
     }
+  });
+  // The site limiting the rate of its main document (HTTP 429, or 503 with Retry-After): kept until a later
+  // main document loads, so the runner can tell «the page never loaded because of a limit» from any other stop.
+  listen(context, 'response', (response) => {
+    if (stopped) return;
+    try {
+      const request = response.request();
+      if (request.resourceType() !== 'document' || (typeof request.isNavigationRequest === 'function' && !request.isNavigationRequest())) return;
+      const parent = typeof request.frame === 'function' ? request.frame()?.parentFrame?.() : null;
+      if (parent) return;
+      const status = response.status();
+      const retryAfter = response.headers?.()?.['retry-after'];
+      const retryAfterMs = parseRetryAfterMs(retryAfter);
+      // Every main-document response replaces the last one: the marker stands only while the page in front of
+      // the runner is the one that was rate limited (a later 404 or 5xx is another matter).
+      delete data.rateLimit;
+      if (isRateLimitStatus(status, String(retryAfter ?? ''))) {
+        data.rateLimit = { ...diagnosticLocation(response.url()), status, ...(retryAfterMs ? { retryAfterMs } : {}), at: Date.now() };
+      }
+    } catch { /* diagnostics never break the run */ }
   });
   listen(context, 'requestfailed', (request) => push(data.requestFailures, { ...metadata(request), error: diagnosticText(request.failure()?.errorText) }));
   listen(context, 'response', (response) => {

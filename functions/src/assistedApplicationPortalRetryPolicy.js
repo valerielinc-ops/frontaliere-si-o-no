@@ -1,3 +1,4 @@
+import { RETRY_AFTER_MAX_MS } from './lib/retryAfter.js';
 import { PORTAL_STOP_CLASSES, portalStopContract } from './lib/portalStopCodes.js';
 
 /** Keep the contract import stable for existing portal-stop consumers. */
@@ -7,6 +8,10 @@ export { PORTAL_STOP_CLASSES, portalStopContract };
 export const PORTAL_AUTO_RETRY_DELAYS_MS = Object.freeze([6 * 60 * 60 * 1000, 24 * 60 * 60 * 1000]);
 export const PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION = 'portal-final-review-ambiguous-v1';
 export const TRANSPORT_AUTO_RETRY_DELAYS_MS = Object.freeze([5 * 60 * 1000, 30 * 60 * 1000, 2 * 60 * 60 * 1000]);
+// A site that answered HTTP 429: three slow retries (30 min, 2 h, 6 h); the fourth consecutive 429 goes to the owner.
+// A `Retry-After` longer than the step lengthens it (up to a day), never shortens it.
+export const RATE_LIMIT_AUTO_RETRY_DELAYS_MS = Object.freeze([30 * 60 * 1000, 2 * 60 * 60 * 1000, 6 * 60 * 60 * 1000]);
+export const RATE_LIMIT_RETRY_AFTER_CAP_MS = RETRY_AFTER_MAX_MS;
 export const USAGE_LIMIT_AUTO_RETRY_DELAYS_MS = Object.freeze([2 * 60 * 60 * 1000, 6 * 60 * 60 * 1000, 24 * 60 * 60 * 1000]);
 // SHA-256 of "assisted-application:swiss-egress-network-recovery:v1". Bump the suffix when this one-shot repair changes.
 export const SWISS_EGRESS_NETWORK_RECOVERY_VERSION = '0c6b24bcb58d7e92fed5d94f37f8f918449a57a1428ea10eb342bb0fca47cbf1';
@@ -29,7 +34,20 @@ export function isCodexUsageLimitRetryHold(flow) {
   return (flow?.heldBy || []).some(reason => portalStopContract(reason).code === 'codex_usage_limit');
 }
 
+export function isRateLimitRetryHold(flow) {
+  return (flow?.heldBy || []).some(reason => portalStopContract(reason).retryLane === 'rate_limit');
+}
+
+/** Retries already spent on the rate-limit ladder (consecutive: any other stop resets it); null when malformed. */
+export function rateLimitRetryCountValue(flow) {
+  const raw = flow?.portalRateLimitRetryCount;
+  if (raw === undefined) return 0;
+  const attempts = typeof raw === 'string' && /^\d+$/.test(raw.trim()) ? Number(raw.trim()) : raw;
+  return typeof attempts === 'number' && Number.isSafeInteger(attempts) && attempts >= 0 ? attempts : null;
+}
+
 export function autoRetryDelaysForFlow(flow) {
+  if (isRateLimitRetryHold(flow)) return RATE_LIMIT_AUTO_RETRY_DELAYS_MS;
   if (isCodexUsageLimitRetryHold(flow)) return USAGE_LIMIT_AUTO_RETRY_DELAYS_MS;
   return isInfrastructureRetryHold(flow)
     ? TRANSPORT_AUTO_RETRY_DELAYS_MS : PORTAL_AUTO_RETRY_DELAYS_MS;
@@ -97,7 +115,9 @@ export function portalExhaustedRecoveryPending(flow) {
 
 export function portalRetryDueAt(flow) {
   const retryAt = Number(flow?.portalAutoRetryAt) || 0;
+  const rateLimitAttempts = rateLimitRetryCountValue(flow);
   const budgetAvailable = isInfrastructureRetryHold(flow)
+    || (isRateLimitRetryHold(flow) && rateLimitAttempts !== null && rateLimitAttempts < RATE_LIMIT_AUTO_RETRY_DELAYS_MS.length)
     || portalAutoRetryAttemptsRemaining(flow) || portalExhaustedRecoveryPending(flow)
     || portalFinalReviewAmbiguousRecoveryPending(flow);
   return flow?.state === 'owner_takeover' && isAutoRetryablePortalHold(flow) && budgetAvailable
