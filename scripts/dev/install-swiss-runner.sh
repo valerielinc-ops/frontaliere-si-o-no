@@ -14,8 +14,10 @@
 #
 # --checkout: the site checkout the runner executes (default: the checkout holding this script). Its root
 # and functions package locks are installed into private, hash-keyed trees under the runner's home. Before
-# each cycle `run` fast-forwards it to origin/main when it is on `main` with a clean tree; on any other
-# branch, or with local changes, it runs it as it is and says so in the log.
+# each cycle `run` fast-forwards it to origin/main when it is on `main`. Local changes to tracked DATA files
+# (data/, public/data/) are saved as a patch under the runner's state folder (SWISS_RUNNER_STATE_DIR) and
+# restored; local changes to CODE are never reset: the runner then takes no work and reports `stale_code` in
+# its heartbeat (as when the fast-forward fails). On any other branch it runs the checkout as it is.
 # --headed: the agent opens a visible Chrome window on this Mac (ASSISTED_APPLICATION_HEADED=1). Default:
 # headless, nothing appears on the owner's screen.
 #
@@ -88,16 +90,63 @@ check_site() {
   fi
 }
 
-# Keep the checkout on origin/main between cycles, never touching a branch or local changes.
+# Tracked files under these prefixes are data kept by cron workflows (crawler adapters, ledgers, road events...),
+# never runner code: a local change there is noise, not work, and must not freeze the runner on old code.
+is_data_path() {
+  case "$1" in
+    data/*|public/data/*) return 0 ;;
+    *) return 1 ;;
+  esac
+}
+
+# Set by update_checkout: «stale_code» when the checkout cannot follow origin/main (the runner then takes no work).
+code_state=''
+
+# Keep the checkout on origin/main between cycles, never touching a branch.
+# - Local changes to DATA files (is_data_path): saved as a patch in the runner's state folder, then restored.
+# - Local changes to anything else (code): no reset; the runner is stopped (stale_code, no lease taken).
+# - A fast-forward that fails while origin/main is ahead: stale_code too.
 update_checkout() {
+  code_state=''
   branch=$(git -C "$site" symbolic-ref --quiet --short HEAD 2>/dev/null) || branch=''
   if [ "$branch" != 'main' ]; then
     log "checkout not on main (${branch:-detached}): running it as it is"
     return 0
   fi
-  if [ -n "$(git -C "$site" status --porcelain --untracked-files=no 2>/dev/null)" ]; then
-    log 'checkout has local changes: running it as it is'
-    return 0
+  dirty=$(git -C "$site" -c core.quotepath=off diff --name-only HEAD 2>/dev/null)
+  if [ -n "$dirty" ]; then
+    code_dirty=''
+    data_dirty=''
+    while IFS= read -r changed; do
+      [ -n "$changed" ] || continue
+      if is_data_path "$changed"; then data_dirty="$data_dirty$changed
+"; else code_dirty="$code_dirty$changed
+"; fi
+    done <<EOF_DIRTY
+$dirty
+EOF_DIRTY
+    if [ -n "$code_dirty" ]; then
+      log "checkout has local CODE changes ($(printf '%s' "$code_dirty" | /usr/bin/wc -l | /usr/bin/tr -d ' ') file(s)): not resetting them; runner stopped as stale_code"
+      code_state=stale_code
+      return 0
+    fi
+    state_dir=${SWISS_RUNNER_STATE_DIR:-$home_dir/.config/frontaliere/swiss-runner}
+    backup_dir="$state_dir/data-backups"
+    stamp=$(/bin/date -u '+%Y%m%dT%H%M%SZ')
+    /bin/mkdir -p "$backup_dir" || { log 'cannot create the data backup folder: runner stopped as stale_code'; code_state=stale_code; return 0; }
+    if ! git -C "$site" diff --binary HEAD >"$backup_dir/data-$stamp.patch" 2>/dev/null; then
+      log 'data backup failed: not resetting; runner stopped as stale_code'
+      code_state=stale_code
+      return 0
+    fi
+    restored=0
+    while IFS= read -r changed; do
+      [ -n "$changed" ] || continue
+      if git -C "$site" checkout HEAD -- "$changed" 2>/dev/null; then restored=$((restored + 1)); else log "could not restore data file $changed"; fi
+    done <<EOF_DATA
+$data_dirty
+EOF_DATA
+    log "restored $restored tracked data file(s); backup $backup_dir/data-$stamp.patch"
   fi
   # At most one fetch every 15 minutes, not one per 2-minute cycle.
   fetch_head=$(git -C "$site" rev-parse --path-format=absolute --git-path FETCH_HEAD 2>/dev/null) || fetch_head=''
@@ -107,7 +156,15 @@ update_checkout() {
     log 'fetch of origin/main failed: running the checkout as it is'
     return 0
   fi
-  git -C "$site" merge --ff-only --quiet origin/main 2>/dev/null || log 'fast-forward to origin/main failed: running the checkout as it is'
+  if ! git -C "$site" merge --ff-only --quiet origin/main 2>/dev/null; then
+    behind=$(git -C "$site" rev-list --count HEAD..origin/main 2>/dev/null || echo 0)
+    if [ "${behind:-0}" -gt 0 ]; then
+      log "fast-forward to origin/main failed ($behind commit(s) behind): runner stopped as stale_code"
+      code_state=stale_code
+    else
+      log 'fast-forward to origin/main failed: running the checkout as it is'
+    fi
+  fi
 }
 
 # Parse the install options and write the plist to $1 (validated with plutil).
@@ -201,7 +258,7 @@ cmd_run() {
   check_site "$site" || { log "checkout unusable: $site"; return 1; }
   update_checkout
   cd "$site" || return 1
-  exec node "$site/scripts/assisted-application/local-runner.mjs" --once
+  SWISS_RUNNER_CODE_STATE=$code_state exec node "$site/scripts/assisted-application/local-runner.mjs" --once
 }
 
 cmd_status() {
