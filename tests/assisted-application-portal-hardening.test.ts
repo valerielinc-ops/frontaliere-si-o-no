@@ -371,7 +371,12 @@ describe('BrassRing security-question field classification', () => {
       { pause: async () => {} },
     );
 
-    expect(result).toEqual([{ fieldId: 'q3', ok: false, error: 'option_not_found' }]);
+    expect(result).toEqual([{
+      fieldId: 'q3',
+      ok: false,
+      error: 'option_not_found',
+      optionDiagnostics: { label: 'Security question 3', kind: 'listbox', optionCount: 0, offered: [] },
+    }]);
     expect(optionClicks).toBe(0);
   });
 
