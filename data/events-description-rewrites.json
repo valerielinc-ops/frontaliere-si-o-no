@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-27T23:34:32.188Z",
+  "generatedAt": "2026-11-28T00:22:50.146Z",
   "model": "gpt-6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -15377,6 +15377,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-13T15:09:15.068Z"
+    },
+    "ge-agenda:laurent-nicolet-rideau::b57acd322b3f434fd1bb502b00b3460fa6fe495d6a3ed248eb53a905c6f1514a": {
+      "id": "ge-agenda:laurent-nicolet-rideau",
+      "sourceDescriptionHash": "b57acd322b3f434fd1bb502b00b3460fa6fe495d6a3ed248eb53a905c6f1514a",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Spectacle - Théâtre; data: 2026-12-08. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Spectacle - Théâtre; data: 2026-12-08. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Spectacle - Théâtre; date: 2026-12-08. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Spectacle - Théâtre; datum: 2026-12-08. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Spectacle - Théâtre; date: 2026-12-08. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T00:17:23.655Z"
     },
     "ge-agenda:lecture-paysage-histoire-leman-balade-bord-0::ce91d7b63d9854026ee3a84d54a75790ea0c1c691ce24beee372a11809c816f6": {
       "id": "ge-agenda:lecture-paysage-histoire-leman-balade-bord-0",
@@ -31394,6 +31408,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-16T07:29:54.303Z"
     },
+    "guidle:A7j69Gi::e44948c2c665c7a6c134411352250c92f6696f89d37d7edf53fd2103091d2ff7": {
+      "id": "guidle:A7j69Gi",
+      "sourceDescriptionHash": "e44948c2c665c7a6c134411352250c92f6696f89d37d7edf53fd2103091d2ff7",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Zürich; cantone: ZH; categoria: Informatica per i amatori; data: 2026-12-23; ora: 16:45. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Zürich; cantone: ZH; categoria: Informatica per i amatori; data: 2026-12-23; ora: 16:45. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Zürich; canton: ZH; category: Informatica per i amatori; date: 2026-12-23; time: 16:45. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Zürich; kanton: ZH; kategorie: Informatica per i amatori; datum: 2026-12-23; uhrzeit: 16:45. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Zürich; canton: ZH; catégorie: Informatica per i amatori; date: 2026-12-23; heure: 16:45. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T00:17:25.752Z"
+    },
     "guidle:A7JNQeu::70f1731a34f97cc65e18ef8a0e640d266f3a4cfde354110d65848ef8d585e3ce": {
       "id": "guidle:A7JNQeu",
       "sourceDescriptionHash": "70f1731a34f97cc65e18ef8a0e640d266f3a4cfde354110d65848ef8d585e3ce",
@@ -36377,6 +36405,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T05:26:26.833Z"
+    },
+    "guidle:AbujLsM::9f1f9a49d6371a39b23e8271771c1ec97534da2e8c35321185192448b73d23bf": {
+      "id": "guidle:AbujLsM",
+      "sourceDescriptionHash": "9f1f9a49d6371a39b23e8271771c1ec97534da2e8c35321185192448b73d23bf",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: cantone: LU; categoria: Informatica per i amatori; data: 2026-12-23; ora: 18:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: cantone: LU; categoria: Informatica per i amatori; data: 2026-12-23; ora: 18:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: canton: LU; category: Informatica per i amatori; date: 2026-12-23; time: 18:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: kanton: LU; kategorie: Informatica per i amatori; datum: 2026-12-23; uhrzeit: 18:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : canton: LU; catégorie: Informatica per i amatori; date: 2026-12-23; heure: 18:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T00:17:59.513Z"
     },
     "guidle:AbuNW9x::e5b3f8c43de1ffcdbaedd9c4ab6aee174fa88f70853346c93731894c9413afce": {
       "id": "guidle:AbuNW9x",
@@ -52674,6 +52716,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-20T16:15:48.481Z"
     },
+    "guidle:Am9rZMJ::bf20d9f5e81e4a9e8b1470747d221436b5dfbb7f482b1f52c197c306df1f9cad": {
+      "id": "guidle:Am9rZMJ",
+      "sourceDescriptionHash": "bf20d9f5e81e4a9e8b1470747d221436b5dfbb7f482b1f52c197c306df1f9cad",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Université Population Riviera; comune: Vevey; cantone: VD; categoria: Altri eventi; data: 2026-12-17; ora: 00:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Université Population Riviera; comune: Vevey; cantone: VD; categoria: Altri eventi; data: 2026-12-17; ora: 00:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Université Population Riviera; municipality: Vevey; canton: VD; category: Altri eventi; date: 2026-12-17; time: 00:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Université Population Riviera; gemeinde: Vevey; kanton: VD; kategorie: Altri eventi; datum: 2026-12-17; uhrzeit: 00:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Université Population Riviera; commune: Vevey; canton: VD; catégorie: Altri eventi; date: 2026-12-17; heure: 00:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T00:17:23.694Z"
+    },
     "guidle:AMa9FZu::efe2fe4b1e8e13190d39c7c2be96c3f10ccb2bea49b735db8383b7325ccafce1": {
       "id": "guidle:AMa9FZu",
       "sourceDescriptionHash": "efe2fe4b1e8e13190d39c7c2be96c3f10ccb2bea49b735db8383b7325ccafce1",
@@ -59618,6 +59674,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T02:29:39.094Z"
     },
+    "guidle:ArjhKAr::7cb6e323964ea594a755d2d8b603e8273c454ac7c4d0502d6bcfde9744fdc669": {
+      "id": "guidle:ArjhKAr",
+      "sourceDescriptionHash": "7cb6e323964ea594a755d2d8b603e8273c454ac7c4d0502d6bcfde9744fdc669",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Böröm pöm pöm; comune: Oberentfelden; cantone: AG; categoria: Avvento / Natale; data: 2026-12-12; ora: 11:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Böröm pöm pöm; comune: Oberentfelden; cantone: AG; categoria: Avvento / Natale; data: 2026-12-12; ora: 11:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Böröm pöm pöm; municipality: Oberentfelden; canton: AG; category: Avvento / Natale; date: 2026-12-12; time: 11:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Böröm pöm pöm; gemeinde: Oberentfelden; kanton: AG; kategorie: Avvento / Natale; datum: 2026-12-12; uhrzeit: 11:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Böröm pöm pöm; commune: Oberentfelden; canton: AG; catégorie: Avvento / Natale; date: 2026-12-12; heure: 11:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T00:17:23.676Z"
+    },
     "guidle:ArjjDPi::2c9ea7c5a8466d4962ba748998f5c20113900f79fdb82794e0d63356f906d1ab": {
       "id": "guidle:ArjjDPi",
       "sourceDescriptionHash": "2c9ea7c5a8466d4962ba748998f5c20113900f79fdb82794e0d63356f906d1ab",
@@ -59883,6 +59953,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-29T16:25:11.279Z"
+    },
+    "guidle:ArmhEW3::1fed99503186e54c8231c3f72335c191e13fd0bba4caa7b58b5681285f2a33a6": {
+      "id": "guidle:ArmhEW3",
+      "sourceDescriptionHash": "1fed99503186e54c8231c3f72335c191e13fd0bba4caa7b58b5681285f2a33a6",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Fundaziun da cultura Lumnezia – Casa; comune: Lumnezia; cantone: GR; categoria: Altri eventi; partecipante: Karin Karinna Bühler; data: 2026-12-13; ora: 14:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Fundaziun da cultura Lumnezia – Casa; comune: Lumnezia; cantone: GR; categoria: Altri eventi; partecipante: Karin Karinna Bühler; data: 2026-12-13; ora: 14:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Fundaziun da cultura Lumnezia – Casa; municipality: Lumnezia; canton: GR; category: Altri eventi; participant: Karin Karinna Bühler; date: 2026-12-13; time: 14:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Fundaziun da cultura Lumnezia – Casa; gemeinde: Lumnezia; kanton: GR; kategorie: Altri eventi; mitwirkender: Karin Karinna Bühler; datum: 2026-12-13; uhrzeit: 14:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Fundaziun da cultura Lumnezia – Casa; commune: Lumnezia; canton: GR; catégorie: Altri eventi; participant: Karin Karinna Bühler; date: 2026-12-13; heure: 14:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T00:17:25.699Z"
     },
     "guidle:ArMVGkk::36e9c109ad071909bdff0dc4e4ba6dec7c560885becfe6e3a43930d5fcc79086": {
       "id": "guidle:ArMVGkk",
@@ -63691,6 +63775,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T15:20:00.132Z"
+    },
+    "guidle:ATVrwUy::955b71d4cb858c8827061a6bc33ce1b70b503833ffef1cf8149720c06a69cb41": {
+      "id": "guidle:ATVrwUy",
+      "sourceDescriptionHash": "955b71d4cb858c8827061a6bc33ce1b70b503833ffef1cf8149720c06a69cb41",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Prangins; cantone: VD; categoria: Altri eventi; data: 2026-12-20; ora: 13:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Prangins; cantone: VD; categoria: Altri eventi; data: 2026-12-20; ora: 13:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Prangins; canton: VD; category: Altri eventi; date: 2026-12-20; time: 13:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Prangins; kanton: VD; kategorie: Altri eventi; datum: 2026-12-20; uhrzeit: 13:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Prangins; canton: VD; catégorie: Altri eventi; date: 2026-12-20; heure: 13:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T00:17:25.716Z"
     },
     "guidle:ATvTden::abc53f44c46a415d80d9205ec9651d51e727a17ebfc558597419567bede89f40": {
       "id": "guidle:ATvTden",
@@ -67667,6 +67765,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-27T12:29:59.447Z"
+    },
+    "guidle:AwD8rqB::aa78943681be7cb6c98476182e53e151150f6aea1f4f5dd525553da3d6f9af3e": {
+      "id": "guidle:AwD8rqB",
+      "sourceDescriptionHash": "aa78943681be7cb6c98476182e53e151150f6aea1f4f5dd525553da3d6f9af3e",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Goldach; cantone: SG; categoria: Comunione; data: 2026-12-21; ora: 14:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Goldach; cantone: SG; categoria: Comunione; data: 2026-12-21; ora: 14:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Goldach; canton: SG; category: Comunione; date: 2026-12-21; time: 14:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Goldach; kanton: SG; kategorie: Comunione; datum: 2026-12-21; uhrzeit: 14:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Goldach; canton: SG; catégorie: Comunione; date: 2026-12-21; heure: 14:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T00:17:25.726Z"
     },
     "guidle:AwdrU9d::389483f7a442518f9d8ebbba82be8d96511f75be82639fd8ecf8b9476154a60c": {
       "id": "guidle:AwdrU9d",
@@ -124479,6 +124591,20 @@
       "model": "gpt-6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-27T20:21:29.454Z"
+    },
+    "myswitzerland:721012c499084ff9ab8588ff412ef55b::187489b78c3959239ea15c7a188ed183c86d4111b6ed9e95c4c57c5b28a2fe0d": {
+      "id": "myswitzerland:721012c499084ff9ab8588ff412ef55b",
+      "sourceDescriptionHash": "187489b78c3959239ea15c7a188ed183c86d4111b6ed9e95c4c57c5b28a2fe0d",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Pringy; comune: Gruyères; cantone: FR; categoria: Event; data: 2026-12-12. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Pringy; comune: Gruyères; cantone: FR; categoria: Event; data: 2026-12-12. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Pringy; municipality: Gruyères; canton: FR; category: Event; date: 2026-12-12. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Pringy; gemeinde: Gruyères; kanton: FR; kategorie: Event; datum: 2026-12-12. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Pringy; commune: Gruyères; canton: FR; catégorie: Event; date: 2026-12-12. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-28T00:17:23.685Z"
     },
     "myswitzerland:7225e5a38c2049789822239267e165f6::dc7836e39a198c52c37db55b1d920a4bd9401031bca723c7c5b52fc48542d6d3": {
       "id": "myswitzerland:7225e5a38c2049789822239267e165f6",
@@ -206215,15 +206341,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "ge-agenda:laurent-nicolet-rideau::b57acd322b3f434fd1bb502b00b3460fa6fe495d6a3ed248eb53a905c6f1514a": {
-      "id": "ge-agenda:laurent-nicolet-rideau",
-      "sourceDescriptionHash": "b57acd322b3f434fd1bb502b00b3460fa6fe495d6a3ed248eb53a905c6f1514a",
-      "code": "new-number",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-27T23:25:48.509Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "ge-agenda:laws::8657ab4ca0ff24f508eac963fbdb5a38d3ca6ef0b63a0f4c41d3642558003840": {
       "id": "ge-agenda:laws",
       "sourceDescriptionHash": "8657ab4ca0ff24f508eac963fbdb5a38d3ca6ef0b63a0f4c41d3642558003840",
@@ -206818,15 +206935,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:A7j69Gi::e44948c2c665c7a6c134411352250c92f6696f89d37d7edf53fd2103091d2ff7": {
-      "id": "guidle:A7j69Gi",
-      "sourceDescriptionHash": "e44948c2c665c7a6c134411352250c92f6696f89d37d7edf53fd2103091d2ff7",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-27T23:26:40.675Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:A7jewgr::5c2e10022e151b7f1dd229655d97b2398c8264f9387228075ae1bb4977e66493": {
       "id": "guidle:A7jewgr",
       "sourceDescriptionHash": "5c2e10022e151b7f1dd229655d97b2398c8264f9387228075ae1bb4977e66493",
@@ -207004,15 +207112,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-17T18:19:10.806Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AbujLsM::9f1f9a49d6371a39b23e8271771c1ec97534da2e8c35321185192448b73d23bf": {
-      "id": "guidle:AbujLsM",
-      "sourceDescriptionHash": "9f1f9a49d6371a39b23e8271771c1ec97534da2e8c35321185192448b73d23bf",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-27T23:21:20.161Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -207880,15 +207979,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:Am9rZMJ::bf20d9f5e81e4a9e8b1470747d221436b5dfbb7f482b1f52c197c306df1f9cad": {
-      "id": "guidle:Am9rZMJ",
-      "sourceDescriptionHash": "bf20d9f5e81e4a9e8b1470747d221436b5dfbb7f482b1f52c197c306df1f9cad",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-27T23:29:23.112Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:AMaKaQe::1a36fee3d2c0754001d498881025e06286b71692905b143a32582e3b44efac98": {
       "id": "guidle:AMaKaQe",
       "sourceDescriptionHash": "1a36fee3d2c0754001d498881025e06286b71692905b143a32582e3b44efac98",
@@ -208348,24 +208438,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:ArjhKAr::7cb6e323964ea594a755d2d8b603e8273c454ac7c4d0502d6bcfde9744fdc669": {
-      "id": "guidle:ArjhKAr",
-      "sourceDescriptionHash": "7cb6e323964ea594a755d2d8b603e8273c454ac7c4d0502d6bcfde9744fdc669",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-27T23:24:52.815Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:ArmhEW3::1fed99503186e54c8231c3f72335c191e13fd0bba4caa7b58b5681285f2a33a6": {
-      "id": "guidle:ArmhEW3",
-      "sourceDescriptionHash": "1fed99503186e54c8231c3f72335c191e13fd0bba4caa7b58b5681285f2a33a6",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-27T23:24:49.185Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:ArmyKSQ::a2b2bb3622d4098e9347c0687fad322723befa7d3bf6049ff41295318df4dd6a": {
       "id": "guidle:ArmyKSQ",
       "sourceDescriptionHash": "a2b2bb3622d4098e9347c0687fad322723befa7d3bf6049ff41295318df4dd6a",
@@ -208645,15 +208717,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:ATVrwUy::955b71d4cb858c8827061a6bc33ce1b70b503833ffef1cf8149720c06a69cb41": {
-      "id": "guidle:ATVrwUy",
-      "sourceDescriptionHash": "955b71d4cb858c8827061a6bc33ce1b70b503833ffef1cf8149720c06a69cb41",
-      "code": "new-number",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-27T23:21:18.829Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:ATWFSmp::88e93e8d486bb22fabf99fb7812a3f38ccdea40e4f1b7525cc60eec470759970": {
       "id": "guidle:ATWFSmp",
       "sourceDescriptionHash": "88e93e8d486bb22fabf99fb7812a3f38ccdea40e4f1b7525cc60eec470759970",
@@ -208894,15 +208957,6 @@
       "code": "sentence-count",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-12T23:39:34.331Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AwD8rqB::aa78943681be7cb6c98476182e53e151150f6aea1f4f5dd525553da3d6f9af3e": {
-      "id": "guidle:AwD8rqB",
-      "sourceDescriptionHash": "aa78943681be7cb6c98476182e53e151150f6aea1f4f5dd525553da3d6f9af3e",
-      "code": "new-number",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-27T23:20:22.528Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -211171,15 +211225,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T03:18:02.195Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:721012c499084ff9ab8588ff412ef55b::187489b78c3959239ea15c7a188ed183c86d4111b6ed9e95c4c57c5b28a2fe0d": {
-      "id": "myswitzerland:721012c499084ff9ab8588ff412ef55b",
-      "sourceDescriptionHash": "187489b78c3959239ea15c7a188ed183c86d4111b6ed9e95c4c57c5b28a2fe0d",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-27T23:23:54.246Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
