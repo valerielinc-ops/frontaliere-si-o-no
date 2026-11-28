@@ -874,6 +874,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
           nonRoutableGermanDropped: 0,
           activeSlugPrefixConflict: 0,
           conflictExamples: [] as Array<{ locale: JobCanonLocale; slug: string; prefixes: string[] }>,
+          nonRoutableGermanDroppedExamples: [] as Array<{ slug: string; prefix: string }>,
         };
 
         if (ownsWorkerMap) {
@@ -1277,6 +1278,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
             nonRoutableGermanDropped: 0,
             activeSlugPrefixConflict: 0,
             conflictExamples: [] as Array<{ locale: JobCanonLocale; slug: string; prefixes: string[] }>,
+            nonRoutableGermanDroppedExamples: [] as Array<{ slug: string; prefix: string }>,
           },
         };
 
@@ -1397,6 +1399,11 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
             } else {
               delete entry.de;
               logicalStats.activePrefixes.nonRoutableGermanDropped += 1;
+              // A dropped redirect is a /de/ URL that stops redirecting: keep the
+              // first few slug/prefix pairs in the build log so it is traceable.
+              if (logicalStats.activePrefixes.nonRoutableGermanDroppedExamples.length < 5) {
+                logicalStats.activePrefixes.nonRoutableGermanDroppedExamples.push({ slug, prefix: dePrefix });
+              }
             }
           }
 
@@ -1481,6 +1488,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
         activePrefixStats.nonRoutableGermanDropped = logicalStats.activePrefixes.nonRoutableGermanDropped;
         activePrefixStats.activeSlugPrefixConflict = logicalStats.activePrefixes.activeSlugPrefixConflict;
         activePrefixStats.conflictExamples = logicalStats.activePrefixes.conflictExamples;
+        activePrefixStats.nonRoutableGermanDroppedExamples = logicalStats.activePrefixes.nonRoutableGermanDroppedExamples;
         const peakDeltaBytes = peakHeapUsed - heapCheckpoints.start;
         const v2Summary = summarizeBytes(v2Bytes);
         console.log(
