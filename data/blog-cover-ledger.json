@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1230,
+      "5": 1235,
       "6": 5062
     },
-    "publishedCovers": 7973,
+    "publishedCovers": 7978,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -220730,6 +220730,171 @@
         "provider": "openai-codex",
         "assetId": "article-coira-voto-alloggi-accessibili",
         "imageUrl": "/images/blog/article-coira-voto-alloggi-accessibili.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-bollettino-frontaliere-2026-11-28": {
+      "cover": "/images/blog/article-bollettino-frontaliere-2026-11-28.webp",
+      "hash": "ce2390bc3b1c3f0bda7d2aaeedc032a509161fe55a833ff66070f93e9b177f91",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bollettino-frontaliere-2026-11-28",
+          "category": "novita",
+          "date": "2026-11-28T14:01:13.589Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bollettino-frontaliere-2026-11-28.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-bollettino-frontaliere-2026-11-28",
+        "imageUrl": "/images/blog/article-bollettino-frontaliere-2026-11-28.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-einsiedeln-investimenti-netti-piano": {
+      "cover": "/images/blog/article-einsiedeln-investimenti-netti-piano.webp",
+      "hash": "bdb8e0c23b555a0fe8fb813fbd5a622ac8eeb7d8e7c2f4cc80d6cf325ae2f2b4",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sz",
+          "id": "einsiedeln-investimenti-netti-piano",
+          "category": "novita",
+          "date": "2026-11-28T10:23:27.197Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-einsiedeln-investimenti-netti-piano.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-einsiedeln-investimenti-netti-piano",
+        "imageUrl": "/images/blog/article-einsiedeln-investimenti-netti-piano.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-minimo-obvaldo-contratti": {
+      "cover": "/images/blog/article-minimo-obvaldo-contratti.webp",
+      "hash": "8604d0d7872181bd3f012fee42a51f6ace43d3c28034e969a1aa75793e1dbfeb",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "minimo-obvaldo-contratti",
+          "category": "pratico",
+          "date": "2026-11-28T14:07:40.941Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-minimo-obvaldo-contratti.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-minimo-obvaldo-contratti",
+        "imageUrl": "/images/blog/article-minimo-obvaldo-contratti.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-netstal-glarus-motion-proroga": {
+      "cover": "/images/blog/article-netstal-glarus-motion-proroga.webp",
+      "hash": "c68f1ae424c753d903912d277eddaddb9834b2234402bf9589addfbd50f96188",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-gl",
+          "id": "netstal-glarus-motion-proroga",
+          "category": "novita",
+          "date": "2026-11-28T07:17:26.000Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-netstal-glarus-motion-proroga.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-netstal-glarus-motion-proroga",
+        "imageUrl": "/images/blog/article-netstal-glarus-motion-proroga.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-salario-minimo-ticino-compromesso": {
+      "cover": "/images/blog/article-salario-minimo-ticino-compromesso.webp",
+      "hash": "37139d523c1777c18f7b09746a545d424838cae9b42947e651da001019c76afe",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "salario-minimo-ticino-compromesso",
+          "category": "novita",
+          "date": "2026-11-28T09:02:01.788Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-salario-minimo-ticino-compromesso.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-salario-minimo-ticino-compromesso",
+        "imageUrl": "/images/blog/article-salario-minimo-ticino-compromesso.webp",
         "evidence": "generated-engine-record"
       }
     }
