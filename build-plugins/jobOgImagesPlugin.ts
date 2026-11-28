@@ -1051,6 +1051,8 @@ export async function renderJobOgImages(
 
   const stats: Stats = { rendered: 0, cached: 0, skipped: 0, errors: 0 };
   const jobRenderQueue: RenderJob[] = [];
+  // Cache filenames this pass refers to; the R2 tier archives only these.
+  const liveEntries = new Set<string>();
   const orderedJobs = sortJobsForOgRender(jobs, readJobPopularity(rootDir));
   for (const job of orderedJobs) {
     const descriptor = describeJobForRender(rootDir, job, context, absoluteOutDir);
@@ -1058,6 +1060,7 @@ export async function renderJobOgImages(
       stats.skipped += 1;
       continue;
     }
+    liveEntries.add(path.basename(descriptor.cachePath));
     if (existsSync(descriptor.cachePath)) {
       try {
         if (descriptor.outPath) {
@@ -1077,6 +1080,7 @@ export async function renderJobOgImages(
   if (includeArchive) {
     const archive = describeArchiveCard(context, absoluteOutDir);
     archiveCardPath = archive.outPath;
+    liveEntries.add(path.basename(archive.cachePath));
     if (existsSync(archive.cachePath)) {
       try {
         if (archive.outPath) {
@@ -1185,7 +1189,7 @@ export async function renderJobOgImages(
   if (stats.rendered + stats.cached > 0 && !cacheOnly) {
     writeFileAtomicallySync(
       path.join(absoluteCacheRoot, CACHE_COMPLETION_MARKER),
-      `${JSON.stringify({ rendered: stats.rendered, cached: stats.cached, skipped: stats.skipped, errors: stats.errors, deferred: deferredSlugs.length })}\n`,
+      `${JSON.stringify({ rendered: stats.rendered, cached: stats.cached, skipped: stats.skipped, errors: stats.errors, deferred: deferredSlugs.length, liveEntries: [...liveEntries] })}\n`,
     );
   }
   if (strict && (stats.errors > 0 || queueResult.deferredSlugs.size > 0)) {
