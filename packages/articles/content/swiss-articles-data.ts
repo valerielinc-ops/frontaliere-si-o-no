@@ -30836,6 +30836,28 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'salario-minimo-ticino-compromesso',
+    category: 'novita',
+    date: '2026-11-28T09:02:01.788Z',
+    image: '/images/blog/article-salario-minimo-ticino-compromesso.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    canton: ['TI'],
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'minimo-obvaldo-contratti',
+    category: 'pratico',
+    date: '2026-11-28T14:07:40.941Z',
+    image: '/images/blog/article-minimo-obvaldo-contratti.webp',
+    hasCalculator: true,
+    articleType: 'evergreen',
+    canton: ['OW'],
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

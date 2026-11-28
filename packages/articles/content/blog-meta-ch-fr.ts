@@ -8765,6 +8765,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.voto-federale-iniziative-referendum.title': 'Votes fédéraux : quatre dates annuelles et seuils de signatures',
     'blog.article.voto-federale-iniziative-referendum.excerpt': 'Le calendrier fédéral prévoit quatre dates de votation par an. L\'initiative populaire nécessite 100\'000 signatures en 18 mois.',
     'blog.article.voto-federale-iniziative-referendum.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.salario-minimo-ticino-compromesso.title': 'Salaire minimum au Tessin, environ 4\'000 francs bruts par mois',
+    'blog.article.salario-minimo-ticino-compromesso.excerpt': 'Le Grand Conseil a approuvé le compromis tessinois. L\'augmentation est progressive et, à partir de 2030, suit le renchérissement.',
+    'blog.article.salario-minimo-ticino-compromesso.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.minimo-obvaldo-contratti.title': 'Obwald sans salaire minimum cantonal général',
+    'blog.article.minimo-obvaldo-contratti.excerpt': 'Obwald n’a pas de salaire minimum cantonal légal général. Des minima peuvent être prévus par les CCT ou GAV pertinents.',
+    'blog.article.minimo-obvaldo-contratti.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

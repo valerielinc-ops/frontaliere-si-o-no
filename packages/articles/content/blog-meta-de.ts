@@ -13770,6 +13770,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-11-27.imageAlt': 'Illustratives Bild zum Thema des Artikels',
     'blog.article.bollettino-frontaliere-2026-11-27.seoDescription': 'Grenzgänger-Bulletin am 27. November 2026: aktuelle Wartezeiten, Benzinpreise, CHF/EUR-Kurs und offene Stellen in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-11-27.ogDescription': 'Die Zahlen vom 27. November 2026 für Grenzgänger: wie lange man an jedem Übergang wartet, wo das Benzin am günstigsten ist, der aktuelle Franken-Euro-Kurs und die Zahl aktiver Stellenanzeigen auf unserem Job-Board in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-11-28.title': 'Grenzgänger: Wechselkurs +45.20 € bei CHF 4.000 — 28. November 2026',
+    'blog.article.bollettino-frontaliere-2026-11-28.excerpt': 'Die Zahlen von heute, 28. November 2026, für Grenzgänger: die zuletzt gemeldeten Wartezeiten an den Übergängen, die günstigsten Benzinpreise, der Franken-Euro-Kurs und aktive Stellenanzeigen in der Schweiz auf unserem Job-Board. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-11-28.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.bollettino-frontaliere-2026-11-28.seoDescription': 'Grenzgänger-Bulletin am 28. November 2026: aktuelle Wartezeiten, Benzinpreise, CHF/EUR-Kurs und offene Stellen in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-11-28.ogDescription': 'Die Zahlen vom 28. November 2026 für Grenzgänger: wie lange man an jedem Übergang wartet, wo das Benzin am günstigsten ist, der aktuelle Franken-Euro-Kurs und die Zahl aktiver Stellenanzeigen auf unserem Job-Board in der Schweiz.',
 };
 
 export default blogMetaDe;
