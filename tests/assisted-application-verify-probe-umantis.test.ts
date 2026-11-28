@@ -21,9 +21,10 @@ const existsUrl = `https://${HOST}/Vacancies/6604/FurtherApplication/Application
 const account = { email: 'maria.rossi.abcd@candidature.frontaliereticino.ch', password: 'test-only-credential' };
 
 // A Login page of this ATS carries a registration form next to the sign-in form: three password fields in all.
+let usernameLimit: number | undefined;
 const loginPage = () => ({
   fields: [
-    { id: 'u1', kind: 'text', inputType: 'text', label: 'Benutzername:', frame: 0, formId: 'login' },
+    { id: 'u1', kind: 'text', inputType: 'text', label: 'Benutzername:', frame: 0, formId: 'login', ...(usernameLimit ? { maxLength: usernameLimit } : {}) },
     { id: 'p1', kind: 'text', inputType: 'password', label: 'Passwort:', frame: 0, formId: 'login' },
     { id: 'r1', kind: 'text', inputType: 'email', label: 'E-Mail', frame: 0, formId: 'register' },
     { id: 'r2', kind: 'text', inputType: 'password', label: 'Passwort', frame: 0, formId: 'register' },
@@ -59,11 +60,12 @@ function makeStore(account: any): Store {
   return store;
 }
 
-function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = existsUrl, entryPage = 'redirect_to_login', accepted = null, store = makeStore(account), recover = undefined, allowRecovery = false, aliasEmail = '' }: { postTo?: string; formAction?: string; signedInPage?: string; entryPage?: Entry; accepted?: string[] | null; store?: Store; recover?: any; allowRecovery?: boolean; aliasEmail?: string } = {}) {
+function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = existsUrl, entryPage = 'redirect_to_login', accepted = null, portalUsername = null, limit = undefined, cutsInput = false, store = makeStore(account), recover = undefined, allowRecovery = false, aliasEmail = '' }: { postTo?: string; formAction?: string; signedInPage?: string; entryPage?: Entry; accepted?: string[] | null; portalUsername?: string | null; limit?: number; cutsInput?: boolean; store?: Store; recover?: any; allowRecovery?: boolean; aliasEmail?: string } = {}) {
   let handler: (route: any) => Promise<void>;
   let currentUrl = '';
   let signedIn = false;
   const log: Array<{ method: string; url: string; allowed: boolean }> = [];
+  usernameLimit = limit;
   const subframe = { name: 'subframe' };
   const fire = async (url: string, method = 'GET', navigation = true, inSubframe = false) => {
     let allowed = false;
@@ -90,10 +92,14 @@ function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = exis
     },
     locator: () => ({ first: () => ({
       evaluate: async () => ({ action: formAction, method: 'post', credentialsOwned: true }),
+      inputValue: async () => { const typedUser = String(state.actions.find((action: any) => action.fieldId === 'u1')?.value ?? ''); return cutsInput && limit ? typedUser.slice(0, limit) : typedUser; },
       click: async () => {
         const typed = state.actions.find((action: any) => action.fieldId === 'p1')?.value;
+        const userAction = state.actions.find((action: any) => action.fieldId === 'u1');
+        // What the portal receives: the whole value when the run raised the field's cap (preserveFullValue), else what the field keeps.
+        const sentUser = userAction ? (userAction.preserveFullValue || !limit ? userAction.value : String(userAction.value).slice(0, limit)) : '';
         const posted = await fire(postTo, 'POST', false);
-        signedIn = posted && (accepted === null || accepted.includes(typed));
+        signedIn = posted && (accepted === null || accepted.includes(typed)) && (portalUsername === null || sentUser === portalUsername);
       },
     }) }),
     waitForLoadState: async () => {}, waitForTimeout: async () => {}, evaluate: async () => state.snapshot.text, screenshot: async () => Buffer.from('fixture'),
@@ -280,6 +286,46 @@ describe('rejected sign-in: the previous password, then one recovery of the alia
       expect(((await run()) as any).stopReason).toBe('login_not_accepted');
     }
     expect(recover).not.toHaveBeenCalled();
+  });
+});
+
+describe('the sign-in identity: the field cuts the address (umantis UserName maxlength 50, the alias is longer)', () => {
+  const longAddress = 'maria.rossi.abcdefg@candidature.frontaliereticino.ch';
+  const cutAddress = longAddress.slice(0, 50);
+  const longAccount = { email: longAddress, password: 'test-only-credential' };
+
+  it('types the whole address with the field\'s cap raised (the run of 28/11 typed the cut one and was refused for a password that was right)', async () => {
+    expect(longAddress.length).toBeGreaterThan(50);
+    const { run, log } = harness({ store: makeStore(longAccount), limit: 50, portalUsername: longAddress });
+    const proof: any = await run();
+    expect(proof.applicationExists).toMatchObject({ vacancyId: '6604' });
+    expect(state.actions.find((action: any) => action.fieldId === 'u1')).toMatchObject({ value: longAddress, preserveFullValue: true });
+    expect(log.filter(entryLog => entryLog.method === 'POST')).toHaveLength(1);
+    expect(proof.trace).toEqual(expect.arrayContaining([expect.objectContaining({ kind: 'login_identity', reason: 'full', length: longAddress.length, limit: 50 })]));
+    expect(JSON.stringify(proof)).not.toContain('maria.rossi');
+  });
+
+  it('falls back to the address as the field keeps it, once, when the portal holds the account under that one', async () => {
+    const { run, log } = harness({ store: makeStore(longAccount), limit: 50, portalUsername: cutAddress });
+    const proof: any = await run();
+    expect(proof.applicationExists).toMatchObject({ vacancyId: '6604' });
+    expect(log.filter(entryLog => entryLog.method === 'POST')).toHaveLength(2);
+    const variants = proof.trace.filter((item: any) => item.kind === 'login_identity').map((item: any) => `${item.reason}:${item.length}`);
+    expect(variants).toEqual([`full:${longAddress.length}`, `truncated:50`]);
+  });
+
+  it('a control that still cuts the typed address is no sign-in: the cut variant is tried instead, nothing is posted with the wrong one', async () => {
+    const { run, log } = harness({ store: makeStore(longAccount), limit: 50, cutsInput: true, portalUsername: cutAddress });
+    const proof: any = await run();
+    expect(proof.applicationExists).toMatchObject({ vacancyId: '6604' });
+    expect(log.filter(entryLog => entryLog.method === 'POST')).toHaveLength(1);
+  });
+
+  it('no second identity when the field does not cut the address', async () => {
+    const { run, log } = harness({ store: makeStore(longAccount), accepted: [], recover: vi.fn(), allowRecovery: false });
+    const proof: any = await run();
+    expect(proof.stopReason).toBe('login_not_accepted');
+    expect(log.filter(entryLog => entryLog.method === 'POST')).toHaveLength(1);
   });
 });
 
