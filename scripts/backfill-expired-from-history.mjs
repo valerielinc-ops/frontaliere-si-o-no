@@ -1412,7 +1412,14 @@ export function processSlice(sliceFile, {
             for (const { emittedPath } of activeRoutes) historicalActiveRoutePaths.add(emittedPath);
           }
         }
-        if (!job?.slug) continue;
+        if (!job?.slug) {
+          // The active renderer can derive locale routes from title/company/
+          // location even when the stored root slug is blank. Do not infer a
+          // posting identity from those routes; refuse any uncovered path
+          // below unless another exact owner already serves it.
+          if (!isHeldFromPublication(job)) noteUncoveredIdlessRoutes(job);
+          continue;
+        }
         if (job?.id) {
           if (currentIds.has(job.id)) continue;
           if (currentSlugs.has(job.slug)) continue; // same slug, different id — treat as kept
@@ -1815,8 +1822,30 @@ export function processSlice(sliceFile, {
     ...lostByStableIdentity.values(),
   ]);
   const recoveredCandidateEntries = new Map();
+  const previouslyServedRouteKeys = new Set([
+    ...currentRouteKeys,
+    ...existing.flatMap((entry) => [...emittedRouteKeys(entry || {})]),
+    ...historicalExpiredRoutePaths,
+    ...historicalActiveRoutePaths,
+  ]);
   for (const candidate of recoveredCandidates) {
     const archiveCandidate = buildExpiredEntry(candidate);
+    const activeRouteCanton = resolveJobCanton(candidate || {});
+    if (activeRouteCanton) {
+      for (const [locale, aliases] of Object.entries(archiveCandidate.previousSlugsByLocale || {})) {
+        if (!Array.isArray(aliases)) continue;
+        for (const slug of aliases) {
+          const recordedCanton = resolveExpiredRouteCanton(archiveCandidate, locale, slug);
+          if (!recordedCanton || recordedCanton === activeRouteCanton) continue;
+          const recordedPath = emittedRouteKey(locale, slug, recordedCanton);
+          // An old path present in the route evidence is historical ownership,
+          // not stale metadata. Leave it intact so the final guard can refuse
+          // if one alias cannot represent both canton-qualified paths.
+          if (previouslyServedRouteKeys.has(recordedPath)) continue;
+          setExpiredRouteCanton(archiveCandidate, locale, slug, activeRouteCanton);
+        }
+      }
+    }
     recoveredCandidateEntries.set(candidate, archiveCandidate);
     for (const { emittedPath } of emittedRouteEntries(archiveCandidate)) {
       const owners = recoveredCandidateOwnersByPath.get(emittedPath) || [];
@@ -2092,6 +2121,23 @@ export function processSlice(sliceFile, {
     }
     if (routesChanged || routeCantonsChanged) activeRouteUpdatedOwners.add(owner);
   }
+
+  // Active aliases are emitted under the active owner's current canton. Keep
+  // the archive's per-alias canton map in sync as well, including aliases that
+  // were already present and therefore needed no transfer plan. On expiry,
+  // this preserves the exact path the active page served.
+  for (const owner of currentJobs) {
+    const ownerCanton = resolveJobCanton(owner || {});
+    if (!ownerCanton) continue;
+    for (const [locale, aliases] of Object.entries(owner.previousSlugsByLocale || {})) {
+      if (!Array.isArray(aliases)) continue;
+      for (const slug of aliases) {
+        if (setExpiredRouteCanton(owner, locale, slug, ownerCanton)) {
+          activeRouteUpdatedOwners.add(owner);
+        }
+      }
+    }
+  }
   const activeRouteUpdates = activeRouteUpdatedOwners.size;
 
   // What the archive serves before this run: none of it may disappear below.
@@ -2286,25 +2332,6 @@ export function processSlice(sliceFile, {
 
   // A repair adds no slug, so `added` stays put: write it out anyway,
   // otherwise the unorderable value survives on disk until an unrelated add.
-  if (
-    added === 0
-    && recoveredFromHistory === 0
-    && repaired === 0
-    && metadata.enrichedEntries === 0
-    && activeMetadata.enrichedEntries === 0
-    && activeRouteUpdates === 0
-  ) {
-    return {
-      crawlerKey,
-      scannedCommits: sliceCommits.length,
-      lost: lostCount,
-      added: 0,
-      recovered: 0,
-      enriched: 0,
-      activeEnriched: 0,
-    };
-  }
-
   // Collapse by the archive writer's company-scoped route ownership before
   // writing. The preflight above already refused any exact public-path overlap
   // or unrepresentable canton history.
@@ -2334,6 +2361,27 @@ export function processSlice(sliceFile, {
       enriched: 0,
       activeEnriched: activeMetadata.enrichedEntries,
       refusedRoutes: droppedRoutes.length,
+    };
+  }
+  // Even a no-op must pass the served-route check above. Otherwise a
+  // historical active path can disappear when its current row keeps the same
+  // identity and metadata but moves to another canton.
+  if (
+    added === 0
+    && recoveredFromHistory === 0
+    && repaired === 0
+    && metadata.enrichedEntries === 0
+    && activeMetadata.enrichedEntries === 0
+    && activeRouteUpdates === 0
+  ) {
+    return {
+      crawlerKey,
+      scannedCommits: sliceCommits.length,
+      lost: lostCount,
+      added: 0,
+      recovered: 0,
+      enriched: 0,
+      activeEnriched: 0,
     };
   }
   if (!dryRun) {

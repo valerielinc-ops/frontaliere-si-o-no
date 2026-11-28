@@ -1603,6 +1603,57 @@ describe('history backfill: served expired routes', () => {
     expect(readFileSync(expiredPath())).toEqual(archiveBefore);
   });
 
+  it('checks historical route loss before returning for a fully enriched same-ID canton move', () => {
+    const slug = 'synthetic-complete-metadata-canton-move';
+    const sourceIdentity = `url:${sourceUrl(261)}`;
+    const older = activeJob('synthetic-complete-metadata-owner', slug, 261, {
+      canton: 'ZH',
+      slugByLocale: { it: slug, de: 'synthetic-complete-metadata-de' },
+      sourceIdentity,
+      firstSeenAt: daysAgo(80),
+      crawledAt: daysAgo(35),
+    });
+    const newer = { ...older, canton: 'TI', crawledAt: daysAgo(5) };
+    commit({ active: [older], expired: [] });
+    commit({ active: [newer], expired: [] });
+    const activeBefore = readFileSync(activePath());
+    const archiveBefore = readFileSync(expiredPath());
+    const error = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    const result = run();
+
+    expect(result?.refusedRoutes).toBeGreaterThan(0);
+    const diagnostic = error.mock.calls.map(([message]) => String(message)).join('\n');
+    expect(diagnostic).toContain('previously served route(s) would be lost; route details are omitted');
+    expectRouteDetailsRedacted(diagnostic, [older, newer]);
+    expect(readFileSync(activePath())).toEqual(activeBefore);
+    expect(readFileSync(expiredPath())).toEqual(archiveBefore);
+  });
+
+  it('refuses derivable active routes from an idless history row with no root slug', () => {
+    const historical = activeJob('', '', 262, { canton: 'TI' });
+    delete historical.id;
+    delete historical.url;
+    delete historical.sourceIdentity;
+    delete historical.slug;
+    delete historical.slugByLocale;
+    const derivedPaths = emittedPathsOf(historical, { active: true });
+    expect(derivedPaths.length).toBeGreaterThan(0);
+    commit({ active: [historical], expired: [] });
+    commit({ active: [], expired: [] });
+    const activeBefore = readFileSync(activePath());
+    const archiveBefore = readFileSync(expiredPath());
+    const error = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    const result = run();
+
+    expect(result?.refusedRoutes).toBeGreaterThan(0);
+    expect(error.mock.calls.map(([message]) => String(message)).join('\n'))
+      .toContain('historical route(s) have unresolved posting identity');
+    expect(readFileSync(activePath())).toEqual(activeBefore);
+    expect(readFileSync(expiredPath())).toEqual(archiveBefore);
+  });
+
   it('refuses a distinct expired owner that shares a current active localized path', () => {
     const sharedLocalizedSlug = 'synthetic-active-expired-localized-collision';
     const active = activeJob('synthetic-current-owner', 'synthetic-current-primary', 213, {
@@ -2065,6 +2116,46 @@ describe('history backfill: served expired routes', () => {
     expect(emittedPathsOf(archivedCandidate || {}).some((route) => (
       emittedPathsOf(activeAfter, { active: true }).includes(route)
     ))).toBe(false);
+  });
+
+  it('keeps an existing German alias on the active canton when its owner expires', () => {
+    const alias = 'synthetic-existing-owner-de-alias';
+    const activeAlias = 'synthetic-still-active-owner-de-alias';
+    const expiring = activeJob('synthetic-expiring-alias-owner', 'synthetic-expiring-alias-primary', 263, {
+      canton: 'TI',
+      sourceIdentity: `url:${sourceUrl(263)}`,
+      slugByLocale: {
+        it: 'synthetic-expiring-alias-primary',
+        de: 'synthetic-expiring-alias-de',
+      },
+      previousSlugsByLocale: { de: [alias] },
+      previousSlugCantonByLocale: { de: { [alias]: 'ZH' } },
+    });
+    const active = activeJob('synthetic-still-active-alias-owner', 'synthetic-still-active-alias-primary', 264, {
+      canton: 'TI',
+      sourceIdentity: `url:${sourceUrl(264)}`,
+      firstSeenAt: daysAgo(70),
+      slugByLocale: {
+        it: 'synthetic-still-active-alias-primary',
+        de: 'synthetic-still-active-alias-de',
+      },
+      previousSlugsByLocale: { de: [activeAlias] },
+      previousSlugCantonByLocale: { de: { [activeAlias]: 'ZH' } },
+    });
+    const expiredAliasPath = emittedPathsOf(expiring, { active: true })
+      .find((route) => route.endsWith(`/${alias}/`));
+    expect(expiredAliasPath).toBeDefined();
+    commit({ active: [expiring, active], expired: [] });
+    commit({ active: [active], expired: [] });
+
+    const result = run();
+
+    expect(result?.refusedRoutes).toBeUndefined();
+    const [activeAfter] = JSON.parse(readFileSync(activePath(), 'utf8'));
+    expect(activeAfter.previousSlugCantonByLocale?.de?.[activeAlias]).toBe('TI');
+    const archived = readArchive().find((row) => row.id === expiring.id);
+    expect(archived?.previousSlugCantonByLocale?.de?.[alias]).toBe('TI');
+    expect(emittedPathsOf(archived || {})).toContain(expiredAliasPath);
   });
 
   it('checks missing locale slugs against the production title fallback before transferring aliases', () => {
