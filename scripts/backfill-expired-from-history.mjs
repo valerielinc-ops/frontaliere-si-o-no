@@ -1368,12 +1368,14 @@ export function processSlice(sliceFile, {
   // (scripts/lib/expired-slice-store.mjs). Include paths found in Git history,
   // not only files still present in this checkout: deleted and compacted
   // shards can be the only remaining owners of an indexed route.
+  phase('start');
   const currentExpiredFiles = listExpiredSliceFiles(crawlerKey, { dir: expiredDir })
     .map((file) => file.name);
   const expiredRels = listHistoricalExpiredRelPaths(crawlerKey, rootDir, currentExpiredFiles);
   const currentPath = path.join(byCrawlerDir, sliceFile);
   if (!fs.existsSync(currentPath)) return null;
 
+  phase('expired paths listed');
   const currentBlob = fs.readFileSync(currentPath, 'utf-8');
   const currentPayload = parseSlice(currentBlob);
   const currentJobs = readJobsFromSlice(currentBlob);
@@ -1420,6 +1422,7 @@ export function processSlice(sliceFile, {
   // --all the walk only sees the ~5 post-rewrite commits. The expired path is
   // included as well: later housekeeping can collapse or remove an archive
   // entry even though its source posting remains recoverable in Git.
+  phase('current slice parsed; listing history commits');
   const commitBySha = new Map();
   for (const commit of [
     ...listHistoryCommits(currentRel, rootDir, maxCommits),
@@ -1433,6 +1436,7 @@ export function processSlice(sliceFile, {
     .map(({ sha }) => sha);
   if (commits.length === 0) return null;
   const sliceCommits = commits;
+  phase(`history listed (${sliceCommits.length} commits)`);
 
   // Walk commits NEWEST → OLDEST (git log default order). First time we see
   // a lost id wins — that's the most recent version of the job. The compact
@@ -1481,9 +1485,12 @@ export function processSlice(sliceFile, {
   // on the loop is a no-op by construction (sets and first-wins maps only).
   let activeRun = null;
   const previousExpiredOids = new Map();
+  const seenExpiredEntries = new Set();
   let walked = 0;
   for (const sha of sliceCommits) {
-    if (walked % 25 === 0) phase(`walk ${walked}/${sliceCommits.length}`);
+    if (walked % 10 === 0) {
+      phase(`walk ${walked}/${sliceCommits.length} activeMs=${Math.round(walkStats.activeWalkMs)} expiredMs=${Math.round(walkStats.expiredWalkMs)}`);
+    }
     walked += 1;
     const oids = resolveHistoricalOids(sha, [currentRel, ...expiredRels], rootDir);
     const activeStartedAt = performance.now();
@@ -1681,6 +1688,15 @@ export function processSlice(sliceFile, {
       const expiredBlob = readHistoricalBlobByOid(expiredOid, expiredRel, rootDir);
       noteParse(expiredRel);
       for (const entry of readHistoricalJobs(expiredBlob, expiredRel, sha, 'expired archive slice')) {
+        // Successive archive versions share almost every entry. An entry
+        // byte-identical to one already added is an exact duplicate: the
+        // collector and the listing index only add to sets keyed by its
+        // content, so re-adding it changes nothing (and costs most of the walk).
+        if (dedupHistoricalBlobs) {
+          const digest = createHash('sha1').update(JSON.stringify(entry)).digest('base64');
+          if (seenExpiredEntries.has(digest)) continue;
+          seenExpiredEntries.add(digest);
+        }
         const owner = historicalExpiredOwners.add(entry);
         for (const { emittedPath } of owner.evidence.routeEntries) historicalExpiredRoutePaths.add(emittedPath);
         listingIdentities.addArchiveRow(entry);
