@@ -92,6 +92,19 @@ describe('inspection that ends in the portal\'s «application exists» page', ()
     expect(store.read(`${base}/automation/portal_verification`)).toMatchObject({ state: 'completed', conclusion: 'application_exists' });
   });
 
+  it('the proof of a login that landed on the route (path .../ApplicationExists/1, source after_login) settles the order', async () => {
+    const { store, seedEvents } = fixture({ events: [ambiguousEvent] });
+    await seedEvents();
+    await requestPortalVerification({ db: store.db, orderId, round: 1, version, nonce: 'test-uncertain-nonce', nowMs: now });
+    const inspectExists = vi.fn(async () => ({ conclusion: 'unknown', pages: [], applicationExists:
+      { routeKind: 'umantis_application_exists', host: HOST, vacancyId: '6604', pagePath: '/Vacancies/6604/FurtherApplication/ApplicationExists/1', source: 'after_login' } }));
+    const runEffect = async (context: any) => (context.effect.type === 'mark_submitted' ? runAutomationEffect(context) : { ok: true });
+    const result = await executePortalVerification({ db: store.db, bucket, orderId, round: 1, nonce: 'test-uncertain-nonce', version, key: Buffer.alloc(32, 7), nowMs: now + 10, inspectExists, runEffect });
+    expect(result).toMatchObject({ inspected: true, recorded: true, conclusion: 'application_exists' });
+    expect(store.read(`${base}/automation/flow`)).toMatchObject({ state: 'submitted' });
+    expect(store.read(`${base}/automation/submission`).r1).toMatchObject({ state: 'sent', receipt: { proofKind: 'portal_application_exists' } });
+  });
+
   it('stays unknown and unchanged when the page belongs to another vacancy', async () => {
     const { store, result } = await run({}, { vacancyId: '9999' });
     expect(result).toMatchObject({ inspected: true, conclusion: 'unknown' });

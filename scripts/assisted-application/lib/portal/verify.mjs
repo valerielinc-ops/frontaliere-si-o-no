@@ -317,6 +317,9 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
     const getAccount = async () => { loadedAccount ??= await accounts.load(new URL(page.url()).hostname); return loadedAccount; };
     // Whether the sign-in field cuts the account's address (umantis: maxlength 50 on UserName, the alias is 51 long).
     let usernameClamped = false;
+    // The page the sign-in itself lands on, when it is the portal's «application exists» route: umantis sends an account
+    // that already applied there right after the login, and goes back to the entry form when asked for it again.
+    let landedOnExists = null;
     const attemptSignin = async (secretOverride = '', { emailVariant = 'full' } = {}) => {
       // The trust is in the form's own action below (the vacancy's login route), on any page of the order's vacancy.
       if (!(signinOk(page.url()) || (probe && applicationExistsProbeNavigation(page.url(), probe)))) return { reason: 'login_page_not_trusted' };
@@ -373,6 +376,13 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       await page.waitForTimeout(1500);
       loginArmed = false;
       note('page', page.url(), 'after_login');
+      // The landing is the evidence, read where it is: navigating on would replace it with the entry form.
+      const landed = applicationExistsRoute(page.url());
+      if (landed) {
+        landedOnExists = landed;
+        note('page', page.url(), 'application_exists_after_login');
+        return null;
+      }
       await page.goto(targetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
       note('page', page.url(), 'entry_after_login');
       snapshot = await extractFields(page, { listboxOptions: false });
@@ -517,11 +527,12 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
     if (probe) {
       // What the portal did with the signed-in account on this vacancy: the live URL is the only evidence kept.
       const route = applicationExistsRoute(page.url());
-      proof.applicationExists = route ? { routeKind: route.routeKind, host: route.host, vacancyId: route.vacancyId, pagePath: route.pagePath } : null;
+      proof.applicationExists = route ? { routeKind: route.routeKind, host: route.host, vacancyId: route.vacancyId, pagePath: route.pagePath, source: landedOnExists ? 'after_login' : 'entry' } : null;
     }
     // An explicitly named application-history link is a read, never Apply or
     // an inferred route. Preserve its exact rows for a job/status review.
-    const links = await page.evaluate(applicationHistoryLinksInPage).catch(() => []);
+    // Proven already: nothing further is opened.
+    const links = proof.applicationExists ? [] : await page.evaluate(applicationHistoryLinksInPage).catch(() => []);
     const histories = [...new Map((Array.isArray(links) ? links : [])
       .map(link => ({ text: link.text, href: verificationHistoryTarget(link.href, applyUrl, sourceProtocol) }))
       .filter(link => link.href).map(link => [link.href, link])).values()];

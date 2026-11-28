@@ -60,7 +60,7 @@ function makeStore(account: any): Store {
   return store;
 }
 
-function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = existsUrl, entryPage = 'redirect_to_login', accepted = null, portalUsername = null, limit = undefined, cutsInput = false, unreadableInput = false, store = makeStore(account), recover = undefined, allowRecovery = false, aliasEmail = '' }: { postTo?: string; formAction?: string; signedInPage?: string; entryPage?: Entry; accepted?: string[] | null; portalUsername?: string | null; limit?: number; cutsInput?: boolean; unreadableInput?: boolean; store?: Store; recover?: any; allowRecovery?: boolean; aliasEmail?: string } = {}) {
+function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = existsUrl, entryPage = 'redirect_to_login', accepted = null, portalUsername = null, limit = undefined, cutsInput = false, unreadableInput = false, landsOnExists = '', store = makeStore(account), recover = undefined, allowRecovery = false, aliasEmail = '' }: { postTo?: string; formAction?: string; signedInPage?: string; entryPage?: Entry; accepted?: string[] | null; portalUsername?: string | null; limit?: number; cutsInput?: boolean; unreadableInput?: boolean; landsOnExists?: string; store?: Store; recover?: any; allowRecovery?: boolean; aliasEmail?: string } = {}) {
   let handler: (route: any) => Promise<void>;
   let currentUrl = '';
   let signedIn = false;
@@ -81,7 +81,11 @@ function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = exis
     frames: () => [page],
     goto: async (url: string) => {
       await fire(url);
-      if (signedIn) { await fire(signedInPage); currentUrl = signedInPage; state.snapshot = signedInPage === existsUrl ? existsPage() : loginPage(); }
+      if (signedIn && landsOnExists) {
+        // Asked for the entry again, the portal shows the application form, not the route it sent the login to.
+        currentUrl = entry;
+        state.snapshot = { fields: [{ id: 'f9', kind: 'text', inputType: 'text', label: 'Vorname', frame: 0, formId: 'application' }], buttons: [{ id: 'b8', text: 'Weiter', frame: 0, formId: 'application' }], passwordVisible: false, captcha: false, errors: [], text: 'Bewerbung' };
+      } else if (signedIn) { await fire(signedInPage); currentUrl = signedInPage; state.snapshot = signedInPage === existsUrl ? existsPage() : loginPage(); }
       else if (url === loginUrl) { currentUrl = loginUrl; state.snapshot = loginPage(); }
       else if (entryPage === 'redirect_to_login') { await fire(loginUrl); currentUrl = loginUrl; state.snapshot = loginPage(); }
       else {
@@ -102,6 +106,8 @@ function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = exis
         const posted = await fire(postTo, 'POST', false);
         if (posted) attempts.push({ user: sentUser.length, password: String(typed) });
         signedIn = posted && (accepted === null || accepted.includes(typed)) && (portalUsername === null || sentUser === portalUsername);
+        // The portal sends an account that already applied straight to the «application exists» route after the login.
+        if (signedIn && landsOnExists) { currentUrl = landsOnExists; state.snapshot = existsPage(); }
       },
     }) }),
     waitForLoadState: async () => {}, waitForTimeout: async () => {}, evaluate: async () => state.snapshot.text, screenshot: async () => Buffer.from('fixture'),
@@ -288,6 +294,33 @@ describe('rejected sign-in: the previous password, then one recovery of the alia
       expect(((await run()) as any).stopReason).toBe('login_not_accepted');
     }
     expect(recover).not.toHaveBeenCalled();
+  });
+});
+
+describe('the login itself lands on the «application exists» route (the run of 28/11 12:15)', () => {
+  const landing = `https://${HOST}/Vacancies/6604/FurtherApplication/ApplicationExists/1`;
+
+  it('reads the landing as the evidence and does not navigate away from it', async () => {
+    const { run, log } = harness({ landsOnExists: landing });
+    const proof: any = await run();
+    expect(proof.applicationExists).toEqual({ routeKind: 'umantis_application_exists', host: HOST, vacancyId: '6604', pagePath: '/Vacancies/6604/FurtherApplication/ApplicationExists/1', source: 'after_login' });
+    expect(log.filter(entryLog => entryLog.method === 'GET' && entryLog.url === entry)).toHaveLength(1);
+    const reasons = proof.trace.map((item: any) => item.reason);
+    expect(reasons).toContain('application_exists_after_login');
+    expect(reasons).not.toContain('entry_after_login');
+    expect(proof.pages.at(-1).url).toBe(landing);
+    expect(proof.stopReason).toBeUndefined();
+  });
+
+  it('keeps the vacancy of the landing, so that another vacancy\'s route is never mistaken for this order\'s', async () => {
+    const other = `https://${HOST}/Vacancies/9999/FurtherApplication/ApplicationExists/1`;
+    const { run } = harness({ landsOnExists: other });
+    expect(((await run()) as any).applicationExists).toMatchObject({ vacancyId: '9999', source: 'after_login' });
+  });
+
+  it('without that landing the entry is asked for after the login, as before', async () => {
+    const { run } = harness();
+    expect(((await run()) as any).applicationExists).toMatchObject({ vacancyId: '6604', source: 'entry' });
   });
 });
 
