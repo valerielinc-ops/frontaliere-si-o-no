@@ -280,6 +280,42 @@ query($zone:String!,$limit:Int!,$filter:ZoneHttpRequestsAdaptiveGroupsFilter_Inp
   }}
 }`;
 
+const HOURLY_PAGES_QUERY = `
+query($zone:String!,$limit:Int!,$filter:ZoneHttpRequestsAdaptiveGroupsFilter_InputObject){
+  viewer{ zones(filter:{zoneTag:$zone}){
+    httpRequestsAdaptiveGroups(limit:$limit,filter:$filter,orderBy:[datetimeHour_ASC]){
+      count dimensions{ datetimeHour }
+    }
+  }}
+}`;
+
+/**
+ * Human HTML page requests (status 200, eyeball traffic) per UTC hour over one
+ * sub-1-day window: the edge-side reference the tracking-health monitor
+ * compares GA4 against (scripts/lib/tracking-health.mjs).
+ *
+ * @returns {Promise<Array<{hour:string,count:number}>>}
+ */
+export async function fetchHourlyPageRequests(token, zoneId, opts = {}) {
+  const fetchImpl = opts.fetchImpl ?? fetch;
+  const hours = boundedHours(opts.hours ?? MAX_HOURS);
+  const until = opts.until ? new Date(opts.until) : new Date();
+  if (!Number.isFinite(until.getTime())) throw new Error('Invalid Cloudflare analytics window end.');
+  const filter = {
+    datetime_geq: new Date(until.getTime() - hours * 3600 * 1000).toISOString(),
+    datetime_leq: until.toISOString(),
+    edgeResponseStatus: 200,
+    edgeResponseContentTypeName: 'html',
+    requestSource: 'eyeball',
+  };
+  const data = await cfGraphQL(token, HOURLY_PAGES_QUERY, { zone: zoneId, limit: CF_ANALYTICS_MAX_ROWS, filter }, fetchImpl);
+  const zones = data?.viewer?.zones;
+  if (!Array.isArray(zones) || zones.length === 0) throw new Error('Cloudflare analytics returned no matching zone.');
+  const rows = zones[0]?.httpRequestsAdaptiveGroups;
+  if (!Array.isArray(rows)) throw new Error('Cloudflare analytics returned an unknown hourly result.');
+  return rows.map((r) => ({ hour: r.dimensions.datetimeHour, count: r.count }));
+}
+
 /**
  * Fetch `(status, host, path, count)` rows for requests with
  * edgeResponseStatus >= minStatus over a single sub-1-day window.
