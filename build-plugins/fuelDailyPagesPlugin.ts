@@ -3653,6 +3653,33 @@ function collectItalianCityStations(
   return out;
 }
 
+/**
+ * The single decision "is this Italian city page emitted for this fuel?":
+ * the city has at least one station with a real price for that fuel. The
+ * page generator and the sitemap both read it, so a city without diesel
+ * (MIMIT reports no Gasolio there) is never advertised under the diesel
+ * section.
+ */
+export function isItalianCityFuelPageEmitted(
+  dataset: FuelPricesDataset,
+  entry: ItalianCityEntry,
+  fuel: FuelType,
+): boolean {
+  return collectItalianCityStations(dataset, entry, fuel).length > 0;
+}
+
+/** Every Italian city page path the dataset emits, across locales and fuels. */
+export function listEmittedItalianCityFuelPaths(dataset: FuelPricesDataset): Set<string> {
+  const paths = new Set<string>();
+  for (const entry of buildItalianCityEntries(dataset)) {
+    for (const fuel of FUEL_TYPES) {
+      if (!isItalianCityFuelPageEmitted(dataset, entry, fuel)) continue;
+      for (const locale of FUEL_DAILY_LOCALES) paths.add(buildFuelItalianCityPath(locale, fuel, entry.slug));
+    }
+  }
+  return paths;
+}
+
 interface ItalianCityCopy {
   h1: (fuelLabel: string, city: string) => string;
   intro: (fuelLabel: string, city: string, minPrice: string) => string;
@@ -4536,8 +4563,8 @@ export function generateFuelItalianCityPages(opts: {
 
   for (const entry of buildItalianCityEntries(dataset)) {
     for (const fuel of FUEL_TYPES) {
+      if (!isItalianCityFuelPageEmitted(dataset, entry, fuel)) continue; // no station data for this fuel
       const stations = collectItalianCityStations(dataset, entry, fuel);
-      if (stations.length === 0) continue; // skip if no station data for this fuel
       const cityContexts = contextsByCityByFuel.get(fuel)?.get(entry.slug) ?? [];
       const itMin = stations.reduce<number | null>((min, s) => {
         const p = typeof s.priceEur === 'number' ? s.priceEur : null;
@@ -6132,6 +6159,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       }
 
       const italianCitySitemapPaths: string[] = [];
+      const emittedItalianCityFuelPaths = listEmittedItalianCityFuelPaths(dataset);
       let italianCityPagesWritten = 0;
       for (const [path, html] of Object.entries(italianCityPages)) {
         const words = countHtmlBodyWords(html);
@@ -6146,7 +6174,9 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
         assertFuelSitemapCanonical(path, html, 'italian-city');
         collector.add(np.join(outDir, 'index.html'), html);
-        italianCitySitemapPaths.push(path);
+        // Same predicate as the generator: only a city with priced stations
+        // for this fuel is advertised.
+        if (emittedItalianCityFuelPaths.has(path)) italianCitySitemapPaths.push(path);
         italianCityPagesWritten++;
       }
 

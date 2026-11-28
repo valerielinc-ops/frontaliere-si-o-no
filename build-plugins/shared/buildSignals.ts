@@ -82,6 +82,7 @@ let localeJobsSplitSignal = makeValueSignal<BuildProducerOutcome>();
 let localeJobsSplitProducerRegistered = false;
 let activeJobSitemapLocs: ReadonlySet<string> | null = null;
 let jobSitemapAllowlist: ReadonlySet<string> | null = null;
+let emittedJobCategoryHubLocs: ReadonlySet<string> | null = null;
 let tiHubLatestJobsBlocks: Readonly<Record<string, string>> | null = null;
 const sectorPagesSignal = makeSignal();
 const professionCantonsSignal = makeValueSignal<readonly string[]>();
@@ -301,6 +302,21 @@ export function setJobSitemapAllowlist(paths: ReadonlySet<string> | null): void 
 
 export function getJobSitemapAllowlist(): ReadonlySet<string> | null {
   return jobSitemapAllowlist;
+}
+
+/**
+ * Absolute URLs of every job category hub (`categoria-*`, `category-*`,
+ * `kategorie-*`, `categorie-*`) the full build emits, in every locale. Hubs
+ * are not in {@link getJobSitemapAllowlist} (details only), so this is the
+ * positive set that lets the fast publisher prune a published hub whose
+ * category fell below the emit floor. `null` = producer has not decided.
+ */
+export function setEmittedJobCategoryHubLocs(locs: ReadonlySet<string> | null): void {
+  emittedJobCategoryHubLocs = locs;
+}
+
+export function getEmittedJobCategoryHubLocs(): ReadonlySet<string> | null {
+  return emittedJobCategoryHubLocs;
 }
 
 /**
