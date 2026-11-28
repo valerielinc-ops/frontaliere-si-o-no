@@ -12,6 +12,9 @@ import { dirname, join, relative } from 'node:path';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 const JOB_CANON_PREFIX = 'job-canon/';
+// The v1 patterns stay on purpose: the writer no longer emits v1 shards, but
+// carried-forward legacy root shards and old releases (rollback) still sit in
+// the CDN trees this module compares, and must not be reported as unexpected.
 const V1_RE = /^[a-z0-9_]{2}\.json$/;
 const V2_RE = /^v2\/[0-9a-f]{3}\.json$/;
 const RELEASE_V1_RE = /^releases\/([0-9]{1,20})\/[a-z0-9_]{2}\.json$/;

@@ -112,10 +112,14 @@ function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = exis
     }) }),
     waitForLoadState: async () => {}, waitForTimeout: async () => {}, evaluate: async () => state.snapshot.text, screenshot: async () => Buffer.from('fixture'),
   };
-  const context = { route: async (_pattern: string, h: typeof handler) => { handler = h; }, routeWebSocket: async () => {}, addInitScript: async () => {}, newPage: async () => page, close: async () => {} };
+  const unrouteAll = vi.fn(async () => {});
+  const context = { route: async (_pattern: string, h: typeof handler) => { handler = h; }, unrouteAll, routeWebSocket: async () => {}, addInitScript: async () => {}, newPage: async () => page, close: async () => {} };
+  // A request that reaches the handler while the browser context is already closing.
+  const fireClosed = (url: string) => handler({ request: () => ({ method: () => 'GET', url: () => url, isNavigationRequest: () => false, resourceType: () => 'xhr', frame: () => page }),
+    abort: async () => { throw new Error('Target page, context or browser has been closed'); }, continue: async () => { throw new Error('Target page, context or browser has been closed'); } });
   const run = () => verifyPortalApplication({ applyUrl, targetUrl: entry, probe, job: {}, accounts: store as any, allowRecovery, aliasEmail, ...(recover ? { recover } : {}),
     launch: async () => ({ newContext: async () => context, close: async () => {} }) as any });
-  return { run, fire, log, store, attempts };
+  return { run, fire, fireClosed, unrouteAll, log, store, attempts };
 }
 
 describe('probe of an ATS sign-in with a registration form beside it (entry -> Login -> POST -> ApplicationExists)', () => {
@@ -294,6 +298,17 @@ describe('rejected sign-in: the previous password, then one recovery of the alia
       expect(((await run()) as any).stopReason).toBe('login_not_accepted');
     }
     expect(recover).not.toHaveBeenCalled();
+  });
+});
+
+describe('the end of an inspection does not take the process down with it', () => {
+  it('a request that arrives while the context closes never rejects, and the routes are released without waiting for their handlers', async () => {
+    const h = harness({ landsOnExists: `https://${HOST}/Vacancies/6604/FurtherApplication/ApplicationExists/1` });
+    const proof: any = await h.run();
+    expect(proof.applicationExists).toMatchObject({ vacancyId: '6604' });
+    expect(h.unrouteAll).toHaveBeenCalledWith({ behavior: 'ignoreErrors' });
+    await expect(h.fireClosed(`https://${HOST}/assets/app.js`)).resolves.toBeUndefined();
+    await expect(h.fireClosed(`https://${HOST}/Vacancies/6604/Application/Submit/1`)).resolves.toBeUndefined();
   });
 });
 

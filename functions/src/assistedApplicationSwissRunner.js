@@ -138,8 +138,15 @@ export function localDispatchStaleReason(item, flow, order) {
   if ((item.mode === 'submit') !== (flow.state === 'submitting')) return 'flow_mode_changed';
   if (Number(flow.round || 1) !== Number(item.round)) return 'stale_round';
   if (Number(flow.dispatch?.requestedAt || 0) !== Number(item.requestedAt)) return 'superseded';
-  if (!requiresSwissEgress(flow)) return 'egress_not_required';
+  // A request the flow only PREFERRED to send from Switzerland (a rate-limited portal's retry) needs no mark.
+  if (!requiresSwissEgress(flow) && item.preferred !== true) return 'egress_not_required';
   return null;
+}
+
+/** Whether a Swiss runner is alive right now, read from the heartbeats (one bounded read). */
+export async function swissRunnerOnline({ db, nowMs = Date.now() }) {
+  const runners = await db.collection(LOCAL_RUNNERS_COLLECTION).limit(RUNNER_SCAN_LIMIT).get();
+  return swissRunnerAvailability((runners.docs || []).map(doc => doc.data()), nowMs);
 }
 
 /**
@@ -148,7 +155,7 @@ export function localDispatchStaleReason(item, flow, order) {
  * lease in progress stays where it is (the runner finds the newer key when it
  * releases, and the next lease takes it).
  */
-export async function enqueueLocalDispatch({ db, orderId, flow, mode, reason = null, nowMs = Date.now() }) {
+export async function enqueueLocalDispatch({ db, orderId, flow, mode, reason = null, preferred = false, nowMs = Date.now() }) {
   if (!LOCAL_MODES.has(mode)) throw new Error(`local_dispatch_mode_unsupported:${mode}`);
   const round = Number(flow?.round) || 1;
   const requestedAt = Number(flow?.dispatch?.requestedAt) || nowMs;
@@ -166,6 +173,8 @@ export async function enqueueLocalDispatch({ db, orderId, flow, mode, reason = n
       attempts: Number(flow?.dispatch?.attempts) || 1,
       reason: reason ? String(reason).slice(0, 60) : null,
       egress: SWISS_EGRESS,
+      // Preferred, not required: nobody took it in time (or no Swiss runner is alive), GitHub runs it instead.
+      preferred: preferred === true,
       status: 'pending',
       queuedAt: nowMs,
       prepFailures: 0,
@@ -306,6 +315,97 @@ export async function writeRunnerHeartbeat({ db, runnerId, nowMs = Date.now(), e
 }
 
 /**
+ * A claimed fallback with no outcome after this long is closed as unconfirmed (never dispatched again): the Functions
+ * watchdog (RUN_WATCHDOG_MS) re-dispatches a run that never reports, under a new key.
+ */
+export const FALLBACK_CLAIM_TTL_MS = 10 * 60 * 1000;
+/** The statuses a preferred request takes once GitHub is to run it: no runner leases them and none goes back to `pending`. */
+export const FALLBACK_STATUSES = Object.freeze(['fallback_claimed', 'fallback_dispatched', 'fallback_unconfirmed', 'fallback_failed']);
+
+/**
+ * A preferred request nobody leased while no Swiss runner is alive: dispatch the same run on GitHub, ONCE per request
+ * key. The request is claimed in a transaction (`pending`, no valid lease -> `fallback_claimed`, with an owner and a
+ * unique `dispatchKey`) BEFORE GitHub is called, and written `fallback_dispatched` after it. From the claim on it
+ * never returns to `pending` and no runner leases it, whatever a later sweep sees (an online Swiss runner, a failed
+ * write): a second sweep cannot claim it again. Whether GitHub accepted a dispatch whose answer was lost is unknown,
+ * so a claim without outcome is closed as `fallback_unconfirmed` and not re-dispatched (at most once per key; the
+ * watchdog covers a run that never reports). When the flow has moved on the request is only closed as stale.
+ * @returns {Promise<'github'|'stale'|'skipped'>}
+ */
+async function fallBackToGithub({ db, doc, nowMs, runEffect }) {
+  const seen = doc.data() || {};
+  const owner = `${nowMs}:${Math.random().toString(36).slice(2, 12)}`;
+  const dispatchKey = `${String(seen.key)}:github`;
+  const claimed = await db.runTransaction(async (transaction) => {
+    const item = (await transaction.get(doc.ref)).data() || null;
+    if (!item || item.status !== 'pending' || item.key !== seen.key || item.preferred !== true) return null;
+    if (item.lease && Number(item.lease.until) > nowMs) return null;
+    transaction.set(doc.ref, {
+      status: 'fallback_claimed',
+      fallback: { owner, dispatchKey, claimedAt: nowMs },
+      result: { code: 'swiss_preferred_fallback', at: nowMs },
+    }, { merge: true });
+    return item;
+  });
+  if (!claimed) return 'skipped';
+  // Only the claimant writes the outcome, and only while its own claim stands.
+  const settle = (status, patch = {}) => db.runTransaction(async (transaction) => {
+    const current = (await transaction.get(doc.ref)).data() || null;
+    if (current?.status !== 'fallback_claimed' || current.fallback?.owner !== owner) return false;
+    transaction.set(doc.ref, { status, finishedAt: nowMs, ...patch }, { merge: true });
+    return true;
+  });
+  const orderId = String(claimed.orderId || doc.ref.id);
+  const [orderSnapshot, flowSnapshot] = await Promise.all([
+    orderRef(db, orderId).get(), orderRef(db, orderId).collection('automation').doc('flow').get(),
+  ]);
+  const flow = flowSnapshot.data() || null;
+  const stale = localDispatchStaleReason(claimed, flow, orderSnapshot.data() || null);
+  if (stale) {
+    await settle('expired', { result: { code: stale, at: nowMs } });
+    return 'stale';
+  }
+  let dispatched;
+  try {
+    dispatched = await runEffect({
+      db, orderId, flow, nowMs,
+      effect: { type: 'dispatch', mode: claimed.mode, reason: 'swiss_preferred_fallback', preferEgress: null, forceGithub: true, dispatchKey },
+    });
+  } catch (error) {
+    console.error('[assistedApplicationSwissRunner] github fallback not dispatched', orderId, error instanceof Error ? error.message : String(error));
+    await settle('fallback_failed', { result: { code: 'fallback_dispatch_failed', at: nowMs } }).catch(() => false);
+    return 'skipped';
+  }
+  if (dispatched && dispatched.ok === false) {
+    await settle('fallback_failed', { result: { code: 'fallback_dispatch_failed', at: nowMs } }).catch(() => false);
+    return 'skipped';
+  }
+  // GitHub has the run. If this write fails the claim stays `fallback_claimed`: nobody dispatches it again, nobody leases it.
+  await settle('fallback_dispatched', { fallback: { owner, dispatchKey, claimedAt: nowMs, dispatchedAt: nowMs } }).catch(() => false);
+  return 'github';
+}
+
+/**
+ * A fallback claim with no outcome past FALLBACK_CLAIM_TTL_MS (its dispatch or its final write was lost) is closed as
+ * `fallback_unconfirmed`. Never `pending`, never dispatched again.
+ */
+async function reconcileFallbackClaims({ db, nowMs }) {
+  const snapshot = await db.collection(LOCAL_DISPATCH_COLLECTION).where('status', '==', 'fallback_claimed').limit(PENDING_SCAN_LIMIT).get();
+  let closed = 0;
+  for (const doc of snapshot.docs || []) {
+    if (Number(doc.data()?.fallback?.claimedAt) + FALLBACK_CLAIM_TTL_MS > nowMs) continue;
+    const done = await db.runTransaction(async (transaction) => {
+      const item = (await transaction.get(doc.ref)).data() || null;
+      if (item?.status !== 'fallback_claimed' || Number(item.fallback?.claimedAt) + FALLBACK_CLAIM_TTL_MS > nowMs) return false;
+      transaction.set(doc.ref, { status: 'fallback_unconfirmed', finishedAt: nowMs, result: { code: 'fallback_unconfirmed', at: nowMs } }, { merge: true });
+      return true;
+    });
+    if (done) closed += 1;
+  }
+  return closed;
+}
+
+/**
  * Sweep step: a request still pending past SWISS_RUNNER_PICKUP_MS while no
  * Swiss runner is alive holds its order for the owner with the reason. A
  * runner that is alive but busy is waited for: the watchdog decides.
@@ -322,6 +422,8 @@ export async function writeRunnerHeartbeat({ db, runnerId, nowMs = Date.now(), e
 export async function holdUnservedLocalDispatches({ db, nowMs = Date.now(), applyEvent, runEffect }) {
   const summary = { due: 0, held: 0, waiting: 0, requeued: 0, failed: 0 };
   summary.requeued = await requeueExpiredLeases({ db, nowMs });
+  const unconfirmed = await reconcileFallbackClaims({ db, nowMs });
+  if (unconfirmed) summary.fallbackUnconfirmed = unconfirmed;
   const [pending, expiring] = await Promise.all([
     db.collection(LOCAL_DISPATCH_COLLECTION).where('status', '==', 'pending').limit(PENDING_SCAN_LIMIT).get(),
     db.collection(LOCAL_DISPATCH_COLLECTION).where('status', '==', 'expiring').limit(PENDING_SCAN_LIMIT).get(),
@@ -349,6 +451,13 @@ export async function holdUnservedLocalDispatches({ db, nowMs = Date.now(), appl
   }
   const toApply = [];
   for (const doc of due) {
+    // A request the flow only preferred to send from Switzerland never holds the order for the owner: no Swiss
+    // runner is alive, so GitHub runs it (the same dispatch, claim and lease), as the ladder always did.
+    if ((doc.data() || {}).preferred === true) {
+      const outcome = await fallBackToGithub({ db, doc, nowMs, runEffect });
+      if (outcome === 'github') summary.fellBack = (summary.fellBack || 0) + 1;
+      continue;
+    }
     const seen = doc.data() || {};
     const claimed = await db.runTransaction(async (transaction) => {
       const item = (await transaction.get(doc.ref)).data() || null;

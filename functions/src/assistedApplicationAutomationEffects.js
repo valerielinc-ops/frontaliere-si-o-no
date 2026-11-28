@@ -20,7 +20,7 @@ import { FieldValue } from 'firebase-admin/firestore';
 import { hasNoRefundAfterStartConsent, refundEndsAtStart } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { dispatchAgentWorkflow, draftRefFor, orderRefFor } from './assistedApplicationAutomation.js';
-import { enqueueLocalDispatch, requiresSwissEgress } from './assistedApplicationSwissRunner.js';
+import { SWISS_EGRESS, enqueueLocalDispatch, requiresSwissEgress, swissRunnerOnline } from './assistedApplicationSwissRunner.js';
 import { buildCandidateAutomationEmail, buildOwnerAutomationEmail } from './assistedApplicationAutomationEmails.js';
 import {
   buildReviewPageUrl,
@@ -292,6 +292,21 @@ export async function runAutomationEffect(context, deps = {}) {
         return (deps.enqueueLocal || enqueueLocalDispatch)({
           db, orderId, flow, mode: effect.mode, reason: effect.reason || null, nowMs: context.nowMs || Date.now(),
         });
+      }
+      // A retry that PREFERS Switzerland (the portal rate limited GitHub's exit): queued for the Swiss runner while
+      // one is alive and fresh, otherwise (or when its heartbeat cannot be read) on GitHub as before.
+      if (effect.preferEgress === SWISS_EGRESS && effect.forceGithub !== true) {
+        let online = false;
+        try {
+          online = (await (deps.swissOnline || swissRunnerOnline)({ db, nowMs: context.nowMs || Date.now() }))?.online === true;
+        } catch {
+          online = false;
+        }
+        if (online) {
+          return (deps.enqueueLocal || enqueueLocalDispatch)({
+            db, orderId, flow, mode: effect.mode, reason: effect.reason || null, preferred: true, nowMs: context.nowMs || Date.now(),
+          });
+        }
       }
       return (deps.dispatch || dispatchAgentWorkflow)({ orderId, mode: effect.mode, round: flow.round || 1 });
     case 'email':

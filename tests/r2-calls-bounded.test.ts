@@ -1624,3 +1624,21 @@ describe('behaviour: _r2_timeout_s rejects 0 and every non-positive or open-ende
     expect(uploadLimit('upload-valid', '45')).toBe('45');
   });
 });
+
+describe('R2 janitor leaves job-canon shards alone (v1 retirement safety)', () => {
+  const prep = read('scripts/lib/deploy-it-pages-prep.sh');
+  const janitor = prep.slice(prep.indexOf('_janitor_cdn_r2() {'), prep.indexOf('\n}\n', prep.indexOf('_janitor_cdn_r2() {')));
+
+  it('only lists assets/ and never derives its live set from job-canon manifests or emitted files', () => {
+    expect(janitor).toContain('--prefix "assets/"');
+    expect(janitor).not.toMatch(/job-canon|manifest\.json/);
+  });
+
+  it('syncs only the current job-canon release prefix, so earlier releases and legacy v1 shards are never deleted', () => {
+    const syncs = prep.match(/_r2_sync \d+ "[^"]*" "job-canon[^"]*"/g) ?? [];
+    expect(syncs).toHaveLength(1);
+    expect(syncs[0]).toContain('"job-canon/releases/$DEPLOY_BUILD_ID"');
+    // Uploads are additive `rclone copy`: no sync/delete/purge ever removes a v1 object.
+    expect(prep).not.toMatch(/rclone (?:sync|delete|deletefile|purge)\b/);
+  });
+});
