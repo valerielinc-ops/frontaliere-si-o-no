@@ -2995,13 +2995,19 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && !(Array.isArray(snapshot.dialogs) && snapshot.dialogs.length)) {
     const FINAL_LABEL_RE = /(?:absenden|abschicken|abschlie(?:ß|ss)en|senden|submit|send|invia|envoy|soumettre|finali[sz]e|fertig|complete|conclud|termina)/iu;
     const ownEntries = allEntries.filter((control) => !socialApplicationEntry(control));
-    // Only the site's own short application route qualifies: same origin, at most two path segments, no digit in the
-    // path (`/bewerbung/`, `/apply`). A route that names a vacancy (`/Vacancies/2780/…`, `/jobs/apply/<opaque id>`) or
-    // another host needs its own proof of belonging to this posting, as before.
+    // Only the site's own application route qualifies: same origin and a path made of known entry words alone, with an
+    // optional locale prefix (`/bewerbung/`, `/de/apply/`). Any other segment (`/apply/job-b/`, `/Vacancies/2780/…`,
+    // `/jobs/apply/<id>`) may name a vacancy and needs its own proof of belonging to this posting. The reference to the
+    // posting can sit in the query only (`?job-id=…`). Another host is no entry here either.
+    const ENTRY_WORDS = new Set(['bewerbung', 'bewerben', 'apply', 'application', 'applications', 'candidature', 'candidatures',
+      'candidatura', 'candidature', 'candidati', 'candidarsi', 'postuler', 'postulation']);
+    const LOCALES = new Set(['de', 'fr', 'it', 'en']);
     const isSiteApplicationRoute = (control) => {
       const route = comparablePortalRoute(control?.href);
-      return Boolean(route) && route.origin === posting.origin && route.origin.startsWith('https://')
-        && route.pathname.split('/').filter(Boolean).length <= 2 && !/\d/u.test(route.pathname);
+      if (!route || route.origin !== posting.origin || !route.origin.startsWith('https://')) return false;
+      let segments = route.pathname.split('/').filter(Boolean).map((segment) => segment.toLowerCase());
+      if (segments.length > 1 && LOCALES.has(segments[0])) segments = segments.slice(1);
+      return segments.length > 0 && segments.length <= 2 && segments.every((segment) => ENTRY_WORDS.has(segment));
     };
     const ownUnbound = unbound.filter((control) => !socialApplicationEntry(control)
       && !FINAL_LABEL_RE.test(String(control?.text || control?.label || ''))

@@ -52,7 +52,7 @@ describe('a fieldless, bound posting page: its sole application link is the entr
   });
 
   it('takes a short route of the site itself, with or without a query string', () => {
-    for (const href of ['https://careers.example.test/bewerbung/', 'https://careers.example.test/apply', 'https://careers.example.test/bewerbung/?job-id=12345-EX']) {
+    for (const href of ['https://careers.example.test/bewerbung/', 'https://careers.example.test/apply', 'https://careers.example.test/de/bewerbung/', 'https://careers.example.test/bewerbung/?job-id=12345-EX', 'https://careers.example.test/bewerbung/?job-id=123']) {
       expect(applicationEntryControls(snapshot({ buttons: [applyButton({ href })] }) as any, context as any)).toHaveLength(1);
     }
   });
@@ -97,9 +97,17 @@ describe('a fieldless, bound posting page: its sole application link is the entr
         'https://ats.example.test/apply/start',
         'https://careers.example.test/vacancies/2780/application/new',
         'https://careers.example.test/fr/jobs/apply/OtherPostingId',
+        'https://careers.example.test/apply/job-b/',
+        'https://careers.example.test/de/bewerbung/job-b',
       ]) {
         expect(applicationEntryControls(snapshot({ buttons: [applyButton({ href })] }) as any, context as any)).toHaveLength(0);
       }
+    });
+
+    it('when the only apply link goes to another vacancy\'s opaque slug (/apply/job-b/ from /stellen/job-a/)', () => {
+      const posting = 'https://careers.example.test/stellen/job-a/';
+      const snap = snapshot({ url: posting, buttons: [applyButton({ href: 'https://careers.example.test/apply/job-b/' })] });
+      expect(applicationEntryControls(snap as any, { ...context, applyUrl: posting, postingUrl: posting } as any)).toEqual([]);
     });
 
     it('when the target is not https', () => {
