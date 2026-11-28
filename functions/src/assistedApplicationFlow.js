@@ -52,6 +52,7 @@ import { isMatcherExperienceQuestion } from './assistedApplicationCvAnswers.js';
 import {
   REGION_UNSUPPORTED_HOLD,
   REGION_UNSUPPORTED_REASON,
+  SWISS_EGRESS,
   SWISS_RUNNER_OFFLINE_REASON,
   SWISS_RUNNER_OFFLINE_REASONS,
   requiresSwissEgress,
@@ -1288,6 +1289,11 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       next[counterField] = attempts + 1;
       next.portalAutoRetryAt = null;
       effects = enterSubmitting(next, 'portal_auto_retry');
+      // A site that rate limited us did so for the runner's exit (GitHub's shared datacentre pool answered 429 three
+      // times in a row while the same page loaded from another exit): the retry prefers the Swiss runner when one
+      // is alive, and stays on GitHub when none is (assistedApplicationAutomationEffects.js). Nothing was sent
+      // before this run, and the dispatch, claim and lease are the same as ever.
+      if (rateLimited) effects = effects.map(effect => (effect.type === 'dispatch' ? { ...effect, preferEgress: SWISS_EGRESS } : effect));
       break;
     }
     case 'owner_handoff':
