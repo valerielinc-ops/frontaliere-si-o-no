@@ -164,13 +164,22 @@ function sameCatalogueName(sourceName, catalogueName, catalogueCity) {
   const cityTokens = normalizedTokens(catalogueCity);
   if (sourceTokens.length === 0 || catalogueTokens.length === 0) return false;
 
+  // Either side may append the locality to the trade name: the catalogue does
+  // («Farmacia X Ascona») and so does the calendar («Coop Vitality Tenero»,
+  // 2026-11-28). A token missing on the other side is tolerated only when it
+  // belongs to the locality, and at least one token must match by name.
   const remaining = [...catalogueTokens];
+  let matched = 0;
   for (const token of sourceTokens) {
     const index = remaining.indexOf(token);
-    if (index < 0) return false;
-    remaining.splice(index, 1);
+    if (index >= 0) {
+      remaining.splice(index, 1);
+      matched += 1;
+    } else if (!cityTokens.includes(token)) {
+      return false;
+    }
   }
-  return remaining.every((token) => cityTokens.includes(token));
+  return matched > 0 && remaining.every((token) => cityTokens.includes(token));
 }
 
 function catalogueCandidates(row, catalogue) {

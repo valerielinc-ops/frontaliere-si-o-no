@@ -1031,6 +1031,42 @@ describe('issue #6759 reconciliation', () => {
     )).not.toThrow();
   });
 
+  it('repairs a shared-identity collision left outside the cap-refused component', () => {
+    const daysAgo = (days: number) => new Date(Date.now() - days * 86_400_000).toISOString();
+    const row = (slug: string, expiredDaysAgo: number, extra: Record<string, unknown> = {}) => ({
+      companyKey: 'canonical',
+      slug,
+      expiredAt: daysAgo(expiredDaysAgo),
+      slugByLocale: { it: slug },
+      previousSlugs: [] as string[],
+      previousSlugsByLocale: {} as Record<string, string[]>,
+      sourceIdentity: 'source:same-posting',
+      ...extra,
+    });
+    // Two histories too deep to merge, then a third row that merges into one of
+    // them: the merged survivor is a new object, outside the refused component.
+    const deep = (slug: string, expiredDaysAgo: number) => row(slug, expiredDaysAgo, {
+      previousSlugs: [
+        'shared-history-route',
+        ...Array.from({ length: 60 }, (_, index) => `${slug}-history-${index}`),
+      ],
+    });
+    const input = [
+      deep('deep-older', 20),
+      deep('deep-newer', 10),
+      row('late-alias', 30, { previousSlugsByLocale: { it: ['deep-older'] } }),
+    ];
+    const beforeRoutes = new Set(input.flatMap((entry) => [...localeRouteKeys(entry)]));
+
+    const result = mergeRetiredCrawlerArchive(structuredClone(input), [], 'canonical');
+    const afterRoutes = new Set(result.jobs.flatMap((entry) => [...localeRouteKeys(entry)]));
+
+    expect(result.capRefused).toBe(1);
+    expect(result.canonicalCollapsed).toBe(1);
+    expect([...beforeRoutes].filter((route) => !afterRoutes.has(route))).toEqual([]);
+    expect(() => assertNoDuplicateRoutesWithin(result.jobs, 'outside cap scope')).not.toThrow();
+  });
+
   it('collapses matching aliases while preserving active and historical routes', () => {
     const canonical = job('canonical', '1', 'canonical-slug');
     const retired = job('retired', '1', 'retired-slug');

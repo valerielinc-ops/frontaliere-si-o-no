@@ -142,4 +142,11 @@ describe('workflow', () => {
     expect(workflow).toContain('Workflow Failure: ${{ github.workflow }}');
     expect(workflow).toContain('roles/logging.viewer');
   });
+
+  it('installs dependencies before the sync so google-auth-library can mint the token', () => {
+    const install = workflow.indexOf('run: npm ci');
+    expect(install).toBeGreaterThan(-1);
+    expect(install).toBeLessThan(workflow.indexOf('node scripts/cloud-function-error-issue-sync.mjs'));
+    expect(workflow).toContain('GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json');
+  });
 });
