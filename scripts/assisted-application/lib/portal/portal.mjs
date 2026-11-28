@@ -5492,7 +5492,7 @@ const EMPLOYER_TITLE_SEPARATOR_RE = /[\n\r—–|·•]|\s-\s/;
 // evidence: menus, buttons, instructions, descriptions, file names and languages are never a conflict. Evidence is
 // an organisation: a legal form, «bei/chez/presso/at <Name>», «<Name> sucht/cerca/recherche», «Other <kind>», a
 // kind of employer next to a capitalised name, or the exact name of a known other employer.
-const LEGAL_FORM_TOKENS = new Set(['AG', 'GmbH', 'GMBH', 'SA', 'Sagl', 'SAGL', 'Sarl', 'SARL', 'Srl', 'SRL', 'SpA', 'SPA', 'Ltd', 'LTD', 'Inc', 'INC', 'LLC', 'LLP', 'KG', 'KGaA', 'OHG', 'PLC', 'Plc', 'BV', 'NV', 'SAS', 'Genossenschaft', 'Cooperativa', 'Stiftung', 'Fondation', 'Fondazione']);
+const LEGAL_FORM_TOKENS = new Set(['AG', 'GmbH', 'GMBH', 'SA', 'Sagl', 'SAGL', 'Sarl', 'SARL', 'Sàrl', 'Srl', 'SRL', 'SpA', 'SPA', 'Ltd', 'LTD', 'Inc', 'INC', 'LLC', 'LLP', 'KG', 'KGaA', 'OHG', 'PLC', 'Plc', 'BV', 'NV', 'SAS', 'Genossenschaft', 'Cooperativa', 'Stiftung', 'Fondation', 'Fondazione']);
 const PLACEMENT_PREPOSITIONS = new Set(['bei', 'chez', 'presso', 'at']);
 const PLACEMENT_ARTICLES = new Set(['the', 'der', 'die', 'das', 'dem', 'den', 'la', 'le', 'les', 'l', 'il', 'lo', 'gli', 'i']);
 // Capitalised nouns that follow «bei» in ordinary German/Italian/French prose and name nobody.
@@ -5516,7 +5516,7 @@ const isAgencyTradeWord = (word) => STAFFING_AGENCY_WORDS.has(word) || AGENCY_ST
 // agency's variants. For any other employer «Partners» next to the name stays another name.
 const AGENCY_VARIANT_WORDS = new Set(['partner', 'partners', 'jobs', 'job', 'services', 'service', 'consulting', 'group', 'gruppe', 'holding', 'solutions', 'suisse', 'schweiz', 'switzerland', 'svizzera']);
 // Compounds of the trade by stem (stellenpartner, jobpartner, staffline, tempforce, recruitpoint, *partner).
-const AGENCY_VARIANT_STEM_RE = /^(?:stellen|job|staff|temp|recruit)|.partner$/;
+const AGENCY_VARIANT_STEM_RE = new RegExp('^(?:stellen|job|staff|temp|recruit)|^[a-z0-9]+(?:partner|partners|personal|vermittlung|dienst|dienste|dienstleistung|dienstleistungen|staffing|recruiting|jobs|services|consulting)$');
 // The page-wide neutral set takes only the narrow list: the broad stems (job*, staff*, temp*, *partner...) would
 // hide another agency's name («Jobcenter AG») before the entity check; they count only next to the order's
 // distinctive name (neighbour scan) or inside an entity that carries it (`exempt`).
@@ -5671,13 +5671,37 @@ function foreignEmployerEvidence(line, { neutral, job, ownSegment = () => false 
 // any other name stays to be read («Jobcenter AG © Copyright 2026» keeps «Jobcenter AG»).
 const LEGAL_NOTICE_LINE_RE = /©|\(c\)\s*\d{4}|\bcopyright\b|all rights reserved|alle rechte vorbehalten|tous droits r[ée]serv|tutti i diritti riservati|\bimpressum\b/iu;
 const LEGAL_NOTICE_PART_RE = /©|\(c\)|\bcopyright\b|\bimpressum\b|(?:all rights reserved|alle rechte vorbehalten|tous droits r[ée]serv|tutti i diritti riservati)[^\n]*|\b(?:19|20)\d{2}\b/giu;
-function withoutLegalNoticeLines(text, ours) {
+function withoutLegalNoticeLines(text, job = {}) {
+  const identities = [companyIdentityWords(job.company), companyLongFormWords(job.company), ...companyShortForms(job.company)]
+    .filter((words) => words.length > 0);
+  const legalForms = (value) => collapseDottedLegalForms(value).split(/\s+/u)
+    .filter((token) => LEGAL_FORM_TOKENS.has(token.replace(/^[^\p{L}]+|[^\p{L}]+$/gu, ''))).length;
+  const ownLegalForms = legalForms(job.company);
   return String(text || '').split(/\r?\n/).map((line) => {
     if (!LEGAL_NOTICE_LINE_RE.test(line)) return line;
     const owner = line.replace(LEGAL_NOTICE_PART_RE, ' ').replace(/\s+/g, ' ').trim();
-    // The owner starts with the order's own name: what follows it (the seat, a year) is no other employer.
-    if (!owner || ours.has(normalizeWords(owner).split(' ').find(Boolean))) return '';
-    return owner;
+    if (!owner) return '';
+    // The notice's owner is dropped only when it carries the order's complete distinctive identity and no legal
+    // entity beyond the order's own: «Damiani Group Valenza» goes (the seat is no evidence), «Muster Ypsilon AG»
+    // for the order of «Muster GmbH» stays, and so does a second entity on the same line.
+    // A line can hold two notices or entities («Damiani Group Valenza | Jobcenter AG ©»): judge each part apart.
+    const kept = owner.split(EMPLOYER_TITLE_SEPARATOR_RE).map((part) => part.trim()).filter(Boolean).filter((part) => {
+      const words = normalizeWords(part).split(' ').filter(Boolean);
+      const wordSet = new Set(words);
+      const identity = identities.find((candidate) => candidate.every((word) => wordSet.has(word)));
+      if (!identity || legalForms(part) > ownLegalForms) return true;
+      // A legal form must close the identity itself: «Muster Ypsilon AG» is not «Muster GmbH».
+      const tokens = collapseDottedLegalForms(part).split(/\s+/u).map((token) => token.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, ''));
+      const formAt = tokens.findIndex((token) => LEGAL_FORM_TOKENS.has(token));
+      if (formAt >= 0 && normalizeWords(tokens.slice(0, formAt).join(' ')).split(' ')
+        .some((word) => word && !identity.includes(word) && !filler(word) && !NOT_A_NAME.has(word))) return true;
+      // What stands beside the identity must be a seat or a year; a kind of employer, an «other» marker, a trade
+      // word or an organisation noun there is a second name, which stays.
+      const rest = words.filter((word) => !identity.includes(word) && !NOT_A_NAME.has(word));
+      return rest.some((word) => EMPLOYER_KIND_WORDS.has(word) || OTHER_EMPLOYER_MARKER_WORDS.has(word)
+        || ORGANISATION_NOUNS.has(word) || isAgencyVariantWord(word));
+    });
+    return kept.join(' | ');
   }).join('\n');
 }
 
@@ -5702,7 +5726,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   const ours = new Set(identityWords.filter((word) => word.length > 1));
   if (!ours.size) return false;
   const ourKinds = employerKindsOf([...ours]);
-  const text = withoutLegalNoticeLines(formText, ours).replace(EMAIL_ADDRESS_RE, ' ');
+  const text = withoutLegalNoticeLines(formText, job).replace(EMAIL_ADDRESS_RE, ' ');
   const postingLocationWords = allowPostingLocation
     ? new Set([
       ...nameWords(job.location),

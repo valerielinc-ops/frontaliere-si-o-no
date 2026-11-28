@@ -255,3 +255,37 @@ describe('trade compounds and legal-notice lines are no other employer', () => {
     expect(namesAnotherEmployer('Group CFO\nDamiani Group Valenza', damiani)).toBe(true);
   });
 });
+
+// Edges of the same class, reviewed together: a notice owner that carries only part of the order's identity or a
+// second legal entity, compounds written with any prefix, and a line that holds two entities.
+describe('notice owners and trade compounds: the edges', () => {
+  const sta = { title: 'Metallbauer', company: 'STA Personal AG' };
+  const muster = { title: 'Koch', company: 'Muster GmbH' };
+  const damiani = { title: 'Group CFO', company: 'Damiani Group' };
+
+  it('keeps a distinct legal entity that starts with the order\'s name on a notice line', () => {
+    expect(namesAnotherEmployer('Muster Ypsilon AG © Copyright 2026', muster)).toBe(true);
+    expect(namesAnotherEmployer('Muster Ypsilon AG © Copyright 2026', { ...muster, company: 'Muster' })).toBe(true);
+    expect(namesAnotherEmployer('Muster GmbH © Copyright 2026', muster)).toBe(false);
+    expect(namesAnotherEmployer('Muster GmbH Zürich 2026 © All rights reserved', muster)).toBe(false);
+    expect(namesAnotherEmployer('S.p.A. Muster Ypsilon © 2026', muster)).toBe(false); // no entity name before the form
+  });
+
+  it('drops the seat and the year next to the complete identity, and judges each part of a line apart', () => {
+    expect(namesAnotherEmployer('Group CFO\nDamiani Group Valenza 2019 © All rights reserved', damiani)).toBe(false);
+    expect(namesAnotherEmployer('Jobcenter AG | Damiani Group Valenza © 2019', damiani)).toBe(true);
+    expect(namesAnotherEmployer('Damiani Group Valenza | Jobcenter AG © 2019', damiani)).toBe(true);
+    expect(namesAnotherEmployer('Damiani Group Other Hotel © 2019', damiani)).toBe(true);
+    expect(namesAnotherEmployer('Damiani Group Valenza SA © 2019', damiani)).toBe(true);
+  });
+
+  it('accepts a trade compound with any prefix next to the order\'s name, and no other agency', () => {
+    for (const name of ['STA Workforcepartner AG', 'STA Zeitpersonal AG', 'STA Arbeitsvermittlung AG', 'STA Swissjobs AG', 'STA Stellenpartner AG']) {
+      expect(namesAnotherEmployer(`Willkommen\n${name}`, sta)).toBe(false);
+      expect(namesAnotherEmployer(`Bewerbung bei ${name}`, sta)).toBe(false);
+    }
+    for (const name of ['Muster Partner AG', 'Jobcenter AG', 'Muster Workforcepartner AG', 'Muster Zeitpersonal AG']) {
+      expect(namesAnotherEmployer(`Bewerbung bei ${name}`, sta)).toBe(true);
+    }
+  });
+});
