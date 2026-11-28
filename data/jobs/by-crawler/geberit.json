@@ -1,7 +1,7 @@
 {
   "crawlerKey": "geberit",
-  "assembledAt": "2026-11-28T09:41:40.557Z",
-  "runId": "46130136349",
+  "assembledAt": "2026-11-28T21:39:40.938Z",
+  "runId": "46191253591",
   "jobs": [
     {
       "id": "geberit-178",
@@ -34,7 +34,7 @@
       "url": "https://jobs.geberit.com/job-invite/178/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.242Z",
+      "crawledAt": "2026-11-28T21:39:34.678Z",
       "addressLocality": "Givisiez",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -83,88 +83,9 @@
       "postalCode": "1762",
       "streetAddress": "Givisiez",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:41:34.242Z",
+      "validThrough": "2027-02-11T21:39:34.678Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-12T21:41:23.476Z"
-    },
-    {
-      "id": "geberit-1829",
-      "slug": "it-application-analista-plm-cax-a-80-100-geberit-rapperswil-jona",
-      "slugByLocale": {
-        "de": "it-application-analyst-plm-cax-a-80-100-geberit-ch",
-        "fr": "it-application-analyste-plm-cax-a-80-100-geberit-rapperswil-jona",
-        "it": "it-application-analista-plm-cax-a-80-100-geberit-rapperswil-jona",
-        "en": "it-application-analista-plm-cax-a-80-100-geberit-rapperswil-jona"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "IT Application Analyst PLM-CAx (a) 80-100%",
-      "titleByLocale": {
-        "it": "Analista Applicazioni IT PLM-CAx (a) 80-100%",
-        "en": "IT Application Analyst PLM-CAx 80-100%",
-        "de": "IT Application Analyst PLM-CAx (a) 80-100%",
-        "fr": "Analyste Applications IT PLM-CAx (a) 80-100%"
-      },
-      "description": "## HAUPTAUFGABEN​\n\nAls 3DExperience System Engineer bist du verantwortlich für die Optimierung und den Unterhalt der 3DExperience Plattform und angrenzender IT-Systeme zur Unterstützung von firmenübergreifenden Produktentwicklungs-, Fertigungs- und Änderungsprozessen im PLM/CAD-Umfeld. Dies beinhaltet folgende Hauptaufgaben:\n\n- Sicherstellung der Systemfunktionalität und Optimierung bestehender PLM-Applikationen und Betrieb von 3DExperience\n- Umsetzung von Verbesserungspotenzialen, Erarbeitung von Lösungskonzepten\n- Durchführung von Anforderungsanalysen in enger Zusammenarbeit mit Fachbereichen\n- Erstellung von technischen Spezifikationen und Dokumentationen\n- Durchführung und Organisation von Tests, Qualitätssicherung und Go-Live-Begleitung\n\n## PROFIL\n\nDu verfügst über eine fundierte Ingenieur- oder Informatikausbildung und besitzt vertiefte IT-Kenntnisse. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Erfahrung im Betrieb, Support und Customizing von CAD- ( vorzugsweise Catia ) und PDM-Systemen (vorzugsweise 3DExperience)\n- Kenntnisse der Prozesse in der Produktkonstruktion und der PLM-Philosophie\n- SAP-Kenntnisse von Vorteil\n- Stufengerechte Kommunikationsfähigkeit\n- Ganzheitliches und vernetztes Denken\n- Verhandlungssichere Deutsch- sowie gute Englischkenntnisse (B2)\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-      "descriptionByLocale": {
-        "it": "PRINCIPALI COMPITI\n\nIn qualità di ingegnere di sistema 3DExper Experience, è responsabile dell'ottimizzazione e della manutenzione della piattaforma 3DExper Experience e dei sistemi IT adiacenti per supportare lo sviluppo, la produzione e i processi di cambiamento di prodotti in ambito PLM/CAD. Ciò include le seguenti attività principali:\n\n- Garantire funzionalità di sistema e ottimizzazione delle applicazioni PLM esistenti e funzionamento 3DexperITY\n- Attuazione di potenziali miglioramenti, sviluppo di soluzioni\n- Analisi dei requisiti di condotta in stretta collaborazione con i servizi specializzati\n- Preparazione delle specifiche tecniche e della documentazione\n- Svolgimento e organizzazione di prove, garanzia della qualità e comportamento in condizioni di vita\n\nPROFILO\n\nHai una formazione di ingegneria o informatica e hai competenze IT approfondite. Inoltre, le seguenti caratteristiche e competenze sono distinte:\n\n- Esperienza in funzionamento, supporto e personalizzazione dei sistemi CAD (preferibilmente Catia) e PDM (preferibilmente 3DEXPERITY)\n- Conoscenza dei processi di progettazione dei prodotti e filosofia PLM\n- La conoscenza del SAP è vantaggiosa\n- Capacità di comunicazione basata su livelli\n- Pensiero olistico e connesso\n- Negoziabile tedesco e buone abilità inglesi (B2)\n\nNOTE AGGIUNTIVE\n\nPer questa posizione prendiamo in considerazione solo le applicazioni dirette.",
-        "en": "MAIN TASKS\n\nAs a 3DExper Experience System Engineer, you are responsible for optimizing and maintaining the 3DExper Experience platform and adjacent IT systems to support cross-field product development, manufacturing and change processes in the PLM/CAD environment. This includes the following main tasks:\n\n- Ensure system functionality and optimization of existing PLM applications and 3DExperITY operation\n- Implementation of potential improvements, development of solutions\n- Conducting requirements analyses in close cooperation with specialist departments\n- Preparation of technical specifications and documentation\n- Conduct and organisation of tests, quality assurance and go-live-conduct\n\nPROFILE\n\nYou have a sound engineering or computer science training and have in-depth IT skills. In addition, the following characteristics and skills are distinguished:\n\n- Experience in operation, support and customization of CAD (preferably Catia) and PDM systems (preferably 3DExperITY)\n- Knowledge of the processes in product design and PLM philosophy\n- SAP knowledge is beneficial\n- Level-based communication capability\n- Holistic and connected thinking\n- Negotiable German and good English skills (B2)\n\nADDITIONAL NOTES\n\nWe only take direct applications into account for this position.",
-        "de": "## HAUPTAUFGABEN​\n\nAls 3DExperience System Engineer bist du verantwortlich für die Optimierung und den Unterhalt der 3DExperience Plattform und angrenzender IT-Systeme zur Unterstützung von firmenübergreifenden Produktentwicklungs-, Fertigungs- und Änderungsprozessen im PLM/CAD-Umfeld. Dies beinhaltet folgende Hauptaufgaben:\n\n- Sicherstellung der Systemfunktionalität und Optimierung bestehender PLM-Applikationen und Betrieb von 3DExperience\n- Umsetzung von Verbesserungspotenzialen, Erarbeitung von Lösungskonzepten\n- Durchführung von Anforderungsanalysen in enger Zusammenarbeit mit Fachbereichen\n- Erstellung von technischen Spezifikationen und Dokumentationen\n- Durchführung und Organisation von Tests, Qualitätssicherung und Go-Live-Begleitung\n\n## PROFIL\n\nDu verfügst über eine fundierte Ingenieur- oder Informatikausbildung und besitzt vertiefte IT-Kenntnisse. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Erfahrung im Betrieb, Support und Customizing von CAD- ( vorzugsweise Catia ) und PDM-Systemen (vorzugsweise 3DExperience)\n- Kenntnisse der Prozesse in der Produktkonstruktion und der PLM-Philosophie\n- SAP-Kenntnisse von Vorteil\n- Stufengerechte Kommunikationsfähigkeit\n- Ganzheitliches und vernetztes Denken\n- Verhandlungssichere Deutsch- sowie gute Englischkenntnisse (B2)\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "fr": "TÂCHES PRINCIPALES​\n\nEn tant qu'ingénieur système 3DExperience, vous êtes responsable de l'optimisation et de la maintenance de la plate-forme 3DExperience et des systèmes informatiques adjacents pour prendre en charge les processus de développement de produits, de fabrication et de modification inter-entreprises dans l'environnement PLM/CAO. Cela comprend les tâches principales suivantes :\n\n- Assurer la fonctionnalité du système et l'optimisation des applications PLM existantes et de l'exploitation de 3DExperience\n- Mise en œuvre des potentiels d'amélioration, développement de concepts de solutions\n- Réaliser des analyses de besoins en étroite collaboration avec les services spécialisés\n- Création de spécifications techniques et de documentation\n- Réaliser et organiser les tests, l'assurance qualité et le support go-live\n\nPROFIL\n\nVous disposez d'une solide formation en ingénierie ou en informatique et disposez de connaissances informatiques approfondies. Vous possédez également les caractéristiques et compétences suivantes :\n\n- Expérience dans l'exploitation, le support et la personnalisation de systèmes CAO (de préférence Catia) et PDM (de préférence 3DExperience)\n- Connaissance des processus de conception de produits et de la philosophie PLM\n- La connaissance de SAP est un avantage\n- Compétences en communication adaptées au niveau\n- Pensée holistique et en réseau\n- Maîtrise de l'allemand des affaires et bonne maîtrise de l'anglais (B2)\n\nREMARQUES SUPPLÉMENTAIRES\n\nNous considérons uniquement les candidatures directes pour ce poste."
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/1829/?locale=de_DE",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.240Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8640",
-      "streetAddress": "Schachenstrasse 77",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-30T11:38:08Z",
-      "postedDate": "2026-07-30T11:38:08Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.geberit.com/job-invite/1829/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "it-application-analyst-plm-cax-a-80-100-geberit-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "it-application-analyst-plm-cax-a-80-100-geberit-ch"
-        ],
-        "en": [
-          "it-application-analyst-plm-cax-a-80-100-geberit-ch"
-        ]
-      },
-      "salaryMin": 60000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:41:34.240Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-15T11:30:58.134Z"
     },
     {
       "id": "geberit-1918",
@@ -197,7 +118,7 @@
       "url": "https://jobs.geberit.com/job-invite/1918/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.240Z",
+      "crawledAt": "2026-11-28T21:39:34.677Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -246,7 +167,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:41:34.240Z",
+      "validThrough": "2026-12-28T21:39:34.677Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-06-10T09:03:19.077Z"
     },
@@ -281,7 +202,7 @@
       "url": "https://jobs.geberit.com/job-invite/1968/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.239Z",
+      "crawledAt": "2026-11-28T21:39:34.676Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -328,9 +249,88 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:41:34.239Z",
+      "validThrough": "2026-12-28T21:39:34.676Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-20T09:49:50.662Z"
+    },
+    {
+      "id": "geberit-1829",
+      "slug": "it-application-analista-plm-cax-a-80-100-geberit-rapperswil-jona",
+      "slugByLocale": {
+        "de": "it-application-analyst-plm-cax-a-80-100-geberit-ch",
+        "fr": "it-application-analyste-plm-cax-a-80-100-geberit-rapperswil-jona",
+        "it": "it-application-analista-plm-cax-a-80-100-geberit-rapperswil-jona",
+        "en": "it-application-analista-plm-cax-a-80-100-geberit-rapperswil-jona"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "IT Application Analyst PLM-CAx (a) 80-100%",
+      "titleByLocale": {
+        "it": "Analista Applicazioni IT PLM-CAx (a) 80-100%",
+        "en": "IT Application Analyst PLM-CAx 80-100%",
+        "de": "IT Application Analyst PLM-CAx (a) 80-100%",
+        "fr": "Analyste Applications IT PLM-CAx (a) 80-100%"
+      },
+      "description": "## HAUPTAUFGABEN​\n\nAls 3DExperience System Engineer bist du verantwortlich für die Optimierung und den Unterhalt der 3DExperience Plattform und angrenzender IT-Systeme zur Unterstützung von firmenübergreifenden Produktentwicklungs-, Fertigungs- und Änderungsprozessen im PLM/CAD-Umfeld. Dies beinhaltet folgende Hauptaufgaben:\n\n- Sicherstellung der Systemfunktionalität und Optimierung bestehender PLM-Applikationen und Betrieb von 3DExperience\n- Umsetzung von Verbesserungspotenzialen, Erarbeitung von Lösungskonzepten\n- Durchführung von Anforderungsanalysen in enger Zusammenarbeit mit Fachbereichen\n- Erstellung von technischen Spezifikationen und Dokumentationen\n- Durchführung und Organisation von Tests, Qualitätssicherung und Go-Live-Begleitung\n\n## PROFIL\n\nDu verfügst über eine fundierte Ingenieur- oder Informatikausbildung und besitzt vertiefte IT-Kenntnisse. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Erfahrung im Betrieb, Support und Customizing von CAD- ( vorzugsweise Catia ) und PDM-Systemen (vorzugsweise 3DExperience)\n- Kenntnisse der Prozesse in der Produktkonstruktion und der PLM-Philosophie\n- SAP-Kenntnisse von Vorteil\n- Stufengerechte Kommunikationsfähigkeit\n- Ganzheitliches und vernetztes Denken\n- Verhandlungssichere Deutsch- sowie gute Englischkenntnisse (B2)\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+      "descriptionByLocale": {
+        "it": "PRINCIPALI COMPITI\n\nIn qualità di ingegnere di sistema 3DExper Experience, è responsabile dell'ottimizzazione e della manutenzione della piattaforma 3DExper Experience e dei sistemi IT adiacenti per supportare lo sviluppo, la produzione e i processi di cambiamento di prodotti in ambito PLM/CAD. Ciò include le seguenti attività principali:\n\n- Garantire funzionalità di sistema e ottimizzazione delle applicazioni PLM esistenti e funzionamento 3DexperITY\n- Attuazione di potenziali miglioramenti, sviluppo di soluzioni\n- Analisi dei requisiti di condotta in stretta collaborazione con i servizi specializzati\n- Preparazione delle specifiche tecniche e della documentazione\n- Svolgimento e organizzazione di prove, garanzia della qualità e comportamento in condizioni di vita\n\nPROFILO\n\nHai una formazione di ingegneria o informatica e hai competenze IT approfondite. Inoltre, le seguenti caratteristiche e competenze sono distinte:\n\n- Esperienza in funzionamento, supporto e personalizzazione dei sistemi CAD (preferibilmente Catia) e PDM (preferibilmente 3DEXPERITY)\n- Conoscenza dei processi di progettazione dei prodotti e filosofia PLM\n- La conoscenza del SAP è vantaggiosa\n- Capacità di comunicazione basata su livelli\n- Pensiero olistico e connesso\n- Negoziabile tedesco e buone abilità inglesi (B2)\n\nNOTE AGGIUNTIVE\n\nPer questa posizione prendiamo in considerazione solo le applicazioni dirette.",
+        "en": "MAIN TASKS\n\nAs a 3DExper Experience System Engineer, you are responsible for optimizing and maintaining the 3DExper Experience platform and adjacent IT systems to support cross-field product development, manufacturing and change processes in the PLM/CAD environment. This includes the following main tasks:\n\n- Ensure system functionality and optimization of existing PLM applications and 3DExperITY operation\n- Implementation of potential improvements, development of solutions\n- Conducting requirements analyses in close cooperation with specialist departments\n- Preparation of technical specifications and documentation\n- Conduct and organisation of tests, quality assurance and go-live-conduct\n\nPROFILE\n\nYou have a sound engineering or computer science training and have in-depth IT skills. In addition, the following characteristics and skills are distinguished:\n\n- Experience in operation, support and customization of CAD (preferably Catia) and PDM systems (preferably 3DExperITY)\n- Knowledge of the processes in product design and PLM philosophy\n- SAP knowledge is beneficial\n- Level-based communication capability\n- Holistic and connected thinking\n- Negotiable German and good English skills (B2)\n\nADDITIONAL NOTES\n\nWe only take direct applications into account for this position.",
+        "de": "## HAUPTAUFGABEN​\n\nAls 3DExperience System Engineer bist du verantwortlich für die Optimierung und den Unterhalt der 3DExperience Plattform und angrenzender IT-Systeme zur Unterstützung von firmenübergreifenden Produktentwicklungs-, Fertigungs- und Änderungsprozessen im PLM/CAD-Umfeld. Dies beinhaltet folgende Hauptaufgaben:\n\n- Sicherstellung der Systemfunktionalität und Optimierung bestehender PLM-Applikationen und Betrieb von 3DExperience\n- Umsetzung von Verbesserungspotenzialen, Erarbeitung von Lösungskonzepten\n- Durchführung von Anforderungsanalysen in enger Zusammenarbeit mit Fachbereichen\n- Erstellung von technischen Spezifikationen und Dokumentationen\n- Durchführung und Organisation von Tests, Qualitätssicherung und Go-Live-Begleitung\n\n## PROFIL\n\nDu verfügst über eine fundierte Ingenieur- oder Informatikausbildung und besitzt vertiefte IT-Kenntnisse. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Erfahrung im Betrieb, Support und Customizing von CAD- ( vorzugsweise Catia ) und PDM-Systemen (vorzugsweise 3DExperience)\n- Kenntnisse der Prozesse in der Produktkonstruktion und der PLM-Philosophie\n- SAP-Kenntnisse von Vorteil\n- Stufengerechte Kommunikationsfähigkeit\n- Ganzheitliches und vernetztes Denken\n- Verhandlungssichere Deutsch- sowie gute Englischkenntnisse (B2)\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+        "fr": "TÂCHES PRINCIPALES​\n\nEn tant qu'ingénieur système 3DExperience, vous êtes responsable de l'optimisation et de la maintenance de la plate-forme 3DExperience et des systèmes informatiques adjacents pour prendre en charge les processus de développement de produits, de fabrication et de modification inter-entreprises dans l'environnement PLM/CAO. Cela comprend les tâches principales suivantes :\n\n- Assurer la fonctionnalité du système et l'optimisation des applications PLM existantes et de l'exploitation de 3DExperience\n- Mise en œuvre des potentiels d'amélioration, développement de concepts de solutions\n- Réaliser des analyses de besoins en étroite collaboration avec les services spécialisés\n- Création de spécifications techniques et de documentation\n- Réaliser et organiser les tests, l'assurance qualité et le support go-live\n\nPROFIL\n\nVous disposez d'une solide formation en ingénierie ou en informatique et disposez de connaissances informatiques approfondies. Vous possédez également les caractéristiques et compétences suivantes :\n\n- Expérience dans l'exploitation, le support et la personnalisation de systèmes CAO (de préférence Catia) et PDM (de préférence 3DExperience)\n- Connaissance des processus de conception de produits et de la philosophie PLM\n- La connaissance de SAP est un avantage\n- Compétences en communication adaptées au niveau\n- Pensée holistique et en réseau\n- Maîtrise de l'allemand des affaires et bonne maîtrise de l'anglais (B2)\n\nREMARQUES SUPPLÉMENTAIRES\n\nNous considérons uniquement les candidatures directes pour ce poste."
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job-invite/1829/?locale=de_DE",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-28T21:39:34.676Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8640",
+      "streetAddress": "Schachenstrasse 77",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-07-30T11:38:08Z",
+      "postedDate": "2026-07-30T11:38:08Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.geberit.com/job-invite/1829/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "it-application-analyst-plm-cax-a-80-100-geberit-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "it-application-analyst-plm-cax-a-80-100-geberit-ch"
+        ],
+        "en": [
+          "it-application-analyst-plm-cax-a-80-100-geberit-ch"
+        ]
+      },
+      "salaryMin": 60000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-28T21:39:34.676Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-07-15T11:30:58.134Z"
     },
     {
       "id": "geberit-1974",
@@ -363,7 +363,7 @@
       "url": "https://jobs.geberit.com/job-invite/1974/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.238Z",
+      "crawledAt": "2026-11-28T21:39:34.675Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -410,7 +410,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:41:34.238Z",
+      "validThrough": "2026-12-28T21:39:34.675Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-20T09:49:50.660Z"
     },
@@ -445,7 +445,7 @@
       "url": "https://jobs.geberit.com/job-invite/1969/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.238Z",
+      "crawledAt": "2026-11-28T21:39:34.675Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -519,7 +519,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:41:34.238Z",
+      "validThrough": "2026-12-28T21:39:34.675Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-20T09:49:50.662Z"
     },
@@ -554,7 +554,7 @@
       "url": "https://jobs.geberit.com/job-invite/1977/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.237Z",
+      "crawledAt": "2026-11-28T21:39:34.674Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -603,7 +603,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:41:34.237Z",
+      "validThrough": "2026-12-28T21:39:34.674Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-20T09:49:50.659Z"
     },
@@ -638,7 +638,7 @@
       "url": "https://jobs.geberit.com/job-invite/2129/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.236Z",
+      "crawledAt": "2026-11-28T21:39:34.673Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -685,7 +685,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:41:34.236Z",
+      "validThrough": "2026-12-28T21:39:34.673Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-20T09:49:50.651Z"
     },
@@ -720,7 +720,7 @@
       "url": "https://jobs.geberit.com/job-invite/2021/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.236Z",
+      "crawledAt": "2026-11-28T21:39:34.673Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -764,7 +764,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:41:34.236Z",
+      "validThrough": "2026-12-28T21:39:34.673Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-20T09:49:50.655Z"
     },
@@ -799,7 +799,7 @@
       "url": "https://jobs.geberit.com/job-invite/2186/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.235Z",
+      "crawledAt": "2026-11-28T21:39:34.672Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -862,7 +862,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:41:34.235Z",
+      "validThrough": "2026-12-28T21:39:34.672Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-03T13:50:14.076Z"
     },
@@ -897,7 +897,7 @@
       "url": "https://jobs.geberit.com/job-invite/2229/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.234Z",
+      "crawledAt": "2026-11-28T21:39:34.671Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -959,7 +959,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:41:34.234Z",
+      "validThrough": "2026-12-28T21:39:34.671Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-19T23:21:07.767Z"
     },
@@ -994,7 +994,7 @@
       "url": "https://jobs.geberit.com/job-invite/2201/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.234Z",
+      "crawledAt": "2026-11-28T21:39:34.671Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1043,7 +1043,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "meccanico-manutenzione-meccanica-di-precisione-a-100-geberit-rapperswil-jona",
           "meccanica-di-precisione-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona-499b0deb",
           "meccanica-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona-2e8679ca",
           "mechanic-maintenance-precision-mechanics-a-100-geberit-rapperswil-jona-fb4dd56c",
@@ -1061,8 +1060,9 @@
           "manutenzione-meccanica-meccanica-grezza-a-100-geberit-rapperswil-jona",
           "meccanico-manutenzione-meccanica-generale-a-100-geberit-rapperswil-jona",
           "maintenance-mechanic-precision-mechanics-a-100-geberit-rapperswil-jona",
+          "mecanicien-maintenance-mecanique-de-precision-a-100-geberit-rapperswil-jona",
           "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch",
-          "mecanicien-maintenance-mecanique-de-precision-a-100-geberit-rapperswil-jona"
+          "meccanico-manutenzione-meccanica-di-precisione-a-100-geberit-rapperswil-jona"
         ],
         "en": [
           "mechanic-maintenance-precision-mechanics-a-100-geberit-rapperswil-jona-6dfaab",
@@ -1090,7 +1090,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:41:34.234Z",
+      "validThrough": "2026-12-28T21:39:34.671Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-08T13:53:23.828Z"
     },
@@ -1125,7 +1125,7 @@
       "url": "https://jobs.geberit.com/job-invite/1987/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.233Z",
+      "crawledAt": "2026-11-28T21:39:34.670Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1169,9 +1169,114 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:41:34.233Z",
+      "validThrough": "2026-12-28T21:39:34.670Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-24T00:09:27.456Z"
+    },
+    {
+      "id": "geberit-2262",
+      "slug": "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona",
+      "slugByLocale": {
+        "de": "praktikant-verpackungsmanagement-a-100-geberit-ch",
+        "it": "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona",
+        "en": "intern-packaging-management-a-100-geberit-rapperswil-jona",
+        "fr": "gestion-de-l-emballage-interne-a-100-geberit-rapperswil-jona"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "Praktikant Verpackungsmanagement (a) 100%",
+      "titleByLocale": {
+        "it": "Gestione dell'imballaggio interno (a) 100%",
+        "en": "Intern Packaging Management (a) 100%",
+        "de": "Praktikant Verpackungsmanagement (a) 100%",
+        "fr": "Gestion de l'emballage interne (a) 100%"
+      },
+      "description": "## HAUPTAUFGABEN​\n\nWährend eines 6-monatigen Praktikums unterstützt du das Team Verpackungstechnik bei der Weiterentwicklung der Verpackungsstrategie sowie bei der Umsetzung der neuen EU-Verpackungsverordnung (PPWR). Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Strategische Projekte: Mitarbeit in Projekten zur strategischen Ausrichtung der Unternehmung auf die PPWR\n- Verpackungsoptimierung: Unterstütze das Team bei der Abstimmung und Verbesserung bestehender Verpackungen, sowohl im Hinblick auf Kosten als auch auf logistische Effizienz\n- Entwicklung neuer Lösungen: Beteilige dich an der Anpassung und Standardisierung von Verpackungen für neue Produkte und Materialien\n- Wissenstransfer: Erstelle Schulungen und Anleitungen für Mitarbeitende in den Produktionsbetrieben, um deren Umgang mit Verpackungen zu optimieren\n- Konzernweite Standardisierung: Trage zur Vereinheitlichung und Optimierung von Verpackungsmaterialien bei, die weltweit eingesetzt werden\n\n## PROFIL\n\nDu studierst Verpackungstechnik oder ein damit verwandtes Fachgebiet. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Hohe Kommunikationsfähigkeit sowie Freude an der Teamarbeit\n- Gute Kenntnisse im Umgang mit MS-Office und eine Affinität zu IT-gestützten Prozessen\n- Gute Englischkenntnisse in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+      "descriptionByLocale": {
+        "it": "## TASK PRINCIPALI\n\nDurante un tirocinio di 6 mesi, supporterai il team di Packaging Technology nell'ulteriore sviluppo della strategia di confezionamento e nell'implementazione del nuovo Regolamento UE sull'imballaggio (PPWR). Questo include in particolare le seguenti attività:\n\n- Progetti strategici: Partecipazione a progetti per l'orientamento strategico dell'azienda verso il PPWR\n- Ottimizzazione dell'imballaggio: Supporta il team nel coordinamento e nel miglioramento dell'imballaggio esistente, sia in termini di costi che di efficienza logistica\n- Sviluppo di nuove soluzioni: partecipazione all'adattamento e alla standardizzazione degli imballaggi per nuovi prodotti e materiali\n- Trasferimento di conoscenze: Fornire formazione e guida per il personale di produzione per ottimizzare la loro gestione degli imballaggi\n- Standardizzazione a livello di gruppo: Contribuire all'unificazione e all'ottimizzazione dei materiali di imballaggio utilizzati in tutto il mondo\n\n## PROFESSIONALE\n\nStai studiando tecnologia di imballaggio o un campo correlato. Inoltre, le seguenti caratteristiche e abilità ti caratterizzano:\n\n- Alta capacità di comunicazione e divertimento del lavoro di squadra\n- Buona conoscenza nel trattare con MS-Office e un'affinità per i processi IT-supportati\n- Buone competenze in inglese in Word e scrittura\n\n## NOTE ADDIZIONALI\n\nPer questa posizione, consideriamo solo applicazioni dirette.",
+        "en": "## MAIN TASKS\n\nDuring a 6-month internship, you will support the Packaging Technology team in the further development of the packaging strategy and in the implementation of the new EU Packaging Regulation (PPWR). This includes in particular the following activities:\n\n- Strategic projects: Participation in projects for the strategic orientation of the company towards the PPWR\n- Packaging optimization: Support the team in coordinating and improving existing packaging, both in terms of cost and logistical efficiency\n- Development of new solutions: Participate in the adaptation and standardization of packaging for new products and materials\n- Knowledge transfer: Provide training and guidance for production staff to optimize their handling of packaging\n- Group-wide standardization: Contribute to the unification and optimization of packaging materials used worldwide\n\n## PROFILE\n\nYou are studying packaging technology or a related field. In addition, the following characteristics and abilities characterize you:\n\n- High communication skills and enjoyment of teamwork\n- Good knowledge in dealing with MS-Office and an affinity for IT-supported processes\n- Good English skills in Word and Writing\n\n## ADDITIONAL NOTES\n\nFor this position, we only consider direct applications.",
+        "de": "## HAUPTAUFGABEN​\n\nWährend eines 6-monatigen Praktikums unterstützt du das Team Verpackungstechnik bei der Weiterentwicklung der Verpackungsstrategie sowie bei der Umsetzung der neuen EU-Verpackungsverordnung (PPWR). Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Strategische Projekte: Mitarbeit in Projekten zur strategischen Ausrichtung der Unternehmung auf die PPWR\n- Verpackungsoptimierung: Unterstütze das Team bei der Abstimmung und Verbesserung bestehender Verpackungen, sowohl im Hinblick auf Kosten als auch auf logistische Effizienz\n- Entwicklung neuer Lösungen: Beteilige dich an der Anpassung und Standardisierung von Verpackungen für neue Produkte und Materialien\n- Wissenstransfer: Erstelle Schulungen und Anleitungen für Mitarbeitende in den Produktionsbetrieben, um deren Umgang mit Verpackungen zu optimieren\n- Konzernweite Standardisierung: Trage zur Vereinheitlichung und Optimierung von Verpackungsmaterialien bei, die weltweit eingesetzt werden\n\n## PROFIL\n\nDu studierst Verpackungstechnik oder ein damit verwandtes Fachgebiet. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Hohe Kommunikationsfähigkeit sowie Freude an der Teamarbeit\n- Gute Kenntnisse im Umgang mit MS-Office und eine Affinität zu IT-gestützten Prozessen\n- Gute Englischkenntnisse in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+        "fr": "## PRINCIPALES TÂCHES\n\nAu cours d'un stage de 6 mois, vous accompagnerez l'équipe de la technologie d'emballage dans le développement de la stratégie d'emballage et dans la mise en œuvre du nouveau règlement de l'UE sur les emballages (PPWR). Cela comprend notamment les activités suivantes:\n\n- Projets stratégiques: Participation à des projets pour l'orientation stratégique de l'entreprise vers le PPWR\n- Optimisation de l'emballage: Soutenir l'équipe dans la coordination et l'amélioration des emballages existants, tant en termes de coût que d'efficacité logistique\n- Développement de nouvelles solutions: Participer à l'adaptation et à la normalisation des emballages pour les nouveaux produits et matériaux\n- Transfert des connaissances : Offrir une formation et des conseils au personnel de production pour optimiser leur manipulation des emballages\n- Normalisation à l'échelle du groupe: contribuer à l'unification et à l'optimisation des matériaux d'emballage utilisés dans le monde entier\n\n## PROFIL\n\nVous étudiez la technologie d'emballage ou un domaine connexe. De plus, les caractéristiques et les capacités suivantes vous caractérisent :\n\n- Haute capacité de communication et plaisir du travail d'équipe\n- Bonnes connaissances dans le traitement de MS-Office et une affinité pour les processus soutenus par les TI\n- Bonnes compétences en anglais en Word and Writing\n\n## NOTES SUPPLÉMENTAIRES\n\nPour cette position, nous ne considérons que les demandes directes."
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job-invite/2262/?locale=de_DE",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-28T21:39:34.668Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8640",
+      "streetAddress": "Schachenstrasse 77",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.geberit.com/job-invite/2262/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona-9b1c6c426d",
+        "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona-ab056c",
+        "intern-packaging-management-a-100-geberit-rapperswil-jona-ab056c",
+        "gestion-de-l-emballage-interne-a-100-geberit-rapperswil-jona-ab056c",
+        "praktikant-verpackungsmanagement-a-100-geberit-ch",
+        "praktikant-verpackungsmanagement-a-100-geberit-ch-cjaoms",
+        "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona-bb4f842752",
+        "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona-7788db08",
+        "praktikant-verpackungsmanagement-a-100-geberit-ch-b8e130fa",
+        "intern-packaging-management-a-100-geberit-rapperswil-jona-68f1dd83",
+        "gestion-de-l-emballage-interne-a-100-geberit-rapperswil-jona-4120a9c2"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona-9b1c6c426d",
+          "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona-ab056c",
+          "praktikant-verpackungsmanagement-a-100-geberit-ch-cjaoms",
+          "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona-bb4f842752",
+          "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona-7788db08",
+          "praktikant-verpackungsmanagement-a-100-geberit-ch-b8e130fa",
+          "intern-packaging-management-a-100-geberit-rapperswil-jona-68f1dd83",
+          "gestion-de-l-emballage-interne-a-100-geberit-rapperswil-jona-4120a9c2",
+          "praktikant-verpackungsmanagement-a-100-geberit-ch"
+        ],
+        "en": [
+          "intern-packaging-management-a-100-geberit-rapperswil-jona-ab056c",
+          "praktikant-verpackungsmanagement-a-100-geberit-ch"
+        ],
+        "de": [
+          "praktikant-verpackungsmanagement-a-100-geberit-ch-cjaoms"
+        ],
+        "fr": [
+          "gestion-de-l-emballage-interne-a-100-geberit-rapperswil-jona-ab056c",
+          "praktikant-verpackungsmanagement-a-100-geberit-ch"
+        ]
+      },
+      "salaryMin": 48000,
+      "salaryMax": 73000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48000,
+          "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-30T21:39:34.668Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-10-01T09:35:17.669Z"
     },
     {
       "id": "geberit-2243",
@@ -1204,7 +1309,7 @@
       "url": "https://jobs.geberit.com/job-invite/2243/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.232Z",
+      "crawledAt": "2026-11-28T21:39:34.668Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1276,114 +1381,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:41:34.232Z",
+      "validThrough": "2026-12-28T21:39:34.668Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-24T14:57:11.192Z"
-    },
-    {
-      "id": "geberit-2262",
-      "slug": "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona",
-      "slugByLocale": {
-        "de": "praktikant-verpackungsmanagement-a-100-geberit-ch",
-        "it": "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona",
-        "en": "intern-packaging-management-a-100-geberit-rapperswil-jona",
-        "fr": "gestion-de-l-emballage-interne-a-100-geberit-rapperswil-jona"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Praktikant Verpackungsmanagement (a) 100%",
-      "titleByLocale": {
-        "it": "Gestione dell'imballaggio interno (a) 100%",
-        "en": "Intern Packaging Management (a) 100%",
-        "de": "Praktikant Verpackungsmanagement (a) 100%",
-        "fr": "Gestion de l'emballage interne (a) 100%"
-      },
-      "description": "## HAUPTAUFGABEN​\n\nWährend eines 6-monatigen Praktikums unterstützt du das Team Verpackungstechnik bei der Weiterentwicklung der Verpackungsstrategie sowie bei der Umsetzung der neuen EU-Verpackungsverordnung (PPWR). Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Strategische Projekte: Mitarbeit in Projekten zur strategischen Ausrichtung der Unternehmung auf die PPWR\n- Verpackungsoptimierung: Unterstütze das Team bei der Abstimmung und Verbesserung bestehender Verpackungen, sowohl im Hinblick auf Kosten als auch auf logistische Effizienz\n- Entwicklung neuer Lösungen: Beteilige dich an der Anpassung und Standardisierung von Verpackungen für neue Produkte und Materialien\n- Wissenstransfer: Erstelle Schulungen und Anleitungen für Mitarbeitende in den Produktionsbetrieben, um deren Umgang mit Verpackungen zu optimieren\n- Konzernweite Standardisierung: Trage zur Vereinheitlichung und Optimierung von Verpackungsmaterialien bei, die weltweit eingesetzt werden\n\n## PROFIL\n\nDu studierst Verpackungstechnik oder ein damit verwandtes Fachgebiet. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Hohe Kommunikationsfähigkeit sowie Freude an der Teamarbeit\n- Gute Kenntnisse im Umgang mit MS-Office und eine Affinität zu IT-gestützten Prozessen\n- Gute Englischkenntnisse in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-      "descriptionByLocale": {
-        "it": "## TASK PRINCIPALI\n\nDurante un tirocinio di 6 mesi, supporterai il team di Packaging Technology nell'ulteriore sviluppo della strategia di confezionamento e nell'implementazione del nuovo Regolamento UE sull'imballaggio (PPWR). Questo include in particolare le seguenti attività:\n\n- Progetti strategici: Partecipazione a progetti per l'orientamento strategico dell'azienda verso il PPWR\n- Ottimizzazione dell'imballaggio: Supporta il team nel coordinamento e nel miglioramento dell'imballaggio esistente, sia in termini di costi che di efficienza logistica\n- Sviluppo di nuove soluzioni: partecipazione all'adattamento e alla standardizzazione degli imballaggi per nuovi prodotti e materiali\n- Trasferimento di conoscenze: Fornire formazione e guida per il personale di produzione per ottimizzare la loro gestione degli imballaggi\n- Standardizzazione a livello di gruppo: Contribuire all'unificazione e all'ottimizzazione dei materiali di imballaggio utilizzati in tutto il mondo\n\n## PROFESSIONALE\n\nStai studiando tecnologia di imballaggio o un campo correlato. Inoltre, le seguenti caratteristiche e abilità ti caratterizzano:\n\n- Alta capacità di comunicazione e divertimento del lavoro di squadra\n- Buona conoscenza nel trattare con MS-Office e un'affinità per i processi IT-supportati\n- Buone competenze in inglese in Word e scrittura\n\n## NOTE ADDIZIONALI\n\nPer questa posizione, consideriamo solo applicazioni dirette.",
-        "en": "## MAIN TASKS\n\nDuring a 6-month internship, you will support the Packaging Technology team in the further development of the packaging strategy and in the implementation of the new EU Packaging Regulation (PPWR). This includes in particular the following activities:\n\n- Strategic projects: Participation in projects for the strategic orientation of the company towards the PPWR\n- Packaging optimization: Support the team in coordinating and improving existing packaging, both in terms of cost and logistical efficiency\n- Development of new solutions: Participate in the adaptation and standardization of packaging for new products and materials\n- Knowledge transfer: Provide training and guidance for production staff to optimize their handling of packaging\n- Group-wide standardization: Contribute to the unification and optimization of packaging materials used worldwide\n\n## PROFILE\n\nYou are studying packaging technology or a related field. In addition, the following characteristics and abilities characterize you:\n\n- High communication skills and enjoyment of teamwork\n- Good knowledge in dealing with MS-Office and an affinity for IT-supported processes\n- Good English skills in Word and Writing\n\n## ADDITIONAL NOTES\n\nFor this position, we only consider direct applications.",
-        "de": "## HAUPTAUFGABEN​\n\nWährend eines 6-monatigen Praktikums unterstützt du das Team Verpackungstechnik bei der Weiterentwicklung der Verpackungsstrategie sowie bei der Umsetzung der neuen EU-Verpackungsverordnung (PPWR). Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Strategische Projekte: Mitarbeit in Projekten zur strategischen Ausrichtung der Unternehmung auf die PPWR\n- Verpackungsoptimierung: Unterstütze das Team bei der Abstimmung und Verbesserung bestehender Verpackungen, sowohl im Hinblick auf Kosten als auch auf logistische Effizienz\n- Entwicklung neuer Lösungen: Beteilige dich an der Anpassung und Standardisierung von Verpackungen für neue Produkte und Materialien\n- Wissenstransfer: Erstelle Schulungen und Anleitungen für Mitarbeitende in den Produktionsbetrieben, um deren Umgang mit Verpackungen zu optimieren\n- Konzernweite Standardisierung: Trage zur Vereinheitlichung und Optimierung von Verpackungsmaterialien bei, die weltweit eingesetzt werden\n\n## PROFIL\n\nDu studierst Verpackungstechnik oder ein damit verwandtes Fachgebiet. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Hohe Kommunikationsfähigkeit sowie Freude an der Teamarbeit\n- Gute Kenntnisse im Umgang mit MS-Office und eine Affinität zu IT-gestützten Prozessen\n- Gute Englischkenntnisse in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "fr": "## PRINCIPALES TÂCHES\n\nAu cours d'un stage de 6 mois, vous accompagnerez l'équipe de la technologie d'emballage dans le développement de la stratégie d'emballage et dans la mise en œuvre du nouveau règlement de l'UE sur les emballages (PPWR). Cela comprend notamment les activités suivantes:\n\n- Projets stratégiques: Participation à des projets pour l'orientation stratégique de l'entreprise vers le PPWR\n- Optimisation de l'emballage: Soutenir l'équipe dans la coordination et l'amélioration des emballages existants, tant en termes de coût que d'efficacité logistique\n- Développement de nouvelles solutions: Participer à l'adaptation et à la normalisation des emballages pour les nouveaux produits et matériaux\n- Transfert des connaissances : Offrir une formation et des conseils au personnel de production pour optimiser leur manipulation des emballages\n- Normalisation à l'échelle du groupe: contribuer à l'unification et à l'optimisation des matériaux d'emballage utilisés dans le monde entier\n\n## PROFIL\n\nVous étudiez la technologie d'emballage ou un domaine connexe. De plus, les caractéristiques et les capacités suivantes vous caractérisent :\n\n- Haute capacité de communication et plaisir du travail d'équipe\n- Bonnes connaissances dans le traitement de MS-Office et une affinité pour les processus soutenus par les TI\n- Bonnes compétences en anglais en Word and Writing\n\n## NOTES SUPPLÉMENTAIRES\n\nPour cette position, nous ne considérons que les demandes directes."
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/2262/?locale=de_DE",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.231Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8640",
-      "streetAddress": "Schachenstrasse 77",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.geberit.com/job-invite/2262/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona-9b1c6c426d",
-        "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona-ab056c",
-        "intern-packaging-management-a-100-geberit-rapperswil-jona-ab056c",
-        "gestion-de-l-emballage-interne-a-100-geberit-rapperswil-jona-ab056c",
-        "praktikant-verpackungsmanagement-a-100-geberit-ch",
-        "praktikant-verpackungsmanagement-a-100-geberit-ch-cjaoms",
-        "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona-bb4f842752",
-        "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona-7788db08",
-        "praktikant-verpackungsmanagement-a-100-geberit-ch-b8e130fa",
-        "intern-packaging-management-a-100-geberit-rapperswil-jona-68f1dd83",
-        "gestion-de-l-emballage-interne-a-100-geberit-rapperswil-jona-4120a9c2"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona-9b1c6c426d",
-          "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona-ab056c",
-          "praktikant-verpackungsmanagement-a-100-geberit-ch-cjaoms",
-          "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona-bb4f842752",
-          "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona-7788db08",
-          "praktikant-verpackungsmanagement-a-100-geberit-ch-b8e130fa",
-          "intern-packaging-management-a-100-geberit-rapperswil-jona-68f1dd83",
-          "gestion-de-l-emballage-interne-a-100-geberit-rapperswil-jona-4120a9c2",
-          "praktikant-verpackungsmanagement-a-100-geberit-ch"
-        ],
-        "en": [
-          "intern-packaging-management-a-100-geberit-rapperswil-jona-ab056c",
-          "praktikant-verpackungsmanagement-a-100-geberit-ch"
-        ],
-        "de": [
-          "praktikant-verpackungsmanagement-a-100-geberit-ch-cjaoms"
-        ],
-        "fr": [
-          "gestion-de-l-emballage-interne-a-100-geberit-rapperswil-jona-ab056c",
-          "praktikant-verpackungsmanagement-a-100-geberit-ch"
-        ]
-      },
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:41:34.231Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-01T09:35:17.669Z"
     },
     {
       "id": "geberit-2271",
@@ -1416,7 +1416,7 @@
       "url": "https://jobs.geberit.com/job-invite/2271/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.230Z",
+      "crawledAt": "2026-11-28T21:39:34.667Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1463,7 +1463,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T09:41:34.230Z",
+      "validThrough": "2027-01-17T21:39:34.667Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-19T09:47:49.153Z"
     },
@@ -1498,7 +1498,7 @@
       "url": "https://jobs.geberit.com/job-invite/2270/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.230Z",
+      "crawledAt": "2026-11-28T21:39:34.667Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1539,7 +1539,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-04T09:41:34.230Z",
+      "validThrough": "2027-01-04T21:39:34.667Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-06T09:39:54.630Z"
     },
@@ -1574,7 +1574,7 @@
       "url": "https://jobs.geberit.com/job-invite/1560/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.225Z",
+      "crawledAt": "2026-11-28T21:39:34.661Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1621,7 +1621,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T09:41:34.225Z",
+      "validThrough": "2027-01-21T21:39:34.661Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-22T21:40:49.717Z"
     },
@@ -1656,7 +1656,7 @@
       "url": "https://jobs.geberit.com/job-invite/2172/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.225Z",
+      "crawledAt": "2026-11-28T21:39:34.661Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1703,7 +1703,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-20T09:41:34.225Z",
+      "validThrough": "2027-02-20T21:39:34.661Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-21T21:39:48.681Z"
     },
@@ -1738,7 +1738,7 @@
       "url": "https://jobs.geberit.com/job-invite/2326/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.224Z",
+      "crawledAt": "2026-11-28T21:39:34.660Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1785,7 +1785,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-22T09:41:34.224Z",
+      "validThrough": "2027-01-21T21:39:34.660Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-23T21:30:48.028Z"
     },
@@ -1820,7 +1820,7 @@
       "url": "https://jobs.geberit.com/job-invite/2323/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.223Z",
+      "crawledAt": "2026-11-28T21:39:34.659Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1867,7 +1867,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T09:41:34.223Z",
+      "validThrough": "2027-02-04T21:39:34.659Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-05T21:42:01.840Z"
     },
@@ -1902,7 +1902,7 @@
       "url": "https://jobs.geberit.com/job-invite/2334/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.223Z",
+      "crawledAt": "2026-11-28T21:39:34.659Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1954,7 +1954,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T09:41:34.223Z",
+      "validThrough": "2027-01-29T21:39:34.659Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-30T21:54:01.368Z"
     },
@@ -1989,7 +1989,7 @@
       "url": "https://jobs.geberit.com/job-invite/2361/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.222Z",
+      "crawledAt": "2026-11-28T21:39:34.658Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -2036,7 +2036,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T09:41:34.222Z",
+      "validThrough": "2027-02-11T21:39:34.658Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-12T21:41:23.431Z"
     },
@@ -2071,7 +2071,7 @@
       "url": "https://jobs.geberit.com/job-invite/2344/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.222Z",
+      "crawledAt": "2026-11-28T21:39:34.658Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -2118,7 +2118,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T09:41:34.222Z",
+      "validThrough": "2027-02-04T21:39:34.658Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-05T21:42:01.832Z"
     },
@@ -2153,7 +2153,7 @@
       "url": "https://jobs.geberit.com/job-invite/2093/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:41:34.173Z",
+      "crawledAt": "2026-11-28T21:39:34.600Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -2201,7 +2201,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:41:34.173Z",
+      "validThrough": "2026-12-28T21:39:34.600Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-03T12:35:44.488Z"
     }

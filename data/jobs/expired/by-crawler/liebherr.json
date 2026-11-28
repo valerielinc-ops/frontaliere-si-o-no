@@ -934,13 +934,14 @@
     "title": "Young Talent - Purchasing (h/f/x)",
     "titleByLocale": {
       "it": "Giovane talento - acquisto (m/f/x)",
-      "en": "Young Talent - Purchasing (m/f/x)",
+      "en": "Young Talent - Purchasing (h/f/x)",
       "de": "Junge Talente - Einkauf (m/w/x)",
-      "fr": "Young Talent - Purchasing (h/f/x)"
+      "fr": "Jeunes talents - Achat (h/f/x)"
     },
     "company": "Liebherr",
     "companyKey": "liebherr",
     "location": "Bulle",
+    "canton": "FR",
     "addressLocality": "Bulle",
     "descriptionByLocale": {
       "it": "Sei impaziente di iniziare la tua carriera professionale in un ambiente multinazionale? Partecipa al nostro programma di tirocinio di 12 mesi, acquisisci esperienza di acquisto pratica e sviluppi le tue capacità all'interno di una società industriale internazionale. Stiamo cercando candidati motivati disponibili per iniziare il loro tirocinio nel marzo 2027. I tuoi responsabili\n• Elaborerai e seguirai gli ordini di acquisto eccezionali per le esigenze di post-vendita,\n• preparerai richieste di quotazione (RFQ),\n• Sosterrai le attività di convalida e verifica della fattura,\n• Installerai e rilascia nuovi materiali nel sistema ERP,\n• Si manterrà l'acquisto di liste di follow-up e tracker per aftersales,\n• Sosterrai la preparazione di matrici e moduli di fornitori decisionali,\n• Gestirai scarsità e materiali obsoleti proponendo soluzioni alternative. Il tuo profilo\n• Hai completato la formazione professionale tecnica o commerciale (CFC o equivalente),\n• Lei è fluente in francese o in inglese, con tedesco considerato un vantaggio,\n• Hai un buon comando delle applicazioni Microsoft Office,\n• Lei dimostra forti capacità analitiche, con un approccio meticoloso, rigoroso e orientato alla soluzione,\n• Siete indipendenti, proattivi e affidabili, con forti capacità di lavoro di squadra e di comunicazione. La nostra offerta Avrai l'opportunità di immergerti nel mondo del lavoro e di acquisire un'esperienza varia ed emozionante in un business internazionale di famiglia. Vi offriamo l'opportunità di svolgere compiti interessanti e di avere responsabilità e di sviluppare le vostre idee. Sarete addestrati, supportati e accompagnati da un team dinamico. Potrai beneficiare di condizioni di lavoro moderne come orari di lavoro flessibili, la possibilità di lavorare in un ufficio domestico, un ristorante aziendale e molti altri vantaggi. Il posto di lavoro si trova a Bulle, nella splendida regione di Gruyère. Organizza il tuo sviluppo personale e professionale con noi. Al fine di garantire una corretta procedura di applicazione, non accettiamo le applicazioni via posta o e-mail. Abbiamo risvegliato il vostro interesse? Allora non vediamo l'ora di ricevere la vostra applicazione online. Se avete domande, si prega di contattare Sabrina Sotheary BEAN. Una Passione. Molte opportunità. Abbiamo risvegliato il vostro interesse? Allora non vediamo l'ora di ricevere la vostra applicazione online. Se avete domande, si prega di contattare Sabrina Sotheary BEAN. Una Passione. Molte opportunità. L'azienda Liebherr Machines Bulle SA è il centro di eccellenza per motori a combustione (diesel e motori a gas) e componenti idraulici (pompe a pistoni assiali e motori). L'azienda sviluppa e produce vari prodotti, che trovano il loro uso nella costruzione edile e ingegneria civile, nell'estrazione mineraria, nell'agricoltura, nell'energia decentralizzata, nell'ingegneria delle macchine e degli impianti, nonché nell'aerospaziale. Luogo Liebherr Machines Bulle SA 7, Rue Hans-Liebherr 1630 Bulle Svizzera (CH) Contatto Sabrina Sotheary BEAN 026 913 31 11",
@@ -952,13 +953,12 @@
       "it": "giovane-talento-acquisto-m-f-x-liebherr-bulle",
       "en": "young-talent-purchasing-h-f-x-liebherr-bulle",
       "de": "junge-talente-einkauf-m-w-x-liebherr-bulle",
-      "fr": "young-talent-purchasing-h-f-x-liebherr-bulle"
+      "fr": "jeunes-talents-achat-h-f-x-liebherr-bulle"
     },
     "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-    "expiredAt": "2026-11-22T09:42:30.030Z",
+    "expiredAt": "2026-11-28T21:39:30.557Z",
     "previousSlugs": [
       "young-talent-purchasing-h-f-x-liebherr-bulle",
-      "jeunes-talents-achat-h-f-x-liebherr-bulle",
       "giovane-talento-acquisto-m-f-x-liebherr-bulle-8qx8h8"
     ],
     "previousSlugsByLocale": {
@@ -970,8 +970,20 @@
         "young-talent-purchasing-h-f-x-liebherr-bulle"
       ],
       "fr": [
-        "jeunes-talents-achat-h-f-x-liebherr-bulle"
+        "young-talent-purchasing-h-f-x-liebherr-bulle"
       ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "young-talent-purchasing-h-f-x-liebherr-bulle": "FR",
+        "giovane-talento-acquisto-m-f-x-liebherr-bulle-8qx8h8": "FR"
+      },
+      "de": {
+        "young-talent-purchasing-h-f-x-liebherr-bulle": "FR"
+      },
+      "fr": {
+        "young-talent-purchasing-h-f-x-liebherr-bulle": "FR"
+      }
     },
     "postalCode": "1630",
     "streetAddress": "Bulle",
@@ -979,7 +991,7 @@
     "salaryMax": 104000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://careers.liebherr.com/job/bulle-young-talent-purchasing-%28hfx%29/1454995633",
+    "sourceIdentity": "url:https://careers.liebherr.com/job/bulle-young-talent-purchasing-%28hfx%29/1454995533",
     "firstSeenAt": "2026-11-06T09:46:39.342Z",
     "sourceIdentityHistory": [
       {
@@ -10305,5 +10317,68 @@
     "salaryMax": 103000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
+  },
+  {
+    "id": "liebherr-eb4f4fb9472d",
+    "slug": "addetto-a-alla-logistica-ersatzteile-m-w-d-liebherr-reiden",
+    "title": "Mitarbeiter Logistik Ersatzteile (m/w)",
+    "titleByLocale": {
+      "it": "Addetto/a alla logistica dei pezzi di ricambio (m/f)",
+      "en": "Employee Logistics Spare parts (m/f)",
+      "de": "Mitarbeiter Logistik Ersatzteile (m/w)",
+      "fr": "Pièces de rechange (h/f)"
+    },
+    "company": "Liebherr",
+    "companyKey": "liebherr",
+    "location": "Reiden",
+    "canton": "LU",
+    "addressLocality": "Reiden",
+    "descriptionByLocale": {
+      "it": "Stiamo cercando un supporto attivo e affidabile nella logistica, che è disponibile immediatamente. Ti piace prendere parte e tenere traccia anche se deve andare veloce? Vuoi che la merce ricevuta, il magazzino e la spedizione funzionino in modo pulito, affidabile, sicuro e con un sistema? Allora ci si adatta perfettamente. Questo è quello che fai con noi\n• Assicurarsi che le merci in entrata e in uscita funzionano senza intoppi – dall'accettazione all'ispezione e consegna ai spedizionieri merci\n• Scegli parti di ricambio, etichetta, distribuire e fornire spedizioni in tempo\n• Tenere sotto controllo il nostro magazzino: un deposito adeguato incl. La documentazione è il tuo standard\n• Fai costantemente attenzione ai processi di qualità, sicurezza e pulizia\n• Si prende il sopravvento di ritorni e amministrazione semplice (ad esempio deposito / documenti) Lo porti con te.\n• Formazione come logistica ed esperienza nella logistica (l'esperienza nella raccolta è un plus)\n• SUVA riconosciuto carrello elevatore e patente di guida categoria B\n• Lavori in modo indipendente, preciso e affidabile – L'ordine è tuo\n• Lavori con la qualità e la consapevolezza della sicurezza\n• Si mostra perseveranza e può anche far fronte a giorni frenetici\n• Molto buono tedesco; il francese è un vantaggio che vi offriamo\n• Un lavoro in cui hai un effetto visibile: Senza di te non funziona\n• Varie attività intorno parti di ricambio, stoccaggio e spedizione\n• Una squadra consolidata e un ambiente che vive insieme\n• Un lavoro in un'azienda familiare innovativa e stabile Abbiamo suscitato il vostro interesse? Allora non vediamo l'ora della vostra applicazione online. Per qualsiasi domanda, si prega di contattare Susanne Sulzer. Una passione. Molte opportunità. L'azienda Liebherr-Baumaschinen AG, con sede a Reiden (Svizzera), è responsabile per le vendite e il servizio di macchine movimento terra e movimentazione di materiali, gru a torre, tecnologia di cemento, speciali macchine edili sotterranee e gru mobili e crawler in Svizzera. Liebherr-Baumaschinen AG Industriestrasse 18 6260 Reiden Svizzera (CH) Contatta Susanne Sulzer 062 785 82 00",
+      "en": "We are looking for active and reliable support in logistics, which is available immediately. You like to take part and keep track even if it has to go fast? You want goods receipt, warehouse and shipping to run cleanly, reliably, safely and with a system? Then you fit us perfectly. This is what you do with us\n• You ensure that goods incoming and outgoing work smoothly – from acceptance to inspection and handover to freight forwarders\n• You pick spare parts, label, distribute and provide shipments on time\n• You keep our warehouse under control: proper storage incl. Documentation is your standard\n• You consistently pay attention to quality, safety and clean processes\n• You take over returns and simple administration (e.g. filing / documents) You bring that with you\n• Training as a logistician and experience in logistics (experience in picking is a plus)\n• SUVA recognised forklift and category B driving licence\n• You work independently, accurately and reliably – Order is yours\n• You work with quality and safety awareness\n• You show perseverance and can also cope with hectic days\n• Very good German; French is an advantage that we offer you\n• A job in which you have a visible effect: Without you it does not work\n• Varied tasks around spare parts, storage and shipping\n• A well-established team and an environment that lives together\n• A job in an innovative and stable family company Have we aroused your interest? Then we look forward to your online application. For any questions, please contact Susanne Sulzer. One passion. Many opportunities. The company Liebherr-Baumaschinen AG, based in Reiden (Switzerland), is responsible for the sales and service of earthmoving and material handling machines, tower cranes, concrete technology, special underground construction machines and mobile and crawler cranes in Switzerland. Location Liebherr-Baumaschinen AG Industriestrasse 18 6260 Reiden Switzerland (CH) Contact Susanne Sulzer 062 785 82 00",
+      "de": "Wir suchen eine tatkräftige und verlässliche Unterstützung in der Logistik, welche per sofort verfügbar ist. Du packst gerne mit an und behältst auch dann den Überblick, wenn’s mal schnell gehen muss? Du willst, dass Wareneingang, Lager und Versand sauber laufen und zwar zuverlässig, sicher und mit System? Dann passt du perfekt zu uns. Das machst du bei uns\n• Du stellst sicher, dass Wareneingang und Warenausgang reibungslos funktionieren – von der Annahme über die Prüfung bis zur Übergabe an die Spediteure\n• Du kommissionierst Ersatzteile, beschriftest, verteilst und stellst Sendungen termingerecht bereit\n• Du hältst unser Lager im Griff: ordnungsgemässe Lagerung inkl. Dokumentation ist bei dir Standard\n• Du achtest konsequent auf Qualität, Sicherheit und saubere Prozesse\n• Du übernimmst nebenbei Retouren und einfache Administration (z. B. Ablage/Dokumente) Das bringst du mit\n• Ausbildung als Logistiker/in sowie Erfahrung im Logistikbereich (Erfahrung in der Kommissionierung ist ein Plus)\n• SUVA anerkannter Staplerausweis sowie Führerausweis Kategorie B\n• Du arbeitest selbständig, exakt und zuverlässig – Ordnung liegt dir\n• Du arbeitest qualitäts- und sicherheitsbewusst\n• Du zeigst Durchhaltewillen und kannst auch hektische Tage bewältigen\n• Sehr gutes Deutsch; Französisch ist von Vorteil Das bieten wir dir\n• Einen Job, in dem du sichtbar Wirkung hast: Ohne dich läuft’s nicht\n• Abwechslungsreiche Aufgaben rund um Ersatzteile, Lager und Versand\n• Ein eingespieltes Team und ein Umfeld, das Zusammenarbeit lebt\n• Eine Anstellung in einem innovativen und stabilen Familienunternehmen Haben wir dein Interesse geweckt? Dann freuen wir uns über deine Online-Bewerbung. Bei Fragen kontaktiere bitte Susanne Sulzer. One Passion. Many Opportunities. Das Unternehmen ​ Die Liebherr-Baumaschinen AG mit Sitz in Reiden (Schweiz) ist verantwortlich für den Vertrieb und Service von Erdbewegungs- und Materialumschlagmaschinen, Turmdrehkranen, Betontechnik, Spezialtiefbaumaschinen sowie Mobil- und Raupenkranen in der Schweiz. Standort Liebherr-Baumaschinen AG Industriestrasse 18 6260 Reiden Schweiz (CH) Kontakt Susanne Sulzer 062 785 82 00",
+      "fr": "Nous recherchons un soutien actif et fiable en logistique, disponible immédiatement. Vous aimez participer et garder la trace même si elle doit aller vite ? Vous voulez que le reçu des marchandises, l'entrepôt et l'expédition fonctionnent de façon propre, fiable, sûre et avec un système? Alors tu nous corresponds parfaitement. C'est ce que tu fais de nous.\n• Vous veillez à ce que les marchandises entrantes et sortantes fonctionnent bien – de l'acceptation à l'inspection et au transfert aux transitaires\n• Vous choisissez des pièces de rechange, étiquettez, distribuez et fournissez les expéditions à temps\n• Vous gardez notre entrepôt sous contrôle: stockage approprié incl. La documentation est votre norme\n• Vous faites constamment attention à la qualité, la sécurité et les processus propres\n• Vous prenez en charge les déclarations et la simple administration (p. ex., dépôt / documents) Apporte ça avec toi.\n• Formation en logistique et expérience en logistique (l'expérience dans le choix est un plus)\n• Permis de conduire de la catégorie B et chariot élévateur reconnu SUVA\n• Vous travaillez de façon indépendante, précise et fiable – l'ordre est à vous\n• Vous travaillez avec la sensibilisation à la qualité et à la sécurité\n• Vous montrez de la persévérance et pouvez aussi faire face aux jours agités\n• Très bon allemand; le français est un avantage que nous vous offrons\n• Un travail dans lequel vous avez un effet visible: Sans vous il ne fonctionne pas\n• Tâches variées concernant les pièces de rechange, le stockage et l'expédition\n• Une équipe bien établie et un environnement qui vit ensemble\n• Un emploi dans une entreprise familiale innovante et stable Avez-vous suscité votre intérêt ? Ensuite, nous attendons avec impatience votre demande en ligne. Pour toute question, veuillez contacter Susanne Sulzer. Une passion. De nombreuses possibilités. La société Liebherr-Baumaschinen AG, basée à Reiden (Suisse), est responsable de la vente et du service de machines de terrassement et de manutention de matériaux, grues à tour, technologie du béton, machines spéciales de construction souterraine et grues mobiles et rampeuses en Suisse. Lieu Liebherr-Baumaschinen AG Industriestrasse 18 6260 Reiden Suisse (CH) Contacter Susanne Sulzer 062 785 82 00"
+    },
+    "slugByLocale": {
+      "it": "addetto-a-alla-logistica-ersatzteile-m-w-d-liebherr-reiden",
+      "en": "employee-logistics-spare-parts-m-f-liebherr-reiden",
+      "de": "mitarbeiter-logistik-ersatzteile-m-w-liebherr-reiden",
+      "fr": "pieces-de-rechange-h-f-liebherr-reiden"
+    },
+    "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+    "expiredAt": "2026-11-28T21:39:30.556Z",
+    "previousSlugs": [
+      "mitarbeiter-logistik-ersatzteile-m-w-liebherr-reiden"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "mitarbeiter-logistik-ersatzteile-m-w-liebherr-reiden"
+      ],
+      "en": [
+        "mitarbeiter-logistik-ersatzteile-m-w-liebherr-reiden"
+      ],
+      "fr": [
+        "mitarbeiter-logistik-ersatzteile-m-w-liebherr-reiden"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-logistik-ersatzteile-m-w-liebherr-reiden": "LU"
+      },
+      "en": {
+        "mitarbeiter-logistik-ersatzteile-m-w-liebherr-reiden": "LU"
+      },
+      "fr": {
+        "mitarbeiter-logistik-ersatzteile-m-w-liebherr-reiden": "LU"
+      }
+    },
+    "postalCode": "6260",
+    "streetAddress": "Reiden",
+    "salaryMin": 69500,
+    "salaryMax": 106000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.liebherr.com/job/reiden-mitarbeiter-logistik-ersatzteile-%28mw%29/1393469233",
+    "firstSeenAt": "2026-10-29T21:54:09.130Z"
   }
 ]
