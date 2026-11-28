@@ -13,6 +13,7 @@
 // Changing either side without the other turns that test red on purpose.
 import { runGa4ReportPaged, weightedQuantile } from './ga4-service-account.mjs';
 import { withAutomationFleetExclusion } from './ga4-automation-fleet.mjs';
+import { classifyAnalyticsPath } from './analytics-opportunity-utils.mjs';
 import { SECTION_LEGACY_TI_PATH } from '../../build-plugins/shared/cantonResolvers.mjs';
 
 export const ATTRIBUTION_PAGE = 'web_vitals';
@@ -347,6 +348,48 @@ export function missingInpSelectorCount(rows) {
   return rows
     .filter((row) => row.section === ATTRIBUTION_SECTIONS[1] && (!row.selector || row.selector === 'unknown'))
     .reduce((sum, row) => sum + row.count, 0);
+}
+
+/**
+ * Page template of a GA4 `pagePath`, derived with the same classifier the
+ * client uses for `page_template` (analytics-opportunity-utils mirrors
+ * services/analyticsPageContext.ts). The INP attribution event carries no
+ * template dimension (GA4 is at its dimension budget), so it is joined by path.
+ */
+export function templateOfPath(path) {
+  try {
+    return classifyAnalyticsPath(String(path || '')).pageTemplate || 'unknown';
+  } catch {
+    return 'unknown';
+  }
+}
+
+/** Share of INP attribution events whose target is still `unknown`. */
+export function inpUnknownShare(rows) {
+  const inp = rows.filter((row) => row.section === ATTRIBUTION_SECTIONS[1]);
+  const total = inp.reduce((sum, row) => sum + row.count, 0);
+  const unknown = missingInpSelectorCount(rows);
+  return { unknown, total, share: total ? unknown / total : 0 };
+}
+
+/** selector x template x device, p75 and events (INP rows with value and device only). */
+export function inpTargetsByTemplate(rows, limit = 15) {
+  const grouped = new Map();
+  for (const row of rows) {
+    if (row.section !== ATTRIBUTION_SECTIONS[1]) continue;
+    const template = templateOfPath(row.path);
+    const selector = row.selector || 'unknown';
+    const key = [selector, template, row.device].join('\u0000');
+    const group = grouped.get(key) || { selector, template, device: row.device, observations: [] };
+    group.observations.push({ value: row.value, count: row.count });
+    grouped.set(key, group);
+  }
+  return [...grouped.values()].map(({ observations, ...group }) => ({
+    ...group,
+    inpP75: weightedQuantile(observations, 0.75),
+    count: observations.reduce((sum, o) => sum + o.count, 0),
+  })).sort((a, b) => b.count - a.count || a.selector.localeCompare(b.selector)
+    || a.template.localeCompare(b.template) || a.device.localeCompare(b.device)).slice(0, limit);
 }
 
 /** Slowest INP targets, now carrying their own p75, count and GA4 device. */

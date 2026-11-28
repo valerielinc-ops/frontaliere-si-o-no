@@ -23,7 +23,12 @@ import {
   CWV_ATTRIBUTION_PAGE,
   CWV_ATTRIBUTION_PARAM_KEYS,
   CWV_ATTRIBUTION_SECTIONS,
+  INTERACTION_BUFFER_SIZE,
+  INTERACTION_MATCH_TOLERANCE_MS,
   buildCwvAttributionEvent,
+  getRecordedInteractions,
+  recordInteraction,
+  resetRecordedInteractions,
   type CwvAttributionParams,
 } from '@/services/webVitalsAttribution';
 import { AUTO_AD_COLLAPSED_ATTR, AUTO_AD_CONTAINER_SELECTOR } from '@/services/autoAdCollapse';
@@ -149,7 +154,9 @@ describe('buildCwvAttributionEvent', () => {
     expect(resolved).toBeNull();
     const bySelectorOnly = buildCwvAttributionEvent(cls('poor', { largestShiftTarget: FOOTER_SELECTOR, loadState: 'complete' }));
     assertRegisteredShape(bySelectorOnly);
-    expect(bySelectorOnly.component).toBe('other');
+    // Issue 20410: the raw string stays invalid CSS (asserted above), but the
+    // fallback now retries once with CSS-escaped Tailwind tokens.
+    expect(bySelectorOnly.component).toBe('footer');
     const byNode = buildCwvAttributionEvent(cls('poor', footerShift()));
     assertRegisteredShape(byNode);
     expect(byNode.component).toBe('footer');
@@ -321,5 +328,98 @@ describe('webVitals wiring', () => {
     await reportThrough(cls('poor', footerShift()));
     await settle();
     expect(mocks.log).not.toHaveBeenCalled();
+  });
+});
+
+describe('INP target captured at interaction time (issue 20410)', () => {
+  beforeEach(() => { mountPage(); resetRecordedInteractions(); });
+  afterEach(() => { document.body.innerHTML = ''; resetRecordedInteractions(); });
+
+  const card = () => document.querySelector('.job-card')!;
+  const emptyTargetInp = (interactionTime: number, extra: Record<string, unknown> = {}) => inp('poor', {
+    interactionTarget: '',
+    interactionTime,
+    interactionType: 'pointer',
+    processedEventEntries: [{ target: null, startTime: interactionTime }],
+    ...extra,
+  });
+
+  it('keeps unknown only when nothing was recorded', () => {
+    const event = buildCwvAttributionEvent(emptyTargetInp(1000));
+    expect(event).toMatchObject({ component: 'unknown' });
+    expect(event!.details).toContain(':unknown|');
+  });
+
+  it('classifies a null entry.target from the buffer entry closest to interactionTime', () => {
+    recordInteraction({ target: footerNode(), timeStamp: 400 }, '/cerca-lavoro-ticino/');
+    recordInteraction({ target: card(), timeStamp: 1000 }, '/cerca-lavoro-ticino/');
+    const node = card();
+    node.remove(); // the list re-rendered: the node is gone at report time
+    const event = buildCwvAttributionEvent(emptyTargetInp(1010));
+    expect(event).toMatchObject({ section: 'inp', component: 'main', action: 'pointer' });
+    expect(event!.details).toContain('article.job-card');
+    expect(event!.cta_id).toBe('web_vitals.inp.main.pointer');
+  });
+
+  it('does not borrow an interaction outside the tolerance', () => {
+    recordInteraction({ target: card(), timeStamp: 1000 });
+    const far = emptyTargetInp(1000 + INTERACTION_MATCH_TOLERANCE_MS + 1);
+    expect(buildCwvAttributionEvent(far)).toMatchObject({ component: 'unknown' });
+    expect(buildCwvAttributionEvent(emptyTargetInp(1000 + INTERACTION_MATCH_TOLERANCE_MS))).toMatchObject({ component: 'main' });
+  });
+
+  it('falls back to the first processed entry start when interactionTime is missing', () => {
+    recordInteraction({ target: footerNode(), timeStamp: 2000 });
+    const event = buildCwvAttributionEvent(inp('poor', {
+      interactionTarget: '',
+      processedEventEntries: [{ target: null, startTime: 2003 }],
+    }));
+    expect(event).toMatchObject({ component: 'footer' });
+  });
+
+  it('uses interactionTargetElement.deref() as second fallback', () => {
+    const event = buildCwvAttributionEvent(emptyTargetInp(5000, { interactionTargetElement: { deref: () => footerNode() } }));
+    expect(event).toMatchObject({ component: 'footer' });
+    expect(event!.details).toContain('footer');
+  });
+
+  it('keeps web-vitals own selector when present', () => {
+    recordInteraction({ target: footerNode(), timeStamp: 1000 });
+    const event = buildCwvAttributionEvent(inp('poor', { interactionTarget: 'div#x', interactionTime: 1000, processedEventEntries: [{ target: card() }] }));
+    expect(event!.details).toContain('div#x');
+    expect(event!.component).toBe('main');
+  });
+
+  it('retries a Tailwind selector with CSS escapes', () => {
+    document.body.insertAdjacentHTML('beforeend', '<footer><button class="md:pb-8">x</button></footer>');
+    const event = buildCwvAttributionEvent(inp('poor', { interactionTarget: 'button.md:pb-8', processedEventEntries: [] }));
+    expect(event).toMatchObject({ component: 'footer' });
+  });
+
+  it('listener work is bounded: ring buffer, no throw on junk, no document queries', () => {
+    const target = card();
+    const spy = vi.spyOn(document, 'querySelector');
+    const spyAll = vi.spyOn(document, 'querySelectorAll');
+    for (let i = 0; i < INTERACTION_BUFFER_SIZE * 50; i += 1) recordInteraction({ target, timeStamp: i });
+    recordInteraction({ target: null, timeStamp: 1 });
+    recordInteraction({ target });
+    recordInteraction({} as never);
+    expect(getRecordedInteractions()).toHaveLength(INTERACTION_BUFFER_SIZE);
+    expect(getRecordedInteractions().at(-1)!.timeStamp).toBe(INTERACTION_BUFFER_SIZE * 50 - 1);
+    expect(spy).not.toHaveBeenCalled();
+    expect(spyAll).not.toHaveBeenCalled();
+    spy.mockRestore();
+    spyAll.mockRestore();
+  });
+
+  it('initWebVitals installs passive capture listeners for pointerdown, keydown and click', async () => {
+    vi.resetModules();
+    const add = vi.spyOn(document, 'addEventListener');
+    const { initWebVitals } = await vi.importActual<typeof import('@/services/webVitals')>('@/services/webVitals');
+    initWebVitals();
+    const registered = add.mock.calls.filter(([, , opts]) => (opts as AddEventListenerOptions | undefined)?.capture === true);
+    expect(registered.map(([type]) => type).sort()).toEqual(['click', 'keydown', 'pointerdown']);
+    for (const [, , opts] of registered) expect((opts as AddEventListenerOptions).passive).toBe(true);
+    add.mockRestore();
   });
 });
