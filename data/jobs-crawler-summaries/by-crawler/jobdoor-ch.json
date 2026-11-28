@@ -1,7 +1,7 @@
 {
   "key": "jobdoor-ch",
   "label": "Jobdoor AG",
-  "generatedAt": "2026-11-28T09:44:52.029Z",
+  "generatedAt": "2026-11-28T22:06:01.695Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -38,10 +38,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7121,
-  "avgDurationMs": 7121,
+  "durationMs": 6258,
+  "avgDurationMs": 6258,
   "durationHistory": [
-    7121
+    6258
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -59,7 +59,7 @@
       "url": "https://jobdoor.ch/job/fage-efz-100",
       "source": "Jobdoor AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:44:16.142Z",
+      "crawledAt": "2026-11-28T22:05:25.643Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -82,7 +82,7 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:44:16.142Z",
+      "validThrough": "2027-02-02T22:05:25.643Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -93,5 +93,5 @@
       }
     }
   ],
-  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
+  "codeCommit": "e60bb477e02fc78f2385473075e1dff5d9e2799a"
 }

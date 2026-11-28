@@ -1,7 +1,7 @@
 {
   "key": "creditx-ch",
   "label": "CreditX Sàrl",
-  "generatedAt": "2026-11-28T09:42:03.945Z",
+  "generatedAt": "2026-11-28T22:05:54.177Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -54,10 +54,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 21231,
-  "avgDurationMs": 21231,
+  "durationMs": 18482,
+  "avgDurationMs": 18482,
   "durationHistory": [
-    21231
+    18482
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -75,7 +75,7 @@
       "url": "https://www.creditx.ch/careers/relationship-manager-senior-sion",
       "source": "CreditX Sàrl Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:41:28.070Z",
+      "crawledAt": "2026-11-28T22:05:20.189Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       },
       "streetAddress": "Place de l'Aubade 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T09:41:28.070Z",
+      "validThrough": "2026-12-28T22:05:20.189Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -134,7 +134,7 @@
       "url": "https://www.creditx.ch/careers/relationship-manager-junior-sion",
       "source": "CreditX Sàrl Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-28T09:41:28.069Z",
+      "crawledAt": "2026-11-28T22:05:20.187Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -171,7 +171,7 @@
       },
       "streetAddress": "Place de l'Aubade 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T09:41:28.069Z",
+      "validThrough": "2027-01-28T22:05:20.187Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -182,5 +182,5 @@
       }
     }
   ],
-  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
+  "codeCommit": "e60bb477e02fc78f2385473075e1dff5d9e2799a"
 }

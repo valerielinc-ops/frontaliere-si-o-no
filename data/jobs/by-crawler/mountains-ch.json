@@ -1,7 +1,7 @@
 {
   "crawlerKey": "mountains-ch",
-  "assembledAt": "2026-11-28T09:43:39.475Z",
-  "runId": "46130382584",
+  "assembledAt": "2026-11-28T22:04:03.002Z",
+  "runId": "46191523323",
   "jobs": [
     {
       "id": "mountains-ch-41df2560cca5",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-risorse-umane-engadin-st-moritz-mountains-ag-st-moritz",
         "en": "mitarbeiter-in-human-resources-engadin-st-moritz-mountains-ag-st-moritz",
-        "de": "mitarbeiter-in-human-resources-engadin-st-moritz-mountains-ag-st-moritz",
+        "de": "mitarbeiter-in-human-resources-7500-st-moritz-mountains-ch-ch",
         "fr": "collaborateur-trice-en-ressources-humaines-engadin-st-moritz-mountains-ag-7500-st-moritz"
       },
       "company": "Engadin St. Moritz Mountains AG",
@@ -34,7 +34,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/mitarbeiterin-human-ressources",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:42:16.087Z",
+      "crawledAt": "2026-11-28T22:03:52.521Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -54,21 +54,21 @@
       "applyUrl": "https://www.mountains.ch/de/offene-stellen/mitarbeiterin-human-ressources",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-human-resources-7500-st-moritz-mountains-ch-ch",
-        "mitarbeiter-in-human-resources-engadin-st-moritz-mountains-ag-st-moritz"
-      ],
       "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-human-resources-7500-st-moritz-mountains-ch-ch"
-        ],
         "de": [
+          "mitarbeiter-in-human-resources-engadin-st-moritz-mountains-ag-st-moritz"
+        ],
+        "it": [
           "mitarbeiter-in-human-resources-7500-st-moritz-mountains-ch-ch"
         ],
         "fr": [
           "mitarbeiter-in-human-resources-engadin-st-moritz-mountains-ag-st-moritz"
         ]
       },
+      "previousSlugs": [
+        "mitarbeiter-in-human-resources-7500-st-moritz-mountains-ch-ch",
+        "mitarbeiter-in-human-resources-engadin-st-moritz-mountains-ag-st-moritz"
+      ],
       "firstSeenAt": "2026-11-04T21:50:30.513Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -98,7 +98,7 @@
         "checkedAt": "2026-11-16T15:23:08.822Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T09:42:16.087Z",
+      "validThrough": "2027-02-02T22:03:52.521Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -107,7 +107,7 @@
       "slugByLocale": {
         "it": "stage-d-orientamento-per-meccatronico-a-di-impianti-a-fune-afc-engadin-st-moritz-mountains-ag-7500-st-moritz",
         "en": "test-gauge-cableway-mechatronics-engineer-efz-engadin-st-moritz-mountains-ag-7500-st-moritz",
-        "de": "schnupperlehre-seilbahnmechatroniker-in-efz-engadin-st-moritz-mountains-ag-st-moritz",
+        "de": "schnupperlehre-seilbahnmechatroniker-in-efz-7500-st-moritz-mountains-ch-ch",
         "fr": "manometre-d-essai-ingenieur-mecatronique-a-cables-efz-engadin-st-moritz-mountains-ag-7500-st-moritz"
       },
       "company": "Engadin St. Moritz Mountains AG",
@@ -132,7 +132,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/schnupperlehre-seilbahnmechatronikerin-efz",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:42:16.083Z",
+      "crawledAt": "2026-11-28T22:03:52.520Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -152,11 +152,10 @@
       "applyUrl": "https://www.mountains.ch/de/offene-stellen/schnupperlehre-seilbahnmechatronikerin-efz",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "schnupperlehre-seilbahnmechatroniker-in-efz-7500-st-moritz-mountains-ch-ch",
-        "schnupperlehre-seilbahnmechatroniker-in-efz-engadin-st-moritz-mountains-ag-st-moritz"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "schnupperlehre-seilbahnmechatroniker-in-efz-engadin-st-moritz-mountains-ag-st-moritz"
+        ],
         "it": [
           "schnupperlehre-seilbahnmechatroniker-in-efz-7500-st-moritz-mountains-ch-ch",
           "schnupperlehre-seilbahnmechatroniker-in-efz-engadin-st-moritz-mountains-ag-st-moritz"
@@ -164,13 +163,14 @@
         "en": [
           "schnupperlehre-seilbahnmechatroniker-in-efz-engadin-st-moritz-mountains-ag-st-moritz"
         ],
-        "de": [
-          "schnupperlehre-seilbahnmechatroniker-in-efz-7500-st-moritz-mountains-ch-ch"
-        ],
         "fr": [
           "schnupperlehre-seilbahnmechatroniker-in-efz-engadin-st-moritz-mountains-ag-st-moritz"
         ]
       },
+      "previousSlugs": [
+        "schnupperlehre-seilbahnmechatroniker-in-efz-7500-st-moritz-mountains-ch-ch",
+        "schnupperlehre-seilbahnmechatroniker-in-efz-engadin-st-moritz-mountains-ag-st-moritz"
+      ],
       "firstSeenAt": "2026-11-04T21:50:30.512Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -200,7 +200,7 @@
         "checkedAt": "2026-11-16T15:23:08.822Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T09:42:16.083Z",
+      "validThrough": "2027-02-02T22:03:52.520Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -209,7 +209,7 @@
       "slugByLocale": {
         "it": "responsabile-della-reception-e-dei-banchetti-engadin-st-moritz-mountains-ag-7500-st-moritz",
         "en": "management-of-reception-and-banquets-engadin-st-moritz-mountains-ag-7500-st-moritz",
-        "de": "leitung-rezeption-und-bankette-engadin-st-moritz-mountains-ag-st-moritz",
+        "de": "leitung-rezeption-und-bankette-7500-st-moritz-mountains-ch-ch",
         "fr": "gestion-de-la-reception-et-des-banquets-engadin-st-moritz-mountains-ag-7500-st-moritz"
       },
       "company": "Engadin St. Moritz Mountains AG",
@@ -234,7 +234,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/leitung-rezeption-und-bankette",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:42:16.081Z",
+      "crawledAt": "2026-11-28T22:03:52.518Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -254,11 +254,10 @@
       "applyUrl": "https://www.mountains.ch/de/offene-stellen/leitung-rezeption-und-bankette",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "leitung-rezeption-und-bankette-7500-st-moritz-mountains-ch-ch",
-        "leitung-rezeption-e-bankette-engadin-st-moritz-mountains-ag-st-moritz"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "leitung-rezeption-und-bankette-engadin-st-moritz-mountains-ag-st-moritz"
+        ],
         "it": [
           "leitung-rezeption-und-bankette-7500-st-moritz-mountains-ch-ch",
           "leitung-rezeption-e-bankette-engadin-st-moritz-mountains-ag-st-moritz"
@@ -266,13 +265,15 @@
         "en": [
           "leitung-rezeption-und-bankette-7500-st-moritz-mountains-ch-ch"
         ],
-        "de": [
-          "leitung-rezeption-und-bankette-7500-st-moritz-mountains-ch-ch"
-        ],
         "fr": [
           "leitung-rezeption-und-bankette-7500-st-moritz-mountains-ch-ch"
         ]
       },
+      "previousSlugs": [
+        "leitung-rezeption-und-bankette-7500-st-moritz-mountains-ch-ch",
+        "leitung-rezeption-e-bankette-engadin-st-moritz-mountains-ag-st-moritz",
+        "leitung-rezeption-und-bankette-engadin-st-moritz-mountains-ag-st-moritz"
+      ],
       "firstSeenAt": "2026-11-04T21:50:30.511Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -302,7 +303,7 @@
         "checkedAt": "2026-11-16T15:23:08.822Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T09:42:16.081Z",
+      "validThrough": "2027-02-02T22:03:52.518Z",
       "validThroughSource": "last-observed-window"
     }
   ]
