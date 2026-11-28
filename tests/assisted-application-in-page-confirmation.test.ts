@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { inPageConfirmation, inPageConfirmationText } from '../scripts/assisted-application/lib/portal/in-page-confirmation.mjs';
-import { inPageConfirmationFromEvidence, inPageReconcileBlocker } from '../scripts/assisted-application/reconcile-inpage-confirmation.mjs';
+import { evidenceHoldsTheClick, inPageConfirmationFromEvidence, inPageReconcileBlocker, sendRunCandidates } from '../scripts/assisted-application/reconcile-inpage-confirmation.mjs';
 import { createSubmissionReceipt, verifySubmissionReceipt } from '../functions/src/lib/submissionReceiptContract.js';
 
 const page = 'https://employer.example/it/lavora-con-noi/';
@@ -103,5 +103,23 @@ describe('reconciliation of orders stopped on portal_ambiguous', () => {
     expect(receipt).toMatchObject({ proofKind: 'portal_in_page_confirmation' });
     expect(verifySubmissionReceipt(receipt, { orderId: 'order-1', round: 1, attemptId: 'a1', channel: 'portal', sentRecord: {} })).toBe(true);
     expect(createSubmissionReceipt({ orderId: 'order-1', round: 1, attemptId: 'a1', channel: 'portal', proofKind: 'portal_in_page_confirmation', evidence: {}, sentRecord: {}, observedAt: 5 })).toBeNull();
+  });
+});
+
+describe('which stored run holds the click', () => {
+  const name = (at: number) => `assisted-application-uploads/order-1/run-${at}-submit-portal-submit_failed.json.enc`;
+  const click = 1_000_000_000_000;
+  it('takes a run that started before the click, the closest first', () => {
+    expect(sendRunCandidates([name(click - 51_000), name(click - 3_600_000)], click).map((c) => c.at)).toEqual([click - 51_000, click - 3_600_000]);
+  });
+  it('drops a run that started after the click or too long before it', () => {
+    expect(sendRunCandidates([name(click + 1)], click)).toEqual([]);
+    expect(sendRunCandidates([name(click - 151 * 60 * 1000)], click)).toEqual([]);
+    expect(sendRunCandidates(['assisted-application-uploads/order-1/run-5-other.json.enc'], click)).toEqual([]);
+  });
+  it('accepts only evidence that reached the final click', () => {
+    expect(evidenceHoldsTheClick({ evidence: { finalOutcomes: ['ambiguous'], finalButton: { by: 'runner' } } })).toBe(true);
+    expect(evidenceHoldsTheClick({ evidence: { finalOutcomes: [] } })).toBe(false);
+    expect(evidenceHoldsTheClick({})).toBe(false);
   });
 });

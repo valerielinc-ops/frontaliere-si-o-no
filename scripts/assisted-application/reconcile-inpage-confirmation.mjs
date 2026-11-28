@@ -24,15 +24,13 @@ import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from '../../functions/src/assistedApplicationCvCheck.js';
 import { submissionGuard, submissionRefFor } from '../../functions/src/assistedApplicationSubmissionGuard.js';
 import { reconcileSubmissionReceipt } from '../../functions/src/assistedApplicationReceiptReconcile.js';
-import { applyAutomationEvent } from '../../functions/src/assistedApplicationAutomation.js';
+import { RUN_WATCHDOG_MS, applyAutomationEvent } from '../../functions/src/assistedApplicationAutomation.js';
 import { runAutomationEffect } from '../../functions/src/assistedApplicationAutomationEffects.js';
 import { decryptJson, runKeyFrom } from './lib/secure-run.mjs';
 import { inPageConfirmation } from './lib/portal/in-page-confirmation.mjs';
 
 export const INPAGE_RECONCILE_ACTOR = 'reconcile-inpage-confirmation';
 const PAGE = 100;
-// The evidence of the send run is written right after the click: a file much later belongs to another run.
-const EVIDENCE_WINDOW_MS = 30 * 60 * 1000;
 
 /** The same rule as the runner, on the fields a send run saved. Pure. */
 export function inPageConfirmationFromEvidence(payload = {}) {
@@ -70,16 +68,34 @@ async function runKey() {
   return runKeyFrom(template.parameters?.ASSISTED_APPLICATION_RUN_KEY?.defaultValue?.value);
 }
 
+/**
+ * The send runs that can hold the click, closest first. The number in a file name is the START of the run, always
+ * before its click: a run qualifies when it started at or before `clickedAt`, no longer ago than the longest a run
+ * lives (the watchdog). One that started after the click is another run. Pure.
+ */
+export function sendRunCandidates(names = [], clickedAt = 0) {
+  return names
+    .map((name) => ({ name, at: Number(/\/run-(\d+)-submit-portal-submit_failed\.json\.enc$/.exec(name)?.[1]) }))
+    .filter(({ at }) => Number.isFinite(at) && at <= clickedAt && clickedAt - at <= RUN_WATCHDOG_MS)
+    .sort((a, b) => b.at - a.at);
+}
+
+/** The evidence is the run that clicked: it reached the final click (its outcomes and button are on record). */
+export function evidenceHoldsTheClick(payload = {}) {
+  const evidence = payload?.evidence || {};
+  return Array.isArray(evidence.finalOutcomes) && evidence.finalOutcomes.length > 0 && Boolean(evidence.finalButton);
+}
+
 /** The decrypted send-run evidence of the round that clicked at `clickedAt`, or null. */
 async function sendRunEvidence({ bucket, orderId, clickedAt, key }) {
   const [files] = await bucket.getFiles({ prefix: `assisted-application-uploads/${orderId}/run-` });
-  const candidates = files
-    .map((file) => ({ file, at: Number(/\/run-(\d+)-submit-portal-submit_failed\.json\.enc$/.exec(file.name)?.[1]) }))
-    .filter(({ at }) => Number.isFinite(at) && at >= clickedAt && at <= clickedAt + EVIDENCE_WINDOW_MS)
-    .sort((a, b) => a.at - b.at);
-  if (!candidates.length) return null;
-  const [content] = await candidates[0].file.download();
-  return decryptJson(JSON.parse(content.toString('utf8')), key);
+  const byName = new Map(files.map((file) => [file.name, file]));
+  for (const { name } of sendRunCandidates([...byName.keys()], clickedAt)) {
+    const [content] = await byName.get(name).download();
+    const payload = decryptJson(JSON.parse(content.toString('utf8')), key);
+    if (evidenceHoldsTheClick(payload)) return payload;
+  }
+  return null;
 }
 
 /**
