@@ -5,7 +5,7 @@ import { applyAutomationEvent } from '../functions/src/assistedApplicationAutoma
 import { runAutomationEffect } from '../functions/src/assistedApplicationAutomationEffects.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
 import {
-  LOCAL_DISPATCH_COLLECTION, LOCAL_RUNNERS_COLLECTION, SWISS_RUNNER_PICKUP_MS,
+  FALLBACK_CLAIM_TTL_MS, LOCAL_DISPATCH_COLLECTION, LOCAL_RUNNERS_COLLECTION, SWISS_RUNNER_PICKUP_MS,
   enqueueLocalDispatch, holdUnservedLocalDispatches, leaseLocalDispatch, localDispatchKey, localDispatchStaleReason,
 } from '../functions/src/assistedApplicationSwissRunner.js';
 
@@ -119,8 +119,9 @@ describe('a preferred request in the Swiss queue', () => {
     const summary = await holdUnservedLocalDispatches({ db: s.db, nowMs: now, runEffect, applyEvent } as any);
     expect(summary).toMatchObject({ held: 0, fellBack: 1 });
     expect(applyEvent).not.toHaveBeenCalled();
-    expect(events).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'swiss_preferred_fallback', preferEgress: null, forceGithub: true }]);
-    expect(s.read(queuePath)).toMatchObject({ status: 'expired', result: { code: 'swiss_preferred_fallback' } });
+    expect(events).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'swiss_preferred_fallback', preferEgress: null, forceGithub: true, dispatchKey: `${key}:github` }]);
+    expect(s.read(queuePath)).toMatchObject({ status: 'fallback_dispatched', result: { code: 'swiss_preferred_fallback' }, fallback: { dispatchKey: `${key}:github` } });
+    expect(events[0].dispatchKey).toBe(`${key}:github`);
     expect(s.read(flowPath)?.state).toBe('submitting');
     // The same sweep again dispatches nothing more: the request is closed.
     const again = await holdUnservedLocalDispatches({ db: s.db, nowMs: now + 1000, runEffect, applyEvent } as any);
@@ -128,24 +129,60 @@ describe('a preferred request in the Swiss queue', () => {
     expect(runEffect).toHaveBeenCalledTimes(1);
   });
 
-  it('waits while a Swiss runner is alive, leaves a leased request alone, and only closes a request whose flow moved on', async () => {
-    const queuedLong = { queuedAt: now - SWISS_RUNNER_PICKUP_MS - 1 };
-    const alive = store(submitting, pending(queuedLong), { [`${LOCAL_RUNNERS_COLLECTION}/swiss-a`]: aliveSwiss });
-    const runEffect = vi.fn(async () => ({ ok: true }));
-    const waiting = await holdUnservedLocalDispatches({ db: alive.db, nowMs: now, runEffect, applyEvent: applyAutomationEvent as any } as any);
-    expect(waiting).toMatchObject({ waiting: 1, held: 0 });
-    expect(runEffect).not.toHaveBeenCalled();
-    expect(alive.read(queuePath)?.status).toBe('pending');
+  describe('the fallback dispatches once per request key', () => {
+    const due = pending({ queuedAt: now - SWISS_RUNNER_PICKUP_MS - 1 });
+    // The second transaction of the first sweep (the final write after GitHub accepted the run) fails.
+    const flakyFinalWrite = (db: any) => {
+      let calls = 0;
+      return { collection: db.collection.bind(db), runTransaction: (fn: any) => {
+        calls += 1;
+        if (calls === 2) return Promise.reject(new Error('DEADLINE_EXCEEDED'));
+        return db.runTransaction(fn);
+      } };
+    };
 
-    const leased = store(submitting, pending({ ...queuedLong, status: 'leased', lease: { runnerId: 'swiss-a', key, at: now - 1000, until: now + 3_600_000 } }));
-    const leasedSummary = await holdUnservedLocalDispatches({ db: leased.db, nowMs: now, runEffect, applyEvent: applyAutomationEvent as any } as any);
-    expect(leasedSummary.due).toBe(0);
-    expect(runEffect).not.toHaveBeenCalled();
+    it('GitHub accepts it, the final write fails, a live Swiss runner shows up: one dispatch, no Swiss lease, never pending', async () => {
+      const s = store(submitting, due);
+      const runEffect = vi.fn(async () => ({ ok: true }));
+      const first = await holdUnservedLocalDispatches({ db: flakyFinalWrite(s.db), nowMs: now, runEffect, applyEvent: applyAutomationEvent as any } as any);
+      expect(first.fellBack).toBe(1);
+      expect(runEffect).toHaveBeenCalledTimes(1);
+      expect(s.read(queuePath)).toMatchObject({ status: 'fallback_claimed', fallback: { dispatchKey: `${key}:github` } });
 
-    const moved = store({ ...submitting, dispatch: { ...submitting.dispatch, requestedAt: requestedAt + 5 } }, pending(queuedLong));
-    const movedSummary = await holdUnservedLocalDispatches({ db: moved.db, nowMs: now, runEffect, applyEvent: applyAutomationEvent as any } as any);
-    expect(movedSummary.fellBack).toBeUndefined();
-    expect(runEffect).not.toHaveBeenCalled();
-    expect(moved.read(queuePath)).toMatchObject({ status: 'expired', result: { code: 'superseded' } });
+      // A Swiss runner is alive on the next sweep: it must not get the request, and nothing is dispatched again.
+      s.docs.set(`${LOCAL_RUNNERS_COLLECTION}/swiss-a`, { ...aliveSwiss, at: now + 59_000 });
+      const second = await holdUnservedLocalDispatches({ db: s.db, nowMs: now + 60_000, runEffect, applyEvent: applyAutomationEvent as any } as any);
+      expect(second.fellBack).toBeUndefined();
+      expect(runEffect).toHaveBeenCalledTimes(1);
+      expect(s.read(queuePath)?.status).toBe('fallback_claimed');
+      expect((await leaseLocalDispatch({ db: s.db, runnerId: 'swiss-a', nowMs: now + 61_000 })).leased).toBeNull();
+      expect(s.read(queuePath)?.status).toBe('fallback_claimed');
+
+      // The claim has no outcome: it is closed as unconfirmed, never re-dispatched, never leased.
+      const third = await holdUnservedLocalDispatches({ db: s.db, nowMs: now + FALLBACK_CLAIM_TTL_MS + 1, runEffect, applyEvent: applyAutomationEvent as any } as any);
+      expect(third.fallbackUnconfirmed).toBe(1);
+      expect(s.read(queuePath)).toMatchObject({ status: 'fallback_unconfirmed' });
+      expect((await leaseLocalDispatch({ db: s.db, runnerId: 'swiss-a', nowMs: now + FALLBACK_CLAIM_TTL_MS + 2 })).leased).toBeNull();
+      expect(runEffect).toHaveBeenCalledTimes(1);
+    });
+
+    it('a repeated sweep never claims the same request twice, and a failed dispatch is not retried under the same key', async () => {
+      const s = store(submitting, due);
+      const runEffect = vi.fn(async () => { throw new Error('github_unavailable'); });
+      const first = await holdUnservedLocalDispatches({ db: s.db, nowMs: now, runEffect, applyEvent: applyAutomationEvent as any } as any);
+      expect(first.fellBack).toBeUndefined();
+      expect(s.read(queuePath)).toMatchObject({ status: 'fallback_failed', result: { code: 'fallback_dispatch_failed' } });
+      for (let i = 1; i <= 3; i += 1) {
+        await holdUnservedLocalDispatches({ db: s.db, nowMs: now + i * 60_000, runEffect, applyEvent: applyAutomationEvent as any } as any);
+      }
+      expect(runEffect).toHaveBeenCalledTimes(1);
+      // A refused dispatch (no exception) is the same.
+      const refused = store(submitting, due);
+      const refuse = vi.fn(async () => ({ ok: false }));
+      await holdUnservedLocalDispatches({ db: refused.db, nowMs: now, runEffect: refuse, applyEvent: applyAutomationEvent as any } as any);
+      await holdUnservedLocalDispatches({ db: refused.db, nowMs: now + 60_000, runEffect: refuse, applyEvent: applyAutomationEvent as any } as any);
+      expect(refuse).toHaveBeenCalledTimes(1);
+      expect(refused.read(queuePath)?.status).toBe('fallback_failed');
+    });
   });
 });
