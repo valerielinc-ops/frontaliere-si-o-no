@@ -348,6 +348,17 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
     // The portal rejected every stored password: ONE recovery of the order's alias account with the runner's own
     // flow (reset e-mail read from the alias inbox, new password stored as the runner stores it), under the fence
     // above, then one more sign-in with the new password. Nothing else is opened.
+    const allowResetLink = (message) => {
+      try {
+        const link = new URL(String(message?.url || ''));
+        if (link.protocol === 'https:' && link.origin === new URL(applyUrl).origin && !link.username && !link.password && !link.hash
+          && ![...link.searchParams.keys()].some(key => MUTATION_QUERY_KEY_RE.test(key))) {
+          navigationTargets.add(link.href);
+          note('reset_link', link.href, 'allowed');
+        }
+      } catch { /* No usable link: the flow decides what to do without it. */ }
+      return message;
+    };
     const recoverAndSignin = async () => {
       stage = 'recovery';
       if (!allowRecovery || !probe?.loginUrl || !aliasEmail) return { reason: 'login_not_accepted', extra: { recovery: 'not_allowed' } };
@@ -367,18 +378,9 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
           ctx: { candidate: { identity: { email: aliasEmail } }, dryRun: false, accounts: { ...accounts,
             // The reset e-mail's link (the portal's own token link, on this host) is the one navigation the run is
             // told to make by the e-mail: it is allowed exactly, once known, and nothing else from the e-mail is.
-            waitForPasswordReset: async (...args) => {
-              const message = await accounts.waitForPasswordReset(...args);
-              try {
-                const link = new URL(String(message?.url || ''));
-                if (link.protocol === 'https:' && link.origin === new URL(applyUrl).origin && !link.username && !link.password && !link.hash
-                  && ![...link.searchParams.keys()].some(key => MUTATION_QUERY_KEY_RE.test(key))) {
-                  navigationTargets.add(link.href);
-                  note('reset_link', link.href, 'allowed');
-                }
-              } catch { /* No usable link: the flow decides what to do without it. */ }
-              return message;
-            },
+            waitForPasswordReset: async (...args) => allowResetLink(await accounts.waitForPasswordReset(...args)),
+            // The reset e-mail of the recovery in progress that already arrived (a run that died before using it).
+            ...(typeof accounts.pendingPasswordReset === 'function' ? { pendingPasswordReset: async (...args) => allowResetLink(await accounts.pendingPasswordReset(...args)) } : {}),
             beginRecovery: async (...args) => {
             const begun = await accounts.beginRecovery(...args);
             proof.recovery = { ...(proof.recovery || {}), begin: String(begun?.status || '').slice(0, 30), ...(begun?.retryAt ? { retryAt: Number(begun.retryAt) } : {}) };
