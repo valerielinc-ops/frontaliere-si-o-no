@@ -384,7 +384,7 @@
       "slug": "installatore-trice-elettrico-a-region-engelberg-ipersonal-ag-engelberg-und-umgebung",
       "slugByLocale": {
         "it": "installatore-trice-elettrico-a-region-engelberg-ipersonal-ag-engelberg-und-umgebung",
-        "en": "electrical-installer-engelberg-region-ipersonal-ag-engelberg-obwalden",
+        "en": "electrical-installer-engelberg-region-ipersonal-ag-engelberg-und-umgebung",
         "de": "elektroinstallateur-ipersonal-ag-engelberg-und-umgebung",
         "fr": "installation-electrique-region-d-engelberg-ipersonal-ag-engelberg-und-umgebung"
       },
@@ -430,10 +430,10 @@
         "elektroinstallateur-region-engelberg-ipersonal-ag-engelberg-obwalden",
         "installatore-trice-elettrico-a-region-engelberg-ipersonal-ag-engelberg",
         "elektroinstallateur-ipersonal-ag-engelberg-und-umgebung",
+        "electrical-installer-engelberg-region-ipersonal-ag-engelberg-obwalden",
         "installation-electrique-region-d-engelberg-ipersonal-ag-engelberg-obwalden",
         "installatore-trice-elettrico-a-region-engelberg-ipersonal-ag-engelberg-obwalden",
-        "elektroinstallateur-ipersonal-ag-engelberg",
-        "electrical-installer-engelberg-region-ipersonal-ag-engelberg-und-umgebung"
+        "elektroinstallateur-ipersonal-ag-engelberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -444,7 +444,7 @@
         ],
         "en": [
           "elektroinstallateur-region-engelberg-ipersonal-ag-engelberg-obwalden",
-          "electrical-installer-engelberg-region-ipersonal-ag-engelberg-und-umgebung"
+          "electrical-installer-engelberg-region-ipersonal-ag-engelberg-obwalden"
         ],
         "de": [
           "elektroinstallateur-region-engelberg-ipersonal-ag-engelberg-obwalden",
@@ -766,7 +766,7 @@
         "it": "installatore-trice-elettrico-a-region-st-gallen-ipersonal-ag-st-gallen-und-umgebung",
         "en": "electrical-installer-st-gallen-region-ipersonal-ag-st-gallen-und-umgebung",
         "de": "elektroinstallateur-ipersonal-ag-st-gallen-und-umgebung",
-        "fr": "installation-electrique-region-de-st-gallen-ipersonal-ag-st-gallen-st-gallen"
+        "fr": "installation-electrique-region-de-st-gallen-ipersonal-ag-st-gallen-und-umgebung"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -811,9 +811,9 @@
         "installatore-trice-elettrico-a-region-st-gallen-ipersonal-ag-st-gallen",
         "elektroinstallateur-ipersonal-ag-st-gallen-und-umgebung",
         "electrical-installer-st-gallen-region-ipersonal-ag-st-gallen-st-gallen",
+        "installation-electrique-region-de-st-gallen-ipersonal-ag-st-gallen-st-gallen",
         "installatore-trice-elettrico-a-region-st-gallen-ipersonal-ag-st-gallen-st-gallen",
-        "elektroinstallateur-ipersonal-ag-st-gallen",
-        "installation-electrique-region-de-st-gallen-ipersonal-ag-st-gallen-und-umgebung"
+        "elektroinstallateur-ipersonal-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -832,7 +832,7 @@
         ],
         "fr": [
           "elektroinstallateur-region-st-gallen-ipersonal-ag-st-gallen-st-gallen",
-          "installation-electrique-region-de-st-gallen-ipersonal-ag-st-gallen-und-umgebung"
+          "installation-electrique-region-de-st-gallen-ipersonal-ag-st-gallen-st-gallen"
         ]
       },
       "firstSeenAt": "2026-09-28T03:44:38.519Z",
@@ -7183,7 +7183,7 @@
       "slugByLocale": {
         "it": "specialista-di-meccatronica-automobilistica-regione-di-flawil-ipersonal-ag-flawil-und-umgebung",
         "en": "automotive-mechatronics-specialist-flawil-region-ipersonal-ag-flawil-und-umgebung",
-        "de": "automobil-mechatroniker-region-flawil-ipersonal-ag-flawil-st-gallen",
+        "de": "automobil-mechatroniker-ipersonal-ag-flawil-und-umgebung",
         "fr": "specialiste-en-mecatronique-automobile-region-de-flawil-ipersonal-ag-flawil-und-umgebung"
       },
       "company": "iPersonal AG",
@@ -7244,7 +7244,7 @@
           "automotive-mechatronics-specialist-flawil-region-ipersonal-ag-flawil-st-gallen"
         ],
         "de": [
-          "automobil-mechatroniker-ipersonal-ag-flawil-und-umgebung"
+          "automobil-mechatroniker-region-flawil-ipersonal-ag-flawil-st-gallen"
         ],
         "fr": [
           "automobil-mechatroniker-region-flawil-ipersonal-ag-flawil-st-gallen",
@@ -7370,7 +7370,7 @@
       "slug": "specialista-di-meccatronica-automobilistica-regione-di-domat-ems-ipersonal-ag-domat-ems-und-umgebung",
       "slugByLocale": {
         "it": "specialista-di-meccatronica-automobilistica-regione-di-domat-ems-ipersonal-ag-domat-ems-und-umgebung",
-        "en": "automotive-mechatronics-specialist-domat-ems-region-ipersonal-ag-domat-ems-graubunden",
+        "en": "automotive-mechatronics-specialist-domat-ems-region-ipersonal-ag-domat-ems-und-umgebung",
         "de": "automobil-mechatroniker-ipersonal-ag-domat-ems-und-umgebung",
         "fr": "specialiste-mecatronique-automobile-region-domat-ems-ipersonal-ag-domat-ems-und-umgebung"
       },
@@ -7415,9 +7415,9 @@
       "previousSlugs": [
         "automobil-mechatroniker-region-domat-ems-ipersonal-ag-domat-ems-graubunden",
         "automobil-mechatroniker-ipersonal-ag-domat-ems-und-umgebung",
+        "automotive-mechatronics-specialist-domat-ems-region-ipersonal-ag-domat-ems-graubunden",
         "specialiste-mecatronique-automobile-region-domat-ems-ipersonal-ag-domat-ems-graubunden",
-        "specialista-di-meccatronica-automobilistica-regione-di-domat-ems-ipersonal-ag-domat-ems-graubunden",
-        "automotive-mechatronics-specialist-domat-ems-region-ipersonal-ag-domat-ems-und-umgebung"
+        "specialista-di-meccatronica-automobilistica-regione-di-domat-ems-ipersonal-ag-domat-ems-graubunden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7427,7 +7427,7 @@
         ],
         "en": [
           "automobil-mechatroniker-region-domat-ems-ipersonal-ag-domat-ems-graubunden",
-          "automotive-mechatronics-specialist-domat-ems-region-ipersonal-ag-domat-ems-und-umgebung"
+          "automotive-mechatronics-specialist-domat-ems-region-ipersonal-ag-domat-ems-graubunden"
         ],
         "de": [
           "automobil-mechatroniker-region-domat-ems-ipersonal-ag-domat-ems-graubunden"
@@ -8865,7 +8865,7 @@
       "slugByLocale": {
         "it": "automotive-meccatronica-specialista-regione-di-brugg-ipersonal-ag-brugg-und-umgebung",
         "en": "automotive-mechatronics-specialist-brugg-region-ipersonal-ag-brugg-und-umgebung",
-        "de": "automobil-mechatroniker-region-brugg-ipersonal-ag-brugg-aargau",
+        "de": "automobil-mechatroniker-ipersonal-ag-brugg-und-umgebung",
         "fr": "specialiste-mecatronique-automobile-region-de-brugg-ipersonal-ag-brugg-und-umgebung"
       },
       "company": "iPersonal AG",
@@ -8926,7 +8926,7 @@
           "automotive-mechatronics-specialist-brugg-region-ipersonal-ag-brugg-aargau"
         ],
         "de": [
-          "automobil-mechatroniker-ipersonal-ag-brugg-und-umgebung"
+          "automobil-mechatroniker-region-brugg-ipersonal-ag-brugg-aargau"
         ],
         "fr": [
           "automobil-mechatroniker-region-brugg-ipersonal-ag-brugg-aargau",
@@ -8959,7 +8959,7 @@
       "slugByLocale": {
         "it": "automotive-meccatronica-specialista-regione-spreitenbach-ipersonal-ag-spreitenbach-und-umgebung",
         "en": "automotive-mechatronics-specialist-spreitenbach-region-ipersonal-ag-spreitenbach-und-umgebung",
-        "de": "automobil-mechatroniker-region-spreitenbach-ipersonal-ag-spreitenbach-aargau",
+        "de": "automobil-mechatroniker-ipersonal-ag-spreitenbach-und-umgebung",
         "fr": "specialiste-mecatronique-automobile-region-de-spreitenbach-ipersonal-ag-spreitenbach-und-umgebung"
       },
       "company": "iPersonal AG",
@@ -9020,7 +9020,7 @@
           "automotive-mechatronics-specialist-spreitenbach-region-ipersonal-ag-spreitenbach-aargau"
         ],
         "de": [
-          "automobil-mechatroniker-ipersonal-ag-spreitenbach-und-umgebung"
+          "automobil-mechatroniker-region-spreitenbach-ipersonal-ag-spreitenbach-aargau"
         ],
         "fr": [
           "automobil-mechatroniker-region-spreitenbach-ipersonal-ag-spreitenbach-aargau",
@@ -9052,7 +9052,7 @@
       "slug": "automotive-meccatronica-specialista-regione-di-lenzburg-ipersonal-ag-lenzburg-und-umgebung",
       "slugByLocale": {
         "it": "automotive-meccatronica-specialista-regione-di-lenzburg-ipersonal-ag-lenzburg-und-umgebung",
-        "en": "automotive-mechatronics-specialist-lenzburg-region-ipersonal-ag-lenzburg-aargau",
+        "en": "automotive-mechatronics-specialist-lenzburg-region-ipersonal-ag-lenzburg-und-umgebung",
         "de": "automobil-mechatroniker-ipersonal-ag-lenzburg-und-umgebung",
         "fr": "specialiste-mecatronique-automobile-region-de-lenzburg-ipersonal-ag-lenzburg-und-umgebung"
       },
@@ -9097,10 +9097,10 @@
       "previousSlugs": [
         "automobil-mechatroniker-region-lenzburg-ipersonal-ag-lenzburg-aargau",
         "automobil-mechatroniker-ipersonal-ag-lenzburg-und-umgebung",
+        "automotive-mechatronics-specialist-lenzburg-region-ipersonal-ag-lenzburg-aargau",
         "specialiste-mecatronique-automobile-region-de-lenzburg-ipersonal-ag-lenzburg-aargau",
         "automotive-meccatronica-specialista-regione-di-lenzburg-ipersonal-ag-lenzburg-aargau",
-        "automotive-meccatronica-specialista-regione-di-lenzburg-ipersonal-ag-lenzburg",
-        "automotive-mechatronics-specialist-lenzburg-region-ipersonal-ag-lenzburg-und-umgebung"
+        "automotive-meccatronica-specialista-regione-di-lenzburg-ipersonal-ag-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9111,7 +9111,7 @@
         ],
         "en": [
           "automobil-mechatroniker-region-lenzburg-ipersonal-ag-lenzburg-aargau",
-          "automotive-mechatronics-specialist-lenzburg-region-ipersonal-ag-lenzburg-und-umgebung"
+          "automotive-mechatronics-specialist-lenzburg-region-ipersonal-ag-lenzburg-aargau"
         ],
         "de": [
           "automobil-mechatroniker-region-lenzburg-ipersonal-ag-lenzburg-aargau"
