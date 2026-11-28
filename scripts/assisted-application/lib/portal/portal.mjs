@@ -873,6 +873,11 @@ function accountHandoff(handoff, code, stage) {
   return { handoff, accountFailure: accountFailure(code, stage) };
 }
 
+/** A password-recovery stop that names the step it stopped at (run evidence only; the public code stays `account_recovery_*`). */
+function recoveryHandoff(handoff, recoveryStep) {
+  return { ...accountHandoff(handoff, handoff, 'login'), recoveryStep };
+}
+
 // The fake portal used by the deterministic E2E suite is HTTP-only and lives
 // on vendor-specific *.localhost hosts. Keep this exception local to the
 // loopback fixture: production ATS hosts still require HTTPS.
@@ -5357,6 +5362,9 @@ const FILLER_WORDS = new Set([
 const filler = (word) => word.length < 3 || FILLER_WORDS.has(word) || /^\d+$/.test(word);
 // What ends a phrase: a line, a dash between spaces, a bar, a dot, a colon… never a hyphen inside a word («Other-Hotel»).
 const PHRASE_END_RE = /[\n\r—–|·•:;,.!?()\/]|\s-\s/;
+// An e-mail address is a contact, not a name: «talent@deloitte.ch» puts the local part next to the employer's own
+// word («talent next to deloitte»), which is how Avature's posting page read as another employer's.
+const EMAIL_ADDRESS_RE = /[\p{L}\p{N}._%+-]+@[\p{L}\p{N}-]+(?:\.[\p{L}\p{N}-]+)+/gu;
 const GENERIC_APPLICATION_HEADING_WORDS = new Set([
   'additional', 'applicant', 'application', 'background', 'candidate', 'certification', 'certifications', 'contact',
   'data', 'detail', 'details', 'disclosure', 'disclosures', 'document', 'documents', 'education', 'educational', 'employment',
@@ -5652,7 +5660,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   const ours = new Set(identityWords.filter((word) => word.length > 1));
   if (!ours.size) return false;
   const ourKinds = employerKindsOf([...ours]);
-  const text = String(formText || '');
+  const text = String(formText || '').replace(EMAIL_ADDRESS_RE, ' ');
   const postingLocationWords = allowPostingLocation
     ? new Set([
       ...nameWords(job.location),
@@ -6924,7 +6932,8 @@ export function formPostingMatch(formText, job = {}, {
   // conservative mismatch (for example ALTEN's generic form).
   if (postingEntry || applicationEntry
     || (postingMatched && !formTextMentionsEmployerHost(formText, job))) return 'unknown';
-  return direct;
+  // The page names neither the order's employer nor a bound route: said in the diagnostics, like every other mismatch.
+  return direct === 'mismatch' ? decide('direct_unbound_mismatch') : direct;
 }
 
 // A send button that names an application: «Submit final application»,
@@ -10706,21 +10715,22 @@ export async function recoverAccountPassword({ page, snapshot, ctx, host, accoun
   } else {
     if (authPageKind(snapshot) === 'create') {
       if (!await openVerifiedSignInNavigation(page, snapshot)) {
-        return accountHandoff('account_recovery_rejected', 'account_recovery_rejected', 'login');
+        return recoveryHandoff('account_recovery_rejected', 'sign_in_route_unopened');
       }
       snapshot = await awaitAuthView(page, snapshot);
     }
     if (authPageKind(snapshot) === 'sign_in') resolvedSignInUrl = page.url();
     const cookies = await resolveCookieConsent(page, snapshot).catch(() => null);
     if (cookies?.snapshot) snapshot = cookies.snapshot;
-    if (authPageKind(snapshot) !== 'sign_in' || !await openVerifiedPasswordResetNavigation(page, snapshot)) {
-      return accountHandoff('account_recovery_rejected', 'account_recovery_rejected', 'login');
+    if (authPageKind(snapshot) !== 'sign_in') return recoveryHandoff('account_recovery_rejected', 'not_sign_in_page');
+    if (!await openVerifiedPasswordResetNavigation(page, snapshot)) {
+      return recoveryHandoff('account_recovery_rejected', 'reset_route_unopened');
     }
     const resetRequest = await awaitPasswordResetRequestSurface(page, snapshot);
     const requestForm = resetRequest.snapshot;
     if (!resetRequest.surface) {
       const failure = passwordResetRequestFailure(requestForm);
-      return accountHandoff(failure, failure, 'login');
+      return recoveryHandoff(failure, 'reset_request_surface_missing');
     }
     const emailField = resetRequest.surface.email;
     await applyActions(page, requestForm.fields, [{ fieldId: emailField.id, action: 'fill', value: email }], {});
@@ -10730,7 +10740,7 @@ export async function recoverAccountPassword({ page, snapshot, ctx, host, accoun
     const readyEmail = readySurface?.email;
     if (!readyEmail || String(readyEmail.value || '').trim().toLowerCase() !== email) {
       const failure = passwordResetRequestFailure(ready);
-      return accountHandoff(failure, failure, 'login');
+      return recoveryHandoff(failure, 'reset_email_unconfirmed');
     }
     const sendRequest = readySurface.request;
     const password = newPortalPassword({ portal: host });
@@ -10739,19 +10749,19 @@ export async function recoverAccountPassword({ page, snapshot, ctx, host, accoun
     if (begun?.status !== 'started') {
       const failure = begun?.status === 'in_progress' || begun?.status === 'cooldown' || begun?.status === 'rate_limited'
         ? 'account_recovery_timeout' : 'account_recovery_rejected';
-      return accountHandoff(failure, failure, 'login');
+      return recoveryHandoff(failure, `begin_recovery_${String(begun?.status || 'none').slice(0, 24)}`);
     }
     requestAt = Number(begun.requestedAt) || Date.now();
     try {
       diagnostics?.beforeClick('account');
       if (!await clickButton(page, sendRequest)) {
         await ctx.accounts.abortRecovery(host, { requestSubmitted: false });
-        return accountHandoff('account_recovery_rejected', 'account_recovery_rejected', 'login');
+        return recoveryHandoff('account_recovery_rejected', 'reset_request_click_unconfirmed');
       }
       diagnostics?.afterClick();
     } catch {
       await ctx.accounts.abortRecovery(host, { requestSubmitted: false });
-      return accountHandoff('account_recovery_rejected', 'account_recovery_rejected', 'login');
+      return recoveryHandoff('account_recovery_rejected', 'reset_request_click_failed');
     }
     resetMessage = await ctx.accounts.waitForPasswordReset({ host, sinceMs: requestAt });
   }
@@ -10759,7 +10769,7 @@ export async function recoverAccountPassword({ page, snapshot, ctx, host, accoun
   const temporaryPassword = typeof resetMessage?.temporaryPassword === 'string'
     ? resetMessage.temporaryPassword : '';
   if (!resetUrl && !temporaryPassword) {
-    return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+    return recoveryHandoff('account_recovery_timeout', 'reset_mail_not_received');
   }
   let resetView = null;
   if (resetUrl) {
@@ -10786,8 +10796,7 @@ export async function recoverAccountPassword({ page, snapshot, ctx, host, accoun
     }
     if (!resetView || authPageKind(resetView) !== 'sign_in') {
       const refused = PASSWORD_RESET_REFUSED_RE.test(resetView?.errors?.join(' ') || resetView?.text || '');
-      return accountHandoff(refused ? 'account_recovery_rejected' : 'account_recovery_timeout',
-        refused ? 'account_recovery_rejected' : 'account_recovery_timeout', 'login');
+      return recoveryHandoff(refused ? 'account_recovery_rejected' : 'account_recovery_timeout', 'sign_in_view_missing_after_reset');
     }
     typedSecrets?.add(temporaryPassword);
     if (!await ctx.accounts.completeRecovery(host, { password: temporaryPassword })) {
@@ -10800,13 +10809,11 @@ export async function recoverAccountPassword({ page, snapshot, ctx, host, accoun
     || /(?:reset|change|update|set).{0,30}(?:password|passwort|kennwort)|(?:password|passwort|kennwort).{0,30}(?:reset|change|update|set|setzen|vergeben|festlegen)|neues?\s+(?:passwort|kennwort)|mot de passe.{0,30}(?:réinitial|reinitial|chang|d[ée]finir)|password.{0,30}(?:reimpost|cambi|impost)/i
       .test(`${pageUrl.pathname} ${pageUrl.search || ''} ${resetView.title || ''} ${resetView.heading || ''} ${resetView.text || ''}`);
   if (pageUrl.protocol !== 'https:' || pageUrl.hostname !== host || !resetContext || !resetFields) {
-    return accountHandoff(PASSWORD_RESET_REFUSED_RE.test(resetView.errors?.join(' ') || resetView.text || '')
-      ? 'account_recovery_rejected' : 'account_recovery_timeout',
-    PASSWORD_RESET_REFUSED_RE.test(resetView.errors?.join(' ') || resetView.text || '')
-      ? 'account_recovery_rejected' : 'account_recovery_timeout', 'login');
+    return recoveryHandoff(PASSWORD_RESET_REFUSED_RE.test(resetView.errors?.join(' ') || resetView.text || '')
+      ? 'account_recovery_rejected' : 'account_recovery_timeout', 'reset_page_unrecognized');
   }
   const staged = (await ctx.accounts.load(host))?.password || account?.password || '';
-  if (!staged) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+  if (!staged) return recoveryHandoff('account_recovery_timeout', 'staged_password_missing');
   typedSecrets?.add(staged);
   await applyActions(page, resetView.fields, [
     { fieldId: resetFields.password.id, action: 'fill', value: staged },
@@ -10820,12 +10827,12 @@ export async function recoverAccountPassword({ page, snapshot, ctx, host, accoun
   }
   const confirm = (resetView.buttons || []).find((button) => String(button.formId || '') === filled.formId
     && PASSWORD_RESET_CONFIRM_RE.test(String(button.text || button.label || '')) && button.disabled !== true);
-  if (!confirm || !await clickButton(page, confirm)) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+  if (!confirm || !await clickButton(page, confirm)) return recoveryHandoff('account_recovery_timeout', 'reset_confirm_unpressed');
   let afterReset = await awaitAuthOutcome(page, 'create', resetView.errors || [], resetView.fields);
   const resetRejected = PASSWORD_RESET_REFUSED_RE.test([afterReset.text, ...(afterReset.errors || [])].join(' '));
   if (resetRejected) {
     await ctx.accounts.abortRecovery(host, { requestSubmitted: true, reason: 'reset_rejected' });
-    return accountHandoff('account_recovery_rejected', 'account_recovery_rejected', 'login');
+    return recoveryHandoff('account_recovery_rejected', 'reset_confirm_refused');
   }
   if (authPageKind(afterReset) !== 'sign_in' && !resetPasswordFields(afterReset) && !(afterReset.errors || []).length) {
     if (await openVerifiedSignInNavigation(page, afterReset)) {
@@ -14567,6 +14574,7 @@ export async function submitViaPortal(ctx) {
           kind: authPageKind(snapshot),
           outcome: auth.handoff || (auth.questions?.length || auth.documents?.length ? 'questions' : auth.dryRun ? 'dry_run' : 'ok'),
           ...(auth.authStop ? { stop: auth.authStop } : {}),
+          ...(auth.recoveryStep ? { recoveryStep: auth.recoveryStep } : {}),
           ...(agentRecovery ? { agentRecovery } : {}),
           ...(auth.privacy ? { privacy: auth.privacy } : {}),
           // How the sign-in button was found (clickButton): by id, again after a redraw, or scoped role.
