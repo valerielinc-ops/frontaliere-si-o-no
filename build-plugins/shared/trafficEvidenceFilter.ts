@@ -618,6 +618,33 @@ export class TrafficEvidenceFilter {
     return this.trafficSet.has(normalizePath(urlPath));
   }
 
+  /**
+   * "Does ANY of these paths appear in the traffic set?" -- answered from set
+   * membership alone (paths normalised exactly as in {@link decideMulti}),
+   * independent of whether the URL class has an approved pattern.
+   *
+   * Use this for keep-if-trafficked decisions. `decideMulti(...).reason ===
+   * 'has-traffic'` is NOT equivalent: it returns `no-pattern` before it reads
+   * the traffic set when the class has no approved pattern (production has
+   * only `gsc-keyword-landing`), so such a check is silently always false.
+   *
+   * Dormant / released semantics (deliberate): "no evidence" is NOT proof of
+   * zero traffic, but this method only reports positive evidence, so the
+   * caller's default (the safe side for a keep decision is the stricter one)
+   * is unchanged when evidence is missing.
+   *  - dormant filter (no patterns, or incomplete GSC/GA4 sweep): the traffic
+   *    set that WAS loaded still counts; partial traffic remains positive
+   *    evidence, exactly as the constructor documents.
+   *  - released filter: the set was cleared, so the answer is `false`.
+   */
+  hasTrafficEvidence(urlPaths: readonly string[]): boolean {
+    if (this.released) return false;
+    for (const p of urlPaths) {
+      if (this.trafficSet.has(normalizePath(p))) return true;
+    }
+    return false;
+  }
+
   /** Lightweight cardinalities for build-memory diagnostics. */
   memoryStats(): { trafficSet: number; firstSeen: number } {
     return { trafficSet: this.trafficSet.size, firstSeen: this.firstSeen.size };
