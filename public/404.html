@@ -77,10 +77,6 @@
         var m = pathname.match(jobRe);
         if (!m) { spaRedirect(); return; }
         var slug = decodeURIComponent(m[1]).toLowerCase();
-        function jobCanonV1ShardKey(value) {
-          var key = value.slice(0, 2).toLowerCase().replace(/[^a-z0-9]/g, '_');
-          return key.length === 2 ? key : (key + '__').slice(0, 2);
-        }
         // Keep this djb2-xor copy byte-for-byte aligned with
         // services/jobSlugShards.ts and the Worker v2 lookup.
         function jobCanonV2ShardKey(value) {
@@ -126,7 +122,7 @@
           var prefix = '/job-canon/';
           if (path.indexOf(prefix) !== 0) return null;
           var relativePath = path.slice(prefix.length);
-          if (!/^(?:v2\/[0-9a-f]{3}|[a-z0-9_]{2})\.json$/.test(relativePath)) return null;
+          if (!/^v2\/[0-9a-f]{3}\.json$/.test(relativePath)) return null;
           // The marker selects immutable origin bytes through the pathname.
           // Query strings are not part of the generation contract: R2 may
           // ignore them when resolving an object key.
@@ -138,7 +134,6 @@
             if (marker.kind !== 'available') return marker;
             var options = { cache: 'force-cache', mode: 'cors', credentials: 'omit' };
             var v2Url = jobCanonMapUrl('/job-canon/v2/' + jobCanonV2ShardKey(value) + '.json', marker.buildId);
-            var v1Url = jobCanonMapUrl('/job-canon/' + jobCanonV1ShardKey(value) + '.json', marker.buildId);
             function readMap(response) {
               if (!response.ok) {
                 return response.status === 404 || response.status === 410
@@ -151,12 +146,9 @@
                   : { kind: 'unavailable', reason: 'invalid-map' };
               });
             }
-            return request(v2Url, options).then(function(r) {
-              if (r.status === 404 || r.status === 410) {
-                return request(v1Url, options).then(readMap);
-              }
-              return readMap(r);
-            }).catch(function() {
+            // v2 is the only registry; its 404/410 is a genuine miss (the v1
+            // shards were retired after the S3 zero-use receipt).
+            return request(v2Url, options).then(readMap).catch(function() {
               return { kind: 'unavailable', reason: 'map-fetch' };
             });
           });
