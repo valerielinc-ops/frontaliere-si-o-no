@@ -13341,7 +13341,9 @@ export async function submitViaPortal(ctx) {
           applyControls,
           locale: ctx.language,
         });
-        if (isHardClosed(current)) {
+        // The current page of a stop that names no posting is not bound to the order's posting, so its closure
+        // text (a hub saying another job is filled) proves nothing: only the order-URL recheck decides.
+        if (!POSTING_NOT_NAMED_STOPS.has(reason) && isHardClosed(current)) {
           evidence.livenessAtStop = { result: current.result, code: current.code, stop: reason };
           return { event: { type: 'posting_closed', reason: current.code }, evidence };
         }

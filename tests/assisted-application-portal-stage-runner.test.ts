@@ -1265,6 +1265,26 @@ describe('runner final guard across three application stages', () => {
       expect(f.click).not.toHaveBeenCalled();
     });
 
+    it('does not close on a hub that says another job is filled: the order address alone decides', async () => {
+      const filledHub = { ...snapshot('https://jobs.example.test/', 'This position has been filled. Other roles: Please review the information below. Once you have reviewed, please select Submit to finalise your application.', [{ id: 'commit', text: 'Apply' }]), title: 'Jobs', text: 'This position has been filled. Other roles: Please review the information below.' };
+      const live = { ...snapshot(postingUrl, `Synthetic Role ${'details '.repeat(200)}`, [{ id: 'x', text: 'Language' }]), title: 'Synthetic Role', text: `Synthetic Role ${'details '.repeat(200)}` };
+      const f = fixture(filledHub, selectedPosting, review, null, { applyUrl: postingUrl, postingUrl, job: { company: 'Example Employer', title: 'Synthetic Role' }, portalReplay: true, portalReplayFenceInstalled: true, portalReplayMetrics: { finalClickAttempts: 0 } });
+      const initialGoto = f.page.goto.getMockImplementation()!;
+      let calls = 0;
+      f.page.goto.mockImplementation(async (url: string, opts: any) => {
+        calls += 1;
+        const response = await initialGoto(url, opts);
+        if (calls > 1) { state.snapshot = live; return { status: () => 200 }; }
+        return response;
+      });
+      const result = await f.run();
+      expect(result.event.type).not.toBe('posting_closed');
+      expect(result.event.type).toBe('submit_handoff');
+      expect(result.evidence.unboundPostingRecheck).toMatchObject({ reentered: true });
+      expect(f.guard).not.toHaveBeenCalled();
+      expect(f.click).not.toHaveBeenCalled();
+    });
+
     it('re-enters a live posting once, then keeps the stop with the diagnostic', async () => {
       const live = { ...snapshot(postingUrl, `Synthetic Role ${'details '.repeat(200)}`, [{ id: 'x', text: 'Language' }]), title: 'Synthetic Role', text: `Synthetic Role ${'details '.repeat(200)}` };
       const f = build(() => ({ snapshot: live, status: 200 }));
