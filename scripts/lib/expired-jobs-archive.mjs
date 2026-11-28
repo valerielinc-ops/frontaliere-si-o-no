@@ -1824,10 +1824,13 @@ export function collapseDuplicateRouteEntries(entries, options = {}) {
     //    records came back in the very same order, so the archive is
     //    byte-for-byte what the last signature (or the initial state) described.
     const noMerge = !repairMutated && result.collapsed === 0;
-    //    Never on the last pass: only the first pass can come back reordered
-    //    (every later input is already canonical, so `unchanged` holds), which is
-    //    why this cannot hide the non-convergence error; the guard keeps it so
-    //    by construction, the last pass always falling back to the signatures.
+    //    Never on the last pass: a pass that only reorders must still reach the
+    //    signature comparison there, because that is what raises the
+    //    non-convergence error. The guard keeps that exception identical.
+    //    Nor can `settled` hide a "cycle detected": a pass that merges, refuses
+    //    and repairs nothing leaves the sorted state T as a fixed point of the
+    //    deterministic pass, so if T had already been seen, the pass started
+    //    from T would have returned T and the cycle would have closed there.
     const settled = noMerge && result.unmergeable === 0 && result.capRefused === 0
       && pass < MAX_COLLAPSE_PASSES - 1;
     const unchanged = noMerge
