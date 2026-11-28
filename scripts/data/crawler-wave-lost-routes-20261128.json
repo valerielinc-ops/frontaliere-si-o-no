@@ -1,0 +1,138 @@
+{
+  "analysedCommit": "b9257070423",
+  "evidence": "routes served at 858a864be7f or added later that no record serves today, lost in the crawler wave of 2026-11-28. Every record that held the route in any version of its crawler files from 6ad2a15f4fd to the analysed commit declares one company and, with its own url or sourceIdentity (merge history excluded), one single-posting identity. The target is the only archived record declaring that identity (or the only one of them with a holder slug), else the only active record declaring it. Italian master slugs of a live record are left out: the build already bridges them. Second rule (proof.rules singleHolderAtRemoval): one record held the route when it stopped being served, and exactly one record today declares that holder company, sourceIdentity and slug.",
+  "targets": [
+    {
+      "crawlerKey": "etat-de-fribourg",
+      "slug": "avvocato-etat-de-fribourg-fribourg-329225cd",
+      "companyKey": "etat-de-fribourg",
+      "sourceIdentity": "url:https://jobs.fr.ch/job/fribourg%2c-ch-juristin-saan/1371029057",
+      "proof": {
+        "holderIdentity": "url:https://jobs.fr.ch/job/fribourg%2c-ch-juristin-saan/1371029057",
+        "rules": [
+          "archivedWithHolderSlug"
+        ]
+      },
+      "routes": {
+        "de": [
+          "legal-officer-etat-de-fribourg-fribourg-7bf506"
+        ],
+        "fr": [
+          "legal-officer-etat-de-fribourg-fribourg-7bf506"
+        ]
+      },
+      "cantons": {}
+    },
+    {
+      "crawlerKey": "mcdonald-s-switzerland",
+      "slug": "crew-mcdonalds-switzerland-winterthur-p8-319504-1",
+      "companyKey": "mcdonald-s-switzerland",
+      "sourceIdentity": "url:https://jobs.mcdonalds.ch/fr-ch/crew/job/p8-319504-1",
+      "proof": {
+        "holderIdentity": "url:https://jobs.mcdonalds.ch/fr-ch/crew/job/p8-319504-1",
+        "rules": [
+          "onlyArchivedWithIdentity"
+        ]
+      },
+      "routes": {
+        "en": [
+          "crew-mcdonalds-switzerland-winterthur-p8-319504-1"
+        ],
+        "fr": [
+          "crew-mcdonalds-switzerland-winterthur-p8-319504-1"
+        ]
+      },
+      "cantons": {}
+    },
+    {
+      "crawlerKey": "denner",
+      "slug": "verkaufer-in-denner-0sjfd4-6bda8bf0",
+      "companyKey": "denner",
+      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/74b0c2e6-201d-4ac0-80ea-a4ab2060c4c9",
+      "proof": {
+        "holderIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/74b0c2e6-201d-4ac0-80ea-a4ab2060c4c9",
+        "rules": [
+          "onlyArchivedWithIdentity"
+        ]
+      },
+      "routes": {
+        "en": [
+          "shop-assistant-denner-baar"
+        ],
+        "fr": [
+          "vendeur-denner-baar"
+        ],
+        "it": [
+          "commesso-a-denner-baar",
+          "venditore-denner-baar"
+        ]
+      },
+      "cantons": {
+        "en": {
+          "shop-assistant-denner-baar": "ZG"
+        },
+        "fr": {
+          "vendeur-denner-baar": "ZG"
+        },
+        "it": {
+          "commesso-a-denner-baar": "ZG",
+          "venditore-denner-baar": "ZG"
+        }
+      }
+    },
+    {
+      "crawlerKey": "epi-stiftung",
+      "slug": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-2286a7ac",
+      "companyKey": "epi-stiftung",
+      "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh/6614132c-a28a-4376-ba44-02d861dbf0d2",
+      "proof": {
+        "rules": [
+          "singleHolderAtRemoval 10df597a2d5"
+        ]
+      },
+      "routes": {
+        "de": [
+          "study-dipl-care-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich"
+        ],
+        "fr": [
+          "study-dipl-care-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich"
+        ]
+      },
+      "cantons": {}
+    },
+    {
+      "crawlerKey": "epi-stiftung",
+      "slug": "social-pedagogue-social-pedagogue-o-specialista-supervisione-professionale-efz-schweizerische-epilepsie-07578bbe",
+      "companyKey": "epi-stiftung",
+      "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge-oder-fachfrau-fachmann-betreuung-efz/741bd5de-868b-4386-acf6-e5a7489e4696",
+      "proof": {
+        "rules": [
+          "singleHolderAtRemoval 10df597a2d5"
+        ]
+      },
+      "routes": {
+        "fr": [
+          "pedagogue-social-pedagogie-sociale-ou-specialiste-supervision-professionnelle-efz-schweizerische-epilepsie-stiftung-epi"
+        ]
+      },
+      "cantons": {}
+    },
+    {
+      "crawlerKey": "etat-de-fribourg",
+      "slug": "avvocato-etat-de-fribourg-fribourg-fa3bc4da",
+      "companyKey": "etat-de-fribourg",
+      "sourceIdentity": "url:https://jobs.fr.ch/job/fribourg%2c-ch-juristin-saan/1371029057",
+      "proof": {
+        "rules": [
+          "singleHolderAtRemoval 52966495dd9"
+        ]
+      },
+      "routes": {
+        "en": [
+          "legal-officer-etat-de-fribourg-fribourg-7bf506"
+        ]
+      },
+      "cantons": {}
+    }
+  ]
+}
