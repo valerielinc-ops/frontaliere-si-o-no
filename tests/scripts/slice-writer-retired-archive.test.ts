@@ -26,6 +26,7 @@ import {
   listAssembleCodeClosure,
   retiredSliceRows,
 } from '../../scripts/assemble-jobs-dataset.mjs';
+import { localeRouteKeys } from '../../scripts/lib/expired-jobs-archive.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -95,13 +96,25 @@ function expiredSlice(): Job[] {
   return JSON.parse(fs.readFileSync(files[0], 'utf8'));
 }
 
-function runWriter(fresh: Job[]) {
+/**
+ * `seeded`: the dedicated-runner path, where runDedicatedBaseCrawler replaces
+ * the slice file with this run's working set before the final write, so the
+ * file on disk no longer holds the rows the merge dropped.
+ * `proof`: the housekeeping path of writeJobsCrawlerSliceVerified.
+ */
+function runWriter(fresh: Job[], { seeded = false, proof }: { seeded?: boolean; proof?: Job[] } = {}) {
   fs.writeFileSync(path.join(tmpRoot, 'fresh.json'), JSON.stringify(fresh));
+  fs.writeFileSync(path.join(tmpRoot, 'proof.json'), JSON.stringify(proof ?? []));
   fs.writeFileSync(path.join(tmpRoot, 'write-slice.mjs'), [
     "import fs from 'node:fs';",
-    "import { writeJobsCrawlerSlice } from './scripts/assemble-jobs-dataset.mjs';",
+    "import { writeJobsCrawlerSlice, writeJobsCrawlerSliceVerified } from './scripts/assemble-jobs-dataset.mjs';",
+    "import { seedCrawlerSlicesFromDataJobs } from './scripts/lib/dedicated-crawler-common.mjs';",
     "const fresh = JSON.parse(fs.readFileSync('fresh.json', 'utf8'));",
-    `writeJobsCrawlerSlice('${KEY}', fresh);`,
+    "const proof = JSON.parse(fs.readFileSync('proof.json', 'utf8'));",
+    seeded ? `seedCrawlerSlicesFromDataJobs(process.cwd(), ['${KEY}'], 'fresh.json');` : '',
+    proof
+      ? `await writeJobsCrawlerSliceVerified('${KEY}', fresh, { housekeepingProof: proof.map((job) => ({ job, reason: 'thin-source', definitive: true })) });`
+      : `writeJobsCrawlerSlice('${KEY}', fresh);`,
   ].join('\n'));
   const env: Record<string, string> = {};
   for (const [key, value] of Object.entries(process.env)) {
@@ -109,9 +122,14 @@ function runWriter(fresh: Job[]) {
     if (key === 'GOOGLE_APPLICATION_CREDENTIALS' || key === 'GITHUB_ACTIONS' || key === 'GITHUB_RUN_ID') continue;
     env[key] = value;
   }
+  // The housekeeping sidecar is bound to a run: give the child a fake one,
+  // written under the temporary root.
+  const runEnv: Record<string, string> = proof
+    ? { GITHUB_SHA: 'a'.repeat(40), GITHUB_RUN_ID: '1', GITHUB_RUN_ATTEMPT: '1', RUNNER_TEMP: tmpRoot }
+    : {};
   const result = spawnSync(process.execPath, ['write-slice.mjs'], {
     cwd: tmpRoot,
-    env: { ...env, SKIP_OWNERSHIP_GUARD: '1', CRAWLER_SLICE_ONLY: '1' },
+    env: { ...env, ...runEnv, SKIP_OWNERSHIP_GUARD: '1', CRAWLER_SLICE_ONLY: '1' },
     encoding: 'utf8',
     timeout: 120_000,
   });
@@ -179,6 +197,75 @@ describe('writeJobsCrawlerSlice archives the rows it retires', () => {
     });
     runWriter([posting(1), renamed, posting(4), posting(5), posting(6)]);
     expect(expiredSlice().map((entry) => entry.slug)).not.toContain(posting(2).slug);
+  });
+});
+
+/**
+ * Invariant (2026-11-28, wave 10df597a2d5): every locale route of a posting
+ * that leaves the slice is still held afterwards, by a live row or by the
+ * archive. The writer used to call a row «not retired» as soon as ONE of its
+ * slugs was answered by a live row; store chains share a generic slug across
+ * dozens of postings (Denner, `verkaufer-in-denner`), so the other routes of
+ * the dropped posting were lost.
+ */
+describe('no route of a dropped posting is lost', () => {
+  const SHARED = 'shop-assistant-comune-ritirato';
+  const withRoutes = (n: number, overrides: Job = {}) => posting(n, {
+    slugByLocale: { it: posting(n).slug, en: SHARED },
+    previousSlugsByLocale: { de: [`alte-verwaltungsstelle-${n}`], fr: [`ancien-poste-${n}`] },
+    ...overrides,
+  });
+  const all = () => [1, 2, 3, 4, 5, 6].map((n) => withRoutes(n));
+  const without = (...numbers: number[]) => all().filter((job) => !numbers.some((n) => job.id === `${KEY}-${n}`));
+  const routes = (rows: Job[]): string[] => rows.flatMap((row) => [...localeRouteKeys(row)]);
+  const writtenSlice = (): Job[] => {
+    const files = findFiles(`${KEY}.json`, tmpRoot)
+      .filter((file) => path.basename(path.dirname(file)) === 'by-crawler')
+      .filter((file) => !file.includes(`${path.sep}expired${path.sep}`) && !file.includes('summaries'));
+    expect(files).toHaveLength(1);
+    return JSON.parse(fs.readFileSync(files[0], 'utf8')).jobs;
+  };
+  const lostRoutes = (before: Job[]) => {
+    const held = new Set(routes([...writtenSlice(), ...expiredSlice()]));
+    return routes(before).filter((route) => !held.has(route));
+  };
+  const reset = () => {
+    for (const file of findFiles(`${KEY}.json`, tmpRoot)) fs.rmSync(file);
+  };
+
+  it('a dropped posting sharing one generic slug with a live row, on the seeded dedicated-runner path', () => {
+    reset();
+    runWriter(all());
+    const before = writtenSlice();
+    runWriter(without(3), { seeded: true });
+    expect(lostRoutes(before)).toEqual([]);
+  });
+
+  it('a revived posting dropped again: the titled record under its slug does not hold the new routes', () => {
+    reset();
+    runWriter(all());
+    runWriter(without(3));
+    const revived = withRoutes(3, {
+      previousSlugsByLocale: { de: ['alte-verwaltungsstelle-3', 'neue-verwaltungsstelle-3'], fr: ['ancien-poste-3'] },
+    });
+    runWriter([...without(3), revived]);
+    const before = writtenSlice();
+    runWriter(without(3), { seeded: true });
+    expect(lostRoutes(before)).toEqual([]);
+  });
+
+  it('an ordinary drop written together with a housekeeping proof for another one', () => {
+    reset();
+    runWriter(all());
+    const before = writtenSlice();
+    runWriter(without(3, 5), { seeded: true, proof: [withRoutes(5)] });
+    expect(lostRoutes(before)).toEqual([]);
+  });
+
+  it('does not rewrite the archive once every route is held', () => {
+    const snapshot = expiredSlice();
+    runWriter(without(3, 5), { seeded: true });
+    expect(expiredSlice()).toEqual(snapshot);
   });
 });
 

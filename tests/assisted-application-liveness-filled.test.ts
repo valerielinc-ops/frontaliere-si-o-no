@@ -120,3 +120,26 @@ describe('a posting whose post has been filled', () => {
     }
   });
 });
+
+describe('a portal error page as the final address', () => {
+  const at = (finalUrl: string) => classifyLiveness({ status: 200, requestedUrl: STZH_URL, finalUrl, bodyText: padding('Inhalt'), applyControls: ['Jetzt bewerben'] });
+  it.each([
+    'https://jobs.stadt-zuerich.ch/errorpage/?errortype=Exception',
+    'https://www.stadt-zuerich.ch/jobs-404',
+    'https://example.test/404',
+    'https://example.test/error',
+  ])('reads %s as a hard-closed expired_url', (url) => {
+    const page = at(url);
+    expect(page).toMatchObject({ result: 'expired', code: 'expired_url' });
+    expect(isHardClosed(page)).toBe(true);
+  });
+  it.each([
+    'https://jobs.stadt-zuerich.ch/',
+    'https://jobs.stadt-zuerich.ch/job/error-analyst/123/',
+    'https://jobs.stadt-zuerich.ch/job/Synthetic-Role/1000000001/',
+    'https://example.test/jobs/error-handling-engineer',
+    'https://example.test/jobs/404-engineer',
+  ])('never reads %s as closed by its address', (url) => {
+    expect(isHardClosed(at(url))).toBe(false);
+  });
+});
