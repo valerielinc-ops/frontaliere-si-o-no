@@ -269,17 +269,21 @@ function wordCount(value = '') {
  * JSON-LD: the header card (title, Funktion, Arbeitsort, Pensum) is the
  * `itemprop="description"` span and the vacancy itself is a separate rich-text
  * `.rtltextaligneligible` span, followed by a short FAQ span of portal chrome.
- * Read every balanced span and keep the longest one that is not the header
- * card, so the header and the FAQ are never published as the body.
+ * The header card carries `zkb-job-header` and the FAQ card `zkb-job-footer`
+ * (checked on live jobs.zkb.ch detail pages: one header, one footer, and the
+ * vacancy as the only span with neither). The vacancy is selected by that
+ * container identity, never by length, so a longer FAQ can not win. When the
+ * container is not identifiable (zero or several unmarked spans) the body is
+ * left empty and the caller's source-body floor rejects the posting.
  */
 function readZkbRichTextBody(html = '') {
-  let best = '';
+  const bodies = [];
   for (const inner of extractRtlTextAlignEligibleSpans(html)) {
-    if (/zkb-job-header/i.test(inner)) continue;
+    if (/zkb-job-(?:header|footer)/i.test(inner)) continue;
     const text = htmlBlockToTextWithBullets(inner);
-    if (text.length > best.length) best = text;
+    if (text) bodies.push(text);
   }
-  return best;
+  return bodies.length === 1 ? bodies[0] : '';
 }
 
 /**

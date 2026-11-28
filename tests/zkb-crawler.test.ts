@@ -78,7 +78,7 @@ describe('ZKB current SuccessFactors source', () => {
     const html = `<div id="search-wrapper">
       <div class="joblayouttoken displayDTM "><span itemprop="description" class="rtltextaligneligible"><div class="zkb-job-header"><h1>Platform Engineer Observability (m/w/d)</h1><div class="zkb-job-header__cat"><span class="zkb-job-header__cat-heading">Pensum</span> <span class="zkb-job-header__cat-text"> 100 % </span></div></div><p><img src="x.png"></p></span></div>
       <div class="joblayouttoken displayDTM "><span class="rtltextaligneligible">${body}</span></div>
-      <div class="joblayouttoken displayMDT "><span class="rtltextaligneligible"><div><H2><b>Fragen zur Stelle?</b></H2></div><p>Die häufigsten Fragen haben wir beantwortet.</p></span></div>
+      <div class="joblayouttoken displayMDT "><span class="rtltextaligneligible"><div class="zkb-job-footer"><H2><b>Fragen zur Stelle?</b></H2></div><p>Die häufigsten Fragen haben wir beantwortet.</p></span></div>
     </div>`;
     const parsed = parseZkbDetailPage(html, 'https://jobs.zkb.ch/job/Role/68-de_DE/');
     expect(parsed.description).toContain('Deine Aufgaben');
@@ -86,6 +86,21 @@ describe('ZKB current SuccessFactors source', () => {
     expect(parsed.description).not.toContain('Fragen zur Stelle');
     expect(parsed.description).not.toContain('Pensum');
     expect(parsed.description.split(/\s+/).filter(Boolean).length).toBeGreaterThan(50);
+  });
+
+  it('picks the vacancy by its container even when the FAQ span is longer', () => {
+    const words = (n: number, w: string) => Array.from({ length: n }, () => w).join(' ');
+    const page = (faqMarked: boolean) => `<div>
+      <div class="joblayouttoken displayDTM "><span itemprop="description" class="rtltextaligneligible"><div class="zkb-job-header"><h1>Rolle</h1></div></span></div>
+      <div class="joblayouttoken displayDTM "><span class="rtltextaligneligible"><p>${words(51, 'vakanz')}</p></span></div>
+      <div class="joblayouttoken displayMDT "><span class="rtltextaligneligible"><div${faqMarked ? ' class="zkb-job-footer"' : ''}><p>${words(52, 'faq')}</p></div></span></div>
+    </div>`;
+    const url = 'https://jobs.zkb.ch/job/Role/68-de_DE/';
+    const parsed = parseZkbDetailPage(page(true), url);
+    expect(parsed.description).toContain('vakanz');
+    expect(parsed.description).not.toContain('faq');
+    // Container not identifiable: fail closed, never the longest span.
+    expect(parseZkbDetailPage(page(false), url).description).not.toContain('faq');
   });
 
   it('discovers ZKB postings from the official recruiting API and detail page', async () => {
