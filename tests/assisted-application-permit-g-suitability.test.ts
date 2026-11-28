@@ -169,6 +169,31 @@ describe('suitability for the position: always yes (owner decision 2026-11-10)',
     ]) expect(platformQuestionTopic(ask(question))).not.toBe('function_suitability');
     expect(platformQuestionTopic(ask('Perché è interessato alla funzione?', { type: 'text' }))).toBeNull();
   });
+
+  it('an outside interest or an additional employment is a declaration of the candidate, never an interest in the position', () => {
+    // «interesse» here is a stake (a directorship, a second job), not interest in the job applied for: the
+    // platform answered «Sì» to «Do you hold positions that could be classified as outside interests?».
+    for (const question of [
+      'Ricopri attualmente posizioni che potrebbero essere classificate come interessi esterni?',
+      "Intendi svolgere un'attività lavorativa aggiuntiva o ricoprire interessi esterni oltre alla posizione per cui ti candidi?",
+      'Do you currently hold any positions that could be classified as outside interest? (e.g., trustee, director)',
+      'Do you intend to pursue additional employment or engage in outside interest aside from the position you are applying for?',
+      'Do you hold any external positions or interests that could affect this role?',
+      'Üben Sie neben der Stelle eine Nebenbeschäftigung oder ein Nebenamt aus?',
+      'Exercez-vous des intérêts extérieurs en plus de ce poste ?',
+    ]) {
+      expect(platformQuestionTopic(ask(question)), question).not.toBe('function_suitability');
+      expect(platformDefaultAnswer(ask(question), null, { locale: 'it' }), question).toBeNull();
+    }
+  });
+
+  it('the genuine interest in the position is still a platform yes beside the outside-interest guard', () => {
+    for (const question of [
+      'Sei interessato alla posizione di addetto alla clientela?',
+      'Are you interested in the position of Sales Assistant?',
+      'Sind Sie an dieser Stelle interessiert?',
+    ]) expect(platformQuestionTopic(ask(question)), question).toBe('function_suitability');
+  });
 });
 
 describe('tools and experience from the CV are the engine’s (owner decision 2026-11-10)', () => {
