@@ -33,7 +33,8 @@ import {
   detectHealthcareEmploymentType,
   detectHealthcareExperienceLevel,
 } from './hospital-custom-html-helpers.mjs';
-import { fetchPastaHrWidgetPage, PASTAHR_ENDPOINT } from './pastahr-widget-client.mjs';
+import { fetchPastaHrWidgetPage, isPastaHrProvenEmptyResponse, PASTAHR_ENDPOINT } from './pastahr-widget-client.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { extractPublicjobsDetailDescription } from './publicjobs-detail-description.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
@@ -118,17 +119,24 @@ async function fetchPastaHrPage(page = 1) {
 
 async function fetchAllPastaHrJobs() {
   const all = [];
+  let provenEmpty = false;
   for (let page = 1; page <= MAX_PAGES; page++) {
     console.log(`  📄 Fetching page=${page} (limit=${PAGE_SIZE})...`);
     const data = await fetchPastaHrPage(page);
     const items = assertJsonListShape(data, { key: 'data', source: 'igs-bern' });
-    if (items.length === 0) break;
+    if (items.length === 0) {
+      // Page 1 with `success:true` + `data:[]` is the widget's own proof of an
+      // empty board (see isPastaHrProvenEmptyResponse); later empty pages are
+      // just the end of the walk.
+      if (page === 1 && isPastaHrProvenEmptyResponse(data)) provenEmpty = true;
+      break;
+    }
     all.push(...items);
     if (items.length < PAGE_SIZE) break;
     await new Promise((r) => setTimeout(r, 350));
   }
   console.log(`  ✓ Total PastaHR rows: ${all.length}`);
-  return all;
+  return { rows: all, provenEmpty };
 }
 
 /* ── Detail fetcher ──────────────────────────────────────── */
@@ -176,9 +184,15 @@ export async function fetchAllIgsBernJobs() {
   console.log(`   Source:        ${PASTAHR_ENDPOINT} (kdNr=${PASTAHR_KD_NR})`);
   console.log(`   Public career: ${PUBLIC_CAREER_URL}\n`);
 
-  const rows = await fetchAllPastaHrJobs();
+  const { rows, provenEmpty } = await fetchAllPastaHrJobs();
   if (!rows || rows.length === 0) {
     console.warn('⚠️ No job listings returned from PastaHR widget API.');
+    if (provenEmpty) {
+      return markAuthoritativeEmptySnapshot(
+        [],
+        `PastaHR widget ${PASTAHR_ENDPOINT}: HTTP 200, success:true, data:[] on page 1`,
+      );
+    }
     return [];
   }
 

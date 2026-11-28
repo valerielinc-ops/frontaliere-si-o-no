@@ -37,6 +37,7 @@ import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { isAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { fetchPersonioJobs, PersonioApiError, buildPersonioXmlUrl } from './ats-clients/personio-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -209,6 +210,8 @@ export async function fetchAllFelfelJobs() {
 
   if (!normalizedJobs || normalizedJobs.length === 0) {
     console.warn('⚠️ No job listings returned.');
+    // Keep the source-proven-empty stamp (non-enumerable) intact.
+    if (isAuthoritativeEmptySnapshot(normalizedJobs)) return normalizedJobs;
     return [];
   }
 
