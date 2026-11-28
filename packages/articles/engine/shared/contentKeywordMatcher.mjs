@@ -95,3 +95,126 @@ export function rankContentDestinations(match, { title = '', excerpt = '', body 
   }
   return [...scores].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([id, score]) => ({ id, score }));
 }
+
+/** Words that name the whole site, not a subject: they never count as a shared keyword. */
+// Stems, not words: the tokenizer folds one trailing vowel (`ticino` -> `ticin`, `lavoro` -> `lavor`).
+const GENERIC_STEMS = ['frontalier', 'grenzg', 'ticin', 'tessin', 'svizzer', 'swiss', 'schweiz', 'suisse', 'switzerl', 'lavor'];
+const isGenericToken = token => GENERIC_STEMS.some(stem => token.startsWith(stem));
+
+/** Weight of a keyword by where it occurs; the higher wins when it occurs in several places. */
+const PROFILE_WEIGHT = { title: 3, tag: 2, excerpt: 2, titleToken: 1, tagToken: 1 };
+
+/**
+ * Aliases that name an entity only in a given context. «secondo pilastro» is
+ * the LPP when the text speaks of pensions, and an unrelated figure of speech
+ * in «l'Italia secondo pilastro della banca»: such a hit is dropped unless the
+ * same text carries another hit of the entity or one of the context stems.
+ */
+const AMBIGUOUS_ALIASES = [{
+  entity: 'pension',
+  aliases: ['secondo pilastro', 'second pillar', 'zweite saule', 'deuxieme pilier'],
+  context: /^(lpp|bvg|avs|ahv|pension|previden|prevoyan|rent|retrait|altersvorsorg|prelev|riscatt|capital|cassa$|kasse)/,
+}];
+const AMBIGUOUS_BY_ENTITY = new Map(AMBIGUOUS_ALIASES.map(rule => [rule.entity, rule]));
+
+/** Hits that stay once ambiguous aliases without their context are dropped. */
+function dropAmbiguousHits(hits, text) {
+  const kept = [];
+  const words = tokens(text).map(t => t.value);
+  for (const hit of hits) {
+    const rule = AMBIGUOUS_BY_ENTITY.get(hit.id);
+    const phrase = tokens(hit.text).map(t => t.value).join(' ');
+    if (!rule || !rule.aliases.includes(phrase)) { kept.push(hit); continue; }
+    const supported = words.some(word => rule.context.test(word)) || hits.some(other => other !== hit && other.id === hit.id
+      && !rule.aliases.includes(tokens(other.text).map(t => t.value).join(' ')));
+    if (supported) kept.push(hit);
+  }
+  return kept;
+}
+
+/**
+ * Keyword profile of an article for cross-section matching. Entities come from
+ * the shared vocabulary (`match`, a matcher built with createContentKeywordMatcher),
+ * tokens from the title and tags only: an excerpt is too wide to prove a shared
+ * subject on single words. `tokenize` is injected (the related-articles tokenizer)
+ * so the folding of accents and endings stays defined in one place. A token that
+ * is part of an entity phrase is not counted again as a token: the entity already
+ * says it, and a «specific» token must add something beyond it.
+ *
+ * @param {{ title?: string, excerpt?: string, tags?: string[] }} [article]
+ * @param {{
+ *   match?: (text: string, locale?: string) => Array<{ id: string, text: string }>,
+ *   locale?: string,
+ *   tokenize?: (text: string) => Iterable<string>,
+ * }} [options]
+ */
+export function buildKeywordProfile({ title = '', excerpt = '', tags = [] } = {}, { match, locale = 'it', tokenize } = {}) {
+  const entities = new Map();
+  const tokenWeights = new Map();
+  const titleKeys = new Set();
+  // Every non-generic token of title, tags and excerpt: only a corroboration of a
+  // match found on title/tags (an excerpt alone never proves a shared subject).
+  const contextTokens = new Set();
+  const put = (map, key, weight) => { if ((map.get(key) || 0) < weight) map.set(key, weight); };
+  const addEntities = (text, weight, inTitle, covered = new Set()) => {
+    if (!match || !text) return covered;
+    for (const hit of dropAmbiguousHits(match(String(text), locale), String(text))) {
+      put(entities, hit.id, weight);
+      if (inTitle) titleKeys.add(`e:${hit.id}`);
+      if (tokenize) for (const token of tokenize(hit.text)) covered.add(token);
+    }
+    return covered;
+  };
+  const addTokens = (text, weight, inTitle, covered) => {
+    if (!tokenize || !text) return;
+    for (const token of tokenize(String(text))) {
+      if (token.length < 5 || isGenericToken(token) || covered.has(token)) continue;
+      contextTokens.add(token);
+      if (weight === 0) continue;
+      put(tokenWeights, token, weight);
+      if (inTitle) titleKeys.add(`t:${token}`);
+    }
+  };
+  const titleCovered = addEntities(title, PROFILE_WEIGHT.title, true);
+  addTokens(title, PROFILE_WEIGHT.titleToken, true, titleCovered);
+  addTokens(excerpt, 0, false, addEntities(excerpt, PROFILE_WEIGHT.excerpt, false, new Set(titleCovered)));
+  for (const tag of tags) addTokens(tag, PROFILE_WEIGHT.tagToken, false, addEntities(tag, PROFILE_WEIGHT.tag, false));
+  return { entities, tokens: tokenWeights, titleKeys, contextTokens };
+}
+
+/**
+ * Relevance of `target` to `source`: shared entities add their lower weight, shared
+ * tokens add theirs up to a cap of 4 (a long title must not pass on loose words).
+ * `anchored` tells whether a shared keyword is visible in the target's title, which
+ * is the anchor text of the link. `titleEntity` tells whether an entity of the shared
+ * vocabulary is in the TITLE of both articles; `tokenCount` is the number of shared
+ * title/tag tokens and `contextCount` the number of tokens shared anywhere (title,
+ * tags, excerpt). The caller removes the high-frequency tokens from the source
+ * profile first, so what is left is specific.
+ */
+export function scoreSharedKeywords(source, target) {
+  const shared = [];
+  let score = 0;
+  let tokenScore = 0;
+  let tokenCount = 0;
+  let titleEntity = false;
+  for (const [id, weight] of source.entities) {
+    const other = target.entities.get(id);
+    if (other === undefined) continue;
+    score += Math.min(weight, other);
+    shared.push(`e:${id}`);
+    if (source.titleKeys.has(`e:${id}`) && target.titleKeys.has(`e:${id}`)) titleEntity = true;
+  }
+  for (const [token, weight] of source.tokens) {
+    const other = target.tokens.get(token);
+    if (other === undefined) continue;
+    tokenScore += Math.min(weight, other);
+    tokenCount += 1;
+    shared.push(`t:${token}`);
+  }
+  score += Math.min(tokenScore, 4);
+  shared.sort();
+  let contextCount = 0;
+  for (const token of source.contextTokens || []) if (target.contextTokens?.has(token)) contextCount += 1;
+  return { score, shared, anchored: shared.some(key => target.titleKeys.has(key)), titleEntity, tokenCount, contextCount };
+}
