@@ -1011,10 +1011,27 @@ _publish_cdn_r2() {
     _janitor_cdn_r2 "$stage" "dry-run"
     return 0
   fi
+  # GC visibility scan (dry-run, see the end of this function). It only lists R2
+  # and reads $stage/assets, final since the uploads above, so it runs beside
+  # the handshakes instead of holding the job (and every shard push behind it)
+  # after the marker: 96-145 s on publish runs 45654515999..46042181230. Its
+  # output goes to a file and is printed by _join_janitor_scan on every exit.
+  local _janitor_log _janitor_pid
+  _janitor_log="$(mktemp)"
+  _janitor_cdn_r2 "$stage" "dry-run" > "$_janitor_log" 2>&1 &
+  _janitor_pid=$!
+  _join_janitor_scan() {
+    local rc=0
+    wait "$_janitor_pid" || rc=$?
+    cat "$_janitor_log"
+    rm -f "$_janitor_log"
+    return "$rc"
+  }
   if ! node "$DEPLOY_IT_PREP_ROOT/scripts/ci/job-canon-publish-handshake.mjs" \
     --map-dir="$stage/job-canon" \
     --affected-file="$job_canon_affected_file"; then
     echo "::error::[r2] job-canon publication handshake failed — withholding completion marker"
+    _join_janitor_scan || true
     return 1
   fi
   # Generation marker last (atomicity #2569): only now is this build's full
@@ -1030,6 +1047,7 @@ _publish_cdn_r2() {
       if [ -n "${DEPLOY_BUILD_ID:-}" ] && ! node "$DEPLOY_IT_PREP_ROOT/scripts/ci/cdn-build-marker-handshake.mjs" \
         --build-id="$DEPLOY_BUILD_ID"; then
         echo "::error::[r2] CDN marker purge/live validation failed — withholding CDN completion"
+        _join_janitor_scan || true
         return 1
       fi
       export_env CDN_BASE "https://cdn.frontaliereticino.ch"
@@ -1063,7 +1081,8 @@ _publish_cdn_r2() {
   # (janitor): skippato" deferral). DRY-RUN ONLY at this automatic call site —
   # see _janitor_cdn_r2's header comment for why. This just makes bucket growth
   # visible in every deploy log; it never deletes anything on its own.
-  _janitor_cdn_r2 "$stage" "dry-run"
+  # Started before the job-canon handshake; its status stays the function's.
+  _join_janitor_scan
 }
 
 # ── R2 storage janitor (GC orphaned assets/ hashes past grace) ───────────────
@@ -1082,8 +1101,8 @@ _publish_cdn_r2() {
 #     opt-in R2_JANITOR_APPLY=1. Either missing → dry-run, zero DeleteObject
 #     calls. Mirrors the --apply convention this repo already uses for other
 #     destructive one-off scripts (scripts/dev/backfill-newsletter-subscriber-auth.mjs).
-#   - The ONLY automatic call site (end of _publish_cdn_r2 above) always passes
-#     mode="dry-run" literally — it never sets R2_JANITOR_APPLY. Real deletion
+#   - The automatic call sites (both in _publish_cdn_r2 above) always pass
+#     mode="dry-run" literally — they never set R2_JANITOR_APPLY. Real deletion
 #     is a manual, owner-triggered invocation only
 #     (`R2_JANITOR_APPLY=1 bash -c '. scripts/lib/deploy-it-pages-prep.sh; _janitor_cdn_r2 <stage> apply'`),
 #     never wired into deploy.yml or any other CI trigger.
