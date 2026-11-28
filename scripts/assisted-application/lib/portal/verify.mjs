@@ -173,6 +173,10 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       const request = route.request();
       const url = new URL(request.url());
       const method = request.method();
+      // The tenant's static header/footer documents are loaded as sub-frames of the page: same-origin, read-only GETs
+      // of the portal's public static folder, never a main-frame navigation.
+      const isStaticSubframe = (req, target) => typeof req.frame === 'function' && req.frame() !== page.mainFrame()
+        && target.origin === origin && /^\/pubhtml\//i.test(target.pathname);
       const block = (reason) => {
         proof.blockedRequests++;
         note('blocked', request.url(), reason, { method, navigation: request.isNavigationRequest() });
@@ -198,6 +202,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
         if (request.isNavigationRequest() && !crossOriginNavigation && !navigationTargets.has(url.href)
           && !signinOk(url.href)
           && !(probe && applicationExistsProbeNavigation(url.href, probe))
+          && !(probe && isStaticSubframe(request, url))
           && !(portalDirectory(url) === sourceDirectory(new URL(applyUrl), sourceProtocol) && /(?:^|\/)(?:home|index)\/?$/i.test(url.pathname) && !url.search)
           && !(!url.search && (url.pathname === '/' || url.pathname === sourceDirectory(new URL(applyUrl), sourceProtocol).replace(/\/$/, '')))) return block('navigation_not_allowed');
         if (request.isNavigationRequest()) note('navigation', request.url(), 'allowed', { method });
@@ -236,8 +241,24 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       await page.waitForTimeout(800);
       snapshot = await extractFields(page, { listboxOptions: false });
     }
+    // The sign-in of this ATS may sit inside the entry page (a block beside the application form) or on its own
+    // Login page. A sign-in form is the one of its own «Login» button with exactly one password field.
+    const signinFormOf = (view) => {
+      const button = findButton(view.buttons, SIGN_IN_RE);
+      if (!button || (button.frame || 0) !== 0) return null;
+      const fields = button.formId != null ? view.fields.filter(field => String(field.formId) === String(button.formId)) : view.fields;
+      return authPageKind({ fields }) === 'sign_in' ? { signin: button, scoped: fields } : null;
+    };
+    if (probe && snapshot.passwordVisible && !signinFormOf(snapshot) && probe.loginUrl && new URL(page.url()).pathname !== new URL(probe.loginUrl).pathname) {
+      // An entry that shows only a registration form: the vacancy's own sign-in page, one read-only navigation.
+      navigationTargets.add(probe.loginUrl);
+      await page.goto(probe.loginUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      note('page', page.url(), 'login_page');
+      snapshot = await extractFields(page, { listboxOptions: false });
+    }
     if (snapshot.passwordVisible) {
-      if (!signinOk(page.url())) return stop('login_page_not_trusted');
+      // The trust is in the form's own action below (the vacancy's login route), on any page of the order's vacancy.
+      if (!(signinOk(page.url()) || (probe && applicationExistsProbeNavigation(page.url(), probe)))) return stop('login_page_not_trusted');
       // A sign-in page can carry a registration form next to the sign-in one (two password fields): the sign-in
       // is judged on the form of its own button, never on the page as a whole.
       const signin = findButton(snapshot.buttons, SIGN_IN_RE);

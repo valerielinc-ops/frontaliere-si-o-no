@@ -49,7 +49,9 @@ export function applicationExistsProbeEntry(applyUrl) {
   if (!match) return null;
   const host = url.hostname.toLowerCase();
   return { routeKind: 'umantis_application_exists', host, origin: url.origin, vacancyId: match[1],
-    entryUrl: `${url.origin}/Vacancies/${match[1]}/Application/New/${match[2]}` };
+    entryUrl: `${url.origin}/Vacancies/${match[1]}/Application/New/${match[2]}`,
+    // Where the portal's own sign-in page of this vacancy lives, when the entry shows only a registration form.
+    loginUrl: `${url.origin}/Vacancies/${match[1]}/Application/Login/${match[2]}` };
 }
 
 /** The only pages of the order's own vacancy a read-only inspection may navigate to or sign in on. */

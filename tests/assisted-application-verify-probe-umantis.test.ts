@@ -32,14 +32,27 @@ const loginPage = () => ({
 });
 const existsPage = () => ({ fields: [], buttons: [{ id: 'b9', text: 'Weiter', frame: 0 }], passwordVisible: false, captcha: false, errors: [], text: 'Bewerbung bereits vorhanden' });
 
-function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = existsUrl }: { postTo?: string; formAction?: string; signedInPage?: string } = {}) {
+type Entry = 'redirect_to_login' | 'inline_signin' | 'register_only';
+const registerOnlyPage = () => ({
+  fields: [
+    { id: 'r1', kind: 'text', inputType: 'email', label: 'E-Mail', frame: 0, formId: 'application' },
+    { id: 'r2', kind: 'text', inputType: 'password', label: 'Passwort', frame: 0, formId: 'application' },
+    { id: 'r3', kind: 'text', inputType: 'password', label: 'Passwort wiederholen', frame: 0, formId: 'application' },
+    { id: 'r4', kind: 'file', inputType: 'file', label: 'Lebenslauf', frame: 0, formId: 'application' },
+  ],
+  buttons: [{ id: 'b3', text: 'Weiter', frame: 0, formId: 'application' }], passwordVisible: true, captcha: false, errors: [], text: 'Bewerbung',
+});
+const inlineSigninPage = () => ({ ...loginPage(), text: 'Bewerbung. Bereits registriert? Anmelden' });
+
+function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = existsUrl, entryPage = 'redirect_to_login' }: { postTo?: string; formAction?: string; signedInPage?: string; entryPage?: Entry } = {}) {
   let handler: (route: any) => Promise<void>;
   let currentUrl = '';
   let signedIn = false;
   const log: Array<{ method: string; url: string; allowed: boolean }> = [];
-  const fire = async (url: string, method = 'GET', navigation = true) => {
+  const subframe = { name: 'subframe' };
+  const fire = async (url: string, method = 'GET', navigation = true, inSubframe = false) => {
     let allowed = false;
-    await handler({ request: () => ({ method: () => method, url: () => url, isNavigationRequest: () => navigation, resourceType: () => (navigation ? 'document' : 'xhr') }),
+    await handler({ request: () => ({ method: () => method, url: () => url, isNavigationRequest: () => navigation, resourceType: () => (navigation ? 'document' : 'xhr'), frame: () => (inSubframe ? subframe : page) }),
       abort: async () => { allowed = false; }, continue: async () => { allowed = true; } });
     log.push({ method, url, allowed });
     return allowed;
@@ -51,7 +64,14 @@ function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = exis
     goto: async (url: string) => {
       await fire(url);
       if (signedIn) { await fire(signedInPage); currentUrl = signedInPage; state.snapshot = signedInPage === existsUrl ? existsPage() : loginPage(); }
-      else { await fire(loginUrl); currentUrl = loginUrl; state.snapshot = loginPage(); }
+      else if (url === loginUrl) { currentUrl = loginUrl; state.snapshot = loginPage(); }
+      else if (entryPage === 'redirect_to_login') { await fire(loginUrl); currentUrl = loginUrl; state.snapshot = loginPage(); }
+      else {
+        // The entry page itself, with the tenant's static header loaded as a sub-frame.
+        await fire(`https://${HOST}/pubhtml/2800/customer/1/header.html?20261128`, 'GET', true, true);
+        currentUrl = entry;
+        state.snapshot = entryPage === 'inline_signin' ? inlineSigninPage() : registerOnlyPage();
+      }
     },
     locator: () => ({ first: () => ({
       evaluate: async () => ({ action: formAction, method: 'post', credentialsOwned: true }),
@@ -74,6 +94,41 @@ describe('probe of an ATS sign-in with a registration form beside it (entry -> L
     expect(log.filter(entryLog => entryLog.method === 'POST')).toEqual([{ method: 'POST', url: loginUrl, allowed: true }]);
     expect(proof.trace.map((item: any) => item.kind)).toEqual(expect.arrayContaining(['navigation', 'page', 'login_post']));
     expect(JSON.stringify(proof.trace)).not.toContain(account.password);
+  });
+
+  it('trace of the real run: the static header sub-frame is not a blocked navigation, and an inline sign-in block on the entry page is used', async () => {
+    const { run, log } = harness({ entryPage: 'inline_signin' });
+    const proof: any = await run();
+    expect(proof.blockedRequests).toBe(0);
+    expect(log[1]).toMatchObject({ method: 'GET', url: expect.stringContaining('/pubhtml/2800/customer/1/header.html'), allowed: true });
+    expect(proof.applicationExists).toMatchObject({ vacancyId: '6604' });
+    expect(log.filter(entryLog => entryLog.method === 'POST')).toEqual([{ method: 'POST', url: loginUrl, allowed: true }]);
+    expect(state.filled.map((field: any) => field.id)).toEqual(['u1', 'p1']);
+  });
+
+  it('an entry page with only a registration form goes to the vacancy\'s own Login page, never filling the application form', async () => {
+    const { run, log } = harness({ entryPage: 'register_only' });
+    const proof: any = await run();
+    expect(proof.applicationExists).toMatchObject({ vacancyId: '6604' });
+    expect(log.some(entryLog => entryLog.url === loginUrl && entryLog.allowed)).toBe(true);
+    expect(state.filled.map((field: any) => field.id)).toEqual(['u1', 'p1']);
+    expect(proof.trace).toEqual(expect.arrayContaining([expect.objectContaining({ kind: 'page', reason: 'login_page', path: '/Vacancies/6604/Application/Login/1' })]));
+  });
+
+  it('an inline sign-in whose form posts to the application itself is never submitted', async () => {
+    const { run, log } = harness({ entryPage: 'inline_signin', formAction: entry });
+    const proof: any = await run();
+    expect(proof.stopReason).toBe('login_action_not_trusted');
+    expect(log.some(entryLog => entryLog.method === 'POST')).toBe(false);
+    expect(proof.applicationExists ?? null).toBeNull();
+  });
+
+  it('a main-frame navigation to the static folder stays blocked (only sub-frames are read)', async () => {
+    const { run, fire } = harness({ entryPage: 'inline_signin' });
+    const proof: any = await run();
+    expect(await fire(`https://${HOST}/pubhtml/2800/customer/1/header.html`)).toBe(false);
+    expect(proof.trace.at(-1)).toMatchObject({ kind: 'blocked', reason: 'navigation_not_allowed' });
+    expect(await fire(`https://other.example/pubhtml/x.html`, 'GET', true, true)).toBe(false);
   });
 
   it('accepts the sign-in POST when the portal appends a return address, still only on the vacancy login route', async () => {
