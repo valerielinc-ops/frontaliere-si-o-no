@@ -95,3 +95,34 @@ export function rankContentDestinations(match, { title = '', excerpt = '', body 
   }
   return [...scores].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([id, score]) => ({ id, score }));
 }
+
+/** Sentence (stripped text) that contains [start, end): boundaries are `.!?` before a space/end, `;` and newlines. */
+export function sentenceAt(text, start, end) {
+  let a = start;
+  while (a > 0 && !(/[;\n]/u.test(text[a - 1]) || (/[.!?]/u.test(text[a - 1]) && /\s/u.test(text[a] || ' ')))) a -= 1;
+  const rel = text.slice(end).search(/[.!?](?=\s|$)|[;\n]/u);
+  return text.slice(a, rel < 0 ? text.length : end + rel);
+}
+
+// «non solo X», «not only X», «nicht nur X», «pas seulement X» introduce the topic: not a negation.
+const NOT_NEGATION = {
+  it: /(?<!\p{L})non\s+(?:(?:è|sono|e|si\s+tratta)\s+)?(?:solo|soltanto|solamente|tanto|che)(?!\p{L})/giu,
+  en: /(?<!\p{L})not\s+(?:only|just|merely|simply)(?!\p{L})/giu,
+  de: /(?<!\p{L})nicht\s+(?:nur|bloss|bloß|allein)(?!\p{L})/giu,
+  fr: /(?<!\p{L})(?:ne\s+)?pas\s+(?:seulement|uniquement|que)(?!\p{L})/giu,
+};
+// Negation or exclusion in the same sentence: the topic is cited to say it is NOT covered.
+const NEGATION = {
+  it: /(?<!\p{L})(?:non|né|nè|nemmeno|neppure|neanche|senza|nessun[oa]?|niente|nulla|lascia\s+fuori|fuori\s+dal|resta(?:no)?\s+fuori|esclus[aeio])(?![\p{L}\p{N}])/iu,
+  en: /(?<!\p{L})(?:not|no|nor|neither|never|none|nobody|nothing|without|cannot|can[’']t|\p{L}+n[’']t|leaves?\s+out|left\s+out|excluded?|outside\s+the\s+(?:text|scope))(?![\p{L}\p{N}])/iu,
+  de: /(?<!\p{L})(?:nicht|nichts|kein(?:e|en|em|er|es)?|niemals|nie|weder|ohne|ausserhalb|außerhalb|ausgeklammert|aussen\s+vor|außen\s+vor)(?![\p{L}\p{N}])/iu,
+  fr: /(?<!\p{L})(?:ne\s+|n[’'])(?:\p{L}+\s+){0,3}?(?:pas|plus|jamais|aucun(?:e|es|s)?|rien|guère)(?![\p{L}\p{N}])|(?<!\p{L})(?:pas|aucun(?:e|es|s)?|ni|non|sans|rien|exclu(?:e|es|s)?|hors\s+du\s+texte|laisse\s+de\s+côté)(?![\p{L}\p{N}])/iu,
+};
+
+/** True when the sentence denies or excludes its topic (IT/EN/DE/FR). */
+export function isNegatedSentence(sentence, locale = 'it') {
+  const re = NEGATION[locale];
+  if (!re) return false;
+  const cleaned = sentence.replace(NOT_NEGATION[locale], ' ');
+  return re.test(cleaned);
+}

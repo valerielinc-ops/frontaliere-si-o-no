@@ -1,4 +1,5 @@
-import { matchContentLinks } from './contentLinkVocabulary.mjs';
+import { CONTENT_LINK_CONTEXT, matchContentLinks } from './contentLinkVocabulary.mjs';
+import { isNegatedSentence, sentenceAt } from './contentKeywordMatcher.mjs';
 
 /** Link prose with a shared article budget; preserve existing anchors, code and headings. */
 export function linkContentKeywords(text, locale = 'it', { matcher = matchContentLinks, enabledIds, isEnabled = /** @type {(id: string) => boolean} */ (() => true), destinations = {}, maxLinks = 3, usedIds = new Set() } = {}) {
@@ -68,6 +69,14 @@ export function linkContentKeywords(text, locale = 'it', { matcher = matchConten
  if (usedActions.size >= maxLinks) break;
  const sStart = m.start;
  const sEnd = m.end;
+
+ // The topic is named only to deny or exclude it («non quantifica il costo della vita»), or
+ // lacks the context its generic phrase needs (`border`: «tempi di attesa» in a hospital):
+ // no link, and the id stays free for a later pertinent mention.
+ const sentence = sentenceAt(stripped, sStart, sEnd);
+ if (isNegatedSentence(sentence, locale)) continue;
+ const needed = CONTENT_LINK_CONTEXT[action]?.[locale];
+ if (needed && !needed.test(sentence)) continue;
 
  // Map stripped range → original range
  let origStart = posMap[sStart];

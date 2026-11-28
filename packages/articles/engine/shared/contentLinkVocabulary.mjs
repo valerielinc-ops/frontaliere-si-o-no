@@ -61,3 +61,14 @@ CONTENT_LINK_ENTRIES.push(
 );
 for (const entry of CONTENT_LINK_ENTRIES) entry.combinations = combinations[entry.id] || {};
 export const matchContentLinks = createContentKeywordMatcher(CONTENT_LINK_ENTRIES);
+
+// Ids whose generic phrases («tempi di attesa», «attese») also describe hospitals, roadworks or
+// offices: the sentence must name a customs post, crossing or border as well.
+export const CONTENT_LINK_CONTEXT = {
+  border: {
+    it: /(?<!\p{L})(?:dogan\p{L}*|valic\p{L}*|frontier[ae]|confin[ei]|brogeda|chiasso|gaggiolo|ponte\s+chiasso)(?!\p{L})/iu,
+    en: /(?<!\p{L})(?:border|borders|customs|frontier|checkpoints?)(?!\p{L})/iu,
+    de: /(?<!\p{L})(?:grenze|grenzen|zoll\p{L}*|grenzüberg\p{L}*|grenzübertritt\p{L}*|grenzkontroll\p{L}*|grenzwart\p{L}*|grenzstau\p{L}*|grenzposten|grenzstation\p{L}*)(?!\p{L})/iu,
+    fr: /(?<!\p{L})(?:frontières?|douanes?|douanier\p{L}*)(?!\p{L})/iu,
+  },
+};
