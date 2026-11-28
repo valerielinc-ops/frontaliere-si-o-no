@@ -1,7 +1,7 @@
 {
   "crawlerKey": "pks-bewerbung-ch",
-  "assembledAt": "2026-11-28T01:36:38.391Z",
-  "runId": "46092523052",
+  "assembledAt": "2026-11-28T09:37:39.065Z",
+  "runId": "46130218074",
   "jobs": [
     {
       "id": "pks-bewerbung-ch-a08c935471a7",
@@ -34,7 +34,7 @@
       "url": "https://www.pks-personal.ch/stellen/hr-generalistin-80-100-ihr-einstieg-in-die-hr-digitalisierung/basel/hrm/91824262",
       "source": "pks-bewerbung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T01:36:31.929Z",
+      "crawledAt": "2026-11-28T09:37:32.891Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -89,7 +89,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T01:36:31.929Z",
+      "validThrough": "2027-02-16T09:37:32.891Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -123,7 +123,7 @@
       "url": "https://www.pks-personal.ch/stellen/payroll-specialist-schweiz-de-fr-80-100/basel/hrm/e30f7470",
       "source": "pks-bewerbung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T01:36:31.927Z",
+      "crawledAt": "2026-11-28T09:37:32.890Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -170,7 +170,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T01:36:31.927Z",
+      "validThrough": "2027-02-23T09:37:32.890Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -204,7 +204,7 @@
       "url": "https://www.pks-personal.ch/stellen/hr-business-partner-80-90-m-w-d/basel/hrm/557f54ba",
       "source": "pks-bewerbung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T01:36:31.925Z",
+      "crawledAt": "2026-11-28T09:37:32.889Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -252,7 +252,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-26T01:36:31.925Z",
+      "validThrough": "2027-02-26T09:37:32.889Z",
       "validThroughSource": "last-observed-window"
     }
   ]
