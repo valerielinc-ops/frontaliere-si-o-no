@@ -1,7 +1,7 @@
 {
   "crawlerKey": "clinica-hildebrand",
-  "assembledAt": "2026-11-28T09:25:45.055Z",
-  "runId": "46129400156",
+  "assembledAt": "2026-11-28T21:45:14.007Z",
+  "runId": "46190423447",
   "jobs": [
     {
       "id": "clinica-hildebrand-annuncio-medico-assistente-25-914e78c42aec",
@@ -35,7 +35,7 @@
       "applyUrl": "https://www.clinica-hildebrand.ch/collaborazione.html",
       "source": "Clinica Hildebrand Dedicated Parser (HTML + PDF annunci)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-28T09:25:39.078Z",
+      "crawledAt": "2026-11-28T21:45:07.468Z",
       "addressLocality": "Brissago",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -99,7 +99,7 @@
       },
       "streetAddress": "Brissago",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:25:39.078Z",
+      "validThrough": "2026-12-28T21:45:07.468Z",
       "validThroughSource": "last-observed-window"
     }
   ]

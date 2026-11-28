@@ -1,7 +1,7 @@
 {
   "key": "nvidia-zurich",
   "label": "NVIDIA (ufficio Zurich)",
-  "generatedAt": "2026-11-28T09:27:24.677Z",
+  "generatedAt": "2026-11-28T21:41:52.747Z",
   "total": 0,
   "discovered": null,
   "parsed": null,
@@ -21,13 +21,13 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64",
+  "codeCommit": "e60bb477e02fc78f2385473075e1dff5d9e2799a",
   "workdayRateLimit": {
     "tenant": "https://nvidia.wd5.myworkdayjobs.com/wday/cxs/nvidia/NVIDIAExternalCareerSite",
     "firstRateLimitedAt": "2026-11-27T21:22:27.097Z",
-    "lastRateLimitedAt": "2026-11-28T09:27:24.681Z",
-    "consecutiveRuns": 2,
-    "nextAttemptAfter": "2026-11-28T21:27:24.681Z",
+    "lastRateLimitedAt": "2026-11-28T21:41:52.751Z",
+    "consecutiveRuns": 3,
+    "nextAttemptAfter": "2026-11-29T21:41:52.751Z",
     "outcome": "rate-limited"
   }
 }

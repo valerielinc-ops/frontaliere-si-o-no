@@ -1,7 +1,7 @@
 {
   "key": "servicekuhn-ch",
   "label": "servicekuhn",
-  "generatedAt": "2026-11-28T09:26:10.562Z",
+  "generatedAt": "2026-11-28T21:40:38.645Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -46,10 +46,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5890,
-  "avgDurationMs": 5890,
+  "durationMs": 6517,
+  "avgDurationMs": 6517,
   "durationHistory": [
-    5890
+    6517
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -67,7 +67,7 @@
       "url": "https://servicekuhn.ch/jobs/automobil-diagnostiker/",
       "source": "servicekuhn Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:25:57.775Z",
+      "crawledAt": "2026-11-28T21:40:22.723Z",
       "addressLocality": "Thalwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -90,7 +90,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:25:57.775Z",
+      "validThrough": "2026-12-28T21:40:22.723Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -112,7 +112,7 @@
       "url": "https://servicekuhn.ch/jobs/automobil-mechatroniker/",
       "source": "servicekuhn Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-28T09:25:57.773Z",
+      "crawledAt": "2026-11-28T21:40:22.721Z",
       "addressLocality": "Thalwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -135,7 +135,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:25:57.773Z",
+      "validThrough": "2026-12-28T21:40:22.721Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -146,5 +146,5 @@
       }
     }
   ],
-  "codeCommit": "4d2131802d23df25be2e54564977613fa1840a64"
+  "codeCommit": "e60bb477e02fc78f2385473075e1dff5d9e2799a"
 }
