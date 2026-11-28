@@ -33,11 +33,16 @@ const POSTING_CONTEXT_SEGMENTS = new Set([
   'offene-stellen', 'open-jobs', 'postes-vacantes', 'postes-vacants', 'posti-vacanti', 'stellen',
   'stellenangebot',
 ]);
-// A path with one of these anywhere is a search, a list or a filter.
-const LIST_SEGMENTS = new Set([
-  'categories', 'category', 'filter', 'filters', 'job-search', 'list', 'page', 'results', 'search',
-  'tag', 'tags',
+// A segment made of these words (plus LIST_FILLERS, `-` or `_` between, any
+// extension) makes the path a search, a list or a filter. A title that merely
+// contains one (`executive-search-consultant`) does not.
+const LIST_WORDS = new Set([
+  'categories', 'category', 'filter', 'filters', 'jobsearch', 'jobsuche', 'list', 'page',
+  'recherche', 'result', 'results', 'ricerca', 'search', 'stellensuche', 'suche', 'tag', 'tags',
 ]);
+const LIST_FILLERS = new Set(['job', 'jobs', 'stellen']);
+// Search section seen in committed URLs that the words above do not spell.
+const LIST_PHRASES = new Set(['suchen-und-bewerben']);
 // A path ending in one of these is a list too.
 const LIST_LEAVES = new Set(['jobs', 'vacancies']);
 // A segment with one of these names says the next one is not a posting.
@@ -53,31 +58,96 @@ const POSTING_PARAMS = new Set([
 
 const hasToken = (value) => UUID_RE.test(value) || LONG_NUMBER_RE.test(value) || LONG_HEX_RE.test(value);
 
+const PERCENT_RE = /%[0-9a-f]{2}/gi;
+const DELIMITER_RE = /[/\\?#]/;
+
+/**
+ * The one normalisation every URL part goes through before it is classified:
+ * percent-decode once, lowercase. `null` means doubt, and then nothing in the
+ * URL is proof: bad or double encoding, a needlessly encoded letter, digit or
+ * `-._~` (it can spell a word the rules look for), control characters, or
+ * surrounding whitespace.
+ */
+function normalizePart(raw) {
+  let decoded;
+  try { decoded = decodeURIComponent(raw); } catch { return null; }
+  const disguised = (raw.match(PERCENT_RE) || [])
+    .some((code) => /[\w.~-]/.test(String.fromCharCode(parseInt(code.slice(1), 16))));
+  if (disguised || decoded.match(PERCENT_RE) || /\p{Cc}/u.test(decoded) || decoded !== decoded.trim()) return null;
+  return decoded.toLowerCase();
+}
+
+/**
+ * Path segments without `;…` matrix parameters. A segment hiding a delimiter,
+ * an empty one (`//`) and a `.`/`..` the URL parser left are doubt too.
+ */
+function normalizePath(path) {
+  const trimmed = path.replace(/^\//, '').replace(/\/$/, '');
+  if (!trimmed) return [];
+  const segments = trimmed.split('/').map((raw) => {
+    const part = normalizePart(raw);
+    if (part === null || DELIMITER_RE.test(part)) return null;
+    const name = part.split(';')[0];
+    return ['', '.', '..'].includes(name) ? null : name;
+  });
+  return segments.includes(null) ? null : segments;
+}
+
+/** `[name, value]` pairs of a query or a parameter fragment. */
+function normalizeParams(query) {
+  const pairs = query.split('&').filter(Boolean).map((pair) => {
+    const [name, ...value] = pair.replace(/\+/g, ' ').split('=');
+    return [normalizePart(name), normalizePart(value.join('='))];
+  });
+  return pairs.some((pair) => pair.includes(null)) ? null : pairs;
+}
+
+/** Every part of a posting URL, normalised; `null` when any of them is doubtful. */
+function normalizePostingUrl(href) {
+  const { pathname, search, hash } = new URL(href);
+  const fragment = hash.slice(1);
+  // A hash route (`#/…`, `#offer/…`) is a path with its own query.
+  const isRoute = /^(?:\/|(?:job|offer)\/)/i.test(fragment);
+  const [route, ...routeQuery] = fragment.split('?');
+  const parts = {
+    path: normalizePath(pathname),
+    query: normalizeParams(search.slice(1)),
+    route: isRoute ? normalizePath(route) : [],
+    fragment: normalizeParams(isRoute ? routeQuery.join('?') : fragment),
+  };
+  return Object.values(parts).includes(null) ? null : { ...parts, isRoute };
+}
+
+function isListSegment(name) {
+  const stem = name.replace(/\.[a-z]{2,5}$/, '');
+  const words = stem.split(/[-_]/);
+  return LIST_PHRASES.has(stem) || (words.some((word) => LIST_WORDS.has(word))
+    && words.every((word) => LIST_WORDS.has(word) || LIST_FILLERS.has(word)));
+}
+
 /**
  * A token in a path counts only under an explicit posting segment, for bare
  * numbers, slug+id and UUIDs alike: right after a JOB_SEGMENTS one, or in the
  * leaf below a POSTING_CONTEXT_SEGMENTS one. A bare-number leaf is also a page
  * or a filter value, so it must follow that segment or a hyphenated title.
- * Never in a search, list or filter path. `;…` matrix parameters are ignored.
+ * Never in a search, list or filter path.
  */
-function pathNamesPosting(path) {
-  const segments = path.split('/').map((segment) => segment.split(';')[0]).filter(Boolean);
-  const names = segments.map((segment) => segment.toLowerCase());
-  if (names.some((name) => LIST_SEGMENTS.has(name))) return false;
-  const endsInList = LIST_LEAVES.has(names.at(-1));
+function pathNamesPosting(segments) {
+  if (segments.some(isListSegment)) return false;
+  const endsInList = LIST_LEAVES.has(segments.at(-1));
   return segments.some((segment, index) => {
-    const previous = names[index - 1];
+    const previous = segments[index - 1];
     if (!hasToken(segment) || OTHER_ID_SEGMENTS.has(previous)) return false;
     if (index < segments.length - 1) return !endsInList && JOB_SEGMENTS.has(previous);
-    if (!names.slice(0, index).some((name) => POSTING_CONTEXT_SEGMENTS.has(name))) return false;
-    return !/^\d+(?:\.html?)?$/i.test(segment)
-      || POSTING_CONTEXT_SEGMENTS.has(previous) || /[-_%]/.test(previous);
+    if (!segments.slice(0, index).some((name) => POSTING_CONTEXT_SEGMENTS.has(name))) return false;
+    return !/^\d+(?:\.html?)?$/.test(segment)
+      || POSTING_CONTEXT_SEGMENTS.has(previous) || /[-_]/.test(previous);
   });
 }
 
 function paramNamesPosting(params) {
-  return [...params].some(([name, value]) => (
-    POSTING_PARAMS.has(name.toLowerCase().replace(/[._-]/g, '')) && hasToken(value)
+  return params.some(([name, value]) => (
+    POSTING_PARAMS.has(name.replace(/[._-]/g, '')) && !DELIMITER_RE.test(value) && hasToken(value)
   ));
 }
 
@@ -94,13 +164,10 @@ function paramNamesPosting(params) {
 export function hasSinglePostingToken(value) {
   if (!value.startsWith('url:')) return hasToken(value);
   const href = sourcePostingUrlHref(value.slice(4));
-  if (!href) return false;
-  const { pathname, searchParams, hash } = new URL(href);
-  if (pathNamesPosting(pathname) || paramNamesPosting(searchParams)) return true;
-  const fragment = hash.slice(1);
-  return /^(?:\/|(?:job|offer)\/)/i.test(fragment)
-    ? pathNamesPosting(fragment.split('?')[0])
-    : paramNamesPosting(new URLSearchParams(fragment));
+  const url = href && normalizePostingUrl(href);
+  if (!url) return false;
+  if (pathNamesPosting(url.path) || paramNamesPosting(url.query)) return true;
+  return url.isRoute ? pathNamesPosting(url.route) : paramNamesPosting(url.fragment);
 }
 
 /**
